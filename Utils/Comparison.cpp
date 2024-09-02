@@ -7,12 +7,12 @@ bool CompareTwoFiles(const std::string& File1, const std::string& File2) {
 
   // Check if both files opened successfully
   if (!file1.is_open()) {
-    std::cerr << "Error opening file: " << File1 << std::endl;
-    return false;
+    MACH3LOG_ERROR("Error opening file:  {}", File1);
+    throw MaCh3Exception(__FILE__ , __LINE__ );
   }
   if (!file2.is_open()) {
-    std::cerr << "Error opening file: " << File2 << std::endl;
-    return false;
+    MACH3LOG_ERROR("Error opening file:  {}", File2);
+    throw MaCh3Exception(__FILE__ , __LINE__ );
   }
 
   std::string line1, line2;
@@ -22,9 +22,9 @@ bool CompareTwoFiles(const std::string& File1, const std::string& File2) {
   // Read and compare line by line
   while (std::getline(file1, line1) && std::getline(file2, line2)) {
     if (line1 != line2) {
-      std::cout << "Difference found on line " << lineNumber << ":" << std::endl;
-      std::cout << "File1: " << line1 << std::endl;
-      std::cout << "File2: " << line2 << std::endl;
+      MACH3LOG_WARN("Difference found on line {}:", lineNumber);
+      MACH3LOG_WARN("File1: {}", line1);
+      MACH3LOG_WARN("File2: {}", line2);
       sameFiles = false;
     }
     ++lineNumber;
@@ -32,12 +32,12 @@ bool CompareTwoFiles(const std::string& File1, const std::string& File2) {
 
   // Check if one file has extra lines
   while (std::getline(file1, line1)) {
-    std::cout << "Extra line in " << File1 << " on line " << lineNumber << ": " << line1 << std::endl;
+    MACH3LOG_WARN("Extra line in {} on line {}: {}", File1, lineNumber, line1);
     sameFiles = false;
     ++lineNumber;
   }
   while (std::getline(file2, line2)) {
-    std::cout << "Extra line in " << File2 << " on line " << lineNumber << ": " << line2 << std::endl;
+    MACH3LOG_WARN("Extra line in {} on line {}: {}", File2, lineNumber, line2);
     sameFiles = false;
     ++lineNumber;
   }

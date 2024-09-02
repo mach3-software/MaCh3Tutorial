@@ -2,6 +2,7 @@ add_custom_target(ValidApps)
 
 foreach(app
     SplineValidations
+    CovarianceValidations
     )
     add_executable(${app} ${app}.cpp)
     target_link_libraries(${app} MaCh3Validations::ValidationsUtils)
