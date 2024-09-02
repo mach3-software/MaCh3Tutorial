@@ -1,24 +1,14 @@
 // MaCh3 spline includes
 #include "Utils/SplineMonoUtils.h"
 
-inline std::vector< std::vector<TSpline3_red*> > GetMasterSpline(
+std::vector< std::vector<TSpline3_red*> > GetMasterSpline(
     std::string FileName, std::vector<std::string> DialNames)
 {
   std::vector< std::vector<TSpline3_red*> > MasterSpline;
 
-  TFile *inputFile = TFile::Open(FileName.c_str(), "READ");
-  if (!inputFile || inputFile->IsZombie()) {
-    std::cerr << "Error: Cannot open input file!" << std::endl;
-    throw;
-  }
+  TChain* chain = new TChain("sample_sum");
+  chain->AddFile(FileName.c_str());
 
-  // Get the tree from the input file
-  TTree *tree = (TTree*)inputFile->Get("sample_sum");
-  if (!tree) {
-    std::cerr << "Error: Cannot find tree 'sample_sum' in input file!" << std::endl;
-    inputFile->Close();
-    throw;
-  }
 
   const int nSplineParams = DialNames.size();
   TGraph** xsecgraph = new TGraph*[nSplineParams];
@@ -29,19 +19,20 @@ inline std::vector< std::vector<TSpline3_red*> > GetMasterSpline(
   for(_int_ i = 0; i < nSplineParams; i++) {
     grapharrays[i] = NULL;
   }
-  tree->SetBranchStatus("*", false);
+  chain->SetBranchStatus("*", false);
   for(unsigned int i = 0; i < DialNames.size(); ++i) {
     std::string str = DialNames[i];
     const char *cstr = str.c_str();
     //std::cout<< "cstr = "<< cstr <<std::endl;
-    tree->SetBranchStatus(cstr, true);
-    tree->SetBranchAddress(cstr, &(grapharrays[i]));
+    chain->SetBranchStatus(cstr, true);
+    chain->SetBranchAddress(cstr, &(grapharrays[i]));
   }// End the for loop over the unique spline parameters
 
-  unsigned int n = tree->GetEntries();
+  unsigned int n = chain->GetEntries();
   MasterSpline.resize(n);
   for(unsigned int i = 0; i < n; ++i)
   {
+    chain->GetEntry(i);
     MasterSpline[i].resize(nSplineParams);
     // Now set the xsecgraphs for the struct
     for (_int_ k = 0; k < nSplineParams; k++)
@@ -68,5 +59,7 @@ inline std::vector< std::vector<TSpline3_red*> > GetMasterSpline(
       MasterSpline[i][k] = spline_red;
     }
   } // end for j loop
+
+  delete chain;
   return MasterSpline;
 }

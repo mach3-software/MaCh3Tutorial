@@ -81,7 +81,9 @@ cmessage(STATUS "CMAKE CXX Standard: ${CMAKE_CXX_STANDARD}")
 add_subdirectory(Utils)
 add_subdirectory(Apps)
 
-file(MAKE_DIRECTORY ${CMAKE_BINARY_DIR}/output)
+
+configure_file(cmake/Templates/setup.MaCh3Validations.sh.in "${PROJECT_BINARY_DIR}${CMAKE_FILES_DIRECTORY}/setup.MaCh3Validations.sh" @ONLY)
+install(FILES "${PROJECT_BINARY_DIR}${CMAKE_FILES_DIRECTORY}/setup.MaCh3Validations.sh" DESTINATION ${CMAKE_INSTALL_PREFIX}/bin)
 
 ############################  Install  ####################################
 install(DIRECTORY Inputs DESTINATION ${CMAKE_BINARY_DIR})
