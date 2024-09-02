@@ -1,0 +1,88 @@
+set(CMAKE_VERBOSE_MAKEFILE ON)
+
+# CMake version check
+cmake_minimum_required(VERSION 3.14 FATAL_ERROR)
+
+SET(MaCh3Validations_VERSION 1.0.0)
+
+# Create project (todo: set configurable CUDA)
+project(MaCh3Validations VERSION ${MaCh3Validations_VERSION} LANGUAGES CXX)
+set(CMAKE_CXX_STANDARD_REQUIRED True)
+
+# Changes default install path to be a subdirectory of the build dir.
+# Can set build dir at configure time with -DCMAKE_INSTALL_PREFIX=/install/path
+if(CMAKE_INSTALL_PREFIX STREQUAL "" OR CMAKE_INSTALL_PREFIX STREQUAL
+  "/usr/local")
+  set(CMAKE_INSTALL_PREFIX "${CMAKE_BINARY_DIR}")
+elseif(NOT DEFINED CMAKE_INSTALL_PREFIX)
+  set(CMAKE_INSTALL_PREFIX "${CMAKE_BINARY_DIR}")
+endif()
+
+# Use the compilers found in the path
+find_program(CMAKE_C_COMPILER NAMES $ENV{CC} gcc PATHS ENV PATH NO_DEFAULT_PATH)
+find_program(CMAKE_CXX_COMPILER NAMES $ENV{CXX} g++ PATHS ENV PATH NO_DEFAULT_PATH)
+
+LIST(APPEND CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake/Modules)
+
+message("CMAKE SOURCE_DIR IS ${CMAKE_SOURCE_DIR}")
+
+
+################################################################################
+#                            Check Dependencies
+################################################################################
+
+LIST(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_LIST_DIR}/cmake/Modules)
+include(CPM)
+
+CPMFindPackage(
+      NAME CMakeModules
+      GIT_TAG stable
+      GITHUB_REPOSITORY NuHepMC/CMakeModules
+      DOWNLOAD_ONLY
+  )
+include(${CMakeModules_SOURCE_DIR}/NuHepMCModules.cmake)
+
+include(ROOT)
+
+if(NOT TARGET ROOT::ROOT)
+  cmessage(FATAL_ERROR "T2KReWeight Expected dependency target: ROOT::ROOT")
+endif()
+
+if(DEFINED ROOT_CXX_STANDARD AND ROOT_CXX_STANDARD GREATER CMAKE_CXX_STANDARD)
+  set(CMAKE_CXX_STANDARD ${ROOT_CXX_STANDARD})
+endif()
+
+##################################  MaCh3  ######################################
+if(NOT DEFINED MaCh3_Branch)
+  SET(MaCh3_Branch "develop")
+endif()
+
+CPMAddPackage(
+  NAME MaCh3
+  GIT_TAG ${MaCh3_Branch}
+  GITHUB_REPOSITORY mach3-software/MaCh3
+)
+
+if(NOT TARGET MaCh3::All)
+  cmessage(FATAL_ERROR "MaCh3 Validations Expected dependency target: MaCh3::All, did you source setup.MaCh3.sh")
+endif()
+
+############################  C++ Compiler  ####################################
+if (NOT DEFINED CMAKE_CXX_STANDARD OR "${CMAKE_CXX_STANDARD} " STREQUAL " ")
+  SET(CMAKE_CXX_STANDARD 11)
+endif()
+
+if(DEFINED ROOT_CXX_STANDARD AND ROOT_CXX_STANDARD GREATER CMAKE_CXX_STANDARD)
+  set(CMAKE_CXX_STANDARD ${ROOT_CXX_STANDARD})
+endif()
+cmessage(STATUS "CMAKE CXX Standard: ${CMAKE_CXX_STANDARD}")
+
+################################# Build MaCh3 ##################################
+add_subdirectory(Utils)
+add_subdirectory(Apps)
+
+file(MAKE_DIRECTORY ${CMAKE_BINARY_DIR}/output)
+
+############################  Install  ####################################
+install(DIRECTORY Inputs DESTINATION ${CMAKE_BINARY_DIR})
+install(DIRECTORY Scripts DESTINATION ${CMAKE_BINARY_DIR})
