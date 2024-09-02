@@ -40,5 +40,5 @@ int main(int argc, char *argv[])
   } else {
     MACH3LOG_INFO("Everything is correct");
   }
-  return 1;
+  return 0;
 }
