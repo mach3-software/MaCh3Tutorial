@@ -10,8 +10,11 @@ General:
   Debug: No
   RandomStart: false
   Seed: 0
+  NSteps: 10000
   Fitter:
     FitTestLikelihood: false
+  Minuit2:
+    NSteps: 100000
   MCMC:
     NSteps: 10000
     #KS: Sets how frequent (number of steps) you want to autosave your chain, if you autosave rarely chain will be slightly faster, if you job wall is small you might want more frequent autosave to reduce number of lost steps
@@ -20,6 +23,8 @@ General:
     UseReactorConstraint: No
     #Burn in for posterior predictive code
     BurnInSteps: 200000
+  Systematics:
+    XsecCovFile: ["Inputs/SystematicsTest.yaml"]
 
   Predictive:
     Ntoy: 10
