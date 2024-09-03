@@ -2,6 +2,7 @@ add_custom_target(ValidApps)
 
 foreach(app
     SplineValidations
+    FitterValidations
     CovarianceValidations
     )
     add_executable(${app} ${app}.cpp)

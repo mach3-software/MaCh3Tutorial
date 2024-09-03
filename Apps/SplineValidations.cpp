@@ -2,6 +2,7 @@
 #include "Utils/SplineMonoUtils.h"
 #include "Utils/Comparison.h"
 
+// TODO add test with different interpolations
 int main(int argc, char *argv[])
 {
   SetMaCh3LoggerFormat();

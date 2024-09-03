@@ -1,0 +1,36 @@
+General:
+  OutputFile: "Test.root"
+  RealData: false
+  Asimov: true
+  CustomReWeight: false
+  FakeData: false
+  #Save individual sample contributions to the LLH
+  LLHScanBySample: false
+  ProcessMCMC: No
+  Debug: No
+  RandomStart: false
+  Seed: 0
+  Fitter:
+    FitTestLikelihood: false
+  MCMC:
+    NSteps: 10000
+    #KS: Sets how frequent (number of steps) you want to autosave your chain, if you autosave rarely chain will be slightly faster, if you job wall is small you might want more frequent autosave to reduce number of lost steps
+    #AutoSave: 500
+    AutoSave: 10000
+    UseReactorConstraint: No
+    #Burn in for posterior predictive code
+    BurnInSteps: 200000
+
+  Predictive:
+    Ntoy: 10
+    #Ntoy: 5000
+    #Use Full LLH or only sample contribution based on discussion with Asher we almost always only want the sample likelihood
+    FullLLH: false
+    PosteriorFiles: "EMPTY"
+
+LikelihoodOptions:
+  #False means you calculate W2 histogram only during first reweight, advisable for Barlow-Beeston
+  UpdateW2: false
+  TestStatistic: "Barlow-Beeston"
+  #TestStatistic: "Poisson"
+  #TestStatistic: "IceCube"

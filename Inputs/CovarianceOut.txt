@@ -1,1 +1,1 @@
-Likelihood 1.23457e+09
+Likelihood 0.40671

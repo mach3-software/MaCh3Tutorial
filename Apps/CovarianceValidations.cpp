@@ -2,6 +2,7 @@
 #include "Utils/Comparison.h"
 #include "covariance/covarianceXsec.h"
 
+// TODO Maybe add some proposal tests
 int main(int argc, char *argv[])
 {
   SetMaCh3LoggerFormat();
@@ -9,7 +10,7 @@ int main(int argc, char *argv[])
   std::vector<std::string> xsecCovMatrixFile = {"Inputs/SystematicsTest.yaml"};
   covarianceXsec* xsec = new covarianceXsec(xsecCovMatrixFile, "xsec_cov");
 
-  std::vector<double> ParProp = {1.05, 0.90, 1.10, 1.05, 1.25, 1.70, 3.20, -1.10, -1.70};
+  std::vector<double> ParProp = {1.05, 0.90, 1.10, 1.05, 0.25, 1.70, 3.20, -1.10, -1.70};
   xsec->setParameters(ParProp);
   xsec->printNominalCurrProp();
 
