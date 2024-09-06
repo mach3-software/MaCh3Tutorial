@@ -57,11 +57,18 @@ if(NOT DEFINED MaCh3_Branch)
   SET(MaCh3_Branch "develop")
 endif()
 
-CPMAddPackage(
-  NAME MaCh3
-  GIT_TAG ${MaCh3_Branch}
-  GITHUB_REPOSITORY mach3-software/MaCh3
-)
+#If MaCh3 was sourced find it, otherwise use CPM
+find_package(MaCh3 QUIET)
+
+if(NOT MaCh3_FOUND)
+  cmessage(STATUS "Didn't find MaCh3, attempting to use built in MaCh3")
+
+  CPMAddPackage(
+    NAME MaCh3
+    GIT_TAG ${MaCh3_Branch}
+    GITHUB_REPOSITORY mach3-software/MaCh3
+  )
+endif()
 
 if(NOT TARGET MaCh3::All)
   cmessage(FATAL_ERROR "MaCh3 Validations Expected dependency target: MaCh3::All, did you source setup.MaCh3.sh")
