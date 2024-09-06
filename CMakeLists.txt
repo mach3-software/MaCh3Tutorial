@@ -3,7 +3,7 @@ set(CMAKE_VERBOSE_MAKEFILE ON)
 # CMake version check
 cmake_minimum_required(VERSION 3.14 FATAL_ERROR)
 
-SET(MaCh3Validations_VERSION 1.0.0)
+SET(MaCh3Validations_VERSION 1.1.0)
 
 # Create project (todo: set configurable CUDA)
 project(MaCh3Validations VERSION ${MaCh3Validations_VERSION} LANGUAGES CXX)
@@ -72,6 +72,10 @@ endif()
 
 if(NOT TARGET MaCh3::All)
   cmessage(FATAL_ERROR "MaCh3 Validations Expected dependency target: MaCh3::All, did you source setup.MaCh3.sh")
+endif()
+
+if(MaCh3_VERSION GREATER MaCh3Validations_VERSION)
+  cmessage(FATAL_ERROR "MaCh3Validations_VERSION (${MaCh3Validations_VERSION}) is smaller than MaCh3_VERSION (${MaCh3_VERSION}), this most likely will not work")
 endif()
 
 ############################  C++ Compiler  ####################################

@@ -1,6 +1,7 @@
 // MaCh3 spline includes
 #include "Utils/Comparison.h"
 #include "covariance/covarianceXsec.h"
+#include "covariance/covarianceOsc.h"
 
 // TODO Maybe add some proposal tests
 int main(int argc, char *argv[])
@@ -16,10 +17,18 @@ int main(int argc, char *argv[])
 
   // Open a file in write mode
   std::ofstream outFile("NewCovarianceOut.txt");
-  outFile << "Likelihood " << xsec->GetLikelihood() << std::endl;
+  outFile << "Likelihood Xsec=" << xsec->GetLikelihood() << std::endl;
+
+  std::string OscCovMatrixFile = "Inputs/Osc_Test.root";
+  covarianceOsc* osc = new covarianceOsc("osc_cov", OscCovMatrixFile.c_str());
+  std::vector<double> OscParProp = {0.3, 0.5, 0.020, 7.53e-5, 2.494e-3, 0.0};
+  osc->setParameters(OscParProp);
+  osc->printNominalCurrProp();
+  outFile << "Likelihood Osc=" << osc->GetLikelihood() << std::endl;
 
   outFile.close();
   delete xsec;
+  delete osc;
 
   bool TheSame = CompareTwoFiles("Inputs/CovarianceOut.txt", "NewCovarianceOut.txt");
 

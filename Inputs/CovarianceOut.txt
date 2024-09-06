@@ -1,1 +1,2 @@
-Likelihood 0.40671
+Likelihood Xsec=0.40671
+Likelihood Osc=0.145056
