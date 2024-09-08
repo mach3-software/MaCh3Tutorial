@@ -1,6 +1,19 @@
 ## How to Start?
-container/cmake..
-## How to Run?
+To compile simply
+```
+mkdir build;
+cd build;
+cmake ../
+make -jN [set number of threads]
+make install
+```
+alternatively you can use containers by
+```
+docker pull ghcr.io/mach3-software/mach3tutorial:alma9latest
+```
+To reed more how to use contianers check our wiki [here](https://github.com/mach3-software/MaCh3/wiki/12.-Containers)
+
+## How to run MCMC
 calling exectubales
 TODO!!!
 
