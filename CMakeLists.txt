@@ -75,7 +75,7 @@ if(NOT TARGET MaCh3::All)
 endif()
 
 if(MaCh3_VERSION GREATER MaCh3Validations_VERSION)
-  cmessage(FATAL_ERROR "MaCh3Validations_VERSION (${MaCh3Validations_VERSION}) is smaller than MaCh3_VERSION (${MaCh3_VERSION}), this most likely will not work")
+  cmessage(WARNING "MaCh3Validations_VERSION (${MaCh3Validations_VERSION}) is smaller than MaCh3_VERSION (${MaCh3_VERSION}), this most likely will not work")
 endif()
 
 ############################  C++ Compiler  ####################################
