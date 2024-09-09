@@ -17,10 +17,15 @@ To reed more how to use contianers check our wiki [here](https://github.com/mach
 calling exectubales
 TODO!!!
 
+## How to Plot?
+MCMC process, plot LLH
+
 ## How to Modify?
 add syst to config, add new sample with binning, mode whatever
 
-## How to Plot?
+## How to Plot Comparisons?
 MCMC process, plot LLH
+
+Asher suggested to also include some simple MCMC diag like auto correlations
 
 ## More advanced developmen????
