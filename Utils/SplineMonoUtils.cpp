@@ -1,10 +1,10 @@
 // MaCh3 spline includes
 #include "Utils/SplineMonoUtils.h"
 
-std::vector< std::vector<TSpline3_red*> > GetMasterSpline(
+std::vector< std::vector<TResponseFunction_red*> > GetMasterSpline(
     std::string FileName, std::vector<std::string> DialNames)
 {
-  std::vector< std::vector<TSpline3_red*> > MasterSpline;
+  std::vector< std::vector<TResponseFunction_red*> > MasterSpline;
 
   TChain* chain = new TChain("sample_sum");
   chain->AddFile(FileName.c_str());

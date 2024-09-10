@@ -10,9 +10,11 @@ int main(int argc, char *argv[])
   std::string Input = "Inputs/SplineFile.root";
   std::vector<std::string> Dials = {"Spline_0", "Spline_1", "Spline_2", "Spline_3"};
   std::vector<double> Dial_Values = {1.21, 1, 1, 1};
-  std::vector< std::vector<TSpline3_red*> > MasterSpline = GetMasterSpline(Input, Dials);
+  std::vector< std::vector<TResponseFunction_red*> > MasterSpline = GetMasterSpline(Input, Dials);
+
+  std::vector<RespFuncType> SplineType = {kTSpline3_red, kTSpline3_red, kTSpline3_red, kTSpline3_red};
   const unsigned int Nevents = MasterSpline.size();
-  SMonolith* Splines = new SMonolith(MasterSpline);
+  SMonolith* Splines = new SMonolith(MasterSpline, SplineType);
 
   std::vector< const double* > splineParsPointer(Dials.size());
   for (unsigned int i = 0; i < Dials.size(); ++i) {
