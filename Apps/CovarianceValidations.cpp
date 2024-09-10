@@ -19,9 +19,9 @@ int main(int argc, char *argv[])
   std::ofstream outFile("NewCovarianceOut.txt");
   outFile << "Likelihood Xsec=" << xsec->GetLikelihood() << std::endl;
 
-  std::string OscCovMatrixFile = "Inputs/Osc_Test.root";
-  covarianceOsc* osc = new covarianceOsc("osc_cov", OscCovMatrixFile.c_str());
-  std::vector<double> OscParProp = {0.3, 0.5, 0.020, 7.53e-5, 2.494e-3, 0.0};
+  std::vector<std::string> OscCovMatrixFile = {"Inputs/Osc_Test.yaml"};
+  covarianceOsc* osc = new covarianceOsc(OscCovMatrixFile, "osc_cov");
+  std::vector<double> OscParProp = {0.3, 0.5, 0.020, 7.53e-5, 2.494e-3, 0.0, 295, 2.6};
   osc->setParameters(OscParProp);
   osc->printNominalCurrProp();
   outFile << "Likelihood Osc=" << osc->GetLikelihood() << std::endl;
