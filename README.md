@@ -11,10 +11,10 @@ alternatively you can use containers by
 ```
 docker pull ghcr.io/mach3-software/mach3tutorial:alma9latest
 ```
-To reed more how to use contianers check our wiki [here](https://github.com/mach3-software/MaCh3/wiki/12.-Containers)
+To reed more how to use containers check our wiki [here](https://github.com/mach3-software/MaCh3/wiki/12.-Containers)
 
 ## How to run MCMC
-calling exectubales
+calling executables
 TODO!!!
 
 ## How to Plot?
@@ -28,4 +28,4 @@ MCMC process, plot LLH
 
 Asher suggested to also include some simple MCMC diag like auto correlations
 
-## More advanced developmen????
+## More advanced development????
