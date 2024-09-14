@@ -25,6 +25,7 @@ General:
     BurnInSteps: 200000
   Systematics:
     XsecCovFile: ["Inputs/SystematicsTest.yaml"]
+    OscCovFile: ["Inputs/Osc_Test.yaml"]
 
   Predictive:
     Ntoy: 10
