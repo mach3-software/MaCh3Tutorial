@@ -3,7 +3,7 @@ set(CMAKE_VERBOSE_MAKEFILE ON)
 # CMake version check
 cmake_minimum_required(VERSION 3.14 FATAL_ERROR)
 
-SET(MaCh3Validations_VERSION 1.1.0)
+SET(MaCh3Validations_VERSION 1.1.4)
 
 # Create project (todo: set configurable CUDA)
 project(MaCh3Validations VERSION ${MaCh3Validations_VERSION} LANGUAGES CXX)
@@ -91,7 +91,7 @@ cmessage(STATUS "CMAKE CXX Standard: ${CMAKE_CXX_STANDARD}")
 ################################# Build MaCh3 ##################################
 add_subdirectory(Utils)
 add_subdirectory(Apps)
-
+add_subdirectory(Tutorial)
 
 configure_file(cmake/Templates/setup.MaCh3Validations.sh.in "${PROJECT_BINARY_DIR}${CMAKE_FILES_DIRECTORY}/setup.MaCh3Validations.sh" @ONLY)
 install(FILES "${PROJECT_BINARY_DIR}${CMAKE_FILES_DIRECTORY}/setup.MaCh3Validations.sh" DESTINATION ${CMAKE_INSTALL_PREFIX}/bin)
