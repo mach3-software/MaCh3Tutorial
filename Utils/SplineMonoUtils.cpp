@@ -60,7 +60,7 @@ std::vector< std::vector<TResponseFunction_red*> > GetMasterSpline(
   } // end for j loop
   for(_int_ i = 0; i < nSplineParams; i++) {
     if(xsecgraph[i] != NULL) delete xsecgraph[i];
-    if(grapharrays[i] != NULL) delete grapharrays[i];
+    //if(grapharrays[i] != NULL) delete grapharrays[i];
   }
   delete[] xsecgraph;
   delete[] grapharrays;
