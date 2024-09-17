@@ -67,6 +67,12 @@ void FitVal(const std::string& Algo, bool MoreTests)
 
 int main(int argc, char *argv[])
 {
+  SetMaCh3LoggerFormat();
+  if (argc != 1) {
+    MACH3LOG_CRITICAL("You specified arguments, but none are needed. (Program name: ", argv[0]);
+    throw MaCh3Exception(__FILE__ , __LINE__ );
+  }
+
   std::vector<std::string> Algo = {"MCMC"};
   #ifdef MaCh3_MINUIT2
   Algo.push_back("Minuit2");
