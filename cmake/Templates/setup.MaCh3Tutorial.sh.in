@@ -57,10 +57,10 @@ else
   SETUPDIR=$(readlink -f ${BASH_SOURCE%/*}/..)
 fi
 
-export MaCh3Validations_ROOT=${SETUPDIR}
+export MaCh3Tutorial_ROOT=${SETUPDIR}
 export MACH3=${SETUPDIR}
 
-add_to_PATH ${MaCh3Validations_ROOT}/Apps
-add_to_LD_LIBRARY_PATH ${MaCh3Validations_ROOT}/lib
+add_to_PATH ${MaCh3Tutorial_ROOT}/Apps
+add_to_LD_LIBRARY_PATH ${MaCh3Tutorial_ROOT}/lib
 
 unset SETUPDIR

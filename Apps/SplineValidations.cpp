@@ -7,6 +7,11 @@ int main(int argc, char *argv[])
 {
   SetMaCh3LoggerFormat();
 
+  if (argc != 1) {
+    MACH3LOG_CRITICAL("You specified arguments, but none are needed. (Program name: ", argv[0]);
+    throw MaCh3Exception(__FILE__ , __LINE__ );
+  }
+
   std::string Input = "Inputs/SplineFile.root";
   std::vector<std::string> Dials = {"Spline_0", "Spline_1", "Spline_2", "Spline_3"};
   std::vector<double> Dial_Values = {1.21, 1, 1, 1};

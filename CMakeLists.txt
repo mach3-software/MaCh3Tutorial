@@ -3,10 +3,10 @@ set(CMAKE_VERBOSE_MAKEFILE ON)
 # CMake version check
 cmake_minimum_required(VERSION 3.14 FATAL_ERROR)
 
-SET(MaCh3Validations_VERSION 1.1.4)
+SET(MaCh3Tutorial_VERSION 1.1.4)
 
 # Create project (todo: set configurable CUDA)
-project(MaCh3Validations VERSION ${MaCh3Validations_VERSION} LANGUAGES CXX)
+project(MaCh3Tutorial VERSION ${MaCh3Tutorial_VERSION} LANGUAGES CXX)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 # Changes default install path to be a subdirectory of the build dir.
@@ -71,11 +71,11 @@ if(NOT MaCh3_FOUND)
 endif()
 
 if(NOT TARGET MaCh3::All)
-  cmessage(FATAL_ERROR "MaCh3 Validations Expected dependency target: MaCh3::All, did you source setup.MaCh3.sh")
+  cmessage(FATAL_ERROR "MaCh3 Tutorial Expected dependency target: MaCh3::All, did you source setup.MaCh3.sh")
 endif()
 
-if(MaCh3_VERSION GREATER MaCh3Validations_VERSION)
-  cmessage(WARNING "MaCh3Validations_VERSION (${MaCh3Validations_VERSION}) is smaller than MaCh3_VERSION (${MaCh3_VERSION}), this most likely will not work")
+if(MaCh3_VERSION GREATER MaCh3Tutorial_VERSION)
+  cmessage(WARNING "MaCh3Tutorial_VERSION (${MaCh3Tutorial_VERSION}) is smaller than MaCh3_VERSION (${MaCh3_VERSION}), this most likely will not work")
 endif()
 
 ############################  C++ Compiler  ####################################
@@ -93,9 +93,28 @@ add_subdirectory(Utils)
 add_subdirectory(Apps)
 add_subdirectory(Tutorial)
 
-configure_file(cmake/Templates/setup.MaCh3Validations.sh.in "${PROJECT_BINARY_DIR}${CMAKE_FILES_DIRECTORY}/setup.MaCh3Validations.sh" @ONLY)
-install(FILES "${PROJECT_BINARY_DIR}${CMAKE_FILES_DIRECTORY}/setup.MaCh3Validations.sh" DESTINATION ${CMAKE_INSTALL_PREFIX}/bin)
+configure_file(cmake/Templates/setup.MaCh3Tutorial.sh.in "${PROJECT_BINARY_DIR}${CMAKE_FILES_DIRECTORY}/setup.MaCh3Tutorial.sh" @ONLY)
+install(FILES "${PROJECT_BINARY_DIR}${CMAKE_FILES_DIRECTORY}/setup.MaCh3Tutorial.sh" DESTINATION ${CMAKE_INSTALL_PREFIX}/bin)
 
 ############################  Install  ####################################
 install(DIRECTORY Inputs DESTINATION ${CMAKE_BINARY_DIR})
 install(DIRECTORY Scripts DESTINATION ${CMAKE_BINARY_DIR})
+
+include(CMakePackageConfigHelpers)
+configure_package_config_file(
+  ${CMAKE_CURRENT_LIST_DIR}/cmake/Templates/MaCh3TutorialConfig.cmake.in ${CMAKE_BINARY_DIR}/MaCh3TutorialConfig.cmake
+  INSTALL_DESTINATION
+    /this/is/ignored/for/some/reason/thanks/kitware
+  NO_SET_AND_CHECK_MACRO
+  NO_CHECK_REQUIRED_COMPONENTS_MACRO)
+
+  write_basic_package_version_file(${CMAKE_BINARY_DIR}/MaCh3TutorialConfigVersion.cmake
+  VERSION ${MaCh3_VERSION}
+  COMPATIBILITY AnyNewerVersion)
+
+install(FILES
+    ${CMAKE_BINARY_DIR}/MaCh3TutorialConfig.cmake
+    ${CMAKE_BINARY_DIR}/MaCh3TutorialConfigVersion.cmake
+  DESTINATION ${CMAKE_INSTALL_PREFIX}/lib/cmake/MaCh3Tutorial)
+
+include(mach3tutorial-config)
