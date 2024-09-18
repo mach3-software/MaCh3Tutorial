@@ -7,14 +7,11 @@ Systematics:
     FlatPrior: false
     IsFixed: false
     Mode: [ 0 ]
-    ParameterBounds:
-      - 0
-      - 999.
+    ParameterBounds: [0, 999.]
+    ParameterGroup: Xsec
     TargetNuclei: [12, 16]
     KinematicCuts:
-      - TrueQ2:
-        - 0.25
-        - 0.5
+      - TrueQ2: [0.25, 0.5]
     ParameterValues:
       Generated: 1.
       PreFitValue: 1.
@@ -30,14 +27,11 @@ Systematics:
     FlatPrior: false
     IsFixed: false
     Mode: [ 0 ]
-    ParameterBounds:
-      - 0
-      - 999.
+    ParameterBounds: [0, 999.]
+    ParameterGroup: Xsec
     TargetNuclei: [12, 16]
     KinematicCuts:
-      - TrueQ2:
-        - 0.5
-        - 1.0
+      - TrueQ2: [0.5, 1.0]
     ParameterValues:
       Generated: 1.
       PreFitValue: 1.
@@ -55,14 +49,11 @@ Systematics:
     IsFixed: false
     Mode: [ 0 ]
 
-    ParameterBounds:
-      - 0
-      - 9999.
+    ParameterBounds: [0, 9999.]
+    ParameterGroup: Xsec
     TargetNuclei: [12, 16]
     KinematicCuts:
-      - TrueQ2:
-        - 1.0
-        - 9999999.9
+      - TrueQ2: [1.0, 9999999.9]
     ParameterValues:
       Generated: 1.
       PreFitValue: 1.
@@ -78,9 +69,8 @@ Systematics:
     FlatPrior: false
     IsFixed: false
     Mode: []
-    ParameterBounds:
-    - 0.0
-    - 9999
+    ParameterBounds: [0.0, 9999]
+    ParameterGroup: Xsec
     ParameterValues:
       Generated: 1.21
       PreFitValue: 1.03
@@ -100,9 +90,8 @@ Systematics:
     FlatPrior: True
     IsFixed: false
     Mode: []
-    ParameterBounds:
-    - 0.
-    - 1.
+    ParameterBounds: [0., 1.]
+    ParameterGroup: Xsec
     ParameterValues:
       Generated: 1.0
       PreFitValue: 1.0
@@ -121,9 +110,8 @@ Systematics:
     Error: 6
     FlatPrior: false
     IsFixed: false
-    ParameterBounds:
-      - -10.
-      - 15.
+    ParameterBounds: [-10., 15.]
+    ParameterGroup: Xsec
     ParameterValues:
       Generated: 0
       PreFitValue: 2.
@@ -143,9 +131,8 @@ Systematics:
     FlatPrior: false
     IsFixed: false
 
-    ParameterBounds:
-      - -10.
-      - 15.
+    ParameterBounds: [-10., 15.]
+    ParameterGroup: Xsec
     ParameterValues:
       Generated: 0
       PreFitValue: 4.
@@ -165,9 +152,8 @@ Systematics:
     FlatPrior: false
     IsFixed: false
 
-    ParameterBounds:
-      - -10.
-      - 15.
+    ParameterBounds: [-10., 15.]
+    ParameterGroup: Xsec
     ParameterValues:
       Generated: 0
       PreFitValue: 0.
@@ -187,9 +173,8 @@ Systematics:
     FlatPrior: false
     IsFixed: false
 
-    ParameterBounds:
-      - -10.
-      - 15.
+    ParameterBounds: [-10., 15.]
+    ParameterGroup: Xsec
     ParameterValues:
       Generated: 0
       PreFitValue: 0.
