@@ -9,7 +9,7 @@ int main(int argc, char *argv[])
   SetMaCh3LoggerFormat();
 
   if (argc != 1) {
-    MACH3LOG_CRITICAL("You specified arguments, but none are needed. (Program name: ", argv[0]);
+    MACH3LOG_CRITICAL("You specified arguments, but none are needed. (Program name: {})", argv[0]);
     throw MaCh3Exception(__FILE__ , __LINE__ );
   }
 
@@ -23,6 +23,20 @@ int main(int argc, char *argv[])
   // Open a file in write mode
   std::ofstream outFile("NewCovarianceOut.txt");
   outFile << "Likelihood Xsec=" << xsec->GetLikelihood() << std::endl;
+
+  //Test throwing
+  const int Ntoys = 100;
+  MACH3LOG_INFO("Testing throwing from covariance");
+
+  for (int i = 0; i < Ntoys; i++)
+  {
+    if (i % (Ntoys/10) == 0) {
+      MaCh3Utils::PrintProgressBar(i, Ntoys);
+    }
+
+    xsec->throwParameters();
+  }
+  xsec->setParameters(ParProp);
 
   std::vector<std::string> OscCovMatrixFile = {"Inputs/Osc_Test.yaml"};
   covarianceOsc* osc = new covarianceOsc(OscCovMatrixFile, "osc_cov");
