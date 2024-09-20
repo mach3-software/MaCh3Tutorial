@@ -3,9 +3,7 @@
 #include "covariance/covarianceXsec.h"
 #include "Utils/Comparison.h"
 
-// TODO add also Adaption and PCA matrix
-// TODO add maybe different algorithms?
-
+// TODO add sample PDF object!
 
 void FitVal(const std::string& Algo, bool MoreTests)
 {
@@ -14,7 +12,7 @@ void FitVal(const std::string& Algo, bool MoreTests)
 
   MACH3LOG_INFO("Testing {}", Algo);
 
-  std::vector<std::string> xsecCovMatrixFile = {"Inputs/SystematicsTest.yaml"};
+  std::vector<std::string> xsecCovMatrixFile = FitManager->raw()["General"]["Systematics"]["XsecCovFile"].as<std::vector<std::string>>();
   covarianceXsec* xsec = new covarianceXsec(xsecCovMatrixFile, "xsec_cov");
 
   std::unique_ptr<FitterBase> MaCh3Fitter = nullptr;
@@ -40,6 +38,8 @@ void FitVal(const std::string& Algo, bool MoreTests)
   {
     MaCh3Fitter->DragRace();
     MaCh3Fitter->RunLLHScan();
+    MaCh3Fitter->Run2DLLHScan();
+    MaCh3Fitter->GetStepScaleBasedOnLLHScan();
   }
   MaCh3Fitter->runMCMC();
 
@@ -76,6 +76,7 @@ int main(int argc, char *argv[])
   std::vector<std::string> Algo = {"MCMC"};
   #ifdef MaCh3_MINUIT2
   Algo.push_back("Minuit2");
+  //Algo.push_back("PSO");
   #endif
 
   bool MoreTests = true;

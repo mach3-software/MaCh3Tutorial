@@ -24,7 +24,9 @@ General:
     #Burn in for posterior predictive code
     BurnInSteps: 200000
   Systematics:
-    XsecCovFile: ["Inputs/SystematicsTest.yaml"]
+    XsecCovFile: ["Inputs/SystematicsTest.yaml",
+                  #"Inputs/PCATest.yaml"
+                  ]
     OscCovFile: ["Inputs/Osc_Test.yaml"]
 
   Predictive:
