@@ -1,0 +1,311 @@
+Systematics:
+
+# v1 initial commit
+# Flux parameters
+- Systematic:
+    Names:
+      FancyName: b_0
+      ParameterName: b_0
+    Correlations:
+    - b_0: '1.0'
+    - b_1: '0.8284651892210824'
+    - b_2: '0.7621393734237162'
+    - b_3: '0.6801157527088665'
+    - b_4: '0.4261159721836089'
+    - b_5: '0.2889929850612154'
+    - b_6: '0.2756419224121503'
+    - b_7: '0.48619159418126073'
+    - b_8: '0.49407392294957464'
+    - b_9: '0.27270216972314404'
+    DetID: '1'
+    Error: '0.059243759525005685'
+    KinematicCuts:
+      -Horncurrent: '1'
+      -TrueNeutrinoEnergy: [0.0, 0.4]
+      NeutrinoFlavourUnosc: 14
+
+    ParameterBounds: [0, 9999]
+    ParameterGroup: Flux
+    ParameterValues:
+      Generated: 1
+      PreFitValue: 1
+    StepScale:
+      MCMC: 7.5
+    Type: Norm
+
+- Systematic:
+    Names:
+      FancyName: b_1
+      ParameterName: b_1
+    Correlations:
+    - b_0: '0.8284651892210824'
+    - b_1: '1.0'
+    - b_2: '0.9618321126316133'
+    - b_3: '0.7631582657966051'
+    - b_4: '0.3601192825021544'
+    - b_5: '0.1976958270180503'
+    - b_6: '0.30101841355110415'
+    - b_7: '0.6363766022443161'
+    - b_8: '0.6436654970393295'
+    - b_9: '0.37257173123032966'
+    DetID: '1'
+    Error: '0.052534917752228155'
+    KinematicCuts:
+      -Horncurrent: '1'
+      -TrueNeutrinoEnergy: [0.4, 0.5]
+      NeutrinoFlavourUnosc: 14
+
+    ParameterBounds: [0, 9999]
+    ParameterGroup: Flux
+    ParameterValues:
+      Generated: 1
+      PreFitValue: 1
+    StepScale:
+      MCMC: 7.5
+    Type: Norm
+
+- Systematic:
+    Names:
+      FancyName: b_2
+      ParameterName: b_2
+    Correlations:
+    - b_0: '0.7621393734237162'
+    - b_1: '0.9618321126316133'
+    - b_2: '1.0'
+    - b_3: '0.865852244725309'
+    - b_4: '0.4648457655784942'
+    - b_5: '0.22745492076545257'
+    - b_6: '0.2811829541251655'
+    - b_7: '0.6361099941519401'
+    - b_8: '0.7111552414980179'
+    - b_9: '0.3809408100022248'
+    DetID: '1'
+    Error: '0.05293373520097801'
+    KinematicCuts:
+      -Horncurrent: 1
+      -TrueNeutrinoEnergy: [0.5, 0.6]
+      NeutrinoFlavourUnosc: 14
+
+    ParameterBounds: [0, 9999]
+    ParameterGroup: Flux
+    ParameterValues:
+      Generated: 1
+      PreFitValue: 1
+    StepScale:
+      MCMC: 7.5
+    Type: Norm
+
+- Systematic:
+    Names:
+      FancyName: b_3
+      ParameterName: b_3
+    Correlations:
+    - b_0: '0.6801157527088665'
+    - b_1: '0.7631582657966051'
+    - b_2: '0.865852244725309'
+    - b_3: '1.0'
+    - b_4: '0.810938022665829'
+    - b_5: '0.5500378023701882'
+    - b_6: '0.4244697674109973'
+    - b_7: '0.620095554502362'
+    - b_8: '0.7780068069310814'
+    - b_9: '0.3976387942751631'
+    DetID: '1'
+    Error: '0.05145497551998185'
+    KinematicCuts:
+      -Horncurrent: 1
+      -TrueNeutrinoEnergy: [0.6, 0.7]
+      NeutrinoFlavourUnosc: 14
+
+    ParameterBounds: [0, 9999]
+    ParameterGroup: Flux
+    ParameterValues:
+      Generated: 1
+      PreFitValue: 1
+    StepScale:
+      MCMC: 7.5
+    Type: Norm
+
+- Systematic:
+    Names:
+      FancyName: b_4
+      ParameterName: b_4
+    Correlations:
+    - b_0: '0.4261159721836089'
+    - b_1: '0.3601192825021544'
+    - b_2: '0.4648457655784942'
+    - b_3: '0.810938022665829'
+    - b_4: '1.0'
+    - b_5: '0.8630267886914349'
+    - b_6: '0.6023736156685594'
+    - b_7: '0.5169026277364072'
+    - b_8: '0.6804627678149072'
+    - b_9: '0.4301371250858676'
+    DetID: '1'
+    Error: '0.07381951635860204'
+    KinematicCuts:
+      -Horncurrent: 1
+      -TrueNeutrinoEnergy: [0.7, 1.0]
+      NeutrinoFlavourUnosc: 14
+
+    ParameterBounds: [0, 9999]
+    ParameterGroup: Flux
+    ParameterValues:
+      Generated: 1
+      PreFitValue: 1
+    StepScale:
+      MCMC: 7.5
+    Type: Norm
+
+- Systematic:
+    Names:
+      FancyName: b_5
+      ParameterName: b_5
+    Correlations:
+    - b_0: '0.2889929850612154'
+    - b_1: '0.1976958270180503'
+    - b_2: '0.22745492076545257'
+    - b_3: '0.5500378023701882'
+    - b_4: '0.8630267886914349'
+    - b_5: '1.0'
+    - b_6: '0.8446890195492435'
+    - b_7: '0.5535800561827778'
+    - b_8: '0.5054211016174668'
+    - b_9: '0.40696262517009857'
+    DetID: '1'
+    Error: '0.0875849864515004'
+    KinematicCuts:
+      -Horncurrent: 1
+      -TrueNeutrinoEnergy: [1.0, 1.5]
+      NeutrinoFlavourUnosc: 14
+
+    ParameterBounds: [0, 9999]
+    ParameterGroup: Flux
+    ParameterValues:
+      Generated: 1
+      PreFitValue: 1
+    StepScale:
+      MCMC: 7.5
+    Type: Norm
+
+- Systematic:
+    Names:
+      FancyName: b_6
+      ParameterName: b_6
+    Correlations:
+    - b_0: '0.27564192241215024'
+    - b_1: '0.30101841355110415'
+    - b_2: '0.2811829541251655'
+    - b_3: '0.4244697674109973'
+    - b_4: '0.6023736156685594'
+    - b_5: '0.8446890195492435'
+    - b_6: '1.0'
+    - b_7: '0.7790841764941654'
+    - b_8: '0.5630092548705312'
+    - b_9: '0.6009864264160337'
+    DetID: '1'
+    Error: '0.06983573708919912'
+    KinematicCuts:
+      -Horncurrent: 1
+      -TrueNeutrinoEnergy: [1.5, 2.5]
+      NeutrinoFlavourUnosc: 14
+
+    ParameterBounds: [0, 9999]
+    ParameterGroup: Flux
+    ParameterValues:
+      Generated: 1
+      PreFitValue: 1
+    StepScale:
+      MCMC: 7.5
+    Type: Norm
+
+- Systematic:
+    Names:
+      FancyName: b_7
+      ParameterName: b_7
+    Correlations:
+    - b_0: '0.48619159418126073'
+    - b_1: '0.6363766022443161'
+    - b_2: '0.6361099941519401'
+    - b_3: '0.620095554502362'
+    - b_4: '0.5169026277364072'
+    - b_5: '0.5535800561827778'
+    - b_6: '0.7790841764941654'
+    - b_7: '1.0'
+    - b_8: '0.8494242119047807'
+    - b_9: '0.684018671339497'
+    DetID: '1'
+    Error: '0.04979912201292179'
+    KinematicCuts:
+      -Horncurrent: 1
+      -TrueNeutrinoEnergy: [2.5, 3.5]
+      NeutrinoFlavourUnosc: 14
+    ParameterBounds: [0, 9999]
+    ParameterGroup: Flux
+    ParameterValues:
+      Generated: 1
+      PreFitValue: 1
+    StepScale:
+      MCMC: 7.5
+    Type: Norm
+
+- Systematic:
+    Names:
+      FancyName: b_8
+      ParameterName: b_8
+    Correlations:
+    - b_0: '0.49407392294957464'
+    - b_1: '0.6436654970393295'
+    - b_2: '0.7111552414980179'
+    - b_3: '0.7780068069310814'
+    - b_4: '0.6804627678149071'
+    - b_5: '0.5054211016174668'
+    - b_6: '0.5630092548705312'
+    - b_7: '0.8494242119047807'
+    - b_8: '1.0'
+    - b_9: '0.7440340603749211'
+    DetID: '1'
+    Error: 0.05020509536942895
+    KinematicCuts:
+      -Horncurrent: 1
+      -TrueNeutrinoEnergy: [3.5, 5.0]
+      NeutrinoFlavourUnosc: 14
+    ParameterBounds: [0, 9999]
+    ParameterGroup: Flux
+    ParameterValues:
+      Generated: 1
+      PreFitValue: 1
+    StepScale:
+      MCMC: 7.5
+    Type: Norm
+
+- Systematic:
+    Names:
+      FancyName: b_9
+      ParameterName: b_9
+    Correlations:
+    - b_0: '0.27270216972314404'
+    - b_1: '0.37257173123032966'
+    - b_2: '0.3809408100022248'
+    - b_3: '0.3976387942751631'
+    - b_4: '0.4301371250858676'
+    - b_5: '0.40696262517009857'
+    - b_6: '0.6009864264160337'
+    - b_7: '0.684018671339497'
+    - b_8: '0.7440340603749211'
+    - b_9: '1.0'
+    DetID: '1'
+    Error: 0.07016589681893176
+    KinematicCuts:
+      -Horncurrent: 1
+      -TrueNeutrinoEnergy: [5.0, 7.0]
+      NeutrinoFlavourUnosc: 14
+
+    ParameterBounds: [0, 9999]
+    ParameterGroup: Flux
+    ParameterValues:
+      Generated: 1
+      PreFitValue: 1
+    StepScale:
+      MCMC: 7.5
+    Type: Norm

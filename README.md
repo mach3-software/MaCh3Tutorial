@@ -1,6 +1,10 @@
 # Welcome to MaCh3 Tutorial
 After this tutorial you should know how to run MCMC, implement systematic uncertainties and how to plot standard Bayesian diagnostic.
 
+[![Code - Documented](https://img.shields.io/badge/Code-Documented-2ea44f)](https://github.com/mach3-software/MaCh3/wiki)
+[![Container Image](https://img.shields.io/badge/Container-Image-brightgreen)](https://github.com/mach3-software/MaCh3Tutorial/pkgs/container/mach3tutorial)
+[![Code - Doxygen](https://img.shields.io/badge/Code-Doxygen-2ea44f)](https://mach3-software.github.io/MaCh3/index.html)
+
 ## How to Start?
 To compile simply
 ```
@@ -46,14 +50,11 @@ First let's better understand `Inputs/SystematicsTest.yaml`. This config control
     FlatPrior: false
     IsFixed: false
     Mode: [ 0 ]
-    ParameterBounds:
-      - 0
-      - 999.
+    ParameterBounds: [0, 999.]
+    ParameterGroup: Xsec
     TargetNuclei: [12, 16]
     KinematicCuts:
-      - TrueQ2:
-        - 0.25
-        - 0.5
+      - TrueQ2: [0.25, 0.5]
     ParameterValues:
       Generated: 1.
       PreFitValue: 1.
