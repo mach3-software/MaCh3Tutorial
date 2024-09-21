@@ -60,9 +60,21 @@ void FitVal(const std::string& Algo, bool MoreTests)
     delete Processor;
   }
 
-  delete FitManager;
-  delete xsec;
   MaCh3Fitter.reset();
+  delete xsec;
+  //KS: Let's rename MCMC file so we can use it for some additional tests
+  if(MoreTests)
+  {
+    std::string oldName = FitManager->raw()["General"]["OutputFile"].as<std::string>();
+    std::string newName = "MCMC_Test.root";
+
+    // Rename file
+    if (std::rename(oldName.c_str(), newName.c_str()) != 0) {
+      MACH3LOG_CRITICAL("Error renaming file");
+      throw MaCh3Exception(__FILE__ , __LINE__ );
+    }
+  }
+  delete FitManager;
 }
 
 int main(int argc, char *argv[])
