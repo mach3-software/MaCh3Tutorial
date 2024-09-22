@@ -43,23 +43,6 @@ void FitVal(const std::string& Algo, bool MoreTests)
   }
   MaCh3Fitter->runMCMC();
 
-  if(MoreTests)
-  {
-    MCMCProcessor* Processor = new MCMCProcessor(FitManager->raw()["General"]["OutputFile"].as<std::string>());
-    Processor->Initialise();
-
-    // Make the postfit
-    Processor->MakePostfit();
-    Processor->DrawPostfit();
-
-    Processor->CacheSteps();
-    //KS: Since we cached let's make fancy violins :)
-    Processor->MakeViolin();
-    Processor->MakeCovariance_MP();
-    Processor->DrawCovariance();
-    delete Processor;
-  }
-
   MaCh3Fitter.reset();
   delete xsec;
   //KS: Let's rename MCMC file so we can use it for some additional tests
