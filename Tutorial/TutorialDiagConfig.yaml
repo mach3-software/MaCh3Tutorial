@@ -33,10 +33,10 @@ ProcessMCMC:
   CalcBayesFactor: true
   CalcSavageDickey: true
   CalcBipolarPlot: false
-  CalcParameterEvolution: false
+  CalcParameterEvolution: true
 
   #Functionality 2D
-  PlotCorr: false
+  PlotCorr: true
   MakeSubOptimality: ["false", 100]
   MakeViolin: true
   MakeCredibleRegions: false
