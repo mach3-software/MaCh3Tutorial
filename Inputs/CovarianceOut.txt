@@ -1,4 +1,7 @@
 Likelihood Xsec=0.40671
+Found 3 Params of type Norm
+Found 2 Params of type Spline
+Found 4 Params of type Functional
 Eigen Value 0 = 0.0239541
 Eigen Value 1 = 0.0074135
 Eigen Value 2 = 0.00428009

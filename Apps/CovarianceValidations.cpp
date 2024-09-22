@@ -4,6 +4,15 @@
 #include "covariance/covarianceOsc.h"
 
 /// @todo Add adaptive testing
+///
+///
+/// Current tests include
+/// testing LLH for cov xsc and osc
+/// checking PCA initialisation
+/// checking if throwing works
+/// checking if dumping matrix to root file works
+/// checking if DetID operation return same number of params
+
 int main(int argc, char *argv[])
 {
   SetMaCh3LoggerFormat();
@@ -27,7 +36,7 @@ int main(int argc, char *argv[])
   std::ofstream outFile("NewCovarianceOut.txt");
   outFile << "Likelihood Xsec=" << xsec->GetLikelihood() << std::endl;
 
-  //Test throwing
+  ///// Test throwing /////
   const int Ntoys = 100;
   MACH3LOG_INFO("Testing throwing from covariance");
 
@@ -38,6 +47,18 @@ int main(int argc, char *argv[])
     xsec->throwParameters();
   }
   xsec->setParameters(ParProp);
+  ///// Test Params from DetId /////
+  const int Det_Id = 1;
+  for (int s = 0; s < kSystTypes; ++s)
+  {
+    int NParams = xsec->GetNumParamsFromDetID(Det_Id, static_cast<SystType>(s));
+    outFile << "Found " << NParams << " Params of type " << SystType_ToString(static_cast<SystType>(s)) << std::endl;
+
+    // These return vector and I am too lazy to make check so here let just run them to so if things don't break
+    xsec->GetSystIndexFromDetID(Det_Id, static_cast<SystType>(s));
+    xsec->GetParsIndexFromDetID(Det_Id, static_cast<SystType>(s));
+    xsec->GetParsNamesFromDetID(Det_Id, static_cast<SystType>(s));
+  }
 
 ////////////// Now PCA //////////////
   MACH3LOG_INFO("Testing PCA matrix");
