@@ -78,6 +78,17 @@ if(MaCh3_VERSION GREATER MaCh3Tutorial_VERSION)
   cmessage(WARNING "MaCh3Tutorial_VERSION (${MaCh3Tutorial_VERSION}) is smaller than MaCh3_VERSION (${MaCh3_VERSION}), this most likely will not work")
 endif()
 
+CPMAddPackage(
+  NAME NuMCMCTools
+  GIT_TAG main
+  GITHUB_REPOSITORY NuMCMCTools/NuMCMCTools
+  DOWNLOAD_ONLY YES
+)
+
+install(DIRECTORY
+    ${CPM_PACKAGE_NuMCMCTools_SOURCE_DIR}/
+    DESTINATION ${CMAKE_BINARY_DIR}/NuMCMCTools)
+
 ############################  C++ Compiler  ####################################
 if (NOT DEFINED CMAKE_CXX_STANDARD OR "${CMAKE_CXX_STANDARD} " STREQUAL " ")
   SET(CMAKE_CXX_STANDARD 11)
