@@ -5,6 +5,9 @@
 #include "TTree.h"
 #include "TNamed.h"
 
+/// @todo actually save gaussian
+/// @todo make sure delta_cp is properly initialised
+
 int main(int argc, char *argv[])
 {
   if (argc != 3)
@@ -58,8 +61,6 @@ int main(int argc, char *argv[])
   newtree->Print();
   newtree->AutoSave();
 
-  TDirectory *dir = newfile->mkdir("priors");
-
   // List of parameter names and their corresponding titles
   std::vector<std::pair<std::string, std::string>> params = {
     {"Theta23", "Uniform:Theta23"},
@@ -70,14 +71,17 @@ int main(int argc, char *argv[])
     {"DeltaCP", "Uniform:DeltaCP"}
   };
 
-  // Move into the directory
-  dir->cd();
+  // Create a TList to hold the TNamed objects
+  TList *paramList = new TList();
 
-  // Create TNamed objects for each parameter
+  // Create TNamed objects for each parameter and add them to the list
   for (const auto& param : params) {
     TNamed *namedParam = new TNamed(param.first.c_str(), param.second.c_str());
-    namedParam->Write();  // Write to the directory
+    paramList->Add(namedParam);  // Add to TList
   }
+
+  // Write the TList to the directory
+  paramList->Write("priors", TObject::kSingleKey);
 
   // Close the file
   newfile->Close();

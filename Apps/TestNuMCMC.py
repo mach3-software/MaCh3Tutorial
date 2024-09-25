@@ -36,5 +36,5 @@ axs_ax = axs[1,1].get_axes()
 axs_ax[0].set_xlabel(r'$\delta_{CP}$ NO')
 axs_ax[1].set_xlabel(r'$\delta_{CP}$ IO')
 
-plt.print("blarb.png")
+plt.savefig("blarb.png")
 
