@@ -12,7 +12,7 @@ foreach(app
     add_dependencies(ValidApps ${app})
 endforeach(app)
 
-install(FILES
+install(PROGRAMS
     NuMCMCvalidations.sh
     TestNuMCMC.py
 
