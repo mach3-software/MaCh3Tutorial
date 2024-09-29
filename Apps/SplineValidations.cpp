@@ -65,7 +65,7 @@ int main(int argc, char *argv[])
   outFile.close();
   delete Splines;
   delete SplinesFlat;
-  bool TheSame = CompareTwoFiles("Inputs/SplineMonoOut.txt", "NewSplineMonoOut.txt");
+  bool TheSame = CompareTwoFiles("Apps/TestOutputs/SplineMonoOut.txt", "NewSplineMonoOut.txt");
 
   if(!TheSame) {
     MACH3LOG_CRITICAL("Different weights mate");
