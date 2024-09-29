@@ -90,7 +90,7 @@ int main(int argc, char *argv[])
   delete osc;
   delete PCA;
 
-  bool TheSame = CompareTwoFiles("Inputs/CovarianceOut.txt", "NewCovarianceOut.txt");
+  bool TheSame = CompareTwoFiles("Apps/TestOutputs/CovarianceOut.txt", "NewCovarianceOut.txt");
 
   if(!TheSame) {
     MACH3LOG_CRITICAL("Different likelihood mate");

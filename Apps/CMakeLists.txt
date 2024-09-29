@@ -4,6 +4,7 @@ foreach(app
     SplineValidations
     FitterValidations
     CovarianceValidations
+    MaCh3ModeValidations
     NuMCMCconversion
     )
     add_executable(${app} ${app}.cpp)
@@ -15,5 +16,10 @@ endforeach(app)
 install(PROGRAMS
     NuMCMCvalidations.sh
     TestNuMCMC.py
+
+    DESTINATION Apps)
+
+install(DIRECTORY
+    TestOutputs
 
     DESTINATION Apps)

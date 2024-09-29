@@ -52,9 +52,13 @@ int main(int argc, char *argv[])
 
   for (int i = 0; i < myChain->GetEntries(); ++i)
   {
-    if (i % 10000 == 0)
-    std::cout << i << std::endl;
+    if (i % 10000 == 0) std::cout << i << std::endl;
     myChain->GetEntry(i);
+
+    t_sin2th_23 = std::asin(std::sqrt(t_sin2th_23));
+    t_sin2th_13 = std::asin(std::sqrt(t_sin2th_13));
+    t_sin2th_12 = std::asin(std::sqrt(t_sin2th_12));
+
     newtree->Fill();
   }
 

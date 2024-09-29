@@ -1,0 +1,19 @@
+#########################################
+Title: "MaCh3 Tutorial Interaction modes"
+
+GeneratorName: "NuWro"
+
+MaCh3Modes: [
+  "CCQE",
+  "CC2p2h",
+  ]
+
+CCQE:
+  Name: "CCQE"
+  GeneratorMaping: [1]
+  # 1 = CCQE
+
+CC2p2h:
+  Name: "CC2p2h"
+  GeneratorMaping: [2]
+  # 2 = (Nieves) 2p2h aka MEC

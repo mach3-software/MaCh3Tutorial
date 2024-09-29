@@ -11,6 +11,7 @@ General:
   RandomStart: false
   Seed: 0
   NSteps: 10000
+  MaCh3Modes: "Inputs/MaCh3Modes.yaml"
   Fitter:
     FitTestLikelihood: false
   Minuit2:
