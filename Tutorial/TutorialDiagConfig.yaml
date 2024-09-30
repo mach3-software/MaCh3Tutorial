@@ -105,7 +105,7 @@ GetPenaltyTerm:
     - ["Norm_Param"]
     - false
     - "-logL_{Norm}"
-  ND_Syst:
+  Spline:
     - ["Spline_Param"]
     - false
     - "-logL_{Spline}"
