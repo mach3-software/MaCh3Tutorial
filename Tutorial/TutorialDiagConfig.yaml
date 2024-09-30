@@ -95,3 +95,17 @@ ProcessMCMC:
   PriorReweighting: [ ["sin2th_13"], [0.0220], [0.0007] ]
   #Fancy example, not physics motivated but to show functionality
   #PriorReweighting: [ ["MAQE", "Pauli_Blocking_C_nu"], [1.05, 0.1], [ 0.04, 0.5] ]
+
+#########################################
+GetPenaltyTerm:
+  PenaltySets: ["Norm", "Spline"]
+
+  #KS: Goes as vector with names based on which we select, true or false whether we want to be inclusive or exclusive and fancy name
+  Norm:
+    - ["Norm_Param"]
+    - false
+    - "-logL_{Norm}"
+  ND_Syst:
+    - ["Spline_Param"]
+    - false
+    - "-logL_{Spline}"
