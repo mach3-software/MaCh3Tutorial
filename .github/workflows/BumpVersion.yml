@@ -61,7 +61,10 @@ jobs:
             git push origin update_version_${MaCh3_VERSION}
 
             # Create Pull Request
-            gh pr create --title "Bump MaCh3Tutorial_VERSION to ${MaCh3_VERSION}" --body "This PR updates the MaCh3Tutorial_VERSION to ${MaCh3_VERSION}." --base main --head update_version_${{ env.MaCh3_VERSION }}
+            gh pr create --title "Bump MaCh3Tutorial_VERSION to ${MaCh3_VERSION}" --body "This PR updates the MaCh3Tutorial_VERSION to ${MaCh3_VERSION}." --base main --head update_version_${{ env.MaCh3_VERSION }} --fill --reviewer KSkwarczynski
+
           else
             echo "Versions are the same. No new branch created."
           fi
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
