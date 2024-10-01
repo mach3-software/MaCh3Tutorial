@@ -51,6 +51,13 @@ jobs:
             ls
             git status
             git checkout -b update_version_${MaCh3_VERSION}
+
+            # Update the MaCh3Tutorial_VERSION in CMakeLists.txt
+            sed -i "s/set(MaCh3Tutorial_VERSION .*/set(MaCh3Tutorial_VERSION ${MaCh3_VERSION})/" CMakeLists.txt
+
+            # Commit the changes
+            git add CMakeLists.txt
+            git commit -m "Bump MaCh3Tutorial_VERSION to ${MaCh3_VERSION}"
             git push origin update_version_${MaCh3_VERSION}
           else
             echo "Versions are the same. No new branch created."
