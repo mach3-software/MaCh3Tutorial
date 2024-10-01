@@ -32,11 +32,12 @@ jobs:
             echo "MaCh3_VERSION=${MaCh3_version}" >> $GITHUB_ENV
 
       # Checkout the MaCh3Tutorial repository
-      - name: Checkout MaCh3Tutorial repository
+        - name: Checkout MaCh3Tutorial repository
         uses: actions/checkout@v3
         with:
-          repository: mach3-software/MaCh3Tutorial
-          path: MaCh3Tutorial
+            repository: mach3-software/MaCh3Tutorial
+            path: MaCh3Tutorial
+            fetch-depth: 0
 
       # Extract the MaCh3Tutorial version from CMakeLists.txt
       - name: Get MaCh3Tutorial version
