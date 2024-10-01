@@ -22,7 +22,7 @@ jobs:
       # Extract the MaCh3 version from CMakeLists.txt
       - name: Get MaCh3 version
         run: |
-          MaCh3_version=$(grep -Po '(?<=set\(MaCh3_VERSION )\d+\.\d+\.\d+' MaCh3/CMakeLists.txt)
+          MaCh3_version=$(grep -Po '(?<=set\(MaCh3_VERSION[ \t]+)[0-9]+\.[0-9]+\.[0-9]+' MaCh3/CMakeLists.txt)
           echo "MaCh3_VERSION=${MaCh3_version}" >> $GITHUB_ENV
 
       # Checkout the MaCh3Tutorial repository
@@ -35,10 +35,14 @@ jobs:
       # Extract the MaCh3Tutorial version from CMakeLists.txt
       - name: Get MaCh3Tutorial version
         run: |
-          MaCh3Tutorial_version=$(grep -Po '(?<=set\(MaCh3Tutorial_VERSION )\d+\.\d+\.\d+' MaCh3Tutorial/CMakeLists.txt)
+          MaCh3Tutorial_version=$(grep -Po '(?<=set\(MaCh3Tutorial_VERSION[ \t]+)[0-9]+\.[0-9]+\.[0-9]+' MaCh3Tutorial/CMakeLists.txt)
+          if [ -z "$MaCh3Tutorial_version" ]; then
+            echo "Error: Unable to extract MaCh3Tutorial_VERSION from CMakeLists.txt"
+            exit 1
+          fi
           echo "MaCh3Tutorial_VERSION=${MaCh3Tutorial_version}" >> $GITHUB_ENV
 
-      # Compare the versions and create a new branch if they differ
+      # Compare the versions and create a new branch if different
       - name: Compare versions and create branch if different
         run: |
           if [ "$MaCh3_VERSION" != "$MaCh3Tutorial_VERSION" ]; then
