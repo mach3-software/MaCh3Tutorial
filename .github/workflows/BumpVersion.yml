@@ -1,0 +1,53 @@
+name: Bump Version
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 12 * * *"  # Runs daily at 12:00
+
+  pull_request:
+    branches: [ develop ]
+
+jobs:
+  check-version:
+    runs-on: ubuntu-latest
+    steps:
+      # Checkout the MaCh3 repository
+      - name: Checkout MaCh3 repository
+        uses: actions/checkout@v3
+        with:
+          repository: mach3-software/MaCh3
+          path: MaCh3
+
+      # Extract the MaCh3 version from CMakeLists.txt
+      - name: Get MaCh3 version
+        run: |
+          MaCh3_version=$(grep -Po '(?<=set\(MaCh3_VERSION )\d+\.\d+\.\d+' MaCh3/CMakeLists.txt)
+          echo "MaCh3_VERSION=${MaCh3_version}" >> $GITHUB_ENV
+
+      # Checkout the MaCh3Tutorial repository
+      - name: Checkout MaCh3Tutorial repository
+        uses: actions/checkout@v3
+        with:
+          repository: mach3-software/MaCh3Tutorial
+          path: MaCh3Tutorial
+
+      # Extract the MaCh3Tutorial version from CMakeLists.txt
+      - name: Get MaCh3Tutorial version
+        run: |
+          MaCh3Tutorial_version=$(grep -Po '(?<=set\(MaCh3Tutorial_VERSION )\d+\.\d+\.\d+' MaCh3Tutorial/CMakeLists.txt)
+          echo "MaCh3Tutorial_VERSION=${MaCh3Tutorial_version}" >> $GITHUB_ENV
+
+      # Compare the versions and create a new branch if they differ
+      - name: Compare versions and create branch if different
+        run: |
+          if [ "$MaCh3_VERSION" != "$MaCh3Tutorial_VERSION" ]; then
+            echo "Versions are different. Creating a new branch in MaCh3Tutorial."
+            git config user.name "github-actions"
+            git config user.email "actions@github.com"
+            cd MaCh3Tutorial
+            git checkout -b update-version-${MaCh3_VERSION}
+            git push origin update-version-${MaCh3_VERSION}
+          else
+            echo "Versions are the same. No new branch created."
+          fi
