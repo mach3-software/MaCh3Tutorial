@@ -11,6 +11,11 @@ jobs:
   check-version:
     runs-on: ubuntu-latest
     steps:
+      - name: Set up Git
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+
       # Checkout the MaCh3 repository
       - name: Checkout MaCh3 repository
         uses: actions/checkout@v3
@@ -42,13 +47,11 @@ jobs:
         run: |
           if [ "$MaCh3_VERSION" != "$MaCh3Tutorial_VERSION" ]; then
             echo "Versions are different. Creating a new branch in MaCh3Tutorial."
-            git config user.name "github-actions"
-            git config user.email "actions@github.com"
             cd MaCh3Tutorial
             ls
             git status
-            git checkout -b update-version-${MaCh3_VERSION}
-            git push origin update-version-${MaCh3_VERSION}
+            git checkout -b update_version_${MaCh3_VERSION}
+            git push origin update_version_${MaCh3_VERSION}
           else
             echo "Versions are the same. No new branch created."
           fi
