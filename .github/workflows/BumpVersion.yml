@@ -48,12 +48,12 @@ jobs:
           if [ "$MaCh3_VERSION" != "$MaCh3Tutorial_VERSION" ]; then
             echo "Versions are different. Creating a new branch in MaCh3Tutorial."
             cd MaCh3Tutorial
-            ls
-            git status
             git checkout -b update_version_${MaCh3_VERSION}
 
             # Update the MaCh3Tutorial_VERSION in CMakeLists.txt
-            sed -i "s/set(MaCh3Tutorial_VERSION .*/set(MaCh3Tutorial_VERSION ${MaCh3_VERSION})/" CMakeLists.txt
+            sed -i "s/SET(MaCh3Tutorial_VERSION .*)/SET(MaCh3Tutorial_VERSION ${MaCh3_VERSION})/" CMakeLists.txt
+            git status
+            git diff
 
             # Commit the changes
             git add CMakeLists.txt
