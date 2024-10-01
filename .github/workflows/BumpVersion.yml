@@ -59,6 +59,12 @@ jobs:
             git add CMakeLists.txt
             git commit -m "Bump MaCh3Tutorial_VERSION to ${MaCh3_VERSION}"
             git push origin update_version_${MaCh3_VERSION}
+
+            # Create Pull Request
+            curl -X POST -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+            -H "Accept: application/vnd.github.v3+json" \
+            https://api.github.com/repos/mach3-software/MaCh3Tutorial/pulls \
+            -d '{"title":"Bump MaCh3Tutorial_VERSION to '"${MaCh3_VERSION}"'", "head":"update_version_'"${MaCh3_VERSION}"'", "base":"main", "body":"This PR updates the MaCh3Tutorial_VERSION to match the MaCh3 version."}'
           else
             echo "Versions are the same. No new branch created."
           fi
