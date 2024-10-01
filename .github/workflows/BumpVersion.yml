@@ -22,8 +22,14 @@ jobs:
       # Extract the MaCh3 version from CMakeLists.txt
       - name: Get MaCh3 version
         run: |
-          MaCh3_version=$(grep -Po '(?<=set\(MaCh3_VERSION )\d+\.\d+\.\d+' MaCh3/CMakeLists.txt)
-          echo "MaCh3_VERSION=${MaCh3_version}" >> $GITHUB_ENV
+            # Extract the MaCh3 version from CMakeLists.txt
+            MaCh3_version=$(grep -Po '(?<=set\(MaCh3_VERSION )\d+\.\d+\.\d+' MaCh3/CMakeLists.txt)
+
+            # Echo the version to the console
+            echo "Extracted MaCh3 version: ${MaCh3_version}"
+
+            # Output to the environment variable
+            echo "MaCh3_VERSION=${MaCh3_version}" >> $GITHUB_ENV
 
       # Checkout the MaCh3Tutorial repository
       - name: Checkout MaCh3Tutorial repository
@@ -35,8 +41,16 @@ jobs:
       # Extract the MaCh3Tutorial version from CMakeLists.txt
       - name: Get MaCh3Tutorial version
         run: |
-          MaCh3Tutorial_version=$(grep -Po '(?<=set\(MaCh3Tutorial_VERSION )\d+\.\d+\.\d+' MaCh3Tutorial/CMakeLists.txt)
-          echo "MaCh3Tutorial_VERSION=${MaCh3Tutorial_version}" >> $GITHUB_ENV
+            # Print the file content for debugging
+            echo "Checking MaCh3Tutorial/CMakeLists.txt content:"
+            cat MaCh3Tutorial/CMakeLists.txt
+
+            # Attempt to extract the version and handle failure gracefully
+            MaCh3Tutorial_version=$(grep -Po '(?<=set\(MaCh3Tutorial_VERSION )\d+\.\d+\.\d+' MaCh3Tutorial/CMakeLists.txt || echo "Version not found")
+            echo "Extracted MaCh3Tutorial version: ${MaCh3Tutorial_version}"
+
+            # Set the version in the environment
+            echo "MaCh3Tutorial_VERSION=${MaCh3Tutorial_version}" >> $GITHUB_ENV
 
       # Compare the versions and create a new branch if they differ
       - name: Compare versions and create branch if different
