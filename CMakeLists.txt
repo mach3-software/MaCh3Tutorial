@@ -3,7 +3,7 @@ set(CMAKE_VERBOSE_MAKEFILE ON)
 # CMake version check
 cmake_minimum_required(VERSION 3.14 FATAL_ERROR)
 
-SET(MaCh3Tutorial_VERSION 1.1.6)
+SET(MaCh3Tutorial_VERSION 1.1.7)
 
 # Create project (todo: set configurable CUDA)
 project(MaCh3Tutorial VERSION ${MaCh3Tutorial_VERSION} LANGUAGES CXX)
