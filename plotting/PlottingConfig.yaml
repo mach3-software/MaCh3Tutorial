@@ -60,22 +60,51 @@ GetPostfitParamPlots:
 
     ## groups of parameters to plot together
     paramGroups: [
-        "EXAMPLE_GROUP_1", 
-        "EXAMPLE_GROUP_2",
+        "Cross_Section", 
+        "Detector_Systematic",
+        "Flux",
+        "Osc_Mixing_Angles",
+        "Osc_Mass_Splitting",
+        "Experiment_Setup"
     ]
 
     ## define the groups of parameters, should go <block name>: [<plot title>, [<ylim low>, <ylim up>], ["ParamName1", "ParamName2" ...]
-    EXAMPLE_GROUP_1: ["COOL NAME 1", [-1.5, 2.0],   
+    Cross_Section: ["Cross Section", [-1.5, 2.0],   
         [
-            "XSEC_PARAM_1", 
-            "XSEC_PARAM_2", 
-            "XSEC_PARAM_3"
+            "Norm_Param_0", 
+            "Spline_Param_0", 
+            "Func_Param_0",
+            "Func_Param_1"
         ]
     ]
 
-    EXAMPLE_GROUP_2: ["COOL NAME 2", [-4.0, 4.0], 
+    Detector_Systematic: ["Detector Systematics", [-1.5, 2.0],   
         [
-            "XSEC_PARAM_4",
-            "XSEC_PARAM_5",
+            "Norm_Param_1", 
+            "Spline_Param_1", 
+            "Func_Param_2",
+            "Func_Param_3"
+        ]
+    ]
+
+    Osc_Mixing_Angles: ["Oscillations - Mixing Angles", [0.0, 1.0],   
+        [
+            "sin2th_12", 
+            "sin2th_23", 
+            "sin2th_13",
+        ]
+    ]
+    
+    Osc_Mass_Splitting: ["Oscillations - Mass Splitting", [0.0, 1.0],   
+        [
+            "delm2_12", 
+            "delm2_23", 
+        ]
+    ]
+    
+    Experiment_Setup: ["Experimental Setup", [0.0, 1.0],   
+        [
+            "baseline", 
+            "density", 
         ]
     ]
