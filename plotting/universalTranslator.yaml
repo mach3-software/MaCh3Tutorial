@@ -115,6 +115,11 @@ FitterSpec:
                     "param_flux_prefit"
                 ]
 
+        1dPosteriors:
+            location: [
+                "Post_1d_hists:{PARAMETER}",
+            ]
+
         MCMCsteps:
             location: [
                 "posteriors",

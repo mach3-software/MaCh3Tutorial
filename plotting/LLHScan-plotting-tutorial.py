@@ -35,7 +35,6 @@ def test_LLH_scans(man):
 
     pdf.close()
 
-
 # make a PlottingManager and initialise using the command line arguments
 manager = PlottingManager()
 manager.parse_inputs(sys.argv)
