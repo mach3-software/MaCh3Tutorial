@@ -73,7 +73,48 @@ where LLH_Test.root is the result of running the LLH scan as described [here](#h
 
 ### Plotting with Python
 
-If you have installed the python interface for MaCh3 as described [here](https://github.com/mach3-software/MaCh3?tab=readme-ov-file#python) then you can also use the provided python plotting module
+If you have installed the python interface for MaCh3 as described [here](https://github.com/mach3-software/MaCh3?tab=readme-ov-file#python) then you can also use the provided python plotting module. The details on how to write custom python scripts using this plotting module are detailed in [the wiki](https://github.com/mach3-software/MaCh3/wiki/15.-Plotting#custom-plotting-scripts). Here we will walk you through some example scripts.
+
+For the examples here, we will use matplotlib and numpy. These can be installed using the provided [requirements.txt](requirements.txt) by doing 
+
+```
+pip install -r requirements.txt
+```
+
+but note that these are just what is used for an example for the purpose of this tutorial. When making your own plots you are totally free to use whatever plotting libraries you like!
+
+You can use the example script [MCMCPlotting-tutorial.py](plotting/MCMC-plotting-tutorial.py) to plot the raw MCMC chain values that were obtained in the [how to run MCMC](#how-to-run-mcmc) section above by doing 
+
+```
+python plotting/MCMC-plotting-tutorial.py Test.root
+```
+
+This will give you some plots that look something like 
+
+<img width="350" alt="MCMC example" src="https://github.com/user-attachments/assets/bdb1792f-3d52-4ea3-8eb8-0e6cf7b9119a">
+
+After you have run this chain through the MCMC processor as described in the [How To Plot?](#how-to-plot) section, you can pass the processed file to [1DPosterior-tutorial.py](plotting/1DPosterior-tutorial.py) like
+
+```
+python plotting/1DPosterior-tutorial.py Test_Process.root
+```
+
+which will plot the projected one dimensional posteriors which should look something like 
+
+<img width="350" alt="1dPosterior example" src="https://github.com/user-attachments/assets/4ddf3abb-9794-4f21-ae9b-862718c2ff57">
+
+
+Similarly you can use [LLHScan-plotting-tutorial.py](plotting/LLHScan-plotting-tutorial.py) to plot the LLH scans you made in the [How to run LLH scan](#how-to-run-llh-scan) section like
+
+```
+python plotting/LLHScan-plotting-tutorial.py LLH_Test.root
+```
+
+which will give you some plots that look something like 
+
+<img width="350" alt="LLH scan example" src="https://github.com/user-attachments/assets/f16ad571-68da-42e3-ae6b-e984d03a58c3">
+
+
 
 ## How to Setup your analysis
 In the next step you gonna modify analysis setup and repeat steps.
