@@ -25,6 +25,13 @@ docker pull ghcr.io/mach3-software/mach3tutorial:alma9latest
 ```
 To reed more how to use containers check our wiki [here](https://github.com/mach3-software/MaCh3/wiki/12.-Containers)
 
+## Hot to run LLH scan
+To run an LLH scan simply do
+```
+./bin/MCMCTutorial Inputs/ManagerTest.yaml
+```
+These are very useful for validations and to compare with other fitters
+
 ## How to run MCMC
 To run MCMC simply
 ```
