@@ -2,6 +2,7 @@ add_custom_target(TutorialApps)
 
 foreach(app
     MCMCTutorial
+    LLHScanTutorial
     )
     add_executable(${app} ${app}.cpp)
     target_link_libraries(${app} MaCh3Validations::ValidationsUtils)

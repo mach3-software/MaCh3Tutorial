@@ -1,0 +1,106 @@
+#########################################
+## can specify colour palettes that can be used here
+## these are some nice ones but you can easily add more
+ColorPallettes:
+
+    OkabeItoReduced: [
+        ## define the colour palette taken from https://www.color-hex.com/color-palette/49436
+        
+        # the number of colours to include in the palette
+        [255.0],
+        
+        # now the RGB values for the palette
+        [ 0.0        , 0.25       , 0.5        , 0.75       ], ## stops
+        [ 0.83203125 , 0.796875   , 0.0        , 0.9375     ], ## Reds
+        [ 0.3671875  , 0.47265625 , 0.4453125  , 0.890625   ], ## greens
+        [ 0.0        , 0.65234375 , 0.6953125  , 0.2578125  ], ## blues
+    ]
+
+    OkabeIto: [
+        ## full Okabe-Ito colourblind friendly colour pallette defined at https://jfly.uni-koeln.de/color/
+        [255.0],
+        [ 0.0   , 0.15  , 0.3  , 0.45   , 0.57  , 0.71  , 0.86  , 1.0   ], ## stops
+        [ 0.0   , 0.9   , 0.35  , 0.0   , 0.95  , 0.0   , 0.80  , 0.80  ], ## Reds
+        [ 0.0   , 0.6   , 0.7   , 0.6   , 0.90  , 0.45  , 0.40  , 0.60  ], ## greens
+        [ 0.0   , 0.0   , 0.9   , 0.5   , 0.25  , 0.70  , 0.00  , 0.70  ], ## blues
+    ]
+
+    OkabeItoDiscrete: [
+        ## full Okabe-Ito colourblind friendly colour pallette defined at https://jfly.uni-koeln.de/color/
+        [8.0],
+        [ 0.0   , 0.15  , 0.3  , 0.45   , 0.57  , 0.71  , 0.86  , 1.0   ], ## stops
+        [ 0.0   , 0.9   , 0.35  , 0.0   , 0.95  , 0.0   , 0.80  , 0.80  ], ## Reds
+        [ 0.0   , 0.6   , 0.7   , 0.6   , 0.90  , 0.45  , 0.40  , 0.60  ], ## greens
+        [ 0.0   , 0.0   , 0.9   , 0.5   , 0.25  , 0.70  , 0.00  , 0.70  ], ## blues
+    ]
+
+    BlackBlueGreen: [
+        [4.0],
+        [ 0.0   , 0.33  , 0.66 , 1.0 ], ## stops
+        [ 0.0   , 0.0   , 0.0  , 0.0 ], ## Reds
+        [ 0.0   , 0.0   , 1.0  , 0.0 ], ## greens
+        [ 0.0   , 1.0   , 0.0  , 0.0 ], ## blues
+    ]
+
+    RedWhiteBlue: [
+        ## blue to white to red gradient, usually used for cov matrices and sigma vatiations
+        [255.0],
+        [ 0.00, 0.25, 0.50, 0.75, 1.00 ],
+        [ 0.00, 0.25, 1.00, 1.00, 0.50 ],
+        [ 0.00, 0.25, 1.00, 0.25, 0.00 ],
+        [ 0.50, 1.00, 1.00, 0.25, 0.00 ],
+    ]
+
+
+#########################################
+TH1Styles:
+## define custom styles for TH1 type hists
+
+    redHatchedError:
+        MarkerColor: 632   ## marker colour (EM: there must be a way of getting root colours from strings, that would be a nice feature here)
+        MarkerStyle: 7     ## marker style
+        FillColor: 632   ## fill colour
+        FillStyle: 3003  ## fill style
+        LineColor: 632   ## line Colour
+        LineStyle: 1     ## line style
+
+
+#########################################
+## define prettier names for parameters and samples to use in plots
+## can include TLatex for extra fanciness
+PrettyNames:
+
+    ## first nice names for parameters
+    parameters:
+
+        Norm_Param_0: "#pi FSI"
+        Norm_Param_1: "det syst 0"
+        Norm_Param_2: "#Phi_{0}"
+
+        Spline_Param_0: "XSec 0"
+        Spline_Param_1: "det syst 1"
+        
+        Func_Param_0: "XSec 1"
+        Func_Param_1: "XSec 2"
+        Func_Param_2: "det syst 2"
+        Func_Param_3: "det syst 3"
+
+        sin2th_12: "sin^{2}#theta_{12}"
+        sin2th_23: "sin^{2}#theta_{23}"
+        sin2th_13: "sin^{2}#theta_{13}"
+        delm2_12: "#Delta m^{2}_{12}"
+        delm2_23: "#Delta m^{2}_{23}"
+        delta_cp: "#delta_{cp}"
+
+        baseline: "L"
+        density: "#rho"
+
+    ## now same for samples
+    samples:
+        
+        SAMPLE_1: "sample 1"
+        SAMPLE_2: "sample 2"
+        SAMPLE_3: "sample 3"
+
+
+
