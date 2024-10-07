@@ -10,7 +10,7 @@ To compile simply
 ```
 mkdir build;
 cd build;
-cmake ../
+cmake ../ -DPYTHON_ENABLED=ON [DPYTHON_ENABLED not mandatory]
 make -jN [set number of threads]
 make install
 ```
