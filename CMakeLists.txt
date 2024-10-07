@@ -115,6 +115,7 @@ install(FILES "${PROJECT_BINARY_DIR}${CMAKE_FILES_DIRECTORY}/setup.MaCh3Tutorial
 
 ############################  Install  ####################################
 install(DIRECTORY Inputs DESTINATION ${CMAKE_BINARY_DIR})
+install(DIRECTORY plotting DESTINATION ${CMAKE_BINARY_DIR})
 install(DIRECTORY Scripts DESTINATION ${CMAKE_BINARY_DIR})
 
 include(CMakePackageConfigHelpers)
