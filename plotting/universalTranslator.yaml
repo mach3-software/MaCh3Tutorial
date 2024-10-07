@@ -115,7 +115,10 @@ FitterSpec:
                     "param_flux_prefit"
                 ]
 
-
+        MCMCsteps:
+            location: [
+                "posteriors",
+            ]
 
 
     FITTER_2:
