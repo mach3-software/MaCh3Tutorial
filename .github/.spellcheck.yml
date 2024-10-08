@@ -1,29 +1,20 @@
-# List of language dictionaries to use
-language:
-  - en_GB
-
-# Paths to files or directories to check for spelling errors
-files:
-  - README.md
-
-# List of words to ignore (whitelist)
-ignore:
-  - mach3
-  - MaCh3
-  - CUDA
-  - cmake
-  - GitHub
-  - PyPI
-
-# Patterns to ignore (regex)
-ignorePatterns:
-  - '\b[A-Z]{2,}\b'  # Ignore words with all caps (e.g., acronyms)
-  - 'https?:\/\/[^\s]*'  # Ignore URLs
-
-# Enable or disable spellcheck on specific files (can use glob patterns)
-skipFiles:
-  - "*.png"
-  - "*.jpg"
-
-# Enable suggestions (optional)
-suggestions: true
+matrix:
+- name: Markdown
+  sources:
+  - '!venv/**/*.md|**/*.md'
+  default_encoding: utf-8
+  aspell:
+    lang: en
+  dictionary:
+    wordlists:
+    - wordlist.txt
+    encoding: utf-8
+  pipeline:
+  - pyspelling.filters.markdown:
+      markdown_extensions:
+      - pymdownx.superfences
+  - pyspelling.filters.html:
+      comments: false
+      ignores:
+      - code
+      - pre
