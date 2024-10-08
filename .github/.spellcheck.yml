@@ -5,6 +5,16 @@ matrix:
   default_encoding: utf-8
   aspell:
     lang: en
+  dictionary:
+    personal:
+      - MCMC
+      - MCMCTutorial
+      - overlayed
+      - pdf
+      - MaCh
+      - LLH
+      - matplotlib
+      - numpy
   pipeline:
   - pyspelling.filters.markdown:
       markdown_extensions:
