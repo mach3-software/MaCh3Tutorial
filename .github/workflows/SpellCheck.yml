@@ -16,3 +16,4 @@ jobs:
       with:
         config_path: .github/.spellcheck.yml # put path to configuration file here
         source_files: README.md
+        task_name: Markdown
