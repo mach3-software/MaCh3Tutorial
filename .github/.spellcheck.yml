@@ -6,15 +6,8 @@ matrix:
   aspell:
     lang: en
   dictionary:
-    personal:
-      - MCMC
-      - MCMCTutorial
-      - overlayed
-      - pdf
-      - MaCh
-      - LLH
-      - matplotlib
-      - numpy
+    wordlists:
+    - personal_dictionary.txt  # Reference your personal dictionary fil
   pipeline:
   - pyspelling.filters.markdown:
       markdown_extensions:
