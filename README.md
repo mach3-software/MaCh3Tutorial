@@ -42,7 +42,7 @@ You have just completed finished you first MCMC chain.
 
 ## How to Plot?
 
-There are a number of apps included to make plots from the results of your fits, llh scans etc. You can find more details on them and how they work in the main MaCh3 wiki [here](https://github.com/mach3-software/MaCh3/wiki). There you will also find some instructions on how you can write yor own plotting scripts. 
+There are a number of apps included to make plots from the results of your fits, llh scans etc. You can find more details on them and how they work in the main MaCh3 wiki [here](https://github.com/mach3-software/MaCh3/wiki). There you will also find some instructions on how you can write your own plotting scripts.
 
 The plotting library is configured using yaml files. You can see some examples of such config files in the plotting directory, and a detailed explanation of them is given in [the wiki](https://github.com/mach3-software/MaCh3/wiki).
 
@@ -115,7 +115,6 @@ which will give you some plots that look something like
 <img width="350" alt="LLH scan example" src="https://github.com/user-attachments/assets/f16ad571-68da-42e3-ae6b-e984d03a58c3">
 
 
-
 ## How to Setup your analysis
 In the next step you gonna modify analysis setup and repeat steps.
 First let's better understand `Inputs/SystematicsTest.yaml`. This config controls what systematic uncertainties will be used in the analysis for example like this:
@@ -142,7 +141,7 @@ First let's better understand `Inputs/SystematicsTest.yaml`. This config control
 ```
 If you want to read more about implementation please go [here](https://github.com/mach3-software/MaCh3/wiki/02.-Implementation-of-Systematic)
 
-As first step let's modify `Error: 0.11` to `Error: 2.0`, this should significantly modify error which shou.d be noticeable in MCMC.
+As first step let's modify `Error: 0.11` to `Error: 2.0`, this should significantly modify error which should be noticeable in MCMC.
 
 Lastly we need to modify name of output file. This is governed by manager class (read more [here](https://github.com/mach3-software/MaCh3/wiki/01.-Manager-and-config-handling)) modify `OutputFile: "Test.root"` in `Inputs/ManagerTest.yaml` to for example
 `OutputFile: "Test_Modified.root"`.

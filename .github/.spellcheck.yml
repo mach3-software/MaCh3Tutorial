@@ -7,13 +7,16 @@ matrix:
     lang: en
   dictionary:
     wordlists:
-    - .github/personal_dictionary.txt  # Reference your personal dictionary fil
+    - .github/personal_dictionary.txt  # Reference your personal dictionary file
   pipeline:
   - pyspelling.filters.markdown:
       markdown_extensions:
       - pymdownx.superfences
+      ignores:
+      - code  # Ignore code blocks
+      - pre   # Ignore preformatted text blocks
   - pyspelling.filters.html:
       comments: false
       ignores:
-      - code
-      - pre
+      - code  # Ignore code sections in HTML
+      - pre   # Ignore preformatted sections in HTML
