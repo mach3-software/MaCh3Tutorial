@@ -7,7 +7,7 @@ matrix:
     lang: en
   dictionary:
     wordlists:
-    - personal_dictionary.txt  # Reference your personal dictionary fil
+    - .github/personal_dictionary.txt  # Reference your personal dictionary fil
   pipeline:
   - pyspelling.filters.markdown:
       markdown_extensions:
