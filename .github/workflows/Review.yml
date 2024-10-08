@@ -10,13 +10,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Check out repo
-      uses: actions/checkout@v2
-    - name: Use Node
-      uses: actions/setup-node@v2
-      with:
-        node-version: '16.x'
-    - name: Install deps
-      run: npm install
+      uses: actions/checkout@v3
+
     - name: Run PR summary action
       uses: skarthikeyan96/typescript-custom-action@0.0.1
       with:
