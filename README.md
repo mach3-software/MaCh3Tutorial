@@ -28,14 +28,14 @@ To reed more how to use containers check our wiki [here](https://github.com/mach
 ## How to run LLH scan
 To run an LLH scan simply do
 ```
-./bin/MCMCTutorial Inputs/ManagerTest.yaml
+./bin/LLHScanTutorial Inputs/ManagerTest.yaml
 ```
 These are very useful for validations and to compare with other fitters
 
 ## How to run MCMC
 To run MCMC simply
 ```
-./bin/LLHScanTutorial Inputs/ManagerTest.yaml
+./bin/MCMCTutorial Inputs/ManagerTest.yaml
 ```
 Congratulations! 🎉
 You have just completed finished you first MCMC chain.
