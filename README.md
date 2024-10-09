@@ -35,7 +35,7 @@ These are very useful for validations and to compare with other fitters
 ## How to run MCMC
 To run MCMC simply
 ```
-./bin/MCMCTutorial Inputs/ManagerTest.yaml
+./bin/LLHScanTutorial Inputs/ManagerTest.yaml
 ```
 Congratulations! 🎉
 You have just completed finished you first MCMC chain.
