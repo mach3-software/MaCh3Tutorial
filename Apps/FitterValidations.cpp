@@ -20,9 +20,7 @@ void FitVal(const std::string& Algo, bool MoreTests)
 
   MACH3LOG_INFO("Testing {}", Algo);
 
-  std::vector<std::string> xsecCovMatrixFile = FitManager->raw()["General"]["Systematics"]["XsecCovFile"].as<std::vector<std::string>>();
-  covarianceXsec* xsec = new covarianceXsec(xsecCovMatrixFile, "xsec_cov");
-
+  covarianceXsec* xsec = MaCh3CovarianceFactory(FitManager, "Xsec");
   std::unique_ptr<FitterBase> MaCh3Fitter = nullptr;
   if(Algo == "MCMC") {
     MaCh3Fitter = std::make_unique<mcmc>(FitManager);
