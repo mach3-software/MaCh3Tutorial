@@ -2,6 +2,13 @@
 # KS: Get glorious container from Luke which will work as a base
 FROM picker24/root_v6_26_10:alma9 AS mach3tutorial_build
 
+# Add a label for the author
+LABEL maintainer="The MaCh3 Collaboration"
+LABEL website="https://mach3-software.github.io/MaCh3/"
+LABEL compiler="GNU 11.3.1"
+LABEL root_version="v6.26.10"
+LABEL org.opencontainers.image.description="Official MaCh3 Tutorial container"
+
 # Declare the build argument
 ARG MACH3_VERSION
 ENV MACH3_VERSION=${MACH3_VERSION:-develop}
