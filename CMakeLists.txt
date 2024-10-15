@@ -66,7 +66,6 @@ endif()
 #If MaCh3 was sourced find it, otherwise use CPM
 #find_package(MaCh3 QUIET)
 
-
 if(NOT DEFINED PYTHON_ENABLED)
   SET(PYTHON_ENABLED false)
 endif()
