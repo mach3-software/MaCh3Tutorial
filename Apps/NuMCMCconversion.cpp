@@ -4,9 +4,9 @@
 #include "TFile.h"
 #include "TTree.h"
 #include "TNamed.h"
+#include "TObjString.h"
 
 /// @todo actually save gaussian
-/// @todo make sure delta_cp is properly initialised
 
 int main(int argc, char *argv[])
 {
@@ -86,6 +86,11 @@ int main(int argc, char *argv[])
 
   // Write the TList to the directory
   paramList->Write("priors", TObject::kSingleKey);
+
+
+  TObjString doi("https://doi.org/10.5281/zenodo.13642670");
+
+  doi.Write("citation");
 
   // Close the file
   newfile->Close();

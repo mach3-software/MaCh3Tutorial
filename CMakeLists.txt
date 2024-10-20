@@ -91,7 +91,7 @@ endif()
 
 CPMAddPackage(
   NAME NuMCMCTools
-  GIT_TAG main
+  GIT_TAG "tags/v1.0.0"
   GITHUB_REPOSITORY NuMCMCTools/NuMCMCTools
   DOWNLOAD_ONLY YES
 )
