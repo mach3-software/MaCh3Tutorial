@@ -23,11 +23,14 @@ void FitVal(const std::string& Algo, bool MoreTests)
   covarianceXsec* xsec = MaCh3CovarianceFactory(FitManager, "Xsec");
   std::unique_ptr<FitterBase> MaCh3Fitter = nullptr;
   if(Algo == "MCMC") {
+    FitManager->OverrideSettings("General", "OutputFile", "MCMC_Test.root");
     MaCh3Fitter = std::make_unique<mcmc>(FitManager);
   } else if (Algo == "PSO") {
+    FitManager->OverrideSettings("General", "OutputFile", "PSO_Test.root");
     MaCh3Fitter = std::make_unique<PSO>(FitManager);
   } else if (Algo == "Minuit2") {
     #ifdef MaCh3_MINUIT2
+    FitManager->OverrideSettings("General", "OutputFile", "MINUIT2_Test.root");
     MaCh3Fitter = std::make_unique<MinuitFit>(FitManager);
     #else
     MACH3LOG_ERROR("Trying to use Minuit2 however MaCh3 was compiled without Minuit2 support");
@@ -51,18 +54,26 @@ void FitVal(const std::string& Algo, bool MoreTests)
 
   MaCh3Fitter.reset();
   delete xsec;
-  //KS: Let's rename MCMC file so we can use it for some additional tests
-  if(MoreTests)
-  {
-    std::string oldName = FitManager->raw()["General"]["OutputFile"].as<std::string>();
-    std::string newName = "MCMC_Test.root";
+  delete FitManager;
+}
 
-    // Rename file
-    if (std::rename(oldName.c_str(), newName.c_str()) != 0) {
-      MACH3LOG_CRITICAL("Error renaming file");
-      throw MaCh3Exception(__FILE__ , __LINE__ );
-    }
-  }
+void StartFromPosteriorTest(const std::string& PreviousName)
+{
+  std::string ManagerInput = "Inputs/ManagerTest.yaml";
+  manager *FitManager = new manager(ManagerInput);
+
+  FitManager->OverrideSettings("General", "OutputFile", "MCMC_Test_Start.root");
+
+  covarianceXsec* xsec = MaCh3CovarianceFactory(FitManager, "Xsec");
+  std::unique_ptr<mcmc> MarkovChain = std::make_unique<mcmc>(FitManager);
+  MarkovChain->addSystObj(xsec);
+
+  MarkovChain->StartFromPreviousFit(PreviousName);
+
+  MarkovChain->runMCMC();
+
+  MarkovChain.reset();
+  delete xsec;
   delete FitManager;
 }
 
@@ -85,6 +96,8 @@ int main(int argc, char *argv[])
    FitVal(Algo[i], MoreTests);
    MoreTests = false;
   }
+
+  StartFromPosteriorTest("MCMC_Test.root");
 
   MACH3LOG_INFO("Everything seems correct");
 
