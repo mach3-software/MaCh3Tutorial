@@ -85,17 +85,6 @@ int main(int argc, char *argv[])
   newtree->Print();
   newtree->AutoSave();
 
-  // List of parameter names and their corresponding titles
-  /*
-    std::vector<std::pair<std::string, std::string>> params = {
-    {"Theta23", "Uniform:Theta23"},
-    {"Theta13", "Uniform:Theta13"},
-    {"Theta12", "Uniform:Theta12"},
-    {"Deltam2_32", "Uniform:Deltam2_32"},
-    {"Deltam2_21", "Uniform:Deltam2_21"},
-    {"DeltaCP", "Uniform:DeltaCP"}
-  };
-  */
   // List of parameter names and corresponding titles
   std::vector<std::pair<std::string, std::string>> params;
 
