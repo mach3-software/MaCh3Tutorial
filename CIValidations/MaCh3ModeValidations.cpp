@@ -38,7 +38,7 @@ int main(int argc, char *argv[])
 
   outFile.close();
 
-  bool TheSame = CompareTwoFiles("Apps/TestOutputs/MaCh3ModeOut.txt", "NewMaCh3ModeOut.txt");
+  bool TheSame = CompareTwoFiles("CIValidations/TestOutputs/MaCh3ModeOut.txt", "NewMaCh3ModeOut.txt");
   if(!TheSame) {
     MACH3LOG_CRITICAL("Somehting is wrong with MaCh3 modes");
     throw MaCh3Exception(__FILE__ , __LINE__ );
