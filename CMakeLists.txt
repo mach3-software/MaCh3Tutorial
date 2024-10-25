@@ -112,7 +112,7 @@ cmessage(STATUS "CMAKE CXX Standard: ${CMAKE_CXX_STANDARD}")
 
 ################################# Build MaCh3 ##################################
 add_subdirectory(Utils)
-add_subdirectory(Apps)
+add_subdirectory(CIValidations)
 add_subdirectory(Tutorial)
 
 configure_file(cmake/Templates/setup.MaCh3Tutorial.sh.in "${PROJECT_BINARY_DIR}${CMAKE_FILES_DIRECTORY}/setup.MaCh3Tutorial.sh" @ONLY)
@@ -121,7 +121,6 @@ install(FILES "${PROJECT_BINARY_DIR}${CMAKE_FILES_DIRECTORY}/setup.MaCh3Tutorial
 ############################  Install  ####################################
 install(DIRECTORY Inputs DESTINATION ${CMAKE_BINARY_DIR})
 install(DIRECTORY plotting DESTINATION ${CMAKE_BINARY_DIR})
-install(DIRECTORY Scripts DESTINATION ${CMAKE_BINARY_DIR})
 
 include(CMakePackageConfigHelpers)
 configure_package_config_file(
