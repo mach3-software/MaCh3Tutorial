@@ -17,9 +17,10 @@ install(PROGRAMS
     NuMCMCvalidations.sh
     TestNuMCMC.py
 
-    DESTINATION Apps)
+    DESTINATION CIValidations)
 
 install(DIRECTORY
     TestOutputs
+    Scripts
 
-    DESTINATION Apps)
+    DESTINATION CIValidations)
