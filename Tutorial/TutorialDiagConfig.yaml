@@ -109,3 +109,19 @@ GetPenaltyTerm:
     - ["Spline_Param"]
     - false
     - "-logL_{Spline}"
+
+
+
+#########################################
+MatrixPlotter:
+
+  Titles: [
+    "Norm",
+    "Spline",
+  ]
+
+  Norm: ["Norm_Param_0", "Norm_Param_1"
+  ]
+
+  Spline: ["Spline_Param_0", "Spline_Param_1"
+  ]
