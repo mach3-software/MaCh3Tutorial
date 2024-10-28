@@ -1,13 +1,11 @@
 #include "samplePDF/samplePDFTutorial.h"
 
-
 samplePDFTutorial::samplePDFTutorial(std::string mc_version_, covarianceXsec* xsec_cov_) : samplePDFFDBase(mc_version_, xsec_cov_) {
   Initialise();
 }
 
 samplePDFTutorial::~samplePDFTutorial() {
 }
-
 
 void samplePDFTutorial::Init() {
   TutorialSamples.resize(nSamples, tutorial_base());
@@ -23,6 +21,7 @@ void samplePDFTutorial::Init() {
 }
 
 void samplePDFTutorial::SetupSplines() {
+  MACH3LOG_WARN("Not using splines");
   splineFile = nullptr;
   
   return;
@@ -38,7 +37,6 @@ void samplePDFTutorial::SetupWeightPointers() {
     }
   }
 }
-
 
 int samplePDFTutorial::setupExperimentMC(int iSample) {
 
@@ -66,10 +64,10 @@ int samplePDFTutorial::setupExperimentMC(int iSample) {
     throw MaCh3Exception(__FILE__, __LINE__);
   }
   tutobj->nEvents = _data->GetEntries();
-  tutobj->TrueEnu = new double[tutobj->nEvents];
-  tutobj->Q2 = new double[tutobj->nEvents];
-  tutobj->Mode = new double[tutobj->nEvents];
-  tutobj->Target = new int[tutobj->nEvents];
+  tutobj->TrueEnu.resize(tutobj->nEvents);
+  tutobj->Q2.resize(tutobj->nEvents);
+  tutobj->Mode.resize(tutobj->nEvents);
+  tutobj->Target.resize(tutobj->nEvents);
   tutobj->isNC = new bool[tutobj->nEvents];
 
   //Truth Variables
@@ -133,62 +131,48 @@ int samplePDFTutorial::setupExperimentMC(int iSample) {
 }
 
 
-double samplePDFTutorial::ReturnKinematicParameter(double KinematicVariable, int iSample, int iEvent) {
-  KinematicTypes KinPar = (KinematicTypes) std::round(KinematicVariable);
-  double KinematicValue = -999;
-
-  switch(KinPar){
-  case kTrueNeutrinoEnergy:
-    KinematicValue = TutorialSamples[iSample].TrueEnu[iEvent];
-    break;
-  case kTrueQ2:
-    KinematicValue = TutorialSamples[iSample].Q2[iEvent];
-    break;
-  default:
-    MACH3LOG_ERROR("Did not recognise Kinematic Parameter type");
-    MACH3LOG_ERROR("Was given a Kinematic Variable of {}", KinematicVariable);
-    throw MaCh3Exception(__FILE__, __LINE__);
+double samplePDFTutorial::ReturnKinematicParameter(KinematicTypes KinPar, int iSample, int iEvent) {
+  switch (KinPar) {
+    case kTrueNeutrinoEnergy:
+      return TutorialSamples[iSample].TrueEnu[iEvent];
+    case kTrueQ2:
+      return TutorialSamples[iSample].Q2[iEvent];
+    default:
+      MACH3LOG_ERROR("Unrecognized Kinematic Parameter type: {}", static_cast<int>(KinPar));
+      throw MaCh3Exception(__FILE__, __LINE__);
   }
-  
-  return KinematicValue;
+}
+
+double samplePDFTutorial::ReturnKinematicParameter(double KinematicVariable, int iSample, int iEvent) {
+  KinematicTypes KinPar = static_cast<KinematicTypes>(std::round(KinematicVariable));
+  return ReturnKinematicParameter(KinPar, iSample, iEvent);
 }
 
 double samplePDFTutorial::ReturnKinematicParameter(std::string KinematicParameter, int iSample, int iEvent) {
- KinematicTypes KinPar = static_cast<KinematicTypes>(ReturnKinematicParameterFromString(KinematicParameter)); 
- double KinematicValue = -999;
- 
- switch(KinPar){
- case kTrueNeutrinoEnergy:
-   KinematicValue = TutorialSamples[iSample].TrueEnu[iEvent];
-   break;
- case kTrueQ2:
-   KinematicValue = TutorialSamples[iSample].Q2[iEvent];
-   break;
- default:
-   MACH3LOG_ERROR("Did not recognise Kinematic Parameter type...");
-   throw MaCh3Exception(__FILE__, __LINE__);
- }
+  KinematicTypes KinPar = static_cast<KinematicTypes>(ReturnKinematicParameterFromString(KinematicParameter));
+  return ReturnKinematicParameter(KinPar, iSample, iEvent);
+}
 
- return KinematicValue;
+const double* samplePDFTutorial::GetPointerToKinematicParameter(KinematicTypes KinPar, int iSample, int iEvent) {
+  switch (KinPar) {
+    case kTrueNeutrinoEnergy:
+      return &TutorialSamples[iSample].TrueEnu[iEvent];
+    case kTrueQ2:
+      return &TutorialSamples[iSample].Q2[iEvent];
+    default:
+      MACH3LOG_ERROR("Unrecognized Kinematic Parameter type: {}", static_cast<int>(KinPar));
+      throw MaCh3Exception(__FILE__, __LINE__);
+  }
+}
+
+const double* samplePDFTutorial::GetPointerToKinematicParameter(double KinematicVariable, int iSample, int iEvent) {
+  KinematicTypes KinPar = static_cast<KinematicTypes>(std::round(KinematicVariable));
+  return GetPointerToKinematicParameter(KinPar, iSample, iEvent);
 }
 
 const double* samplePDFTutorial::GetPointerToKinematicParameter(std::string KinematicParameter, int iSample, int iEvent) {
- KinematicTypes KinPar = static_cast<KinematicTypes>(ReturnKinematicParameterFromString(KinematicParameter));
- double* KinematicValue = nullptr;
-
- switch(KinPar){
- case kTrueNeutrinoEnergy:
-   KinematicValue = &TutorialSamples[iSample].TrueEnu[iEvent];
-   break;
- case kTrueQ2:
-   KinematicValue = &TutorialSamples[iSample].Q2[iEvent];
-   break;
- default:
-   MACH3LOG_ERROR("Did not recognise Kinematic Parameter type...");
-   throw MaCh3Exception(__FILE__, __LINE__);
- }
- 
- return KinematicValue;
+  KinematicTypes KinPar = static_cast<KinematicTypes>(ReturnKinematicParameterFromString(KinematicParameter));
+  return GetPointerToKinematicParameter(KinPar, iSample, iEvent);
 }
 
 int samplePDFTutorial::ReturnKinematicParameterFromString(std::string KinematicParameterStr){
@@ -201,28 +185,8 @@ int samplePDFTutorial::ReturnKinematicParameterFromString(std::string KinematicP
   return -999;
 }
 
-const double* samplePDFTutorial::GetPointerToKinematicParameter(double KinematicVariable, int iSample, int iEvent) {
-  KinematicTypes KinPar = (KinematicTypes) std::round(KinematicVariable);
-  double* KinematicValue = nullptr;
-
-  switch(KinPar){
-  case kTrueNeutrinoEnergy:
-    KinematicValue = &TutorialSamples[iSample].TrueEnu[iEvent];
-    break;
-  case kTrueQ2:
-    KinematicValue = &TutorialSamples[iSample].Q2[iEvent];
-    break;
-  default:
-   MACH3LOG_ERROR("Did not recognise Kinematic Parameter type...");
-   throw MaCh3Exception(__FILE__, __LINE__);
-  }
-  
-  return KinematicValue;
-}
-
 inline std::string samplePDFTutorial::ReturnStringFromKinematicParameter(int KinematicParameter) {
   std::string KinematicString = "";
- 
   switch(KinematicParameter){
    case kTrueNeutrinoEnergy:
      KinematicString = "TrueNeutrinoEnergy";

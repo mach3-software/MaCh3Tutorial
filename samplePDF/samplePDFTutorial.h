@@ -3,10 +3,9 @@
 #include "samplePDF/samplePDFFDBase.h"
 #include "samplePDF/StructsTutorial.h"
 
-/// @todo add target
 class samplePDFTutorial : virtual public samplePDFFDBase
 {
-public:
+ public:
   samplePDFTutorial(std::string mc_version, covarianceXsec* xsec_cov);
   ~samplePDFTutorial();
   enum KinematicTypes {kTrueNeutrinoEnergy, kTrueQ2};
@@ -21,11 +20,13 @@ public:
 
   int setupExperimentMC(int iSample);
 
-  double ReturnKinematicParameter (double KinematicVariable, int iSample, int iEvent);
-  double ReturnKinematicParameter(std::string KinematicParameter, int iSample, int iEvent);
+  double ReturnKinematicParameter(KinematicTypes KinPar, int iSample, int iEvent);
+  double ReturnKinematicParameter(double KinematicVariable, int iSample, int iEvent) override;
+  double ReturnKinematicParameter(std::string KinematicParameter, int iSample, int iEvent) override;
 
-  const double* GetPointerToKinematicParameter(std::string KinematicParameter, int iSample, int iEvent);
-  const double* GetPointerToKinematicParameter(double KinematicVariable, int iSample, int iEvent);
+  const double* GetPointerToKinematicParameter(KinematicTypes KinPar, int iSample, int iEvent);
+  const double* GetPointerToKinematicParameter(std::string KinematicParameter, int iSample, int iEvent) override;
+  const double* GetPointerToKinematicParameter(double KinematicVariable, int iSample, int iEvent) override;
 
   inline int ReturnKinematicParameterFromString(std::string KinematicParameterStr);
   inline std::string ReturnStringFromKinematicParameter(int KinematicParameterStr);

@@ -5,10 +5,9 @@ struct tutorial_base {
   int oscnutype;
   bool signal;
   int nEvents;
-  int *Target;
-  double *Mode;
+  std::vector<int> Target;
+  std::vector<double> Mode;
   bool *isNC;
-  double *TrueEnu;
-  double *Q2;
-
+  std::vector<double> TrueEnu;
+  std::vector<double> Q2;
 };

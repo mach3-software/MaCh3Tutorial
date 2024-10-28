@@ -49,6 +49,14 @@ int main(int argc, char *argv[])
     outFile << "Rates Post:" << SampleHistogramPrior->Integral() << std::endl;
     outFile << "Likelihood:" << Sample->GetLikelihood() << std::endl;
 
+    MACH3LOG_INFO("Now trying to compare each weight individually");
+    for (int iSample = 0; iSample < Sample->getNMCSamples(); ++iSample) {
+      for (int iEntry = 0; iEntry < Sample->getNEventsInSample(iSample); ++iEntry) {
+        double weight = Sample->GetEventWeight(iSample, iEntry);
+        outFile << "Channel: "<< iSample<<" Event: " << iEntry <<" weight: " << weight << std::endl;
+      }
+    }
+
     // Clean up dynamically allocated Sample if needed
     delete SampleHistogramPost;
     delete Sample;
