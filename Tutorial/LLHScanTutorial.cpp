@@ -1,6 +1,7 @@
 // MaCh3 spline includes
 #include "mcmc/MaCh3Factory.h"
 #include "covariance/covarianceXsec.h"
+#include "samplePDF/samplePDFTutorial.h"
 
 int main(int argc, char *argv[]){
 
@@ -20,6 +21,26 @@ int main(int argc, char *argv[]){
   // Add covariance to MCM
   MaCh3Fitter->addSystObj(xsec);
   MaCh3Fitter->addSystObj(osc);
+
+  auto SampleConfig = FitManager->raw()["General"]["TutorialSamples"].as<std::vector<std::string>>();
+  for (size_t i = 0; i < SampleConfig.size(); ++i)
+  {
+    samplePDFTutorial* Sample = new samplePDFTutorial(SampleConfig[i], xsec);
+    Sample->SetXsecCov(xsec);
+    Sample->SetOscCov(osc);
+    Sample->reweight();
+
+    // Obtain sample name and create a TString version for histogram naming
+    std::string name = Sample->GetName();
+    TString NameTString = TString(name.c_str());
+
+    // Clone the 1D histogram with a modified name
+    TH1D* SampleHistogramPrior = static_cast<TH1D*>(Sample->get1DHist()->Clone(NameTString + "_Prior"));
+    Sample->addData(SampleHistogramPrior);
+
+    // Add the cloned histogram to the Sample object
+    MaCh3Fitter->addSamplePDF(Sample);
+  }
 
   // Run MCMCM
   MaCh3Fitter->RunLLHScan();

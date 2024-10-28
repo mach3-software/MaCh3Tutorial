@@ -9,5 +9,6 @@ struct tutorial_base {
   double *Mode;
   bool *isNC;
   double *TrueEnu;
+  double *Q2;
 
 };

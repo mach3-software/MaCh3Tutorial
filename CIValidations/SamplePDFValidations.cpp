@@ -25,23 +25,31 @@ int main(int argc, char *argv[])
 
   std::string name = Sample->GetName();
   TString NameTString = TString(name.c_str());
-
   Sample->reweight();
   TH1D *SampleHistogramPrior = (TH1D*)Sample->get1DHist()->Clone(NameTString+"_Prior");
   Sample->addData(SampleHistogramPrior);
 
-
-  MACH3LOG_INFO("Info for sample: {}", NameTString);
-  MACH3LOG_INFO("Rates Prior: {:.2f}", SampleHistogramPrior->Integral());
-  MACH3LOG_INFO("Likelihood: {:.2f}", Sample->GetLikelihood());
+  // Open a file in write mode
+  std::ofstream outFile("NewSampleOut.txt");
+  outFile << "Info for sample:" << NameTString << std::endl;
+  outFile << "Rates Prior:" << SampleHistogramPrior->Integral() << std::endl;
+  outFile << "Likelihood:" << Sample->GetLikelihood() << std::endl;
 
   std::vector<double> OscParProp = {0.3, 0.5, 0.020, 7.53e-5, 2.494e-3, 0.0, 295, 2.6};
   osc->setParameters(OscParProp);
   Sample->reweight();
   TH1D *SampleHistogramPost = (TH1D*)Sample->get1DHist()->Clone(NameTString+"Post");
+  outFile << "Rates Post:" << SampleHistogramPrior->Integral() << std::endl;
+  outFile << "Likelihood:" << Sample->GetLikelihood() << std::endl;
 
-  MACH3LOG_INFO("Rates Prior: {:.2f}", SampleHistogramPost->Integral());
-  MACH3LOG_INFO("Likelihood: {:.2f}", Sample->GetLikelihood());
+  bool TheSame = CompareTwoFiles("CIValidations/TestOutputs/SampleOut.txt", "NewSampleOut.txt");
+
+  if(!TheSame) {
+    MACH3LOG_CRITICAL("Different likelihood mate");
+    throw MaCh3Exception(__FILE__ , __LINE__ );
+  } else {
+    MACH3LOG_INFO("Everything is correct");
+  }
 
   return 0;
 }

@@ -67,19 +67,19 @@ int samplePDFTutorial::setupExperimentMC(int iSample) {
   }
   tutobj->nEvents = _data->GetEntries();
   tutobj->TrueEnu = new double[tutobj->nEvents];
+  tutobj->Q2 = new double[tutobj->nEvents];
   tutobj->Mode = new double[tutobj->nEvents];
   tutobj->Target = new int[tutobj->nEvents];
   tutobj->isNC = new bool[tutobj->nEvents];
 
-
   //Truth Variables
   float Enu_true;
+  float Q2;
   int tgt;
   int Mode;
   int PDGLep;
 
   /*
-  double Q2;
   double ELep;
   double CosLep;
   bool flagCC0pi;
@@ -89,6 +89,8 @@ int samplePDFTutorial::setupExperimentMC(int iSample) {
   _data->SetBranchStatus("*", false);
   _data->SetBranchStatus("Enu_true", true);
   _data->SetBranchAddress("Enu_true", &Enu_true);
+  _data->SetBranchStatus("Q2", true);
+  _data->SetBranchAddress("Q2", &Q2);
   _data->SetBranchStatus("tgt", true);
   _data->SetBranchAddress("tgt", &tgt);
   _data->SetBranchStatus("Mode", true);
@@ -98,8 +100,6 @@ int samplePDFTutorial::setupExperimentMC(int iSample) {
 
 
   /*
-  _data->SetBranchStatus("Q2", true);
-  _data->SetBranchAddress("Q2", &Q2);
   _data->SetBranchStatus("ELep", true);
   _data->SetBranchAddress("ELep", &ELep);
   _data->SetBranchStatus("CosLep", true);
@@ -117,6 +117,7 @@ int samplePDFTutorial::setupExperimentMC(int iSample) {
     _data->GetEntry(i);
 
     tutobj->TrueEnu[i] = Enu_true;
+    tutobj->Q2[i]      = Q2;
     tutobj->Target[i]  = tgt;
     tutobj->Mode[i]    = Mode;
 
@@ -140,6 +141,9 @@ double samplePDFTutorial::ReturnKinematicParameter(double KinematicVariable, int
   case kTrueNeutrinoEnergy:
     KinematicValue = TutorialSamples[iSample].TrueEnu[iEvent];
     break;
+  case kTrueQ2:
+    KinematicValue = TutorialSamples[iSample].Q2[iEvent];
+    break;
   default:
     MACH3LOG_ERROR("Did not recognise Kinematic Parameter type");
     MACH3LOG_ERROR("Was given a Kinematic Variable of {}", KinematicVariable);
@@ -157,6 +161,9 @@ double samplePDFTutorial::ReturnKinematicParameter(std::string KinematicParamete
  case kTrueNeutrinoEnergy:
    KinematicValue = TutorialSamples[iSample].TrueEnu[iEvent];
    break;
+ case kTrueQ2:
+   KinematicValue = TutorialSamples[iSample].Q2[iEvent];
+   break;
  default:
    MACH3LOG_ERROR("Did not recognise Kinematic Parameter type...");
    throw MaCh3Exception(__FILE__, __LINE__);
@@ -173,6 +180,9 @@ const double* samplePDFTutorial::GetPointerToKinematicParameter(std::string Kine
  case kTrueNeutrinoEnergy:
    KinematicValue = &TutorialSamples[iSample].TrueEnu[iEvent];
    break;
+ case kTrueQ2:
+   KinematicValue = &TutorialSamples[iSample].Q2[iEvent];
+   break;
  default:
    MACH3LOG_ERROR("Did not recognise Kinematic Parameter type...");
    throw MaCh3Exception(__FILE__, __LINE__);
@@ -183,6 +193,7 @@ const double* samplePDFTutorial::GetPointerToKinematicParameter(std::string Kine
 
 int samplePDFTutorial::ReturnKinematicParameterFromString(std::string KinematicParameterStr){
   if (KinematicParameterStr.find("TrueNeutrinoEnergy") != std::string::npos) {return kTrueNeutrinoEnergy;}
+  if (KinematicParameterStr.find("TrueQ2") != std::string::npos) {return kTrueQ2;}
 
   MACH3LOG_ERROR("Did not recognise Kinematic Parameter type...");
   throw MaCh3Exception(__FILE__, __LINE__);
@@ -197,6 +208,9 @@ const double* samplePDFTutorial::GetPointerToKinematicParameter(double Kinematic
   switch(KinPar){
   case kTrueNeutrinoEnergy:
     KinematicValue = &TutorialSamples[iSample].TrueEnu[iEvent];
+    break;
+  case kTrueQ2:
+    KinematicValue = &TutorialSamples[iSample].Q2[iEvent];
     break;
   default:
    MACH3LOG_ERROR("Did not recognise Kinematic Parameter type...");
@@ -213,13 +227,15 @@ inline std::string samplePDFTutorial::ReturnStringFromKinematicParameter(int Kin
    case kTrueNeutrinoEnergy:
      KinematicString = "TrueNeutrinoEnergy";
     break;
+   case kTrueQ2:
+     KinematicString = "TrueQ2";
+     break;
    default:
     break;
   }
 
   return KinematicString;
 }
-
 
 void samplePDFTutorial::setupFDMC(int iSample) {
   tutorial_base *tutobj = &(TutorialSamples[iSample]);

@@ -1,0 +1,5 @@
+Info for sample:Tutorial
+Rates Prior:54421.6
+Likelihood:0
+Rates Post:54421.6
+Likelihood:6.70173

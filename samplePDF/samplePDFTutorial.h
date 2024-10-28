@@ -3,12 +3,13 @@
 #include "samplePDF/samplePDFFDBase.h"
 #include "samplePDF/StructsTutorial.h"
 
+/// @todo add target
 class samplePDFTutorial : virtual public samplePDFFDBase
 {
 public:
   samplePDFTutorial(std::string mc_version, covarianceXsec* xsec_cov);
   ~samplePDFTutorial();
-  enum KinematicTypes {kTrueNeutrinoEnergy};
+  enum KinematicTypes {kTrueNeutrinoEnergy, kTrueQ2};
 
  protected:
   void Init();

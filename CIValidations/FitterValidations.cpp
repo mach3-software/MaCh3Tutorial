@@ -2,6 +2,7 @@
 #include "mcmc/MaCh3Factory.h"
 #include "covariance/covarianceXsec.h"
 #include "Utils/Comparison.h"
+#include "samplePDF/samplePDFTutorial.h"
 
 
 /// @todo add sample PDF object!
@@ -41,8 +42,22 @@ void FitVal(const std::string& Algo, bool MoreTests)
     throw MaCh3Exception(__FILE__ , __LINE__ );
   }
 
-  MaCh3Fitter->addSystObj(xsec);
+  std::vector<std::string> OscCovMatrixFile = {"Inputs/Osc_Test.yaml"};
+  covarianceOsc* osc = new covarianceOsc(OscCovMatrixFile, "osc_cov");
+  osc->setParameters();
 
+  std::string SampleConfig = {"Inputs/SamplePDF_Tutorial.yaml"};
+  samplePDFTutorial *Sample = new samplePDFTutorial(SampleConfig, xsec);
+  Sample->SetXsecCov(xsec);
+  Sample->SetOscCov(osc);
+  Sample->reweight();
+  std::string name = Sample->GetName();
+  TString NameTString = TString(name.c_str());
+  TH1D *SampleHistogramPrior = (TH1D*)Sample->get1DHist()->Clone(NameTString+"_Prior");
+  Sample->addData(SampleHistogramPrior);
+
+  MaCh3Fitter->addSystObj(xsec);
+  MaCh3Fitter->addSamplePDF(Sample);
   if(MoreTests)
   {
     MaCh3Fitter->DragRace();
@@ -54,7 +69,9 @@ void FitVal(const std::string& Algo, bool MoreTests)
 
   MaCh3Fitter.reset();
   delete xsec;
+  delete osc;
   delete FitManager;
+  delete Sample;
 }
 
 void StartFromPosteriorTest(const std::string& PreviousName)
