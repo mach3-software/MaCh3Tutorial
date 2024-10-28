@@ -1,5 +1,7 @@
 General:
   OutputFile: "Test.root"
+  TutorialSamples: ["Inputs/SamplePDF_Tutorial.yaml"]
+
   RealData: false
   Asimov: true
   CustomReWeight: false

@@ -114,6 +114,7 @@ cmessage(STATUS "CMAKE CXX Standard: ${CMAKE_CXX_STANDARD}")
 add_subdirectory(Utils)
 add_subdirectory(CIValidations)
 add_subdirectory(Tutorial)
+add_subdirectory(samplePDF)
 
 configure_file(cmake/Templates/setup.MaCh3Tutorial.sh.in "${PROJECT_BINARY_DIR}${CMAKE_FILES_DIRECTORY}/setup.MaCh3Tutorial.sh" @ONLY)
 install(FILES "${PROJECT_BINARY_DIR}${CMAKE_FILES_DIRECTORY}/setup.MaCh3Tutorial.sh" DESTINATION ${CMAKE_INSTALL_PREFIX}/bin)

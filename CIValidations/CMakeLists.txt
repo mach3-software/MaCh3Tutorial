@@ -5,10 +5,11 @@ foreach(app
     FitterValidations
     CovarianceValidations
     MaCh3ModeValidations
+    SamplePDFValidations
     NuMCMCconversion
     )
     add_executable(${app} ${app}.cpp)
-    target_link_libraries(${app} MaCh3Validations::ValidationsUtils)
+    target_link_libraries(${app} MaCh3Tutorial::ValidationsUtils MaCh3Tutorial::samplePDFTutorial)
 
     add_dependencies(ValidApps ${app})
 endforeach(app)
