@@ -112,12 +112,6 @@ int samplePDFTutorial::setupExperimentMC(int iSample) {
   _data->SetBranchAddress("flagCC1pim", &flagCC1pim);
   */
 
-  TH1D* norm = (TH1D*)_sampleFile->Get("norm");
-  if(!norm){
-    MACH3LOG_ERROR("Add a norm KEY to the root file using MakeNormHists.cxx");
-    throw MaCh3Exception(__FILE__, __LINE__);
-  }
-
   _data->GetEntry(0);
   for (int i = 0; i < tutobj->nEvents; ++i) { // Loop through tree
     _data->GetEntry(i);
