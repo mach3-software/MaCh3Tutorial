@@ -18,30 +18,41 @@ int main(int argc, char *argv[])
   covarianceOsc* osc = new covarianceOsc(OscCovMatrixFile, "osc_cov");
   osc->setParameters();
 
-  std::string SampleConfig = {"Inputs/SamplePDF_Tutorial.yaml"};
-  samplePDFTutorial *Sample = new samplePDFTutorial(SampleConfig, xsec);
-  Sample->SetXsecCov(xsec);
-  Sample->SetOscCov(osc);
-
-  std::string name = Sample->GetName();
-  TString NameTString = TString(name.c_str());
-  Sample->reweight();
-  TH1D *SampleHistogramPrior = (TH1D*)Sample->get1DHist()->Clone(NameTString+"_Prior");
-  Sample->addData(SampleHistogramPrior);
-
   // Open a file in write mode
   std::ofstream outFile("NewSampleOut.txt");
-  outFile << "Info for sample:" << NameTString << std::endl;
-  outFile << "Rates Prior:" << SampleHistogramPrior->Integral() << std::endl;
-  outFile << "Likelihood:" << Sample->GetLikelihood() << std::endl;
+  std::vector<std::string> SampleConfig = {"Inputs/SamplePDF_Tutorial.yaml"};
+  for (const auto& configPath : SampleConfig) {
+    samplePDFTutorial *Sample = new samplePDFTutorial({configPath}, xsec);
+    Sample->SetXsecCov(xsec);
+    Sample->SetOscCov(osc);
 
-  std::vector<double> OscParProp = {0.3, 0.5, 0.020, 7.53e-5, 2.494e-3, 0.0, 295, 2.6};
-  osc->setParameters(OscParProp);
-  Sample->reweight();
-  TH1D *SampleHistogramPost = (TH1D*)Sample->get1DHist()->Clone(NameTString+"Post");
-  outFile << "Rates Post:" << SampleHistogramPrior->Integral() << std::endl;
-  outFile << "Likelihood:" << Sample->GetLikelihood() << std::endl;
+    std::string name = Sample->GetName();
+    TString NameTString = TString(name.c_str());
 
+    // Reweight and process prior histogram
+    Sample->reweight();
+    TH1D *SampleHistogramPrior = (TH1D*)Sample->get1DHist()->Clone(NameTString + "_Prior");
+    Sample->addData(SampleHistogramPrior);
+
+    // Write initial info to file
+    outFile << "Info for sample:" << NameTString << std::endl;
+    outFile << "Rates Prior:" << SampleHistogramPrior->Integral() << std::endl;
+    outFile << "Likelihood:" << Sample->GetLikelihood() << std::endl;
+
+    // Set oscillation parameters and reweight for posterior
+    std::vector<double> OscParProp = {0.3, 0.5, 0.020, 7.53e-5, 2.494e-3, 0.0, 295, 2.6};
+    osc->setParameters(OscParProp);
+    Sample->reweight();
+
+    // Process posterior histogram
+    TH1D *SampleHistogramPost = (TH1D*)Sample->get1DHist()->Clone(NameTString + "_Post");
+    outFile << "Rates Post:" << SampleHistogramPrior->Integral() << std::endl;
+    outFile << "Likelihood:" << Sample->GetLikelihood() << std::endl;
+
+    // Clean up dynamically allocated Sample if needed
+    delete SampleHistogramPost;
+    delete Sample;
+  }
   bool TheSame = CompareTwoFiles("CIValidations/TestOutputs/SampleOut.txt", "NewSampleOut.txt");
 
   if(!TheSame) {
@@ -50,6 +61,9 @@ int main(int argc, char *argv[])
   } else {
     MACH3LOG_INFO("Everything is correct");
   }
+
+  delete xsec;
+  delete osc;
 
   return 0;
 }
