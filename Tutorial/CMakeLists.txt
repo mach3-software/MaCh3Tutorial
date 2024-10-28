@@ -5,7 +5,7 @@ foreach(app
     LLHScanTutorial
     )
     add_executable(${app} ${app}.cpp)
-    target_link_libraries(${app} MaCh3Validations::ValidationsUtils)
+    target_link_libraries(${app} MaCh3Tutorial::ValidationsUtils)
 
     add_dependencies(TutorialApps ${app})
     install(TARGETS ${app} DESTINATION bin)
