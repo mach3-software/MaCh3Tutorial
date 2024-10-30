@@ -83,13 +83,7 @@ install(DIRECTORY
     DESTINATION ${CMAKE_BINARY_DIR}/NuMCMCTools)
 
 ############################  C++ Compiler  ####################################
-if (NOT DEFINED CMAKE_CXX_STANDARD OR "${CMAKE_CXX_STANDARD} " STREQUAL " ")
-  SET(CMAKE_CXX_STANDARD 14)
-endif()
-
-if(DEFINED ROOT_CXX_STANDARD AND ROOT_CXX_STANDARD GREATER CMAKE_CXX_STANDARD)
-  set(CMAKE_CXX_STANDARD ${ROOT_CXX_STANDARD})
-endif()
+SET(CMAKE_CXX_STANDARD ${MACH3_CXX_STANDARD})
 cmessage(STATUS "CMAKE CXX Standard: ${CMAKE_CXX_STANDARD}")
 
 ################################# Build MaCh3 ##################################
