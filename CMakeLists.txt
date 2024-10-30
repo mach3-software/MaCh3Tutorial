@@ -83,7 +83,12 @@ install(DIRECTORY
     DESTINATION ${CMAKE_BINARY_DIR}/NuMCMCTools)
 
 ############################  C++ Compiler  ####################################
-SET(CMAKE_CXX_STANDARD ${MACH3_CXX_STANDARD})
+get_property(MACH3_CXX_STANDARD GLOBAL PROPERTY MACH3_CXX_STANDARD)
+if(NOT DEFINED MACH3_CXX_STANDARD)
+  SET(CMAKE_CXX_STANDARD 14)
+else()
+  SET(CMAKE_CXX_STANDARD ${MACH3_CXX_STANDARD})
+endif()
 cmessage(STATUS "CMAKE CXX Standard: ${CMAKE_CXX_STANDARD}")
 
 ################################# Build MaCh3 ##################################
