@@ -35,28 +35,10 @@ LIST(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_LIST_DIR}/cmake/Modules)
 # download CPM.cmake
 file(
   DOWNLOAD
-  https://github.com/cpm-cmake/CPM.cmake/releases/download/v0.38.8/CPM.cmake
+  https://github.com/cpm-cmake/CPM.cmake/releases/download/v0.40.2/CPM.cmake
   ${CMAKE_CURRENT_BINARY_DIR}/cmake/CPM.cmake
 )
 include(${CMAKE_CURRENT_BINARY_DIR}/cmake/CPM.cmake)
-
-CPMFindPackage(
-      NAME CMakeModules
-      GIT_TAG stable
-      GITHUB_REPOSITORY NuHepMC/CMakeModules
-      DOWNLOAD_ONLY
-  )
-include(${CMakeModules_SOURCE_DIR}/NuHepMCModules.cmake)
-
-include(ROOT)
-
-if(NOT TARGET ROOT::ROOT)
-  cmessage(FATAL_ERROR "T2KReWeight Expected dependency target: ROOT::ROOT")
-endif()
-
-if(DEFINED ROOT_CXX_STANDARD AND ROOT_CXX_STANDARD GREATER CMAKE_CXX_STANDARD)
-  set(CMAKE_CXX_STANDARD ${ROOT_CXX_STANDARD})
-endif()
 
 ##################################  MaCh3  ######################################
 if(NOT DEFINED MaCh3_Branch)
@@ -70,8 +52,6 @@ if(NOT DEFINED PYTHON_ENABLED)
   SET(PYTHON_ENABLED false)
 endif()
 if(NOT MaCh3_FOUND)
-  cmessage(STATUS "Didn't find MaCh3, attempting to use built-in MaCh3")
-
   CPMAddPackage(
     NAME MaCh3
     GIT_TAG ${MaCh3_Branch}
@@ -79,6 +59,8 @@ if(NOT MaCh3_FOUND)
     OPTIONS
       "MaCh3_PYTHON_ENABLED ${PYTHON_ENABLED}"
   )
+  # MaCh3 sets up cmessage for us, so can't cmessage until we've set up MaCh3
+  cmessage(STATUS "Didn't find MaCh3, attempting to use built-in MaCh3")
 endif()
 
 if(NOT TARGET MaCh3::All)
@@ -101,12 +83,11 @@ install(DIRECTORY
     DESTINATION ${CMAKE_BINARY_DIR}/NuMCMCTools)
 
 ############################  C++ Compiler  ####################################
-if (NOT DEFINED CMAKE_CXX_STANDARD OR "${CMAKE_CXX_STANDARD} " STREQUAL " ")
-  SET(CMAKE_CXX_STANDARD 11)
-endif()
-
-if(DEFINED ROOT_CXX_STANDARD AND ROOT_CXX_STANDARD GREATER CMAKE_CXX_STANDARD)
-  set(CMAKE_CXX_STANDARD ${ROOT_CXX_STANDARD})
+get_property(MACH3_CXX_STANDARD GLOBAL PROPERTY MACH3_CXX_STANDARD)
+if(NOT DEFINED MACH3_CXX_STANDARD)
+  SET(CMAKE_CXX_STANDARD 14)
+else()
+  SET(CMAKE_CXX_STANDARD ${MACH3_CXX_STANDARD})
 endif()
 cmessage(STATUS "CMAKE CXX Standard: ${CMAKE_CXX_STANDARD}")
 

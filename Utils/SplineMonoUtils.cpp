@@ -11,11 +11,11 @@ std::vector< std::vector<TResponseFunction_red*> > GetMasterSpline(
 
   const int nSplineParams = DialNames.size();
   TGraph** xsecgraph = new TGraph*[nSplineParams];
-  for(_int_ i = 0; i < nSplineParams; i++) {
+  for(int i = 0; i < nSplineParams; i++) {
     xsecgraph[i] = NULL;
   }
   TObjArray** grapharrays = new TObjArray*[nSplineParams];
-  for(_int_ i = 0; i < nSplineParams; i++) {
+  for(int i = 0; i < nSplineParams; i++) {
     grapharrays[i] = NULL;
   }
   chain->SetBranchStatus("*", false);
@@ -34,7 +34,7 @@ std::vector< std::vector<TResponseFunction_red*> > GetMasterSpline(
     chain->GetEntry(i);
     MasterSpline[i].resize(nSplineParams);
     // Now set the xsecgraphs for the struct
-    for (_int_ k = 0; k < nSplineParams; k++)
+    for (int k = 0; k < nSplineParams; k++)
     {
       // get the graph
       xsecgraph[k] = (TGraph*)(grapharrays[k]->At(0));
@@ -58,7 +58,7 @@ std::vector< std::vector<TResponseFunction_red*> > GetMasterSpline(
       MasterSpline[i][k] = spline_red;
     }
   } // end for j loop
-  for(_int_ i = 0; i < nSplineParams; i++) {
+  for(int i = 0; i < nSplineParams; i++) {
     if(xsecgraph[i] != NULL) delete xsecgraph[i];
     //if(grapharrays[i] != NULL) delete grapharrays[i];
   }
