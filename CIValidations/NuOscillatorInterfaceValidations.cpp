@@ -50,7 +50,7 @@ int main() {
                                                      NuOscillator::kMuon, E);
     double papp = osc->ReturnOscillationProbability(NuOscillator::kMuon,
                                                     NuOscillator::kElectron, E);
-    outFile << fmt::format("{:14.12f}, {:14.12f}, {:14.12f}\n", E, pdisp, papp);
+    outFile << fmt::format("{:14.7g}, {:14.7g}, {:14.7g}\n", E, pdisp, papp);
   }
   outFile.close();
 
