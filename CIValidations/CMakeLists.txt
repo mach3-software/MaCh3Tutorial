@@ -27,4 +27,6 @@ install(DIRECTORY
 
     DESTINATION CIValidations)
 
-add_subdirectory(UnitTests)
+if(MaCh3Tutorial_UNITTESTS_ENABLED)
+  add_subdirectory(UnitTests)
+endif()
