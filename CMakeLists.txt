@@ -91,6 +91,16 @@ else()
 endif()
 cmessage(STATUS "CMAKE CXX Standard: ${CMAKE_CXX_STANDARD}")
 
+############################  Catch2/CTest  ####################################
+find_package(Catch2 QUIET)
+if(NOT Catch2_FOUND)
+  CPMAddPackage("gh:catchorg/Catch2@3.5.2")
+  LIST(APPEND CMAKE_MODULE_PATH ${Catch2_SOURCE_DIR}/extras)
+endif()
+
+include(CTest)
+include(Catch)
+
 ################################# Build MaCh3 ##################################
 add_subdirectory(Utils)
 add_subdirectory(CIValidations)

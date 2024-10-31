@@ -26,3 +26,5 @@ install(DIRECTORY
     Scripts
 
     DESTINATION CIValidations)
+
+add_subdirectory(UnitTests)
