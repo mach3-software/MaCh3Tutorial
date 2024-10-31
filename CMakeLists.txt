@@ -9,6 +9,8 @@ SET(MaCh3Tutorial_VERSION 1.2.0)
 project(MaCh3Tutorial VERSION ${MaCh3Tutorial_VERSION} LANGUAGES CXX)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
+option(MaCh3Tutorial_UNITTESTS_ENABLED "Whether to build MaCh3 Unit Tests" OFF)
+
 # Changes default install path to be a subdirectory of the build dir.
 # Can set build dir at configure time with -DCMAKE_INSTALL_PREFIX=/install/path
 if(CMAKE_INSTALL_PREFIX STREQUAL "" OR CMAKE_INSTALL_PREFIX STREQUAL
@@ -91,6 +93,17 @@ else()
 endif()
 cmessage(STATUS "CMAKE CXX Standard: ${CMAKE_CXX_STANDARD}")
 
+############################  Catch2/CTest  ####################################
+if(MaCh3Tutorial_UNITTESTS_ENABLED)
+  find_package(Catch2 QUIET)
+  if(NOT Catch2_FOUND)
+    CPMAddPackage("gh:catchorg/Catch2@3.5.2")
+    LIST(APPEND CMAKE_MODULE_PATH ${Catch2_SOURCE_DIR}/extras)
+  endif()
+
+  include(CTest)
+  include(Catch)
+endif()
 ################################# Build MaCh3 ##################################
 add_subdirectory(Utils)
 add_subdirectory(CIValidations)

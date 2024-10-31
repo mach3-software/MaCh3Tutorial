@@ -7,6 +7,7 @@ foreach(app
     MaCh3ModeValidations
     SamplePDFValidations
     NuMCMCconversion
+    NuOscillatorInterfaceValidations
     )
     add_executable(${app} ${app}.cpp)
     target_link_libraries(${app} MaCh3Tutorial::ValidationsUtils MaCh3Tutorial::samplePDFTutorial)
@@ -25,3 +26,7 @@ install(DIRECTORY
     Scripts
 
     DESTINATION CIValidations)
+
+if(MaCh3Tutorial_UNITTESTS_ENABLED)
+  add_subdirectory(UnitTests)
+endif()
