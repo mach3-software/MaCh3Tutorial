@@ -22,7 +22,7 @@ void samplePDFTutorial::Init() {
 
 void samplePDFTutorial::SetupSplines() {
   MACH3LOG_WARN("Not using splines");
-  splineFile = nullptr;
+  SplineHandler = nullptr;
   
   return;
 }
@@ -31,7 +31,7 @@ void samplePDFTutorial::SetupWeightPointers() {
   for (int i = 0; i < (int)MCSamples.size(); ++i) {
     for (int j = 0; j < MCSamples[i].nEvents; ++j) {
       MCSamples[i].ntotal_weight_pointers[j] = 2;
-      MCSamples[i].total_weight_pointers[j] = new const double*[MCSamples[i].ntotal_weight_pointers[j]];
+      MCSamples[i].total_weight_pointers[j].resize(MCSamples[i].ntotal_weight_pointers[j]);
       MCSamples[i].total_weight_pointers[j][0] = MCSamples[i].osc_w_pointer[j];
       MCSamples[i].total_weight_pointers[j][1] = &(MCSamples[i].xsec_w[j]);
     }
@@ -203,18 +203,18 @@ inline std::string samplePDFTutorial::ReturnStringFromKinematicParameter(int Kin
 
 void samplePDFTutorial::setupFDMC(int iSample) {
   tutorial_base *tutobj = &(TutorialSamples[iSample]);
-  fdmc_base *fdobj = &(MCSamples[iSample]);  
+  auto &fdobj = MCSamples[iSample];  
   
-  fdobj->nutype = tutobj->nutype;
-  fdobj->oscnutype = tutobj->oscnutype;
-  fdobj->signal = tutobj->signal;
-  fdobj->SampleDetID = SampleDetID;
+  fdobj.nutype = tutobj->nutype;
+  fdobj.oscnutype = tutobj->oscnutype;
+  fdobj.signal = tutobj->signal;
+  fdobj.SampleDetID = SampleDetID;
   
-  for(int iEvent = 0 ;iEvent < fdobj->nEvents ; ++iEvent) {
-    fdobj->rw_etru[iEvent] = &(tutobj->TrueEnu[iEvent]);
-    fdobj->mode[iEvent] = &(tutobj->Mode[iEvent]);
-    fdobj->Target[iEvent] = &(tutobj->Target[iEvent]);
-    fdobj->isNC[iEvent] = tutobj->isNC[iEvent];
+  for(int iEvent = 0 ;iEvent < fdobj.nEvents ; ++iEvent) {
+    fdobj.rw_etru[iEvent] = &(tutobj->TrueEnu[iEvent]);
+    fdobj.mode[iEvent] = &(tutobj->Mode[iEvent]);
+    fdobj.Target[iEvent] = &(tutobj->Target[iEvent]);
+    fdobj.isNC[iEvent] = tutobj->isNC[iEvent];
   }
 }
 
