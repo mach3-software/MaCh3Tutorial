@@ -57,6 +57,7 @@ if(NOT MaCh3_FOUND)
   CPMAddPackage(
     NAME MaCh3
     GIT_TAG ${MaCh3_Branch}
+    GIT_SHALLOW YES
     GITHUB_REPOSITORY mach3-software/MaCh3
     OPTIONS
       "MaCh3_PYTHON_ENABLED ${PYTHON_ENABLED}"
@@ -76,6 +77,7 @@ endif()
 CPMAddPackage(
   NAME NuMCMCTools
   GIT_TAG "tags/v1.0.0"
+  GIT_SHALLOW YES
   GITHUB_REPOSITORY NuMCMCTools/NuMCMCTools
   DOWNLOAD_ONLY YES
 )
