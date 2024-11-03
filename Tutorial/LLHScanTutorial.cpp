@@ -9,9 +9,8 @@ int main(int argc, char *argv[]){
   // Initialise manger responsible for config handling
   manager *FitManager = new manager(argv[1]);
 
-  std::vector<std::string> xsecCovMatrixFile = FitManager->raw()["General"]["Systematics"]["XsecCovFile"].as<std::vector<std::string>>();
   // Initialise covariance class reasonable for Systematics
-  covarianceXsec* xsec = new covarianceXsec(xsecCovMatrixFile, "xsec_cov");
+  covarianceXsec* xsec = MaCh3CovarianceFactory(FitManager, "Xsec");
 
   std::vector<std::string> OscMatrixFile = FitManager->raw()["General"]["Systematics"]["OscCovFile"].as<std::vector<std::string>>();
   covarianceOsc* osc = new covarianceOsc(OscMatrixFile, "osc_cov");
@@ -23,23 +22,9 @@ int main(int argc, char *argv[]){
   MaCh3Fitter->addSystObj(osc);
 
   auto SampleConfig = FitManager->raw()["General"]["TutorialSamples"].as<std::vector<std::string>>();
-  for (size_t i = 0; i < SampleConfig.size(); ++i)
-  {
-    samplePDFTutorial* Sample = new samplePDFTutorial(SampleConfig[i], xsec);
-    Sample->SetXsecCov(xsec);
-    Sample->SetOscCov(osc);
-    Sample->reweight();
-
-    // Obtain sample name and create a TString version for histogram naming
-    std::string name = Sample->GetName();
-    TString NameTString = TString(name.c_str());
-
-    // Clone the 1D histogram with a modified name
-    TH1D* SampleHistogramPrior = static_cast<TH1D*>(Sample->get1DHist()->Clone(NameTString + "_Prior"));
-    Sample->addData(SampleHistogramPrior);
-
-    // Add the cloned histogram to the Sample object
-    MaCh3Fitter->addSamplePDF(Sample);
+  auto mySamples = MaCh3SamplePDFFactory<samplePDFTutorial>(SampleConfig, xsec, osc);
+  for (size_t i = 0; i < SampleConfig.size(); ++i) {
+    MaCh3Fitter->addSamplePDF(mySamples[i]);
   }
 
   // Run MCMCM
@@ -48,5 +33,8 @@ int main(int argc, char *argv[]){
   delete FitManager;
   delete xsec;
   MaCh3Fitter.reset();
+  for (size_t i = 0; i < SampleConfig.size(); ++i) {
+    delete mySamples[i];
+  }
   return 0;
 }
