@@ -17,7 +17,7 @@ InputFiles:
   splinesuffix: "fixme"
 DetID: 1
 NuOsc:
-  NuOscConfigFile: "Inputs/NuOscillator/CUDAProb3Linear.yaml"
+  NuOscConfigFile: "Inputs/NuOscillator/NuFASTLinear.yaml"
 
 NSubSamples: 1
 SubSamples:

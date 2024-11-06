@@ -12,12 +12,21 @@ General:
   Debug: No
   RandomStart: false
   Seed: 0
-  NSteps: 10000
   MaCh3Modes: "Inputs/MaCh3Modes.yaml"
   Fitter:
     FitTestLikelihood: false
   Minuit2:
     NSteps: 100000
+  PSO:
+    Constriction: 1
+    Inertia: 1.
+    One: 1.
+    Two: 1.
+    Particles: 10
+    Iterations: 10000
+    Convergence: 1.
+    TestLikelihoodDim: 9
+
   MCMC:
     NSteps: 10000
     #KS: Sets how frequent (number of steps) you want to autosave your chain, if you autosave rarely chain will be slightly faster, if you job wall is small you might want more frequent autosave to reduce number of lost steps
@@ -37,6 +46,7 @@ General:
     XsecStepScale: 1
 
     OscCovFile: ["Inputs/Osc_Test.yaml"]
+    OscFix: ["baseline", "density", "Ye"]
 
   Predictive:
     Ntoy: 10

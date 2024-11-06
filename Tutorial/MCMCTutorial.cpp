@@ -13,7 +13,18 @@ int main(int argc, char *argv[]){
   covarianceXsec* xsec = MaCh3CovarianceFactory(FitManager, "Xsec");
 
   auto OscMatrixFile = FitManager->raw()["General"]["Systematics"]["OscCovFile"].as<std::vector<std::string>>();
+  auto OscFixParams  = FitManager->raw()["General"]["Systematics"]["OscFix"].as<std::vector<std::string>>();
   covarianceOsc* osc = new covarianceOsc(OscMatrixFile, "osc_cov");
+  // Fixed xsec parameters loop
+  if (OscFixParams.size() == 1 && OscFixParams.at(0) == "All") {
+    for (int j = 0; j < osc->GetNumParams(); j++) {
+      osc->toggleFixParameter(j);
+    }
+  } else {
+    for (unsigned int j = 0; j < OscFixParams.size(); j++) {
+      osc->toggleFixParameter(OscFixParams.at(j));
+    }
+  }
 
   // Create MCMC Class
   std::unique_ptr<FitterBase> MaCh3Fitter = std::make_unique<mcmc>(FitManager);

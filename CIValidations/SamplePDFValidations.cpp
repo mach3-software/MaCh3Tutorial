@@ -40,7 +40,7 @@ int main(int argc, char *argv[])
     outFile << "Likelihood:" << Sample->GetLikelihood() << std::endl;
 
     // Set oscillation parameters and reweight for posterior
-    std::vector<double> OscParProp = {0.3, 0.5, 0.020, 7.53e-5, 2.494e-3, 0.0, 295, 2.6};
+    std::vector<double> OscParProp = {0.3, 0.5, 0.020, 7.53e-5, 2.494e-3, 0.0, 295, 2.6, 0.5};
     osc->setParameters(OscParProp);
     Sample->reweight();
 

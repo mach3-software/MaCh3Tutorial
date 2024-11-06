@@ -28,6 +28,7 @@ void FitVal(const std::string& Algo, bool MoreTests)
     MaCh3Fitter = std::make_unique<mcmc>(FitManager);
   } else if (Algo == "PSO") {
     FitManager->OverrideSettings("General", "OutputFile", "PSO_Test.root");
+    FitManager->OverrideSettings("General", "Fitter", "FitTestLikelihood", "true");
     MaCh3Fitter = std::make_unique<PSO>(FitManager);
   } else if (Algo == "Minuit2") {
     #ifdef MaCh3_MINUIT2
@@ -105,7 +106,7 @@ int main(int argc, char *argv[])
   std::vector<std::string> Algo = {"MCMC"};
   #ifdef MaCh3_MINUIT2
   Algo.push_back("Minuit2");
-  //Algo.push_back("PSO");
+  Algo.push_back("PSO");
   #endif
 
   bool MoreTests = true;
