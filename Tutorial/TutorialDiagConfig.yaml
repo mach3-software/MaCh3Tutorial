@@ -90,6 +90,8 @@ ProcessMCMC:
   ParameterEvolution:
     - ["Norm_Param_0", 20]
 
+  Thinning: [false, 100]
+
   #First param name, then new prior and new prior error
   # apply reactor constraints [vector of param names] [vector of new central value] [vector of new prior errors]
   PriorReweighting: [ ["sin2th_13"], [0.0220], [0.0007] ]
