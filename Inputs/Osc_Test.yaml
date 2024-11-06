@@ -138,3 +138,20 @@ Systematics:
     StepScale:
       MCMC: 1.0
     Type: Osc
+
+- Systematic:
+    Names:
+      FancyName: Ye
+      ParameterName: Ye
+
+    DetID: 984
+    Error: 0.001
+    FlatPrior: true
+    ParameterBounds: [0, 999]
+    ParameterGroup: Osc
+    ParameterValues:
+      Generated: 0.5
+      PreFitValue: 0.5
+    StepScale:
+      MCMC: 1.0
+    Type: Osc

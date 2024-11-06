@@ -16,7 +16,7 @@ int main() {
              "  CalculationType: \"Unbinned\"\n"
              "\n"
              "OscProbCalcerSetup:\n"
-             "  ImplementationName: \"CUDAProb3Linear\"\n"
+             "  ImplementationName: \"NuFASTLinear\"\n"
              "  OscChannelMapping:\n"
              "    - Entry: \"Muon:Electron\"\n"
              "    - Entry: \"Muon:Muon\"\n";
@@ -38,7 +38,7 @@ int main() {
   osc->Setup();
 
   std::vector<double> OscParProp = {0.3,      0.5, 0.020, 7.53e-5,
-                                    2.494e-3, 0.0, 1300,  2.6};
+                                    2.494e-3, 0.0, 1300,  2.6, 0.5};
   osc->CalculateProbabilities(OscParProp);
 
   std::ofstream outFile("NewNuOscOut.txt");
