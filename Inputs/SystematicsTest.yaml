@@ -77,7 +77,7 @@ Systematics:
     SplineInformation:
       Mode: [0]
       InterpolationType: TSpline3
-      SplineName: Spline_Param_0
+      SplineName: Spline_0
     DetID: 985
     StepScale:
       MCMC: 0.4
@@ -98,7 +98,7 @@ Systematics:
     SplineInformation:
       Mode: [9]
       InterpolationType: Linear
-      SplineName: Spline_Param_1
+      SplineName: Spline_1
     DetID: 985
     StepScale:
       MCMC: 0.2
