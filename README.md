@@ -40,7 +40,7 @@ You can produce simple plots with
 ```
 where Test.root is the output of running MCMCTutorial as described [here](#how-to-run-mcmc)
 
-You can then take the output of running ProcessMCMC which will be called something like <inputName>_Process.root, and make fancier error plots from it using the `GetPostfitParamPlots` app like 
+You can then take the output of running ProcessMCMC which will be called something like <inputName>_Process.root, and make fancier error plots from it using the `GetPostfitParamPlots` app like:
 
 ```bash
 GetPostfitParamPlots Test_Process.root
@@ -153,7 +153,7 @@ LikelihoodOptions:
 ```
 Read more [here](https://mach3-software.github.io/MaCh3/Structs_8h.html#a960da89e33ac45a56f7bbfac3068dc67)
 
-## More Plotting?
+## How to Plot?
 
 There are a number of apps included to make plots from the results of your fits, llh scans etc. You can find more details on them and how they work in the main MaCh3 wiki [here](https://github.com/mach3-software/MaCh3/wiki). There you will also find some instructions on how you can write yor own plotting scripts.
 
@@ -161,7 +161,7 @@ The plotting library is configured using yaml files. You can see some examples o
 
 Some examples on how to make some "standard" plots are given below.
 
-### LLH Scans
+### How to run LLH scan
 You can run MCMC in very similar way as MCMC
 ```bash
 ./bin/LLHScanTutorial Inputs/ManagerTest.yaml
@@ -175,7 +175,12 @@ where LLH_Test.root is the result of running the LLH scan as described [here](#h
 
 ### Plotting with Python
 
-If you have installed the python interface for MaCh3 as described [here](https://github.com/mach3-software/MaCh3?tab=readme-ov-file#python) then you can also use the provided python plotting module. The details on how to write custom python scripts using this plotting module are detailed in [the wiki](https://github.com/mach3-software/MaCh3/wiki/15.-Plotting#custom-plotting-scripts). Here we will walk you through some example scripts.
+If you have installed the python interface for MaCh3 as described
+[here](https://github.com/mach3-software/MaCh3?tab=readme-ov-file#python)
+then you can also use the provided python plotting module. The details on how
+to write custom python scripts using this plotting module are detailed in
+[the wiki](https://github.com/mach3-software/MaCh3/wiki/15.-Plotting#custom-plotting-scripts).
+Here we will walk you through some example scripts.
 
 For the examples here, we will use matplotlib and numpy. These can be installed using the provided [requirements.txt](requirements.txt) by doing
 
