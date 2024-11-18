@@ -1,6 +1,5 @@
 // MaCh3 spline includes
 #include "mcmc/MaCh3Factory.h"
-#include "covariance/covarianceXsec.h"
 #include "samplePDF/samplePDFTutorial.h"
 
 int main(int argc, char *argv[]){
@@ -11,39 +10,26 @@ int main(int argc, char *argv[]){
 
   // Initialise covariance class reasonable for Systematics
   covarianceXsec* xsec = MaCh3CovarianceFactory(FitManager, "Xsec");
+  covarianceOsc*  osc  = MaCh3CovarianceFactory<covarianceOsc>(FitManager, "Osc");
 
-  auto OscMatrixFile = FitManager->raw()["General"]["Systematics"]["OscCovFile"].as<std::vector<std::string>>();
-  auto OscFixParams  = FitManager->raw()["General"]["Systematics"]["OscFix"].as<std::vector<std::string>>();
-  covarianceOsc* osc = new covarianceOsc(OscMatrixFile, "osc_cov");
-  // Fixed xsec parameters loop
-  if (OscFixParams.size() == 1 && OscFixParams.at(0) == "All") {
-    for (int j = 0; j < osc->GetNumParams(); j++) {
-      osc->toggleFixParameter(j);
-    }
-  } else {
-    for (unsigned int j = 0; j < OscFixParams.size(); j++) {
-      osc->toggleFixParameter(OscFixParams.at(j));
-    }
-  }
+  // Initialise samplePDF
+  auto SampleConfig = FitManager->raw()["General"]["TutorialSamples"].as<std::vector<std::string>>();
+  auto mySamples = MaCh3SamplePDFFactory<samplePDFTutorial>(SampleConfig, xsec, osc);
 
   // Create MCMC Class
-  std::unique_ptr<FitterBase> MaCh3Fitter = std::make_unique<mcmc>(FitManager);
+  std::unique_ptr<FitterBase> MaCh3Fitter = MaCh3FitterFactory(FitManager);
   // Add covariance to MCM
   MaCh3Fitter->addSystObj(xsec);
   MaCh3Fitter->addSystObj(osc);
-
-  auto SampleConfig = FitManager->raw()["General"]["TutorialSamples"].as<std::vector<std::string>>();
-  auto mySamples = MaCh3SamplePDFFactory<samplePDFTutorial>(SampleConfig, xsec, osc);
   for (size_t i = 0; i < SampleConfig.size(); ++i) {
     MaCh3Fitter->addSamplePDF(mySamples[i]);
   }
-
-  // Run MCMCM
+  // Run LLH scan
   MaCh3Fitter->RunLLHScan();
 
   delete FitManager;
   delete xsec;
-  MaCh3Fitter.reset();
+  delete osc;
   for (size_t i = 0; i < SampleConfig.size(); ++i) {
     delete mySamples[i];
   }

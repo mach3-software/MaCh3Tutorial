@@ -4,7 +4,6 @@
 #include "Utils/Comparison.h"
 #include "samplePDF/samplePDFTutorial.h"
 
-
 /// @todo add sample PDF object!
 ///
 ///
@@ -22,6 +21,7 @@ void FitVal(const std::string& Algo, bool MoreTests)
   MACH3LOG_INFO("Testing {}", Algo);
 
   covarianceXsec* xsec = MaCh3CovarianceFactory(FitManager, "Xsec");
+  covarianceOsc* osc = MaCh3CovarianceFactory<covarianceOsc>(FitManager, "Osc");
   std::unique_ptr<FitterBase> MaCh3Fitter = nullptr;
   if(Algo == "MCMC") {
     FitManager->OverrideSettings("General", "OutputFile", "MCMC_Test.root");
@@ -42,10 +42,6 @@ void FitVal(const std::string& Algo, bool MoreTests)
     MACH3LOG_ERROR("You want to use algorithm {}, I don't recognize it, sry", Algo);
     throw MaCh3Exception(__FILE__ , __LINE__ );
   }
-
-  std::vector<std::string> OscCovMatrixFile = {"Inputs/Osc_Test.yaml"};
-  covarianceOsc* osc = new covarianceOsc(OscCovMatrixFile, "osc_cov");
-  osc->setParameters();
 
   std::string SampleConfig = {"Inputs/SamplePDF_Tutorial.yaml"};
   samplePDFTutorial *Sample = new samplePDFTutorial(SampleConfig, xsec);
