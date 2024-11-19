@@ -1,6 +1,7 @@
 General:
   OutputFile: "Test.root"
   TutorialSamples: ["Inputs/SamplePDF_Tutorial.yaml"]
+  FittingAlgorithm: "MCMC"
 
   RealData: false
   Asimov: true
@@ -45,8 +46,10 @@ General:
     XsecPCAParams: [-999, -999]
     XsecStepScale: 1
 
+    OscCovName: "osc_cov"
     OscCovFile: ["Inputs/Osc_Test.yaml"]
     OscFix: ["baseline", "density", "Ye"]
+    OscStepScale: 1
 
   Predictive:
     Ntoy: 10
@@ -59,5 +62,3 @@ LikelihoodOptions:
   #False means you calculate W2 histogram only during first reweight, advisable for Barlow-Beeston
   UpdateW2: false
   TestStatistic: "Barlow-Beeston"
-  #TestStatistic: "Poisson"
-  #TestStatistic: "IceCube"
