@@ -47,7 +47,6 @@ GetPostfitParamPlots:
 
     ## groups of flux parameters to be plotted together
     fluxGroups: [
-        "EXAMPLE_FLUX_GROUP",
     ]
 
     ## define the groups of flux parameters, it goes groupName: [<Plot title>, <binning name>, [<param ID low>, <param ID high>]]
@@ -62,7 +61,6 @@ GetPostfitParamPlots:
     paramGroups: [
         "Cross_Section", 
         "Detector_Systematic",
-        "Flux",
         "Osc_Mixing_Angles",
         "Osc_Mass_Splitting",
         "Experiment_Setup"
