@@ -7,7 +7,7 @@ int main(int argc, char *argv[]){
   MaCh3Utils::MaCh3Usage(argc, argv);
   // Initialise manger responsible for config handling
   manager *FitManager = new manager(argv[1]);
-
+  FitManager->OverrideSettings("General", "OutputFile", "LLH_Test.root");
   // Initialise covariance class reasonable for Systematics
   covarianceXsec* xsec = MaCh3CovarianceFactory(FitManager, "Xsec");
   covarianceOsc*  osc  = MaCh3CovarianceFactory<covarianceOsc>(FitManager, "Osc");

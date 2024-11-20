@@ -25,6 +25,11 @@ docker pull ghcr.io/mach3-software/mach3tutorial:alma9latest
 ```
 To reed more how to use containers check our wiki [here](https://github.com/mach3-software/MaCh3/wiki/12.-Containers)
 
+## Introduction
+Aim of tutorial is to teach you basic of running MCMC how to viusalise/analise it what are systematic uncertainties and samples, how to implement them.
+
+Current setup include single sample with several cross-section and oscillation parameters/
+
 ## How to run MCMC
 To run MCMC simply
 ```bash
@@ -58,7 +63,7 @@ We especially recommend comparing 2D posteriors with correlation matrix and play
 You can then take the output of running ProcessMCMC which will be called something like <inputName>_Process.root, and make fancier error plots from it using the `GetPostfitParamPlots` app like:
 
 ```bash
-GetPostfitParamPlots Test_Process.root
+GetPostfitParamPlots Test_drawCorr.root
 ```
 
 ## How to Develop Model of Systematic Uncertainties
