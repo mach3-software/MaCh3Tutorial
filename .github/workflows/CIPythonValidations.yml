@@ -24,7 +24,7 @@ jobs:
     - name: Get MaCh3 Validations
       run: |
         cd /opt/
-        git clone https://github.com/mach3-software/MaCh3Tutorial.git MaCh3Validations
+        git clone --branch "${{ github.head_ref }}" https://github.com/mach3-software/MaCh3Tutorial.git MaCh3Validations
 
     - name: Install pytest
       working-directory: /opt/MaCh3Validations
