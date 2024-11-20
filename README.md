@@ -43,6 +43,7 @@ One of plots you will encounter is:
 
 It is marginalised posterior of a single parameter. This is main output of MCMC.
 <img width="350" alt="Posterior example" src="https://github.com/user-attachments/assets/1073a76e-5d82-4321-8952-e098d1b0717f">
+
 **WARNING** Your posterior may look very shaky and slightly different to one in example. This is because you run chain with low number of steps. Meaning you don't have enough statistic to build posterior distribution. You can easily modify in `Inputs/ManagerTest.yaml`
 ```yaml
 General:
@@ -52,6 +53,7 @@ General:
 It is good homework to increase number of steps and see how much more smooth posterior becomes, but at the cost of having to wait more.
 
 **ProcessMCMC** has much more plotting options, we recommend to see [here](https://github.com/mach3-software/MaCh3/wiki/09.-Bayesian-Analysis,-Plotting-and-MCMC-Processor) to get better idea what each plot mean.
+We especially recommend comparing 2D posteriors with correlation matrix and playing with triangle plots.
 
 You can then take the output of running ProcessMCMC which will be called something like <inputName>_Process.root, and make fancier error plots from it using the `GetPostfitParamPlots` app like:
 
