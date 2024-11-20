@@ -34,11 +34,18 @@ Congratulations! 🎉
 You have just completed finished you first MCMC chain.
 
 ### MCMC Chain
-You can produce simple plots with
+Being able to visualise and analyse output of MCMC is standard procedure after chain has finished, you can produce simple plots with
 ```bash
 ./bin/ProcessMCMC bin/TutorialDiagConfig.yaml Test.root
 ```
 where Test.root is the output of running MCMCTutorial as described [here](#how-to-run-mcmc)
+One of plots you will encounter is:
+
+
+It is marginalised posterior of a single parameter. This is main output of MCMC.
+
+
+**ProcessMCMC** has much more options to chose from, we recommend to see [here](https://github.com/mach3-software/MaCh3/wiki/09.-Bayesian-Analysis,-Plotting-and-MCMC-Processor)
 
 You can then take the output of running ProcessMCMC which will be called something like <inputName>_Process.root, and make fancier error plots from it using the `GetPostfitParamPlots` app like:
 
@@ -222,4 +229,9 @@ which will give you some plots that look something like
 <img width="350" alt="LLH scan example" src="https://github.com/user-attachments/assets/f16ad571-68da-42e3-ae6b-e984d03a58c3">
 
 
-## More advanced development???
+## Issues
+If you encountered any issues or find something confusing please contact us:
+* [Kamil Skwarczynski](mailto:Kamil.Skwarczynski@rhul.ac.uk)<br>
+  Royal Holloway, University of London, UK
+
+
