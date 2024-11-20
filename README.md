@@ -43,6 +43,7 @@ One of plots you will encounter is:
 
 
 It is marginalised posterior of a single parameter. This is main output of MCMC.
+![image](https://github.com/user-attachments/assets/1073a76e-5d82-4321-8952-e098d1b0717f)
 
 
 **ProcessMCMC** has much more options to chose from, we recommend to see [here](https://github.com/mach3-software/MaCh3/wiki/09.-Bayesian-Analysis,-Plotting-and-MCMC-Processor)
