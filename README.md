@@ -64,6 +64,10 @@ You can then take the output of running ProcessMCMC which will be called somethi
 GetPostfitParamPlots Test_drawCorr.root
 ```
 
+Output should look like file below, and it convey same information as individual posteriors, it is more compact way of presenting same information useful for comparison especially if you have order of hundred parameters
+
+<img width="350" alt="Posterior example" src="https://github.com/user-attachments/assets/27e3e4c8-629e-4c05-ac64-f6a7bec85331">
+
 ## How to Develop Model of Systematic Uncertainties
 In the next step you gonna modify analysis setup and repeat steps.
 First let's better understand `Inputs/SystematicsTest.yaml`. This config controls what systematic uncertainties will be used in the analysis for example like this:
