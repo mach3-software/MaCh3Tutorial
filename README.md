@@ -1,5 +1,7 @@
 # Welcome to MaCh3 Tutorial
-After this tutorial you should know how to run MCMC, implement systematic uncertainties and how to plot standard Bayesian diagnostic.
+After this tutorial you should know how to run MCMC, implement systematic uncertainties new samples and how to plot standard Bayesian diagnostic.
+
+Current setup include single sample with several cross-section and oscillation parameters.
 
 [![Code - Documented](https://img.shields.io/badge/Code-Documented-2ea44f)](https://github.com/mach3-software/MaCh3/wiki)
 [![Container Image](https://img.shields.io/badge/Container-Image-brightgreen)](https://github.com/mach3-software/MaCh3Tutorial/pkgs/container/mach3tutorial)
@@ -24,11 +26,6 @@ alternatively you can use containers by
 docker pull ghcr.io/mach3-software/mach3tutorial:alma9latest
 ```
 To reed more how to use containers check our wiki [here](https://github.com/mach3-software/MaCh3/wiki/12.-Containers)
-
-## Introduction
-Aim of tutorial is to teach you basic of running MCMC how to viusalise/analise it what are systematic uncertainties and samples, how to implement them.
-
-Current setup include single sample with several cross-section and oscillation parameters/
 
 ## How to run MCMC
 To run MCMC simply
@@ -65,6 +62,10 @@ You can then take the output of running ProcessMCMC which will be called somethi
 ```bash
 GetPostfitParamPlots Test_drawCorr.root
 ```
+
+Output should look like file below, and it convey same information as individual posteriors, it is more compact way of presenting same information useful for comparison especially if you have order of hundred parameters
+
+<img width="350" alt="Posterior example" src="https://github.com/user-attachments/assets/27e3e4c8-629e-4c05-ac64-f6a7bec85331">
 
 ## How to Develop Model of Systematic Uncertainties
 In the next step you gonna modify analysis setup and repeat steps.

@@ -44,12 +44,12 @@ General:
                   ]
     XsecPCAThreshold: -1
     XsecPCAParams: [-999, -999]
-    XsecStepScale: 1
+    XsecStepScale: 0.05
 
     OscCovName: "osc_cov"
     OscCovFile: ["Inputs/Osc_Test.yaml"]
     OscFix: ["baseline", "density", "Ye"]
-    OscStepScale: 1
+    OscStepScale: 0.045
 
   Predictive:
     Ntoy: 10
