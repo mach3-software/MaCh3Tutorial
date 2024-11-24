@@ -4,9 +4,6 @@
 #include "Utils/Comparison.h"
 #include "samplePDF/samplePDFTutorial.h"
 
-/// @todo add sample PDF object!
-///
-///
 /// Current tests include
 /// Running MCMC
 /// Running MinuitFit
