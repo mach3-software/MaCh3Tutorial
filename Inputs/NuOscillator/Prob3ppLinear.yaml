@@ -1,0 +1,17 @@
+General:
+  Verbosity: "NONE"
+  CosineZIgnored: true
+  CalculationType: "Unbinned"
+
+OscProbCalcerSetup:
+  ImplementationName: "Prob3ppLinear"
+  OscChannelMapping:
+    - Entry: "Electron:Electron"
+    - Entry: "Electron:Muon"
+    - Entry: "Electron:Tau"
+    - Entry: "Muon:Electron"
+    - Entry: "Muon:Muon"
+    - Entry: "Muon:Tau"
+    - Entry: "Tau:Electron"
+    - Entry: "Tau:Muon"
+    - Entry: "Tau:Tau"

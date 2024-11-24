@@ -1,4 +1,4 @@
-./bin/MCMCTutorial Inputs/ManagerTest.yaml
+./bin/MCMCTutorial Inputs/FitterConfig.yaml
 
 ./CIValidations/NuMCMCconversion Test.root NewChain.root
 

@@ -3,9 +3,27 @@ After this tutorial you should know how to run MCMC, implement systematic uncert
 
 Current setup include single sample with several cross-section and oscillation parameters.
 
+MaCh3 is predominantly C++ software although some functionality are available through python as well. To access them please use tale of contents.
+
 [![Code - Documented](https://img.shields.io/badge/Code-Documented-2ea44f)](https://github.com/mach3-software/MaCh3/wiki)
 [![Container Image](https://img.shields.io/badge/Container-Image-brightgreen)](https://github.com/mach3-software/MaCh3Tutorial/pkgs/container/mach3tutorial)
 [![Code - Doxygen](https://img.shields.io/badge/Code-Doxygen-2ea44f)](https://mach3-software.github.io/MaCh3/index.html)
+
+## Table of contents
+1. [How to Start?](#how-to-start)
+2. [How to Run MCMC](#how-to-run-mcmc)
+    1. [MCMC Chain](#mcmc-chain)
+3. [How to Develop Model of Systematic Uncertainties](#how-to-develop-model-of-systematic-uncertainties)
+    1. [How to Plot Comparisons?](#how-to-plot-comparisons)
+    2. [More Advanced Systematic Development](#more-advanced-systematic-development)
+4. [How to Develop New Samples](#how-to-develop-new-samples)
+    1. [Changing Oscillation Engine](#changing-oscillation-engine)
+5. [MCMC Diagnostic](#mcmc-diagnostic)
+    1. [Running Multiple Chains](#running-multiple-chains)
+6. [Useful Settings](#useful-settings)
+7. [How to Plot?](#how-to-plot)
+    1. [How to run LLH scan](#how-to-run-llh-scan)
+    2. [Plotting with Python](#plotting-with-python)
 
 ## How to Start?
 To compile simply
@@ -20,6 +38,7 @@ then
 ```bash
 source bin/setup.MaCh3.sh
 source bin/setup.MaCh3Tutorial.sh
+source bin/setup.NuOscillator.sh
 ```
 alternatively you can use containers by
 ```bash
@@ -30,7 +49,7 @@ To reed more how to use containers check our wiki [here](https://github.com/mach
 ## How to run MCMC
 To run MCMC simply
 ```bash
-./bin/MCMCTutorial Inputs/ManagerTest.yaml
+./bin/MCMCTutorial Inputs/FitterConfig.yaml
 ```
 Congratulations! 🎉
 You have just completed finished you first MCMC chain.
@@ -40,19 +59,21 @@ Being able to visualise and analyse output of MCMC is standard procedure after c
 ```bash
 ./bin/ProcessMCMC bin/TutorialDiagConfig.yaml Test.root
 ```
-where Test.root is the output of running MCMCTutorial as described [here](#how-to-run-mcmc)
+where **Test.root** is the output of running MCMCTutorial as described [here](#how-to-run-mcmc)
 One of plots you will encounter is:
-
-It is marginalised posterior of a single parameter. This is main output of MCMC.
 <img width="350" alt="Posterior example" src="https://github.com/user-attachments/assets/1073a76e-5d82-4321-8952-e098d1b0717f">
 
-**WARNING** Your posterior may look very shaky and slightly different to one in example. This is because you run chain with low number of steps. Meaning you don't have enough statistic to build posterior distribution. You can easily modify in `Inputs/ManagerTest.yaml`
+It is marginalised posterior of a single parameter. This is main output of MCMC.
+
+**WARNING** Your posterior may look very shaky and slightly different to one in example. This is because you run chain with low number of steps. Meaning you don't have enough statistic to build posterior distribution. You can easily modify in `Inputs/FitterConfig.yaml`
 ```yaml
 General:
   MCMC:
     NSteps: 10000
 ```
 It is good homework to increase number of steps and see how much more smooth posterior becomes, but at the cost of having to wait more.
+
+**Warning**: If you modified files in main folder not build you will have to call make install!
 
 **ProcessMCMC** has much more plotting options, we recommend to see [here](https://github.com/mach3-software/MaCh3/wiki/09.-Bayesian-Analysis,-Plotting-and-MCMC-Processor) to get better idea what each plot mean.
 We especially recommend comparing 2D posteriors with correlation matrix and playing with triangle plots.
@@ -69,7 +90,7 @@ Output should look like file below, and it convey same information as individual
 
 ## How to Develop Model of Systematic Uncertainties
 In the next step you gonna modify analysis setup and repeat steps.
-First let's better understand `Inputs/SystematicsTest.yaml`. This config controls what systematic uncertainties will be used in the analysis for example like this:
+First let's better understand `Inputs/SystematicModel.yaml`. This config controls what systematic uncertainties will be used in the analysis for example like this:
 ```yaml
 - Systematic:
     Names:
@@ -93,28 +114,35 @@ First let's better understand `Inputs/SystematicsTest.yaml`. This config control
 ```
 If you want to read more about implementation please go [here](https://github.com/mach3-software/MaCh3/wiki/02.-Implementation-of-Systematic)
 
-As first step let's modify `Error: 0.11` to `Error: 2.0`, this should significantly modify error which shou.d be noticeable in MCMC.
+As first step let's modify `Error: 0.11` to `Error: 2.0`, this should significantly modify error which should be noticeable in MCMC.
 
-Lastly we need to modify name of output file. This is governed by manager class (read more [here](https://github.com/mach3-software/MaCh3/wiki/01.-Manager-and-config-handling)) modify `OutputFile: "Test.root"` in `Inputs/ManagerTest.yaml` to for example
+Lastly we need to modify name of output file. This is governed by manager class (read more [here](https://github.com/mach3-software/MaCh3/wiki/01.-Manager-and-config-handling)) modify `OutputFile: "Test.root"` in `Inputs/FitterConfig.yaml` to for example
 `OutputFile: "Test_Modified.root"`.
 
 Now let's run MCMC again
 ```bash
-./bin/MCMCTutorial Inputs/ManagerTest.yaml
+./bin/MCMCTutorial Inputs/FitterConfig.yaml
 ```
 Congratulations! 🎉
 Next step is to compare both chains.
 
-Warning: If you modified files in main folder not build you will have to call make install!
-## How to Plot Comparisons?
+### How to Plot Comparisons?
 Now that you have two chains you can try comparing them using following.
 ```bash
 ./bin/ProcessMCMC bin/TutorialDiagConfig.yaml Test.root Default_Chain Test_Modified.root Modified_Chain
 ```
 This will produce pdf file with overlayed posteriors. Most should be similarly except modified parameter.
 
+### More Advanced Systematic Development
+Sometimes you may want to fix parameter, for example if it causing problem to the fitter or you want to run fit with and without parameters to compare results. To fix parameter just pass name in the `Inputs/FitterConfig.yaml`
+```yaml
+General:
+  Systematics:
+    XsecFix: [ "Norm_Param_0" ]
+```
+
 ## How to Develop New Samples
-First we gonna investigate how to modify sample, let's take a look at `Inputs/SamplePDF_Tutorial.yaml`. Each sample has set of cuts right now we only introduce cut on TrueNeutrinoEnergy.
+First we gonna investigate how to modify sample, let's take a look at `Inputs/SamplePDF_Tutorial.yaml`. Each sample has set of cuts right now we only introduce cut on `TrueNeutrinoEnergy`.
 ```yaml
 SelectionCuts:
   - KinematicStr: "TrueNeutrinoEnergy"
@@ -139,7 +167,7 @@ You can try again to run MCMC and compare all 3 chains
 ```bash
 ./bin/ProcessMCMC bin/TutorialDiagConfig.yaml Test.root Default_Chain Test_Modified.root Modified_Chain Test_Modified_Sample.root ModifiedSameple_Chain
 ```
-Up to this point we only modified sample but how to add new one? First make copy of sample config `Inputs/SamplePDF_Tutorial.yaml` and call it `Inputs/SamplePDF_User.yaml`. For the moment feel free to change name, binning etc but keep inputs the same. Go wild! Next go to `Inputs/ManagerTest.yaml`
+Up to this point we only modified sample but how to add new one? First make copy of sample config `Inputs/SamplePDF_Tutorial.yaml` and call it `Inputs/SamplePDF_User.yaml`. For the moment feel free to change name, binning etc but keep inputs the same. Go wild! Next go to `Inputs/FitterConfig.yaml`
 ```yaml
 General:
   TutorialSamples: ["Inputs/SamplePDF_Tutorial.yaml"]
@@ -150,24 +178,82 @@ General:
   TutorialSamples: ["Inputs/SamplePDF_Tutorial.yaml", "Inputs/SamplePDF_User.yaml"]
 ```
 
+### Changing Oscillation Engine
+MaCh3 has access to many oscillation engines via NuOscillator framework. First you can check features using following command
+```bash
+bin/mach3-config --features
+MULTITHREAD MR2T2  PSO  Minuit2 Prob3ppLinear NuFast
+```
+This way you can easily access information about MaCh3 features, fitter engines and most importantly oscillation engines.
+
+By default we use **NuFast**, however to change to for example **Prob3++** one have to modify sample config `Inputs/SamplePDF_Tutorial.yaml`:
+```yaml
+NuOsc:
+  NuOscConfigFile: "Inputs/NuOscillator/Prob3ppLinear.yaml"
+```
+In most cases this is enough. However you have to be aware that some engines require different number of parameters. In this example NuFast requires one additional parameter compared with Prob3ppLinear which is **Ye**. You will have to remove **Ye** from `Inputs/Osc_Test.yaml`
+
 ## MCMC Diagnostic
-Crucial part of MCMC is diagnostic whether chain converged or not. You can read more on [here](https://github.com/mach3-software/MaCh3/wiki/11.-Step-size-tuning)
+Crucial part of MCMC is diagnostic whether chain converged or not. You can produce diagnostic by running.
 
 ```bash
 ./bin/DiagMCMC Test.root bin/TutorialDiagConfig.yaml
 ```
 
-### Useful Settings
-There are plenty of usefull settings
-**Fitting Algorithm**: Most likely you run MCMC but what if you want to use algorith like Minuit2?
+This will produce plethora of diagnostic however one most often checked are autocreation's which indicate how correlated are MCMC steps which are n-steps apart. We want autocreation's to drop fast.
+You can read about other diagnostic here on [here](https://github.com/mach3-software/MaCh3/wiki/11.-Step-size-tuning)
+
+Add Plot WARNING TODO!!!!!!
+
+Best way to reduce auto-corelations is by step size tunning. There are two step-scale available.
+
+Global which affect identically every parameter and it is proportional to all parameters can be found in `Inputs/FitterConfig.yaml`:
+```yaml
+General:
+  Systematics:
+    XsecStepScale: 0.05
+```
+or individual step scale affecting single parameters which highly depend on parameters boundary sensitivity etc can be found in `Inputs/SystematicModel.yaml`.
+```yaml
+- Systematic:
+    Names:
+      FancyName: Norm_Param_0
+    StepScale:
+      MCMC: 0.2
+```
+We recommend chasing both scales running MCMC again and later producing auto-corelations. Understanding how auto-corelations change while playing with step-size is very useful skill.
+
+### Running Multiple Chains
+At this point you should be aware that to have smooth posterior distribution you may need a lot of steps which can be time consuming. Great property of MCMC is that once chain reaches stationary distribution (or in other words converge) it sample same distribution. This means we can run several chains in parallel. Computing clusters give us ability to run thousands of MCMC chains in parallel allowing to accumulate steps very fast.
+
+The only caveat of this method is that chains have to converge to the same stationary distribution (there can only be one stationary distribution but chains can stuck in local minima or not converge due to wrong step-size tunning). To validate if chains converged we can use **RHat**.
+
+In the following example 1000 indicate number of toys we want to sample while other arguments indicate different chains. You can pass as many chains as you want
+```bash
+./bin/RHat 1000 MCMC_Test_1.root MCMC_Test_2.root MCMC_Test_3.root MCMC_Test_4.root
+```
+
+**RHat** is estimator of variance between chains, in other words it should be peaking at 1. Single entry in histogram refers to single parameters. If your distribution has a tail reaching beyond 1.1 (according to Gellman) then this maybe indicate some chains haven't converged to the same distribution. Which MUST be investigated in analysis (in this tutorial main culprit will be number of steps)
+
+Add Plot WARNING TODO!!!!!!
+
+Once you validated that chains converged you may need to merge them
+```bash
+./bin/CombineMaCh3Chains -o MergedChain.root MCMC_Test_1.root MCMC_Test_2.root MCMC_Test_3.root MCMC_Test_4.root
+```
+This works very similarly to **hadd** although has some advantages, main one being it checks if chains were run with the same settings. If for example one chains was run with different systematic parameters then this should be caught and raised.
+
+## Useful Settings
+There are plenty of useful settings in
+**Fitting Algorithm**: Most likely you run MCMC but what if you want to use algorithm like Minuit2?
 ```yaml
 General:
   FittingAlgorithm: "MCMC"
 ```
-In `Inputs/ManagerTest.yaml` you should switch following setting to "Minuit2"
+In `Inputs/FitterConfig.yaml` you should switch following setting to "Minuit2"
 
 **LLH Type**:
-By default we use Barlow-Beeston LLH, however several are implemented. For example by changing confign you can use Poisson or maybe IceCube.
+By default we use Barlow-Beeston LLH, however several are implemented. For example by changing config you can use Poisson or maybe IceCube.
 ```yaml
 LikelihoodOptions:
   TestStatistic: "Barlow-Beeston"
@@ -185,7 +271,7 @@ Some examples on how to make some "standard" plots are given below.
 ### How to run LLH scan
 You can run MCMC in very similar way as MCMC
 ```bash
-./bin/LLHScanTutorial Inputs/ManagerTest.yaml
+./bin/LLHScanTutorial Inputs/FitterConfig.yaml
 ```
 You can plot the results of an LLH scan using the aptly named PlotLLH app like so
 

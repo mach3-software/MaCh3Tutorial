@@ -15,7 +15,7 @@
 /// Running GetStepScaleBasedOnLLHScan
 void FitVal(const std::string& Algo, bool MoreTests)
 {
-  std::string ManagerInput = "Inputs/ManagerTest.yaml";
+  std::string ManagerInput = "Inputs/FitterConfig.yaml";
   manager *FitManager = new manager(ManagerInput);
 
   MACH3LOG_INFO("Testing {}", Algo);
@@ -73,7 +73,7 @@ void FitVal(const std::string& Algo, bool MoreTests)
 
 void StartFromPosteriorTest(const std::string& PreviousName)
 {
-  std::string ManagerInput = "Inputs/ManagerTest.yaml";
+  std::string ManagerInput = "Inputs/FitterConfig.yaml";
   manager *FitManager = new manager(ManagerInput);
 
   FitManager->OverrideSettings("General", "OutputFile", "MCMC_Test_Start.root");

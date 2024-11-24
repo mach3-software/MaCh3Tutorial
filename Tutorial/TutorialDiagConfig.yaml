@@ -3,7 +3,7 @@ DiagMCMC:
   ExcludedTypes: []
   ExcludedNames: []
   nBatches: 20
-  nLags: 25000
+  nLags: 10000
   PlotRelativeToPrior: "false"
 
 
