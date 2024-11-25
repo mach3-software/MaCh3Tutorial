@@ -9,6 +9,8 @@ SET(MaCh3Tutorial_VERSION 1.2.0)
 project(MaCh3Tutorial VERSION ${MaCh3Tutorial_VERSION} LANGUAGES CXX)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
+option(MaCh3Tutorial_UNITTESTS_ENABLED "Whether to build MaCh3 Unit Tests" OFF)
+
 # Changes default install path to be a subdirectory of the build dir.
 # Can set build dir at configure time with -DCMAKE_INSTALL_PREFIX=/install/path
 if(CMAKE_INSTALL_PREFIX STREQUAL "" OR CMAKE_INSTALL_PREFIX STREQUAL
@@ -35,28 +37,10 @@ LIST(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_LIST_DIR}/cmake/Modules)
 # download CPM.cmake
 file(
   DOWNLOAD
-  https://github.com/cpm-cmake/CPM.cmake/releases/download/v0.38.8/CPM.cmake
+  https://github.com/cpm-cmake/CPM.cmake/releases/download/v0.40.2/CPM.cmake
   ${CMAKE_CURRENT_BINARY_DIR}/cmake/CPM.cmake
 )
 include(${CMAKE_CURRENT_BINARY_DIR}/cmake/CPM.cmake)
-
-CPMFindPackage(
-      NAME CMakeModules
-      GIT_TAG stable
-      GITHUB_REPOSITORY NuHepMC/CMakeModules
-      DOWNLOAD_ONLY
-  )
-include(${CMakeModules_SOURCE_DIR}/NuHepMCModules.cmake)
-
-include(ROOT)
-
-if(NOT TARGET ROOT::ROOT)
-  cmessage(FATAL_ERROR "T2KReWeight Expected dependency target: ROOT::ROOT")
-endif()
-
-if(DEFINED ROOT_CXX_STANDARD AND ROOT_CXX_STANDARD GREATER CMAKE_CXX_STANDARD)
-  set(CMAKE_CXX_STANDARD ${ROOT_CXX_STANDARD})
-endif()
 
 ##################################  MaCh3  ######################################
 if(NOT DEFINED MaCh3_Branch)
@@ -70,15 +54,18 @@ if(NOT DEFINED PYTHON_ENABLED)
   SET(PYTHON_ENABLED false)
 endif()
 if(NOT MaCh3_FOUND)
-  cmessage(STATUS "Didn't find MaCh3, attempting to use built-in MaCh3")
-
   CPMAddPackage(
     NAME MaCh3
     GIT_TAG ${MaCh3_Branch}
+    GIT_SHALLOW YES
     GITHUB_REPOSITORY mach3-software/MaCh3
     OPTIONS
       "MaCh3_PYTHON_ENABLED ${PYTHON_ENABLED}"
+      "Prob3ppLinear_ENABLED ON"
+      "NuFastLinear_ENABLED ON"
   )
+  # MaCh3 sets up cmessage for us, so can't cmessage until we've set up MaCh3
+  cmessage(STATUS "Didn't find MaCh3, attempting to use built-in MaCh3")
 endif()
 
 if(NOT TARGET MaCh3::All)
@@ -91,7 +78,8 @@ endif()
 
 CPMAddPackage(
   NAME NuMCMCTools
-  GIT_TAG main
+  GIT_TAG "tags/v1.0.0"
+  GIT_SHALLOW YES
   GITHUB_REPOSITORY NuMCMCTools/NuMCMCTools
   DOWNLOAD_ONLY YES
 )
@@ -101,19 +89,30 @@ install(DIRECTORY
     DESTINATION ${CMAKE_BINARY_DIR}/NuMCMCTools)
 
 ############################  C++ Compiler  ####################################
-if (NOT DEFINED CMAKE_CXX_STANDARD OR "${CMAKE_CXX_STANDARD} " STREQUAL " ")
-  SET(CMAKE_CXX_STANDARD 11)
-endif()
-
-if(DEFINED ROOT_CXX_STANDARD AND ROOT_CXX_STANDARD GREATER CMAKE_CXX_STANDARD)
-  set(CMAKE_CXX_STANDARD ${ROOT_CXX_STANDARD})
+get_property(MACH3_CXX_STANDARD GLOBAL PROPERTY MACH3_CXX_STANDARD)
+if(NOT DEFINED MACH3_CXX_STANDARD)
+  SET(CMAKE_CXX_STANDARD 14)
+else()
+  SET(CMAKE_CXX_STANDARD ${MACH3_CXX_STANDARD})
 endif()
 cmessage(STATUS "CMAKE CXX Standard: ${CMAKE_CXX_STANDARD}")
 
+############################  Catch2/CTest  ####################################
+if(MaCh3Tutorial_UNITTESTS_ENABLED)
+  find_package(Catch2 QUIET)
+  if(NOT Catch2_FOUND)
+    CPMAddPackage("gh:catchorg/Catch2@3.5.2")
+    LIST(APPEND CMAKE_MODULE_PATH ${Catch2_SOURCE_DIR}/extras)
+  endif()
+
+  include(CTest)
+  include(Catch)
+endif()
 ################################# Build MaCh3 ##################################
 add_subdirectory(Utils)
-add_subdirectory(Apps)
+add_subdirectory(CIValidations)
 add_subdirectory(Tutorial)
+add_subdirectory(samplePDF)
 
 configure_file(cmake/Templates/setup.MaCh3Tutorial.sh.in "${PROJECT_BINARY_DIR}${CMAKE_FILES_DIRECTORY}/setup.MaCh3Tutorial.sh" @ONLY)
 install(FILES "${PROJECT_BINARY_DIR}${CMAKE_FILES_DIRECTORY}/setup.MaCh3Tutorial.sh" DESTINATION ${CMAKE_INSTALL_PREFIX}/bin)
@@ -121,7 +120,6 @@ install(FILES "${PROJECT_BINARY_DIR}${CMAKE_FILES_DIRECTORY}/setup.MaCh3Tutorial
 ############################  Install  ####################################
 install(DIRECTORY Inputs DESTINATION ${CMAKE_BINARY_DIR})
 install(DIRECTORY plotting DESTINATION ${CMAKE_BINARY_DIR})
-install(DIRECTORY Scripts DESTINATION ${CMAKE_BINARY_DIR})
 
 include(CMakePackageConfigHelpers)
 configure_package_config_file(

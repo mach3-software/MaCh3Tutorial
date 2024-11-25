@@ -19,8 +19,8 @@ target_include_directories(ValidationsUtils PUBLIC
   $<INSTALL_INTERFACE:include>)
 
 install(TARGETS ValidationsUtils
-        EXPORT validationsutils-targets
+        EXPORT mach3tutorial-targets
         LIBRARY DESTINATION lib/
         PUBLIC_HEADER DESTINATION include/Utils)
 
-add_library(MaCh3Validations::ValidationsUtils ALIAS ValidationsUtils)
+add_library(MaCh3Tutorial::ValidationsUtils ALIAS ValidationsUtils)

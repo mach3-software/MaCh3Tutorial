@@ -24,7 +24,7 @@ jobs:
       # Extract the MaCh3 version from CMakeLists.txt
       - name: Get MaCh3 version
         run: |
-          MaCh3_version=$(grep -Po '(?<=set\(MaCh3_VERSION )\d+\.\d+\.\d+' MaCh3/CMakeLists.txt)
+          MaCh3_version=$(grep -Po '(?<=project\(MaCh3 VERSION )\d+\.\d+\.\d+' MaCh3/CMakeLists.txt)
           echo "Extracted MaCh3 version: ${MaCh3_version}"
           echo "MaCh3_VERSION=${MaCh3_version}" >> $GITHUB_ENV
 

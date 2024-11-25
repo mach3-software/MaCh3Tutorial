@@ -1,0 +1,188 @@
+Systematics:
+
+- Systematic:
+    Names:
+      FancyName: Norm_Param_0
+    Error: 0.11
+    FlatPrior: false
+    IsFixed: false
+    Mode: [ 0 ]
+    ParameterBounds: [0, 999.]
+    ParameterGroup: Xsec
+    TargetNuclei: [12, 16]
+    KinematicCuts:
+      - TrueQ2: [0.25, 0.5]
+    ParameterValues:
+      Generated: 1.
+      PreFitValue: 1.
+    DetID: 985
+    StepScale:
+      MCMC: 0.2
+    Type: Norm
+
+- Systematic:
+    Names:
+      FancyName: Norm_Param_1
+    Error: 0.18
+    FlatPrior: false
+    IsFixed: false
+    Mode: [ 0 ]
+    ParameterBounds: [0, 999.]
+    ParameterGroup: Xsec
+    TargetNuclei: [12, 16]
+    KinematicCuts:
+      - TrueQ2: [0.5, 1.0]
+    ParameterValues:
+      Generated: 1.
+      PreFitValue: 1.
+    DetID: 985
+    StepScale:
+      MCMC: 0.2
+    Type: Norm
+
+- Systematic:
+    Names:
+      FancyName: Norm_Param_2
+
+    Error: 0.40
+    FlatPrior: false
+    IsFixed: false
+    Mode: [ 0 ]
+
+    ParameterBounds: [0, 9999.]
+    ParameterGroup: Xsec
+    TargetNuclei: [12, 16]
+    KinematicCuts:
+      - TrueQ2: [1.0, 9999999.9]
+    ParameterValues:
+      Generated: 1.
+      PreFitValue: 1.
+    DetID: 985
+    StepScale:
+      MCMC: 0.2
+    Type: Norm
+
+- Systematic:
+    Names:
+      FancyName: Spline_Param_0
+    Error: 0.06
+    FlatPrior: false
+    IsFixed: false
+    Mode: []
+    ParameterBounds: [0.0, 9999]
+    ParameterGroup: Xsec
+    ParameterValues:
+      Generated: 1.21
+      PreFitValue: 1.03
+    SplineInformation:
+      Mode: [0]
+      InterpolationType: TSpline3
+      SplineName: Spline_0
+    DetID: 985
+    StepScale:
+      MCMC: 0.4
+    Type: Spline
+
+- Systematic:
+    Names:
+      FancyName: Spline_Param_1
+    Error: 1.0
+    FlatPrior: True
+    IsFixed: false
+    Mode: []
+    ParameterBounds: [0., 1.]
+    ParameterGroup: Xsec
+    ParameterValues:
+      Generated: 1.0
+      PreFitValue: 1.0
+    SplineInformation:
+      Mode: [9]
+      InterpolationType: Linear
+      SplineName: Spline_1
+    DetID: 985
+    StepScale:
+      MCMC: 0.2
+    Type: Spline
+
+- Systematic:
+    Names:
+      FancyName: Func_Param_0
+    Error: 6
+    FlatPrior: false
+    IsFixed: false
+    ParameterBounds: [-10., 15.]
+    ParameterGroup: Xsec
+    ParameterValues:
+      Generated: 0
+      PreFitValue: 2.
+    Correlations:
+      - Func_Param_2: 0.778
+      - Func_Param_1: 0.870
+      - Func_Param_3: 0.653
+    StepScale:
+      MCMC: 0.2
+    DetID: 1
+    Type: Functional
+
+- Systematic:
+    Names:
+      FancyName: Func_Param_1
+    Error: 6
+    FlatPrior: false
+    IsFixed: false
+
+    ParameterBounds: [-10., 15.]
+    ParameterGroup: Xsec
+    ParameterValues:
+      Generated: 0
+      PreFitValue: 4.
+    Correlations:
+      - Func_Param_0: 0.870
+      - Func_Param_2: 0.653
+      - Func_Param_3: 0.778
+    StepScale:
+      MCMC: 0.2
+    DetID: 985
+    Type: Functional
+
+- Systematic:
+    Names:
+      FancyName: Func_Param_2
+    Error: 6
+    FlatPrior: false
+    IsFixed: false
+
+    ParameterBounds: [-10., 15.]
+    ParameterGroup: Xsec
+    ParameterValues:
+      Generated: 0
+      PreFitValue: 0.
+    Correlations:
+      - Func_Param_0: 0.778
+      - Func_Param_1: 0.653
+      - Func_Param_3: 0.870
+    StepScale:
+      MCMC: 0.2
+    DetID: 1
+    Type: Functional
+
+- Systematic:
+    Names:
+      FancyName: Func_Param_3
+    Error: 6
+    FlatPrior: false
+    IsFixed: false
+
+    ParameterBounds: [-10., 15.]
+    ParameterGroup: Xsec
+    ParameterValues:
+      Generated: 0
+      PreFitValue: 0.
+    Correlations:
+      - Func_Param_0: 0.653
+      - Func_Param_2: 0.870
+      - Func_Param_1: 0.778
+    StepScale:
+      MCMC: 0.2
+    DetID: 985
+    Type: Functional

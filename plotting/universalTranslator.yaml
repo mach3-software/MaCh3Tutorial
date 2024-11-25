@@ -3,7 +3,7 @@
 FitterSpec:
 
     ## first we declare what fitters the plotting code should be aware of
-    fitters: ["FITTER_1", "FITTER_2"]
+    fitters: ["FITTER_1"]
 
     ## now for each one specified we give some details
     FITTER_1:
@@ -125,64 +125,6 @@ FitterSpec:
                 "posteriors",
             ]
 
-
-    FITTER_2:
-
-        ## This fitter uses tgraphs to store its llh scans instead of TH1Ds
-        LLHObjectType: "TGraph"
-        
-        sample_LLH:
-            location: 
-            [
-                "preFit/scan/llhSamp:_{PARAMETER}_TGraph",
-            ]
-            
-        penalty_LLH:
-            location: 
-            [
-                "preFit/scan/llhPenalty:_{PARAMETER}_TGraph",
-            ]
-            
-        total_LLH:
-            location: 
-            [
-                "preFit/scan/llh:_{PARAMETER}_TGraph",
-            ]
-
-        bySample_LLH:
-            location: 
-            [
-                "preFit/scan/llhStat/{SAMPLE}:_{PARAMETER}_TGraph",
-            ]
-
-        
-        ## This fitter uses Minuit to find best fit points and stores the prior error and 
-        ## the best fit points and errors found by the Migrad algorithm 
-        defaultPostFitErrorType: "Migrad"
-        AvailablePostFitErrorTypes: ["Migrad", "Prior"]
-
-        ## This fitter stores parameters in different directories depending on their type
-        ## so we need to specify all the possible location
-        postFitErrorTypes:
-            
-            Migrad:
-                location: 
-                [
-                    "errors/Cross-Section Systematics Group 1/values/postFitErrors",
-                    "errors/Cross-Section Systematics Group 2/values/postFitErrors",
-                    "errors/Detector Systematics/values/postFitErrors",
-                    "errors/Flux Systematics/values/postFitErrors",
-                ]
-            
-            Prior:
-                location: 
-                [
-                    "errors/Cross-Section Systematics Group 1/values/preFitErrors",
-                    "errors/Cross-Section Systematics Group 2/values/preFitErrors",
-                    "errors/Detector Systematics/values/preFitErrors",
-                    "errors/Flux Systematics/values/preFitErrors",
-                ]
-                
 ## Now we define what samples are available for this particular experiment
 Samples:
 
@@ -194,18 +136,8 @@ Samples:
         "SAMPLE_3",
     ]
 
-    ## now we can specify particular overrides for each parameter for different fitters
-    ## For example, lets assume that FITTER_1 uses the same names that are laid out in the list above
-    ## but FITTER_2 uses a slightly different naming convention
     SAMPLE_1: 
         FITTER_1:
-
-        FITTER_2:
-            ## this is the name of the sample when dealing with LLH scans
-            ## currently this is the only one that matters, however in future it might be useful
-            ## to also be able to specify this for different file types, hence why LLH is specified
-            ## and not just something general
-            LLH: "Sample-1"
 
         ## We can specify "tags" to apply to a sample
         ## This allows you to later on in your plotting scripts get, for example, all the samples which, for example,
@@ -213,19 +145,11 @@ Samples:
         ## Or to samples which correspond to a particular tagged particle
         tags: ["subDet1", "particleTag"]
             
-
     SAMPLE_2: 
         FITTER_1:
-
-        FITTER_2:
-            LLH: "Sample-2"
-
         
     SAMPLE_3: 
         Fitter_1:
-
-        FITTER_2:
-            LLH: "Sample-3"
     
 
 ## Now we define the parameters that are modelled in the experiment
@@ -263,13 +187,6 @@ Parameters:
     ## different names for the XSEC parameters when dealing with LLH scans and post fit errors
     
     Norm_Param_0:
-        FITTER_2:
-            ## EM: *** TODO *** Might be good to use arrays to specify multiple possible names
-            ##     similarly to how we can specify different locations for LLH scans and post-fit errors
-            ##     this could be useful e.g. if a parameter had different names in different years in a fitter?? 
-            LLH: "NORM-PARAMETER-1" 
-            PostFit: "PARAMETER-1"
-
         ## We can also specify "tags" to apply to a parameter
         ## This allows you to later on in your plotting scripts get, for example, all parameters which have the tag "pion"
         ## and plot them together, or all parameters with both the tags "pion" and "FSI"
@@ -277,57 +194,17 @@ Parameters:
         tags: ["norm", "xsec", "FSI", "pion"]
 
     Norm_Param_1:
-        FITTER_2:
-            LLH: "NORM-PARAMETER-2"
-            PostFit: "PARAMETER-2"
-            
         ## lets pretend this one is a detector systematic parameter
         tags: ["systematic", "norm", "det-syst"]
 
     Norm_Param_2:
-        FITTER_2:
-            LLH: "NORM-PARAMETER-3"
-            PostFit: "PARAMETER-3"
-            
-            ## We can also provide a post fit error location for this parameter which will 
-            ## override the more general locations specified earlier for this fitter. 
-            ## This can be useful if e.g. the parameter appears in more than one of the possible post fit error
-            ## TH1Ds. The code doesn't like this and so the override will break the degeneracy.
-            postFitLoc: ["errors/Cross-Section Systematics Group 2/values/postFitErrors"]
-
-            ## *** TODO *** I'm not super happy with the current way of specifying the override
-            ##     I think it could be made a lot more general and easily extendable to other file types
-            ##     e.g. by specifying it like 
-            ##     locationOverrides:
-            ##       LLH: 
-            ##         <LLHtype1>: "LLHtype1Location"
-            ##         <LLHtype2>: "LLHtype2Location"
-            ##         <LLHtype3>: "LLHtype3Location"
-            ##         ...
-            ##       postFit:
-            ##         <postFitType1>: "postFitType1Location"
-            ##         <postFitType2>: "postFitType2Location"
-            ##         <postFitType3>: "postFitType3Location"
-            ##         ...
-            ##      <other file type>:
-            ##         ...
-            ##      ...
-            
         ## lets pretend this one is a flux parameter
         tags: ["systematic", "norm", "flux"]
 
     Spline_Param_0:
-        FITTER_2:
-            LLH: "SPLINE-PARAMETER-1"
-            PostFit: "SPLINE-PARAMETER-1"
-
         tags: ["systematic", "spline", "xsec"]
 
     Spline_Param_1:
-        FITTER_2:
-            LLH: "SPLINE-PARAMETER-2"
-            PostFit: "SPLINE-PARAMETER-2"
-
         tags: ["systematic", "spline", "det-syst"]
     
     Func_Param_0:
@@ -341,7 +218,6 @@ Parameters:
 
     Func_Param_3:
         tags: ["systematic", "func", "detsyst"]
-
     
     sin2th_12:
         tags: ["oscillation", "angle"]
@@ -360,7 +236,6 @@ Parameters:
 
     delta_cp:
         tags: ["oscillation"]
-
 
     baseline:
         tags: ["oscillation", "experiment"]

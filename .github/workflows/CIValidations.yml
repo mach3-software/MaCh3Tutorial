@@ -1,0 +1,87 @@
+# Performs unit and integration testing
+
+name: Validations CI
+
+# The events that trigger the workflow
+on:
+  pull_request:
+    branches: [ main ]
+
+permissions:
+  contents: read
+  packages: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    name: ${{ matrix.name }}
+
+    strategy:
+      fail-fast: false  # Prevents cancellation of remaining jobs if one fails
+      matrix:
+        include:
+          - name: Reweight Validations
+            test_1: MaCh3CLI --ReweightValidations
+            test_2: empty
+            test_3: empty
+
+          - name: Covariance Validations
+            test_1: MaCh3CLI --CovarianceValidations
+            test_2: empty
+            test_3: empty
+
+          - name: Fitter Validations
+            test_1: MaCh3CLI --FitterValidations
+            test_2: empty
+            test_3: empty
+
+          - name: NuMCMC Tools Validations
+            test_1: MaCh3CLI --NuMCMCToolsValidations
+            test_2: empty
+            test_3: empty
+
+    container:
+      image: ghcr.io/mach3-software/mach3:alma9latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+
+    - name: Get MaCh3 Validations
+      run: |
+        cd /opt/
+        git clone --branch "${{ github.head_ref }}" https://github.com/mach3-software/MaCh3Tutorial.git MaCh3Validations
+        cd MaCh3Validations
+        mkdir build
+        cd build
+        cmake ../ -DMaCh3Tutorial_UNITTESTS_ENABLED=TRUE
+
+    - name: Build MaCh3 Validations
+      run: |
+        cd /opt/MaCh3Validations/build
+        make -j4 install # Build the project
+
+    - name: Validations
+      run: |
+        source /opt/MaCh3Validations/build/bin/setup.MaCh3.sh
+        source /opt/MaCh3Validations/build/bin/setup.MaCh3Tutorial.sh
+        cd /opt/MaCh3Validations/build/CIValidations
+
+        ${{ matrix.test_1 }}
+
+        #KS: GHA is stupid when it comes to arrays. I tried something fancy but it was crashing terribly
+        #If you know how to write this better please let me know
+
+        # Run the second test if it is defined
+        if [[ "${{ matrix.test_2 }}" != "empty" ]]; then
+            echo " "
+            echo "Performing Second test"
+            ${{ matrix.test_2 }}
+        fi
+        # Run the third test if it is defined
+        if [[ "${{ matrix.test_3 }}" != "empty" ]]; then
+            echo " "
+            echo "Performing Third test"
+            ${{ matrix.test_3 }}
+        fi

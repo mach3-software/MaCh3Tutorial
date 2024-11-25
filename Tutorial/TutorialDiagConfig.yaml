@@ -3,7 +3,7 @@ DiagMCMC:
   ExcludedTypes: []
   ExcludedNames: []
   nBatches: 20
-  nLags: 25000
+  nLags: 10000
   PlotRelativeToPrior: "false"
 
 
@@ -90,6 +90,8 @@ ProcessMCMC:
   ParameterEvolution:
     - ["Norm_Param_0", 20]
 
+  Thinning: [false, 100]
+
   #First param name, then new prior and new prior error
   # apply reactor constraints [vector of param names] [vector of new central value] [vector of new prior errors]
   PriorReweighting: [ ["sin2th_13"], [0.0220], [0.0007] ]
@@ -109,3 +111,19 @@ GetPenaltyTerm:
     - ["Spline_Param"]
     - false
     - "-logL_{Spline}"
+
+
+
+#########################################
+MatrixPlotter:
+
+  Titles: [
+    "Norm",
+    "Spline",
+  ]
+
+  Norm: ["Norm_Param_0", "Norm_Param_1"
+  ]
+
+  Spline: ["Spline_Param_0", "Spline_Param_1"
+  ]

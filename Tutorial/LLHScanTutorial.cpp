@@ -1,31 +1,37 @@
 // MaCh3 spline includes
 #include "mcmc/MaCh3Factory.h"
-#include "covariance/covarianceXsec.h"
+#include "samplePDF/samplePDFTutorial.h"
 
 int main(int argc, char *argv[]){
 
   MaCh3Utils::MaCh3Usage(argc, argv);
   // Initialise manger responsible for config handling
   manager *FitManager = new manager(argv[1]);
-
-  std::vector<std::string> xsecCovMatrixFile = FitManager->raw()["General"]["Systematics"]["XsecCovFile"].as<std::vector<std::string>>();
+  FitManager->OverrideSettings("General", "OutputFile", "LLH_Test.root");
   // Initialise covariance class reasonable for Systematics
-  covarianceXsec* xsec = new covarianceXsec(xsecCovMatrixFile, "xsec_cov");
+  covarianceXsec* xsec = MaCh3CovarianceFactory(FitManager, "Xsec");
+  covarianceOsc*  osc  = MaCh3CovarianceFactory<covarianceOsc>(FitManager, "Osc");
 
-  std::vector<std::string> OscMatrixFile = FitManager->raw()["General"]["Systematics"]["OscCovFile"].as<std::vector<std::string>>();
-  covarianceOsc* osc = new covarianceOsc(OscMatrixFile, "osc_cov");
+  // Initialise samplePDF
+  auto SampleConfig = FitManager->raw()["General"]["TutorialSamples"].as<std::vector<std::string>>();
+  auto mySamples = MaCh3SamplePDFFactory<samplePDFTutorial>(SampleConfig, xsec, osc);
 
   // Create MCMC Class
-  std::unique_ptr<FitterBase> MaCh3Fitter = std::make_unique<mcmc>(FitManager);
+  std::unique_ptr<FitterBase> MaCh3Fitter = MaCh3FitterFactory(FitManager);
   // Add covariance to MCM
   MaCh3Fitter->addSystObj(xsec);
   MaCh3Fitter->addSystObj(osc);
-
-  // Run MCMCM
+  for (size_t i = 0; i < SampleConfig.size(); ++i) {
+    MaCh3Fitter->addSamplePDF(mySamples[i]);
+  }
+  // Run LLH scan
   MaCh3Fitter->RunLLHScan();
 
   delete FitManager;
   delete xsec;
-  MaCh3Fitter.reset();
+  delete osc;
+  for (size_t i = 0; i < SampleConfig.size(); ++i) {
+    delete mySamples[i];
+  }
   return 0;
 }

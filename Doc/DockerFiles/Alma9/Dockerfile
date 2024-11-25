@@ -19,7 +19,7 @@ RUN mkdir -p ${MACH3_WORK_DIR}
 
 WORKDIR /opt/
 # KS: Let's clone MaCh3Tutorial
-RUN --mount=type=ssh git clone https://github.com/mach3-software/MaCh3Validations ${MACH3_WORK_DIR}
+RUN --mount=type=ssh git clone https://github.com/mach3-software/MaCh3Tutorial ${MACH3_WORK_DIR}
 WORKDIR ${MACH3_WORK_DIR}
 RUN git checkout ${MACH3_VERSION}
 
@@ -29,9 +29,9 @@ RUN cmake -DPYTHON_ENABLED=ON ${MACH3_WORK_DIR}
 RUN make -j4 && make install
 
 # KS: Need to set them here, otherwise container using this container will not be able to find MaCh3Tutorial
-ENV MaCh3Validations_ROOT=${MACH3_INSTALL_DIR}
-ENV PATH=${MaCh3Validations_ROOT}/bin:${PATH} \
-    LD_LIBRARY_PATH=${MaCh3Validations_ROOT}/lib:${LD_LIBRARY_PATH}
+ENV MaCh3Tutorial_ROOT=${MACH3_INSTALL_DIR}
+ENV PATH=${MaCh3Tutorial_ROOT}/bin:${PATH} \
+    LD_LIBRARY_PATH=${MaCh3Tutorial_ROOT}/lib:${LD_LIBRARY_PATH}
 
 # Start from MaCh3Tutorial install dir
 WORKDIR ${MACH3_INSTALL_DIR}
