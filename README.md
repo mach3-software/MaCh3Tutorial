@@ -228,7 +228,13 @@ or individual step scale affecting single parameters which highly depend on para
 We recommend chasing both scales running MCMC again and later producing auto-corelations. Understanding how auto-corelations change while playing with step-size is very useful skill.
 
 ### Running Multiple Chains
-At this point you should be aware that to have smooth posterior distribution you may need a lot of steps which can be time consuming. Great property of MCMC is that once chain reaches stationary distribution (or in other words converge) it sample same distribution. This means we can run several chains in parallel. Computing clusters give us ability to run thousands of MCMC chains in parallel allowing to accumulate steps very fast.
+At this point, you should be aware that to have a smooth posterior distribution,
+you may need a lot of steps, which can be time-consuming. A great property of MCMC
+is that once a chain reaches the stationary distribution (or, in other words, converges),
+it samples the same distribution. This means we can run several chains in parallel.
+Computing clusters give us the ability to run thousands of MCMC chains in parallel,
+allowing us to accumulate steps very fast.
+
 
 The only caveat of this method is that chains have to converge to the same stationary distribution (there can only be one stationary distribution but chains can stuck in local minima or not converge due to wrong step-size tunning). To validate if chains converged we can use **RHat**.
 
