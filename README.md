@@ -207,7 +207,7 @@ Crucial part of MCMC is diagnostic whether chain converged or not. You can produ
 This will produce plethora of diagnostic however one most often checked are autocreation's which indicate how correlated are MCMC steps which are n-steps apart. We want autocreation's to drop fast.
 You can read about other diagnostic here on [here](https://github.com/mach3-software/MaCh3/wiki/11.-Step-size-tuning)
 
-Add Plot WARNING TODO!!!!!!
+<img width="350" alt="Posterior example" src="https://github.com/user-attachments/assets/e146698c-713c-4daf-90df-adeb3051539b">
 
 Best way to reduce auto-corelations is by step size tunning. There are two step-scale available.
 
@@ -235,7 +235,6 @@ it samples the same distribution. This means we can run several chains in parall
 Computing clusters give us the ability to run thousands of MCMC chains in parallel,
 allowing us to accumulate steps very fast.
 
-
 The only caveat of this method is that chains have to converge to the same stationary distribution (there can only be one stationary distribution but chains can stuck in local minima or not converge due to wrong step-size tunning). To validate if chains converged we can use **RHat**.
 
 In the following example 1000 indicate number of toys we want to sample while other arguments indicate different chains. You can pass as many chains as you want
@@ -245,7 +244,7 @@ In the following example 1000 indicate number of toys we want to sample while ot
 
 **RHat** is estimator of variance between chains, in other words it should be peaking at 1. Single entry in histogram refers to single parameters. If your distribution has a tail reaching beyond 1.1 (according to Gellman) then this maybe indicate some chains haven't converged to the same distribution. Which MUST be investigated in analysis (in this tutorial main culprit will be number of steps)
 
-Add Plot WARNING TODO!!!!!!
+<img width="350" alt="Posterior example" src="https://github.com/user-attachments/assets/eada5efd-ca8f-42a4-a710-4dced5c3e3da">
 
 Once you validated that chains converged you may need to merge them
 ```bash
