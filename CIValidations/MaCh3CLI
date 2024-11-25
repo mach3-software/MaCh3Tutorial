@@ -1,0 +1,102 @@
+#!/bin/bash
+
+# Check if no arguments are provided
+if [ "$#" -eq 0 ]; then
+  echo "[ERROR]: No argument specified, please use --help"
+  exit 1
+fi
+
+# Display help message
+show_help() {
+  echo "Arguments:"
+  echo -e "\t  --FitterValidations       : Integration testing of running MCMC and all plotting scripts"
+  echo -e "\t  --ReweightValidations     : Checking if reweighting works"
+  echo -e "\t  --CovarianceValidations   : Checking if covariances works"
+  echo -e "\t  --NuMCMCToolsValidations  : Checking if interface to NuMCMC Tools works"
+  echo -e "\t  --all                     : Run all checks"
+}
+
+# Run validation functions
+run_reweight_validations() {
+  ./CIValidations/SplineValidations
+  ./CIValidations/SamplePDFValidations
+  ./CIValidations/NuOscillatorInterfaceValidations
+}
+
+run_fitter_validations() {
+  ./CIValidations/FitterValidations
+  ./bin/ProcessMCMC bin/TutorialDiagConfig.yaml MCMC_Test.root
+  ./bin/DiagMCMC MCMC_Test.root bin/TutorialDiagConfig.yaml
+  ./bin/RHat 10 MCMC_Test.root MCMC_Test.root MCMC_Test.root MCMC_Test.root
+  ./bin/CombineMaCh3Chains -o MergedChain.root MCMC_Test.root MCMC_Test.root MCMC_Test.root MCMC_Test.root
+  ./bin/GetPenaltyTerm MCMC_Test.root bin/TutorialDiagConfig.yaml
+  ./bin/MatrixPlotter bin/TutorialDiagConfig.yaml MCMC_Test_drawCorr.root
+  ./bin/GetPostfitParamPlots MCMC_Test_drawCorr.root
+  ./bin/PlotLLH MCMC_Test.root
+}
+
+run_covariance_validations() {
+  ./CIValidations/CovarianceValidations
+  ./CIValidations/MaCh3ModeValidations
+  ./CIValidations/UnitTests/manager_tests
+}
+
+run_nu_mcmc_tools_validations() {
+  ./bin/MCMCTutorial Inputs/FitterConfig.yaml
+  ./CIValidations/NuMCMCconversion Test.root NewChain.root
+  pip install -r NuMCMCTools/requirements.txt
+  export PYTHONPATH="$PYTHONPATH:${MaCh3Tutorial_ROOT}/NuMCMCTools"
+  cp NewChain.root CIValidations/NewChain.root
+  python3 CIValidations/TestNuMCMC.py
+}
+
+# Parse command-line arguments
+while [[ $# -gt 0 ]]; do
+  case $1 in
+    -?|--help)
+      show_help
+      exit 0
+      ;;
+    --ReweightValidations)
+      RUN_REWEIGHT=true
+      ;;
+    --FitterValidations)
+      RUN_FITTER=true
+      ;;
+    --CovarianceValidations)
+      RUN_COVARIANCE=true
+      ;;
+    --NuMCMCToolsValidations)
+      RUN_NU_MCMC=true
+      ;;
+    --all)
+      RUN_ALL=true
+      ;;
+    *)
+      echo "[ERROR]: Unknown argument '$1'. Use --help for more information."
+      exit 1
+      ;;
+  esac
+  shift
+done
+
+# Navigate to the MaCh3Tutorial root directory
+cd "${MaCh3Tutorial_ROOT}" || {
+  echo "[ERROR]: Could not navigate to MaCh3Tutorial_ROOT directory."
+  exit 1
+}
+
+# Execute validations based on the arguments
+if [ "$RUN_ALL" = true ]; then
+  run_reweight_validations
+  run_fitter_validations
+  run_covariance_validations
+  run_nu_mcmc_tools_validations
+else
+  [ "$RUN_REWEIGHT" = true ] && run_reweight_validations
+  [ "$RUN_FITTER" = true ] && run_fitter_validations
+  [ "$RUN_COVARIANCE" = true ] && run_covariance_validations
+  [ "$RUN_NU_MCMC" = true ] && run_nu_mcmc_tools_validations
+fi
+
+echo "Validation process completed!"

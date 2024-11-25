@@ -11,7 +11,7 @@ int main(int argc, char *argv[])
     throw MaCh3Exception(__FILE__ , __LINE__ );
   }
 
-  std::vector<std::string> xsecCovMatrixFile = {"Inputs/SystematicsTest.yaml"};
+  std::vector<std::string> xsecCovMatrixFile = {"Inputs/SystematicModel.yaml"};
   covarianceXsec* xsec = new covarianceXsec(xsecCovMatrixFile, "xsec_cov");
 
   std::vector<std::string> OscCovMatrixFile = {"Inputs/Osc_Test.yaml"};

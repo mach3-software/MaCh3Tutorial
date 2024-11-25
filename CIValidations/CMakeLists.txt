@@ -18,6 +18,7 @@ endforeach(app)
 install(PROGRAMS
     NuMCMCvalidations.sh
     TestNuMCMC.py
+    MaCh3CLI
 
     DESTINATION CIValidations)
 

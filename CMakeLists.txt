@@ -61,6 +61,8 @@ if(NOT MaCh3_FOUND)
     GITHUB_REPOSITORY mach3-software/MaCh3
     OPTIONS
       "MaCh3_PYTHON_ENABLED ${PYTHON_ENABLED}"
+      "Prob3ppLinear_ENABLED ON"
+      "NuFastLinear_ENABLED ON"
   )
   # MaCh3 sets up cmessage for us, so can't cmessage until we've set up MaCh3
   cmessage(STATUS "Didn't find MaCh3, attempting to use built-in MaCh3")

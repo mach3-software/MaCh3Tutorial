@@ -39,7 +39,7 @@ General:
   Systematics:
     XsecCovName: "xsec_cov"
     XsecFix: [ ]
-    XsecCovFile: ["Inputs/SystematicsTest.yaml",
+    XsecCovFile: ["Inputs/SystematicModel.yaml",
                   #"Inputs/PCATest.yaml"
                   ]
     XsecPCAThreshold: -1
