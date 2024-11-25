@@ -18,6 +18,7 @@ MaCh3 is predominantly C++ software although some functionality are available th
     2. [More Advanced Systematic Development](#more-advanced-systematic-development)
 4. [How to Develop New Samples](#how-to-develop-new-samples)
     1. [Changing Oscillation Engine](#changing-oscillation-engine)
+    2. [More Advanced Development](#more-advanced-development)
 5. [MCMC Diagnostic](#mcmc-diagnostic)
     1. [Running Multiple Chains](#running-multiple-chains)
 6. [Useful Settings](#useful-settings)
@@ -192,6 +193,9 @@ NuOsc:
   NuOscConfigFile: "Inputs/NuOscillator/Prob3ppLinear.yaml"
 ```
 In most cases this is enough. However you have to be aware that some engines require different number of parameters. In this example NuFast requires one additional parameter compared with Prob3ppLinear which is **Ye**. You will have to remove **Ye** from `Inputs/Osc_Test.yaml`
+
+### More Advanced Development
+Not everything can be done by modifying config in sample implementation. Actual implementation is in`samplePDF/samplePDFTutorial` this class inherits from `samplePDFFDBase`. The latter class deals with actual reweighting and all heavy lifting. while samplePDFTutorial deals with MC loading etc. This is because each experiment has slightly different MC format and different information available.
 
 ## MCMC Diagnostic
 Crucial part of MCMC is diagnostic whether chain converged or not. You can produce diagnostic by running.
