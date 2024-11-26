@@ -1,8 +1,13 @@
 General:
   Verbosity: "NONE"
   CosineZIgnored: true
-  CalculationType: "Unbinned"
-  
+  CalculationType: "Binned"
+
+Binned:
+  FileName: "./Inputs/NuOscillator/ExampleAtmosphericBinning.root"
+  EnergyAxisHistName: "EnergyAxisBinning"
+  CosineZAxisHistName: "CosineZAxisBinning"
+
 OscProbCalcerSetup:
   ImplementationName: "NuFASTLinear"
   OscChannelMapping:
