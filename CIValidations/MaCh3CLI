@@ -38,6 +38,7 @@ run_fitter_validations() {
 run_covariance_validations() {
   ./CIValidations/CovarianceValidations
   ./CIValidations/MaCh3ModeValidations
+  ./CIValidations/pValueValidations
   ./CIValidations/UnitTests/manager_tests
 }
 

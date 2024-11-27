@@ -8,6 +8,7 @@ foreach(app
     SamplePDFValidations
     NuMCMCconversion
     NuOscillatorInterfaceValidations
+    pValueValidations
     )
     add_executable(${app} ${app}.cpp)
     target_link_libraries(${app} MaCh3Tutorial::ValidationsUtils MaCh3Tutorial::samplePDFTutorial)
