@@ -3,8 +3,6 @@
 #include "samplePDF/samplePDFTutorial.h"
 #include "mcmc/SampleSummary.h"
 
-
-
 class samplePDFpValue : virtual public samplePDFTutorial
 {
   public:
@@ -55,9 +53,6 @@ class samplePDFpValue : virtual public samplePDFTutorial
     std::vector<std::string> KinemBlarbTitle;
 };
 
-
-
-
 int main(int argc, char *argv[])
 {
   SetMaCh3LoggerFormat();
@@ -104,7 +99,7 @@ int main(int argc, char *argv[])
   std::string PredictiveName = "CIValidations/TestOutputs/Toys.root";
   TFile* Outfile = new TFile(PredictiveName.c_str(), "READ");
 
-  std::cout << "Found saved prior/posterior file " << PredictiveName << ", loading toys..." << std::endl;
+  MACH3LOG_INFO("Found saved prior/posterior file {}, loading toys...", PredictiveName);
   TStopwatch timer;
   timer.Start();
 
@@ -133,10 +128,10 @@ int main(int argc, char *argv[])
     PenaltyTree->SetBranchAddress("NModelParams", &NModelParams);
     const int TreeEntries = PenaltyTree->GetEntries();
     if (TreeEntries != Ntoys) {
-      std::cerr << "Number of entries in penalty tree != number of generated toys found" << std::endl;
-      std::cerr << "TreeEntries: " << TreeEntries << std::endl;
-      std::cerr << "nToys: " << Ntoys << std::endl;
-      throw;
+      MACH3LOG_ERROR("Number of entries in penalty tree != number of generated toys found");
+      MACH3LOG_ERROR("TreeEntries: {}", TreeEntries);
+      MACH3LOG_ERROR("nToys: {}", Ntoys);
+      throw MaCh3Exception(__FILE__ , __LINE__ );
     }
     // Loop over the file and load entries into the penalty vector
     for (int i = 0; i < Ntoys; ++i) {
@@ -209,7 +204,7 @@ int main(int argc, char *argv[])
   MasterW2Vector.resize(Ntoys);
   for (int i = 0; i < Ntoys; ++i)
   {
-    if (i % 100 == 0) std::cout << "   Loaded toy " << i << std::endl;
+    if (i % 100 == 0) MaCh3Utils::PrintProgressBar(i, Ntoys);
 
     std::vector<TH2Poly*> SampleVector;
     std::vector<TH2Poly*> W2Vector;
@@ -228,13 +223,13 @@ int main(int argc, char *argv[])
         std::stringstream ss;
         ss << "_" << i;
         TH2Poly *ToyTemp = (TH2Poly*)Outfile->Get((FolderName+Title+ss.str()).c_str());
-        if(ToyTemp == nullptr) { std::cerr<<"Empty toy, arghhh"<<std::endl; throw;}
+        if(ToyTemp == nullptr) { MACH3LOG_ERROR("Empty toy, arghhh"); throw MaCh3Exception(__FILE__ , __LINE__ );}
         TH2Poly *Toy = (TH2Poly*)ToyTemp->Clone();
         Toy->SetDirectory(0);
         delete ToyTemp;
 
         TH2Poly *ToyW2Temp = (TH2Poly*)Outfile->Get((FolderName+Title+ss.str()+"w2").c_str());
-        if(ToyW2Temp == nullptr) { std::cerr<<"Empty toy, arghhh"<<std::endl; throw;}
+        if(ToyW2Temp == nullptr) { MACH3LOG_ERROR("Empty toy, arghhh"); throw MaCh3Exception(__FILE__ , __LINE__ );}
         TH2Poly * ToyW2 = (TH2Poly*)ToyW2Temp->Clone();
         ToyW2->SetDirectory(0);
         delete ToyW2Temp;
@@ -252,25 +247,12 @@ int main(int argc, char *argv[])
     MasterSampleVector[i] = SampleVector;
     MasterW2Vector[i] = W2Vector;
   }
-  std::cout << "Found total " << Ntoys << " pregenerated toys in " << Outfile->GetName() << std::endl;
+  MACH3LOG_INFO("Found total {} pregenerated toys in {}", Ntoys, Outfile->GetName());
   timer.Stop();
-  std::cout << "Loading it took " << timer.RealTime() << "s" << std::endl;
+  MACH3LOG_INFO("Loading it took {:.2f}s", timer.RealTime());
   Outfile->Close();
   delete Outfile;
   Outfile = NULL;
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 ///////////////////////////////////////
   SampleSummary* SamplesSumm = nullptr;
@@ -291,7 +273,7 @@ int main(int argc, char *argv[])
     else SamplesSumm->AddThrow(MasterSampleVector[i], MasterW2Vector[i], PenaltyVector[i], WeightVector[i], 0);
   }
   timer.Stop();
-  std::cout << "Finished adding throws to SampleSummary, it took " << timer.RealTime() << "s" <<", now writing..." << std::endl;
+  MACH3LOG_INFO("Finished adding throws to SampleSummary, it took {:.2f}s, now writing...", timer.RealTime());
 
   // Calculate the posterior predictive p-values and write the samples to file
   SamplesSumm->Write();
