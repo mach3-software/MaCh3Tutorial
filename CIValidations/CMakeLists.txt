@@ -10,9 +10,15 @@ foreach(app
     NuOscillatorInterfaceValidations
     pValueValidations
     )
-    add_executable(${app} ${app}.cpp)
-    target_link_libraries(${app} MaCh3Tutorial::ValidationsUtils MaCh3Tutorial::samplePDFTutorial)
 
+    add_executable(${app} ${app}.cpp)
+    if(MaCh3Tutorial_Coverage_ENABLED)
+    target_compile_options(${app} PRIVATE --coverage)
+    endif()
+    target_link_libraries(${app} MaCh3Tutorial::ValidationsUtils MaCh3Tutorial::samplePDFTutorial)
+    if(MaCh3Tutorial_Coverage_ENABLED)
+    target_link_options(${app} PRIVATE --coverage)
+    endif()
     add_dependencies(ValidApps ${app})
 endforeach(app)
 
