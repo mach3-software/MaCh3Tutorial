@@ -96,8 +96,7 @@ jobs:
       working-directory: /opt/MaCh3Validations/build
       run: |
         gcovr --json -o coverage.json -r .. -f "../CIValidations/*" --exclude '.*_deps/.*'
-        gcovr --remove coverage.info '*/_deps/*' --output-file coverage.info
-        gcovr --html --html-details -o coverage.html -r .. -f "../CIValidations/*"
+        gcovr --html --html-details -o coverage.html -r .. -f "../CIValidations/*" --exclude '.*_deps/.*'
         ls -l /opt/MaCh3Validations/build
         bash <(curl -s https://codecov.io/bash) -f coverage.json || echo "Codecov did not collect coverage reports"
       env:
