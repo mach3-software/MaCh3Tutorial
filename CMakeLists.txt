@@ -10,7 +10,7 @@ project(MaCh3Tutorial VERSION ${MaCh3Tutorial_VERSION} LANGUAGES CXX)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 option(MaCh3Tutorial_UNITTESTS_ENABLED "Whether to build MaCh3 Unit Tests" OFF)
-option(MaCh3Tutorial_Coverage_ENABLED "Whether to build MaCh3 Coverage " OFF)
+option(MaCh3Tutorial_Coverage_ENABLED "Whether to build MaCh3 Coverage " ON)
 
 # Changes default install path to be a subdirectory of the build dir.
 # Can set build dir at configure time with -DCMAKE_INSTALL_PREFIX=/install/path
