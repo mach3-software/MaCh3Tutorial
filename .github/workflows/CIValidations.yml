@@ -6,6 +6,8 @@ name: Validations CI
 on:
   pull_request:
     branches: [ main ]
+  push:
+    branches: [ feature_codecov ]
 
 permissions:
   contents: read
@@ -55,7 +57,7 @@ jobs:
         cd MaCh3Validations
         mkdir build
         cd build
-        cmake ../ -DMaCh3_Branch=feature_codecov -DMaCh3Tutorial_UNITTESTS_ENABLED=TRUE -DMaCh3Tutorial_Coverage_ENABLED=TRUE
+        cmake ../ -DMaCh3Tutorial_UNITTESTS_ENABLED=TRUE -DMaCh3Tutorial_Coverage_ENABLED=TRUE
 
     - name: Build MaCh3 Validations
       run: |
