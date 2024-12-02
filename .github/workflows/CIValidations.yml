@@ -100,4 +100,4 @@ jobs:
         ls -l /opt/MaCh3Validations/build
         bash <(curl -s https://codecov.io/bash) -f coverage.json || echo "Codecov did not collect coverage reports"
       env:
-        CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+        CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN_TUTORIAL }}
