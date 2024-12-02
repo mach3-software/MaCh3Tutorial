@@ -55,7 +55,7 @@ jobs:
         cd MaCh3Validations
         mkdir build
         cd build
-        cmake ../ -DMaCh3Tutorial_UNITTESTS_ENABLED=TRUE
+        cmake ../ -DMaCh3_Branch=feature_codecov -DMaCh3Tutorial_UNITTESTS_ENABLED=TRUE -DMaCh3Tutorial_Coverage_ENABLED=TRUE
 
     - name: Build MaCh3 Validations
       run: |
@@ -85,3 +85,18 @@ jobs:
             echo "Performing Third test"
             ${{ matrix.test_3 }}
         fi
+
+            - name: Install gcovr
+      run: |
+        pip install gcovr
+
+    - name: Code Coverage
+      working-directory: /opt/MaCh3Validations/build
+      run: |
+        gcovr --json -o coverage.json -r .. -f "../CIValidations/*"
+        gcovr --remove coverage.info '*/_deps/*' --output-file coverage.info
+        gcovr --html --html-details -o coverage.html -r .. -f "../CIValidations/*"
+        ls -l /opt/MaCh3Validations/build
+        bash <(curl -s https://codecov.io/bash) -f coverage.json || echo "Codecov did not collect coverage reports"
+      env:
+        CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
