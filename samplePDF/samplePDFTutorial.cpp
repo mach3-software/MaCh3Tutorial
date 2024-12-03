@@ -16,6 +16,7 @@ void samplePDFTutorial::Init() {
     MACH3LOG_ERROR("POT not defined in {}, please add this!", SampleManager->GetFileName());
     throw MaCh3Exception(__FILE__, __LINE__);
   }
+  SampleDetID = SampleManager->raw()["DetID"].as<int>();
 
   MACH3LOG_INFO("-------------------------------------------------------------------");
 }
