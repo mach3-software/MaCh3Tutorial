@@ -3,16 +3,14 @@
 #include "covariance/covarianceXsec.h"
 #include "covariance/covarianceOsc.h"
 
-/// @todo Add adaptive testing
-///
-///
+
 /// Current tests include
 /// testing LLH for cov xsc and osc
 /// checking PCA initialisation
+/// checking Adaptive initialisation
 /// checking if throwing works
 /// checking if dumping matrix to root file works
 /// checking if DetID operation return same number of params
-
 int main(int argc, char *argv[])
 {
   SetMaCh3LoggerFormat();
@@ -24,7 +22,7 @@ int main(int argc, char *argv[])
 
 ////////////// Normal Xsec //////////////
   std::vector<std::string> xsecCovMatrixFile = {"Inputs/SystematicModel.yaml"};
-  covarianceXsec* xsec = new covarianceXsec(xsecCovMatrixFile, "xsec_cov");
+  auto xsec = std::make_unique<covarianceXsec>(xsecCovMatrixFile, "xsec_cov");
 
   std::vector<double> ParProp = {1.05, 0.90, 1.10, 1.05, 0.25, 1.70, 3.20, -1.10, -1.70};
   xsec->setParameters(ParProp);
@@ -63,8 +61,7 @@ int main(int argc, char *argv[])
 ////////////// Now PCA //////////////
   MACH3LOG_INFO("Testing PCA matrix");
   xsecCovMatrixFile = {"Inputs/PCATest.yaml"};
-  covarianceXsec* PCA = new covarianceXsec(xsecCovMatrixFile, "xsec_cov", 0.001);
-
+  auto PCA = std::make_shared<covarianceXsec>(xsecCovMatrixFile, "xsec_cov", 0.001);
   std::vector<double>  EigenVal = PCA->getEigenValuesMaster();
   for(size_t i = 0; i < EigenVal.size(); i++) {
     outFile << "Eigen Value " << i << " = " << EigenVal[i] << std::endl;
@@ -79,17 +76,50 @@ int main(int argc, char *argv[])
 
 ////////////// Now Osc //////////////
   std::vector<std::string> OscCovMatrixFile = {"Inputs/Osc_Test.yaml"};
-  covarianceOsc* osc = new covarianceOsc(OscCovMatrixFile, "osc_cov");
+  auto osc = std::make_unique<covarianceOsc>(OscCovMatrixFile, "osc_cov");
   std::vector<double> OscParProp = {0.3, 0.5, 0.020, 7.53e-5, 2.494e-3, 0.0, 295, 2.6, 0.5};
   osc->setParameters(OscParProp);
   osc->printNominalCurrProp();
   outFile << "Likelihood Osc=" << osc->GetLikelihood() << std::endl;
 
-  outFile.close();
-  delete xsec;
-  delete osc;
-  delete PCA;
+////////////// Now Adaptive //////////////
 
+// KS: To lazy to write yaml so let's make string and convert it'
+std::string yamlContent = R"(
+AdaptionOptions:
+  Settings:
+    # When do we start throwing from our adaptive matrix?
+    AdaptionStartThrow: 2000
+    # When do we start putting steps into our adaptive covariance?
+    AdaptionStartUpdate: 0
+    # When do we end updating our covariance?
+    AdaptionEndUpdate: 50000
+    # How often do we change our matrix throws?
+    AdaptionUpdateStep: 1000
+    xsec_cov:
+        MatrixBlocks: []
+  Covariance:
+    # So now we list individual matrices, let's just do xsec
+    xsec_cov:
+      # Do we want to adapt this matrix?
+      DoAdaption: true
+      # External Settings
+      UseExternalMatrix: false
+      ExternalMatrixFileName: ""
+      ExternalMatrixName: ""
+      ExternalMeansName: ""
+)";
+
+  // Convert the string to a YAML node
+  YAML::Node AdaptSetting = STRINGtoYAML(yamlContent);
+  std::vector<std::string> AdaptiveCovMatrixFile = {"Inputs/SystematicModel.yaml", "Inputs/PCATest.yaml"};
+  auto Adapt = std::make_unique<covarianceXsec>(AdaptiveCovMatrixFile, "xsec_cov");
+  //KS: Let's make Doctor Wallace proud
+  Adapt->initialiseAdaption(AdaptSetting);
+
+  Adapt->saveAdaptiveToFile("Wacky.root", "xsec");
+
+  outFile.close();
   bool TheSame = CompareTwoFiles("CIValidations/TestOutputs/CovarianceOut.txt", "NewCovarianceOut.txt");
 
   if(!TheSame) {
