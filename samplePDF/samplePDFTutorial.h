@@ -1,12 +1,13 @@
 #pragma once
 
+#include "covariance/covarianceOsc.h"
 #include "samplePDF/samplePDFFDBase.h"
 #include "samplePDF/StructsTutorial.h"
 
 class samplePDFTutorial : virtual public samplePDFFDBase
 {
  public:
-  samplePDFTutorial(std::string mc_version, covarianceXsec* xsec_cov);
+  samplePDFTutorial(std::string mc_version, covarianceXsec* xsec_cov, covarianceOsc* osc_cov);
   ~samplePDFTutorial();
   enum KinematicTypes {kTrueNeutrinoEnergy, kTrueQ2};
 

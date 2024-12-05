@@ -1,6 +1,6 @@
 #include "samplePDF/samplePDFTutorial.h"
 
-samplePDFTutorial::samplePDFTutorial(std::string mc_version_, covarianceXsec* xsec_cov_) : samplePDFFDBase(mc_version_, xsec_cov_) {
+samplePDFTutorial::samplePDFTutorial(std::string mc_version_, covarianceXsec* xsec_cov_, covarianceOsc* osc_cov_ = nullptr) : samplePDFFDBase(mc_version_, xsec_cov_) {
   Initialise();
 }
 
@@ -40,8 +40,8 @@ void samplePDFTutorial::SetupWeightPointers() {
 int samplePDFTutorial::setupExperimentMC(int iSample) {
 
   tutorial_base *tutobj = &(TutorialSamples[iSample]);
-  int nutype = sample_nutype[iSample];
-  int oscnutype = sample_oscnutype[iSample];
+  int nutype = sample_nupdgunosc[iSample];
+  int oscnutype = sample_nupdg[iSample];
   bool signal = sample_signal[iSample];
 
   tutobj->nutype = nutype;
@@ -204,8 +204,6 @@ void samplePDFTutorial::setupFDMC(int iSample) {
   tutorial_base *tutobj = &(TutorialSamples[iSample]);
   auto &fdobj = MCSamples[iSample];  
   
-  fdobj.nutype = tutobj->nutype;
-  fdobj.oscnutype = tutobj->oscnutype;
   fdobj.signal = tutobj->signal;
   fdobj.SampleDetID = SampleDetID;
   
@@ -214,6 +212,10 @@ void samplePDFTutorial::setupFDMC(int iSample) {
     fdobj.mode[iEvent] = &(tutobj->Mode[iEvent]);
     fdobj.Target[iEvent] = &(tutobj->Target[iEvent]);
     fdobj.isNC[iEvent] = tutobj->isNC[iEvent];
+    //ETA - this is a little hacky for now but there is no event-level
+    //neutrino pdg code in the MC files
+    fdobj.nupdgUnosc[iEvent] = &(tutobj->nutype);
+    fdobj.nupdg[iEvent] = &(tutobj->oscnutype);
   }
 }
 
