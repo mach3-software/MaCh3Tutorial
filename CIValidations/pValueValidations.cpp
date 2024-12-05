@@ -6,9 +6,9 @@
 class samplePDFpValue : virtual public samplePDFTutorial
 {
   public:
-    samplePDFpValue(std::string mc_version, covarianceXsec* xsec_cov)
-    : samplePDFTutorial(mc_version, xsec_cov),
-    samplePDFFDBase(mc_version, xsec_cov),
+    samplePDFpValue(std::string mc_version, covarianceXsec* xsec_cov, covarianceOsc* osc_cov)
+    : samplePDFTutorial(mc_version, xsec_cov, osc_cov),
+    samplePDFFDBase(mc_version, xsec_cov, osc_cov),
     SampleBlarbTitle({
       "FGD1_numuCC_0pi_0_protons_no_photon",
       "FGD1_numuCC_0pi_N_protons_no_photon",
@@ -70,9 +70,7 @@ int main(int argc, char *argv[])
   osc->setParameters();
 
   std::string SampleConfig = "Inputs/SamplePDF_Tutorial.yaml";
-  samplePDFpValue *SampleTutorial = new samplePDFpValue(SampleConfig, xsec);
-  SampleTutorial->SetXsecCov(xsec);
-  SampleTutorial->SetOscCov(osc);
+  samplePDFpValue *SampleTutorial = new samplePDFpValue(SampleConfig, xsec, osc);
 
   std::string name = SampleTutorial->GetName();
   TString NameTString = TString(name.c_str());

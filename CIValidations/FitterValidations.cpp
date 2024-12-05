@@ -41,9 +41,7 @@ void FitVal(const std::string& Algo, bool MoreTests)
   }
 
   std::string SampleConfig = {"Inputs/SamplePDF_Tutorial.yaml"};
-  samplePDFTutorial *Sample = new samplePDFTutorial(SampleConfig, xsec);
-  Sample->SetXsecCov(xsec);
-  Sample->SetOscCov(osc);
+  samplePDFTutorial *Sample = new samplePDFTutorial(SampleConfig, xsec, osc);
   Sample->reweight();
   std::string name = Sample->GetName();
   TString NameTString = TString(name.c_str());

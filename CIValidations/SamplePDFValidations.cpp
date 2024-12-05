@@ -22,9 +22,7 @@ int main(int argc, char *argv[])
   std::ofstream outFile("NewSampleOut.txt");
   std::vector<std::string> SampleConfig = {"Inputs/SamplePDF_Tutorial.yaml"};
   for (const auto& configPath : SampleConfig) {
-    samplePDFTutorial *Sample = new samplePDFTutorial({configPath}, xsec);
-    Sample->SetXsecCov(xsec);
-    Sample->SetOscCov(osc);
+    samplePDFTutorial *Sample = new samplePDFTutorial({configPath}, xsec, osc);
 
     std::string name = Sample->GetName();
     TString NameTString = TString(name.c_str());

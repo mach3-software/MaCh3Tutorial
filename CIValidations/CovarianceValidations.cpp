@@ -89,7 +89,7 @@ std::string yamlContent = R"(
 AdaptionOptions:
   Settings:
     # When do we start throwing from our adaptive matrix?
-    AdaptionStartThrow: 2000
+    AdaptionStartThrow: 10
     # When do we start putting steps into our adaptive covariance?
     AdaptionStartUpdate: 0
     # When do we end updating our covariance?
@@ -117,6 +117,11 @@ AdaptionOptions:
   //KS: Let's make Doctor Wallace proud
   Adapt->initialiseAdaption(AdaptSetting);
 
+  std::vector<double> ParAdapt = {1.05, 0.90, 1.10, 1.05, 0.25, 1.70, 3.20, -1.10, -1.70, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0 };
+  Adapt->setParameters(ParAdapt);
+  for(int i = 0; i < 50000; ++i ) {
+    Adapt->acceptStep();
+  }
   Adapt->saveAdaptiveToFile("Wacky.root", "xsec");
 
   outFile.close();
