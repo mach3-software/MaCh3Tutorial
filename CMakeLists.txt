@@ -45,7 +45,7 @@ include(${CMAKE_CURRENT_BINARY_DIR}/cmake/CPM.cmake)
 
 ##################################  MaCh3  ######################################
 if(NOT DEFINED MaCh3_Branch)
-  SET(MaCh3_Branch "feature_core_1.2.0")
+  SET(MaCh3_Branch "develop")
 endif()
 
 #If MaCh3 was sourced find it, otherwise use CPM
