@@ -45,11 +45,11 @@ include(${CMAKE_CURRENT_BINARY_DIR}/cmake/CPM.cmake)
 
 ##################################  MaCh3  ######################################
 if(NOT DEFINED MaCh3_Branch)
-  SET(MaCh3_Branch "develop")
+  SET(MaCh3_Branch "feature_core_1.2.0")
 endif()
 
 #If MaCh3 was sourced find it, otherwise use CPM
-#find_package(MaCh3 QUIET)
+find_package(MaCh3 QUIET)
 
 if(NOT DEFINED PYTHON_ENABLED)
   SET(PYTHON_ENABLED false)
@@ -66,7 +66,10 @@ if(NOT MaCh3_FOUND)
       "NuFastLinear_ENABLED ON"
   )
   # MaCh3 sets up cmessage for us, so can't cmessage until we've set up MaCh3
-  cmessage(STATUS "Didn't find MaCh3, attempting to use built-in MaCh3")
+  cmessage(STATUS "Didn't find MaCh3, will checkout the ${MaCh3_Branch} branch from mach3-software/MaCh3")
+else()
+  # If you 
+  cmessage(STATUS "Using local build of MaCh3: ${MaCh3_DIR}")
 endif()
 
 if(NOT TARGET MaCh3::All)
