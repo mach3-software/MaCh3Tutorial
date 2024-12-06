@@ -25,14 +25,14 @@ run_reweight_validations() {
 
 run_fitter_validations() {
   ./CIValidations/FitterValidations
-  ./bin/ProcessMCMC bin/TutorialDiagConfig.yaml MCMC_Test.root
-  ./bin/DiagMCMC MCMC_Test.root bin/TutorialDiagConfig.yaml
-  ./bin/RHat 10 MCMC_Test.root MCMC_Test.root MCMC_Test.root MCMC_Test.root
-  ./bin/CombineMaCh3Chains -o MergedChain.root MCMC_Test.root MCMC_Test.root MCMC_Test.root MCMC_Test.root
-  ./bin/GetPenaltyTerm MCMC_Test.root bin/TutorialDiagConfig.yaml
-  ./bin/MatrixPlotter bin/TutorialDiagConfig.yaml MCMC_Test_drawCorr.root
-  ./bin/GetPostfitParamPlots MCMC_Test_drawCorr.root
-  ./bin/PlotLLH MCMC_Test.root
+  ${MaCh3_ROOT}/bin/ProcessMCMC bin/TutorialDiagConfig.yaml MCMC_Test.root
+  ${MaCh3_ROOT}/bin/DiagMCMC MCMC_Test.root bin/TutorialDiagConfig.yaml
+  ${MaCh3_ROOT}/bin/RHat 10 MCMC_Test.root MCMC_Test.root MCMC_Test.root MCMC_Test.root
+  ${MaCh3_ROOT}/bin/CombineMaCh3Chains -o MergedChain.root MCMC_Test.root MCMC_Test.root MCMC_Test.root MCMC_Test.root
+  ${MaCh3_ROOT}/bin/GetPenaltyTerm MCMC_Test.root bin/TutorialDiagConfig.yaml
+  ${MaCh3_ROOT}/bin/MatrixPlotter bin/TutorialDiagConfig.yaml MCMC_Test_drawCorr.root
+  ${MaCh3_ROOT}/bin/GetPostfitParamPlots MCMC_Test_drawCorr.root
+  ${MaCh3_ROOT}/bin/PlotLLH MCMC_Test.root
 }
 
 run_covariance_validations() {
