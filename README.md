@@ -294,6 +294,12 @@ PlotLLH LLH_Test.root
 ```
 where LLH_Test.root is the result of running the LLH scan as described [here](#how-to-run-llh-scan).
 
+It is possible to compare several files simply by:
+
+```bash
+PlotLLH LLH_Test.root LLH_Test_2.root
+```
+
 ### Plotting with Python
 
 If you have installed the python interface for MaCh3 as described
