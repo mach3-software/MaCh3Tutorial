@@ -1,0 +1,17 @@
+# .github/release.yml
+
+changelog:
+  categories:
+    - title: 📚 Tutorial
+      labels:
+        - Tutorial
+
+    - title: 🧹 Validations
+      labels:
+        - Validations
+      exclude:
+        - dependencies
+
+    - title: 👒 Dependencies
+      labels:
+        - dependencies
