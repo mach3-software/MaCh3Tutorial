@@ -96,13 +96,12 @@ AdaptionOptions:
     AdaptionEndUpdate: 50000
     # How often do we change our matrix throws?
     AdaptionUpdateStep: 1000
-    xsec_cov:
-        MatrixBlocks: []
   Covariance:
     # So now we list individual matrices, let's just do xsec
     xsec_cov:
       # Do we want to adapt this matrix?
       DoAdaption: true
+      MatrixBlocks: [[]]
       # External Settings
       UseExternalMatrix: false
       ExternalMatrixFileName: ""
