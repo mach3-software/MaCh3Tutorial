@@ -131,17 +131,9 @@ int samplePDFTutorial::setupExperimentMC(int iSample) {
   return tutobj->nEvents;
 }
 
-
 double samplePDFTutorial::ReturnKinematicParameter(KinematicTypes KinPar, int iSample, int iEvent) {
-  switch (KinPar) {
-    case kTrueNeutrinoEnergy:
-      return TutorialSamples[iSample].TrueEnu[iEvent];
-    case kTrueQ2:
-      return TutorialSamples[iSample].Q2[iEvent];
-    default:
-      MACH3LOG_ERROR("Unrecognized Kinematic Parameter type: {}", static_cast<int>(KinPar));
-      throw MaCh3Exception(__FILE__, __LINE__);
-  }
+  const double* paramPointer = GetPointerToKinematicParameter(KinPar, iSample, iEvent);
+  return *paramPointer;
 }
 
 double samplePDFTutorial::ReturnKinematicParameter(double KinematicVariable, int iSample, int iEvent) {
@@ -177,8 +169,8 @@ const double* samplePDFTutorial::GetPointerToKinematicParameter(std::string Kine
 }
 
 int samplePDFTutorial::ReturnKinematicParameterFromString(std::string KinematicParameterStr){
-  if (KinematicParameterStr.find("TrueNeutrinoEnergy") != std::string::npos) {return kTrueNeutrinoEnergy;}
-  if (KinematicParameterStr.find("TrueQ2") != std::string::npos) {return kTrueQ2;}
+  auto it = KinematicParameters.find(KinematicParameterStr);
+  if (it != KinematicParameters.end()) return it->second;
 
   MACH3LOG_ERROR("Did not recognise Kinematic Parameter type...");
   throw MaCh3Exception(__FILE__, __LINE__);
@@ -186,7 +178,7 @@ int samplePDFTutorial::ReturnKinematicParameterFromString(std::string KinematicP
   return -999;
 }
 
-inline std::string samplePDFTutorial::ReturnStringFromKinematicParameter(int KinematicParameter) {
+std::string samplePDFTutorial::ReturnStringFromKinematicParameter(int KinematicParameter) {
   std::string KinematicString = "";
   switch(KinematicParameter){
    case kTrueNeutrinoEnergy:
