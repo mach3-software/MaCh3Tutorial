@@ -61,16 +61,15 @@ int main(int argc, char *argv[])
     MACH3LOG_CRITICAL("You specified arguments, but none are needed. (Program name: {})", argv[0]);
     throw MaCh3Exception(__FILE__ , __LINE__ );
   }
-
   std::vector<std::string> xsecCovMatrixFile = {"Inputs/SystematicModel.yaml"};
-  covarianceXsec* xsec = new covarianceXsec(xsecCovMatrixFile, "xsec_cov");
+  auto xsec = std::make_unique<covarianceXsec>(xsecCovMatrixFile, "xsec_cov");
 
   std::vector<std::string> OscCovMatrixFile = {"Inputs/Osc_Test.yaml"};
-  covarianceOsc* osc = new covarianceOsc(OscCovMatrixFile, "osc_cov");
+  auto osc = std::make_unique<covarianceOsc>(OscCovMatrixFile, "osc_cov");
   osc->setParameters();
 
   std::string SampleConfig = "Inputs/SamplePDF_Tutorial.yaml";
-  samplePDFpValue *SampleTutorial = new samplePDFpValue(SampleConfig, xsec, osc);
+  auto SampleTutorial = std::make_unique<samplePDFpValue>(SampleConfig, xsec.get(), osc.get());
 
   std::string name = SampleTutorial->GetName();
   TString NameTString = TString(name.c_str());
@@ -253,9 +252,10 @@ int main(int argc, char *argv[])
   Outfile = NULL;
 
 ///////////////////////////////////////
-  SampleSummary* SamplesSumm = nullptr;
-  if(Posterior) SamplesSumm = new SampleSummary(SampleTutorial->GetNsamples(), PredictiveName, SampleTutorial, nEntries);
-  else SamplesSumm = new SampleSummary(SampleTutorial->GetNsamples(), PredictiveName, SampleTutorial, 0);
+  std::unique_ptr<SampleSummary> SamplesSumm;
+
+  if (Posterior) SamplesSumm = std::make_unique<SampleSummary>(SampleTutorial->GetNsamples(), PredictiveName, SampleTutorial.get(), nEntries);
+  else           SamplesSumm = std::make_unique<SampleSummary>(SampleTutorial->GetNsamples(), PredictiveName, SampleTutorial.get(), 0);
   SamplesSumm->SetLikelihood(kBarlowBeeston);
   SamplesSumm->SetNModelParams(NModelParams);
 
@@ -275,12 +275,6 @@ int main(int argc, char *argv[])
 
   // Calculate the posterior predictive p-values and write the samples to file
   SamplesSumm->Write();
-
-  // Clean up dynamically allocated Sample if needed
-  delete SamplesSumm;
-  delete SampleTutorial;
-  delete xsec;
-  delete osc;
 
   return 0;
 }
