@@ -13,24 +13,24 @@
 void FitVal(const std::string& Algo, bool MoreTests)
 {
   std::string ManagerInput = "Inputs/FitterConfig.yaml";
-  manager *FitManager = new manager(ManagerInput);
+  auto FitManager = std::make_unique<manager>(ManagerInput);
 
   MACH3LOG_INFO("Testing {}", Algo);
 
-  covarianceXsec* xsec = MaCh3CovarianceFactory(FitManager, "Xsec");
-  covarianceOsc* osc = MaCh3CovarianceFactory<covarianceOsc>(FitManager, "Osc");
+  covarianceXsec* xsec = MaCh3CovarianceFactory(FitManager.get(), "Xsec");
+  covarianceOsc* osc = MaCh3CovarianceFactory<covarianceOsc>(FitManager.get(), "Osc");
   std::unique_ptr<FitterBase> MaCh3Fitter = nullptr;
   if(Algo == "MCMC") {
     FitManager->OverrideSettings("General", "OutputFile", "MCMC_Test.root");
-    MaCh3Fitter = std::make_unique<mcmc>(FitManager);
+    MaCh3Fitter = std::make_unique<mcmc>(FitManager.get());
   } else if (Algo == "PSO") {
     FitManager->OverrideSettings("General", "OutputFile", "PSO_Test.root");
     FitManager->OverrideSettings("General", "Fitter", "FitTestLikelihood", "true");
-    MaCh3Fitter = std::make_unique<PSO>(FitManager);
+    MaCh3Fitter = std::make_unique<PSO>(FitManager.get());
   } else if (Algo == "Minuit2") {
     #ifdef MaCh3_MINUIT2
     FitManager->OverrideSettings("General", "OutputFile", "MINUIT2_Test.root");
-    MaCh3Fitter = std::make_unique<MinuitFit>(FitManager);
+    MaCh3Fitter = std::make_unique<MinuitFit>(FitManager.get());
     #else
     MACH3LOG_ERROR("Trying to use Minuit2 however MaCh3 was compiled without Minuit2 support");
     throw MaCh3Exception(__FILE__ , __LINE__ );
@@ -41,7 +41,7 @@ void FitVal(const std::string& Algo, bool MoreTests)
   }
 
   std::string SampleConfig = {"Inputs/SamplePDF_Tutorial.yaml"};
-  samplePDFTutorial *Sample = new samplePDFTutorial(SampleConfig, xsec, osc);
+  auto Sample = std::make_unique<samplePDFTutorial>(SampleConfig, xsec, osc);
   Sample->reweight();
   std::string name = Sample->GetName();
   TString NameTString = TString(name.c_str());
@@ -49,7 +49,7 @@ void FitVal(const std::string& Algo, bool MoreTests)
   Sample->addData(SampleHistogramPrior);
 
   MaCh3Fitter->addSystObj(xsec);
-  MaCh3Fitter->addSamplePDF(Sample);
+  MaCh3Fitter->addSamplePDF(Sample.get());
   if(MoreTests)
   {
     MaCh3Fitter->DragRace();
@@ -59,31 +59,26 @@ void FitVal(const std::string& Algo, bool MoreTests)
   }
   MaCh3Fitter->runMCMC();
 
-  MaCh3Fitter.reset();
   delete xsec;
   delete osc;
-  delete FitManager;
-  delete Sample;
 }
 
 void StartFromPosteriorTest(const std::string& PreviousName)
 {
   std::string ManagerInput = "Inputs/FitterConfig.yaml";
-  manager *FitManager = new manager(ManagerInput);
+  auto FitManager = std::make_unique<manager>(ManagerInput);
 
   FitManager->OverrideSettings("General", "OutputFile", "MCMC_Test_Start.root");
 
-  covarianceXsec* xsec = MaCh3CovarianceFactory(FitManager, "Xsec");
-  std::unique_ptr<mcmc> MarkovChain = std::make_unique<mcmc>(FitManager);
+  covarianceXsec* xsec = MaCh3CovarianceFactory(FitManager.get(), "Xsec");
+  std::unique_ptr<mcmc> MarkovChain = std::make_unique<mcmc>(FitManager.get());
   MarkovChain->addSystObj(xsec);
 
   MarkovChain->StartFromPreviousFit(PreviousName);
 
   MarkovChain->runMCMC();
 
-  MarkovChain.reset();
   delete xsec;
-  delete FitManager;
 }
 
 int main(int argc, char *argv[])
@@ -101,7 +96,7 @@ int main(int argc, char *argv[])
   #endif
 
   bool MoreTests = true;
-  for(unsigned int i = 0; i< Algo.size(); i++) {
+  for(unsigned int i = 0; i < Algo.size(); i++) {
    FitVal(Algo[i], MoreTests);
    MoreTests = false;
   }

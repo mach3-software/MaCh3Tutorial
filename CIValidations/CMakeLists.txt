@@ -9,6 +9,7 @@ foreach(app
     NuMCMCconversion
     NuOscillatorInterfaceValidations
     pValueValidations
+    LLHValidation
     )
 
     add_executable(${app} ${app}.cpp)

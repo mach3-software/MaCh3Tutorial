@@ -12,9 +12,8 @@ int main(int argc, char *argv[])
   }
   MACH3LOG_INFO("Testing MaCh3 Mode");
 
-
   std::string ModeInput = "Inputs/MaCh3Modes.yaml";
-  MaCh3Modes* Modes = new MaCh3Modes(ModeInput);
+  auto Modes = std::make_unique<MaCh3Modes>(ModeInput);
 
   std::ofstream outFile("NewMaCh3ModeOut.txt");
 
@@ -45,7 +44,5 @@ int main(int argc, char *argv[])
   } else {
     MACH3LOG_INFO("Everything is correct");
   }
-
-  delete Modes;
   return 0;
 }
