@@ -45,6 +45,7 @@ int main(int argc, char *argv[])
     xsec->throwParameters();
   }
   xsec->setParameters(ParProp);
+  xsec->acceptStep();
   ///// Test Params from DetId /////
   const int Det_Id = 1;
   for (int s = 0; s < kSystTypes; ++s)
@@ -56,6 +57,39 @@ int main(int argc, char *argv[])
     xsec->GetSystIndexFromDetID(Det_Id, static_cast<SystType>(s));
     xsec->GetParsIndexFromDetID(Det_Id, static_cast<SystType>(s));
     xsec->GetParsNamesFromDetID(Det_Id, static_cast<SystType>(s));
+  }
+
+  for (int i = 0; i < xsec->GetNumParams(); ++i) {
+    for (int j = 0; j < xsec->GetNumParams(); ++j) {
+      outFile << "Inv Cov Matrix for " << i << " and " << j << " is equal to=" << xsec->GetInvCovMatrix(i, j) << std::endl;
+    }
+  }
+  for (int i = 0; i < xsec->GetNumParams(); ++i) {
+    for (int j = 0; j < xsec->GetNumParams(); ++j) {
+      outFile << "Throw Matrix for " << i << " and " << j << " is equal to=" << xsec->GetThrowMatrix(i, j) << std::endl;
+    }
+  }
+
+  // KS: Set random to ensure we can reproduce
+  for (int i = 0; i < xsec->GetNumParams(); ++i) {
+    xsec->SetRandomThrow(i, 0 + i*0.001);
+  }
+  for (int i = 0; i < xsec->GetNumParams(); ++i) {
+    outFile << "Random number for " << i  << " is equal to=" << xsec->GetRandomThrow(i) << std::endl;
+  }
+  xsec->CorrelateSteps();
+  // Make sure throw matrix works
+  for (int i = 0; i < xsec->GetNumParams(); ++i) {
+    outFile << "Corr Throws for " << i  << " is equal to=" << xsec->GetCorrThrows(i) << std::endl;
+  }
+  for (int i = 0; i < xsec->GetNumParams(); ++i) {
+    outFile << "Indv Step Scale for param " << i  << " is equal to=" << xsec->GetIndivStepScale(i) << std::endl;
+  }
+  outFile << "Global Step Scale is equal to=" << xsec->GetGlobalStepScale() << std::endl;
+
+  // Make sure we can reproduce parameter proposal
+  for (int i = 0; i < xsec->GetNumParams(); ++i) {
+    outFile << "Proposed Step for param " << i  << " is equal to=" << xsec->getParProp(i) << std::endl;
   }
 
 ////////////// Now PCA //////////////
