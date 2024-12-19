@@ -11,6 +11,9 @@ class samplePDFTutorial : virtual public samplePDFFDBase
   ~samplePDFTutorial();
   enum KinematicTypes {kTrueNeutrinoEnergy, kTrueQ2};
 
+  int ReturnKinematicParameterFromString(std::string KinematicParameterStr) override;
+  std::string ReturnStringFromKinematicParameter(int KinematicParameterStr) override;
+
  protected:
   void Init() override;
 
@@ -37,4 +40,10 @@ class samplePDFTutorial : virtual public samplePDFFDBase
   M3::float_t CalcXsecWeightFunc(int iSample, int iEvent) override {(void)iSample; (void)iEvent; return 1.;}
 
   std::vector<struct tutorial_base> TutorialSamples;
+
+  const std::unordered_map<std::string, int> KinematicParameters = {
+    {"TrueNeutrinoEnergy", kTrueNeutrinoEnergy},
+    {"TrueQ2", kTrueQ2}
+  };
+
 };

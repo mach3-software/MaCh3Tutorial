@@ -45,6 +45,7 @@ int main(int argc, char *argv[])
     xsec->throwParameters();
   }
   xsec->setParameters(ParProp);
+  xsec->acceptStep();
   ///// Test Params from DetId /////
   const int Det_Id = 1;
   for (int s = 0; s < kSystTypes; ++s)
@@ -56,6 +57,39 @@ int main(int argc, char *argv[])
     xsec->GetSystIndexFromDetID(Det_Id, static_cast<SystType>(s));
     xsec->GetParsIndexFromDetID(Det_Id, static_cast<SystType>(s));
     xsec->GetParsNamesFromDetID(Det_Id, static_cast<SystType>(s));
+  }
+
+  for (int i = 0; i < xsec->GetNumParams(); ++i) {
+    for (int j = 0; j < xsec->GetNumParams(); ++j) {
+      outFile << "Inv Cov Matrix for " << i << " and " << j << " is equal to=" << xsec->GetInvCovMatrix(i, j) << std::endl;
+    }
+  }
+  for (int i = 0; i < xsec->GetNumParams(); ++i) {
+    for (int j = 0; j < xsec->GetNumParams(); ++j) {
+      outFile << "Throw Matrix for " << i << " and " << j << " is equal to=" << xsec->GetThrowMatrix(i, j) << std::endl;
+    }
+  }
+
+  // KS: Set random to ensure we can reproduce
+  for (int i = 0; i < xsec->GetNumParams(); ++i) {
+    xsec->SetRandomThrow(i, 0 + i*0.001);
+  }
+  for (int i = 0; i < xsec->GetNumParams(); ++i) {
+    outFile << "Random number for " << i  << " is equal to=" << xsec->GetRandomThrow(i) << std::endl;
+  }
+  xsec->CorrelateSteps();
+  // Make sure throw matrix works
+  for (int i = 0; i < xsec->GetNumParams(); ++i) {
+    outFile << "Corr Throws for " << i  << " is equal to=" << xsec->GetCorrThrows(i) << std::endl;
+  }
+  for (int i = 0; i < xsec->GetNumParams(); ++i) {
+    outFile << "Indv Step Scale for param " << i  << " is equal to=" << xsec->GetIndivStepScale(i) << std::endl;
+  }
+  outFile << "Global Step Scale is equal to=" << xsec->GetGlobalStepScale() << std::endl;
+
+  // Make sure we can reproduce parameter proposal
+  for (int i = 0; i < xsec->GetNumParams(); ++i) {
+    outFile << "Proposed Step for param " << i  << " is equal to=" << xsec->getParProp(i) << std::endl;
   }
 
 ////////////// Now PCA //////////////
@@ -89,20 +123,19 @@ std::string yamlContent = R"(
 AdaptionOptions:
   Settings:
     # When do we start throwing from our adaptive matrix?
-    AdaptionStartThrow: 2000
+    AdaptionStartThrow: 10
     # When do we start putting steps into our adaptive covariance?
     AdaptionStartUpdate: 0
     # When do we end updating our covariance?
     AdaptionEndUpdate: 50000
     # How often do we change our matrix throws?
     AdaptionUpdateStep: 1000
-    xsec_cov:
-        MatrixBlocks: []
   Covariance:
     # So now we list individual matrices, let's just do xsec
     xsec_cov:
       # Do we want to adapt this matrix?
       DoAdaption: true
+      MatrixBlocks: [[]]
       # External Settings
       UseExternalMatrix: false
       ExternalMatrixFileName: ""
@@ -117,6 +150,11 @@ AdaptionOptions:
   //KS: Let's make Doctor Wallace proud
   Adapt->initialiseAdaption(AdaptSetting);
 
+  std::vector<double> ParAdapt = {1.05, 0.90, 1.10, 1.05, 0.25, 1.70, 3.20, -1.10, -1.70, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0 };
+  Adapt->setParameters(ParAdapt);
+  for(int i = 0; i < 50000; ++i ) {
+    Adapt->acceptStep();
+  }
   Adapt->saveAdaptiveToFile("Wacky.root", "xsec");
 
   outFile.close();

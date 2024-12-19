@@ -3,7 +3,7 @@ set(CMAKE_VERBOSE_MAKEFILE ON)
 # CMake version check
 cmake_minimum_required(VERSION 3.14 FATAL_ERROR)
 
-SET(MaCh3Tutorial_VERSION 1.2.1)
+SET(MaCh3Tutorial_VERSION 1.3.1)
 
 # Create project (todo: set configurable CUDA)
 project(MaCh3Tutorial VERSION ${MaCh3Tutorial_VERSION} LANGUAGES CXX)
@@ -44,12 +44,28 @@ file(
 include(${CMAKE_CURRENT_BINARY_DIR}/cmake/CPM.cmake)
 
 ##################################  MaCh3  ######################################
+# KS: Here we try to find tag matching tutorial version. If we can't find one then use develop
+# This will allow to grab tutorial for tagged MaCh3 version without a need of manually changing version
 if(NOT DEFINED MaCh3_Branch)
-  SET(MaCh3_Branch "develop")
+  set(REPO_URL "https://api.github.com/repos/mach3-software/MaCh3/tags")
+  # Execute curl to fetch the tags from GitHub
+  execute_process(
+      COMMAND curl -s ${REPO_URL}
+      OUTPUT_VARIABLE curl_output
+      OUTPUT_STRIP_TRAILING_WHITESPACE
+  )
+  # Check if the tag exists in the response
+  string(FIND "${curl_output}" "\"name\": \"v${MaCh3Tutorial_VERSION}\"" tag_found_index)
+
+  if(tag_found_index GREATER -1)
+      SET(MaCh3_Branch "tags/v${MaCh3Tutorial_VERSION}")
+  else()
+      SET(MaCh3_Branch "develop")
+  endif()
 endif()
 
 #If MaCh3 was sourced find it, otherwise use CPM
-find_package(MaCh3 QUIET)
+#find_package(MaCh3 QUIET)
 
 if(NOT DEFINED PYTHON_ENABLED)
   SET(PYTHON_ENABLED false)

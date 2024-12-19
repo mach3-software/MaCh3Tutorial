@@ -55,6 +55,11 @@ int main(int argc, char *argv[])
       }
     }
 
+    for (int TestStat = 0; TestStat < TestStatistic::kNTestStatistics; ++TestStat) {
+      Sample->SetTestStatistic(TestStatistic(TestStat));
+      outFile << "LLH is: "<< Sample->GetLikelihood() <<" using: " << TestStatistic_ToString(TestStatistic(TestStat)) <<" test stat"<< std::endl;
+    }
+
     // Clean up dynamically allocated Sample if needed
     delete SampleHistogramPost;
     delete Sample;

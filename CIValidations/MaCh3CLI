@@ -20,6 +20,7 @@ show_help() {
 run_reweight_validations() {
   ./CIValidations/SplineValidations
   ./CIValidations/SamplePDFValidations
+  ./CIValidations/LLHValidation
   ./CIValidations/NuOscillatorInterfaceValidations
 }
 
