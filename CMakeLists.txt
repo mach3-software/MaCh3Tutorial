@@ -69,7 +69,9 @@ endif()
 
 if(NOT DEFINED PYTHON_ENABLED)
   SET(PYTHON_ENABLED false)
+  cmessage(STATUS "Python is not enabled!")
 endif()
+
 if(NOT MaCh3_FOUND)
   CPMAddPackage(
     NAME MaCh3
@@ -133,7 +135,13 @@ endif()
 add_subdirectory(Utils)
 add_subdirectory(CIValidations)
 add_subdirectory(Tutorial)
+add_subdirectory(splines)
 add_subdirectory(samplePDF)
+if(PYTHON_ENABLED)
+  cmessage(STATUS "building python folder")
+  set(CMAKE_INSTALL_RPATH "$ORIGIN/../lib")
+  add_subdirectory(python)
+endif()
 
 configure_file(cmake/Templates/setup.MaCh3Tutorial.sh.in "${PROJECT_BINARY_DIR}${CMAKE_FILES_DIRECTORY}/setup.MaCh3Tutorial.sh" @ONLY)
 install(FILES "${PROJECT_BINARY_DIR}${CMAKE_FILES_DIRECTORY}/setup.MaCh3Tutorial.sh" DESTINATION ${CMAKE_INSTALL_PREFIX}/bin)
