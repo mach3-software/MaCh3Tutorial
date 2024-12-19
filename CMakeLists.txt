@@ -98,21 +98,6 @@ if(MaCh3_VERSION GREATER MaCh3Tutorial_VERSION)
   cmessage(WARNING "MaCh3Tutorial_VERSION (${MaCh3Tutorial_VERSION}) is smaller than MaCh3_VERSION (${MaCh3_VERSION}), this most likely will not work")
 endif()
 
-#Also check for pybind11
-if(PYTHON_ENABLED)
-  find_package(pybind11)
-  if(NOT pybind11_FOUND)
-    cmessage(STATUS "Did not find pybind11!")
-    CPMAddPackage(
-      NAME pybind11
-      VERSION 2.13.5
-      GITHUB_REPOSITORY "pybind/pybind11"
-      GIT_SHALLOW YES
-      GIT_TAG v2.13.5
-    )
-  endif(NOT pybind11_FOUND)
-endif()
-
 CPMAddPackage(
   NAME NuMCMCTools
   GIT_TAG "tags/v1.0.0"
