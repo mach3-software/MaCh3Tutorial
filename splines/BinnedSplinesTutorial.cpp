@@ -1,4 +1,5 @@
 #include "BinnedSplinesTutorial.h"
+#include "manager/MaCh3Modes.h"
 #include "samplePDF/StructsTutorial.h"
 
 
@@ -37,7 +38,7 @@ void BinnedSplineTutorial::FillSampleArray(std::string SampleName, std::vector<s
   for (int iOscChan = 0; iOscChan < nOscChannels; iOscChan++) {
     std::cout << "Processing:" << OscChanFileNames[iOscChan] << std::endl;
 
-    TSpline3* mySpline = nullptr;// = new TSpline3();
+    TSpline3* mySpline = new TSpline3();
     TSpline3_red* Spline = nullptr;
     TString Syst, Mode;
     int nKnots, SystNum, ModeNum, Var1Bin, Var2Bin, Var3Bin = _BAD_INT_;
@@ -61,9 +62,11 @@ void BinnedSplineTutorial::FillSampleArray(std::string SampleName, std::vector<s
       }
 
       TString FullSplineName = (TString)Key->GetName();
+      std::cout << "FillSplineName is " << FullSplineName << std::endl;
       // First We split into binning and spline name
       TObjArray *tokens = FullSplineName.Tokenize(".");
 
+      std::cout << "Number of tokens is " << tokens->GetEntries() << std::endl;
       /*
        A little hacky but lets us grab both old + new splines
       */
@@ -94,13 +97,14 @@ void BinnedSplineTutorial::FillSampleArray(std::string SampleName, std::vector<s
 
       // If the syst doesn't match any of the spline names then skip it
       if (SystNum == -1){
+        std::cout << "COuldn't match!!" << std::endl;
         MACH3LOG_DEBUG("Couldn't Match any systematic name in xsec yaml with spline name: {}" , FullSplineName.Data());
         continue;
       }
 
       ModeNum = -1;
       for (unsigned int iMode = 0; iMode < SplineModeVecs[iSample][SystNum].size(); iMode++) {
-        if (strcmp(Mode, ModeToString(static_cast<MaCh3Mode>(SplineModeVecs[iSample][SystNum][iMode])).c_str()) == 0) {
+        if (strcmp(Mode, ModeToString(SplineModeVecs[iSample][SystNum][iMode]).c_str()) == 0) {
           ModeNum = iMode;
           break;
         }
@@ -116,22 +120,21 @@ void BinnedSplineTutorial::FillSampleArray(std::string SampleName, std::vector<s
 
       if (isValidSplineIndex(SampleName, iOscChan, SystNum, ModeNum, Var1Bin, Var2Bin, Var3Bin))
       { // loop over all the spline knots and check their value
+        std::cout << "Pushed back monolith for spline " << FullSplineName << std::endl;
         // if the value is 1 then set the flat bool to false
         nKnots = mySpline->GetNp();
         isFlat = true;
         for (int iKnot = 0; iKnot < nKnots; iKnot++)
-          {
-            //double x = -999;
-            //double y = -999;
-            mySpline->GetKnot(iKnot, x, y);
+        {
+          mySpline->GetKnot(iKnot, x, y);
 
-            Eval = mySpline->Eval(x);
-            if (Eval < 0.99999 || Eval > 1.00001)
-            {
-              isFlat = false;
-              break;
-            }
+          Eval = mySpline->Eval(x);
+          if (Eval < 0.99999 || Eval > 1.00001)
+          {
+            isFlat = false;
+            break;
           }
+        }
 
         //Rather than keeping a mega vector of splines then converting, this should just keep everything nice in memory!
         indexvec[iSample][iOscChan][SystNum][ModeNum][Var1Bin][Var2Bin][Var3Bin]=MonolithIndex;
@@ -143,6 +146,7 @@ void BinnedSplineTutorial::FillSampleArray(std::string SampleName, std::vector<s
         } else {
           Spline = new TSpline3_red(mySpline);//, SplineInterpolationTypes[iSample][SystNum]);
           delete mySpline;
+
           splinevec_Monolith.push_back(Spline);
           uniquecoeffindices.push_back(MonolithIndex); //So we can get the unique coefficients and skip flat splines later on!
           CoeffIndex+=nKnots;

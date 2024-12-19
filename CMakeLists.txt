@@ -53,7 +53,12 @@ find_package(MaCh3 QUIET)
 
 if(NOT DEFINED PYTHON_ENABLED)
   SET(PYTHON_ENABLED false)
+  cmessage(STATUS "Python is not enabled!")
+else()
+  cmessage(STATUS "Python is defined as ${PYTHON_ENABLED}")
+  cmessage(STATUS "MaCh3 Python is defined as ${MaCh3_PYTHON_ENABLED}")
 endif()
+
 if(NOT MaCh3_FOUND)
   CPMAddPackage(
     NAME MaCh3
@@ -78,6 +83,24 @@ endif()
 
 if(MaCh3_VERSION GREATER MaCh3Tutorial_VERSION)
   cmessage(WARNING "MaCh3Tutorial_VERSION (${MaCh3Tutorial_VERSION}) is smaller than MaCh3_VERSION (${MaCh3_VERSION}), this most likely will not work")
+endif()
+
+#Also check for pybind11
+if(PYTHON_ENABLED)
+  set(PYBIND11_FINDPYTHON ON)
+  set(pybind11_DIR ${MaCh3_DIR}/_deps/pybind11-src/build/lib/pybind11/share/cmake/pybind11/)
+  cmessage(STATUS "I will look for pybind here: ${MaCh3_DIR}/_deps/pybind11-src/build/lib/pybind11/share/cmake/pybind11/")
+  find_package(pybind11)
+  if(NOT pybind11_FOUND)
+    cmessage(STATUS "Did not find pybind11!")
+    CPMAddPackage(
+      NAME pybind11
+      VERSION 2.13.5
+      GITHUB_REPOSITORY "pybind/pybind11"
+      GIT_SHALLOW YES
+      GIT_TAG v2.13.5
+    )
+  endif(NOT pybind11_FOUND)
 endif()
 
 CPMAddPackage(
@@ -117,7 +140,13 @@ endif()
 add_subdirectory(Utils)
 add_subdirectory(CIValidations)
 add_subdirectory(Tutorial)
+add_subdirectory(splines)
 add_subdirectory(samplePDF)
+if(PYTHON_ENABLED)
+  cmessage(STATUS "building python folder")
+  set(CMAKE_INSTALL_RPATH "$ORIGIN/../lib")
+  add_subdirectory(python)
+endif()
 
 configure_file(cmake/Templates/setup.MaCh3Tutorial.sh.in "${PROJECT_BINARY_DIR}${CMAKE_FILES_DIRECTORY}/setup.MaCh3Tutorial.sh" @ONLY)
 install(FILES "${PROJECT_BINARY_DIR}${CMAKE_FILES_DIRECTORY}/setup.MaCh3Tutorial.sh" DESTINATION ${CMAKE_INSTALL_PREFIX}/bin)

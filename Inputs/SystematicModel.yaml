@@ -64,41 +64,104 @@ Systematics:
 
 - Systematic:
     Names:
-      FancyName: Spline_Param_0
-    Error: 0.06
-    FlatPrior: false
-    IsFixed: false
-    Mode: []
-    ParameterBounds: [0.0, 9999]
-    ParameterGroup: Xsec
-    ParameterValues:
-      Generated: 1.21
-      PreFitValue: 1.03
-    SplineInformation:
-      Mode: [0]
-      InterpolationType: TSpline3
-      SplineName: Spline_0
-    DetID: 985
-    StepScale:
-      MCMC: 0.4
-    Type: Spline
-
-- Systematic:
-    Names:
-      FancyName: Spline_Param_1
+      FancyName: BinnedSplineParam1
     Error: 1.0
     FlatPrior: True
     IsFixed: false
-    Mode: []
     ParameterBounds: [0., 1.]
     ParameterGroup: Xsec
     ParameterValues:
       Generated: 1.0
       PreFitValue: 1.0
     SplineInformation:
-      Mode: [9]
+      # affects kMaCh3_CCQE events
+      Mode: [0]
+      InterpolationType: TSpline3
+      SplineName: mysyst1
+    DetID: 985 
+    StepScale:
+      MCMC: 0.2
+    Type: Spline
+
+- Systematic:
+    Names:
+      FancyName: BinnedSplineParam2
+    Error: 1.0
+    FlatPrior: True
+    IsFixed: false
+    ParameterBounds: [0., 1.]
+    ParameterGroup: Xsec
+    ParameterValues:
+      Generated: 1.0
+      PreFitValue: 1.0
+    SplineInformation:
+      #affects kMaCh3_CC1pipm events
+      Mode: [2]
       InterpolationType: Linear
-      SplineName: Spline_1
+      SplineName: mysyst2
+    DetID: 985
+    StepScale:
+      MCMC: 0.2
+    Type: Spline
+
+- Systematic:
+    Names:
+      FancyName: BinnedSplineParam3
+    Error: 1.0
+    FlatPrior: True
+    IsFixed: false
+    ParameterBounds: [0., 1.]
+    ParameterGroup: Xsec
+    ParameterValues:
+      Generated: 1.0
+      PreFitValue: 1.0
+    SplineInformation:
+      #affects kMaCh3_2p2h events
+      Mode: [1]
+      InterpolationType: Monotonic
+      SplineName: mysyst3
+    DetID: 985
+    StepScale:
+      MCMC: 0.2
+    Type: Spline
+
+- Systematic:
+    Names:
+      FancyName: BinnedSplineParam4
+    Error: 1.0
+    FlatPrior: True
+    IsFixed: false
+    ParameterBounds: [0., 1.]
+    ParameterGroup: Xsec
+    ParameterValues:
+      Generated: 1.0
+      PreFitValue: 1.0
+    SplineInformation:
+      #affects kMaCh3_Other events
+      Mode: [9]
+      InterpolationType: Akima
+      SplineName: mysyst4
+    DetID: 985
+    StepScale:
+      MCMC: 0.2
+    Type: Spline
+
+- Systematic:
+    Names:
+      FancyName: BinnedSplineParam5
+    Error: 1.0
+    FlatPrior: True
+    IsFixed: false
+    ParameterBounds: [0., 1.]
+    ParameterGroup: Xsec
+    ParameterValues:
+      Generated: 1.0
+      PreFitValue: 1.0
+    SplineInformation:
+      #affects kMaCh3_CCQE events
+      Mode: [0]
+      InterpolationType: Linear
+      SplineName: mysyst5
     DetID: 985
     StepScale:
       MCMC: 0.2
@@ -121,7 +184,7 @@ Systematics:
       - Func_Param_3: 0.653
     StepScale:
       MCMC: 0.2
-    DetID: 1
+    DetID: 985
     Type: Functional
 
 - Systematic:
@@ -163,7 +226,7 @@ Systematics:
       - Func_Param_3: 0.870
     StepScale:
       MCMC: 0.2
-    DetID: 1
+    DetID: 985
     Type: Functional
 
 - Systematic:
