@@ -68,7 +68,7 @@ Systematics:
     Error: 1.0
     FlatPrior: True
     IsFixed: false
-    ParameterBounds: [0., 1.]
+    ParameterBounds: [0., 2.]
     ParameterGroup: Xsec
     ParameterValues:
       Generated: 1.0
@@ -89,7 +89,7 @@ Systematics:
     Error: 1.0
     FlatPrior: True
     IsFixed: false
-    ParameterBounds: [0., 1.]
+    ParameterBounds: [0., 2.]
     ParameterGroup: Xsec
     ParameterValues:
       Generated: 1.0
@@ -110,7 +110,7 @@ Systematics:
     Error: 1.0
     FlatPrior: True
     IsFixed: false
-    ParameterBounds: [0., 1.]
+    ParameterBounds: [0., 2.]
     ParameterGroup: Xsec
     ParameterValues:
       Generated: 1.0
@@ -131,7 +131,7 @@ Systematics:
     Error: 1.0
     FlatPrior: True
     IsFixed: false
-    ParameterBounds: [0., 1.]
+    ParameterBounds: [0., 2.]
     ParameterGroup: Xsec
     ParameterValues:
       Generated: 1.0
@@ -152,7 +152,7 @@ Systematics:
     Error: 1.0
     FlatPrior: True
     IsFixed: false
-    ParameterBounds: [0., 1.]
+    ParameterBounds: [0., 2.]
     ParameterGroup: Xsec
     ParameterValues:
       Generated: 1.0
