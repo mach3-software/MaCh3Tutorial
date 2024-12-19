@@ -12,6 +12,7 @@ void CreateBinnedSplineFile(){
 
   int nTrueEnergyBins = 5;
   int nXBins = 10;
+  //To make splines in Etrue, x and y change this to be a larger number
   int nYBins = 1;
   double TrueEnergyBins[] = {0., 1.0, 2.0, 3.0, 4.0, 5.0};
   double XBins[] = {0., 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0, 10.0};
@@ -36,7 +37,6 @@ void CreateBinnedSplineFile(){
   auto OutputFile = std::unique_ptr<TFile>(TFile::Open("BinnedSplinesTutorialInputs.root", "RECREATE"));
 
   //Firstly let's write the dev.tmp.0.0 file which sets the binning
-  // TH3F* BinningHist = new TH3F("dev_tmp.0.0", "dev_tmp.0.0", nTrueEnergyBins, 0, 10, nXBins, 0, 10, nYBins, 0, 10);
   TH3F* BinningHist = new TH3F("dev_tmp.0.0", "dev_tmp.0.0", nTrueEnergyBins, TrueEnergyBins, nXBins, XBins, nYBins, YBins);
 
   for(auto iSyst = 0 ; iSyst < SystematicNames.size() ; ++iSyst){
@@ -57,12 +57,12 @@ void CreateBinnedSplineFile(){
                   // std::cout << "Knot_w is " << knot_w << std::endl;
                   //point number, x-val, y-val
                 }
-                // std::cout << "For knot " << iKnot << "/" << SystematicKnotNumber << " set weight to be " << knot_w << std::endl;
                 graph->SetPoint(iKnot, iKnot, knot_w);
               }
               TSpline3 *Spline = new TSpline3(Form("dev.%s.%s.sp.%i.%i.%i", SystematicNames[iSyst].c_str(), SystematicModeName.c_str(), TrueEnergyBin_i, XBin_i, YBin_i),graph);
               Spline->SetName(Form("dev.%s.%s.sp.%i.%i.%i", SystematicNames[iSyst].c_str(), SystematicModeName.c_str(), TrueEnergyBin_i, XBin_i, YBin_i));
-              Spline->Write(Spline->GetName(), TDirectoryFile::kOverwrite);//, TDirectoryFile::kOverwrite);
+              //This makes things slow but removes many backup-cycles being saved to the file
+              Spline->Write(Spline->GetName(), TDirectoryFile::kOverwrite);
               delete graph;
               delete Spline;
             }
