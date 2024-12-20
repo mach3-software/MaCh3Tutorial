@@ -1,3 +1,4 @@
+#include <Constants/OscillatorConstants.h>
 #include "Utils/Comparison.h"
 
 #include "Oscillator/OscillatorFactory.h"
@@ -25,7 +26,7 @@ int main() {
   auto osc = OscillatorFactory().CreateOscillator(
       "NuOscillatorInterfaceValidations.yml");
 
-  std::vector<double> Energies;
+  std::vector<FLOAT_T> Energies;
   double start = -3;
   double end = 3;
   size_t nbins = 100;
@@ -37,7 +38,7 @@ int main() {
   osc->SetEnergyArrayInCalcer(Energies);
   osc->Setup();
 
-  std::vector<double> OscParProp = {0.3,      0.5, 0.020, 7.53e-5,
+  std::vector<FLOAT_T> OscParProp = {0.3,      0.5, 0.020, 7.53e-5,
                                     2.494e-3, 0.0, 1300,  2.6, 0.5};
   osc->CalculateProbabilities(OscParProp);
 

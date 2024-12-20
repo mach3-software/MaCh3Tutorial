@@ -13,16 +13,17 @@ class samplePDFTutorial : virtual public samplePDFFDBase
 
   int ReturnKinematicParameterFromString(std::string KinematicParameterStr) override;
   std::string ReturnStringFromKinematicParameter(int KinematicParameterStr) override;
+  std::vector<double> ReturnKinematicParameterBinning(std::string KinematicParameter) override;
 
  protected:
-  void Init();
+  void Init() override;
 
   ///@brief Setup our spline file, this calls InitialseSplineObject() under the hood
-  void SetupSplines();
+  void SetupSplines() override;
 
-  void SetupWeightPointers();
+  void SetupWeightPointers() override;
 
-  int setupExperimentMC(int iSample);
+  int setupExperimentMC(int iSample) override;
 
   double ReturnKinematicParameter(KinematicTypes KinPar, int iSample, int iEvent);
   double ReturnKinematicParameter(double KinematicVariable, int iSample, int iEvent) override;
@@ -32,10 +33,8 @@ class samplePDFTutorial : virtual public samplePDFFDBase
   const double* GetPointerToKinematicParameter(std::string KinematicParameter, int iSample, int iEvent) override;
   const double* GetPointerToKinematicParameter(double KinematicVariable, int iSample, int iEvent) override;
 
-  std::vector<double> ReturnKinematicParameterBinning(std::string KinematicParameter);
-
-  void setupFDMC(int iSample);
-  double CalcXsecWeightFunc(int iSample, int iEvent) {(void)iSample; (void)iEvent; return 1.;}
+  void setupFDMC(int iSample) override;
+  M3::float_t CalcXsecWeightFunc(int iSample, int iEvent) override {(void)iSample; (void)iEvent; return 1.;}
 
   std::vector<struct tutorial_base> TutorialSamples;
 
