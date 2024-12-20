@@ -13,6 +13,7 @@ class samplePDFTutorial : virtual public samplePDFFDBase
 
   int ReturnKinematicParameterFromString(std::string KinematicParameterStr) override;
   std::string ReturnStringFromKinematicParameter(int KinematicParameterStr) override;
+  std::vector<double> ReturnKinematicParameterBinning(std::string KinematicParameter) override;
 
  protected:
   void Init() override;
@@ -31,10 +32,6 @@ class samplePDFTutorial : virtual public samplePDFFDBase
   const double* GetPointerToKinematicParameter(KinematicTypes KinPar, int iSample, int iEvent);
   const double* GetPointerToKinematicParameter(std::string KinematicParameter, int iSample, int iEvent) override;
   const double* GetPointerToKinematicParameter(double KinematicVariable, int iSample, int iEvent) override;
-
-  inline int ReturnKinematicParameterFromString(std::string KinematicParameterStr) override;
-  inline std::string ReturnStringFromKinematicParameter(int KinematicParameterStr) override;
-  std::vector<double> ReturnKinematicParameterBinning(std::string KinematicParameter) override;
 
   void setupFDMC(int iSample) override;
   M3::float_t CalcXsecWeightFunc(int iSample, int iEvent) override {(void)iSample; (void)iEvent; return 1.;}
