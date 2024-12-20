@@ -4,13 +4,6 @@
 #include "covariance/covarianceOsc.h"
 
 
-/// Current tests include
-/// testing LLH for cov xsc and osc
-/// checking PCA initialisation
-/// checking Adaptive initialisation
-/// checking if throwing works
-/// checking if dumping matrix to root file works
-/// checking if DetID operation return same number of params
 int main(int argc, char *argv[])
 {
   SetMaCh3LoggerFormat();

@@ -2,13 +2,6 @@
 #include "Utils/SplineMonoUtils.h"
 #include "Utils/Comparison.h"
 
-/// @todo  add test with different interpolations
-///
-///
-/// Current tests include
-/// Initialisation of SplineMonolith
-/// Checking dumping flat tree works
-/// Checking if returned weights agree with previously stored weighs
 int main(int argc, char *argv[])
 {
   SetMaCh3LoggerFormat();

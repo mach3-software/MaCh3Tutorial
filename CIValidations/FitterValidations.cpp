@@ -4,12 +4,6 @@
 #include "Utils/Comparison.h"
 #include "samplePDF/samplePDFTutorial.h"
 
-/// Current tests include
-/// Running MCMC
-/// Running MinuitFit
-/// Running LLH scan and 2D LLH scan
-/// Running Drag Race
-/// Running GetStepScaleBasedOnLLHScan
 void FitVal(const std::string& Algo, bool MoreTests)
 {
   std::string ManagerInput = "Inputs/FitterConfig.yaml";
