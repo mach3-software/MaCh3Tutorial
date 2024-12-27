@@ -15,4 +15,10 @@ TEST_CASE("OverrideConfig", "[Yamlhelper]") {
   OverrideConfig(lineup, "1B", 123);
 
   REQUIRE(lineup["1B"].as<unsigned>() == 123u);
+
+  std::string Text = "{1B: I like blarb, 2B: whatever, LF: mach3}";
+  YAML::Node TextNode = STRINGtoYAML(Text);
+
+  REQUIRE(TextNode["1B"].as<std::string>() == "I like blarb");
+  REQUIRE(TextNode["2B"].as<std::string>() == "whatever");
 }

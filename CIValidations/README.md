@@ -43,3 +43,19 @@
 * Dump and compare event weights
 * Dump and compare weight for each event
 * Compare LLH using different test statistics
+
+## UnitTests
+
+### manager_tests
+* Test fo YamlHelpers
+
+## Python Tests
+
+### test_fitter_sample_pdf
+* Fit with sample pdf
+
+### test_fitter_stat_only
+* Fit with cov only
+
+### test_splines
+* Tesing spline interpolation
