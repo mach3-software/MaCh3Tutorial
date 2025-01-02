@@ -1,4 +1,9 @@
-add_executable(manager_tests manager_tests.cpp)
-target_link_libraries(manager_tests PRIVATE Catch2::Catch2WithMain Manager)
+foreach(TEST
+    manager_tests
+    histogram_tests
+    )
 
-catch_discover_tests(manager_tests)
+    add_executable(${TEST} ${TEST}.cpp)
+    target_link_libraries(${TEST} PRIVATE Catch2::Catch2WithMain MaCh3::All)
+    catch_discover_tests(${TEST})
+endforeach()

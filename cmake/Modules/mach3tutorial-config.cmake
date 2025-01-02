@@ -4,5 +4,16 @@ string(TIMESTAMP CREATION_DATE "%d-%m-%Y")
 configure_file(${CMAKE_CURRENT_LIST_DIR}/../Templates/mach3tutorial-config.in
   "${PROJECT_BINARY_DIR}/mach3tutorial-config" @ONLY)
 install(PROGRAMS
-  "${PROJECT_BINARY_DIR}/mach3tutorial-config" DESTINATION
-  bin)
+  "${PROJECT_BINARY_DIR}/mach3tutorial-config" DESTINATION bin)
+
+SET(MACH3_TUTORIAL_FEATURES_LIST)
+
+if(MaCh3Tutorial_UNITTESTS_ENABLED)
+  LIST(APPEND MACH3_TUTORIAL_FEATURES_LIST "UNITTESTS")
+endif()
+
+if(MaCh3Tutorial_Coverage_ENABLED)
+  LIST(APPEND MACH3_TUTORIAL_FEATURES_LIST "COVERAGE")
+endif()
+
+string(REPLACE ";" " " MACH3_TUTORIAL_FEATURES "${MACH3_TUTORIAL_FEATURES_LIST}")
