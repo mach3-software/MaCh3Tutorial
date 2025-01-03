@@ -1,6 +1,8 @@
 General:
   OutputFile: "Test.root"
-  TutorialSamples: ["Inputs/SamplePDF_Tutorial.yaml"]
+  TutorialSamples: ["Inputs/SamplePDF_Tutorial.yaml",
+                    #"Inputs/SamplePDF_Tutorial_ATM.yaml"
+                    ]
   FittingAlgorithm: "MCMC"
 
   RealData: false

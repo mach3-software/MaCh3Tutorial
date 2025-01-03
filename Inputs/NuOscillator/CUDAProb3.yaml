@@ -10,7 +10,7 @@ Binned:
   
 OscProbCalcerSetup:
   ImplementationName: "CUDAProb3"
-  EarthModelFileName: "build/_deps/cudaprob3-src/models/PREM_4layer.dat"
+  EarthModelFileName: "_deps/cudaprob3-src/models/PREM_4layer.dat"
   OscChannelMapping:
     - Entry: "Electron:Electron"
     - Entry: "Electron:Muon"
