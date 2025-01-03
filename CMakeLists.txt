@@ -80,6 +80,7 @@ if(NOT MaCh3_FOUND)
       "MaCh3_PYTHON_ENABLED ${PYTHON_ENABLED}"
       "Prob3ppLinear_ENABLED ON"
       "NuFastLinear_ENABLED ON"
+      "CUDAProb3_ENABLED ON"
   )
   # MaCh3 sets up cmessage for us, so can't cmessage until we've set up MaCh3
   cmessage(STATUS "Didn't find MaCh3, will checkout the ${MaCh3_Branch} branch from mach3-software/MaCh3")

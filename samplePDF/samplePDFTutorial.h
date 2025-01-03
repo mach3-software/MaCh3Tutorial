@@ -44,4 +44,5 @@ class samplePDFTutorial : virtual public samplePDFFDBase
     {"TrueQ2", kTrueQ2}
   };
 
+  bool isATM;
 };
