@@ -1,7 +1,7 @@
 #include <TFile.h>
 #include <TTree.h>
 
-void FilterFiles() {
+void FilterFiles(bool doATM = false) {
   // Open the existing file and get the TTree
   TFile *inputFile = TFile::Open("Nuwro_RHC_NUISFLAT.root", "READ");
   if (!inputFile || inputFile->IsZombie()) {
@@ -27,6 +27,7 @@ void FilterFiles() {
   bool flagCC0pi;
   bool flagCC1pip;
   bool flagCC1pim;
+  float CosineZenith;
 
   // Set branch addresses
   inputTree->SetBranchAddress("Enu_true", &Enu_true);
@@ -56,10 +57,13 @@ void FilterFiles() {
   outputTree->Branch("flagCC1pip", &flagCC1pip, "flagCC1pip/O");
   outputTree->Branch("flagCC1pim", &flagCC1pim, "flagCC1pim/O");
 
+  if(doATM) outputTree->Branch("CosineZenith", &CosineZenith, "CosineZenith/F");
+  TRandom3 randGen;
   // Loop over the entries and fill the new tree
   Long64_t nEntries = inputTree->GetEntries();
   for (Long64_t i = 0; i < nEntries; ++i) {
     inputTree->GetEntry(i);
+    if(doATM) CosineZenith = randGen.Uniform(-1.0, 1.0);
     outputTree->Fill();
   }
 
