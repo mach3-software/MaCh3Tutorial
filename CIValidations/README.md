@@ -47,7 +47,10 @@
 ## UnitTests
 
 ### manager_tests
-* Test fo YamlHelpers
+* Test for YamlHelpers
+
+### histogram_tests
+* Test fo Histogram Utils and TH2Poly related stuff
 
 ## Python Tests
 
