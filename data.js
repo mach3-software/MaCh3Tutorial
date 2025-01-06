@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1736185430991,
+  "lastUpdate": 1736194921562,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -91,6 +91,37 @@ window.BENCHMARK_DATA = {
             "name": "MaCh3Fitter::DragRace",
             "value": 2.22912,
             "range": "± 99.739",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "042daeff591cca1f7da51caeef9b613e648ae0cc",
+          "message": "Merge pull request #259 from mach3-software/feature_YamlVerbose\n\nfeat: Yaml failing gracefully",
+          "timestamp": "2025-01-06T21:18:33+01:00",
+          "tree_id": "61ff0234689ee6cbe0047fb4068a63817bdbe6eb",
+          "url": "https://github.com/mach3-software/MaCh3/commit/042daeff591cca1f7da51caeef9b613e648ae0cc"
+        },
+        "date": 1736194919885,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "MaCh3Fitter::DragRace",
+            "value": 2.08111,
+            "range": "± 68.0352",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
