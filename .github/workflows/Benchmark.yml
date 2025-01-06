@@ -2,10 +2,10 @@
 name: MaCh3 Benchmark
 
 on:
+  pull_request:
+    branches: [ main ]
   push:
-    branches:
-      - feature_benchmark
-      - main
+    branches: [ main ]
 
 permissions:
   # Required permissions for GitHub Pages deployment and content updates
@@ -23,9 +23,12 @@ jobs:
         run: |
           cd /opt/
           # Clone the MaCh3Tutorial repository with the current branch
-          # FIXME BLLLLLLARB@@@@@@
-          git clone --branch feature_benchmark https://github.com/mach3-software/MaCh3Tutorial.git MaCh3Validations
-          #git clone --branch "${{ github.head_ref }}" https://github.com/mach3-software/MaCh3Tutorial.git MaCh3Validations
+          # Fix Me
+          if [ "${{ github.event_name }}" == 'pull_request' ]; then
+            git clone --branch feature_benchmark https://github.com/mach3-software/MaCh3Tutorial.git MaCh3Validations
+          else
+            git clone --branch "${{ github.head_ref }}" https://github.com/mach3-software/MaCh3Tutorial.git MaCh3Validations
+          fi
           cd MaCh3Validations
           mkdir build
           cd build
@@ -58,5 +61,6 @@ jobs:
           gh-repository: github.com/mach3-software/MaCh3Tutorial # Repository for benchmark results
           summary-always: true # Always show summary in job logs
           fail-on-alert: false # Do not fail the workflow on alert
-          auto-push: true # Push and deploy GitHub pages branch automatically
           benchmark-data-dir-path: "" # Use ROOT directory
+          # Push and deploy GitHub pages branch automatically, only if type isn't PR
+          auto-push: ${{ github.event_name != 'pull_request' }}
