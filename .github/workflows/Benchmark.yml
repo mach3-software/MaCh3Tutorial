@@ -43,16 +43,16 @@ jobs:
           source /opt/MaCh3Validations/build/bin/setup.MaCh3.sh
           source /opt/MaCh3Validations/build/bin/setup.MaCh3Tutorial.sh
           source /opt/MaCh3Validations/build/bin/setup.NuOscillator.sh
-          cd /opt/MaCh3Validations/build/CIValidations
+          cd /opt/MaCh3Validations/build/
           # Run the benchmark and store the output in a file
-          ./Benchmark/MaCh3Benchmark | tee output.txt
+          ./CIValidations/Benchmark/MaCh3Benchmark | tee output.txt
 
       - name: Store benchmark result
         uses: benchmark-action/github-action-benchmark@v1
         with:
           tool: 'catch2' # Specify that the benchmark tool is Catch2
           github-token: ${{ secrets.GITHUB_TOKEN }} # Use GitHub token for authentication
-          output-file-path: /opt/MaCh3Validations/build/CIValidations/output.txt # Path to the benchmark output file
+          output-file-path: /opt/MaCh3Validations/build/output.txt # Path to the benchmark output file
           alert-threshold: 200% # Alert threshold for performance degradation
           gh-pages-branch: gh-pages # Branch to store benchmark results
           gh-repository: mach3-software/MaCh3Tutorial # Repository for benchmark results
