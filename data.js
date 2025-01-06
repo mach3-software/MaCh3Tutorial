@@ -1,6 +1,6 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1736171744577,
-  "repoUrl": "https://github.com/mach3-software/MaCh3Tutorial",
+  "lastUpdate": 1736179685088,
+  "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
       {
@@ -29,6 +29,37 @@ window.BENCHMARK_DATA = {
             "name": "MaCh3Fitter::DragRace",
             "value": 2.06544,
             "range": "± 101.177",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "a2eb91fef8124e43a29ec0dd23b7a055ea9f24ba",
+          "message": "bugfix: change token for benchmarking",
+          "timestamp": "2025-01-06T16:04:33Z",
+          "tree_id": "c8afe138efe536165e62aebb1ff27d49e7d151db",
+          "url": "https://github.com/mach3-software/MaCh3/commit/a2eb91fef8124e43a29ec0dd23b7a055ea9f24ba"
+        },
+        "date": 1736179684172,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "MaCh3Fitter::DragRace",
+            "value": 2.22358,
+            "range": "± 84.7959",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
