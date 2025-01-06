@@ -58,3 +58,5 @@ jobs:
           gh-repository: github.com/mach3-software/MaCh3Tutorial # Repository for benchmark results
           summary-always: true # Always show summary in job logs
           fail-on-alert: false # Do not fail the workflow on alert
+          # Push and deploy GitHub pages branch automatically
+          auto-push: true
