@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1736194921562,
+  "lastUpdate": 1736200223880,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -122,6 +122,37 @@ window.BENCHMARK_DATA = {
             "name": "MaCh3Fitter::DragRace",
             "value": 2.08111,
             "range": "± 68.0352",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "846436c67e71105a0d4355c1ffb2b7a59f8d26d1",
+          "message": "Merge pull request #262 from mach3-software/feature_ParamGroupProcessor\n\nfeat: Param Group to MCMC Processor",
+          "timestamp": "2025-01-06T22:47:04+01:00",
+          "tree_id": "5d5f7d9eb10c7b1fc3d7617708419cc0c021042a",
+          "url": "https://github.com/mach3-software/MaCh3/commit/846436c67e71105a0d4355c1ffb2b7a59f8d26d1"
+        },
+        "date": 1736200222601,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "MaCh3Fitter::DragRace",
+            "value": 2.09225,
+            "range": "± 83.0557",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
