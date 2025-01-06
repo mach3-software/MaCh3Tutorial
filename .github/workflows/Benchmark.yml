@@ -57,10 +57,11 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }} # Use GitHub token for authentication
           output-file-path: /opt/MaCh3Validations/build/output.txt # Path to the benchmark output file
           alert-threshold: 200% # Alert threshold for performance degradation
+          comment-on-alert: true
           gh-pages-branch: gh-pages # Branch to store benchmark results
           gh-repository: github.com/mach3-software/MaCh3Tutorial # Repository for benchmark results
           summary-always: true # Always show summary in job logs
-          fail-on-alert: false # Do not fail the workflow on alert
+          fail-on-alert: true # Do not fail the workflow on alert
           benchmark-data-dir-path: "" # Use ROOT directory
           # Push and deploy GitHub pages branch automatically, only if type isn't PR
           auto-push: ${{ github.event_name != 'pull_request' }}

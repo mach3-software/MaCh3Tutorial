@@ -27,7 +27,7 @@ TEST_CASE("Benchmark MaCh3") {
   }
   // Benchmark
   BENCHMARK("MaCh3Fitter::DragRace") {
-    MaCh3Fitter->DragRace(1);
+    MaCh3Fitter->DragRace(1000);
   };
 
   delete xsec;
