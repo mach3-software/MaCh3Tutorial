@@ -3,7 +3,8 @@ name: MaCh3 Benchmark
 on:
   push:
     branches:
-      - [feature_benchmark, main]
+      - feature_benchmark
+      - main
 
 permissions:
   # Required permissions for GitHub Pages deployment and content updates
