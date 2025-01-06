@@ -55,6 +55,6 @@ jobs:
           output-file-path: /opt/MaCh3Validations/build/output.txt # Path to the benchmark output file
           alert-threshold: 200% # Alert threshold for performance degradation
           gh-pages-branch: gh-pages # Branch to store benchmark results
-          gh-repository: mach3-software/MaCh3Tutorial # Repository for benchmark results
+          gh-repository: https://github.com/mach3-software/MaCh3Tutorial.git # Repository for benchmark results
           summary-always: true # Always show summary in job logs
           fail-on-alert: false # Do not fail the workflow on alert
