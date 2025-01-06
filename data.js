@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1736179685088,
+  "lastUpdate": 1736185430991,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -60,6 +60,37 @@ window.BENCHMARK_DATA = {
             "name": "MaCh3Fitter::DragRace",
             "value": 2.22358,
             "range": "± 84.7959",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "977295430b178899788772381e252fe6278f6f12",
+          "message": "Merge pull request #266 from mach3-software/feature_tidy\n\ntidy: New TH2Poly  function and more authros",
+          "timestamp": "2025-01-06T18:40:35+01:00",
+          "tree_id": "10260671e0e694b9b0a3a87d67e7cfa49266149b",
+          "url": "https://github.com/mach3-software/MaCh3/commit/977295430b178899788772381e252fe6278f6f12"
+        },
+        "date": 1736185430169,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "MaCh3Fitter::DragRace",
+            "value": 2.22912,
+            "range": "± 99.739",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
