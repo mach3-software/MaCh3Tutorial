@@ -74,13 +74,16 @@ if(NOT MaCh3_FOUND)
     "MaCh3_PYTHON_ENABLED ${PYTHON_ENABLED}"
   )
 
+  # KS: For benchmark we turn off logger to not interfere with output messages.
+  # Also to have code compile let's turn off Werror
+  if (MaCh3Tutorial_Benchmark_ENABLED)
+    list(APPEND MaCh3_OPTIONS "MaCh3_WERROR_ENABLED OFF")
+    set(LOG_LEVEL "OFF")
+  endif()
+
   # Add LOG_LEVEL if defined
   if (DEFINED LOG_LEVEL)
     list(APPEND MaCh3_OPTIONS "LOG_LEVEL ${LOG_LEVEL}")
-  endif()
-
-  if (MaCh3Tutorial_Benchmark_ENABLED)
-    list(APPEND MaCh3_OPTIONS "MaCh3_WERROR_ENABLED OFF")
   endif()
 
   CPMAddPackage(
