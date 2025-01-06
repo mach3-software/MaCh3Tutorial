@@ -9,9 +9,6 @@ SET(MaCh3Tutorial_VERSION 1.3.2)
 project(MaCh3Tutorial VERSION ${MaCh3Tutorial_VERSION} LANGUAGES CXX)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
-option(MaCh3Tutorial_UNITTESTS_ENABLED "Whether to build MaCh3 Unit Tests" OFF)
-option(MaCh3Tutorial_Coverage_ENABLED "Whether to build MaCh3 Coverage " OFF)
-
 # Changes default install path to be a subdirectory of the build dir.
 # Can set build dir at configure time with -DCMAKE_INSTALL_PREFIX=/install/path
 if(CMAKE_INSTALL_PREFIX STREQUAL "" OR CMAKE_INSTALL_PREFIX STREQUAL
@@ -28,7 +25,6 @@ find_program(CMAKE_CXX_COMPILER NAMES $ENV{CXX} g++ PATHS ENV PATH NO_DEFAULT_PA
 LIST(APPEND CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake/Modules)
 
 message("CMAKE SOURCE_DIR IS ${CMAKE_SOURCE_DIR}")
-
 
 ################################################################################
 #                            Check Dependencies
@@ -96,17 +92,7 @@ if(MaCh3_VERSION GREATER MaCh3Tutorial_VERSION)
   cmessage(WARNING "MaCh3Tutorial_VERSION (${MaCh3Tutorial_VERSION}) is smaller than MaCh3_VERSION (${MaCh3_VERSION}), this most likely will not work")
 endif()
 
-CPMAddPackage(
-  NAME NuMCMCTools
-  GIT_TAG "tags/v1.0.0"
-  GIT_SHALLOW YES
-  GITHUB_REPOSITORY NuMCMCTools/NuMCMCTools
-  DOWNLOAD_ONLY YES
-)
-
-install(DIRECTORY
-    ${CPM_PACKAGE_NuMCMCTools_SOURCE_DIR}/
-    DESTINATION ${CMAKE_BINARY_DIR}/NuMCMCTools)
+include(CIValidations)
 
 ############################  C++ Compiler  ####################################
 get_property(MACH3_CXX_STANDARD GLOBAL PROPERTY MACH3_CXX_STANDARD)
@@ -117,17 +103,6 @@ else()
 endif()
 cmessage(STATUS "CMAKE CXX Standard: ${CMAKE_CXX_STANDARD}")
 
-############################  Catch2/CTest  ####################################
-if(MaCh3Tutorial_UNITTESTS_ENABLED)
-  find_package(Catch2 QUIET)
-  if(NOT Catch2_FOUND)
-    CPMAddPackage("gh:catchorg/Catch2@3.5.2")
-    LIST(APPEND CMAKE_MODULE_PATH ${Catch2_SOURCE_DIR}/extras)
-  endif()
-
-  include(CTest)
-  include(Catch)
-endif()
 
 ################################# Build MaCh3 ##################################
 add_subdirectory(Utils)
