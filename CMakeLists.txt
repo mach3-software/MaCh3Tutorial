@@ -39,6 +39,8 @@ file(
 )
 include(${CMAKE_CURRENT_BINARY_DIR}/cmake/CPM.cmake)
 
+include(CIValidations)
+
 ##################################  MaCh3  ######################################
 # KS: Here we try to find tag matching tutorial version. If we can't find one then use develop
 # This will allow to grab tutorial for tagged MaCh3 version without a need of manually changing version
@@ -67,13 +69,27 @@ if(NOT DEFINED PYTHON_ENABLED)
   SET(PYTHON_ENABLED false)
 endif()
 if(NOT MaCh3_FOUND)
+
+  set(MaCh3_OPTIONS
+    "MaCh3_PYTHON_ENABLED ${PYTHON_ENABLED}"
+  )
+
+  # Add LOG_LEVEL if defined
+  if (DEFINED LOG_LEVEL)
+    list(APPEND MaCh3_OPTIONS "LOG_LEVEL ${LOG_LEVEL}")
+  endif()
+
+  if (MaCh3Tutorial_Benchmark_ENABLED)
+    list(APPEND MaCh3_OPTIONS "MaCh3_WERROR_ENABLED OFF")
+  endif()
+
   CPMAddPackage(
     NAME MaCh3
     GIT_TAG ${MaCh3_Branch}
     GIT_SHALLOW YES
     GITHUB_REPOSITORY mach3-software/MaCh3
     OPTIONS
-      "MaCh3_PYTHON_ENABLED ${PYTHON_ENABLED}"
+      ${MaCh3_OPTIONS}
       "Prob3ppLinear_ENABLED ON"
       "NuFastLinear_ENABLED ON"
   )
@@ -91,8 +107,6 @@ endif()
 if(MaCh3_VERSION GREATER MaCh3Tutorial_VERSION)
   cmessage(WARNING "MaCh3Tutorial_VERSION (${MaCh3Tutorial_VERSION}) is smaller than MaCh3_VERSION (${MaCh3_VERSION}), this most likely will not work")
 endif()
-
-include(CIValidations)
 
 ############################  C++ Compiler  ####################################
 get_property(MACH3_CXX_STANDARD GLOBAL PROPERTY MACH3_CXX_STANDARD)
