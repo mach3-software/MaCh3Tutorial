@@ -39,3 +39,7 @@ install(DIRECTORY
 if(MaCh3Tutorial_UNITTESTS_ENABLED)
   add_subdirectory(UnitTests)
 endif()
+
+if(MaCh3Tutorial_Benchmark_ENABLED)
+  add_subdirectory(Benchmark)
+endif()
