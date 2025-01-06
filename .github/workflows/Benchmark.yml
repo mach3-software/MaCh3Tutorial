@@ -15,7 +15,8 @@ permissions:
 jobs:
   benchmark:
     name: Performance regression check
-    runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/mach3-software/mach3:alma9v1.3.0
     steps:
       - name: Get MaCh3 Validations
         run: |
