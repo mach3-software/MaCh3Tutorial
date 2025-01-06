@@ -30,7 +30,7 @@ jobs:
           mkdir build
           cd build
           # Configure the project with benchmark support enabled
-          cmake ../ -MaCh3Tutorial_Benchmark_ENABLED=TRUE
+          cmake ../ -DMaCh3Tutorial_Benchmark_ENABLED=TRUE
 
       - name: Build MaCh3 Validations
         run: |
