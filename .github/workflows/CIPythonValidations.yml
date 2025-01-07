@@ -38,7 +38,6 @@ jobs:
         source /opt/root/v6-26-10/bin/thisroot.sh
         export PYTHONPATH=$PYTHONPATH:$PWD/python-test-modules/
         export MACH3=$PWD
-        # Temporary until binned and event by event splines are the same
-        grep -rl 'XsecCovFile: \["Inputs/SystematicModel.yaml"' . | xargs sed -i 's|XsecCovFile: \["Inputs/SystematicModel.yaml"|XsecCovFile: ["CIValidations/PythonTests/pySystematicModel.yaml"|g'
+        
         python3 -m pytest --config Inputs/FitterConfig.yaml CIValidations/PythonTests
         
