@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1736279698881,
+  "lastUpdate": 1736283132032,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -215,6 +215,37 @@ window.BENCHMARK_DATA = {
             "name": "MaCh3Fitter::DragRace",
             "value": 2.1389,
             "range": "± 156.838",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "a76f19a4d976d9c044fb8f08696be809ea0d911a",
+          "message": "Merge pull request #273 from mach3-software/feature_CovOscTidy\n\nbreaking: Less stinky Cov Osc",
+          "timestamp": "2025-01-07T21:48:39+01:00",
+          "tree_id": "bd477c828d97bb0a595f8039237d2a0e535c1624",
+          "url": "https://github.com/mach3-software/MaCh3/commit/a76f19a4d976d9c044fb8f08696be809ea0d911a"
+        },
+        "date": 1736283130779,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "MaCh3Fitter::DragRace",
+            "value": 2.15957,
+            "range": "± 253.321",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
