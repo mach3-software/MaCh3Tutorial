@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1736200223880,
+  "lastUpdate": 1736251579919,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -153,6 +153,37 @@ window.BENCHMARK_DATA = {
             "name": "MaCh3Fitter::DragRace",
             "value": 2.09225,
             "range": "± 83.0557",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "2bbf34b949f1bc188c8ddd2399922a3c592841bf",
+          "message": "Merge pull request #271 from mach3-software/feature_DiagMCMC\n\nfeat: Diag MCMC Plotting",
+          "timestamp": "2025-01-07T13:03:03+01:00",
+          "tree_id": "83ae5f57eb50db02f611290edeb973e6667b0243",
+          "url": "https://github.com/mach3-software/MaCh3/commit/2bbf34b949f1bc188c8ddd2399922a3c592841bf"
+        },
+        "date": 1736251578979,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "MaCh3Fitter::DragRace",
+            "value": 2.11462,
+            "range": "± 82.1734",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
