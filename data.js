@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1736251579919,
+  "lastUpdate": 1736279698881,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -184,6 +184,37 @@ window.BENCHMARK_DATA = {
             "name": "MaCh3Fitter::DragRace",
             "value": 2.11462,
             "range": "± 82.1734",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "5e231cd5bec6afef03e00e7b712accaac2f50000",
+          "message": "Merge pull request #270 from mach3-software/feature_loggerOff\n\nbugfix: fix compilation with logger turned off",
+          "timestamp": "2025-01-07T20:51:33+01:00",
+          "tree_id": "e641bcdfce63e0462460eb00cfe023348b276ff1",
+          "url": "https://github.com/mach3-software/MaCh3/commit/5e231cd5bec6afef03e00e7b712accaac2f50000"
+        },
+        "date": 1736279698057,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "MaCh3Fitter::DragRace",
+            "value": 2.1389,
+            "range": "± 156.838",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
