@@ -177,8 +177,9 @@ class test_sample(sample_pdf.SamplePDFBase):
 def test_sample_pdf(pytestconfig):
     # initialise our main manager object by passing it the yaml config specified on the command line
     man: manager.Manager = manager.Manager(pytestconfig.getoption("config"))
+    #Temporary until binned and event by event splines are the same
+    manager.Manager("General", "Systematics", "XsecCovFile", "CIValidations/PythonTests/pySystematicModel.yaml");
     man.print()
-
     # get the config files
     xsec_cov_names: typing.List[str] = [i.data() for i in man.raw()["General"]["Systematics"]["XsecCovFile"]]
     osc_cov_names: typing.List[str] = [i.data() for i in man.raw()["General"]["Systematics"]["OscCovFile"]]
