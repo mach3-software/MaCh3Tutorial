@@ -3,14 +3,11 @@ set(CMAKE_VERBOSE_MAKEFILE ON)
 # CMake version check
 cmake_minimum_required(VERSION 3.14 FATAL_ERROR)
 
-SET(MaCh3Tutorial_VERSION 1.3.1)
+SET(MaCh3Tutorial_VERSION 1.3.2)
 
 # Create project (todo: set configurable CUDA)
 project(MaCh3Tutorial VERSION ${MaCh3Tutorial_VERSION} LANGUAGES CXX)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
-
-option(MaCh3Tutorial_UNITTESTS_ENABLED "Whether to build MaCh3 Unit Tests" OFF)
-option(MaCh3Tutorial_Coverage_ENABLED "Whether to build MaCh3 Coverage " OFF)
 
 # Changes default install path to be a subdirectory of the build dir.
 # Can set build dir at configure time with -DCMAKE_INSTALL_PREFIX=/install/path
@@ -29,7 +26,6 @@ LIST(APPEND CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake/Modules)
 
 message("CMAKE SOURCE_DIR IS ${CMAKE_SOURCE_DIR}")
 
-
 ################################################################################
 #                            Check Dependencies
 ################################################################################
@@ -42,6 +38,8 @@ file(
   ${CMAKE_CURRENT_BINARY_DIR}/cmake/CPM.cmake
 )
 include(${CMAKE_CURRENT_BINARY_DIR}/cmake/CPM.cmake)
+
+include(CIValidations)
 
 ##################################  MaCh3  ######################################
 # KS: Here we try to find tag matching tutorial version. If we can't find one then use develop
@@ -68,13 +66,30 @@ endif()
 find_package(MaCh3 QUIET)
 
 if(NOT MaCh3_FOUND)
+
+  set(MaCh3_OPTIONS
+    "MaCh3_PYTHON_ENABLED ${PYTHON_ENABLED}"
+  )
+
+  # KS: For benchmark we turn off logger to not interfere with output messages.
+  # Also to have code compile let's turn off Werror
+  if (MaCh3Tutorial_Benchmark_ENABLED)
+    list(APPEND MaCh3_OPTIONS "MaCh3_WERROR_ENABLED OFF")
+    set(LOG_LEVEL "OFF")
+  endif()
+
+  # Add LOG_LEVEL if defined
+  if (DEFINED LOG_LEVEL)
+    list(APPEND MaCh3_OPTIONS "LOG_LEVEL ${LOG_LEVEL}")
+  endif()
+
   CPMAddPackage(
     NAME MaCh3
     GIT_TAG ${MaCh3_Branch}
     GIT_SHALLOW YES
     GITHUB_REPOSITORY mach3-software/MaCh3
     OPTIONS
-      "MaCh3_PYTHON_ENABLED ${PYTHON_ENABLED}"
+      ${MaCh3_OPTIONS}
       "Prob3ppLinear_ENABLED ON"
       "NuFastLinear_ENABLED ON"
   )
@@ -93,18 +108,6 @@ if(MaCh3_VERSION GREATER MaCh3Tutorial_VERSION)
   cmessage(WARNING "MaCh3Tutorial_VERSION (${MaCh3Tutorial_VERSION}) is smaller than MaCh3_VERSION (${MaCh3_VERSION}), this most likely will not work")
 endif()
 
-CPMAddPackage(
-  NAME NuMCMCTools
-  GIT_TAG "tags/v1.0.0"
-  GIT_SHALLOW YES
-  GITHUB_REPOSITORY NuMCMCTools/NuMCMCTools
-  DOWNLOAD_ONLY YES
-)
-
-install(DIRECTORY
-    ${CPM_PACKAGE_NuMCMCTools_SOURCE_DIR}/
-    DESTINATION ${CMAKE_BINARY_DIR}/NuMCMCTools)
-
 ############################  C++ Compiler  ####################################
 get_property(MACH3_CXX_STANDARD GLOBAL PROPERTY MACH3_CXX_STANDARD)
 if(NOT DEFINED MACH3_CXX_STANDARD)
@@ -114,17 +117,6 @@ else()
 endif()
 cmessage(STATUS "CMAKE CXX Standard: ${CMAKE_CXX_STANDARD}")
 
-############################  Catch2/CTest  ####################################
-if(MaCh3Tutorial_UNITTESTS_ENABLED)
-  find_package(Catch2 QUIET)
-  if(NOT Catch2_FOUND)
-    CPMAddPackage("gh:catchorg/Catch2@3.5.2")
-    LIST(APPEND CMAKE_MODULE_PATH ${Catch2_SOURCE_DIR}/extras)
-  endif()
-
-  include(CTest)
-  include(Catch)
-endif()
 
 ################################# Build MaCh3 ##################################
 add_subdirectory(Utils)

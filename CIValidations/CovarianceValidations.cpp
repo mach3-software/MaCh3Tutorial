@@ -4,13 +4,6 @@
 #include "covariance/covarianceOsc.h"
 
 
-/// Current tests include
-/// testing LLH for cov xsc and osc
-/// checking PCA initialisation
-/// checking Adaptive initialisation
-/// checking if throwing works
-/// checking if dumping matrix to root file works
-/// checking if DetID operation return same number of params
 int main(int argc, char *argv[])
 {
   SetMaCh3LoggerFormat();
@@ -47,18 +40,23 @@ int main(int argc, char *argv[])
   xsec->setParameters(ParProp);
   xsec->acceptStep();
   ///// Test Params from DetId /////
-  const int Det_Id = 1;
-  for (int s = 0; s < kSystTypes; ++s)
+  const std::vector<int> Det_Id = {1, 984, 985};
+  for (int id = 0; id < kSystTypes; ++id)
   {
-    int NParams = xsec->GetNumParamsFromDetID(Det_Id, static_cast<SystType>(s));
-    outFile << "Found " << NParams << " Params of type " << SystType_ToString(static_cast<SystType>(s)) << std::endl;
+    for (int s = 0; s < kSystTypes; ++s)
+    {
+      int NParams = xsec->GetNumParamsFromDetID(Det_Id[id], static_cast<SystType>(s));
+      outFile << "Found " << NParams << " for "<< Det_Id[id] << " Params of type " << SystType_ToString(static_cast<SystType>(s)) << std::endl;
 
-    // These return vector and I am too lazy to make check so here let just run them to so if things don't break
-    xsec->GetSystIndexFromDetID(Det_Id, static_cast<SystType>(s));
-    xsec->GetParsIndexFromDetID(Det_Id, static_cast<SystType>(s));
-    xsec->GetParsNamesFromDetID(Det_Id, static_cast<SystType>(s));
+      // These return vector and I am too lazy to make check so here let just run them to so if things don't break
+      xsec->GetSystIndexFromDetID(Det_Id[id], static_cast<SystType>(s));
+      xsec->GetParsIndexFromDetID(Det_Id[id], static_cast<SystType>(s));
+      xsec->GetParsNamesFromDetID(Det_Id[id], static_cast<SystType>(s));
+    }
+
+    auto Norm = xsec->GetNormParsFromDetID(Det_Id[id]);
+    outFile << "Found " << Norm.size()   << " for "<< Det_Id[id] << " From GetNormParsFromDetID" << std::endl;
   }
-
   for (int i = 0; i < xsec->GetNumParams(); ++i) {
     for (int j = 0; j < xsec->GetNumParams(); ++j) {
       outFile << "Inv Cov Matrix for " << i << " and " << j << " is equal to=" << xsec->GetInvCovMatrix(i, j) << std::endl;
@@ -152,7 +150,18 @@ AdaptionOptions:
 
   std::vector<double> ParAdapt = {1.05, 0.90, 1.10, 1.05, 0.25, 1.70, 3.20, -1.10, -1.70, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0 };
   Adapt->setParameters(ParAdapt);
+  bool increase = true;
   for(int i = 0; i < 50000; ++i ) {
+
+    // Determine the direction of adjustment
+    if (i % 20 == 10) { // Switch direction every 10 iterations
+      increase = !increase;
+    }
+    // Adjust parameters
+    for (double& param : ParAdapt) {
+      param += (increase ? 0.001 : -0.001);
+    }
+    Adapt->setParameters(ParAdapt);
     Adapt->acceptStep();
   }
   Adapt->saveAdaptiveToFile("Wacky.root", "xsec");
