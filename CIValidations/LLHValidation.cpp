@@ -28,7 +28,7 @@ int main(int argc, char *argv[])
 
     for (int j = 1; j <= hist->GetNbinsX(); ++j) {
       double binContent = hist->GetBinContent(j);
-      outFile << "Dial " << Names[i] << " bin = " << j << " content = " << binContent << std::endl;
+      outFile << "Dial " << Names[i] << " bin = " << j << " content = " << std::fixed << std::setprecision(6) << binContent << std::endl;
     }
   }
   outFile.close();
