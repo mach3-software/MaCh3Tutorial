@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1736337198995,
+  "lastUpdate": 1736345869847,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -339,6 +339,37 @@ window.BENCHMARK_DATA = {
             "name": "MaCh3Fitter::DragRace",
             "value": 2.44177,
             "range": "± 56.3414",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "08e2ebba9982db091cb581ccf48456bac6f11d08",
+          "message": "Merge pull request #277 from mach3-software/feature_UbinutLinking\n\nbugfix: linking splines on ubuntu",
+          "timestamp": "2025-01-08T15:14:23+01:00",
+          "tree_id": "0cc6537da1da374b684b8e1f70cbaf485abaa0ca",
+          "url": "https://github.com/mach3-software/MaCh3/commit/08e2ebba9982db091cb581ccf48456bac6f11d08"
+        },
+        "date": 1736345868955,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "MaCh3Fitter::DragRace",
+            "value": 2.49006,
+            "range": "± 100.839",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
