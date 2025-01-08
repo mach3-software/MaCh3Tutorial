@@ -1,4 +1,6 @@
 #!/bin/bash
+#set -x  # Enable command tracing
+set -e  # Exit on error
 
 # Check if no arguments are provided
 if [ "$#" -eq 0 ]; then
@@ -6,7 +8,7 @@ if [ "$#" -eq 0 ]; then
   exit 1
 fi
 
-mach3tutorial-config --has-feature UNITTESTS
+mach3tutorial-config --has-feature UNITTESTS || true
 HAVE_UNITTEST_SUPPORT=${?}
 
 # Display help message
