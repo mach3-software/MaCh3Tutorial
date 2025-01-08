@@ -38,7 +38,7 @@ void samplePDFTutorial::SetupSplines() {
 }
 
 void samplePDFTutorial::SetupWeightPointers() {
-  for (int i = 0; i < (int)MCSamples.size(); ++i) {
+  for (size_t i = 0; i < MCSamples.size(); ++i) {
     for (int j = 0; j < MCSamples[i].nEvents; ++j) {
       MCSamples[i].ntotal_weight_pointers[j] = 2;
       MCSamples[i].total_weight_pointers[j].resize(MCSamples[i].ntotal_weight_pointers[j]);
@@ -63,7 +63,7 @@ int samplePDFTutorial::setupExperimentMC(int iSample) {
   MACH3LOG_INFO("input file: {}", mc_files[iSample]);
 
   TFile * _sampleFile = new TFile(mc_files[iSample].c_str(), "READ");
-  TTree * _data = (TTree*)_sampleFile->Get("FlatTree_VARS");
+  TTree* _data = static_cast<TTree*>(_sampleFile->Get("FlatTree_VARS"));
 
   if(_data){
     MACH3LOG_INFO("Found \"FlatTree_VARS\" tree in {}", mc_files[iSample]);
@@ -73,7 +73,7 @@ int samplePDFTutorial::setupExperimentMC(int iSample) {
     MACH3LOG_ERROR("Could not find \"FlatTree_VARS\" tree in {}", mc_files[iSample]);
     throw MaCh3Exception(__FILE__, __LINE__);
   }
-  tutobj->nEvents = _data->GetEntries();
+  tutobj->nEvents = static_cast<int>(_data->GetEntries());
   tutobj->TrueEnu.resize(tutobj->nEvents);
   tutobj->Q2.resize(tutobj->nEvents);
   tutobj->Mode.resize(tutobj->nEvents);

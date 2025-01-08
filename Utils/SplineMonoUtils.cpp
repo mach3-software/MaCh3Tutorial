@@ -9,7 +9,7 @@ std::vector< std::vector<TResponseFunction_red*> > GetMasterSpline(
   TChain* chain = new TChain("sample_sum");
   chain->AddFile(FileName.c_str());
 
-  const int nSplineParams = DialNames.size();
+  const int nSplineParams = static_cast<int>(DialNames.size());
   TGraph** xsecgraph = new TGraph*[nSplineParams];
   for(int i = 0; i < nSplineParams; i++) {
     xsecgraph[i] = NULL;
@@ -27,7 +27,7 @@ std::vector< std::vector<TResponseFunction_red*> > GetMasterSpline(
     chain->SetBranchAddress(cstr, &(grapharrays[i]));
   }// End the for loop over the unique spline parameters
 
-  unsigned int n = chain->GetEntries();
+  unsigned int n = static_cast<unsigned int>(chain->GetEntries());
   MasterSpline.resize(n);
   for(unsigned int i = 0; i < n; ++i)
   {
@@ -37,7 +37,7 @@ std::vector< std::vector<TResponseFunction_red*> > GetMasterSpline(
     for (int k = 0; k < nSplineParams; k++)
     {
       // get the graph
-      xsecgraph[k] = (TGraph*)(grapharrays[k]->At(0));
+      xsecgraph[k] = static_cast<TGraph*>(grapharrays[k]->At(0));
 
       TSpline3 *spline = NULL;
       TSpline3_red *spline_red = NULL;

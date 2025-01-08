@@ -12,7 +12,8 @@ set_target_properties(ValidationsUtils PROPERTIES
     PUBLIC_HEADER "${HEADERS}"
     EXPORT_NAME ValidationsUtils)
 
-target_link_libraries(ValidationsUtils MaCh3::All)
+target_link_libraries(ValidationsUtils PUBLIC MaCh3::All)
+target_link_libraries(ValidationsUtils PRIVATE MaCh3Warnings)
 
 target_include_directories(ValidationsUtils PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/../>
