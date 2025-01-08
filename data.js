@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1736333381764,
+  "lastUpdate": 1736337198995,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -308,6 +308,37 @@ window.BENCHMARK_DATA = {
             "name": "MaCh3Fitter::DragRace",
             "value": 2.49899,
             "range": "± 136.185",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "7ce9f0d8414f275d9d8dbcf79bc82eab938809ce",
+          "message": "tidy: Fix warnings when linking",
+          "timestamp": "2025-01-08T11:49:50Z",
+          "tree_id": "9ed1ac3ee95f5106c7953e58fd0f04ae3a4a90c6",
+          "url": "https://github.com/mach3-software/MaCh3/commit/7ce9f0d8414f275d9d8dbcf79bc82eab938809ce"
+        },
+        "date": 1736337197531,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "MaCh3Fitter::DragRace",
+            "value": 2.44177,
+            "range": "± 56.3414",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
