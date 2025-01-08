@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1736283132032,
+  "lastUpdate": 1736333352691,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -246,6 +246,37 @@ window.BENCHMARK_DATA = {
             "name": "MaCh3Fitter::DragRace",
             "value": 2.15957,
             "range": "± 253.321",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "90209cc1a4ab9dc6fc9c5951a067f60d4ad2b8a6",
+          "message": "Merge pull request #274 from mach3-software/feature_circular\n\nfeat: Circular prior",
+          "timestamp": "2025-01-08T11:45:40+01:00",
+          "tree_id": "f923bfefd6f516c6e076346ca6e8374e7f4c911c",
+          "url": "https://github.com/mach3-software/MaCh3/commit/90209cc1a4ab9dc6fc9c5951a067f60d4ad2b8a6"
+        },
+        "date": 1736333350950,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "MaCh3Fitter::DragRace",
+            "value": 2.4415,
+            "range": "± 74.4199",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
