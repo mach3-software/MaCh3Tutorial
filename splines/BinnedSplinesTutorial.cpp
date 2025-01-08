@@ -36,8 +36,7 @@ void BinnedSplineTutorial::FillSampleArray(std::string SampleName, std::vector<s
   int nOscChannels = nOscChans[iSample];
   
   for (int iOscChan = 0; iOscChan < nOscChannels; iOscChan++) {
-    std::cout << "Processing:" << OscChanFileNames[iOscChan] << std::endl;
-
+    MACH3LOG_INFO("Processing: {}", OscChanFileNames[iOscChan]);
     TSpline3* mySpline = new TSpline3();
     TSpline3_red* Spline = nullptr;
     TString Syst, Mode;
@@ -62,11 +61,10 @@ void BinnedSplineTutorial::FillSampleArray(std::string SampleName, std::vector<s
       }
 
       TString FullSplineName = (TString)Key->GetName();
-      std::cout << "FillSplineName is " << FullSplineName << std::endl;
+      MACH3LOG_INFO("FillSplineName is {}", FullSplineName);
       // First We split into binning and spline name
       TObjArray *tokens = FullSplineName.Tokenize(".");
-
-      std::cout << "Number of tokens is " << tokens->GetEntries() << std::endl;
+      MACH3LOG_INFO("Number of tokens is {}", tokens->GetEntries());
       /*
        A little hacky but lets us grab both old + new splines
       */
@@ -97,7 +95,7 @@ void BinnedSplineTutorial::FillSampleArray(std::string SampleName, std::vector<s
 
       // If the syst doesn't match any of the spline names then skip it
       if (SystNum == -1){
-        std::cout << "COuldn't match!!" << std::endl;
+        MACH3LOG_WARN("Couldn't match!!");
         MACH3LOG_DEBUG("Couldn't Match any systematic name in xsec yaml with spline name: {}" , FullSplineName.Data());
         continue;
       }
@@ -120,7 +118,7 @@ void BinnedSplineTutorial::FillSampleArray(std::string SampleName, std::vector<s
 
       if (isValidSplineIndex(SampleName, iOscChan, SystNum, ModeNum, Var1Bin, Var2Bin, Var3Bin))
       { // loop over all the spline knots and check their value
-        std::cout << "Pushed back monolith for spline " << FullSplineName << std::endl;
+        MACH3LOG_INFO("Pushed back monolith for spline {}", FullSplineName);
         // if the value is 1 then set the flat bool to false
         nKnots = mySpline->GetNp();
         isFlat = true;
