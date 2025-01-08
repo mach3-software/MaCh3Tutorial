@@ -12,8 +12,6 @@
 #include "TKey.h"
 #include "TROOT.h"
 
-
-
 BinnedSplineTutorial::BinnedSplineTutorial(covarianceXsec *xsec_cov) : splineFDBase(xsec_cov)
 {
   MACH3LOG_INFO("Created BinnedSplineTutorial object");
@@ -60,7 +58,7 @@ void BinnedSplineTutorial::FillSampleArray(std::string SampleName, std::vector<s
         continue;
       }
 
-      TString FullSplineName = (TString)Key->GetName();
+      TString FullSplineName = static_cast<TString>(Key->GetName());
       MACH3LOG_INFO("FillSplineName is {}", FullSplineName);
       // First We split into binning and spline name
       TObjArray *tokens = FullSplineName.Tokenize(".");
@@ -73,16 +71,16 @@ void BinnedSplineTutorial::FillSampleArray(std::string SampleName, std::vector<s
         tokens = FullSplineName.Tokenize("_");
       }
 
-      Syst = ((TObjString *)(tokens->At(1)))->GetString();
-      Mode = ((TObjString *)(tokens->At(2)))->GetString();
+      Syst = static_cast<TObjString*>(tokens->At(1))->GetString();
+      Mode = static_cast<TObjString*>(tokens->At(2))->GetString();
       // Skip 3 because it's "sp"
-      Var1Bin = (((TObjString *)(tokens->At(4)))->GetString()).Atoi();
-      Var2Bin = (((TObjString *)(tokens->At(5)))->GetString()).Atoi();
+      Var1Bin = static_cast<TObjString*>(tokens->At(4))->GetString().Atoi();
+      Var2Bin = static_cast<TObjString*>(tokens->At(5))->GetString().Atoi();
       Var3Bin = 0;
 
       if (tokens->GetEntries() == 7)
       {
-        Var3Bin = (((TObjString *)(tokens->At(6)))->GetString()).Atoi();
+        Var3Bin = static_cast<TObjString*>(tokens->At(6))->GetString().Atoi();
       }
 
       SystNum = -1;
@@ -183,7 +181,7 @@ std::vector< std::vector<int> > BinnedSplineTutorial::GetEventSplines(std::strin
     throw MaCh3Exception(__FILE__, __LINE__);
   }
 
-  int nSplineSysts = (int)indexvec[SampleIndex][iOscChan].size();
+  int nSplineSysts = static_cast<int>(indexvec[SampleIndex][iOscChan].size());
   //ETA- this is already a MaCh3 mode
   int Mode = EventMode;
 
@@ -205,7 +203,7 @@ std::vector< std::vector<int> > BinnedSplineTutorial::GetEventSplines(std::strin
 
   for(int iSyst=0; iSyst<nSplineSysts; iSyst++){
     std::vector<int> spline_modes = SplineModeVecs[SampleIndex][iSyst];
-    int nSampleModes = (int)spline_modes.size();
+    int nSampleModes = static_cast<int>(spline_modes.size());
 
     //ETA - look here at the length of spline_modes and what you're actually comparing against
     for(int iMode = 0; iMode<nSampleModes ; iMode++){

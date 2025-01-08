@@ -9,7 +9,8 @@ set_target_properties(BinnedSplinesTutorial PROPERTIES
     PUBLIC_HEADER "${HEADERS}"
     EXPORT_NAME BinnedSplinesTutorial)
 
-target_link_libraries(BinnedSplinesTutorial MaCh3::All)
+target_link_libraries(BinnedSplinesTutorial PUBLIC MaCh3::All)
+target_link_libraries(BinnedSplinesTutorial PRIVATE MaCh3Warnings)
 
 target_include_directories(BinnedSplinesTutorial PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/../>
@@ -20,4 +21,4 @@ install(TARGETS BinnedSplinesTutorial
         LIBRARY DESTINATION lib/
         PUBLIC_HEADER DESTINATION include/splines)
 
-      add_library(MaCh3Tutorial::BinnedSplinesTutorial ALIAS BinnedSplinesTutorial)
+add_library(MaCh3Tutorial::BinnedSplinesTutorial ALIAS BinnedSplinesTutorial)
