@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1736333352691,
+  "lastUpdate": 1736333381764,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -277,6 +277,37 @@ window.BENCHMARK_DATA = {
             "name": "MaCh3Fitter::DragRace",
             "value": 2.4415,
             "range": "± 74.4199",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "faabe1d2b6177180334620df60bf168d56999d99",
+          "message": "Merge pull request #261 from mach3-software/feautre_dictonary\n\nfeat: ROOT dictionary for some of spline related classes",
+          "timestamp": "2025-01-08T11:46:24+01:00",
+          "tree_id": "7af5e2d47ddffc826b041f0fd6358e8d0dc8d548",
+          "url": "https://github.com/mach3-software/MaCh3/commit/faabe1d2b6177180334620df60bf168d56999d99"
+        },
+        "date": 1736333380865,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "MaCh3Fitter::DragRace",
+            "value": 2.49899,
+            "range": "± 136.185",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
