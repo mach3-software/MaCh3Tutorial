@@ -65,9 +65,6 @@ endif()
 #If MaCh3 was sourced find it, otherwise use CPM
 #find_package(MaCh3 QUIET)
 
-if(NOT DEFINED PYTHON_ENABLED)
-  SET(PYTHON_ENABLED false)
-endif()
 if(NOT MaCh3_FOUND)
 
   set(MaCh3_OPTIONS
@@ -125,6 +122,7 @@ cmessage(STATUS "CMAKE CXX Standard: ${CMAKE_CXX_STANDARD}")
 add_subdirectory(Utils)
 add_subdirectory(CIValidations)
 add_subdirectory(Tutorial)
+add_subdirectory(splines)
 add_subdirectory(samplePDF)
 
 configure_file(cmake/Templates/setup.MaCh3Tutorial.sh.in "${PROJECT_BINARY_DIR}${CMAKE_FILES_DIRECTORY}/setup.MaCh3Tutorial.sh" @ONLY)

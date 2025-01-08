@@ -13,8 +13,8 @@ InputFiles:
   mtupleprefix: "Inputs/MC/NuWro"
   mtuplesuffix: "_FlatTree.root"
   # No Splines
-  splineprefix: "fixme"
-  splinesuffix: "fixme"
+  splineprefix: "Inputs/MC/BinnedSplinesTutorialInputs"
+  splinesuffix: "2D.root"
 DetID: 1
 NuOsc:
   NuOscConfigFile: "Inputs/NuOscillator/NuFASTLinear.yaml"
