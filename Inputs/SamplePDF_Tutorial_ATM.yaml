@@ -12,9 +12,8 @@ Binning:
 InputFiles:
   mtupleprefix: "Inputs/MC/NuWro"
   mtuplesuffix: "_FlatTree_ATM.root"
-  # No Splines
-  splineprefix: "fixme"
-  splinesuffix: "fixme"
+  splineprefix: "Inputs/MC/BinnedSplinesTutorialInputs"
+  splinesuffix: "2D.root"
 DetID: 8
 NuOsc:
   NuOscConfigFile: "Inputs/NuOscillator/CUDAProb3.yaml"
