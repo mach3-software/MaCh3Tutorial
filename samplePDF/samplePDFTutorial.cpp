@@ -209,7 +209,6 @@ void samplePDFTutorial::setupFDMC(int iSample) {
   auto &fdobj = MCSamples[iSample];  
   
   fdobj.signal = tutobj->signal;
-  fdobj.SampleDetID = SampleDetID;
   
   for(int iEvent = 0 ;iEvent < fdobj.nEvents ; ++iEvent) {
     fdobj.rw_etru[iEvent] = &(tutobj->TrueEnu[iEvent]);

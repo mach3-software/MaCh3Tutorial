@@ -3,7 +3,7 @@ set(CMAKE_VERBOSE_MAKEFILE ON)
 # CMake version check
 cmake_minimum_required(VERSION 3.14 FATAL_ERROR)
 
-SET(MaCh3Tutorial_VERSION 1.3.2)
+SET(MaCh3Tutorial_VERSION 1.4.0)
 
 # Create project (todo: set configurable CUDA)
 project(MaCh3Tutorial VERSION ${MaCh3Tutorial_VERSION} LANGUAGES CXX)
@@ -63,7 +63,7 @@ if(NOT DEFINED MaCh3_Branch)
 endif()
 
 #If MaCh3 was sourced find it, otherwise use CPM
-#find_package(MaCh3 QUIET EXACT MaCh3Tutorial_VERSION)
+#find_package(MaCh3 QUIET EXACT ${MaCh3Tutorial_VERSION})
 
 if(NOT MaCh3_FOUND)
 

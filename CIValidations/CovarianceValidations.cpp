@@ -40,8 +40,8 @@ int main(int argc, char *argv[])
   xsec->setParameters(ParProp);
   xsec->acceptStep();
   ///// Test Params from DetId /////
-  const std::vector<int> Det_Id = {1, 984, 985};
-  for (int id = 0; id < kSystTypes; ++id)
+  const std::vector<std::string> Det_Id = {"Tutorial Beam", "Tutorial ATM", "tutorial beam", "blarb" "ATM"};
+  for (size_t id = 0; id < Det_Id.size(); ++id)
   {
     for (int s = 0; s < kSystTypes; ++s)
     {
