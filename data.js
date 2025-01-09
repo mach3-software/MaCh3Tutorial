@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1736412640758,
+  "lastUpdate": 1736412645451,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -401,6 +401,37 @@ window.BENCHMARK_DATA = {
             "name": "MaCh3Fitter::DragRace",
             "value": 2.43448,
             "range": "± 41.3304",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "a5dfbf53fa63b964984a3d5b2304c1e82e731568",
+          "message": "Merge pull request #275 from mach3-software/feature_loggerSpline\n\ntidy: More logger to binned splines",
+          "timestamp": "2025-01-09T09:47:24+01:00",
+          "tree_id": "5253b1a87bd37689a15ac88f3e8894880863df9a",
+          "url": "https://github.com/mach3-software/MaCh3/commit/a5dfbf53fa63b964984a3d5b2304c1e82e731568"
+        },
+        "date": 1736412644565,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "MaCh3Fitter::DragRace",
+            "value": 2.4517,
+            "range": "± 61.7004",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
