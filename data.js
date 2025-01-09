@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1736345869847,
+  "lastUpdate": 1736412640758,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -370,6 +370,37 @@ window.BENCHMARK_DATA = {
             "name": "MaCh3Fitter::DragRace",
             "value": 2.49006,
             "range": "± 100.839",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "a345f9b5209c2361b564d8c1e59ea00f76db7203",
+          "message": "Merge pull request #278 from mach3-software/feature_quick_patches\n\nbugfix: quick patches",
+          "timestamp": "2025-01-09T09:47:05+01:00",
+          "tree_id": "c88629f764ee4a32c8e7b6d06a7e707013b34265",
+          "url": "https://github.com/mach3-software/MaCh3/commit/a345f9b5209c2361b564d8c1e59ea00f76db7203"
+        },
+        "date": 1736412639181,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "MaCh3Fitter::DragRace",
+            "value": 2.43448,
+            "range": "± 41.3304",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
