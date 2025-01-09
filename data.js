@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1736437207635,
+  "lastUpdate": 1736440154774,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -494,6 +494,37 @@ window.BENCHMARK_DATA = {
             "name": "MaCh3Fitter::DragRace",
             "value": 2.48405,
             "range": "± 93.6196",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "35494466+EdAtkin@users.noreply.github.com",
+            "name": "EdAtkin",
+            "username": "EdAtkin"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "c5b82b17d8816529508d39f76d6907c328366285",
+          "message": "Merge pull request #280 from mach3-software/feature_quick_patches\n\nbugfix: spline binning printing and TMatrixD reading",
+          "timestamp": "2025-01-09T16:25:34Z",
+          "tree_id": "89c0b390b1019caced8837d787da6d8a503548da",
+          "url": "https://github.com/mach3-software/MaCh3/commit/c5b82b17d8816529508d39f76d6907c328366285"
+        },
+        "date": 1736440153207,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "MaCh3Fitter::DragRace",
+            "value": 2.48077,
+            "range": "± 83.8787",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
