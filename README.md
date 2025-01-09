@@ -244,6 +244,17 @@ or individual step scale affecting single parameters which highly depend on para
 ```
 We recommend chasing both scales running MCMC again and later producing auto-corelations. Understanding how auto-corelations change while playing with step-size is very useful skill.
 
+You can make plots using:
+
+```bash
+PlotMCMCDiag Test_MCMC_Diag.root
+```
+If you add second/third arguemnt it will compare several files:
+
+```bash
+PlotMCMCDiag Test_MCMC_Diag.root SecondFile_MCMC_Diag.root
+```
+
 ### Running Multiple Chains
 At this point, you should be aware that to have a smooth posterior distribution,
 you may need a lot of steps, which can be time-consuming. A great property of MCMC

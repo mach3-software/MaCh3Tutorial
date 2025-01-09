@@ -1,4 +1,8 @@
 #include "samplePDF/samplePDFTutorial.h"
+#include <samplePDF/Structs.h>
+#include <splines/splineFDBase.h>
+#include "StructsTutorial.h"
+#include "splines/BinnedSplinesTutorial.h"
 
 samplePDFTutorial::samplePDFTutorial(std::string mc_version_, covarianceXsec* xsec_cov_, covarianceOsc* osc_cov_) : samplePDFFDBase(mc_version_, xsec_cov_, osc_cov_) {
   isATM = false;
@@ -21,14 +25,21 @@ void samplePDFTutorial::Init() {
 }
 
 void samplePDFTutorial::SetupSplines() {
-  MACH3LOG_WARN("Not using splines");
+
   SplineHandler = nullptr;
   
+  if(XsecCov->GetNumParamsFromDetID(SampleDetID, SystType::kSpline) > 0){
+    SplineHandler = std::unique_ptr<splineFDBase>(new BinnedSplineTutorial(XsecCov));
+    InitialiseSplineObject();
+  } else {
+    MACH3LOG_WARN("Not using splines");
+  }
+
   return;
 }
 
 void samplePDFTutorial::SetupWeightPointers() {
-  for (int i = 0; i < (int)MCSamples.size(); ++i) {
+  for (size_t i = 0; i < MCSamples.size(); ++i) {
     for (int j = 0; j < MCSamples[i].nEvents; ++j) {
       MCSamples[i].ntotal_weight_pointers[j] = 2;
       MCSamples[i].total_weight_pointers[j].resize(MCSamples[i].ntotal_weight_pointers[j]);
@@ -53,7 +64,7 @@ int samplePDFTutorial::setupExperimentMC(int iSample) {
   MACH3LOG_INFO("input file: {}", mc_files[iSample]);
 
   TFile * _sampleFile = new TFile(mc_files[iSample].c_str(), "READ");
-  TTree * _data = (TTree*)_sampleFile->Get("FlatTree_VARS");
+  TTree* _data = static_cast<TTree*>(_sampleFile->Get("FlatTree_VARS"));
 
   if(_data){
     MACH3LOG_INFO("Found \"FlatTree_VARS\" tree in {}", mc_files[iSample]);
@@ -63,7 +74,7 @@ int samplePDFTutorial::setupExperimentMC(int iSample) {
     MACH3LOG_ERROR("Could not find \"FlatTree_VARS\" tree in {}", mc_files[iSample]);
     throw MaCh3Exception(__FILE__, __LINE__);
   }
-  tutobj->nEvents = _data->GetEntries();
+  tutobj->nEvents = static_cast<int>(_data->GetEntries());
   tutobj->TrueEnu.resize(tutobj->nEvents);
   tutobj->Q2.resize(tutobj->nEvents);
   tutobj->Mode.resize(tutobj->nEvents);
@@ -123,8 +134,8 @@ int samplePDFTutorial::setupExperimentMC(int iSample) {
     tutobj->Q2[i]      = Q2;
     // KS: Currently we store target as 1000060120, therefore we hardcode it to 12
     tutobj->Target[i] = 12;
-    //tutobj->Target[i]  = tgt;
-    tutobj->Mode[i]    = std::abs(Mode);
+    tutobj->Mode[i]   = NuWroModeToMaCh3Mode(Mode);
+
     if (std::abs(PDGLep) == 12 || std::abs(PDGLep) == 14 || std::abs(PDGLep) == 16) {
       tutobj->isNC[i] = true;
     } else {

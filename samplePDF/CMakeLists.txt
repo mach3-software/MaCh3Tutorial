@@ -15,8 +15,8 @@ if(NOT CPU_ONLY)
   set_target_properties(samplePDFTutorial PROPERTIES CUDA_SEPARABLE_COMPILATION ON)
 endif()
 
-target_link_libraries(samplePDFTutorial MaCh3::All)
-
+target_link_libraries(samplePDFTutorial PUBLIC MaCh3::All BinnedSplinesTutorial)
+target_link_libraries(samplePDFTutorial PRIVATE MaCh3Warnings)
 
 target_include_directories(samplePDFTutorial PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/../>

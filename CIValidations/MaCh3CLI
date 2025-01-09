@@ -1,10 +1,15 @@
 #!/bin/bash
+#set -x  # Enable command tracing
+set -e  # Exit on error
 
 # Check if no arguments are provided
 if [ "$#" -eq 0 ]; then
   echo "[ERROR]: No argument specified, please use --help"
   exit 1
 fi
+
+mach3tutorial-config --has-feature UNITTESTS || true
+HAVE_UNITTEST_SUPPORT=${?}
 
 # Display help message
 show_help() {
@@ -34,13 +39,17 @@ run_fitter_validations() {
   ${MaCh3_ROOT}/bin/MatrixPlotter bin/TutorialDiagConfig.yaml MCMC_Test_drawCorr.root
   ${MaCh3_ROOT}/bin/GetPostfitParamPlots MCMC_Test_drawCorr.root
   ${MaCh3_ROOT}/bin/PlotLLH MCMC_Test.root
+  ${MaCh3_ROOT}/bin/PlotMCMCDiag MCMC_Test_MCMC_Diag.root MCMC_Test_MCMC_Diag.root
 }
 
 run_covariance_validations() {
   ./CIValidations/CovarianceValidations
   ./CIValidations/MaCh3ModeValidations
   ./CIValidations/pValueValidations
-  ./CIValidations/UnitTests/manager_tests
+  if [ "IF[HAVE_UNITTEST_SUPPORT]" == "0" ]; then
+    ./CIValidations/UnitTests/manager_tests
+    ./CIValidations/UnitTests/histogram_tests
+  fi
 }
 
 run_nu_mcmc_tools_validations() {
