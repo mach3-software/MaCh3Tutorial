@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1736412645451,
+  "lastUpdate": 1736422758916,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -432,6 +432,37 @@ window.BENCHMARK_DATA = {
             "name": "MaCh3Fitter::DragRace",
             "value": 2.4517,
             "range": "± 61.7004",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "5bea05db4ee7864c6adc3ff4b568abad68707140",
+          "message": "Merge pull request #276 from mach3-software/feature_telemetry\n\nfeat: Telemetry",
+          "timestamp": "2025-01-09T12:35:55+01:00",
+          "tree_id": "9de9e8336c663540eff247550761bfb2e3a33917",
+          "url": "https://github.com/mach3-software/MaCh3/commit/5bea05db4ee7864c6adc3ff4b568abad68707140"
+        },
+        "date": 1736422758052,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "MaCh3Fitter::DragRace",
+            "value": 2.58448,
+            "range": "± 675.882",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
