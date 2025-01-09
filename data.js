@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1736422758916,
+  "lastUpdate": 1736437207635,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -463,6 +463,37 @@ window.BENCHMARK_DATA = {
             "name": "MaCh3Fitter::DragRace",
             "value": 2.58448,
             "range": "± 675.882",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "31003009+dbarrow257@users.noreply.github.com",
+            "name": "dbarrow257",
+            "username": "dbarrow257"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "377de5da651483b7116f0416ba95917633348a49",
+          "message": "Merge pull request #272 from mach3-software/feature_logger\n\ntidy: NuOsc fancy logger",
+          "timestamp": "2025-01-09T15:36:38Z",
+          "tree_id": "8077696011f065480a0e7130f66245375478081b",
+          "url": "https://github.com/mach3-software/MaCh3/commit/377de5da651483b7116f0416ba95917633348a49"
+        },
+        "date": 1736437202980,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "MaCh3Fitter::DragRace",
+            "value": 2.48405,
+            "range": "± 93.6196",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
