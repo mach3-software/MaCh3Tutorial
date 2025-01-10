@@ -167,8 +167,8 @@ Systematics:
     ParameterBounds: [0, 999]
     ParameterGroup: Osc
     ParameterValues:
-      Generated: 25
-      PreFitValue: 25
+      Generated: 15
+      PreFitValue: 15
     StepScale:
       MCMC: 1.0
     Type: Osc

@@ -109,7 +109,7 @@ int main(int argc, char *argv[])
 ////////////// Now Osc //////////////
   std::vector<std::string> OscCovMatrixFile = {"Inputs/Osc_Test.yaml"};
   auto osc = std::make_unique<covarianceOsc>(OscCovMatrixFile, "osc_cov");
-  std::vector<double> OscParProp = {0.3, 0.5, 0.020, 7.53e-5, 2.494e-3, 0.0, 295, 2.6, 0.5, 25};
+  std::vector<double> OscParProp = {0.3, 0.5, 0.020, 7.53e-5, 2.494e-3, 0.0, 295, 2.6, 0.5, 15};
   osc->setParameters(OscParProp);
   osc->printNominalCurrProp();
   outFile << "Likelihood Osc=" << osc->GetLikelihood() << std::endl;
