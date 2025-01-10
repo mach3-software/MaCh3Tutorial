@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1736512762305,
+  "lastUpdate": 1736537056979,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -680,6 +680,37 @@ window.BENCHMARK_DATA = {
             "name": "MaCh3Fitter::DragRace",
             "value": 2.45886,
             "range": "± 77.1454",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "0deb95fff4ddd1bebc9bb054e94a6371c7e3e503",
+          "message": "Merge pull request #284 from mach3-software/dbarrow257/feature/NuOscillator_v1.1.0\n\nFeat: Bump NuOscillator to v1.1.0",
+          "timestamp": "2025-01-10T20:20:39+01:00",
+          "tree_id": "d3447481d0ed69cd7c0b699218d498f121aa476f",
+          "url": "https://github.com/mach3-software/MaCh3/commit/0deb95fff4ddd1bebc9bb054e94a6371c7e3e503"
+        },
+        "date": 1736537055684,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "MaCh3Fitter::DragRace",
+            "value": 2.51618,
+            "range": "± 84.4323",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
