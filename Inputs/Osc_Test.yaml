@@ -155,3 +155,20 @@ Systematics:
     StepScale:
       MCMC: 1.0
     Type: Osc
+
+- Systematic:
+    Names:
+      FancyName: prod_height
+      ParameterName: prod_height
+
+    DetID: ["Tutorial ATM"]
+    Error: 25
+    FlatPrior: true
+    ParameterBounds: [0, 999]
+    ParameterGroup: Osc
+    ParameterValues:
+      Generated: 25
+      PreFitValue: 25
+    StepScale:
+      MCMC: 1.0
+    Type: Osc

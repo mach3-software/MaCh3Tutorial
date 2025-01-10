@@ -50,7 +50,7 @@ General:
 
     OscCovName: "osc_cov"
     OscCovFile: ["Inputs/Osc_Test.yaml"]
-    OscFix: ["baseline", "density", "Ye"]
+    OscFix: ["baseline", "density", "Ye", "prod_height"]
     OscStepScale: 0.045
 
   Predictive:
