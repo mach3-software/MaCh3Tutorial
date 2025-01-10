@@ -17,7 +17,7 @@ Systematics:
     - b_7: '0.48619159418126073'
     - b_8: '0.49407392294957464'
     - b_9: '0.27270216972314404'
-    DetID: '1'
+    DetID: ["Tutorial *"]
     Error: '0.059243759525005685'
     KinematicCuts:
       - HornCurrent: [0.5, 1.5]
@@ -48,7 +48,7 @@ Systematics:
     - b_7: '0.6363766022443161'
     - b_8: '0.6436654970393295'
     - b_9: '0.37257173123032966'
-    DetID: '1'
+    DetID: ["Tutorial *"]
     Error: '0.052534917752228155'
     KinematicCuts:
       - HornCurrent: [0.5, 1.5]
@@ -79,7 +79,7 @@ Systematics:
     - b_7: '0.6361099941519401'
     - b_8: '0.7111552414980179'
     - b_9: '0.3809408100022248'
-    DetID: '1'
+    DetID: ["Tutorial *"]
     Error: '0.05293373520097801'
     KinematicCuts:
       - HornCurrent: [0.5, 1.5]
@@ -110,7 +110,7 @@ Systematics:
     - b_7: '0.620095554502362'
     - b_8: '0.7780068069310814'
     - b_9: '0.3976387942751631'
-    DetID: '1'
+    DetID: ["Tutorial *"]
     Error: '0.05145497551998185'
     KinematicCuts:
       - HornCurrent: [0.5, 1.5]
@@ -141,7 +141,7 @@ Systematics:
     - b_7: '0.5169026277364072'
     - b_8: '0.6804627678149072'
     - b_9: '0.4301371250858676'
-    DetID: '1'
+    DetID: ["Tutorial *"]
     Error: '0.07381951635860204'
     KinematicCuts:
       - HornCurrent: [0.5, 1.5]
@@ -172,7 +172,7 @@ Systematics:
     - b_7: '0.5535800561827778'
     - b_8: '0.5054211016174668'
     - b_9: '0.40696262517009857'
-    DetID: '1'
+    DetID: ["Tutorial *"]
     Error: '0.0875849864515004'
     KinematicCuts:
       - HornCurrent: [0.5, 1.5]
@@ -203,7 +203,7 @@ Systematics:
     - b_7: '0.7790841764941654'
     - b_8: '0.5630092548705312'
     - b_9: '0.6009864264160337'
-    DetID: '1'
+    DetID: ["Tutorial *"]
     Error: '0.06983573708919912'
     KinematicCuts:
       - HornCurrent: [0.5, 1.5]
@@ -234,7 +234,7 @@ Systematics:
     - b_7: '1.0'
     - b_8: '0.8494242119047807'
     - b_9: '0.684018671339497'
-    DetID: '1'
+    DetID: ["Tutorial *"]
     Error: '0.04979912201292179'
     KinematicCuts:
       - HornCurrent: [0.5, 1.5]
@@ -264,7 +264,7 @@ Systematics:
     - b_7: '0.8494242119047807'
     - b_8: '1.0'
     - b_9: '0.7440340603749211'
-    DetID: '1'
+    DetID: ["Tutorial *"]
     Error: 0.05020509536942895
     KinematicCuts:
       - HornCurrent: [0.5, 1.5]
@@ -294,7 +294,7 @@ Systematics:
     - b_7: '0.684018671339497'
     - b_8: '0.7440340603749211'
     - b_9: '1.0'
-    DetID: '1'
+    DetID: ["Tutorial *"]
     Error: 0.07016589681893176
     KinematicCuts:
       - HornCurrent: [0.5, 1.5]
