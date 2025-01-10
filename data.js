@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1736509186697,
+  "lastUpdate": 1736512762305,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -649,6 +649,37 @@ window.BENCHMARK_DATA = {
             "name": "MaCh3Fitter::DragRace",
             "value": 2.49162,
             "range": "± 436.251",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "31003009+dbarrow257@users.noreply.github.com",
+            "name": "dbarrow257",
+            "username": "dbarrow257"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "8f99c8c62a997d28cd958aa00be31c19bd9fa53a",
+          "message": "Merge pull request #281 from mach3-software/feature_YamlOpen\n\nfeat: Safer Yaml openning",
+          "timestamp": "2025-01-10T12:36:02Z",
+          "tree_id": "bd7604337e71927314a9cd409987ef68e927b91a",
+          "url": "https://github.com/mach3-software/MaCh3/commit/8f99c8c62a997d28cd958aa00be31c19bd9fa53a"
+        },
+        "date": 1736512761375,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "MaCh3Fitter::DragRace",
+            "value": 2.45886,
+            "range": "± 77.1454",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
