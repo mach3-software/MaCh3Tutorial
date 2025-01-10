@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1736508144312,
+  "lastUpdate": 1736508180584,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -587,6 +587,37 @@ window.BENCHMARK_DATA = {
             "name": "MaCh3Fitter::DragRace",
             "value": 2.43189,
             "range": "± 62.083",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "6ad2ed71d763513cd8622b69afc5cdea95cb5b12",
+          "message": "Merge pull request #283 from mach3-software/dependabot/github_actions/dot-github/workflows/actions/upload-artifact-4\n\ntidy: bump actions/upload-artifact from 3 to 4 in /.github/workflows",
+          "timestamp": "2025-01-10T12:19:41+01:00",
+          "tree_id": "5bda2ab64b4c79689c46f83d3575028f372de65f",
+          "url": "https://github.com/mach3-software/MaCh3/commit/6ad2ed71d763513cd8622b69afc5cdea95cb5b12"
+        },
+        "date": 1736508179617,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "MaCh3Fitter::DragRace",
+            "value": 2.42651,
+            "range": "± 87.3095",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
