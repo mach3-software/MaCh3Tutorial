@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1736440154774,
+  "lastUpdate": 1736507461201,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -525,6 +525,37 @@ window.BENCHMARK_DATA = {
             "name": "MaCh3Fitter::DragRace",
             "value": 2.48077,
             "range": "± 83.8787",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "16378056e4ff9f6411da2b56545f198a83b49f4d",
+          "message": "Update dependabot.yml",
+          "timestamp": "2025-01-10T11:07:40Z",
+          "tree_id": "3cf38e57f627002e13be5c92d78bc3fdd961c179",
+          "url": "https://github.com/mach3-software/MaCh3/commit/16378056e4ff9f6411da2b56545f198a83b49f4d"
+        },
+        "date": 1736507460213,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "MaCh3Fitter::DragRace",
+            "value": 2.44073,
+            "range": "± 145.734",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
