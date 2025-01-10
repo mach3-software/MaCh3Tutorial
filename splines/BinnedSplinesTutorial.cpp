@@ -116,7 +116,7 @@ void BinnedSplineTutorial::FillSampleArray(std::string SampleName, std::vector<s
 
       if (isValidSplineIndex(SampleName, iOscChan, SystNum, ModeNum, Var1Bin, Var2Bin, Var3Bin))
       { // loop over all the spline knots and check their value
-        MACH3LOG_INFO("Pushed back monolith for spline {}", FullSplineName);
+        MACH3LOG_DEBUG("Pushed back monolith for spline {}", FullSplineName);
         // if the value is 1 then set the flat bool to false
         nKnots = mySpline->GetNp();
         isFlat = true;
