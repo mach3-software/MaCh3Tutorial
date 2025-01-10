@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1736507461201,
+  "lastUpdate": 1736508144312,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -556,6 +556,37 @@ window.BENCHMARK_DATA = {
             "name": "MaCh3Fitter::DragRace",
             "value": 2.44073,
             "range": "± 145.734",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "bfa5e4b9de1bffb1a424027bd4c3ea60175aa907",
+          "message": "Merge pull request #282 from mach3-software/dependabot/github_actions/dot-github/workflows/peter-evans/create-or-update-comment-4\n\ntidy: bump peter-evans/create-or-update-comment from 3 to 4 in /.github/workflows",
+          "timestamp": "2025-01-10T12:18:57+01:00",
+          "tree_id": "c505ba6c215eae8d858d78b1df77e57a42383a31",
+          "url": "https://github.com/mach3-software/MaCh3/commit/bfa5e4b9de1bffb1a424027bd4c3ea60175aa907"
+        },
+        "date": 1736508143068,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "MaCh3Fitter::DragRace",
+            "value": 2.43189,
+            "range": "± 62.083",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
