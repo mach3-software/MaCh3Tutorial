@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1736508180584,
+  "lastUpdate": 1736509186697,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -618,6 +618,37 @@ window.BENCHMARK_DATA = {
             "name": "MaCh3Fitter::DragRace",
             "value": 2.42651,
             "range": "± 87.3095",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "skwarczynskikamil@gmail.com",
+            "name": "Kamil Skwarczynski",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "skwarczynskikamil@gmail.com",
+            "name": "Kamil Skwarczynski",
+            "username": "KSkwarczynski"
+          },
+          "distinct": true,
+          "id": "14bd24e68108f8a4b158611f13be5f2518d01361",
+          "message": "update mailmap",
+          "timestamp": "2025-01-10T11:36:14Z",
+          "tree_id": "615cc5764aef860b0a63e66a628d62ee2a4be4d8",
+          "url": "https://github.com/mach3-software/MaCh3/commit/14bd24e68108f8a4b158611f13be5f2518d01361"
+        },
+        "date": 1736509185703,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "MaCh3Fitter::DragRace",
+            "value": 2.49162,
+            "range": "± 436.251",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
