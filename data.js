@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1736773721841,
+  "lastUpdate": 1736776655841,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -742,6 +742,37 @@ window.BENCHMARK_DATA = {
             "name": "MaCh3Fitter::DragRace",
             "value": 2.47597,
             "range": "± 48.5582",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "87846397d002b185167123e27cc75a79643f7b17",
+          "message": "Merge pull request #287 from mach3-software/feature_SaferLogger\n\nTidy: safer logger",
+          "timestamp": "2025-01-13T13:54:05Z",
+          "tree_id": "cd145528f96453951c4981f9f498f52a58579917",
+          "url": "https://github.com/mach3-software/MaCh3/commit/87846397d002b185167123e27cc75a79643f7b17"
+        },
+        "date": 1736776654289,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "MaCh3Fitter::DragRace",
+            "value": 2.4203,
+            "range": "± 120.74",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
