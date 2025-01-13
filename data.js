@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1736537056979,
+  "lastUpdate": 1736773721841,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -711,6 +711,37 @@ window.BENCHMARK_DATA = {
             "name": "MaCh3Fitter::DragRace",
             "value": 2.51618,
             "range": "± 84.4323",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "31003009+dbarrow257@users.noreply.github.com",
+            "name": "dbarrow257",
+            "username": "dbarrow257"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "6e103d01e2386d3e6186e56b257680693c89d875",
+          "message": "Merge pull request #286 from mach3-software/feature_Inlcudes\n\ntidy: ROOT includes",
+          "timestamp": "2025-01-13T13:05:16Z",
+          "tree_id": "3b1de94f345c2fa60fc7e2382eb75c88a9aeef81",
+          "url": "https://github.com/mach3-software/MaCh3/commit/6e103d01e2386d3e6186e56b257680693c89d875"
+        },
+        "date": 1736773720820,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "MaCh3Fitter::DragRace",
+            "value": 2.47597,
+            "range": "± 48.5582",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
