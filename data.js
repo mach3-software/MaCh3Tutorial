@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1736776655841,
+  "lastUpdate": 1736800970687,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -773,6 +773,37 @@ window.BENCHMARK_DATA = {
             "name": "MaCh3Fitter::DragRace",
             "value": 2.4203,
             "range": "± 120.74",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "c38792717c15f04a2a2c1ecbd16632fe44d48c7b",
+          "message": "Merge pull request #288 from BenJarg/BenJarg/missing_unistd\n\nbugfix: Add missing unistd.h include for newer ROOT versions",
+          "timestamp": "2025-01-13T20:39:22Z",
+          "tree_id": "a2e58496884570206dd5dfaafcbfb294e586f763",
+          "url": "https://github.com/mach3-software/MaCh3/commit/c38792717c15f04a2a2c1ecbd16632fe44d48c7b"
+        },
+        "date": 1736800969781,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "MaCh3Fitter::DragRace",
+            "value": 2.51394,
+            "range": "± 424.302",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
