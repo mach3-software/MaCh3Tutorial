@@ -70,7 +70,7 @@ GetPostfitParamPlots:
     Cross_Section: ["Cross Section", [-1.5, 2.0],   
         [
             "Norm_Param_0", 
-            "Spline_Param_0", 
+            "BinnedSplineParam1",
             "Func_Param_0",
             "Func_Param_1"
         ]
@@ -79,7 +79,7 @@ GetPostfitParamPlots:
     Detector_Systematic: ["Detector Systematics", [-1.5, 2.0],   
         [
             "Norm_Param_1", 
-            "Spline_Param_1", 
+            "BinnedSplineParam2",
             "Func_Param_2",
             "Func_Param_3"
         ]
