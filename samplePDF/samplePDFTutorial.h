@@ -34,7 +34,7 @@ class samplePDFTutorial : virtual public samplePDFFDBase
   const double* GetPointerToKinematicParameter(double KinematicVariable, int iSample, int iEvent) override;
 
   void setupFDMC(int iSample) override;
-  M3::float_t CalcXsecWeightFunc(int iSample, int iEvent) override {(void)iSample; (void)iEvent; return 1.;}
+  void CalcWeightFunc(int iSample, int iEvent) override {return; (void)iSample; (void)iEvent;}
 
   std::vector<struct tutorial_base> TutorialSamples;
 
