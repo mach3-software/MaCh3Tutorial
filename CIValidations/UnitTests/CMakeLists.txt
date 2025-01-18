@@ -1,6 +1,7 @@
 foreach(TEST
     manager_tests
     histogram_tests
+    statistical_tests
     )
 
     add_executable(${TEST} ${TEST}.cpp)

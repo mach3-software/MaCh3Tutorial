@@ -76,6 +76,11 @@ It is good homework to increase number of steps and see how much more smooth pos
 
 **Warning**: If you modified files in main folder not build you will have to call make install!
 
+Alternatively you can achieve samy way of modifying configs by using command line
+```bash
+./bin/MCMCTutorial Inputs/FitterConfig.yaml General:MCMC:NSteps:100000
+```
+
 **ProcessMCMC** has much more plotting options, we recommend to see [here](https://github.com/mach3-software/MaCh3/wiki/09.-Bayesian-Analysis,-Plotting-and-MCMC-Processor) to get better idea what each plot mean.
 We especially recommend comparing 2D posteriors with correlation matrix and playing with triangle plots.
 

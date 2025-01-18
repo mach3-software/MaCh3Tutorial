@@ -49,6 +49,7 @@ run_covariance_validations() {
   if [ "IF[HAVE_UNITTEST_SUPPORT]" == "0" ]; then
     ./CIValidations/UnitTests/manager_tests
     ./CIValidations/UnitTests/histogram_tests
+    ./CIValidations/UnitTests/statistical_tests
   fi
 }
 
