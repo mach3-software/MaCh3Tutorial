@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1736800970687,
+  "lastUpdate": 1737391592723,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -804,6 +804,37 @@ window.BENCHMARK_DATA = {
             "name": "MaCh3Fitter::DragRace",
             "value": 2.51394,
             "range": "± 424.302",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "20d4657448c47bcc39733be7c16842a90cd80520",
+          "message": "Merge pull request #295 from mach3-software/feature_stat\n\nfeat: Statistial utist test",
+          "timestamp": "2025-01-20T16:43:10Z",
+          "tree_id": "82212f9c92fd029a97ee4a3d3cf63b7ec36cd817",
+          "url": "https://github.com/mach3-software/MaCh3/commit/20d4657448c47bcc39733be7c16842a90cd80520"
+        },
+        "date": 1737391591253,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "MaCh3Fitter::DragRace",
+            "value": 2.46441,
+            "range": "± 50.7689",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
