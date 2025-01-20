@@ -3,10 +3,10 @@ set(CMAKE_VERBOSE_MAKEFILE ON)
 # CMake version check
 cmake_minimum_required(VERSION 3.14 FATAL_ERROR)
 
-SET(MaCh3Tutorial_VERSION 1.3.3)
+# Create project
+project(MaCh3Tutorial VERSION 1.3.4 LANGUAGES CXX)
+set(MaCh3Tutorial_VERSION ${PROJECT_VERSION})
 
-# Create project (todo: set configurable CUDA)
-project(MaCh3Tutorial VERSION ${MaCh3Tutorial_VERSION} LANGUAGES CXX)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 # Changes default install path to be a subdirectory of the build dir.
@@ -66,7 +66,6 @@ endif()
 #find_package(MaCh3 QUIET EXACT MaCh3Tutorial_VERSION)
 
 if(NOT MaCh3_FOUND)
-
   set(MaCh3_OPTIONS
     "MaCh3_PYTHON_ENABLED ${PYTHON_ENABLED}"
   )
@@ -116,7 +115,6 @@ else()
   SET(CMAKE_CXX_STANDARD ${MACH3_CXX_STANDARD})
 endif()
 cmessage(STATUS "CMAKE CXX Standard: ${CMAKE_CXX_STANDARD}")
-
 
 ################################# Build MaCh3 ##################################
 add_subdirectory(Utils)

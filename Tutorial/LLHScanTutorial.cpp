@@ -3,10 +3,8 @@
 #include "samplePDF/samplePDFTutorial.h"
 
 int main(int argc, char *argv[]){
-
-  MaCh3Utils::MaCh3Usage(argc, argv);
   // Initialise manger responsible for config handling
-  auto FitManager = std::make_unique<manager>(argv[1]);
+  auto FitManager = MaCh3ManagerFactory(argc, argv);
   FitManager->OverrideSettings("General", "OutputFile", "LLH_Test.root");
   // Initialise covariance class reasonable for Systematics
   covarianceXsec* xsec = MaCh3CovarianceFactory(FitManager.get(), "Xsec");
