@@ -107,6 +107,56 @@ else()
   cmessage(STATUS "Using local build of MaCh3: ${MaCh3_DIR}")
 endif()
 
+#target_compile_options(MCMC PRIVATE "-pg")
+#target_link_options(MCMC PRIVATE "-pg")
+#target_compile_options(MaCh3 INTERFACE "-pg")
+#target_link_options(MaCh3 INTERFACE "-pg")
+
+find_package(OpenMP)
+if(OpenMP_CXX_FOUND)
+    target_link_libraries(MaCh3 INTERFACE OpenMP::OpenMP_CXX)
+endif()
+
+if(USE_FPGA)
+  if(NOT DEFINED FPGA_DEVICE)
+    set(FPGA_DEVICE "Agilex7")
+    message(STATUS "FPGA_DEVICE was not specified.\
+                    \nConfiguring the design to the default FPGA family target: ${FPGA_DEVICE}\
+                    \nPlease refer to the README for information on target selection.")
+  endif()
+
+  set(USER_FPGA_FLAGS ${USER_FPGA_FLAGS})
+
+  set(EMULATOR_TARGET fpga_emu)
+  set(SIMULATOR_TARGET fpga_sim)
+  set(REPORT_TARGET report)
+  set(FPGA_TARGET fpga)
+
+  # Set the names of the generated files per makefile target
+  set(EMULATOR_OUTPUT_NAME ${TARGET_NAME}.${EMULATOR_TARGET})
+  set(SIMULATOR_OUTPUT_NAME ${TARGET_NAME}.${SIMULATOR_TARGET})
+  set(REPORT_OUTPUT_NAME ${TARGET_NAME}.${REPORT_TARGET})
+  set(FPGA_OUTPUT_NAME ${TARGET_NAME}.${FPGA_TARGET})
+
+  message(STATUS "Additional USER_FPGA_FLAGS=${USER_FPGA_FLAGS}")
+  message(STATUS "Additional USER_FLAGS=${USER_FLAGS}")
+  set(QACTYPES "-qactypes")
+
+  # target_compile_options(MaCh3 INTERFACE
+  #   -fsycl
+  #   -fintelfpga
+  #   -DFPGA_HARDWARE
+  #   #-DFPGA_EMULATOR
+  #   -DUSE_FPGA              # preprocessor directive to switch on FPGA code
+  # )
+
+endif()
+
+target_compile_options(MaCh3 INTERFACE "-O0 -fno-eliminate-unused-debug-types")
+target_link_libraries(MaCh3 INTERFACE spdlog::spdlog)
+# include_directories(/opt/intel/oneapi/compiler/2024.2/include)
+# link_directories(/opt/intel/oneapi/compiler/2024.2/include)
+
 if(NOT TARGET MaCh3::All)
   cmessage(FATAL_ERROR "MaCh3 Tutorial Expected dependency target: MaCh3::All, did you source setup.MaCh3.sh")
 endif()
