@@ -59,10 +59,10 @@ void BinnedSplineTutorial::FillSampleArray(std::string SampleName, std::vector<s
       }
 
       TString FullSplineName = static_cast<TString>(Key->GetName());
-      MACH3LOG_INFO("FillSplineName is {}", FullSplineName);
+      MACH3LOG_DEBUG("FillSplineName is {}", FullSplineName);
       // First We split into binning and spline name
       TObjArray *tokens = FullSplineName.Tokenize(".");
-      MACH3LOG_INFO("Number of tokens is {}", tokens->GetEntries());
+      MACH3LOG_DEBUG("Number of tokens is {}", tokens->GetEntries());
       /*
        A little hacky but lets us grab both old + new splines
       */
@@ -116,7 +116,7 @@ void BinnedSplineTutorial::FillSampleArray(std::string SampleName, std::vector<s
 
       if (isValidSplineIndex(SampleName, iOscChan, SystNum, ModeNum, Var1Bin, Var2Bin, Var3Bin))
       { // loop over all the spline knots and check their value
-        MACH3LOG_INFO("Pushed back monolith for spline {}", FullSplineName);
+        MACH3LOG_DEBUG("Pushed back monolith for spline {}", FullSplineName);
         // if the value is 1 then set the flat bool to false
         nKnots = mySpline->GetNp();
         isFlat = true;

@@ -54,11 +54,9 @@ int samplePDFTutorial::setupExperimentMC(int iSample) {
   tutorial_base *tutobj = &(TutorialSamples[iSample]);
   int nutype = sample_nupdgunosc[iSample];
   int oscnutype = sample_nupdg[iSample];
-  bool signal = sample_signal[iSample];
 
   tutobj->nutype = nutype;
   tutobj->oscnutype = oscnutype;
-  tutobj->signal = signal;
 
   MACH3LOG_INFO("-------------------------------------------------------------------");
   MACH3LOG_INFO("input file: {}", mc_files[iSample]);
@@ -217,8 +215,6 @@ std::string samplePDFTutorial::ReturnStringFromKinematicParameter(int KinematicP
 void samplePDFTutorial::setupFDMC(int iSample) {
   tutorial_base *tutobj = &(TutorialSamples[iSample]);
   auto &fdobj = MCSamples[iSample];  
-  
-  fdobj.signal = tutobj->signal;
   
   for(int iEvent = 0 ;iEvent < fdobj.nEvents ; ++iEvent) {
     fdobj.rw_etru[iEvent] = &(tutobj->TrueEnu[iEvent]);

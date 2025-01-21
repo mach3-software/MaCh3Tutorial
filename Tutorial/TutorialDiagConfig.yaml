@@ -77,14 +77,14 @@ ProcessMCMC:
     - ["sin2th_23", ["LO", "UO"], [0, 0.5], [0.5, 1]]
 
   SavageDickey:
-    - ["Spline_Param_0", 1.13, [0, 0]]  # Last array doesn't matter as parameter has Gaussian
+    - ["BinnedSplineParam1", 1.0, [0, 0]]  # Last array doesn't matter as parameter has Gaussian
 
   BipolarPlot:
-    - ["Spline_Param_0", [0, 1]]
+    - ["BinnedSplineParam1", [0, 1]]
 
     #KS: Feel free to pass whatever combination you like
   TrianglePlot:
-    - ["Test", ["Norm_Param_0", "Norm_Param_1", "Spline_Param_0", "Spline_Param_1"]]
+    - ["Test", ["Norm_Param_0", "Norm_Param_1", "BinnedSplineParam1", "BinnedSplineParam2"]]
 
   #First is paramter name and second number of intervals
   ParameterEvolution:
@@ -108,7 +108,7 @@ GetPenaltyTerm:
     - false
     - "-logL_{Norm}"
   Spline:
-    - ["Spline_Param"]
+    - ["BinnedSplineParam"]
     - false
     - "-logL_{Spline}"
 
@@ -125,5 +125,5 @@ MatrixPlotter:
   Norm: ["Norm_Param_0", "Norm_Param_1"
   ]
 
-  Spline: ["Spline_Param_0", "Spline_Param_1"
+  Spline: ["BinnedSplineParam1", "BinnedSplineParam2"
   ]
