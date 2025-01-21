@@ -36,7 +36,7 @@ jobs:
       # Extract the MaCh3Tutorial version from CMakeLists.txt
       - name: Get MaCh3Tutorial version
         run: |
-          MaCh3Tutorial_version=$(grep -Po '(?<=set\(MaCh3Tutorial_VERSION )\d+\.\d+\.\d+' MaCh3Tutorial/CMakeLists.txt  -i)
+          MaCh3Tutorial_version=$(grep -Po '(?<=project\(MaCh3Tutorial VERSION )\d+\.\d+\.\d+' MaCh3Tutorial/CMakeLists.txt -i)
           echo "Extracted MaCh3Tutorial version: ${MaCh3Tutorial_version}"
           echo "MaCh3Tutorial_VERSION=${MaCh3Tutorial_version}" >> $GITHUB_ENV
 

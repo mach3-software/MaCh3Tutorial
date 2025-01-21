@@ -52,6 +52,9 @@
 ### histogram_tests
 * Test fo Histogram Utils and TH2Poly related stuff
 
+### statistical_tests
+* Test stuff like Bayesian statistics, pvalue etc.
+
 ## Python Tests
 
 ### test_fitter_sample_pdf
