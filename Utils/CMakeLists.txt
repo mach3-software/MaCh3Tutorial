@@ -13,6 +13,10 @@ set_target_properties(ValidationsUtils PROPERTIES
     EXPORT_NAME ValidationsUtils)
 
 target_link_libraries(ValidationsUtils PUBLIC MaCh3::All)
+target_link_options(ValidationsUtils PRIVATE
+  -fsycl
+  -fintelfpga
+)
 if(MaCh3_CPM)
   target_link_libraries(ValidationsUtils PRIVATE MaCh3Warnings)
 endif()

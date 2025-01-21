@@ -14,6 +14,10 @@ foreach(app
             profiler  # Add this line to link gperftools
         )
     endif()
+    target_link_options(${app} PRIVATE
+      -fsycl
+      -fintelfpga
+    )
 
     add_dependencies(TutorialApps ${app})
     install(TARGETS ${app} DESTINATION bin)
