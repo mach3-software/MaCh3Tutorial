@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1737460325234,
+  "lastUpdate": 1737469885888,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -897,6 +897,37 @@ window.BENCHMARK_DATA = {
             "name": "MaCh3Fitter::DragRace",
             "value": 2.63082,
             "range": "± 446.189",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "ca666480b58421b759df327cb9310e4802473018",
+          "message": "Merge pull request #297 from mach3-software/feature_FFT\n\nbugfix: Safeguard FFT",
+          "timestamp": "2025-01-21T14:28:06Z",
+          "tree_id": "99584a88c7b6fa279eab72e9df9256bba3e35770",
+          "url": "https://github.com/mach3-software/MaCh3/commit/ca666480b58421b759df327cb9310e4802473018"
+        },
+        "date": 1737469884426,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "MaCh3Fitter::DragRace",
+            "value": 2.4352,
+            "range": "± 124.505",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
