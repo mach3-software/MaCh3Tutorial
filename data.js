@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1737455376736,
+  "lastUpdate": 1737460325234,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -866,6 +866,37 @@ window.BENCHMARK_DATA = {
             "name": "MaCh3Fitter::DragRace",
             "value": 2.49574,
             "range": "± 76.1811",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "bccebc5abf0477d6518fe2b1a267a6828544ca18",
+          "message": "Merge pull request #300 from mach3-software/feature_newroot_fix\n\nbugfix: Remove a reference to TLorentzVector",
+          "timestamp": "2025-01-21T11:48:42Z",
+          "tree_id": "a70ecb5b99bca6ab7a7e0eb3792ba7b69c92caea",
+          "url": "https://github.com/mach3-software/MaCh3/commit/bccebc5abf0477d6518fe2b1a267a6828544ca18"
+        },
+        "date": 1737460324240,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "MaCh3Fitter::DragRace",
+            "value": 2.63082,
+            "range": "± 446.189",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
