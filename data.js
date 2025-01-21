@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1737391592723,
+  "lastUpdate": 1737455376736,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -835,6 +835,37 @@ window.BENCHMARK_DATA = {
             "name": "MaCh3Fitter::DragRace",
             "value": 2.46441,
             "range": "± 50.7689",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "10cf218020670c5d4f1a277ffa39646d9a88453e",
+          "message": "Merge pull request #298 from mach3-software/feature_PythonCI\n\nbreaking: Temporary turn off python CI",
+          "timestamp": "2025-01-21T10:26:09Z",
+          "tree_id": "b82fcd92e866923fd8e9eb1a1d6f4f6776d43b95",
+          "url": "https://github.com/mach3-software/MaCh3/commit/10cf218020670c5d4f1a277ffa39646d9a88453e"
+        },
+        "date": 1737455375856,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "MaCh3Fitter::DragRace",
+            "value": 2.49574,
+            "range": "± 76.1811",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
