@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1737469885888,
+  "lastUpdate": 1737483527257,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -928,6 +928,37 @@ window.BENCHMARK_DATA = {
             "name": "MaCh3Fitter::DragRace",
             "value": 2.4352,
             "range": "± 124.505",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "fda94deed33f0faf9f3fdab602a1d60d9ea3f007",
+          "message": "Merge pull request #294 from mach3-software/dbarrow257/fix/FDSignalFix\n\nbugfix: Correctly read Signal FDMC variable from config",
+          "timestamp": "2025-01-21T18:15:33Z",
+          "tree_id": "f018b6d46ed924b515424df109fc3509e8f08e85",
+          "url": "https://github.com/mach3-software/MaCh3/commit/fda94deed33f0faf9f3fdab602a1d60d9ea3f007"
+        },
+        "date": 1737483526386,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "MaCh3Fitter::DragRace",
+            "value": 2.35501,
+            "range": "± 84.7578",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
