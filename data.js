@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1737483527257,
+  "lastUpdate": 1737542792691,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -959,6 +959,37 @@ window.BENCHMARK_DATA = {
             "name": "MaCh3Fitter::DragRace",
             "value": 2.35501,
             "range": "± 84.7578",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "35494466+EdAtkin@users.noreply.github.com",
+            "name": "EdAtkin",
+            "username": "EdAtkin"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "f22c8531de8c5964f0ac022fc8603c8a12e6dc25",
+          "message": "Merge pull request #289 from mach3-software/feature_templates\n\ntidy: Smarter getting Norm bin",
+          "timestamp": "2025-01-22T10:43:09Z",
+          "tree_id": "82e5bc7cbae44b59df64ea2f6f69a902224ec9f7",
+          "url": "https://github.com/mach3-software/MaCh3/commit/f22c8531de8c5964f0ac022fc8603c8a12e6dc25"
+        },
+        "date": 1737542791265,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "MaCh3Fitter::DragRace",
+            "value": 2.49529,
+            "range": "± 313.484",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
