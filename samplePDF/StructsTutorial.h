@@ -10,6 +10,7 @@ struct tutorial_base {
   bool *isNC;
   std::vector<double> TrueEnu;
   std::vector<double> Q2;
+  std::vector<double> TrueCosZenith;
 };
 
 //Internal MaCh3Modes

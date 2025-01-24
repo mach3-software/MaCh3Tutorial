@@ -5,6 +5,7 @@
 #include "splines/BinnedSplinesTutorial.h"
 
 samplePDFTutorial::samplePDFTutorial(std::string mc_version_, covarianceXsec* xsec_cov_, covarianceOsc* osc_cov_) : samplePDFFDBase(mc_version_, xsec_cov_, osc_cov_) {
+  isATM = false;
   Initialise();
 }
 
@@ -79,11 +80,8 @@ int samplePDFTutorial::setupExperimentMC(int iSample) {
   tutobj->isNC = new bool[tutobj->nEvents];
 
   //Truth Variables
-  float Enu_true;
-  float Q2;
-  int tgt;
-  int Mode;
-  int PDGLep;
+  float Enu_true, Q2, trueCZ;
+  int tgt, Mode, PDGLep;
 
   /*
   double ELep;
@@ -103,7 +101,15 @@ int samplePDFTutorial::setupExperimentMC(int iSample) {
   _data->SetBranchAddress("Mode", &Mode);
   _data->SetBranchStatus("PDGLep", true);
   _data->SetBranchAddress("PDGLep", &PDGLep);
-
+  // KS: If we have CosineZenith branch this must mean Atmospheric sample
+  if (_data->GetBranch("CosineZenith")) {
+    MACH3LOG_INFO("Enabling Atmospheric");
+    isATM = true;
+    tutobj->TrueCosZenith.resize(tutobj->nEvents);
+    MCSamples[iSample].rw_truecz.resize(tutobj->nEvents);
+    _data->SetBranchStatus("CosineZenith", true);
+    _data->SetBranchAddress("CosineZenith", &trueCZ);
+  }
 
   /*
   _data->SetBranchStatus("ELep", true);
@@ -126,12 +132,16 @@ int samplePDFTutorial::setupExperimentMC(int iSample) {
     tutobj->Q2[i]      = Q2;
     // KS: Currently we store target as 1000060120, therefore we hardcode it to 12
     tutobj->Target[i] = 12;
-    tutobj->Mode[i]    = NuWroModeToMaCh3Mode(Mode);
+    tutobj->Mode[i]   = NuWroModeToMaCh3Mode(Mode);
 
     if (std::abs(PDGLep) == 12 || std::abs(PDGLep) == 14 || std::abs(PDGLep) == 16) {
       tutobj->isNC[i] = true;
     } else {
       tutobj->isNC[i] = false;
+    }
+
+    if(isATM) {
+      tutobj->TrueCosZenith[i] = trueCZ;
     }
   }
   _sampleFile->Close();
@@ -217,6 +227,7 @@ void samplePDFTutorial::setupFDMC(int iSample) {
     //neutrino pdg code in the MC files
     fdobj.nupdgUnosc[iEvent] = &(tutobj->nutype);
     fdobj.nupdg[iEvent] = &(tutobj->oscnutype);
+    if(isATM) fdobj.rw_truecz[iEvent] = &(tutobj->TrueCosZenith[iEvent]);
   }
 }
 
