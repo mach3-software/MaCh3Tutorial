@@ -14,7 +14,7 @@ InputFiles:
   mtuplesuffix: "_FlatTree_ATM.root"
   splineprefix: "Inputs/MC/BinnedSplinesTutorialInputs"
   splinesuffix: "2D.root"
-DetID: 8
+DetID: "Tutorial ATM"
 NuOsc:
   NuOscConfigFile: "Inputs/NuOscillator/CUDAProb3.yaml"
 

@@ -207,14 +207,13 @@ General:
 ```
 
 ### Atmospheric Sample
-WARNING! This part is still under development
 Up to this point Beam oscitation calculations have been discussed. In terms of MaCh3 to switch to atmospheric only a few things have to be changed.
 
 * **rw_truecz** have to be filled. This is Cosine Zenith angle which Atmospheric calculations depends on.
 * Switch oscillation calculations to engine which supports Atmospheric for example CUDAProb3 (not to be confused with CUDAProb3Linear which supports beam only).
 * Modify Oscillation systematic yaml, instead of density/baseline (and **Ye**) it requires production height.
 
-In tutorial you can try using `Inputs/SamplePDF_Tutorial_ATM.yaml`.
+In tutorial you can try uncommenting `Inputs/SamplePDF_Tutorial_ATM.yaml`.
 
 ### More Advanced Development
 Not everything can be done by modifying config in sample implementation. Actual implementation is in`samplePDF/samplePDFTutorial` this class inherits from `samplePDFFDBase`. The latter class deals with actual reweighting and all heavy lifting. while samplePDFTutorial deals with MC loading etc. This is because each experiment has slightly different MC format and different information available.
