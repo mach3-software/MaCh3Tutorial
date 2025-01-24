@@ -74,7 +74,7 @@ inline MaCh3Mode NuWroModeToMaCh3Mode(int NuWroMode) {
   }
 
   return ReturnMode;
-};
+}
 
 inline std::string ModeToString(int Mode) {
   std::string ModeString;
