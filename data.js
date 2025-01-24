@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1737542792691,
+  "lastUpdate": 1737725006478,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -990,6 +990,37 @@ window.BENCHMARK_DATA = {
             "name": "MaCh3Fitter::DragRace",
             "value": 2.49529,
             "range": "± 313.484",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "9b7bd461272140e846175602286ee398d98940e9",
+          "message": "Merge pull request #279 from mach3-software/feature_DetId\n\nbreaking: Improve Det Id tremtent",
+          "timestamp": "2025-01-24T13:20:00Z",
+          "tree_id": "5b08b1e6f5f83b7e0ba35efb5334d80d12a612a0",
+          "url": "https://github.com/mach3-software/MaCh3/commit/9b7bd461272140e846175602286ee398d98940e9"
+        },
+        "date": 1737725004984,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "MaCh3Fitter::DragRace",
+            "value": 2.44722,
+            "range": "± 72.5714",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
