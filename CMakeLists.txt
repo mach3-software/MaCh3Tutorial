@@ -4,7 +4,7 @@ set(CMAKE_VERBOSE_MAKEFILE ON)
 cmake_minimum_required(VERSION 3.14 FATAL_ERROR)
 
 # Create project
-project(MaCh3Tutorial VERSION 1.3.4 LANGUAGES CXX)
+project(MaCh3Tutorial VERSION 1.4.0 LANGUAGES CXX)
 set(MaCh3Tutorial_VERSION ${PROJECT_VERSION})
 
 set(CMAKE_CXX_STANDARD_REQUIRED True)
@@ -65,7 +65,7 @@ if(NOT DEFINED MaCh3_Branch)
 endif()
 
 #If MaCh3 was sourced find it, otherwise use CPM
-#find_package(MaCh3 QUIET EXACT MaCh3Tutorial_VERSION)
+#find_package(MaCh3 QUIET EXACT ${MaCh3Tutorial_VERSION})
 
 if(NOT MaCh3_FOUND)
   set(MaCh3_OPTIONS

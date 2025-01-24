@@ -15,7 +15,7 @@ InputFiles:
   # No Splines
   splineprefix: "Inputs/MC/BinnedSplinesTutorialInputs"
   splinesuffix: "2D.root"
-DetID: 1
+DetID: "Tutorial Beam"
 NuOsc:
   NuOscConfigFile: "Inputs/NuOscillator/NuFASTLinear.yaml"
 
