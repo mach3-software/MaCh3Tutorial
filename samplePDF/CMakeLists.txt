@@ -16,7 +16,9 @@ if(NOT CPU_ONLY)
 endif()
 
 target_link_libraries(samplePDFTutorial PUBLIC MaCh3::All BinnedSplinesTutorial)
-target_link_libraries(samplePDFTutorial PRIVATE MaCh3Warnings)
+if(MaCh3_CPM)
+  target_link_libraries(samplePDFTutorial PRIVATE MaCh3Warnings)
+endif()
 
 target_include_directories(samplePDFTutorial PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/../>

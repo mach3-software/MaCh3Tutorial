@@ -10,8 +10,9 @@ set_target_properties(BinnedSplinesTutorial PROPERTIES
     EXPORT_NAME BinnedSplinesTutorial)
 
 target_link_libraries(BinnedSplinesTutorial PUBLIC MaCh3::All)
-target_link_libraries(BinnedSplinesTutorial PRIVATE MaCh3Warnings)
-
+if(MaCh3_CPM)
+  target_link_libraries(BinnedSplinesTutorial PRIVATE MaCh3Warnings)
+endif()
 target_include_directories(BinnedSplinesTutorial PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/../>
   $<INSTALL_INTERFACE:include>)

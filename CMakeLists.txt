@@ -42,6 +42,8 @@ include(${CMAKE_CURRENT_BINARY_DIR}/cmake/CPM.cmake)
 include(CIValidations)
 
 ##################################  MaCh3  ######################################
+option(MaCh3_CPM "Whether MaCh3 was obrained using CPM or find_package" OFF)
+
 # KS: Here we try to find tag matching tutorial version. If we can't find one then use develop
 # This will allow to grab tutorial for tagged MaCh3 version without a need of manually changing version
 if(NOT DEFINED MaCh3_Branch)
@@ -95,8 +97,9 @@ if(NOT MaCh3_FOUND)
   )
   # MaCh3 sets up cmessage for us, so can't cmessage until we've set up MaCh3
   cmessage(STATUS "Didn't find MaCh3, will checkout the ${MaCh3_Branch} branch from mach3-software/MaCh3")
+  set(MaCh3_CPM TRUE)
 else()
-  # If you 
+  # If you
   cmessage(STATUS "Using local build of MaCh3: ${MaCh3_DIR}")
 endif()
 
