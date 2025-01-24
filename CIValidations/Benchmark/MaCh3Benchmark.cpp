@@ -13,26 +13,51 @@ TEST_CASE("Benchmark MaCh3") {
   covarianceXsec* xsec = MaCh3CovarianceFactory(FitManager.get(), "Xsec");
   covarianceOsc*  osc  = MaCh3CovarianceFactory<covarianceOsc>(FitManager.get(), "Osc");
 
-  // Initialise samplePDF
-  auto SampleConfig = FitManager->raw()["General"]["TutorialSamples"].as<std::vector<std::string>>();
-  auto mySamples = MaCh3SamplePDFFactory<samplePDFTutorial>(SampleConfig, xsec, osc);
+  std::vector<covarianceBase*> Covs;
+  Covs.push_back(xsec);
+  Covs.push_back(osc);
 
-  // Create MCMC Class
-  std::unique_ptr<FitterBase> MaCh3Fitter = MaCh3FitterFactory(FitManager.get());
-  // Add covariance to MCM
-  MaCh3Fitter->addSystObj(xsec);
-  MaCh3Fitter->addSystObj(osc);
-  for (size_t i = 0; i < SampleConfig.size(); ++i) {
-    MaCh3Fitter->addSamplePDF(mySamples[i]);
-  }
-  // Benchmark
-  BENCHMARK("MaCh3Fitter::DragRace") {
-    MaCh3Fitter->DragRace(1);
+  // Initialise samplePDF
+  auto BeamSamples = MaCh3SamplePDFFactory<samplePDFTutorial>({"Inputs/SamplePDF_Tutorial.yaml"}, xsec, osc);
+  auto ATMSamples = MaCh3SamplePDFFactory<samplePDFTutorial>({"Inputs/SamplePDF_Tutorial_ATM.yaml"}, xsec, osc);
+
+  BENCHMARK("Beam Reweight") {
+    for (size_t s = 0; s < Covs.size(); ++s) {
+      Covs[s]->proposeStep();
+      Covs[s]->acceptStep();
+      Covs[s]->GetLikelihood();
+    }
+    for(unsigned int ivs = 0; ivs < BeamSamples.size(); ivs++ ) {
+      BeamSamples[ivs]->reweight();
+      BeamSamples[ivs]->GetLikelihood();
+    }
+  };
+
+  BENCHMARK("Beam Reweight w/o Osc") {
+    for(unsigned int ivs = 0; ivs < BeamSamples.size(); ivs++ ) {
+      BeamSamples[ivs]->reweight();
+      BeamSamples[ivs]->GetLikelihood();
+    }
+  };
+
+  BENCHMARK("ATM Reweight") {
+    for (size_t s = 0; s < Covs.size(); ++s) {
+      Covs[s]->proposeStep();
+      Covs[s]->acceptStep();
+      Covs[s]->GetLikelihood();
+    }
+    for(unsigned int ivs = 0; ivs < ATMSamples.size(); ivs++ ) {
+      ATMSamples[ivs]->reweight();
+      ATMSamples[ivs]->GetLikelihood();
+    }
   };
 
   delete xsec;
   delete osc;
-  for (size_t i = 0; i < SampleConfig.size(); ++i) {
-    delete mySamples[i];
+  for (size_t i = 0; i < BeamSamples.size(); ++i) {
+    delete BeamSamples[i];
+  }
+  for (size_t i = 0; i < ATMSamples.size(); ++i) {
+    delete ATMSamples[i];
   }
 }
