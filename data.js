@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1737740154982,
+  "lastUpdate": 1737793548087,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -88,6 +88,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 428.479,
             "range": "± 5.89016",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "d8466b676f4a9ec52fbb46366d27fb3221c35021",
+          "message": "Merge pull request #305 from mach3-software/feature/BetterSplineLogger\n\nfeat: Improve spline printouts and remove redundancies",
+          "timestamp": "2025-01-25T08:21:46Z",
+          "tree_id": "df170709c646d8b132eca8864fa6e7110832956c",
+          "url": "https://github.com/mach3-software/MaCh3/commit/d8466b676f4a9ec52fbb46366d27fb3221c35021"
+        },
+        "date": 1737793547098,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.66398,
+            "range": "± 66.5894",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.41529,
+            "range": "± 65.2027",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 426.328,
+            "range": "± 4.69208",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
