@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1737970673961,
+  "lastUpdate": 1738006271346,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -178,6 +178,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 432.726,
             "range": "± 4.93398",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "aa2a1e9b2001a112741b63abaeef907e9a3c6feb",
+          "message": "Merge pull request #309 from mach3-software/feature_pValue2D\n\ntidy: Generalise 2D pvalue code",
+          "timestamp": "2025-01-27T19:27:09Z",
+          "tree_id": "57a84833b11dcf7ed68c661d13dd1b6d96f0544b",
+          "url": "https://github.com/mach3-software/MaCh3/commit/aa2a1e9b2001a112741b63abaeef907e9a3c6feb"
+        },
+        "date": 1738006270374,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.78918,
+            "range": "± 88.6485",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.54244,
+            "range": "± 70.8266",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 437.35,
+            "range": "± 5.50461",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
