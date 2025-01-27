@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1737793548087,
+  "lastUpdate": 1737970673961,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -133,6 +133,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 426.328,
             "range": "± 4.69208",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "49a597120992b075835c1a4c6ce52274b7908d58",
+          "message": "Merge pull request #308 from mach3-software/feature_pythonpath\n\ntidy: Update python path include",
+          "timestamp": "2025-01-27T09:33:51Z",
+          "tree_id": "c21e2a86f56c64d1e525e738850b600bf5a5fc83",
+          "url": "https://github.com/mach3-software/MaCh3/commit/49a597120992b075835c1a4c6ce52274b7908d58"
+        },
+        "date": 1737970672934,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.6899,
+            "range": "± 82.6145",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.49815,
+            "range": "± 114.075",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 432.726,
+            "range": "± 4.93398",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
