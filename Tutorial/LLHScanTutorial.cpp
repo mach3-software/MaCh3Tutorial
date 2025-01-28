@@ -5,7 +5,8 @@
 int main(int argc, char *argv[]){
   // Initialise manger responsible for config handling
   auto FitManager = MaCh3ManagerFactory(argc, argv);
-  FitManager->OverrideSettings("General", "OutputFile", "LLH_Test.root");
+  std::string outputName = "LLH_" + FitManager->raw()["General"]["OutputFile"].as<std::string>();
+  FitManager->OverrideSettings("General", "OutputFile", OutputName);
   // Initialise covariance class reasonable for Systematics
   covarianceXsec* xsec = MaCh3CovarianceFactory(FitManager.get(), "Xsec");
   covarianceOsc*  osc  = MaCh3CovarianceFactory<covarianceOsc>(FitManager.get(), "Osc");
