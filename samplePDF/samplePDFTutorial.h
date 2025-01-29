@@ -11,8 +11,6 @@ class samplePDFTutorial : virtual public samplePDFFDBase
   ~samplePDFTutorial();
   enum KinematicTypes {kTrueNeutrinoEnergy, kTrueQ2};
 
-  int ReturnKinematicParameterFromString(std::string KinematicParameterStr) override;
-  std::string ReturnStringFromKinematicParameter(int KinematicParameterStr) override;
   std::vector<double> ReturnKinematicParameterBinning(std::string KinematicParameter) override;
 
  protected:
@@ -38,9 +36,14 @@ class samplePDFTutorial : virtual public samplePDFFDBase
 
   std::vector<struct tutorial_base> TutorialSamples;
 
-  const std::unordered_map<std::string, int> KinematicParameters = {
+  const std::unordered_map<std::string, int> KinematicParametersTutorial = {
     {"TrueNeutrinoEnergy", kTrueNeutrinoEnergy},
     {"TrueQ2", kTrueQ2}
+  };
+
+  const std::unordered_map<int, std::string> ReversedKinematicParametersTutorial = {
+    {kTrueNeutrinoEnergy, "TrueNeutrinoEnergy"},
+    {kTrueQ2, "TrueQ2"}
   };
 
   bool isATM;
