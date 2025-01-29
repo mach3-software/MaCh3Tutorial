@@ -19,6 +19,7 @@ Systematics:
     StepScale:
       MCMC: 0.2
     Type: Norm
+  ExtraIndent: true  # Incorrect indentation, should be inside "Systematic"
 
 - Systematic:
     Names:
