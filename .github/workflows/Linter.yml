@@ -28,7 +28,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # GitHub token for permissions
           DISABLE_LINTERS: "CPP"  # Disable linting for other languages
 
-       - name: Run ReviewDog with yamlint
+      - name: Run ReviewDog with yamlint
         uses: reviewdog/action-yamllint@v1
         with:
           github_token: ${{ secrets.github_token }}
