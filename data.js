@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1738140838065,
+  "lastUpdate": 1738237169123,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -313,6 +313,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 434.157,
             "range": "± 3.80014",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "d6105319f174dde0519e5b46d8238bb7a298b02a",
+          "message": "Merge pull request #316 from mach3-software/feature_Arch\n\nfeat: Arch OS bot",
+          "timestamp": "2025-01-30T11:35:19Z",
+          "tree_id": "879263a5a3f5d01059c6d2a7302aa25cb51e9f44",
+          "url": "https://github.com/mach3-software/MaCh3/commit/d6105319f174dde0519e5b46d8238bb7a298b02a"
+        },
+        "date": 1738237167762,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.72467,
+            "range": "± 96.6593",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.46386,
+            "range": "± 57.2373",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 432.689,
+            "range": "± 9.37715",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
