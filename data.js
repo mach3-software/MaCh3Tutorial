@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1738237169123,
+  "lastUpdate": 1738249909954,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -358,6 +358,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 432.689,
             "range": "± 9.37715",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "877f3708e4a756117a869ccfa0d3dd9a5bc2630d",
+          "message": "Merge pull request #313 from mach3-software/feature_Threads\n\ntidy: More infor about threads",
+          "timestamp": "2025-01-30T15:07:50Z",
+          "tree_id": "e74a870350f0e9a8dc81b4980b46ca1701ff0634",
+          "url": "https://github.com/mach3-software/MaCh3/commit/877f3708e4a756117a869ccfa0d3dd9a5bc2630d"
+        },
+        "date": 1738249909081,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.69881,
+            "range": "± 80.3163",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.49118,
+            "range": "± 180.53",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 429.04,
+            "range": "± 5.24105",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
