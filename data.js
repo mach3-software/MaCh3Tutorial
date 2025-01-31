@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1738339254305,
+  "lastUpdate": 1738339373853,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -448,6 +448,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 432.091,
             "range": "± 4.66047",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "21e91a27292d18bd935d2868e13a54e3a97d2b67",
+          "message": "Merge pull request #317 from mach3-software/feature_YamlPortectrcion\n\ntidy: More Yaml protection and new header to fight circular dependancy",
+          "timestamp": "2025-01-31T15:58:51Z",
+          "tree_id": "e19e05ac03ab334b8a4543c9acea2a198557294a",
+          "url": "https://github.com/mach3-software/MaCh3/commit/21e91a27292d18bd935d2868e13a54e3a97d2b67"
+        },
+        "date": 1738339372621,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.63462,
+            "range": "± 142.075",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.2711,
+            "range": "± 106.744",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 423.356,
+            "range": "± 3.46155",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
