@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1738249909954,
+  "lastUpdate": 1738339254305,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -403,6 +403,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 429.04,
             "range": "± 5.24105",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "ee28dbb23d2479c66867790c6df21dcc45189b1e",
+          "message": "Merge pull request #318 from mach3-software/featuer_LongerBot\n\nfeat: Longer Running Telemetry Bot",
+          "timestamp": "2025-01-31T15:56:41Z",
+          "tree_id": "35d9a4bcdc3b26733924ec1f4b905d8c5665c223",
+          "url": "https://github.com/mach3-software/MaCh3/commit/ee28dbb23d2479c66867790c6df21dcc45189b1e"
+        },
+        "date": 1738339252848,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.67306,
+            "range": "± 79.5122",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.41987,
+            "range": "± 189.987",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 432.091,
+            "range": "± 4.66047",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
