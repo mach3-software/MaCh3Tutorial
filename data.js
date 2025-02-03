@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1738339373853,
+  "lastUpdate": 1738588364872,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -493,6 +493,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 423.356,
             "range": "± 3.46155",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "b87fbc897f27ef46d7af1a49780ab75fca3f27c2",
+          "message": "Merge pull request #315 from mach3-software/feature_TidySplineCode\n\ntidy: Janitorial work for SplineFD",
+          "timestamp": "2025-02-03T13:08:32Z",
+          "tree_id": "9cf1cd8a66bee6c5c84f298bf8fa160c1b7b0d51",
+          "url": "https://github.com/mach3-software/MaCh3/commit/b87fbc897f27ef46d7af1a49780ab75fca3f27c2"
+        },
+        "date": 1738588363579,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.63601,
+            "range": "± 93.9825",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.41252,
+            "range": "± 81.1156",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 431.984,
+            "range": "± 5.06893",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
