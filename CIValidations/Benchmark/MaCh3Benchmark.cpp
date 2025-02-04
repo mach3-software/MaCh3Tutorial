@@ -10,16 +10,16 @@ TEST_CASE("Benchmark MaCh3") {
   auto FitManager = std::make_unique<manager>("Inputs/FitterConfig.yaml");
 
   // Initialise covariance class reasonable for Systematics
-  covarianceXsec* xsec = MaCh3CovarianceFactory(FitManager.get(), "Xsec");
-  covarianceOsc*  osc  = MaCh3CovarianceFactory<covarianceOsc>(FitManager.get(), "Osc");
+  auto xsec = MaCh3CovarianceFactory<covarianceXsec>(FitManager.get(), "Xsec");
+  auto osc  = MaCh3CovarianceFactory<covarianceOsc>(FitManager.get(), "Osc");
 
   std::vector<covarianceBase*> Covs;
-  Covs.push_back(xsec);
-  Covs.push_back(osc);
+  Covs.push_back(xsec.get());
+  Covs.push_back(osc.get());
 
   // Initialise samplePDF
-  auto BeamSamples = MaCh3SamplePDFFactory<samplePDFTutorial>({"Inputs/SamplePDF_Tutorial.yaml"}, xsec, osc);
-  auto ATMSamples = MaCh3SamplePDFFactory<samplePDFTutorial>({"Inputs/SamplePDF_Tutorial_ATM.yaml"}, xsec, osc);
+  auto BeamSamples = MaCh3SamplePDFFactory<samplePDFTutorial>({"Inputs/SamplePDF_Tutorial.yaml"}, xsec.get(), osc.get());
+  auto ATMSamples = MaCh3SamplePDFFactory<samplePDFTutorial>({"Inputs/SamplePDF_Tutorial_ATM.yaml"}, xsec.get(), osc.get());
 
   BENCHMARK("Beam Reweight") {
     for (size_t s = 0; s < Covs.size(); ++s) {
@@ -52,8 +52,6 @@ TEST_CASE("Benchmark MaCh3") {
     }
   };
 
-  delete xsec;
-  delete osc;
   for (size_t i = 0; i < BeamSamples.size(); ++i) {
     delete BeamSamples[i];
   }
