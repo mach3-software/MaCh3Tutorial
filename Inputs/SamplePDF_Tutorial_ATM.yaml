@@ -17,6 +17,7 @@ InputFiles:
 DetID: "Tutorial ATM"
 NuOsc:
   NuOscConfigFile: "Inputs/NuOscillator/CUDAProb3.yaml"
+  EqualBinningPerOscChannel: true
 
 NSubSamples: 1
 SubSamples:
