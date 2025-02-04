@@ -8,26 +8,23 @@ int main(int argc, char *argv[]){
   std::string OutputName = "LLH_" + FitManager->raw()["General"]["OutputFile"].as<std::string>();
   FitManager->OverrideSettings("General", "OutputFile", OutputName);
   // Initialise covariance class reasonable for Systematics
-  covarianceXsec* xsec = MaCh3CovarianceFactory(FitManager.get(), "Xsec");
-  covarianceOsc*  osc  = MaCh3CovarianceFactory<covarianceOsc>(FitManager.get(), "Osc");
+  auto xsec = MaCh3CovarianceFactory<covarianceXsec>(FitManager.get(), "Xsec");
+  auto osc  = MaCh3CovarianceFactory<covarianceOsc>(FitManager.get(), "Osc");
 
   // Initialise samplePDF
   auto SampleConfig = FitManager->raw()["General"]["TutorialSamples"].as<std::vector<std::string>>();
-  auto mySamples = MaCh3SamplePDFFactory<samplePDFTutorial>(SampleConfig, xsec, osc);
+  auto mySamples = MaCh3SamplePDFFactory<samplePDFTutorial>(SampleConfig, xsec.get(), osc.get());
 
   // Create MCMC Class
   std::unique_ptr<FitterBase> MaCh3Fitter = MaCh3FitterFactory(FitManager.get());
   // Add covariance to MCM
-  MaCh3Fitter->addSystObj(xsec);
-  MaCh3Fitter->addSystObj(osc);
+  MaCh3Fitter->addSystObj(xsec.get());
+  MaCh3Fitter->addSystObj(osc.get());
   for (size_t i = 0; i < SampleConfig.size(); ++i) {
     MaCh3Fitter->addSamplePDF(mySamples[i]);
   }
   // Run LLH scan
   MaCh3Fitter->RunLLHScan();
-
-  delete xsec;
-  delete osc;
   for (size_t i = 0; i < SampleConfig.size(); ++i) {
     delete mySamples[i];
   }

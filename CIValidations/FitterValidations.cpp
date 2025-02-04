@@ -11,8 +11,8 @@ void FitVal(const std::string& Algo, bool MoreTests)
 
   MACH3LOG_INFO("Testing {}", Algo);
 
-  covarianceXsec* xsec = MaCh3CovarianceFactory(FitManager.get(), "Xsec");
-  covarianceOsc* osc = MaCh3CovarianceFactory<covarianceOsc>(FitManager.get(), "Osc");
+  auto xsec = MaCh3CovarianceFactory<covarianceXsec>(FitManager.get(), "Xsec");
+  auto osc  = MaCh3CovarianceFactory<covarianceOsc>(FitManager.get(), "Osc");
   std::unique_ptr<FitterBase> MaCh3Fitter = nullptr;
   if(Algo == "MCMC") {
     FitManager->OverrideSettings("General", "OutputFile", "MCMC_Test.root");
@@ -35,14 +35,14 @@ void FitVal(const std::string& Algo, bool MoreTests)
   }
 
   std::string SampleConfig = {"Inputs/SamplePDF_Tutorial.yaml"};
-  auto Sample = std::make_unique<samplePDFTutorial>(SampleConfig, xsec, osc);
+  auto Sample = std::make_unique<samplePDFTutorial>(SampleConfig, xsec.get(), osc.get());
   Sample->reweight();
   std::string name = Sample->GetName();
   TString NameTString = TString(name.c_str());
   TH1D *SampleHistogramPrior = (TH1D*)Sample->get1DHist()->Clone(NameTString+"_Prior");
   Sample->addData(SampleHistogramPrior);
 
-  MaCh3Fitter->addSystObj(xsec);
+  MaCh3Fitter->addSystObj(xsec.get());
   MaCh3Fitter->addSamplePDF(Sample.get());
   if(MoreTests)
   {
@@ -52,9 +52,6 @@ void FitVal(const std::string& Algo, bool MoreTests)
     MaCh3Fitter->GetStepScaleBasedOnLLHScan();
   }
   MaCh3Fitter->runMCMC();
-
-  delete xsec;
-  delete osc;
 }
 
 void StartFromPosteriorTest(const std::string& PreviousName)
@@ -64,15 +61,13 @@ void StartFromPosteriorTest(const std::string& PreviousName)
 
   FitManager->OverrideSettings("General", "OutputFile", "MCMC_Test_Start.root");
 
-  covarianceXsec* xsec = MaCh3CovarianceFactory(FitManager.get(), "Xsec");
+  auto xsec = MaCh3CovarianceFactory<covarianceXsec>(FitManager.get(), "Xsec");
   std::unique_ptr<mcmc> MarkovChain = std::make_unique<mcmc>(FitManager.get());
-  MarkovChain->addSystObj(xsec);
+  MarkovChain->addSystObj(xsec.get());
 
   MarkovChain->StartFromPreviousFit(PreviousName);
 
   MarkovChain->runMCMC();
-
-  delete xsec;
 }
 
 int main(int argc, char *argv[])
