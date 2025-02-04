@@ -1,6 +1,6 @@
-option(MaCh3Tutorial_UNITTESTS_ENABLED "Whether to build MaCh3 Unit Tests" ON)
+option(MaCh3Tutorial_UNITTESTS_ENABLED "Whether to build MaCh3 Unit Tests" OFF)
 option(MaCh3Tutorial_Coverage_ENABLED "Whether to build MaCh3 Coverage" OFF)
-option(MaCh3Tutorial_Benchmark_ENABLED "Enable benchmarking" ON)
+option(MaCh3Tutorial_Benchmark_ENABLED "Enable benchmarking" OFF)
 
 CPMAddPackage(
   NAME NuMCMCTools
