@@ -20,7 +20,7 @@ int main(int argc, char *argv[])
 
   // Open a file in write mode
   std::ofstream outFile("NewSampleOut.txt");
-  std::vector<std::string> SampleConfig = {"Inputs/SamplePDF_Tutorial.yaml"};
+  std::vector<std::string> SampleConfig = {"Inputs/SamplePDF_Tutorial.yaml", "Inputs/SamplePDF_Tutorial_ATM.yaml"};
   for (const auto& configPath : SampleConfig) {
     samplePDFTutorial *Sample = new samplePDFTutorial({configPath}, xsec, osc);
 
@@ -51,13 +51,13 @@ int main(int argc, char *argv[])
     for (int iSample = 0; iSample < Sample->getNMCSamples(); ++iSample) {
       for (int iEntry = 0; iEntry < Sample->getNEventsInSample(iSample); ++iEntry) {
         double weight = Sample->GetEventWeight(iSample, iEntry);
-        outFile << "Channel: "<< iSample<<" Event: " << iEntry <<" weight: " << weight << std::endl;
+        outFile<< "Sample: "<< NameTString << " Channel: "<< iSample<<" Event: " << iEntry <<" weight: " << weight << std::endl;
       }
     }
 
     for (int TestStat = 0; TestStat < TestStatistic::kNTestStatistics; ++TestStat) {
       Sample->SetTestStatistic(TestStatistic(TestStat));
-      outFile << "LLH is: "<< Sample->GetLikelihood() <<" using: " << TestStatistic_ToString(TestStatistic(TestStat)) <<" test stat"<< std::endl;
+      outFile<< "Sample: "<< NameTString << " LLH is: " << std::fixed << std::setprecision(6) << Sample->GetLikelihood() <<" using: " << TestStatistic_ToString(TestStatistic(TestStat)) <<" test stat"<< std::endl;
     }
 
     // Clean up dynamically allocated Sample if needed

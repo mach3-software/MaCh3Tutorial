@@ -14,12 +14,12 @@
 
 BinnedSplineTutorial::BinnedSplineTutorial(covarianceXsec *xsec_cov) : splineFDBase(xsec_cov)
 {
-  MACH3LOG_INFO("Created BinnedSplineTutorial object");
+  MACH3LOG_DEBUG("Created BinnedSplineTutorial object");
 }
 
 BinnedSplineTutorial::~BinnedSplineTutorial()
 {
-  MACH3LOG_INFO("Deleting BinnedSplineTutorial object :'(");
+  MACH3LOG_DEBUG("Deleting BinnedSplineTutorial object :'(");
 }
 
 /*! ETA - moved this into experiment specific code since it relies on experimental MC format and also the experiment spline name mapping
