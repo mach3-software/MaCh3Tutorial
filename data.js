@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1738596804825,
+  "lastUpdate": 1738668289493,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -583,6 +583,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 429.079,
             "range": "± 4.4349",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "4e425117141c9c79c5fe8bb7d00236e2ffa729ac",
+          "message": "Merge pull request #324 from mach3-software/hwallace/feature/link_to_lib64\n\nfeat: Add lib64 to LD_LIBRARY_PATH",
+          "timestamp": "2025-02-04T11:20:45Z",
+          "tree_id": "0169ca70d49ff539d8c4f2372c248542e8931463",
+          "url": "https://github.com/mach3-software/MaCh3/commit/4e425117141c9c79c5fe8bb7d00236e2ffa729ac"
+        },
+        "date": 1738668288382,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.66516,
+            "range": "± 135.581",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.44619,
+            "range": "± 134.282",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 434.443,
+            "range": "± 5.05074",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
