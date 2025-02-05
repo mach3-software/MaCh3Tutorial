@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1738781829043,
+  "lastUpdate": 1738781869330,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -673,6 +673,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 428.161,
             "range": "± 5.46246",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "063450bcaecb03fd6323efd4bcc4ca427e7630bc",
+          "message": "Merge pull request #327 from mach3-software/feature_FitterTidy\n\ntidy: safer Fitter Base",
+          "timestamp": "2025-02-05T18:53:49Z",
+          "tree_id": "20b1f3c4dd5d07da67c1a7fbe97e2a0c934ff5e1",
+          "url": "https://github.com/mach3-software/MaCh3/commit/063450bcaecb03fd6323efd4bcc4ca427e7630bc"
+        },
+        "date": 1738781868274,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.77692,
+            "range": "± 143.682",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.5996,
+            "range": "± 132.957",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 434.315,
+            "range": "± 4.91782",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
