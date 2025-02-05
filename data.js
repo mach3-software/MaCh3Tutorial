@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1738668289493,
+  "lastUpdate": 1738781829043,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -628,6 +628,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 434.443,
             "range": "± 5.05074",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "0e38cdec118d999c7bc008d28912762c650e1680",
+          "message": "Merge pull request #326 from mach3-software/feature_cmakeudpate\n\ntidy: Simplify sourcing external repo",
+          "timestamp": "2025-02-05T18:53:10Z",
+          "tree_id": "9aea42786e30a24fc873b019872945a5ddfea1c8",
+          "url": "https://github.com/mach3-software/MaCh3/commit/0e38cdec118d999c7bc008d28912762c650e1680"
+        },
+        "date": 1738781828003,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.68035,
+            "range": "± 78.1606",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.44483,
+            "range": "± 72.3853",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 428.161,
+            "range": "± 5.46246",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
