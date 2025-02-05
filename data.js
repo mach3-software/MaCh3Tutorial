@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1738781869330,
+  "lastUpdate": 1738781898424,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -718,6 +718,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 434.315,
             "range": "± 4.91782",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "1f102f4ff38490d73676b28288af27cd65ac7b23",
+          "message": "Merge pull request #321 from mach3-software/feature_OMP\n\ntidy: Move Spline Eval Away from parraler region",
+          "timestamp": "2025-02-05T18:54:18Z",
+          "tree_id": "68087290cbe8e2e26695b947b7ad86ae8d3e0c29",
+          "url": "https://github.com/mach3-software/MaCh3/commit/1f102f4ff38490d73676b28288af27cd65ac7b23"
+        },
+        "date": 1738781897394,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.7684,
+            "range": "± 101.113",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.45135,
+            "range": "± 71.6327",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 431.043,
+            "range": "± 4.78734",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
