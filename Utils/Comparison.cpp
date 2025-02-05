@@ -19,6 +19,8 @@ bool CompareTwoFiles(const std::string& File1, const std::string& File2) {
   bool sameFiles = true;
   int lineNumber = 1;
 
+  int WarningNumber = 0;
+  constexpr const int Threshold = 1000;
   // Read and compare line by line
   while (std::getline(file1, line1) && std::getline(file2, line2)) {
     if (line1 != line2) {
@@ -26,8 +28,14 @@ bool CompareTwoFiles(const std::string& File1, const std::string& File2) {
       MACH3LOG_WARN("File1: {}", line1);
       MACH3LOG_WARN("File2: {}", line2);
       sameFiles = false;
+      WarningNumber++;
     }
     ++lineNumber;
+    // KS: Avoid printing thousand of lines
+    if(WarningNumber > Threshold) {
+      MACH3LOG_ERROR("More than {} differences so closing", Threshold);
+      throw MaCh3Exception(__FILE__ , __LINE__ );
+    }
   }
 
   // Check if one file has extra lines
