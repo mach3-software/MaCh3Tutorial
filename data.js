@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1738848594249,
+  "lastUpdate": 1738857719704,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -808,6 +808,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 433.704,
             "range": "± 3.34752",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "378197d877c67c78e3860320863d1140dd64aa9d",
+          "message": "Merge pull request #329 from mach3-software/main\n\nfeat: Binned probability optimisation",
+          "timestamp": "2025-02-06T15:57:55Z",
+          "tree_id": "3f531d613602dad1c328661bf771dfd21a3f99d5",
+          "url": "https://github.com/mach3-software/MaCh3/commit/378197d877c67c78e3860320863d1140dd64aa9d"
+        },
+        "date": 1738857718485,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.59464,
+            "range": "± 57.0722",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.35009,
+            "range": "± 48.1035",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 432.576,
+            "range": "± 4.07107",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
