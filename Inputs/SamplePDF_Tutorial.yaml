@@ -18,6 +18,7 @@ InputFiles:
 DetID: "Tutorial Beam"
 NuOsc:
   NuOscConfigFile: "Inputs/NuOscillator/NuFASTLinear.yaml"
+  EqualBinningPerOscChannel: true
 
 NSubSamples: 1
 SubSamples:
