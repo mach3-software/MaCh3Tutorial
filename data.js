@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1738781898424,
+  "lastUpdate": 1738848594249,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -763,6 +763,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 431.043,
             "range": "± 4.78734",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "8b72a656c38fca378eea5845652a50b2984a8ea7",
+          "message": "Merge pull request #314 from mach3-software/feauture_returnKinem\n\nbreaking: Map for kinematic param and string",
+          "timestamp": "2025-02-06T13:25:45Z",
+          "tree_id": "128ce9b7b361977447c9636457cf51ddd9c3a393",
+          "url": "https://github.com/mach3-software/MaCh3/commit/8b72a656c38fca378eea5845652a50b2984a8ea7"
+        },
+        "date": 1738848593104,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.599,
+            "range": "± 52.098",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.36906,
+            "range": "± 203.526",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 433.704,
+            "range": "± 3.34752",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
