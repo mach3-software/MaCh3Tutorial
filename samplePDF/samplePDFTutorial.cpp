@@ -4,7 +4,13 @@
 #include "StructsTutorial.h"
 #include "splines/BinnedSplinesTutorial.h"
 
+// ************************************************
 samplePDFTutorial::samplePDFTutorial(std::string mc_version_, covarianceXsec* xsec_cov_, covarianceOsc* osc_cov_) : samplePDFFDBase(mc_version_, xsec_cov_, osc_cov_) {
+// ************************************************
+
+  KinematicParameters = &KinematicParametersTutorial;
+  ReversedKinematicParameters = &ReversedKinematicParametersTutorial;
+
   isATM = false;
   Initialise();
 }
@@ -12,7 +18,9 @@ samplePDFTutorial::samplePDFTutorial(std::string mc_version_, covarianceXsec* xs
 samplePDFTutorial::~samplePDFTutorial() {
 }
 
+// ************************************************
 void samplePDFTutorial::Init() {
+// ************************************************
   TutorialSamples.resize(nSamples, tutorial_base());
 
   if (CheckNodeExists(SampleManager->raw(), "POT")) {
@@ -24,8 +32,9 @@ void samplePDFTutorial::Init() {
   MACH3LOG_INFO("-------------------------------------------------------------------");
 }
 
+// ************************************************
 void samplePDFTutorial::SetupSplines() {
-
+// ************************************************
   SplineHandler = nullptr;
   
   if(XsecCov->GetNumParamsFromDetID(SampleDetID, SystType::kSpline) > 0){
@@ -37,8 +46,9 @@ void samplePDFTutorial::SetupSplines() {
 
   return;
 }
-
+// ************************************************
 void samplePDFTutorial::SetupWeightPointers() {
+// ************************************************
   for (size_t i = 0; i < MCSamples.size(); ++i) {
     for (int j = 0; j < MCSamples[i].nEvents; ++j) {
       MCSamples[i].ntotal_weight_pointers[j] = 2;
@@ -184,32 +194,6 @@ const double* samplePDFTutorial::GetPointerToKinematicParameter(double Kinematic
 const double* samplePDFTutorial::GetPointerToKinematicParameter(std::string KinematicParameter, int iSample, int iEvent) {
   KinematicTypes KinPar = static_cast<KinematicTypes>(ReturnKinematicParameterFromString(KinematicParameter));
   return GetPointerToKinematicParameter(KinPar, iSample, iEvent);
-}
-
-int samplePDFTutorial::ReturnKinematicParameterFromString(std::string KinematicParameterStr){
-  auto it = KinematicParameters.find(KinematicParameterStr);
-  if (it != KinematicParameters.end()) return it->second;
-
-  MACH3LOG_ERROR("Did not recognise Kinematic Parameter type...");
-  throw MaCh3Exception(__FILE__, __LINE__);
-
-  return -999;
-}
-
-std::string samplePDFTutorial::ReturnStringFromKinematicParameter(int KinematicParameter) {
-  std::string KinematicString = "";
-  switch(KinematicParameter){
-   case kTrueNeutrinoEnergy:
-     KinematicString = "TrueNeutrinoEnergy";
-    break;
-   case kTrueQ2:
-     KinematicString = "TrueQ2";
-     break;
-   default:
-    break;
-  }
-
-  return KinematicString;
 }
 
 void samplePDFTutorial::setupFDMC(int iSample) {
