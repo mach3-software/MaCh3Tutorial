@@ -33,9 +33,9 @@ int main(int argc, char *argv[])
     Sample->addData(SampleHistogramPrior);
 
     // Write initial info to file
-    outFile << "Info for sample:" << NameTString << std::endl;
-    outFile << "Rates Prior:" << SampleHistogramPrior->Integral() << std::endl;
-    outFile << "Likelihood:" << Sample->GetLikelihood() << std::endl;
+    outFile << "Info for sample: " << NameTString << std::endl;
+    outFile << "Rates Prior: " << SampleHistogramPrior->Integral() << std::endl;
+    outFile << "Likelihood: " << std::fabs(Sample->GetLikelihood()) << std::endl;
 
     // Set oscillation parameters and reweight for posterior
     std::vector<double> OscParProp = {0.3, 0.5, 0.020, 7.53e-5, 2.494e-3, 0.0, 295, 2.6, 0.5, 15};
@@ -57,7 +57,7 @@ int main(int argc, char *argv[])
 
     for (int TestStat = 0; TestStat < TestStatistic::kNTestStatistics; ++TestStat) {
       Sample->SetTestStatistic(TestStatistic(TestStat));
-      outFile<< "Sample: "<< NameTString << " LLH is: " << std::fixed << std::setprecision(6) << Sample->GetLikelihood() <<" using: " << TestStatistic_ToString(TestStatistic(TestStat)) <<" test stat"<< std::endl;
+      outFile<< "Sample: "<< NameTString << " LLH is: " << std::fixed << std::setprecision(6) << std::fabs(Sample->GetLikelihood()) <<" using: " << TestStatistic_ToString(TestStatistic(TestStat)) <<" test stat"<< std::endl;
     }
 
     // Clean up dynamically allocated Sample if needed
