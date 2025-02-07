@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1738951762112,
+  "lastUpdate": 1738952522687,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -943,6 +943,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 437.489,
             "range": "± 9.21214",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "6f2e84e01bd85a18dfc7cac8b2c91f420b10cad7",
+          "message": "Merge pull request #330 from mach3-software/feature_SplineTidy\n\ntidy: Proper descturctors for spline related classes",
+          "timestamp": "2025-02-07T18:17:47Z",
+          "tree_id": "1d70b0f619eecbdb9302f8de2e1ec13e00702548",
+          "url": "https://github.com/mach3-software/MaCh3/commit/6f2e84e01bd85a18dfc7cac8b2c91f420b10cad7"
+        },
+        "date": 1738952521085,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.68424,
+            "range": "± 68.9709",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.45033,
+            "range": "± 49.4336",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 443.956,
+            "range": "± 4.19876",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
