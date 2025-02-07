@@ -40,8 +40,8 @@ void BinnedSplineTutorial::FillSampleArray(std::string SampleName, std::vector<s
     TSpline3* mySpline = new TSpline3();
     TSpline3_red* Spline = nullptr;
     TString Syst, Mode;
-    int nKnots, SystNum, ModeNum, Var1Bin, Var2Bin, Var3Bin = _BAD_INT_;
-    double x,y, Eval = _BAD_DOUBLE_;
+    int nKnots, SystNum, ModeNum, Var1Bin, Var2Bin, Var3Bin = M3::_BAD_INT_;
+    double x,y, Eval = M3::_BAD_DOUBLE_;
     bool isFlat = true;
 
     auto File = std::unique_ptr<TFile>(TFile::Open(OscChanFileNames[iOscChan].c_str()));
