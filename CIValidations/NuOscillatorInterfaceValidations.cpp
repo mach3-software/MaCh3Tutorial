@@ -1,8 +1,7 @@
-#include <Constants/OscillatorConstants.h>
 #include "Utils/Comparison.h"
 
 #include "Oscillator/OscillatorFactory.h"
-
+#include "Constants/OscillatorConstants.h"
 #include "spdlog/fmt/bundled/core.h"
 
 #include <cmath>

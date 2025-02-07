@@ -38,9 +38,7 @@ make install
 ```
 then
 ```bash
-source bin/setup.MaCh3.sh
 source bin/setup.MaCh3Tutorial.sh
-source bin/setup.NuOscillator.sh
 ```
 alternatively you can use containers by
 ```bash
@@ -51,7 +49,7 @@ To reed more how to use containers check our wiki [here](https://github.com/mach
 ## How to run MCMC
 To run MCMC simply
 ```bash
-./bin/MCMCTutorial Inputs/FitterConfig.yaml
+./bin/MCMCTutorial TutorialConfigs/FitterConfig.yaml
 ```
 Congratulations! 🎉
 You have just completed finished you first MCMC chain.
@@ -67,7 +65,7 @@ One of plots you will encounter is:
 
 It is marginalised posterior of a single parameter. This is main output of MCMC.
 
-**WARNING** Your posterior may look very shaky and slightly different to one in example. This is because you run chain with low number of steps. Meaning you don't have enough statistic to build posterior distribution. You can easily modify in `Inputs/FitterConfig.yaml`
+**WARNING** Your posterior may look very shaky and slightly different to one in example. This is because you run chain with low number of steps. Meaning you don't have enough statistic to build posterior distribution. You can easily modify in `TutorialConfigs/FitterConfig.yaml`
 ```yaml
 General:
   MCMC:
@@ -79,7 +77,7 @@ It is good homework to increase number of steps and see how much more smooth pos
 
 Alternatively you can achieve samy way of modifying configs by using command line
 ```bash
-./bin/MCMCTutorial Inputs/FitterConfig.yaml General:MCMC:NSteps:100000
+./bin/MCMCTutorial TutorialConfigs/FitterConfig.yaml General:MCMC:NSteps:100000
 ```
 
 **ProcessMCMC** has much more plotting options, we recommend to see [here](https://github.com/mach3-software/MaCh3/wiki/09.-Bayesian-Analysis,-Plotting-and-MCMC-Processor) to get better idea what each plot mean.
@@ -97,7 +95,7 @@ Output should look like file below, and it convey same information as individual
 
 ## How to Develop Model of Systematic Uncertainties
 In the next step you gonna modify analysis setup and repeat steps.
-First let's better understand `Inputs/SystematicModel.yaml`. This config controls what systematic uncertainties will be used in the analysis for example like this:
+First let's better understand `TutorialConfigs/CovObjs/SystematicModel.yaml`. This config controls what systematic uncertainties will be used in the analysis for example like this:
 ```yaml
 - Systematic:
     Names:
@@ -123,12 +121,12 @@ If you want to read more about implementation please go [here](https://github.co
 
 As first step let's modify `Error: 0.11` to `Error: 2.0`, this should significantly modify error which should be noticeable in MCMC.
 
-Lastly we need to modify name of output file. This is governed by manager class (read more [here](https://github.com/mach3-software/MaCh3/wiki/01.-Manager-and-config-handling)) modify `OutputFile: "Test.root"` in `Inputs/FitterConfig.yaml` to for example
+Lastly we need to modify name of output file. This is governed by manager class (read more [here](https://github.com/mach3-software/MaCh3/wiki/01.-Manager-and-config-handling)) modify `OutputFile: "Test.root"` in `TutorialConfigs/FitterConfig.yaml` to for example
 `OutputFile: "Test_Modified.root"`.
 
 Now let's run MCMC again
 ```bash
-./bin/MCMCTutorial Inputs/FitterConfig.yaml
+./bin/MCMCTutorial TutorialConfigs/FitterConfig.yaml
 ```
 Congratulations! 🎉
 Next step is to compare both chains.
@@ -141,7 +139,7 @@ Now that you have two chains you can try comparing them using following.
 This will produce pdf file with overlayed posteriors. Most should be similarly except modified parameter.
 
 ### More Advanced Systematic Development
-Sometimes you may want to fix parameter, for example if it causing problem to the fitter or you want to run fit with and without parameters to compare results. To fix parameter just pass name in the `Inputs/FitterConfig.yaml`
+Sometimes you may want to fix parameter, for example if it causing problem to the fitter or you want to run fit with and without parameters to compare results. To fix parameter just pass name in the `TutorialConfigs/CovObjs/FitterConfig.yaml`
 ```yaml
 General:
   Systematics:
@@ -149,7 +147,7 @@ General:
 ```
 
 ## How to Develop New Samples
-First we gonna investigate how to modify sample, let's take a look at `Inputs/SamplePDF_Tutorial.yaml`. Each sample has set of cuts right now we only introduce cut on `TrueNeutrinoEnergy`.
+First we gonna investigate how to modify sample, let's take a look at `TutorialConfigs/Samples/SamplePDF_Tutorial.yaml`. Each sample has set of cuts right now we only introduce cut on `TrueNeutrinoEnergy`.
 ```yaml
 SelectionCuts:
   - KinematicStr: "TrueNeutrinoEnergy"
@@ -174,15 +172,15 @@ You can try again to run MCMC and compare all 3 chains
 ```bash
 ./bin/ProcessMCMC bin/TutorialDiagConfig.yaml Test.root Default_Chain Test_Modified.root Modified_Chain Test_Modified_Sample.root ModifiedSameple_Chain
 ```
-Up to this point we only modified sample but how to add new one? First make copy of sample config `Inputs/SamplePDF_Tutorial.yaml` and call it `Inputs/SamplePDF_User.yaml`. For the moment feel free to change name, binning etc but keep inputs the same. Go wild! Next go to `Inputs/FitterConfig.yaml`
+Up to this point we only modified sample but how to add new one? First make copy of sample config `TutorialConfigs/Samples/SamplePDF_Tutorial.yaml` and call it `TutorialConfigs/Samples/SamplePDF_User.yaml`. For the moment feel free to change name, binning etc but keep TutorialConfigs/CovObjs the same. Go wild! Next go to `TutorialConfigs/Samples/FitterConfig.yaml`
 ```yaml
 General:
-  TutorialSamples: ["Inputs/SamplePDF_Tutorial.yaml"]
+  TutorialSamples: ["TutorialConfigs/Samples/SamplePDF_Tutorial.yaml"]
 ```
 To add you newly implemented sample you will have to expand config to for example:
 ```yaml
 General:
-  TutorialSamples: ["Inputs/SamplePDF_Tutorial.yaml", "Inputs/SamplePDF_User.yaml"]
+  TutorialSamples: ["TutorialConfigs/Samples/SamplePDF_Tutorial.yaml", "TutorialConfigs/Samples/SamplePDF_User.yaml"]
 ```
 
 ### Changing Oscillation Engine
@@ -193,14 +191,14 @@ MULTITHREAD MR2T2  PSO  Minuit2 Prob3ppLinear NuFast
 ```
 This way you can easily access information about MaCh3 features, fitter engines and most importantly oscillation engines.
 
-By default we use **NuFast**, however to change to for example **Prob3++** one have to modify sample config `Inputs/SamplePDF_Tutorial.yaml`:
+By default we use **NuFast**, however to change to for example **Prob3++** one have to modify sample config `TutorialConfigs/Samples/SamplePDF_Tutorial.yaml`:
 ```yaml
 NuOsc:
-  NuOscConfigFile: "Inputs/NuOscillator/Prob3ppLinear.yaml"
+  NuOscConfigFile: "TutorialConfigs/NuOscillator/Prob3ppLinear.yaml"
 ```
-In most cases this is enough. However you have to be aware that some engines require different number of parameters. In this example NuFast requires one additional parameter compared with Prob3ppLinear which is **Ye**. You will have to remove **Ye** from `Inputs/Osc_Test.yaml`
+In most cases this is enough. However you have to be aware that some engines require different number of parameters. In this example NuFast requires one additional parameter compared with Prob3ppLinear which is **Ye**. You will have to remove **Ye** from `TutorialConfigs/CovObjs/OscillationModel.yaml`
 
-Another useful setting is whether you want binned or unbinned oscillations, if you want to do this simple got to `Inputs/NuOscillator/Prob3ppLinear.yaml` and modify following path to **Unbinned**.
+Another useful setting is whether you want binned or unbinned oscillations, if you want to do this simple got to `TutorialConfigs/NuOscillator/Prob3ppLinear.yaml` and modify following path to **Unbinned**.
 ```yaml
 General:
   CalculationType: "Binned"
@@ -213,7 +211,7 @@ Up to this point Beam oscitation calculations have been discussed. In terms of M
 * Switch oscillation calculations to engine which supports Atmospheric for example CUDAProb3 (not to be confused with CUDAProb3Linear which supports beam only).
 * Modify Oscillation systematic yaml, instead of density/baseline (and **Ye**) it requires production height.
 
-In tutorial you can try uncommenting `Inputs/SamplePDF_Tutorial_ATM.yaml`.
+In tutorial you can try uncommenting `TutorialConfigs/Samples/SamplePDF_Tutorial_ATM.yaml`.
 
 ### More Advanced Development
 Not everything can be done by modifying config in sample implementation. Actual implementation is in`samplePDF/samplePDFTutorial` this class inherits from `samplePDFFDBase`. The latter class deals with actual reweighting and all heavy lifting. while samplePDFTutorial deals with MC loading etc. This is because each experiment has slightly different MC format and different information available.
@@ -232,13 +230,13 @@ You can read about other diagnostic here on [here](https://github.com/mach3-soft
 
 Best way to reduce auto-corelations is by step size tunning. There are two step-scale available.
 
-Global which affect identically every parameter and it is proportional to all parameters can be found in `Inputs/FitterConfig.yaml`:
+Global which affect identically every parameter and it is proportional to all parameters can be found in `TutorialConfigs/FitterConfig.yaml`:
 ```yaml
 General:
   Systematics:
     XsecStepScale: 0.05
 ```
-or individual step scale affecting single parameters which highly depend on parameters boundary sensitivity etc can be found in `Inputs/SystematicModel.yaml`.
+or individual step scale affecting single parameters which highly depend on parameters boundary sensitivity etc can be found in `TutorialConfigs/CovObjs/SystematicModel.yaml`.
 ```yaml
 - Systematic:
     Names:
@@ -291,7 +289,7 @@ There are plenty of useful settings in
 General:
   FittingAlgorithm: "MCMC"
 ```
-In `Inputs/FitterConfig.yaml` you should switch following setting to "Minuit2"
+In `TutorialConfigs/FitterConfig.yaml` you should switch following setting to "Minuit2"
 
 **LLH Type**:
 By default we use Barlow-Beeston LLH, however several are implemented. For example by changing config you can use Poisson or maybe IceCube.
@@ -312,7 +310,7 @@ Some examples on how to make some "standard" plots are given below.
 ### How to run LLH scan
 You can run MCMC in very similar way as MCMC
 ```bash
-./bin/LLHScanTutorial Inputs/FitterConfig.yaml
+./bin/LLHScanTutorial TutorialConfigs/FitterConfig.yaml
 ```
 You can plot the results of an LLH scan using the aptly named PlotLLH app like so
 

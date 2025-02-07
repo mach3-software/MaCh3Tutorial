@@ -6,7 +6,7 @@ name: Validations Python CI
 # on:
 #   pull_request:
 #     branches: [ main ]
-# This wrokflow temporary dont work, please uncoment this when fixed
+# This workflow temporary don't work, please uncomment this when fixed
 on:
   workflow_dispatch:  # Placeholder trigger to allow manual runs only
 
@@ -42,5 +42,5 @@ jobs:
         export PYTHONPATH=$PYTHONPATH:$PWD/python-test-modules/
         export MACH3=$PWD
         
-        python3 -m pytest --config Inputs/FitterConfig.yaml CIValidations/PythonTests
+        python3 -m pytest --config TutorialConfigs/FitterConfig.yaml CIValidations/PythonTests
         

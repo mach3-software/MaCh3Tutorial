@@ -13,7 +13,7 @@ int main(int argc, char *argv[])
   MACH3LOG_INFO("Testing LLH scan");
 
   std::string command = std::string(std::getenv("MaCh3Tutorial_ROOT")) + "/bin/LLHScanTutorial " +
-                        std::string(std::getenv("MaCh3Tutorial_ROOT")) + "/Inputs/FitterConfig.yaml";
+                        std::string(std::getenv("MaCh3Tutorial_ROOT")) + "/TutorialConfigs/FitterConfig.yaml";
   int ret = system(command.c_str());
   if (ret != 0) {
     MACH3LOG_WARN("Error: system call failed with code {}", ret);

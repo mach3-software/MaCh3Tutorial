@@ -64,4 +64,11 @@ add_to_PATH ${MaCh3Tutorial_ROOT}/CIValidations
 add_to_LD_LIBRARY_PATH ${MaCh3Tutorial_ROOT}/lib
 add_to_LD_LIBRARY_PATH ${MaCh3Tutorial_ROOT}/lib64
 
+echo "Sourcing MaCh3"
+if [ -n "@MaCh3_ROOT@" ]; then
+  source "@MaCh3_ROOT@/bin/setup.MaCh3.sh"
+else
+  source "${MaCh3_ROOT}/bin/setup.MaCh3.sh"
+fi
+
 unset SETUPDIR

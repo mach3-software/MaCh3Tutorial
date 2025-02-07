@@ -54,7 +54,7 @@ run_covariance_validations() {
 }
 
 run_nu_mcmc_tools_validations() {
-  ./bin/MCMCTutorial Inputs/FitterConfig.yaml
+  ./bin/MCMCTutorial TutorialConfigs/FitterConfig.yaml
   ./CIValidations/NuMCMCconversion Test.root NewChain.root
   pip install -r NuMCMCTools/requirements.txt
   export PYTHONPATH="$PYTHONPATH:${MaCh3Tutorial_ROOT}/NuMCMCTools"

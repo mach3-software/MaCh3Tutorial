@@ -61,14 +61,14 @@ int main(int argc, char *argv[])
     MACH3LOG_CRITICAL("You specified arguments, but none are needed. (Program name: {})", argv[0]);
     throw MaCh3Exception(__FILE__ , __LINE__ );
   }
-  std::vector<std::string> xsecCovMatrixFile = {"Inputs/SystematicModel.yaml"};
+  std::vector<std::string> xsecCovMatrixFile = {"TutorialConfigs/CovObjs/SystematicModel.yaml"};
   auto xsec = std::make_unique<covarianceXsec>(xsecCovMatrixFile, "xsec_cov");
 
-  std::vector<std::string> OscCovMatrixFile = {"Inputs/Osc_Test.yaml"};
+  std::vector<std::string> OscCovMatrixFile = {"TutorialConfigs/CovObjs/OscillationModel.yaml"};
   auto osc = std::make_unique<covarianceOsc>(OscCovMatrixFile, "osc_cov");
   osc->setParameters();
 
-  std::string SampleConfig = "Inputs/SamplePDF_Tutorial.yaml";
+  std::string SampleConfig = "TutorialConfigs/Samples/SamplePDF_Tutorial.yaml";
   auto SampleTutorial = std::make_unique<samplePDFpValue>(SampleConfig, xsec.get(), osc.get());
 
   std::string name = SampleTutorial->GetName();

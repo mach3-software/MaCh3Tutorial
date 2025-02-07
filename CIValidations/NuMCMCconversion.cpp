@@ -10,9 +10,9 @@
 
 int main(int argc, char *argv[])
 {
-  if (argc != 3)
-  {
-    return 1;
+  if (argc != 3) {
+    MACH3LOG_CRITICAL("Not enough arguments");
+    throw MaCh3Exception(__FILE__ , __LINE__ );
   }
 
   double t_sin2th_23;

@@ -131,7 +131,7 @@ configure_file(cmake/Templates/setup.MaCh3Tutorial.sh.in "${PROJECT_BINARY_DIR}$
 install(FILES "${PROJECT_BINARY_DIR}${CMAKE_FILES_DIRECTORY}/setup.MaCh3Tutorial.sh" DESTINATION ${CMAKE_INSTALL_PREFIX}/bin)
 
 ############################  Install  ####################################
-install(DIRECTORY Inputs DESTINATION ${CMAKE_BINARY_DIR})
+install(DIRECTORY TutorialConfigs DESTINATION ${CMAKE_BINARY_DIR})
 install(DIRECTORY plotting DESTINATION ${CMAKE_BINARY_DIR})
 
 include(CMakePackageConfigHelpers)

@@ -8,9 +8,11 @@
 #include <manager/MaCh3Logger.h>
 //****************************************
 
+_MaCh3_Safe_Include_Start_ //{
 //ROOT include
 #include "TKey.h"
 #include "TROOT.h"
+_MaCh3_Safe_Include_End_ //}
 
 BinnedSplineTutorial::BinnedSplineTutorial(covarianceXsec *xsec_cov) : splineFDBase(xsec_cov)
 {
