@@ -4,12 +4,12 @@ General:
   CalculationType: "Binned"
 
 Binned:
-  FileName: "./Inputs/NuOscillator/ExampleAtmosphericBinning.root"
+  FileName: "./TutorialConfigs/NuOscillator/ExampleAtmosphericBinning.root"
   EnergyAxisHistName: "EnergyAxisBinning"
   CosineZAxisHistName: "CosineZAxisBinning"
 
 OscProbCalcerSetup:
-  ImplementationName: "Prob3ppLinear"
+  ImplementationName: "NuFASTLinear"
   OscChannelMapping:
     - Entry: "Electron:Electron"
     - Entry: "Electron:Muon"

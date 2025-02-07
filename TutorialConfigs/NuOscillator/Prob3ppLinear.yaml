@@ -1,16 +1,15 @@
 General:
   Verbosity: "NONE"
-  CosineZIgnored: false
+  CosineZIgnored: true
   CalculationType: "Binned"
 
 Binned:
-  FileName: "./Inputs/NuOscillator/ExampleAtmosphericBinning.root"
+  FileName: "./TutorialConfigs/NuOscillator/ExampleAtmosphericBinning.root"
   EnergyAxisHistName: "EnergyAxisBinning"
   CosineZAxisHistName: "CosineZAxisBinning"
-  
+
 OscProbCalcerSetup:
-  ImplementationName: "CUDAProb3"
-  EarthModelFileName: "_deps/cudaprob3-src/models/PREM_4layer.dat"
+  ImplementationName: "Prob3ppLinear"
   OscChannelMapping:
     - Entry: "Electron:Electron"
     - Entry: "Electron:Muon"

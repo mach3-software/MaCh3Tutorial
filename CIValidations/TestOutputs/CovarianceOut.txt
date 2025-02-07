@@ -362,4 +362,14 @@ Eigen Value 6 = 0.000158666
 Eigen Value 7 = 7.57995e-05
 Eigen Value 8 = 4.29436e-05
 Sum of Eigen Value: 0.0396406
+Num of PCA pars: 9
+Param in PCA base: 0 = 3.05337
+Param in PCA base: 1 = 0.790701
+Param in PCA base: 2 = 0.17192
+Param in PCA base: 3 = 0.108279
+Param in PCA base: 4 = 0.0698494
+Param in PCA base: 5 = 0.0497946
+Param in PCA base: 6 = -0.0300388
+Param in PCA base: 7 = 0.0125508
+Param in PCA base: 8 = 0.028666
 Likelihood Osc=0.145056

@@ -1,7 +1,7 @@
 General:
   OutputFile: "Test.root"
-  TutorialSamples: ["Inputs/SamplePDF_Tutorial.yaml",
-                    #"Inputs/SamplePDF_Tutorial_ATM.yaml"
+  TutorialSamples: ["TutorialConfigs/Samples/SamplePDF_Tutorial.yaml",
+                    #"TutorialConfigs/Samples/SamplePDF_Tutorial_ATM.yaml"
                     ]
   FittingAlgorithm: "MCMC"
 
@@ -15,7 +15,7 @@ General:
   Debug: No
   RandomStart: false
   Seed: 0
-  MaCh3Modes: "Inputs/MaCh3Modes.yaml"
+  MaCh3Modes: "TutorialConfigs/MaCh3Modes.yaml"
   Fitter:
     FitTestLikelihood: false
   Minuit2:
@@ -41,15 +41,15 @@ General:
   Systematics:
     XsecCovName: "xsec_cov"
     XsecFix: [ ]
-    XsecCovFile: ["Inputs/SystematicModel.yaml",
-                  #"Inputs/PCATest.yaml"
+    XsecCovFile: ["TutorialConfigs/CovObjs/SystematicModel.yaml",
+                  #"TutorialConfigs/CovObjs/PCATest.yaml"
                   ]
     XsecPCAThreshold: -1
     XsecPCAParams: [-999, -999]
     XsecStepScale: 0.05
 
     OscCovName: "osc_cov"
-    OscCovFile: ["Inputs/Osc_Test.yaml"]
+    OscCovFile: ["TutorialConfigs/CovObjs/OscillationModel.yaml"]
     OscFix: ["baseline", "density", "Ye", "prod_height"]
     OscStepScale: 0.045
 

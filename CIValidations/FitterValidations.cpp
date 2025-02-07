@@ -6,7 +6,7 @@
 
 void FitVal(const std::string& Algo, bool MoreTests)
 {
-  std::string ManagerInput = "Inputs/FitterConfig.yaml";
+  std::string ManagerInput = "TutorialConfigs/FitterConfig.yaml";
   auto FitManager = std::make_unique<manager>(ManagerInput);
 
   MACH3LOG_INFO("Testing {}", Algo);
@@ -34,7 +34,7 @@ void FitVal(const std::string& Algo, bool MoreTests)
     throw MaCh3Exception(__FILE__ , __LINE__ );
   }
 
-  std::string SampleConfig = {"Inputs/SamplePDF_Tutorial.yaml"};
+  std::string SampleConfig = {"TutorialConfigs/Samples/SamplePDF_Tutorial.yaml"};
   auto Sample = std::make_unique<samplePDFTutorial>(SampleConfig, xsec.get(), osc.get());
   Sample->reweight();
   std::string name = Sample->GetName();
@@ -56,7 +56,7 @@ void FitVal(const std::string& Algo, bool MoreTests)
 
 void StartFromPosteriorTest(const std::string& PreviousName)
 {
-  std::string ManagerInput = "Inputs/FitterConfig.yaml";
+  std::string ManagerInput = "TutorialConfigs/FitterConfig.yaml";
   auto FitManager = std::make_unique<manager>(ManagerInput);
 
   FitManager->OverrideSettings("General", "OutputFile", "MCMC_Test_Start.root");

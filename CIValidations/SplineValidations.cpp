@@ -12,7 +12,7 @@ int main(int argc, char *argv[])
   }
   MACH3LOG_INFO("Testing Spline Monolith");
 
-  std::string Input = "Inputs/MC/SplineFile.root";
+  std::string Input = "TutorialConfigs/MC/SplineFile.root";
   std::vector<std::string> Dials = {"Spline_0", "Spline_1", "Spline_2", "Spline_3"};
   std::vector<double> Dial_Values = {1.21, 1, 1, 1};
   std::vector< std::vector<TResponseFunction_red*> > MasterSpline = GetMasterSpline(Input, Dials);

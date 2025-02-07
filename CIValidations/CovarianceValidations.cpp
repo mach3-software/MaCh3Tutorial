@@ -14,7 +14,7 @@ int main(int argc, char *argv[])
   }
 
 ////////////// Normal Xsec //////////////
-  std::vector<std::string> xsecCovMatrixFile = {"Inputs/SystematicModel.yaml"};
+  std::vector<std::string> xsecCovMatrixFile = {"TutorialConfigs/CovObjs/SystematicModel.yaml"};
   auto xsec = std::make_unique<covarianceXsec>(xsecCovMatrixFile, "xsec_cov");
 
   std::vector<double> ParProp = {1.05, 0.90, 1.10, 1.05, 1.05, 1.05, 1.05, 1.05, 1.70, 3.20, -1.10, -1.70};
@@ -92,7 +92,7 @@ int main(int argc, char *argv[])
 
 ////////////// Now PCA //////////////
   MACH3LOG_INFO("Testing PCA matrix");
-  xsecCovMatrixFile = {"Inputs/PCATest.yaml"};
+  xsecCovMatrixFile = {"TutorialConfigs/CovObjs/PCATest.yaml"};
   auto PCA = std::make_shared<covarianceXsec>(xsecCovMatrixFile, "xsec_cov", 0.001);
   std::vector<double>  EigenVal = PCA->getEigenValuesMaster();
   for(size_t i = 0; i < EigenVal.size(); i++) {
@@ -106,8 +106,13 @@ int main(int argc, char *argv[])
   }
   outFile << "Sum of Eigen Value: " << sum << std::endl;
 
+  outFile << "Num of PCA pars: " << PCA->getNpars() << std::endl;
+  for(int i = 0; i < PCA->getNpars(); i++){
+    outFile << "Param in PCA base: " << i << " = " << PCA->getParCurr_PCA(i) << std::endl;
+  }
+
 ////////////// Now Osc //////////////
-  std::vector<std::string> OscCovMatrixFile = {"Inputs/Osc_Test.yaml"};
+  std::vector<std::string> OscCovMatrixFile = {"TutorialConfigs/CovObjs/OscillationModel.yaml"};
   auto osc = std::make_unique<covarianceOsc>(OscCovMatrixFile, "osc_cov");
   std::vector<double> OscParProp = {0.3, 0.5, 0.020, 7.53e-5, 2.494e-3, 0.0, 295, 2.6, 0.5, 15};
   osc->setParameters(OscParProp);
@@ -143,7 +148,7 @@ AdaptionOptions:
 
   // Convert the string to a YAML node
   YAML::Node AdaptSetting = STRINGtoYAML(yamlContent);
-  std::vector<std::string> AdaptiveCovMatrixFile = {"Inputs/SystematicModel.yaml", "Inputs/PCATest.yaml"};
+  std::vector<std::string> AdaptiveCovMatrixFile = {"TutorialConfigs/CovObjs/SystematicModel.yaml", "TutorialConfigs/CovObjs/PCATest.yaml"};
   auto Adapt = std::make_unique<covarianceXsec>(AdaptiveCovMatrixFile, "xsec_cov");
   //KS: Let's make Doctor Wallace proud
   Adapt->initialiseAdaption(AdaptSetting);

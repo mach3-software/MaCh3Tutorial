@@ -1,4 +1,4 @@
-SampleName: "Tutorial"
+SampleName: "Tutorial ATM"
 
 POT: 2.1428e+21
 SelectionCuts:
@@ -10,14 +10,13 @@ Binning:
   XVarBins: [0.,  0.5,  1.,  1.25, 1.5, 1.75, 2., 2.25, 2.5, 2.75, 3., 3.25, 3.5, 3.75, 4., 5., 6., 10.]
 
 InputFiles:
-  mtupleprefix: "Inputs/MC/NuWro"
-  mtuplesuffix: "_FlatTree.root"
-  # No Splines
-  splineprefix: "Inputs/MC/BinnedSplinesTutorialInputs"
+  mtupleprefix: "TutorialConfigs/MC/NuWro"
+  mtuplesuffix: "_FlatTree_ATM.root"
+  splineprefix: "TutorialConfigs/MC/BinnedSplinesTutorialInputs"
   splinesuffix: "2D.root"
-DetID: "Tutorial Beam"
+DetID: "Tutorial ATM"
 NuOsc:
-  NuOscConfigFile: "Inputs/NuOscillator/NuFASTLinear.yaml"
+  NuOscConfigFile: "TutorialConfigs/NuOscillator/CUDAProb3.yaml"
   EqualBinningPerOscChannel: true
 
 NSubSamples: 1

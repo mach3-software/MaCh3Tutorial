@@ -11,16 +11,16 @@ int main(int argc, char *argv[])
     throw MaCh3Exception(__FILE__ , __LINE__ );
   }
 
-  std::vector<std::string> xsecCovMatrixFile = {"Inputs/SystematicModel.yaml"};
+  std::vector<std::string> xsecCovMatrixFile = {"TutorialConfigs/CovObjs/SystematicModel.yaml"};
   covarianceXsec* xsec = new covarianceXsec(xsecCovMatrixFile, "xsec_cov");
 
-  std::vector<std::string> OscCovMatrixFile = {"Inputs/Osc_Test.yaml"};
+  std::vector<std::string> OscCovMatrixFile = {"TutorialConfigs/CovObjs/OscillationModel.yaml"};
   covarianceOsc* osc = new covarianceOsc(OscCovMatrixFile, "osc_cov");
   osc->setParameters();
 
   // Open a file in write mode
   std::ofstream outFile("NewSampleOut.txt");
-  std::vector<std::string> SampleConfig = {"Inputs/SamplePDF_Tutorial.yaml", "Inputs/SamplePDF_Tutorial_ATM.yaml"};
+  std::vector<std::string> SampleConfig = {"TutorialConfigs/Samples/SamplePDF_Tutorial.yaml", "TutorialConfigs/Samples/SamplePDF_Tutorial_ATM.yaml"};
   for (const auto& configPath : SampleConfig) {
     samplePDFTutorial *Sample = new samplePDFTutorial({configPath}, xsec, osc);
 
@@ -45,7 +45,7 @@ int main(int argc, char *argv[])
     // Process posterior histogram
     TH1D *SampleHistogramPost = (TH1D*)Sample->get1DHist()->Clone(NameTString + "_Post");
     outFile << "Rates Post:" << SampleHistogramPrior->Integral() << std::endl;
-    outFile << "Likelihood:" << Sample->GetLikelihood() << std::endl;
+    outFile << "Likelihood:" << std::fabs(Sample->GetLikelihood()) << std::endl;
 
     MACH3LOG_INFO("Now trying to compare each weight individually");
     for (int iSample = 0; iSample < Sample->getNMCSamples(); ++iSample) {

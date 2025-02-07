@@ -43,9 +43,9 @@ class test_sample(sample_pdf.SamplePDFBase):
 
         self.proposed_param_array = np.asarray(xsec_cov.get_proposal_array())
 
-        self.setup_splines("Inputs/MC/SplineFile.root")
+        self.setup_splines("TutorialConfigs/MC/SplineFile.root")
         
-        self.setup_MC("Inputs/MC/SplineFile.root")
+        self.setup_MC("TutorialConfigs/MC/SplineFile.root")
 
         # Get the nominal event rate which we will later use as our "data"
         self.setup_asimov_data()
