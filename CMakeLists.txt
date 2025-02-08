@@ -84,6 +84,10 @@ if(NOT MaCh3_FOUND)
     list(APPEND MaCh3_OPTIONS "LOG_LEVEL ${LOG_LEVEL}")
   endif()
 
+  if (MaCh3Tutorial_NATIVE_ENABLED)
+    list(APPEND MaCh3_OPTIONS "MaCh3_NATIVE_ENABLED ON")
+  endif()
+
   CPMAddPackage(
     NAME MaCh3
     GIT_TAG ${MaCh3_Branch}
