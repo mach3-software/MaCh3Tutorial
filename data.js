@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1739205680001,
+  "lastUpdate": 1739205775801,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -1078,6 +1078,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 436.416,
             "range": "± 4.22508",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "583428917463c8bf3630f32f440ac7ebd55b044d",
+          "message": "Merge pull request #335 from mach3-software/feature_crackpot\n\nfeat: Crackpot speedup",
+          "timestamp": "2025-02-10T16:38:44Z",
+          "tree_id": "041418c8ec7c723d74505eb20669ccaef97107b3",
+          "url": "https://github.com/mach3-software/MaCh3/commit/583428917463c8bf3630f32f440ac7ebd55b044d"
+        },
+        "date": 1739205774263,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.82346,
+            "range": "± 47.7",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.60157,
+            "range": "± 59.6176",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 442.524,
+            "range": "± 4.22391",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
