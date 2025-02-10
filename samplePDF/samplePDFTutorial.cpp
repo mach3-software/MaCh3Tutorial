@@ -224,6 +224,10 @@ std::vector<double> samplePDFTutorial::ReturnKinematicParameterBinning(std::stri
       nBins = 20;
       bin_width = 0.5; //GeV
       break;
+    case(kTrueQ2):
+      nBins = 10;
+      bin_width = 1.0;
+      break;
     default:
       nBins = 10;
       bin_width = 1.0;
