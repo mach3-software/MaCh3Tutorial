@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1738955655347,
+  "lastUpdate": 1739205680001,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -1033,6 +1033,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 431.699,
             "range": "± 5.38188",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "23d330254a91faee64b8f61d09e5999c873cbf7f",
+          "message": "Merge pull request #338 from mach3-software/feature_SafeEnum\n\nfeat: Safe Enum",
+          "timestamp": "2025-02-10T16:37:18Z",
+          "tree_id": "28f619b74729afe93a076a41890274cad301a649",
+          "url": "https://github.com/mach3-software/MaCh3/commit/23d330254a91faee64b8f61d09e5999c873cbf7f"
+        },
+        "date": 1739205678804,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.75101,
+            "range": "± 57.1497",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.52218,
+            "range": "± 423.093",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 436.416,
+            "range": "± 4.22508",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
