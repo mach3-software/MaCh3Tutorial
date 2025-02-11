@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1739273333493,
+  "lastUpdate": 1739291936317,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -1168,6 +1168,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 444.075,
             "range": "± 4.87277",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "b96bb3a34e69c1581851cd6c7fef0a93a0da2999",
+          "message": "Merge pull request #341 from mach3-software/feature_Hack\n\nbugfix: Stop seeing CUDALinear on GPU problem",
+          "timestamp": "2025-02-11T16:34:35Z",
+          "tree_id": "e319ced6e527e899cf52ebd1e76712725f04925a",
+          "url": "https://github.com/mach3-software/MaCh3/commit/b96bb3a34e69c1581851cd6c7fef0a93a0da2999"
+        },
+        "date": 1739291934631,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.62268,
+            "range": "± 129.235",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.29309,
+            "range": "± 66.854",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 444.51,
+            "range": "± 3.43805",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
