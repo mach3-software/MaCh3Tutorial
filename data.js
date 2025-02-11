@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1739205775801,
+  "lastUpdate": 1739273333493,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -1123,6 +1123,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 442.524,
             "range": "± 4.22391",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "f64ac5298758224ac53feaeb4cd136856cde8c90",
+          "message": "bugfix: Make auto setting of NuOsc safer in land of coantianer and random variabels floating around",
+          "timestamp": "2025-02-11T11:24:47Z",
+          "tree_id": "9935c0b229ad38342591f335910baaa948211cb9",
+          "url": "https://github.com/mach3-software/MaCh3/commit/f64ac5298758224ac53feaeb4cd136856cde8c90"
+        },
+        "date": 1739273332347,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.68838,
+            "range": "± 98.0041",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.54384,
+            "range": "± 70.9385",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 444.075,
+            "range": "± 4.87277",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
