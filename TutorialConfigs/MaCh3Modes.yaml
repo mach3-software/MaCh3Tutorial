@@ -6,7 +6,14 @@ GeneratorName: "NuWro"
 MaCh3Modes: [
   "CCQE",
   "CC2p2h",
-  ]
+  "CC1pipm",
+  "CC1pi0",
+  "CCMPi",
+  "CCDIS",
+  "NCQE",
+  "NC1pipm",
+  "NC1pi0",
+]
 
 CCQE:
   Name: "CCQE"
@@ -17,3 +24,39 @@ CC2p2h:
   Name: "CC2p2h"
   GeneratorMaping: [2]
   # 2 = (Nieves) 2p2h aka MEC
+
+CC1pipm:
+  Name: "CC1pipm"
+  GeneratorMaping: [11, 12, 13]
+  # 11, 12, 13 = CC 1π±
+
+CC1pi0:
+  Name: "CC1pi0"
+  GeneratorMaping: [14]
+  # 14 = CC 1π0
+
+CCMPi:
+  Name: "CC Multi-Pi"
+  GeneratorMaping: [21]
+  # 21 = CC Multi-Pion
+
+CCDIS:
+  Name: "CC DIS"
+  GeneratorMaping: [26]
+  # 26 = CC Deep Inelastic Scattering
+
+NCQE:
+  Name: "NCQE"
+  GeneratorMaping: [51, 52]
+  # 51 = NC QE 1p, 52 = NC QE 1n
+
+NC1pipm:
+  Name: "NC 1π±"
+  GeneratorMaping: [33, 34]
+  # 33 = NC 1π-1p, 34 = NC 1π+1n
+
+NC1pi0:
+  Name: "NC 1π0"
+  GeneratorMaping: [31, 32]
+  # 31 = NC 1π0+1n, 32 = NC 1π0+1p
+

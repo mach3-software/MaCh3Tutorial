@@ -37,7 +37,7 @@ void BinnedSplineTutorial::FillSampleArray(std::string SampleName, std::vector<s
   
   for (int iOscChan = 0; iOscChan < nOscChannels; iOscChan++) {
     MACH3LOG_INFO("Processing: {}", OscChanFileNames[iOscChan]);
-    TSpline3* mySpline = new TSpline3();
+    TSpline3* mySpline = nullptr;
     TSpline3_red* Spline = nullptr;
     TString Syst, Mode;
     int nKnots, SystNum, ModeNum, Var1Bin, Var2Bin, Var3Bin = M3::_BAD_INT_;
@@ -161,8 +161,6 @@ void BinnedSplineTutorial::FillSampleArray(std::string SampleName, std::vector<s
     File->Delete("*");
     File->Close();
   } //End of oscillation channel loop
-
-  return;
 }
 
 //****************************************
