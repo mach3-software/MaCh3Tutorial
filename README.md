@@ -38,6 +38,7 @@ make install
 ```
 then
 ```bash
+source bin/setup.MaCh3.sh
 source bin/setup.MaCh3Tutorial.sh
 ```
 alternatively you can use containers by

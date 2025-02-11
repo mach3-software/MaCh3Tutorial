@@ -24,8 +24,6 @@ find_program(CMAKE_CXX_COMPILER NAMES $ENV{CXX} g++ PATHS ENV PATH NO_DEFAULT_PA
 
 LIST(APPEND CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake/Modules)
 
-message("CMAKE SOURCE_DIR IS ${CMAKE_SOURCE_DIR}")
-
 ################################################################################
 #                            Check Dependencies
 ################################################################################

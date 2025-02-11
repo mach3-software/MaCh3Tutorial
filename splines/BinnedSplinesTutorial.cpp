@@ -161,8 +161,6 @@ void BinnedSplineTutorial::FillSampleArray(std::string SampleName, std::vector<s
     File->Delete("*");
     File->Close();
   } //End of oscillation channel loop
-
-  return;
 }
 
 //****************************************
