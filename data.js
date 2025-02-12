@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1739291936317,
+  "lastUpdate": 1739360142893,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -1213,6 +1213,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 444.51,
             "range": "± 3.43805",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "9e8a31667dfbc4ab77e733019a15a638f01b9a5e",
+          "message": "Merge pull request #339 from mach3-software/feature_OscProcessor\n\nfeat: First Version of Osc Processor",
+          "timestamp": "2025-02-12T11:31:28Z",
+          "tree_id": "7531cfb4fa9c7855929be4680a3efb492f3f1f55",
+          "url": "https://github.com/mach3-software/MaCh3/commit/9e8a31667dfbc4ab77e733019a15a638f01b9a5e"
+        },
+        "date": 1739360141626,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.70337,
+            "range": "± 62.5373",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.45296,
+            "range": "± 40.7813",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 442.67,
+            "range": "± 3.70236",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
