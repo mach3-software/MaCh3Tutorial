@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1739376555050,
+  "lastUpdate": 1739377801985,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -1303,6 +1303,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 439.827,
             "range": "± 7.59426",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "b5a61aa55858b987df64eda5b80480b2e495572e",
+          "message": "Merge pull request #343 from mach3-software/barrow257/bugfix/splineFDBugFix\n\nbugfix: delete -> delete [] for isflatarray",
+          "timestamp": "2025-02-12T16:25:55Z",
+          "tree_id": "c898c1894d071d1f493b26fc43da7c3b91b8a6c3",
+          "url": "https://github.com/mach3-software/MaCh3/commit/b5a61aa55858b987df64eda5b80480b2e495572e"
+        },
+        "date": 1739377800840,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 3.01181,
+            "range": "± 1.6632",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.54545,
+            "range": "± 707.916",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 434.073,
+            "range": "± 4.1092",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
