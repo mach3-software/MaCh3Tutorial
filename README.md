@@ -55,6 +55,7 @@ To run MCMC simply
 Congratulations! 🎉
 You have just completed finished you first MCMC chain. You can view `Test.root` for example in TBrowser like in plot below.
 
+<img width="350" alt="Posterior example" src="https://github.com/user-attachments/assets/6d4c97e2-f36b-456e-8e7b-1751f142d2ac">
 
 Single entry in tree represent single MCMC step. Other then debug purposes it is highly recommended to use MaCh3 processing tools.
 
