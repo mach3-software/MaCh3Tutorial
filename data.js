@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1739377801985,
+  "lastUpdate": 1739387209960,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -1348,6 +1348,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 434.073,
             "range": "± 4.1092",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "439ab056532dc3135d57ba4bea5ed03d600ccb74",
+          "message": "Merge pull request #342 from mach3-software/feature_CmakeCPU\n\nbreaking: Better workflow for GPU in cmake",
+          "timestamp": "2025-02-12T19:02:43Z",
+          "tree_id": "9a575c223b53ac87d0dfb6df7bc73e93a7f8572a",
+          "url": "https://github.com/mach3-software/MaCh3/commit/439ab056532dc3135d57ba4bea5ed03d600ccb74"
+        },
+        "date": 1739387208713,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.73613,
+            "range": "± 86.7472",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.52855,
+            "range": "± 69.3325",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 438.954,
+            "range": "± 4.44794",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
