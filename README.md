@@ -53,14 +53,18 @@ To run MCMC simply
 ./bin/MCMCTutorial TutorialConfigs/FitterConfig.yaml
 ```
 Congratulations! 🎉
-You have just completed finished you first MCMC chain.
+You have just completed finished you first MCMC chain. You can view `Test.root` for example in TBrowser like in plot below.
+
+
+Single entry in tree represent single MCMC step. Other then debug purposes it is highly recommended to use MaCh3 processing tools.
 
 ### MCMC Chain
 Being able to visualise and analyse output of MCMC is standard procedure after chain has finished, you can produce simple plots with
 ```bash
 ./bin/ProcessMCMC bin/TutorialDiagConfig.yaml Test.root
 ```
-where **Test.root** is the output of running MCMCTutorial as described [here](#how-to-run-mcmc)
+where **Test.root** is the output of running MCMCTutorial as described [here](#how-to-run-mcmc).
+You can find results in **Test_drawCorr.pdf**
 One of plots you will encounter is:
 <img width="350" alt="Posterior example" src="https://github.com/user-attachments/assets/1073a76e-5d82-4321-8952-e098d1b0717f">
 
@@ -76,7 +80,7 @@ It is good homework to increase number of steps and see how much more smooth pos
 
 **Warning**: If you modified files in main folder not build you will have to call make install!
 
-Alternatively you can achieve samy way of modifying configs by using command line
+Alternatively you can achieve same way of modifying configs by using command line
 ```bash
 ./bin/MCMCTutorial TutorialConfigs/FitterConfig.yaml General:MCMC:NSteps:100000
 ```

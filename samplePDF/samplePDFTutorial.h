@@ -4,11 +4,11 @@
 #include "samplePDF/samplePDFFDBase.h"
 #include "samplePDF/StructsTutorial.h"
 
-class samplePDFTutorial : virtual public samplePDFFDBase
+class samplePDFTutorial : public samplePDFFDBase
 {
  public:
   samplePDFTutorial(std::string mc_version, covarianceXsec* xsec_cov, covarianceOsc* osc_cov = nullptr);
-  ~samplePDFTutorial();
+  virtual ~samplePDFTutorial();
   enum KinematicTypes {kTrueNeutrinoEnergy, kTrueQ2};
 
   std::vector<double> ReturnKinematicParameterBinning(std::string KinematicParameter) override;

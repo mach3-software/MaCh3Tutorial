@@ -1,13 +1,12 @@
-#include "samplePDF/samplePDFTutorial.h"
-#include <samplePDF/Structs.h>
-#include <splines/splineFDBase.h>
+#include "splines/splineFDBase.h"
 #include "StructsTutorial.h"
 #include "splines/BinnedSplinesTutorial.h"
+#include "samplePDF/samplePDFTutorial.h"
+#include "splines/splineFDBase.h"
 
 // ************************************************
 samplePDFTutorial::samplePDFTutorial(std::string mc_version_, covarianceXsec* xsec_cov_, covarianceOsc* osc_cov_) : samplePDFFDBase(mc_version_, xsec_cov_, osc_cov_) {
 // ************************************************
-
   KinematicParameters = &KinematicParametersTutorial;
   ReversedKinematicParameters = &ReversedKinematicParametersTutorial;
 
@@ -15,7 +14,10 @@ samplePDFTutorial::samplePDFTutorial(std::string mc_version_, covarianceXsec* xs
   Initialise();
 }
 
+// ************************************************
 samplePDFTutorial::~samplePDFTutorial() {
+// ************************************************
+
 }
 
 // ************************************************
@@ -36,15 +38,13 @@ void samplePDFTutorial::Init() {
 void samplePDFTutorial::SetupSplines() {
 // ************************************************
   SplineHandler = nullptr;
-  
+
   if(XsecCov->GetNumParamsFromDetID(SampleDetID, SystType::kSpline) > 0){
     SplineHandler = std::unique_ptr<splineFDBase>(new BinnedSplineTutorial(XsecCov));
     InitialiseSplineObject();
   } else {
     MACH3LOG_WARN("Not using splines");
   }
-
-  return;
 }
 // ************************************************
 void samplePDFTutorial::SetupWeightPointers() {
@@ -59,7 +59,9 @@ void samplePDFTutorial::SetupWeightPointers() {
   }
 }
 
+// ************************************************
 int samplePDFTutorial::setupExperimentMC(int iSample) {
+// ************************************************
 
   tutorial_base *tutobj = &(TutorialSamples[iSample]);
   int nutype = sample_nupdgunosc[iSample];

@@ -3,12 +3,11 @@
 #include "samplePDF/samplePDFTutorial.h"
 #include "mcmc/SampleSummary.h"
 
-class samplePDFpValue : virtual public samplePDFTutorial
+class samplePDFpValue : public samplePDFTutorial
 {
   public:
     samplePDFpValue(std::string mc_version, covarianceXsec* xsec_cov, covarianceOsc* osc_cov)
     : samplePDFTutorial(mc_version, xsec_cov, osc_cov),
-    samplePDFFDBase(mc_version, xsec_cov, osc_cov),
     SampleBlarbTitle({
       "FGD1_numuCC_0pi_0_protons_no_photon",
       "FGD1_numuCC_0pi_N_protons_no_photon",
