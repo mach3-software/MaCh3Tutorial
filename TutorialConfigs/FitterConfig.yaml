@@ -51,16 +51,17 @@ General:
     OscFix: ["baseline", "density", "Ye", "prod_height"]
     OscStepScale: 0.045
 
-  Predictive:
-    Ntoy: 10
-    #Ntoy: 5000
-    #Use Full LLH or only sample contribution based on discussion with Asher we almost always only want the sample likelihood
-    FullLLH: false
-    PosteriorFiles: "EMPTY"
+# Prior/Posterior predictive settings
+Predictive:
+  Ntoy: 10
+  #Ntoy: 5000
+  #Use Full LLH or only sample contribution based on discussion with Asher we almost always only want the sample likelihood
+  FullLLH: false
+  PosteriorFiles: "EMPTY"
 
 # LLH Scan settings  
 LLHScan:
-  #Save individual sample contributions to the LLH
+  # Save individual sample contributions to the LLH
   LLHScanBySample: false
   # Number of points we run LLH scans for each systematic
   LLHScanPoints: 50 
