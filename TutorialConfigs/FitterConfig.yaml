@@ -57,12 +57,13 @@ General:
     #Use Full LLH or only sample contribution based on discussion with Asher we almost always only want the sample likelihood
     FullLLH: false
     PosteriorFiles: "EMPTY"
-  
-  LLHScan:
-    #Save individual sample contributions to the LLH
-    LLHScanBySample: false
-    # Number of points we run LLH scans for each systematic
-    LLHScanPoints: 50 
+
+# LLH Scan settings  
+LLHScan:
+  #Save individual sample contributions to the LLH
+  LLHScanBySample: false
+  # Number of points we run LLH scans for each systematic
+  LLHScanPoints: 50 
 
 LikelihoodOptions:
   #False means you calculate W2 histogram only during first reweight, advisable for Barlow-Beeston
