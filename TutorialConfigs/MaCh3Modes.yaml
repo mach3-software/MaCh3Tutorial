@@ -18,45 +18,63 @@ MaCh3Modes: [
 CCQE:
   Name: "CCQE"
   GeneratorMaping: [1]
+  IsNC: false
+  PlotColor: 1  
   # 1 = CCQE
 
 CC2p2h:
   Name: "CC2p2h"
   GeneratorMaping: [2]
+  IsNC: false
+  PlotColor: 2  
   # 2 = (Nieves) 2p2h aka MEC
 
 CC1pipm:
   Name: "CC1pipm"
   GeneratorMaping: [11, 12, 13]
+  IsNC: false
+  PlotColor: 3  
   # 11, 12, 13 = CC 1π±
 
 CC1pi0:
   Name: "CC1pi0"
   GeneratorMaping: [14]
+  IsNC: false
+  PlotColor: 4  
   # 14 = CC 1π0
 
 CCMPi:
   Name: "CC Multi-Pi"
   GeneratorMaping: [21]
+  IsNC: false
+  PlotColor: 5  
   # 21 = CC Multi-Pion
 
 CCDIS:
   Name: "CC DIS"
   GeneratorMaping: [26]
+  IsNC: false
+  PlotColor: 6  
   # 26 = CC Deep Inelastic Scattering
 
 NCQE:
   Name: "NCQE"
   GeneratorMaping: [51, 52]
+  IsNC: true
+  PlotColor: 7
   # 51 = NC QE 1p, 52 = NC QE 1n
 
 NC1pipm:
   Name: "NC 1π±"
   GeneratorMaping: [33, 34]
+  IsNC: true
+  PlotColor: 8  
   # 33 = NC 1π-1p, 34 = NC 1π+1n
 
 NC1pi0:
   Name: "NC 1π0"
   GeneratorMaping: [31, 32]
+  IsNC: true
+  PlotColor: 9
   # 31 = NC 1π0+1n, 32 = NC 1π0+1p
 
