@@ -1,7 +1,7 @@
 SampleName: "Tutorial ATM"
 
 POT: 2.1428e+21
-MaCh3ModeConfig: "configs/MaCh3Modes.yaml"
+MaCh3ModeConfig: "TutorialConfigs/MaCh3Modes.yaml"
 SelectionCuts:
   - KinematicStr: "TrueNeutrinoEnergy"
     Bounds: [ 0., 4 ]
