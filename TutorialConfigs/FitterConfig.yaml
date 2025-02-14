@@ -64,7 +64,9 @@ LLHScan:
   # Save individual sample contributions to the LLH
   LLHScanBySample: false
   # Number of points we run LLH scans for each systematic
-  LLHScanPoints: 50 
+  LLHScanPoints: 50
+  # Add physical ranges for special params whose priors/errors are maybe not well defined
+  #ScanRanges:
 
 LikelihoodOptions:
   #False means you calculate W2 histogram only during first reweight, advisable for Barlow-Beeston
