@@ -65,10 +65,11 @@ LLHScan:
   LLHScanBySample: false
   # Number of points we run LLH scans for each systematic
   LLHScanPoints: 50
-  # Add physical ranges for special params whose priors/errors are maybe not well defined
-  #ScanRanges:
-
+  # Add physical ranges for special params whose priors/errors may not be well well-defined
+  ScanRanges:
+    delta_cp: [-3.14,3.14]
+    
 LikelihoodOptions:
-  #False means you calculate W2 histogram only during first reweight, advisable for Barlow-Beeston
+  #False means you calculate W2 histogram only during the first reweight, advisable for Barlow-Beeston
   UpdateW2: false
   TestStatistic: "Barlow-Beeston"
