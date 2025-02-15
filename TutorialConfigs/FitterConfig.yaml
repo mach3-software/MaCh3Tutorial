@@ -64,7 +64,7 @@ LLHScan:
   # Save individual sample contributions to the LLH
   LLHScanBySample: false
   # Number of points we run LLH scans for each systematic
-  LLHScanPoints: 50
+  #LLHScanPoints: 50
   # Add physical ranges for special params whose priors/errors may not be well well-defined
   ScanRanges:
     #delta_cp: [-3.14,3.14]
