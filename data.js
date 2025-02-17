@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1739789883445,
+  "lastUpdate": 1739798261271,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -1483,6 +1483,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 439.501,
             "range": "± 4.55607",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "31003009+dbarrow257@users.noreply.github.com",
+            "name": "dbarrow257",
+            "username": "dbarrow257"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "ad55c870c0823f565c4a967cf9b39899562b3c98",
+          "message": "Merge pull request #345 from mach3-software/dbarrow257/feature/MoveSKFeaturesToCore\n\nfeat: Move all SK functionality into core",
+          "timestamp": "2025-02-17T13:13:30Z",
+          "tree_id": "fbc20bca443a48ed1d62ba300371ea33904b7ceb",
+          "url": "https://github.com/mach3-software/MaCh3/commit/ad55c870c0823f565c4a967cf9b39899562b3c98"
+        },
+        "date": 1739798260058,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.63475,
+            "range": "± 69.4929",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.34817,
+            "range": "± 85.6688",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 442.084,
+            "range": "± 5.8355",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
