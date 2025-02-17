@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1739799133509,
+  "lastUpdate": 1739800006108,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -1573,6 +1573,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 439.071,
             "range": "± 4.28955",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "31003009+dbarrow257@users.noreply.github.com",
+            "name": "dbarrow257",
+            "username": "dbarrow257"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "5a3c2a5f827f83c7645f1188b4352ed816818122",
+          "message": "Merge pull request #337 from mach3-software/feature_UnifyFindSegment\n\nfeat: Unify find spline segment",
+          "timestamp": "2025-02-17T13:42:38Z",
+          "tree_id": "463111c951423eee31a0e3a18a5bac46b49df83d",
+          "url": "https://github.com/mach3-software/MaCh3/commit/5a3c2a5f827f83c7645f1188b4352ed816818122"
+        },
+        "date": 1739800004827,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.57633,
+            "range": "± 80.6622",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.31272,
+            "range": "± 41.523",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 430.366,
+            "range": "± 3.82861",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
