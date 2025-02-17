@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1739798261271,
+  "lastUpdate": 1739799133509,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -1528,6 +1528,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 442.084,
             "range": "± 5.8355",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "31003009+dbarrow257@users.noreply.github.com",
+            "name": "dbarrow257",
+            "username": "dbarrow257"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "b6c3ae46941dea3a500c68780ff74bb712aa2927",
+          "message": "Merge pull request #348 from mach3-software/dbarrow257/feature/EasierNuOscDev\n\nfeat: Add cmake option to be able to pass which NuOsc branch to build against",
+          "timestamp": "2025-02-17T13:27:54Z",
+          "tree_id": "767310a22edab12462a96eef2ca6fd700c3b6c63",
+          "url": "https://github.com/mach3-software/MaCh3/commit/b6c3ae46941dea3a500c68780ff74bb712aa2927"
+        },
+        "date": 1739799131813,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.59798,
+            "range": "± 76.0886",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.41753,
+            "range": "± 687.141",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 439.071,
+            "range": "± 4.28955",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
