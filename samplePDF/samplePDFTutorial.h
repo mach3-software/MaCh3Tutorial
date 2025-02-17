@@ -46,5 +46,6 @@ class samplePDFTutorial : public samplePDFFDBase
     {kTrueQ2, "TrueQ2"}
   };
 
+  double pot;
   bool isATM;
 };

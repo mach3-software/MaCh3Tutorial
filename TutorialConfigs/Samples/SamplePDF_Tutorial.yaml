@@ -1,6 +1,7 @@
 SampleName: "Tutorial"
 
 POT: 2.1428e+21
+MaCh3ModeConfig: "TutorialConfigs/MaCh3Modes.yaml"
 SelectionCuts:
   - KinematicStr: "TrueNeutrinoEnergy"
     Bounds: [ 0., 4 ]
@@ -20,11 +21,10 @@ NuOsc:
   NuOscConfigFile: "TutorialConfigs/NuOscillator/NuFASTLinear.yaml"
   EqualBinningPerOscChannel: true
 
-NSubSamples: 1
 SubSamples:
-  - name: "FHC_numu_x_numu"
+  - Name: "FHC_numu_x_numu"
+    LatexName: "#nu_{#mu} #rightarrow #nu_{#mu}"  
     mtuplefile: ""
     splinefile: ""
-    samplevecno: 0
     nutype: 14
     oscnutype: 14
