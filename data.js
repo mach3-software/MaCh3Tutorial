@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1739879465369,
+  "lastUpdate": 1739886408448,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -1663,6 +1663,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 433.498,
             "range": "± 5.34012",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "bdd00917bfe8321d9a3cfb52b8644f748c4f056e",
+          "message": "Merge pull request #349 from mach3-software/feature_Statistic\n\ntidy: More scalable test statisctic selection",
+          "timestamp": "2025-02-18T13:42:40Z",
+          "tree_id": "3532d62c74d488fcceae89d537c4fc17d41bb28a",
+          "url": "https://github.com/mach3-software/MaCh3/commit/bdd00917bfe8321d9a3cfb52b8644f748c4f056e"
+        },
+        "date": 1739886407079,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.57933,
+            "range": "± 87.8384",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.32462,
+            "range": "± 71.2417",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 429.32,
+            "range": "± 3.50459",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
