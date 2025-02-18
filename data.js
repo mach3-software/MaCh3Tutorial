@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1739800006108,
+  "lastUpdate": 1739879465369,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -1618,6 +1618,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 430.366,
             "range": "± 3.82861",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "31003009+dbarrow257@users.noreply.github.com",
+            "name": "dbarrow257",
+            "username": "dbarrow257"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "749e1cb736f77115a8cd01c57d2441940a315d38",
+          "message": "Merge pull request #350 from mach3-software/feture_Clang\n\nbugfix: Fix OMP for clang",
+          "timestamp": "2025-02-18T11:47:01Z",
+          "tree_id": "d742573d89a51687d6325caedb5de821070cbfaf",
+          "url": "https://github.com/mach3-software/MaCh3/commit/749e1cb736f77115a8cd01c57d2441940a315d38"
+        },
+        "date": 1739879464113,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.56573,
+            "range": "± 68.5625",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 3.49725,
+            "range": "± 3.86055",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 433.498,
+            "range": "± 5.34012",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
