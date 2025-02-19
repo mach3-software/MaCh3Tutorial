@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1739998635605,
+  "lastUpdate": 1739999583056,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -1798,6 +1798,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 441.332,
             "range": "± 4.56751",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "6b24d5d3f96a07c5a5ae2cb00bc45f0f6a6fed71",
+          "message": "Merge pull request #353 from mach3-software/feature_CorrectDelete\n\nbugfix: Fix destructor of THStackLeg",
+          "timestamp": "2025-02-19T21:08:45Z",
+          "tree_id": "08bfc09ea4a644a0b969cd756020f6ec76aff085",
+          "url": "https://github.com/mach3-software/MaCh3/commit/6b24d5d3f96a07c5a5ae2cb00bc45f0f6a6fed71"
+        },
+        "date": 1739999581907,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.72829,
+            "range": "± 89.8628",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.49129,
+            "range": "± 172.446",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 443.438,
+            "range": "± 32.0341",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
