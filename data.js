@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1739978030639,
+  "lastUpdate": 1739998635605,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -1753,6 +1753,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 429.918,
             "range": "± 6.81616",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "7b0a1ee658a3231c5fc3c1ae012afd1a7a0934d5",
+          "message": "Merge pull request #351 from mach3-software/feature_clangBot\n\nfeat: Clang bot",
+          "timestamp": "2025-02-19T20:52:48Z",
+          "tree_id": "027600f29ccf161361a6b83e086f4fc611da966a",
+          "url": "https://github.com/mach3-software/MaCh3/commit/7b0a1ee658a3231c5fc3c1ae012afd1a7a0934d5"
+        },
+        "date": 1739998634361,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.63175,
+            "range": "± 90.8028",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.38303,
+            "range": "± 81.4352",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 441.332,
+            "range": "± 4.56751",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
