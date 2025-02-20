@@ -30,7 +30,7 @@ CC2p2h:
   GeneratorMaping: [2]
   IsNC: false
   PlotColor: 618 #kMagenta+2
-  SplineSuffix:	"2p2h"
+  SplineSuffix: "2p2h"
   # 2 = (Nieves) 2p2h aka MEC
 
 CC1pipm:
