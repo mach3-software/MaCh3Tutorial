@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1740086368133,
+  "lastUpdate": 1740090777580,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -1978,6 +1978,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 444.388,
             "range": "± 6.33211",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "31003009+dbarrow257@users.noreply.github.com",
+            "name": "dbarrow257",
+            "username": "dbarrow257"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "145c97accba2b0f63dd91488c7021d24f338c711",
+          "message": "Merge pull request #360 from mach3-software/dbarrow257/bugfix/splineFDBaseFix\n\nbugfix: Fix check on MaCh3Modes in splineFDBase constructor",
+          "timestamp": "2025-02-20T22:28:33Z",
+          "tree_id": "c651c5aeb36ce07871b6e8f828a96c2a7cda5fff",
+          "url": "https://github.com/mach3-software/MaCh3/commit/145c97accba2b0f63dd91488c7021d24f338c711"
+        },
+        "date": 1740090776239,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.82992,
+            "range": "± 81.2916",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.59476,
+            "range": "± 58.1168",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 436.144,
+            "range": "± 5.43548",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
