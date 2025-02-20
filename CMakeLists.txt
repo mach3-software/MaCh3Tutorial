@@ -58,7 +58,7 @@ if(NOT DEFINED MaCh3_Branch)
   if(tag_found_index GREATER -1)
       SET(MaCh3_Branch "tags/v${MaCh3Tutorial_VERSION}")
   else()
-      SET(MaCh3_Branch "feature/OrganiseLLHScanSettings")
+      SET(MaCh3_Branch "develop")
   endif()
 endif()
 
