@@ -87,3 +87,9 @@ NC1pi0:
   SplineSuffix: "nc1pi0"  
   # 31 = NC 1π0+1n, 32 = NC 1π0+1p
 
+Other:
+  Name: "Other"
+  GeneratorMaping: [3, 4, 5, 6, 7, 8, 9, 10, 14, 15, 16, 17, 18, 19, 20, 22, 23, 24, 25, 27, 28, 29, 30, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 53, 54, 55, 56, 57, 58, 59, 60]
+  IsNC: false
+  PlotColor: 10
+  SplineSuffix: "other"
