@@ -38,7 +38,7 @@ CC1pipm:
   GeneratorMaping: [11, 12, 13]
   IsNC: false
   PlotColor: 416 #kGreen+1
-  SplineSuffix:	"cc1pipm"  
+  SplineSuffix: "cc1pipm"
   # 11, 12, 13 = CC 1π±
 
 CC1pi0:
@@ -46,7 +46,7 @@ CC1pi0:
   GeneratorMaping: [14]
   IsNC: false
   PlotColor: 840 #kTeal
-  SplineSuffix:	"cc1pi0"  
+  SplineSuffix: "cc1pi0"
   # 14 = CC 1π0
 
 CCMPi:
@@ -62,7 +62,7 @@ CCDIS:
   GeneratorMaping: [26]
   IsNC: false
   PlotColor: 601 #kBlue+1
-  SplineSuffix:	"ccdis"  
+  SplineSuffix: "ccdis"
   # 26 = CC Deep Inelastic Scattering
 
 NCQE:
@@ -70,7 +70,7 @@ NCQE:
   GeneratorMaping: [51, 52]
   IsNC: true
   PlotColor: 828 #kSpring+8
-  SplineSuffix:	"ncqe"  
+  SplineSuffix: "ncqe"
   # 51 = NC QE 1p, 52 = NC QE 1n
 
 NC1pipm:
@@ -78,7 +78,7 @@ NC1pipm:
   GeneratorMaping: [33, 34]
   IsNC: true
   PlotColor: 801 #kOrange+1
-  SplineSuffix:	"nc1pipm"  
+  SplineSuffix: "nc1pipm"
   # 33 = NC 1π-1p, 34 = NC 1π+1n
 
 NC1pi0:
@@ -86,7 +86,7 @@ NC1pi0:
   GeneratorMaping: [31, 32]
   IsNC: true
   PlotColor: 393 #kYellow-7
-  SplineSuffix:	"nc1pi0"  
+  SplineSuffix: "nc1pi0"
   # 31 = NC 1π0+1n, 32 = NC 1π0+1p
 
 Other:
