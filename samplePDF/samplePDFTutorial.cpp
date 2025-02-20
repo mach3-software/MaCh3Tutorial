@@ -144,7 +144,7 @@ int samplePDFTutorial::setupExperimentMC(int iSample) {
     tutobj->Q2[i]      = Q2;
     // KS: Currently we store target as 1000060120, therefore we hardcode it to 12
     tutobj->Target[i] = 12;
-    tutobj->Mode[i]   = Modes->GetModeFromGenerator(Mode);
+    tutobj->Mode[i]   = Modes->GetModeFromGenerator(std::abs(Mode));
 
     if (std::abs(PDGLep) == 12 || std::abs(PDGLep) == 14 || std::abs(PDGLep) == 16) {
       tutobj->isNC[i] = true;
