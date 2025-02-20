@@ -54,7 +54,7 @@ CCMPi:
   GeneratorMaping: [21]
   IsNC: false
   PlotColor: 840 #kTeal
-  SplineSuffix:	"ccmultipi"  
+  SplineSuffix: "ccmultipi"
   # 21 = CC Multi-Pion
 
 CCDIS:
