@@ -40,7 +40,7 @@ void samplePDFTutorial::SetupSplines() {
   SplineHandler = nullptr;
 
   if(XsecCov->GetNumParamsFromDetID(SampleDetID, SystType::kSpline) > 0){
-    SplineHandler = std::unique_ptr<splineFDBase>(new BinnedSplineTutorial(XsecCov));
+    SplineHandler = std::unique_ptr<splineFDBase>(new BinnedSplineTutorial(XsecCov, Modes));
     InitialiseSplineObject();
   } else {
     MACH3LOG_WARN("Not using splines");
