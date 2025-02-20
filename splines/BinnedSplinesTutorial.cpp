@@ -14,9 +14,10 @@ _MaCh3_Safe_Include_Start_ //{
 #include "TROOT.h"
 _MaCh3_Safe_Include_End_ //}
 
-BinnedSplineTutorial::BinnedSplineTutorial(covarianceXsec *xsec_cov) : splineFDBase(xsec_cov)
+BinnedSplineTutorial::BinnedSplineTutorial(covarianceXsec *xsec_cov, MaCh3Modes* Modes_) : splineFDBase(xsec_cov)
 {
   MACH3LOG_DEBUG("Created BinnedSplineTutorial object");
+  Modes = Modes_;
 }
 
 BinnedSplineTutorial::~BinnedSplineTutorial()
@@ -102,7 +103,7 @@ void BinnedSplineTutorial::FillSampleArray(std::string SampleName, std::vector<s
 
       ModeNum = -1;
       for (unsigned int iMode = 0; iMode < SplineModeVecs[iSample][SystNum].size(); iMode++) {
-        if (strcmp(Mode, ModeToString(SplineModeVecs[iSample][SystNum][iMode]).c_str()) == 0) {
+        if (strcmp(Mode, Modes->GetSplineSuffixFromMaCh3Mode(SplineModeVecs[iSample][SystNum][iMode]).c_str()) == 0) {
           ModeNum = iMode;
           break;
         }
