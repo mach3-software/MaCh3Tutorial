@@ -9,8 +9,6 @@ General:
   Asimov: true
   CustomReWeight: false
   FakeData: false
-  #Save individual sample contributions to the LLH
-  LLHScanBySample: false
   ProcessMCMC: No
   Debug: No
   RandomStart: false
@@ -53,14 +51,25 @@ General:
     OscFix: ["baseline", "density", "Ye", "prod_height"]
     OscStepScale: 0.045
 
-  Predictive:
-    Ntoy: 10
-    #Ntoy: 5000
-    #Use Full LLH or only sample contribution based on discussion with Asher we almost always only want the sample likelihood
-    FullLLH: false
-    PosteriorFiles: "EMPTY"
+# Prior/Posterior predictive settings
+Predictive:
+  Ntoy: 10
+  #Ntoy: 5000
+  #Use Full LLH or only sample contribution based on discussion with Asher we almost always only want the sample likelihood
+  FullLLH: false
+  PosteriorFiles: "EMPTY"
 
+# LLH Scan settings  
+LLHScan:
+  # Save individual sample contributions to the LLH
+  LLHScanBySample: false
+  # Number of points we run LLH scans for each systematic
+  #LLHScanPoints: 50
+  # Add physical ranges for special params whose priors/errors may not be well well-defined
+  ScanRanges:
+    #delta_cp: [-3.14,3.14]
+    
 LikelihoodOptions:
-  #False means you calculate W2 histogram only during first reweight, advisable for Barlow-Beeston
+  #False means you calculate W2 histogram only during the first reweight, advisable for Barlow-Beeston
   UpdateW2: false
   TestStatistic: "Barlow-Beeston"
