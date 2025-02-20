@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1740038501313,
+  "lastUpdate": 1740085505219,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -1888,6 +1888,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 437.371,
             "range": "± 6.69602",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "a5c71cc9bf425a6532f4f42eaae663042015f4e0",
+          "message": "Merge pull request #359 from mach3-software/dbarrow257/feature/EvenMoreSplineFDCleanup\n\nfeat: Move FillSampleArray to splineFDBase",
+          "timestamp": "2025-02-20T21:00:50Z",
+          "tree_id": "f525333509a529aed97e93781c752d92a7889d46",
+          "url": "https://github.com/mach3-software/MaCh3/commit/a5c71cc9bf425a6532f4f42eaae663042015f4e0"
+        },
+        "date": 1740085503887,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.62087,
+            "range": "± 68.175",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.32308,
+            "range": "± 86.9202",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 433.341,
+            "range": "± 3.84201",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
