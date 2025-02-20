@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1740085505219,
+  "lastUpdate": 1740086368133,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -1933,6 +1933,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 433.341,
             "range": "± 3.84201",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "31003009+dbarrow257@users.noreply.github.com",
+            "name": "dbarrow257",
+            "username": "dbarrow257"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "e9d82d2361eb525b4e1e75279e30a38db402dbda",
+          "message": "Merge pull request #355 from mach3-software/feature_TidySpline\n\ntidy: Remove parts of terrible loops in SplineFD",
+          "timestamp": "2025-02-20T21:15:00Z",
+          "tree_id": "5ac627dc49dccee9ae597eda4167853cbd519bb8",
+          "url": "https://github.com/mach3-software/MaCh3/commit/e9d82d2361eb525b4e1e75279e30a38db402dbda"
+        },
+        "date": 1740086366959,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.76521,
+            "range": "± 65.3257",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.58157,
+            "range": "± 174.567",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 444.388,
+            "range": "± 6.33211",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
