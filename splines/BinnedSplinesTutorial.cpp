@@ -14,15 +14,10 @@ _MaCh3_Safe_Include_Start_ //{
 #include "TROOT.h"
 _MaCh3_Safe_Include_End_ //}
 
-BinnedSplineTutorial::BinnedSplineTutorial(covarianceXsec *xsec_cov, MaCh3Modes* Modes_) : splineFDBase(xsec_cov)
-{
-  MACH3LOG_DEBUG("Created BinnedSplineTutorial object");
-  Modes = Modes_;
+BinnedSplineTutorial::BinnedSplineTutorial(covarianceXsec *xsec_cov, MaCh3Modes* Modes_) : splineFDBase(xsec_cov, Modes_) {
 }
 
-BinnedSplineTutorial::~BinnedSplineTutorial()
-{
-  MACH3LOG_DEBUG("Deleting BinnedSplineTutorial object :'(");
+BinnedSplineTutorial::~BinnedSplineTutorial() {
 }
 
 /*! ETA - moved this into experiment specific code since it relies on experimental MC format and also the experiment spline name mapping
@@ -162,69 +157,4 @@ void BinnedSplineTutorial::FillSampleArray(std::string SampleName, std::vector<s
     File->Delete("*");
     File->Close();
   } //End of oscillation channel loop
-}
-
-//****************************************
-std::vector< std::vector<int> > BinnedSplineTutorial::GetEventSplines(std::string SampleName, int iOscChan, int EventMode, double Var1Val, double Var2Val, double Var3Val)
-//****************************************
-{
-  std::vector<std::vector<int>> ReturnVec;
-  int SampleIndex = -1;
-  for (unsigned int iSample = 0; iSample < SampleNames.size(); iSample++) {
-    if (SampleName == SampleNames[iSample]) {
-      SampleIndex = iSample;
-    }
-  }
-
-  if (SampleIndex == -1)
-  {
-    MACH3LOG_ERROR("Sample not found: {}", SampleName);
-    throw MaCh3Exception(__FILE__, __LINE__);
-  }
-
-  int nSplineSysts = static_cast<int>(indexvec[SampleIndex][iOscChan].size());
-  //ETA- this is already a MaCh3 mode
-  int Mode = EventMode;
-
-  int Var1Bin = SplineBinning[SampleIndex][iOscChan][0]->FindBin(Var1Val)-1;
-  if (Var1Bin < 0 || Var1Bin >= SplineBinning[SampleIndex][iOscChan][0]->GetNbins()){
-    return ReturnVec;
-  }
-
-  int Var2Bin = SplineBinning[SampleIndex][iOscChan][1]->FindBin(Var2Val)-1;
-  if (Var2Bin < 0 || Var2Bin >= SplineBinning[SampleIndex][iOscChan][1]->GetNbins()){
-    return ReturnVec;
-  }
-
-  int Var3Bin = SplineBinning[SampleIndex][iOscChan][2]->FindBin(Var3Val)-1;
-
-  if (Var3Bin < 0 || Var3Bin >= SplineBinning[SampleIndex][iOscChan][2]->GetNbins()){
-    return ReturnVec;
-  }
-
-  for(int iSyst=0; iSyst<nSplineSysts; iSyst++){
-    std::vector<int> spline_modes = SplineModeVecs[SampleIndex][iSyst];
-    int nSampleModes = static_cast<int>(spline_modes.size());
-
-    //ETA - look here at the length of spline_modes and what you're actually comparing against
-    for(int iMode = 0; iMode<nSampleModes ; iMode++){
-      //Only consider if the event mode (Mode) matches ones of the spline modes
-      if (Mode == spline_modes[iMode]) {
-        std::vector<int> event_vec(7);
-        event_vec[0]=SampleIndex;
-        event_vec[1]=iOscChan;
-        event_vec[2]=iSyst;
-        event_vec[3]=iMode;
-        event_vec[4]=Var1Bin;
-        event_vec[5]=Var2Bin;
-        event_vec[6]=Var3Bin;
-        int splineID=indexvec[SampleIndex][iOscChan][iSyst][iMode][Var1Bin][Var2Bin][Var3Bin];
-        //Also check that the spline isn't flat
-        if(!isflatarray[splineID]){
-          ReturnVec.push_back(event_vec);
-        }
-      }
-    }
-  }
-  return ReturnVec;
 }
