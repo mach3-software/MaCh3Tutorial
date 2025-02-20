@@ -2,7 +2,6 @@
 
 //MaCh3 includes
 #include "splines/splineFDBase.h"
-#include "manager/MaCh3Modes.h"
 
 class BinnedSplineTutorial : public splineFDBase
 {
@@ -10,5 +9,5 @@ class BinnedSplineTutorial : public splineFDBase
   BinnedSplineTutorial(covarianceXsec *xsec_cov, MaCh3Modes *Modes);
   virtual ~BinnedSplineTutorial();
   
-  void FillSampleArray(std::string SampleName, std::vector<std::string> OscChanFileNames);
+  std::vector<std::string> GetTokensFromSplineName(std::string FullSplineName);
 };
