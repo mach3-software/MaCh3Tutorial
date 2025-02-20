@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1739999583056,
+  "lastUpdate": 1740038501313,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -1843,6 +1843,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 443.438,
             "range": "± 32.0341",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "8d0d0319033328393aa7d05419c3ec09eff37a24",
+          "message": "Merge pull request #346 from mach3-software/feature/OrganiseLLHScanSettings\n\nfeat: Special param bounds in LLHScan settings",
+          "timestamp": "2025-02-20T07:57:14Z",
+          "tree_id": "b224749cb54422bfe73fa34ec5c6ca3bcbeea725",
+          "url": "https://github.com/mach3-software/MaCh3/commit/8d0d0319033328393aa7d05419c3ec09eff37a24"
+        },
+        "date": 1740038499623,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.61677,
+            "range": "± 65.5133",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.36636,
+            "range": "± 57.9674",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 437.371,
+            "range": "± 6.69602",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
