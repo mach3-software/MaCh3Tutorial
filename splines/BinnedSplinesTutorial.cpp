@@ -138,7 +138,7 @@ void BinnedSplineTutorial::FillSampleArray(std::string SampleName, std::vector<s
           splinevec_Monolith.push_back(nullptr);
           delete mySpline;
         } else {
-          Spline = new TSpline3_red(mySpline);//, SplineInterpolationTypes[iSample][SystNum]);
+          Spline = new TSpline3_red(mySpline, SplineInterpolationTypes[iSample][SystNum]);
           delete mySpline;
 
           splinevec_Monolith.push_back(Spline);
