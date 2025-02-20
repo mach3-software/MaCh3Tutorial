@@ -13,48 +13,55 @@ MaCh3Modes: [
   "NCQE",
   "NC1pipm",
   "NC1pi0",
+  "Other"
 ]
 
 CCQE:
   Name: "CCQE"
   GeneratorMaping: [1]
   IsNC: false
-  PlotColor: 1  
+  PlotColor: 1
+  SplineSuffix: "ccqe"
   # 1 = CCQE
 
 CC2p2h:
   Name: "CC2p2h"
   GeneratorMaping: [2]
   IsNC: false
-  PlotColor: 2  
+  PlotColor: 2
+  SplineSuffix:	"2p2h"
   # 2 = (Nieves) 2p2h aka MEC
 
 CC1pipm:
   Name: "CC1pipm"
   GeneratorMaping: [11, 12, 13]
   IsNC: false
-  PlotColor: 3  
+  PlotColor: 3
+  SplineSuffix:	"cc1pipm"  
   # 11, 12, 13 = CC 1π±
 
 CC1pi0:
   Name: "CC1pi0"
   GeneratorMaping: [14]
   IsNC: false
-  PlotColor: 4  
+  PlotColor: 4
+  SplineSuffix:	"cc1pi0"  
   # 14 = CC 1π0
 
 CCMPi:
   Name: "CC Multi-Pi"
   GeneratorMaping: [21]
   IsNC: false
-  PlotColor: 5  
+  PlotColor: 5
+  SplineSuffix:	"ccmultipi"  
   # 21 = CC Multi-Pion
 
 CCDIS:
   Name: "CC DIS"
   GeneratorMaping: [26]
   IsNC: false
-  PlotColor: 6  
+  PlotColor: 6
+  SplineSuffix:	"ccdis"  
   # 26 = CC Deep Inelastic Scattering
 
 NCQE:
@@ -62,13 +69,15 @@ NCQE:
   GeneratorMaping: [51, 52]
   IsNC: true
   PlotColor: 7
+  SplineSuffix:	"ncqe"  
   # 51 = NC QE 1p, 52 = NC QE 1n
 
 NC1pipm:
   Name: "NC 1π±"
   GeneratorMaping: [33, 34]
   IsNC: true
-  PlotColor: 8  
+  PlotColor: 8
+  SplineSuffix:	"nc1pipm"  
   # 33 = NC 1π-1p, 34 = NC 1π+1n
 
 NC1pi0:
@@ -76,5 +85,12 @@ NC1pi0:
   GeneratorMaping: [31, 32]
   IsNC: true
   PlotColor: 9
+  SplineSuffix:	"nc1pi0"  
   # 31 = NC 1π0+1n, 32 = NC 1π0+1p
 
+Other:
+  Name: "Other"
+  GeneratorMaping: [3, 4, 5, 6, 7, 8, 9, 10, 15, 16, 17, 18, 19, 20, 22, 23, 24, 25, 27, 28, 29, 30, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 53, 54, 55, 56, 57, 58, 59, 60]
+  IsNC: false
+  PlotColor: 10
+  SplineSuffix: "other"

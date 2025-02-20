@@ -12,5 +12,5 @@ MaCh3ModeFancyName for 10 = UNKNOWN_BAD
 MaCh3ModeFancyName for 60 = UNKNOWN_BAD
 GetMode for CCQE   = 0
 GetMode for CC2p2h = 1
-GetMode for Test   = 9
-GetNModes = 9
+GetMode for Test   = 10
+GetNModes = 10
