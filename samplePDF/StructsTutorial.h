@@ -42,6 +42,9 @@ inline MaCh3Mode NuWroModeToMaCh3Mode(int NuWroMode) {
     case 13:
       ReturnMode = kMaCh3_CC1pipm;
       break;
+    case 14:
+      ReturnMode = kMaCh3_CC1pi0;
+      break;
     // CC Multi-Pi
     case 21:
       ReturnMode = kMaCh3_CCMPi;
@@ -88,6 +91,9 @@ inline std::string ModeToString(int Mode) {
     case kMaCh3_CC1pipm:
       ModeString = "cc1pipm";
       break;
+    case kMaCh3_CC1pi0:
+      ModeString = "cc1pi0";
+      break;      
     case kMaCh3_CCMPi:
       ModeString = "ccmultipi";
       break;
