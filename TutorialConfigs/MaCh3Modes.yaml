@@ -8,13 +8,11 @@ MaCh3Modes: [
   "CCQE",
   "CC2p2h",
   "CC1pipm",
-  "CC1pi0",
   "CCMPi",
   "CCDIS",
   "NCQE",
   "NC1pipm",
-  "NC1pi0",
-  "Other"
+  "NC1pi0"
 ]
 
 CCQE:
@@ -40,14 +38,6 @@ CC1pipm:
   PlotColor: 416 #kGreen+1
   SplineSuffix: "cc1pipm"
   # 11, 12, 13 = CC 1π±
-
-CC1pi0:
-  Name: "CC 1#pi^{0}"
-  GeneratorMaping: [14]
-  IsNC: false
-  PlotColor: 840 #kTeal
-  SplineSuffix: "cc1pi0"
-  # 14 = CC 1π0
 
 CCMPi:
   Name: "CC multi-#pi"
@@ -88,10 +78,3 @@ NC1pi0:
   PlotColor: 393 #kYellow-7
   SplineSuffix: "nc1pi0"
   # 31 = NC 1π0+1n, 32 = NC 1π0+1p
-
-Other:
-  Name: "Other"
-  GeneratorMaping: [3, 4, 5, 6, 7, 8, 9, 10, 15, 16, 17, 18, 19, 20, 22, 23, 24, 25, 27, 28, 29, 30, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 53, 54, 55, 56, 57, 58, 59, 60]
-  IsNC: false
-  PlotColor: 907 #kPink+7
-  SplineSuffix: "other"
