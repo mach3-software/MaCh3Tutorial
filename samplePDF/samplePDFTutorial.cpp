@@ -233,7 +233,7 @@ std::vector<double> samplePDFTutorial::ReturnKinematicParameterBinning(std::stri
       bin_width = 1.0;
       break;
     case(kM3Mode):
-      nBins = 10;
+      nBins = Modes->GetNModes();
       bin_width = 1.0;
       break;
   }
