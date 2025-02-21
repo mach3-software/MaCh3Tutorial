@@ -228,6 +228,7 @@ You can plot kinematic distribution of your sample using
 Notice same config being used. In other words you can add or disable sample, modify cuts in same way as was discussed.
 Example of plot you can see here:
 
+<img width="350" alt="Kinematic example" src="https://github.com/user-attachments/assets/534bcb17-f26c-4fc2-a77a-5d253b0ed241">
 
 ### More Advanced Development
 Not everything can be done by modifying config in sample implementation. Actual implementation is in`samplePDF/samplePDFTutorial` this class inherits from `samplePDFFDBase`. The latter class deals with actual reweighting and all heavy lifting. while samplePDFTutorial deals with MC loading etc. This is because each experiment has slightly different MC format and different information available.
