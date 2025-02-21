@@ -49,7 +49,7 @@ jobs:
             git checkout -b update_version_${MaCh3_VERSION}
 
             # Update the MaCh3Tutorial_VERSION in CMakeLists.txt
-            sed -i "s/SET(MaCh3Tutorial_VERSION .*)/SET(MaCh3Tutorial_VERSION ${MaCh3_VERSION})/" CMakeLists.txt
+            sed -i "s/^project(MaCh3Tutorial VERSION [^ ]* LANGUAGES CXX)$/project(MaCh3Tutorial VERSION ${MaCh3_VERSION} LANGUAGES CXX)/" CMakeLists.txt
             git status
             git diff
 
