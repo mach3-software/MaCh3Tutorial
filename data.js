@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1740155165567,
+  "lastUpdate": 1740162283860,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -2158,6 +2158,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 430.623,
             "range": "± 5.01057",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "31003009+dbarrow257@users.noreply.github.com",
+            "name": "dbarrow257",
+            "username": "dbarrow257"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "bccc4f9ee2efda3e67d830419a244ea19c0588ae",
+          "message": "Merge pull request #365 from mach3-software/dbarrow257/feature/SpeedySplineChecking\n\nfeat: Quicker duplicate spline checking",
+          "timestamp": "2025-02-21T18:20:25Z",
+          "tree_id": "a3515ec805aa33e7464b57b477183c24146df4ad",
+          "url": "https://github.com/mach3-software/MaCh3/commit/bccc4f9ee2efda3e67d830419a244ea19c0588ae"
+        },
+        "date": 1740162282344,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.71119,
+            "range": "± 288.193",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.41062,
+            "range": "± 181.176",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 436.899,
+            "range": "± 6.8245",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
