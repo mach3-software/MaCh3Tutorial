@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1740162283860,
+  "lastUpdate": 1740163988277,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -2203,6 +2203,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 436.899,
             "range": "± 6.8245",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "468dd642076b1bf1f706eeeb53c1517b427d563c",
+          "message": "Merge pull request #366 from mach3-software/dbarrow257/feature/PrintIntegralDimensionalityFix\n\nbugfix: Include support for 1D samples in samplePDFFDBase::PrintIntegral",
+          "timestamp": "2025-02-21T18:48:38Z",
+          "tree_id": "574f9a85bd050de4b736196c8d8ec49bef5146ed",
+          "url": "https://github.com/mach3-software/MaCh3/commit/468dd642076b1bf1f706eeeb53c1517b427d563c"
+        },
+        "date": 1740163986270,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.9217,
+            "range": "± 199.881",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.5806,
+            "range": "± 80.6253",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 440.586,
+            "range": "± 3.9876",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
