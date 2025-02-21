@@ -182,6 +182,8 @@ const double* samplePDFTutorial::GetPointerToKinematicParameter(KinematicTypes K
       return &TutorialSamples[iSample].TrueEnu[iEvent];
     case kTrueQ2:
       return &TutorialSamples[iSample].Q2[iEvent];
+    case kM3Mode:
+      return &TutorialSamples[iSample].Mode[iEvent];
     default:
       MACH3LOG_ERROR("Unrecognized Kinematic Parameter type: {}", static_cast<int>(KinPar));
       throw MaCh3Exception(__FILE__, __LINE__);
@@ -230,7 +232,7 @@ std::vector<double> samplePDFTutorial::ReturnKinematicParameterBinning(std::stri
       nBins = 10;
       bin_width = 1.0;
       break;
-    default:
+    case(kM3Mode):
       nBins = 10;
       bin_width = 1.0;
       break;

@@ -4,7 +4,7 @@ set(CMAKE_VERBOSE_MAKEFILE ON)
 cmake_minimum_required(VERSION 3.14 FATAL_ERROR)
 
 # Create project
-project(MaCh3Tutorial VERSION 1.4.3 LANGUAGES CXX)
+project(MaCh3Tutorial VERSION 1.4.4 LANGUAGES CXX)
 set(MaCh3Tutorial_VERSION ${PROJECT_VERSION})
 
 set(CMAKE_CXX_STANDARD_REQUIRED True)
@@ -66,9 +66,11 @@ endif()
 #find_package(MaCh3 QUIET EXACT ${MaCh3Tutorial_VERSION})
 
 if(NOT MaCh3_FOUND)
-  set(MaCh3_OPTIONS
-    "MaCh3_PYTHON_ENABLED ${PYTHON_ENABLED}"
-  )
+  set(MaCh3_OPTIONS "")
+
+  if(PYTHON_ENABLED)
+      list(APPEND MaCh3_OPTIONS "MaCh3_PYTHON_ENABLED ${PYTHON_ENABLED}")
+  endif()
 
   # KS: For benchmark we turn off logger to not interfere with output messages.
   # Also to have code compile let's turn off Werror

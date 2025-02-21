@@ -9,7 +9,7 @@ class samplePDFTutorial : public samplePDFFDBase
  public:
   samplePDFTutorial(std::string mc_version, covarianceXsec* xsec_cov, covarianceOsc* osc_cov = nullptr);
   virtual ~samplePDFTutorial();
-  enum KinematicTypes {kTrueNeutrinoEnergy, kTrueQ2};
+  enum KinematicTypes {kTrueNeutrinoEnergy, kTrueQ2, kM3Mode};
 
   std::vector<double> ReturnKinematicParameterBinning(std::string KinematicParameter) override;
 
@@ -38,12 +38,14 @@ class samplePDFTutorial : public samplePDFFDBase
 
   const std::unordered_map<std::string, int> KinematicParametersTutorial = {
     {"TrueNeutrinoEnergy", kTrueNeutrinoEnergy},
-    {"TrueQ2", kTrueQ2}
+    {"TrueQ2", kTrueQ2},
+    {"Mode", kM3Mode},
   };
 
   const std::unordered_map<int, std::string> ReversedKinematicParametersTutorial = {
     {kTrueNeutrinoEnergy, "TrueNeutrinoEnergy"},
-    {kTrueQ2, "TrueQ2"}
+    {kTrueQ2, "TrueQ2"},
+    {kM3Mode,"Mode"},
   };
 
   double pot;
