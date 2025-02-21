@@ -21,7 +21,7 @@ void CreateBinnedSplineFile(){
   //Let's try out 5 systematics
   //This gives us a total of 5*10*10*5 = 2500 splines
   std::vector<int> SystematicKnots = {5, 7, 7, 2, 3};//, 7, 2, 7, 7, 7};
-  std::vector<std::vector<std::string>> SystematicModeNames = {{"ccqe"}, {"cc1pipm"}, {"2p2h"}, {"other"}, {"ccqe"}};
+  std::vector<std::vector<std::string>> SystematicModeNames = {{"ccqe"}, {"cc1pipm"}, {"2p2h"}, {"ccmultipi"}, {"ccdis"}};
   //Values to centre the gaussian response on
   std::vector<double> SystematicMeanResponse = {1.0, 2.0, 1.0, 1.5, 1.0};
   std::vector<int> SystematicNominalKnot = {3, 4, 4, 1, 2};

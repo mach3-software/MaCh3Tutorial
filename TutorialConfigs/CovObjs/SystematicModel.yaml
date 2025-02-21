@@ -74,7 +74,7 @@ Systematics:
       Generated: 1.0
       PreFitValue: 1.0
     SplineInformation:
-      # affects kMaCh3_CCQE events
+      # affects CCQE events
       Mode: [0]
       InterpolationType: TSpline3
       SplineName: mysyst1
@@ -95,7 +95,7 @@ Systematics:
       Generated: 1.0
       PreFitValue: 1.0
     SplineInformation:
-      #affects kMaCh3_CC1pipm events
+      #affects CC1pipm events
       Mode: [2]
       InterpolationType: Linear
       SplineName: mysyst2
@@ -116,7 +116,7 @@ Systematics:
       Generated: 1.0
       PreFitValue: 1.0
     SplineInformation:
-      #affects kMaCh3_2p2h events
+      #affects CC2p2h events
       Mode: [1]
       InterpolationType: Monotonic
       SplineName: mysyst3
@@ -137,8 +137,8 @@ Systematics:
       Generated: 1.0
       PreFitValue: 1.0
     SplineInformation:
-      #affects kMaCh3_Other events
-      Mode: [9]
+      #affects CCMPi events
+      Mode: [3]
       InterpolationType: Akima
       SplineName: mysyst4
     DetID: ["Tutorial *"]
@@ -158,8 +158,8 @@ Systematics:
       Generated: 1.0
       PreFitValue: 1.0
     SplineInformation:
-      #affects kMaCh3_CCQE events
-      Mode: [0]
+      #affects CCDIS events
+      Mode: [4]
       InterpolationType: Linear
       SplineName: mysyst5
     DetID: ["Tutorial *"]

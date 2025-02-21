@@ -31,7 +31,7 @@ jobs:
       # Checkout the MaCh3Tutorial repository
       - name: Checkout MaCh3Tutorial repository
         run: |
-          git clone https://${{ secrets.MACH3_VALIDATIONS_PAT }}@github.com/mach3-software/MaCh3Tutorial.git MaCh3Tutorial
+          git clone "https://${{ secrets.MACH3_VALIDATIONS_PAT }}@github.com/mach3-software/MaCh3Tutorial.git" MaCh3Tutorial
 
       # Extract the MaCh3Tutorial version from CMakeLists.txt
       - name: Get MaCh3Tutorial version
@@ -46,15 +46,16 @@ jobs:
           if [ "$MaCh3_VERSION" != "$MaCh3Tutorial_VERSION" ]; then
             echo "Versions are different. Creating a new branch in MaCh3Tutorial."
             cd MaCh3Tutorial
-            git checkout -b update_version_${MaCh3_VERSION}
+            git checkout -b "update_version_${MaCh3_VERSION}"
 
             # Update the MaCh3Tutorial_VERSION in CMakeLists.txt
-            sed -i "s/SET(MaCh3Tutorial_VERSION .*)/SET(MaCh3Tutorial_VERSION ${MaCh3_VERSION})/" CMakeLists.txt
+            sed -i "s/^project(MaCh3Tutorial VERSION [^ ]* LANGUAGES CXX)$/project(MaCh3Tutorial VERSION \"${MaCh3_VERSION}\" LANGUAGES CXX)/" CMakeLists.txt
+
             git status
             git diff
 
             # Commit the changes
-            git add CMakeLists.txt
+            git add "CMakeLists.txt"
             git commit -m "Bump MaCh3Tutorial_VERSION to ${MaCh3_VERSION}"
             git push origin update_version_${MaCh3_VERSION}
 

@@ -37,6 +37,16 @@ int main(int argc, char *argv[])
   outFile << "GetMode for CC2p2h = "  << Modes->GetMode("CC2p2h") << std::endl;
   outFile << "GetMode for Test   = "  << Modes->GetMode("Test") << std::endl;
 
+  outFile << "SplineSuffixFromMaCh3Mode for 1  = "   << Modes->GetSplineSuffixFromMaCh3Mode(1) << std::endl;
+  outFile << "SplineSuffixFromMaCh3Mode for 2  = "   << Modes->GetSplineSuffixFromMaCh3Mode(2) << std::endl;
+  outFile << "SplineSuffixFromMaCh3Mode for 10 = "   << Modes->GetSplineSuffixFromMaCh3Mode(10) << std::endl;
+  outFile << "SplineSuffixFromMaCh3Mode for 60 = "   << Modes->GetSplineSuffixFromMaCh3Mode(60) << std::endl;
+
+  outFile << "IsMaCh3ModeNC for 1  = "   << Modes->IsMaCh3ModeNC(1) << std::endl;
+  outFile << "IsMaCh3ModeNC for 2  = "   << Modes->IsMaCh3ModeNC(2) << std::endl;
+  outFile << "IsMaCh3ModeNC for 10 = "   << Modes->IsMaCh3ModeNC(10) << std::endl;
+  outFile << "IsMaCh3ModeNC for 60 = "   << Modes->IsMaCh3ModeNC(60) << std::endl;
+
   outFile << "GetNModes = " << Modes->GetNModes() << std::endl;
 
   outFile.close();

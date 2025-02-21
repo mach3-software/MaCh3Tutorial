@@ -1,4 +1,4 @@
-// MaCh3 spline includes
+// MaCh3 includes
 #include "mcmc/MaCh3Factory.h"
 #include "samplePDF/samplePDFTutorial.h"
 
