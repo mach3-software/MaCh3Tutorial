@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1740150039477,
+  "lastUpdate": 1740155165567,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -2113,6 +2113,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 436.711,
             "range": "± 5.0318",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "31003009+dbarrow257@users.noreply.github.com",
+            "name": "dbarrow257",
+            "username": "dbarrow257"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "b5eb8368773d8354914cdca95417497322086079",
+          "message": "Merge pull request #364 from mach3-software/dbarrow257/feature/SplineFDProtection\n\nfeat: Add protection against duplicate splines in splineFDBase",
+          "timestamp": "2025-02-21T16:21:52Z",
+          "tree_id": "b217fecb170cc4019dd9562f08a47ffb891c8cd8",
+          "url": "https://github.com/mach3-software/MaCh3/commit/b5eb8368773d8354914cdca95417497322086079"
+        },
+        "date": 1740155164213,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.57279,
+            "range": "± 125.737",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.47979,
+            "range": "± 128.847",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 430.623,
+            "range": "± 5.01057",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
