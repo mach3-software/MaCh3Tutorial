@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1740133384052,
+  "lastUpdate": 1740150039477,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -2068,6 +2068,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 437.249,
             "range": "± 4.51573",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "811ed33d4e80cc216e51edb11fbe6d37c9144d39",
+          "message": "Merge pull request #362 from mach3-software/dbarrow257/feature/MaCh3ModesCCCounter\n\nfeat: Add counter for CC modes in MaCh3Modes object",
+          "timestamp": "2025-02-21T14:56:23Z",
+          "tree_id": "2f79279959534a6d16adbd50238b304bdbdc9d32",
+          "url": "https://github.com/mach3-software/MaCh3/commit/811ed33d4e80cc216e51edb11fbe6d37c9144d39"
+        },
+        "date": 1740150038016,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.80835,
+            "range": "± 654.507",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.61525,
+            "range": "± 1.13192",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 436.711,
+            "range": "± 5.0318",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
