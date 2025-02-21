@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1740163988277,
+  "lastUpdate": 1740164617510,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -2248,6 +2248,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 440.586,
             "range": "± 3.9876",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "f68b8e074e1c15a38218b2f076b4275fe2c349a4",
+          "message": "Merge pull request #367 from mach3-software/feature_Bot\n\nfeat: Add to CI new plotting tool in tutorial",
+          "timestamp": "2025-02-21T18:59:21Z",
+          "tree_id": "823cfba8f1c2c7b0682c8e2f8a8d3e77e1f66031",
+          "url": "https://github.com/mach3-software/MaCh3/commit/f68b8e074e1c15a38218b2f076b4275fe2c349a4"
+        },
+        "date": 1740164616098,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.55445,
+            "range": "± 76.1966",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.27171,
+            "range": "± 72.5367",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 437.544,
+            "range": "± 6.07089",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
