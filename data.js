@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1740394600286,
+  "lastUpdate": 1740401366122,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -2338,6 +2338,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 429.811,
             "range": "± 4.95086",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "3c5592a8c904337c8e52270961ac96830911904c",
+          "message": "Merge pull request #370 from mach3-software/feature/SigmaVarBot\n\nfeat: Sigma Var Bot",
+          "timestamp": "2025-02-24T12:45:02Z",
+          "tree_id": "bfc95c2545ca40fd886f3e363474c24c2451e969",
+          "url": "https://github.com/mach3-software/MaCh3/commit/3c5592a8c904337c8e52270961ac96830911904c"
+        },
+        "date": 1740401364301,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.43921,
+            "range": "± 120.731",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.17558,
+            "range": "± 148.008",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 434.506,
+            "range": "± 5.99734",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
