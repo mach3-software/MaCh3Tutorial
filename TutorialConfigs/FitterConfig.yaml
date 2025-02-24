@@ -61,6 +61,8 @@ Predictive:
 
 # LLH Scan settings  
 LLHScan:
+  # don't make LLH for certain systematic groups
+  #LLHScanSkipVector: []
   # Save individual sample contributions to the LLH
   LLHScanBySample: false
   # Number of points we run LLH scans for each systematic
