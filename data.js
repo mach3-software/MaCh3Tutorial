@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1740401366122,
+  "lastUpdate": 1740407781493,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -2383,6 +2383,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 434.506,
             "range": "± 5.99734",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "f828b1430c1868822c73c6326692f9fdfb8e680e",
+          "message": "Merge pull request #371 from mach3-software/bugfix/MoveRemainingLLHScanSettings\n\nbugfix: LLHScanSkipVector yaml node group inside sigma variation function",
+          "timestamp": "2025-02-24T14:31:56Z",
+          "tree_id": "51c8c659be9b05a36b0c3a49aa419abf2783067c",
+          "url": "https://github.com/mach3-software/MaCh3/commit/f828b1430c1868822c73c6326692f9fdfb8e680e"
+        },
+        "date": 1740407779836,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.4192,
+            "range": "± 83.3305",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.17992,
+            "range": "± 70.2134",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 431.41,
+            "range": "± 5.43775",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
