@@ -9,6 +9,7 @@ foreach(app
     NuMCMCconversion
     NuOscillatorInterfaceValidations
     pValueValidations
+    SigmaVarValidations
     LLHValidation
     )
 
