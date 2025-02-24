@@ -1,8 +1,8 @@
 // MaCh3 spline includes
 #include "mcmc/MaCh3Factory.h"
-#include "covariance/covarianceXsec.h"
+#include "covariance/SystematicHandlerGeneric.h"
 #include "Utils/Comparison.h"
-#include "samplePDF/samplePDFTutorial.h"
+#include "samplePDF/SampleHandlerTutorial.h"
 
 void FitVal(const std::string& Algo, bool MoreTests)
 {
@@ -11,8 +11,8 @@ void FitVal(const std::string& Algo, bool MoreTests)
 
   MACH3LOG_INFO("Testing {}", Algo);
 
-  auto xsec = MaCh3CovarianceFactory<covarianceXsec>(FitManager.get(), "Xsec");
-  auto osc  = MaCh3CovarianceFactory<covarianceOsc>(FitManager.get(), "Osc");
+  auto xsec = MaCh3CovarianceFactory<SystematicHandlerGeneric>(FitManager.get(), "Xsec");
+  auto osc  = MaCh3CovarianceFactory<ParameterHandlerOsc>(FitManager.get(), "Osc");
   std::unique_ptr<FitterBase> MaCh3Fitter = nullptr;
   if(Algo == "MCMC") {
     FitManager->OverrideSettings("General", "OutputFile", "MCMC_Test.root");
@@ -35,7 +35,7 @@ void FitVal(const std::string& Algo, bool MoreTests)
   }
 
   std::string SampleConfig = {"TutorialConfigs/Samples/SamplePDF_Tutorial.yaml"};
-  auto Sample = std::make_unique<samplePDFTutorial>(SampleConfig, xsec.get(), osc.get());
+  auto Sample = std::make_unique<SampleHandlerTutorial>(SampleConfig, xsec.get(), osc.get());
   Sample->reweight();
   std::string name = Sample->GetName();
   TString NameTString = TString(name.c_str());
@@ -61,7 +61,7 @@ void StartFromPosteriorTest(const std::string& PreviousName)
 
   FitManager->OverrideSettings("General", "OutputFile", "MCMC_Test_Start.root");
 
-  auto xsec = MaCh3CovarianceFactory<covarianceXsec>(FitManager.get(), "Xsec");
+  auto xsec = MaCh3CovarianceFactory<SystematicHandlerGeneric>(FitManager.get(), "Xsec");
   std::unique_ptr<mcmc> MarkovChain = std::make_unique<mcmc>(FitManager.get());
   MarkovChain->addSystObj(xsec.get());
 

@@ -1,14 +1,16 @@
 #pragma once
 
-#include "covariance/covarianceOsc.h"
-#include "samplePDF/samplePDFFDBase.h"
+#include "covariance/ParameterHandlerOsc.h"
+#include "covariance/SystematicHandlerGeneric.h"
+#include "samplePDF/SampleHandlerFD.h"
 #include "samplePDF/StructsTutorial.h"
+#include "splines/BinnedSplinesTutorial.h"
 
-class samplePDFTutorial : public samplePDFFDBase
+class SampleHandlerTutorial : public SampleHandlerFD
 {
  public:
-  samplePDFTutorial(std::string mc_version, covarianceXsec* xsec_cov, covarianceOsc* osc_cov = nullptr);
-  virtual ~samplePDFTutorial();
+  SampleHandlerTutorial(std::string mc_version, SystematicHandlerGeneric* xsec_cov, ParameterHandlerOsc* osc_cov = nullptr);
+  virtual ~SampleHandlerTutorial();
   enum KinematicTypes {kTrueNeutrinoEnergy, kTrueQ2, kM3Mode};
 
   std::vector<double> ReturnKinematicParameterBinning(std::string KinematicParameter) override;

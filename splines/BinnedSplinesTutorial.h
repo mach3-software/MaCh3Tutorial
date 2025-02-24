@@ -1,12 +1,12 @@
 #pragma once
 
 //MaCh3 includes
-#include "splines/splineFDBase.h"
+#include "splines/BinnedSplineHandler.h"
 
-class BinnedSplineTutorial : public splineFDBase
+class BinnedSplineTutorial : public BinnedSplineHandler
 {
   public:
-  BinnedSplineTutorial(covarianceXsec *xsec_cov, MaCh3Modes *Modes);
+  BinnedSplineTutorial(SystematicHandlerGeneric *xsec_cov, MaCh3Modes *Modes);
   virtual ~BinnedSplineTutorial();
   
   std::vector<std::string> GetTokensFromSplineName(std::string FullSplineName);

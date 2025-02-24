@@ -1,13 +1,13 @@
 // MaCh3 spline includes
 #include "Utils/Comparison.h"
-#include "samplePDF/samplePDFTutorial.h"
+#include "samplePDF/SampleHandlerTutorial.h"
 #include "mcmc/SampleSummary.h"
 
-class samplePDFpValue : public samplePDFTutorial
+class samplePDFpValue : public SampleHandlerTutorial
 {
   public:
-    samplePDFpValue(std::string mc_version, covarianceXsec* xsec_cov, covarianceOsc* osc_cov)
-    : samplePDFTutorial(mc_version, xsec_cov, osc_cov),
+    samplePDFpValue(std::string mc_version, SystematicHandlerGeneric* xsec_cov, ParameterHandlerOsc* osc_cov)
+    : SampleHandlerTutorial(mc_version, xsec_cov, osc_cov),
     SampleBlarbTitle({
       "FGD1_numuCC_0pi_0_protons_no_photon",
       "FGD1_numuCC_0pi_N_protons_no_photon",
@@ -61,10 +61,10 @@ int main(int argc, char *argv[])
     throw MaCh3Exception(__FILE__ , __LINE__ );
   }
   std::vector<std::string> xsecCovMatrixFile = {"TutorialConfigs/CovObjs/SystematicModel.yaml"};
-  auto xsec = std::make_unique<covarianceXsec>(xsecCovMatrixFile, "xsec_cov");
+  auto xsec = std::make_unique<SystematicHandlerGeneric>(xsecCovMatrixFile, "xsec_cov");
 
   std::vector<std::string> OscCovMatrixFile = {"TutorialConfigs/CovObjs/OscillationModel.yaml"};
-  auto osc = std::make_unique<covarianceOsc>(OscCovMatrixFile, "osc_cov");
+  auto osc = std::make_unique<ParameterHandlerOsc>(OscCovMatrixFile, "osc_cov");
   osc->setParameters();
 
   std::string SampleConfig = "TutorialConfigs/Samples/SamplePDF_Tutorial.yaml";

@@ -1,6 +1,6 @@
 // MaCh3 includes
 #include "mcmc/MaCh3Factory.h"
-#include "samplePDF/samplePDFTutorial.h"
+#include "samplePDF/SampleHandlerTutorial.h"
 
 int main(int argc, char **argv) {
   int Selection = 0; //0 to loop modes, 1 to loop osc channels
@@ -9,12 +9,12 @@ int main(int argc, char **argv) {
   auto FitManager = MaCh3ManagerFactory(argc, argv);
 
   // Initialise covariance class reasonable for Systematics
-  auto xsec = MaCh3CovarianceFactory<covarianceXsec>(FitManager.get(), "Xsec");
-  auto osc  = MaCh3CovarianceFactory<covarianceOsc>(FitManager.get(), "Osc");
+  auto xsec = MaCh3CovarianceFactory<SystematicHandlerGeneric>(FitManager.get(), "Xsec");
+  auto osc  = MaCh3CovarianceFactory<ParameterHandlerOsc>(FitManager.get(), "Osc");
 
   // Initialise samplePDF
   auto SampleConfig = FitManager->raw()["General"]["TutorialSamples"].as<std::vector<std::string>>();
-  auto mySamples = MaCh3SamplePDFFactory<samplePDFTutorial>(SampleConfig, xsec.get(), osc.get());
+  auto mySamples = MaCh3SamplePDFFactory<SampleHandlerTutorial>(SampleConfig, xsec.get(), osc.get());
 
   // Output file is named after output filename in config plus plot variable(s)
   std::string configOutName = FitManager->raw()["General"]["OutputFile"].as<std::string>();

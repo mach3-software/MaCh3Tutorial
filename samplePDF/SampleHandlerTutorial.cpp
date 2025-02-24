@@ -1,11 +1,7 @@
-#include "splines/splineFDBase.h"
-#include "StructsTutorial.h"
-#include "splines/BinnedSplinesTutorial.h"
-#include "samplePDF/samplePDFTutorial.h"
-#include "splines/splineFDBase.h"
+#include "samplePDF/SampleHandlerTutorial.h"
 
 // ************************************************
-samplePDFTutorial::samplePDFTutorial(std::string mc_version_, covarianceXsec* xsec_cov_, covarianceOsc* osc_cov_) : samplePDFFDBase(mc_version_, xsec_cov_, osc_cov_) {
+SampleHandlerTutorial::SampleHandlerTutorial(std::string mc_version_, SystematicHandlerGeneric* xsec_cov_, ParameterHandlerOsc* osc_cov_) : SampleHandlerFD(mc_version_, xsec_cov_, osc_cov_) {
 // ************************************************
   KinematicParameters = &KinematicParametersTutorial;
   ReversedKinematicParameters = &ReversedKinematicParametersTutorial;
@@ -15,13 +11,13 @@ samplePDFTutorial::samplePDFTutorial(std::string mc_version_, covarianceXsec* xs
 }
 
 // ************************************************
-samplePDFTutorial::~samplePDFTutorial() {
+SampleHandlerTutorial::~SampleHandlerTutorial() {
 // ************************************************
 
 }
 
 // ************************************************
-void samplePDFTutorial::Init() {
+void SampleHandlerTutorial::Init() {
 // ************************************************
   TutorialSamples.resize(nSamples, tutorial_base());
 
@@ -35,19 +31,19 @@ void samplePDFTutorial::Init() {
 }
 
 // ************************************************
-void samplePDFTutorial::SetupSplines() {
+void SampleHandlerTutorial::SetupSplines() {
 // ************************************************
   SplineHandler = nullptr;
 
   if(XsecCov->GetNumParamsFromDetID(SampleDetID, SystType::kSpline) > 0){
-    SplineHandler = std::unique_ptr<splineFDBase>(new BinnedSplineTutorial(XsecCov,Modes));
+    SplineHandler = std::unique_ptr<BinnedSplineTutorial>(new BinnedSplineTutorial(XsecCov,Modes));
     InitialiseSplineObject();
   } else {
     MACH3LOG_WARN("Not using splines");
   }
 }
 // ************************************************
-void samplePDFTutorial::SetupWeightPointers() {
+void SampleHandlerTutorial::SetupWeightPointers() {
 // ************************************************
   for (size_t i = 0; i < MCSamples.size(); ++i) {
     for (int j = 0; j < MCSamples[i].nEvents; ++j) {
@@ -60,7 +56,7 @@ void samplePDFTutorial::SetupWeightPointers() {
 }
 
 // ************************************************
-int samplePDFTutorial::setupExperimentMC(int iSample) {
+int SampleHandlerTutorial::setupExperimentMC(int iSample) {
 // ************************************************
 
   tutorial_base *tutobj = &(TutorialSamples[iSample]);
@@ -161,22 +157,22 @@ int samplePDFTutorial::setupExperimentMC(int iSample) {
   return tutobj->nEvents;
 }
 
-double samplePDFTutorial::ReturnKinematicParameter(KinematicTypes KinPar, int iSample, int iEvent) {
+double SampleHandlerTutorial::ReturnKinematicParameter(KinematicTypes KinPar, int iSample, int iEvent) {
   const double* paramPointer = GetPointerToKinematicParameter(KinPar, iSample, iEvent);
   return *paramPointer;
 }
 
-double samplePDFTutorial::ReturnKinematicParameter(double KinematicVariable, int iSample, int iEvent) {
+double SampleHandlerTutorial::ReturnKinematicParameter(double KinematicVariable, int iSample, int iEvent) {
   KinematicTypes KinPar = static_cast<KinematicTypes>(std::round(KinematicVariable));
   return ReturnKinematicParameter(KinPar, iSample, iEvent);
 }
 
-double samplePDFTutorial::ReturnKinematicParameter(std::string KinematicParameter, int iSample, int iEvent) {
+double SampleHandlerTutorial::ReturnKinematicParameter(std::string KinematicParameter, int iSample, int iEvent) {
   KinematicTypes KinPar = static_cast<KinematicTypes>(ReturnKinematicParameterFromString(KinematicParameter));
   return ReturnKinematicParameter(KinPar, iSample, iEvent);
 }
 
-const double* samplePDFTutorial::GetPointerToKinematicParameter(KinematicTypes KinPar, int iSample, int iEvent) {
+const double* SampleHandlerTutorial::GetPointerToKinematicParameter(KinematicTypes KinPar, int iSample, int iEvent) {
   switch (KinPar) {
     case kTrueNeutrinoEnergy:
       return &TutorialSamples[iSample].TrueEnu[iEvent];
@@ -190,17 +186,17 @@ const double* samplePDFTutorial::GetPointerToKinematicParameter(KinematicTypes K
   }
 }
 
-const double* samplePDFTutorial::GetPointerToKinematicParameter(double KinematicVariable, int iSample, int iEvent) {
+const double* SampleHandlerTutorial::GetPointerToKinematicParameter(double KinematicVariable, int iSample, int iEvent) {
   KinematicTypes KinPar = static_cast<KinematicTypes>(std::round(KinematicVariable));
   return GetPointerToKinematicParameter(KinPar, iSample, iEvent);
 }
 
-const double* samplePDFTutorial::GetPointerToKinematicParameter(std::string KinematicParameter, int iSample, int iEvent) {
+const double* SampleHandlerTutorial::GetPointerToKinematicParameter(std::string KinematicParameter, int iSample, int iEvent) {
   KinematicTypes KinPar = static_cast<KinematicTypes>(ReturnKinematicParameterFromString(KinematicParameter));
   return GetPointerToKinematicParameter(KinPar, iSample, iEvent);
 }
 
-void samplePDFTutorial::setupFDMC(int iSample) {
+void SampleHandlerTutorial::setupFDMC(int iSample) {
   tutorial_base *tutobj = &(TutorialSamples[iSample]);
   auto &fdobj = MCSamples[iSample];  
   
@@ -217,7 +213,7 @@ void samplePDFTutorial::setupFDMC(int iSample) {
   }
 }
 
-std::vector<double> samplePDFTutorial::ReturnKinematicParameterBinning(std::string KinematicParameterStr) {
+std::vector<double> SampleHandlerTutorial::ReturnKinematicParameterBinning(std::string KinematicParameterStr) {
   std::vector<double> binningVector;
   KinematicTypes KinematicParameter = static_cast<KinematicTypes>(ReturnKinematicParameterFromString(KinematicParameterStr));
 

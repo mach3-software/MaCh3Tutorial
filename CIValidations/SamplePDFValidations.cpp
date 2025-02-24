@@ -1,6 +1,6 @@
 // MaCh3 spline includes
 #include "Utils/Comparison.h"
-#include "samplePDF/samplePDFTutorial.h"
+#include "samplePDF/SampleHandlerTutorial.h"
 
 int main(int argc, char *argv[])
 {
@@ -12,17 +12,17 @@ int main(int argc, char *argv[])
   }
 
   std::vector<std::string> xsecCovMatrixFile = {"TutorialConfigs/CovObjs/SystematicModel.yaml"};
-  covarianceXsec* xsec = new covarianceXsec(xsecCovMatrixFile, "xsec_cov");
+  SystematicHandlerGeneric* xsec = new SystematicHandlerGeneric(xsecCovMatrixFile, "xsec_cov");
 
   std::vector<std::string> OscCovMatrixFile = {"TutorialConfigs/CovObjs/OscillationModel.yaml"};
-  covarianceOsc* osc = new covarianceOsc(OscCovMatrixFile, "osc_cov");
+  ParameterHandlerOsc* osc = new ParameterHandlerOsc(OscCovMatrixFile, "osc_cov");
   osc->setParameters();
 
   // Open a file in write mode
   std::ofstream outFile("NewSampleOut.txt");
   std::vector<std::string> SampleConfig = {"TutorialConfigs/Samples/SamplePDF_Tutorial.yaml", "TutorialConfigs/Samples/SamplePDF_Tutorial_ATM.yaml"};
   for (const auto& configPath : SampleConfig) {
-    samplePDFTutorial *Sample = new samplePDFTutorial({configPath}, xsec, osc);
+    SampleHandlerTutorial *Sample = new SampleHandlerTutorial({configPath}, xsec, osc);
 
     std::string name = Sample->GetName();
     TString NameTString = TString(name.c_str());

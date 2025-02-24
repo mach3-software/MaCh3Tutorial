@@ -17,7 +17,7 @@ foreach(app
     if(MaCh3Tutorial_Coverage_ENABLED)
     target_compile_options(${app} PRIVATE --coverage)
     endif()
-    target_link_libraries(${app} MaCh3Tutorial::ValidationsUtils MaCh3Tutorial::samplePDFTutorial)
+    target_link_libraries(${app} MaCh3Tutorial::ValidationsUtils MaCh3Tutorial::SampleHandlerTutorial)
     if(MaCh3Tutorial_Coverage_ENABLED)
     target_link_options(${app} PRIVATE --coverage)
     endif()

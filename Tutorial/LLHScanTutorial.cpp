@@ -1,6 +1,6 @@
 // MaCh3 spline includes
 #include "mcmc/MaCh3Factory.h"
-#include "samplePDF/samplePDFTutorial.h"
+#include "samplePDF/SampleHandlerTutorial.h"
 
 int main(int argc, char *argv[]){
   // Initialise manger responsible for config handling
@@ -8,12 +8,12 @@ int main(int argc, char *argv[]){
   std::string OutputName = "LLH_" + FitManager->raw()["General"]["OutputFile"].as<std::string>();
   FitManager->OverrideSettings("General", "OutputFile", OutputName);
   // Initialise covariance class reasonable for Systematics
-  auto xsec = MaCh3CovarianceFactory<covarianceXsec>(FitManager.get(), "Xsec");
-  auto osc  = MaCh3CovarianceFactory<covarianceOsc>(FitManager.get(), "Osc");
+  auto xsec = MaCh3CovarianceFactory<SystematicHandlerGeneric>(FitManager.get(), "Xsec");
+  auto osc  = MaCh3CovarianceFactory<ParameterHandlerOsc>(FitManager.get(), "Osc");
 
   // Initialise samplePDF
   auto SampleConfig = FitManager->raw()["General"]["TutorialSamples"].as<std::vector<std::string>>();
-  auto mySamples = MaCh3SamplePDFFactory<samplePDFTutorial>(SampleConfig, xsec.get(), osc.get());
+  auto mySamples = MaCh3SamplePDFFactory<SampleHandlerTutorial>(SampleConfig, xsec.get(), osc.get());
 
   // Create MCMC Class
   std::unique_ptr<FitterBase> MaCh3Fitter = MaCh3FitterFactory(FitManager.get());

@@ -1,32 +1,32 @@
 set(HEADERS
-    samplePDFTutorial.h
+    SampleHandlerTutorial.h
     StructsTutorial.h
 )
 
-add_library(samplePDFTutorial SHARED
-    samplePDFTutorial.cpp
+add_library(SampleHandlerTutorial SHARED
+    SampleHandlerTutorial.cpp
 )
 
-set_target_properties(samplePDFTutorial PROPERTIES
+set_target_properties(SampleHandlerTutorial PROPERTIES
     PUBLIC_HEADER "${HEADERS}"
-    EXPORT_NAME samplePDFTutorial)
+    EXPORT_NAME SampleHandlerTutorial)
 
 if(NOT CPU_ONLY)
-  set_target_properties(samplePDFTutorial PROPERTIES CUDA_SEPARABLE_COMPILATION ON)
+  set_target_properties(SampleHandlerTutorial PROPERTIES CUDA_SEPARABLE_COMPILATION ON)
 endif()
 
-target_link_libraries(samplePDFTutorial PUBLIC MaCh3::All BinnedSplinesTutorial)
+target_link_libraries(SampleHandlerTutorial PUBLIC MaCh3::All BinnedSplinesTutorial)
 if(MaCh3_CPM)
-  target_link_libraries(samplePDFTutorial PRIVATE MaCh3Warnings)
+  target_link_libraries(SampleHandlerTutorial PRIVATE MaCh3Warnings)
 endif()
 
-target_include_directories(samplePDFTutorial PUBLIC
+target_include_directories(SampleHandlerTutorial PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/../>
   $<INSTALL_INTERFACE:include>)
 
-install(TARGETS samplePDFTutorial
+install(TARGETS SampleHandlerTutorial
         EXPORT mach3tutorial-targets
         LIBRARY DESTINATION lib/
         PUBLIC_HEADER DESTINATION include/samplePDF)
 
-add_library(MaCh3Tutorial::samplePDFTutorial ALIAS samplePDFTutorial)
+add_library(MaCh3Tutorial::SampleHandlerTutorial ALIAS SampleHandlerTutorial)
