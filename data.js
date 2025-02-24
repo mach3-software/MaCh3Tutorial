@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1740164617510,
+  "lastUpdate": 1740394600286,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -2293,6 +2293,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 437.544,
             "range": "± 6.07089",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "f31561af579187affcec02fc3ef8ce5063df8063",
+          "message": "Merge pull request #369 from mach3-software/feature/VectorCasting\n\nfeat: Improve Vector Casting",
+          "timestamp": "2025-02-24T10:52:20Z",
+          "tree_id": "5f496718464b5a47921a5604ad262fca73743522",
+          "url": "https://github.com/mach3-software/MaCh3/commit/f31561af579187affcec02fc3ef8ce5063df8063"
+        },
+        "date": 1740394598421,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.46862,
+            "range": "± 152.393",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.2214,
+            "range": "± 101.921",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 429.811,
+            "range": "± 4.95086",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
