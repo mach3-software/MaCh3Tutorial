@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1740407781493,
+  "lastUpdate": 1740431703572,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -2428,6 +2428,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 431.41,
             "range": "± 5.43775",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "31003009+dbarrow257@users.noreply.github.com",
+            "name": "dbarrow257",
+            "username": "dbarrow257"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "1c9c88d199cbd30c3b3197f746c59b5a8a95399e",
+          "message": "Merge pull request #372 from mach3-software/dbarrow257/feature/SpamStop\n\nfeat: Stop the spammy message for additional splines",
+          "timestamp": "2025-02-24T21:10:49Z",
+          "tree_id": "c73445641db7b66b4c4af001eae3b2cd83ab098d",
+          "url": "https://github.com/mach3-software/MaCh3/commit/1c9c88d199cbd30c3b3197f746c59b5a8a95399e"
+        },
+        "date": 1740431702111,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.37898,
+            "range": "± 29.7842",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.14426,
+            "range": "± 67.7921",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 429.839,
+            "range": "± 5.43148",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
