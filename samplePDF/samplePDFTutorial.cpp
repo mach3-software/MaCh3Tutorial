@@ -39,7 +39,7 @@ void samplePDFTutorial::SetupSplines() {
 // ************************************************
   SplineHandler = nullptr;
 
-  if(XsecCov->GetNumParamsFromDetID(SampleName, SystType::kSpline) > 0){
+  if(XsecCov->GetNumParamsFromSampleName(SampleName, SystType::kSpline) > 0){
     SplineHandler = std::unique_ptr<splineFDBase>(new BinnedSplineTutorial(XsecCov,Modes));
     InitialiseSplineObject();
   } else {
