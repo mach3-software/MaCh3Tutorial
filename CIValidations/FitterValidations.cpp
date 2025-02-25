@@ -37,7 +37,7 @@ void FitVal(const std::string& Algo, bool MoreTests)
   std::string SampleConfig = {"TutorialConfigs/Samples/SamplePDF_Tutorial.yaml"};
   auto Sample = std::make_unique<samplePDFTutorial>(SampleConfig, xsec.get(), osc.get());
   Sample->reweight();
-  std::string name = Sample->GetName();
+  std::string name = Sample->GetTitle();
   TString NameTString = TString(name.c_str());
   TH1D *SampleHistogramPrior = (TH1D*)Sample->get1DHist()->Clone(NameTString+"_Prior");
   Sample->addData(SampleHistogramPrior);

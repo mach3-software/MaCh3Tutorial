@@ -41,7 +41,7 @@ int main(int argc, char **argv) {
       Canv->cd(1);
       Stack->Draw("HIST");
       //Due to crappy TStack design, you need to draw THStack first then assign axis titles
-      Stack->SetTitle(mySamples[iPDF]->GetName().c_str());
+      Stack->SetTitle(mySamples[iPDF]->GetTitle().c_str());
       Stack->GetXaxis()->SetTitle((vecParams[iParam]).c_str());
       Canv->cd(2);
       Legend->Draw();
@@ -61,7 +61,7 @@ int main(int argc, char **argv) {
       TH2D* Hist = static_cast<TH2D*>(mySamples[iPDF]->get2DVarHist(vecParams[0], vecParams[1]));
 
       Canv->cd(1);
-      Hist->SetTitle(mySamples[iPDF]->GetName().c_str());
+      Hist->SetTitle(mySamples[iPDF]->GetTitle().c_str());
       Hist->SetStats(false);
       Hist->Draw("COLZ");
       Canv->Print(OutputName);

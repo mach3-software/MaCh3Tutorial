@@ -70,7 +70,7 @@ int main(int argc, char *argv[])
   std::string SampleConfig = "TutorialConfigs/Samples/SamplePDF_Tutorial.yaml";
   auto SampleTutorial = std::make_unique<samplePDFpValue>(SampleConfig, xsec.get(), osc.get());
 
-  std::string name = SampleTutorial->GetName();
+  std::string name = SampleTutorial->GetTitle();
   TString NameTString = TString(name.c_str());
 
   // Reweight and process prior histogram

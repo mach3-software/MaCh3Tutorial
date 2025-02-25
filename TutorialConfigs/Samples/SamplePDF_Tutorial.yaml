@@ -1,4 +1,5 @@
-SampleName: "Tutorial"
+SampleName: "Tutorial Beam"
+SampleTitle: "Beam sample"
 
 POT: 2.1428e+21
 MaCh3ModeConfig: "TutorialConfigs/MaCh3Modes.yaml"
@@ -16,7 +17,6 @@ InputFiles:
   # No Splines
   splineprefix: "TutorialConfigs/MC/BinnedSplinesTutorialInputs"
   splinesuffix: "2D.root"
-DetID: "Tutorial Beam"
 NuOsc:
   NuOscConfigFile: "TutorialConfigs/NuOscillator/NuFASTLinear.yaml"
   EqualBinningPerOscChannel: true
