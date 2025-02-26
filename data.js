@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1740431703572,
+  "lastUpdate": 1740594260572,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -2473,6 +2473,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 429.839,
             "range": "± 5.43148",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "edc49a5924f009b06e9d92c73fc25f4d48ce1257",
+          "message": "Merge pull request #375 from mach3-software/dbarrow257/bugfix/GetEventSplineFix\n\nbugfix: Correctly handle duplicate modes in GetEventSplines",
+          "timestamp": "2025-02-26T18:20:02Z",
+          "tree_id": "27baad199a718d243d922bae4e7a8bdadd7eee4f",
+          "url": "https://github.com/mach3-software/MaCh3/commit/edc49a5924f009b06e9d92c73fc25f4d48ce1257"
+        },
+        "date": 1740594258957,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.39501,
+            "range": "± 65.2742",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.18262,
+            "range": "± 63.8661",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 432.477,
+            "range": "± 4.04287",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
