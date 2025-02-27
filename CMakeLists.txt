@@ -55,6 +55,15 @@ if(NOT TARGET ROOT::ROOT)
   cmessage(FATAL_ERROR "T2KReWeight Expected dependency target: ROOT::ROOT")
 endif()
 
+set_target_properties(ROOT::ROOT PROPERTIES
+      INTERFACE_INCLUDE_DIRECTORIES "${ROOT_INCLUDE_DIRS}"
+      INTERFACE_COMPILE_OPTIONS ""
+      INTERFACE_LINK_DIRECTORIES "${ROOT_LIBRARY_DIR}"
+      INTERFACE_LINK_LIBRARIES "${ROOT_LIB_NAMES}"
+)
+
+set(CMAKE_CXX_FLAGS "")
+
 if(DEFINED ROOT_CXX_STANDARD AND ROOT_CXX_STANDARD GREATER CMAKE_CXX_STANDARD)
   set(CMAKE_CXX_STANDARD ${ROOT_CXX_STANDARD})
 endif()
@@ -115,7 +124,8 @@ if(USE_FPGA)
   target_compile_options(MaCh3 INTERFACE
     -fsycl
     -fintelfpga
-    -DFPGA_EMULATOR
+    -DFPGA_HARDWARE
+    #-DFPGA_EMULATOR
     -DUSE_FPGA              # preprocessor directive to switch on FPGA code
   )
 
