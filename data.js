@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1740594260572,
+  "lastUpdate": 1741028822892,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -2518,6 +2518,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 432.477,
             "range": "± 4.04287",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "31003009+dbarrow257@users.noreply.github.com",
+            "name": "dbarrow257",
+            "username": "dbarrow257"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "d0eefcb3f3a063dece1b2a0528952ccb74b9d68f",
+          "message": "Merge pull request #378 from mach3-software/feature/BenJarg/moSwitchingDefault\n\nfeat: Turn on MO switching by default",
+          "timestamp": "2025-03-03T19:02:44Z",
+          "tree_id": "8939133e9bab04f132b6ccf6e22129aafe222c8b",
+          "url": "https://github.com/mach3-software/MaCh3/commit/d0eefcb3f3a063dece1b2a0528952ccb74b9d68f"
+        },
+        "date": 1741028821597,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.4362,
+            "range": "± 62.4201",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.19978,
+            "range": "± 176.026",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 441.908,
+            "range": "± 3.44627",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
