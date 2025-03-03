@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1741028822892,
+  "lastUpdate": 1741034092803,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -2563,6 +2563,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 441.908,
             "range": "± 3.44627",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "61280b1370fe0a59f77215e09584a567cd04315a",
+          "message": "Merge pull request #379 from mach3-software/feature/BenJarg/BurnIn\n\nfeat: Set Burn-In from YAML file",
+          "timestamp": "2025-03-03T20:30:39Z",
+          "tree_id": "04f16b73e7cf571e2f7cde6db55e091c11dcd429",
+          "url": "https://github.com/mach3-software/MaCh3/commit/61280b1370fe0a59f77215e09584a567cd04315a"
+        },
+        "date": 1741034091450,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.3916,
+            "range": "± 66.5002",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.17533,
+            "range": "± 77.9289",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 439.266,
+            "range": "± 8.81958",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
