@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1741034092803,
+  "lastUpdate": 1741107888805,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -2608,6 +2608,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 439.266,
             "range": "± 8.81958",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "d53668bff894b2932991d7f8e51447b061cc5920",
+          "message": "Merge pull request #380 from mach3-software/feature/BenJarg/BurnInFix\n\nfeat: Set Burn-In for Multiple Chains",
+          "timestamp": "2025-03-04T17:00:33Z",
+          "tree_id": "aa1e52b06ea410296c5ce292863055dafba0e7b1",
+          "url": "https://github.com/mach3-software/MaCh3/commit/d53668bff894b2932991d7f8e51447b061cc5920"
+        },
+        "date": 1741107887504,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.42064,
+            "range": "± 109.907",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.15847,
+            "range": "± 87.4823",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 441.804,
+            "range": "± 4.61785",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
