@@ -15,7 +15,7 @@ Systematics:
     ParameterValues:
       Generated: 1.
       PreFitValue: 1.
-    SampleID: ["Tutorial *"]
+    SampleNames: ["Tutorial *"]
     StepScale:
       MCMC: 0.2
     Type: Norm
@@ -35,7 +35,7 @@ Systematics:
     ParameterValues:
       Generated: 1.
       PreFitValue: 1.
-    SampleID: ["Tutorial *"]
+    SampleNames: ["Tutorial *"]
     StepScale:
       MCMC: 0.2
     Type: Norm
@@ -57,7 +57,7 @@ Systematics:
     ParameterValues:
       Generated: 1.
       PreFitValue: 1.
-    SampleID: ["Tutorial *"]
+    SampleNames: ["Tutorial *"]
     StepScale:
       MCMC: 0.2
     Type: Norm
@@ -78,7 +78,7 @@ Systematics:
       Mode: [0]
       InterpolationType: TSpline3
       SplineName: mysyst1
-    SampleID: ["Tutorial *"]
+    SampleNames: ["Tutorial *"]
     StepScale:
       MCMC: 0.2
     Type: Spline
@@ -99,7 +99,7 @@ Systematics:
       Mode: [2]
       InterpolationType: Linear
       SplineName: mysyst2
-    SampleID: ["Tutorial *"]
+    SampleNames: ["Tutorial *"]
     StepScale:
       MCMC: 0.2
     Type: Spline
@@ -120,7 +120,7 @@ Systematics:
       Mode: [1]
       InterpolationType: Monotonic
       SplineName: mysyst3
-    SampleID: ["Tutorial *"]
+    SampleNames: ["Tutorial *"]
     StepScale:
       MCMC: 0.2
     Type: Spline
@@ -141,7 +141,7 @@ Systematics:
       Mode: [3]
       InterpolationType: Akima
       SplineName: mysyst4
-    SampleID: ["Tutorial *"]
+    SampleNames: ["Tutorial *"]
     StepScale:
       MCMC: 0.2
     Type: Spline
@@ -162,7 +162,7 @@ Systematics:
       Mode: [4]
       InterpolationType: Linear
       SplineName: mysyst5
-    SampleID: ["Tutorial *"]
+    SampleNames: ["Tutorial *"]
     StepScale:
       MCMC: 0.2
     Type: Spline
@@ -184,7 +184,7 @@ Systematics:
       - Func_Param_3: 0.653
     StepScale:
       MCMC: 0.2
-    SampleID: ["Tutorial *"]
+    SampleNames: ["Tutorial *"]
     Type: Functional
 
 - Systematic:
@@ -205,7 +205,7 @@ Systematics:
       - Func_Param_3: 0.778
     StepScale:
       MCMC: 0.2
-    SampleID: ["Tutorial *"]
+    SampleNames: ["Tutorial *"]
     Type: Functional
 
 - Systematic:
@@ -226,7 +226,7 @@ Systematics:
       - Func_Param_3: 0.870
     StepScale:
       MCMC: 0.2
-    SampleID: ["Tutorial *"]
+    SampleNames: ["Tutorial *"]
     Type: Functional
 
 - Systematic:
@@ -247,5 +247,5 @@ Systematics:
       - Func_Param_1: 0.778
     StepScale:
       MCMC: 0.2
-    SampleID: ["Tutorial *"]
+    SampleNames: ["Tutorial *"]
     Type: Functional
