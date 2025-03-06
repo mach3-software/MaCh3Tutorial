@@ -119,7 +119,7 @@ First let's better understand `TutorialConfigs/CovObjs/SystematicModel.yaml`. Th
     ParameterValues:
       Generated: 1.
       PreFitValue: 1.
-    DetID: 985
+    DetID: ["Tutorial Beam"]
     StepScale:
       MCMC: 0.2
     Type: Norm
