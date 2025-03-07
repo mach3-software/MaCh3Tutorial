@@ -2,9 +2,9 @@ SampleName: "Tutorial"
 
 POT: 2.1428e+21
 MaCh3ModeConfig: "TutorialConfigs/MaCh3Modes.yaml"
-SelectionCuts:
-  - KinematicStr: "TrueNeutrinoEnergy"
-    Bounds: [ 0., 4 ]
+# SelectionCuts:
+#   - KinematicStr: "TrueNeutrinoEnergy"
+#     Bounds: [ 0., 4 ]
 
 Binning:
   XVarStr : "TrueNeutrinoEnergy"

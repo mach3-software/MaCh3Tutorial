@@ -24,6 +24,7 @@ samplePDFTutorial::~samplePDFTutorial() {
 void samplePDFTutorial::Init() {
 // ************************************************
   TutorialSamples.resize(nSamples, tutorial_base());
+  funcParsGrid.resize(nSamples);
 
   if (CheckNodeExists(SampleManager->raw(), "POT")) {
     pot = SampleManager->raw()["POT"].as<double>();
@@ -33,6 +34,41 @@ void samplePDFTutorial::Init() {
   }
   MACH3LOG_INFO("-------------------------------------------------------------------");
 }
+
+void samplePDFTutorial::DebugShift(const double * par, std::size_t iSample, std::size_t iEvent) {
+  if (TutorialSamples[iSample].TrueEnu[iEvent] < 2.0) {
+    TutorialSamples[iSample].TrueEnu[iEvent] = 4;
+  }
+}
+
+void samplePDFTutorial::RegisterFunctionalParameters() {
+  std::cout << "Registering functional parameters" << std::endl;
+  // This function manually populates the map of functional parameters
+  // Maps the name of the functional parameter to the pointer of the function
+  std::vector<std::string> funcParsNamesVec = {};
+  
+  // This is the part where we manually enter things
+  // A lambda function has to be used so we can refer to a non-static member function
+
+  funcParsNamesMap["DebugNothing"] = static_cast<int>(kDebugNothing);
+  funcParsNamesVec.push_back("DebugNothing");
+  funcParsFuncMap[static_cast<int>(kDebugNothing)] = [this](const double * par, std::size_t iSample, std::size_t iEvent) {};
+
+  funcParsNamesMap["DebugShift"] = static_cast<int>(kDebugShift);
+  funcParsNamesVec.push_back("DebugShift");
+  funcParsFuncMap[static_cast<int>(kDebugShift)] = [this](const double * par, std::size_t iSample, std::size_t iEvent) { this->DebugShift(par, iSample, iEvent); };
+
+  // For every functional parameter in XsecCov that matches the name in funcParsNames, add it to the map
+  for (std::vector<FuncPars>::iterator it = funcParsVec.begin(); it != funcParsVec.end(); ++it) {
+    if (std::find(funcParsNamesVec.begin(), funcParsNamesVec.end(), (*it).name) != funcParsNamesVec.end()) {
+      std::cout << "Adding functional parameter: " << (*it).name << std::endl;
+      std::cout << "Adding it into funcParsMap with key: " << funcParsNamesMap[(*it).name] << std::endl;
+      std::cout << "The address of the function is: " << &(*it) << std::endl;
+      funcParsMap[funcParsNamesMap[(*it).name]] = &(*it);
+    }
+  }
+}
+
 
 // ************************************************
 void samplePDFTutorial::SetupSplines() {

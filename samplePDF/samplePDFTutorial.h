@@ -50,4 +50,13 @@ class samplePDFTutorial : public samplePDFFDBase
 
   double pot;
   bool isATM;
+
+  // === HH: Functional parameters ===
+  enum FuncParEnum {kTotalEScaleND, kDebugNothing, kDebugShift};
+  // HH todo: delete all the commented out code after checking
+  void RegisterFunctionalParameters() override;
+
+  void TotalEScale(const double * par, std::size_t iSample, std::size_t iEvent);
+  void DebugShift(const double * par, std::size_t iSample, std::size_t iEvent);
+  // =================================
 };

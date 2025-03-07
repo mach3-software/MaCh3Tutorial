@@ -1,5 +1,5 @@
 General:
-  OutputFile: "Test.root"
+  OutputFile: "044_eventrates.root"
   TutorialSamples: ["TutorialConfigs/Samples/SamplePDF_Tutorial.yaml",
                     #"TutorialConfigs/Samples/SamplePDF_Tutorial_ATM.yaml"
                     ]
