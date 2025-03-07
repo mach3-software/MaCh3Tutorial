@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1741107888805,
+  "lastUpdate": 1741343977816,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -2653,6 +2653,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 441.804,
             "range": "± 4.61785",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "67589487+henry-wallace-phys@users.noreply.github.com",
+            "name": "Henry Wallace",
+            "username": "henry-wallace-phys"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "61514ad257221b9ce7d005876753a402829dbbbc",
+          "message": "Merge pull request #381 from mach3-software/feature_fix_circularprior\n\nbugfix: Fix CircularPrior logic",
+          "timestamp": "2025-03-07T10:35:18Z",
+          "tree_id": "2d9e2106f7846bcde6cb4b92c7266b5a6256ca8e",
+          "url": "https://github.com/mach3-software/MaCh3/commit/61514ad257221b9ce7d005876753a402829dbbbc"
+        },
+        "date": 1741343976443,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.73999,
+            "range": "± 3.23955",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.19645,
+            "range": "± 93.6033",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 439.398,
+            "range": "± 8.33518",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
