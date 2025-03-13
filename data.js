@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1741343977816,
+  "lastUpdate": 1741865210363,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -2698,6 +2698,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 439.398,
             "range": "± 8.33518",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "3aec7a85e8bc853b7071fe4cd6f7387c60a051a4",
+          "message": "Merge pull request #384 from mach3-software/feature_fix_sample_binosc_override\n\nfeat: Override EqualBinning setting when not using binnedosc",
+          "timestamp": "2025-03-13T11:22:32Z",
+          "tree_id": "8c903edbfc346fcd9139dfd3a48373f904d65b3a",
+          "url": "https://github.com/mach3-software/MaCh3/commit/3aec7a85e8bc853b7071fe4cd6f7387c60a051a4"
+        },
+        "date": 1741865208977,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.46691,
+            "range": "± 60.9533",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.37032,
+            "range": "± 532.911",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 448.586,
+            "range": "± 4.10405",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
