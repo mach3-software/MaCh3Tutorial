@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1741865210363,
+  "lastUpdate": 1741896719108,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -2743,6 +2743,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 448.586,
             "range": "± 4.10405",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "3c947ac5c666a8b5624945a3eab7875199586deb",
+          "message": "Merge pull request #383 from mach3-software/feature_2dllhscan_options\n\nfeat: Add configurable options for 2D likelihood scans too",
+          "timestamp": "2025-03-13T20:07:36Z",
+          "tree_id": "e42247b33f42e8b216280ecae441813eea183a38",
+          "url": "https://github.com/mach3-software/MaCh3/commit/3c947ac5c666a8b5624945a3eab7875199586deb"
+        },
+        "date": 1741896717467,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.41621,
+            "range": "± 124.809",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.18073,
+            "range": "± 134.865",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 441.42,
+            "range": "± 7.48103",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
