@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1741896719108,
+  "lastUpdate": 1741960412224,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -2788,6 +2788,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 441.42,
             "range": "± 7.48103",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "p.dunne12@imperial.ac.uk",
+            "name": "Patrick Dunne",
+            "username": "pjdunne"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "d2a07a45c04c614874f18fad0892d88701540384",
+          "message": "Merge pull request #374 from mach3-software/feature_DetID_fix\n\nbreaking: det id fix",
+          "timestamp": "2025-03-14T13:49:02Z",
+          "tree_id": "e951d417a47647be572f0c92162a6db43985665f",
+          "url": "https://github.com/mach3-software/MaCh3/commit/d2a07a45c04c614874f18fad0892d88701540384"
+        },
+        "date": 1741960410347,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.46947,
+            "range": "± 83.457",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.21829,
+            "range": "± 124.774",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 444.755,
+            "range": "± 5.48434",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
