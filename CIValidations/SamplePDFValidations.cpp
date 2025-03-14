@@ -24,7 +24,7 @@ int main(int argc, char *argv[])
   for (const auto& configPath : SampleConfig) {
     samplePDFTutorial *Sample = new samplePDFTutorial({configPath}, xsec, osc);
 
-    std::string name = Sample->GetName();
+    std::string name = Sample->GetTitle();
     TString NameTString = TString(name.c_str());
 
     // Reweight and process prior histogram

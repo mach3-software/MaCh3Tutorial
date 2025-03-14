@@ -40,22 +40,22 @@ int main(int argc, char *argv[])
   xsec->setParameters(ParProp);
   xsec->acceptStep();
   ///// Test Params from DetId /////
-  const std::vector<std::string> Det_Id = {"Tutorial Beam", "Tutorial ATM", "tutorial beam", "blarb" "ATM"};
-  for (size_t id = 0; id < Det_Id.size(); ++id)
+  const std::vector<std::string> AffectedSamples = {"Tutorial Beam", "Tutorial ATM", "tutorial beam", "blarb" "ATM"};
+  for (size_t id = 0; id < AffectedSamples.size(); ++id)
   {
     for (int s = 0; s < kSystTypes; ++s)
     {
-      int NParams = xsec->GetNumParamsFromDetID(Det_Id[id], static_cast<SystType>(s));
-      outFile << "Found " << NParams << " for "<< Det_Id[id] << " Params of type " << SystType_ToString(static_cast<SystType>(s)) << std::endl;
+      int NParams = xsec->GetNumParamsFromSampleName(AffectedSamples[id], static_cast<SystType>(s));
+      outFile << "Found " << NParams << " for "<< AffectedSamples[id] << " Params of type " << SystType_ToString(static_cast<SystType>(s)) << std::endl;
 
       // These return vector and I am too lazy to make check so here let just run them to so if things don't break
-      xsec->GetSystIndexFromDetID(Det_Id[id], static_cast<SystType>(s));
-      xsec->GetParsIndexFromDetID(Det_Id[id], static_cast<SystType>(s));
-      xsec->GetParsNamesFromDetID(Det_Id[id], static_cast<SystType>(s));
+      xsec->GetSystIndexFromSampleName(AffectedSamples[id], static_cast<SystType>(s));
+      xsec->GetParsIndexFromSampleName(AffectedSamples[id], static_cast<SystType>(s));
+      xsec->GetParsNamesFromSampleName(AffectedSamples[id], static_cast<SystType>(s));
     }
 
-    auto Norm = xsec->GetNormParsFromDetID(Det_Id[id]);
-    outFile << "Found " << Norm.size()   << " for "<< Det_Id[id] << " From GetNormParsFromDetID" << std::endl;
+    auto Norm = xsec->GetNormParsFromSampleName(AffectedSamples[id]);
+    outFile << "Found " << Norm.size()   << " for "<< AffectedSamples[id] << " From GetNormParsFromSampleName" << std::endl;
   }
   for (int i = 0; i < xsec->GetNumParams(); ++i) {
     for (int j = 0; j < xsec->GetNumParams(); ++j) {

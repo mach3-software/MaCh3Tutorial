@@ -63,7 +63,7 @@ if(NOT DEFINED MaCh3_Branch)
 endif()
 
 #If MaCh3 was sourced find it, otherwise use CPM
-#find_package(MaCh3 QUIET EXACT ${MaCh3Tutorial_VERSION})
+find_package(MaCh3 QUIET)# EXACT ${MaCh3Tutorial_VERSION})
 
 if(NOT MaCh3_FOUND)
   set(MaCh3_OPTIONS "")
