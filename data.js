@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1742294982263,
+  "lastUpdate": 1742300246337,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -2923,6 +2923,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 443.016,
             "range": "± 5.4733",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "5fcd1d70f940cb8e58956667092d695a30e695e9",
+          "message": "Merge pull request #388 from mach3-software/feature_fasterSplineLoad\n\nfeat: Faster Spline Loading",
+          "timestamp": "2025-03-18T12:12:57Z",
+          "tree_id": "0866b033757c42e25a523bad38f36cc947fbb66d",
+          "url": "https://github.com/mach3-software/MaCh3/commit/5fcd1d70f940cb8e58956667092d695a30e695e9"
+        },
+        "date": 1742300244601,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.61844,
+            "range": "± 70.2745",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.45122,
+            "range": "± 413.434",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 448.754,
+            "range": "± 4.24881",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
