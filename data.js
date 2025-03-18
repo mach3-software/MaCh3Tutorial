@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1742300246337,
+  "lastUpdate": 1742300267183,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -2968,6 +2968,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 448.754,
             "range": "± 4.24881",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "5e75a299f50bfead0809887304bc5663e1a1d83c",
+          "message": "Merge pull request #389 from mach3-software/feature_Spatial\n\nfeat: LLH Cache hits",
+          "timestamp": "2025-03-18T12:13:24Z",
+          "tree_id": "281e46c272704d3bfb8d8e928ba8db5d567b4194",
+          "url": "https://github.com/mach3-software/MaCh3/commit/5e75a299f50bfead0809887304bc5663e1a1d83c"
+        },
+        "date": 1742300265738,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.67243,
+            "range": "± 73.026",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.43084,
+            "range": "± 244.654",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 447.234,
+            "range": "± 5.49744",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
