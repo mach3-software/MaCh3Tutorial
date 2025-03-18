@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1742284998319,
+  "lastUpdate": 1742294982263,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -2878,6 +2878,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 444.325,
             "range": "± 4.42396",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "8b2e00ccf202cf56e0cd5c3c3f14851d12afd916",
+          "message": "Merge pull request #387 from mach3-software/feature_CMakeListsfix\n\nbugfix: Fix typo to make CUDA work properly",
+          "timestamp": "2025-03-18T10:45:26Z",
+          "tree_id": "31ededf545531dba5ff26b18f139182ce4626df4",
+          "url": "https://github.com/mach3-software/MaCh3/commit/8b2e00ccf202cf56e0cd5c3c3f14851d12afd916"
+        },
+        "date": 1742294980911,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.40712,
+            "range": "± 82.8429",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.17566,
+            "range": "± 89.6659",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 443.016,
+            "range": "± 5.4733",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
