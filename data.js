@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1741960412224,
+  "lastUpdate": 1742284998319,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -2833,6 +2833,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 444.755,
             "range": "± 5.48434",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "c28c58e7d1824a1e0d7bc2d902968ad8866664ec",
+          "message": "Merge pull request #385 from mach3-software/bugfix_llhscan_samplehistindex\n\nbugfix: fix the index of sample llh histograms",
+          "timestamp": "2025-03-18T07:59:00Z",
+          "tree_id": "1b627b8b9194ddcd852818df896f77d0b139d0ca",
+          "url": "https://github.com/mach3-software/MaCh3/commit/c28c58e7d1824a1e0d7bc2d902968ad8866664ec"
+        },
+        "date": 1742284996889,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.40362,
+            "range": "± 84.8087",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.21764,
+            "range": "± 210.668",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 444.325,
+            "range": "± 4.42396",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
