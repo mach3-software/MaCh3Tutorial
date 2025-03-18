@@ -1,4 +1,5 @@
 SampleName: "Tutorial ATM"
+SampleTitle: "Tutorial ATM"
 
 POT: 2.1428e+21
 MaCh3ModeConfig: "TutorialConfigs/MaCh3Modes.yaml"
@@ -15,7 +16,7 @@ InputFiles:
   mtuplesuffix: "_FlatTree_ATM.root"
   splineprefix: "TutorialConfigs/MC/BinnedSplinesTutorialInputs"
   splinesuffix: "2D.root"
-DetID: "Tutorial ATM"
+
 NuOsc:
   NuOscConfigFile: "TutorialConfigs/NuOscillator/CUDAProb3.yaml"
   EqualBinningPerOscChannel: true
