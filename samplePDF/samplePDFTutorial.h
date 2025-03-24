@@ -9,7 +9,7 @@ class samplePDFTutorial : public samplePDFFDBase
  public:
   samplePDFTutorial(std::string mc_version, covarianceXsec* xsec_cov, covarianceOsc* osc_cov = nullptr);
   virtual ~samplePDFTutorial();
-  enum KinematicTypes {kTrueNeutrinoEnergy, kTrueQ2, kM3Mode};
+  enum KinematicTypes {kTrueNeutrinoEnergy, kTrueQ2, kM3Mode, kRecoNeutrinoEnergy};
 
   std::vector<double> ReturnKinematicParameterBinning(std::string KinematicParameter) override;
 
@@ -40,12 +40,14 @@ class samplePDFTutorial : public samplePDFFDBase
     {"TrueNeutrinoEnergy", kTrueNeutrinoEnergy},
     {"TrueQ2", kTrueQ2},
     {"Mode", kM3Mode},
+    {"RecoNeutrinoEnergy", kRecoNeutrinoEnergy},
   };
 
   const std::unordered_map<int, std::string> ReversedKinematicParametersTutorial = {
     {kTrueNeutrinoEnergy, "TrueNeutrinoEnergy"},
     {kTrueQ2, "TrueQ2"},
     {kM3Mode,"Mode"},
+    {kRecoNeutrinoEnergy, "RecoNeutrinoEnergy"},
   };
 
   double pot;
@@ -54,7 +56,8 @@ class samplePDFTutorial : public samplePDFFDBase
   // === HH: Functional parameters ===
   enum FuncParEnum {kTotalEScaleND, kDebugNothing, kDebugShift};
   // HH todo: delete all the commented out code after checking
-  void RegisterFunctionalParameters() override;
+  void RegisterFunctionalParameters();
+  void resetShifts(int iSample, int iEvent);
 
   void TotalEScale(const double * par, std::size_t iSample, std::size_t iEvent);
   void DebugShift(const double * par, std::size_t iSample, std::size_t iEvent);

@@ -36,37 +36,31 @@ void samplePDFTutorial::Init() {
 }
 
 void samplePDFTutorial::DebugShift(const double * par, std::size_t iSample, std::size_t iEvent) {
-  if (TutorialSamples[iSample].TrueEnu[iEvent] < 2.0) {
-    TutorialSamples[iSample].TrueEnu[iEvent] = 4;
+  if (TutorialSamples[iSample].RecoEnu[iEvent] < 2.0) {
+    TutorialSamples[iSample].RecoEnu_shifted[iEvent] = 4;
   }
 }
 
 void samplePDFTutorial::RegisterFunctionalParameters() {
-  std::cout << "Registering functional parameters" << std::endl;
+  MACH3LOG_INFO("Registering functional parameters");
   // This function manually populates the map of functional parameters
   // Maps the name of the functional parameter to the pointer of the function
-  std::vector<std::string> funcParsNamesVec = {};
   
   // This is the part where we manually enter things
   // A lambda function has to be used so we can refer to a non-static member function
 
-  funcParsNamesMap["DebugNothing"] = static_cast<int>(kDebugNothing);
-  funcParsNamesVec.push_back("DebugNothing");
-  funcParsFuncMap[static_cast<int>(kDebugNothing)] = [this](const double * par, std::size_t iSample, std::size_t iEvent) {};
+  RegisterIndividualFuncPar("DebugNothing", 
+                            kDebugNothing, 
+                            [this](const double * par, std::size_t iSample, std::size_t iEvent) {});
 
-  funcParsNamesMap["DebugShift"] = static_cast<int>(kDebugShift);
-  funcParsNamesVec.push_back("DebugShift");
-  funcParsFuncMap[static_cast<int>(kDebugShift)] = [this](const double * par, std::size_t iSample, std::size_t iEvent) { this->DebugShift(par, iSample, iEvent); };
+  RegisterIndividualFuncPar("DebugShift",
+                            kDebugShift, 
+                            [this](const double * par, std::size_t iSample, std::size_t iEvent) { this->DebugShift(par, iSample, iEvent); });
+}
 
-  // For every functional parameter in XsecCov that matches the name in funcParsNames, add it to the map
-  for (std::vector<FuncPars>::iterator it = funcParsVec.begin(); it != funcParsVec.end(); ++it) {
-    if (std::find(funcParsNamesVec.begin(), funcParsNamesVec.end(), (*it).name) != funcParsNamesVec.end()) {
-      std::cout << "Adding functional parameter: " << (*it).name << std::endl;
-      std::cout << "Adding it into funcParsMap with key: " << funcParsNamesMap[(*it).name] << std::endl;
-      std::cout << "The address of the function is: " << &(*it) << std::endl;
-      funcParsMap[funcParsNamesMap[(*it).name]] = &(*it);
-    }
-  }
+void samplePDFTutorial::resetShifts(int iSample, int iEvent) {
+  // Reset the shifts to the original values
+  TutorialSamples[iSample].RecoEnu_shifted[iEvent] = TutorialSamples[iSample].RecoEnu[iEvent];
 }
 
 
@@ -122,6 +116,8 @@ int samplePDFTutorial::setupExperimentMC(int iSample) {
   }
   tutobj->nEvents = static_cast<int>(_data->GetEntries());
   tutobj->TrueEnu.resize(tutobj->nEvents);
+  tutobj->RecoEnu.resize(tutobj->nEvents);
+  tutobj->RecoEnu_shifted.resize(tutobj->nEvents);
   tutobj->Q2.resize(tutobj->nEvents);
   tutobj->Mode.resize(tutobj->nEvents);
   tutobj->Target.resize(tutobj->nEvents);
@@ -177,6 +173,8 @@ int samplePDFTutorial::setupExperimentMC(int iSample) {
     _data->GetEntry(i);
 
     tutobj->TrueEnu[i] = Enu_true;
+    tutobj->RecoEnu[i] = Enu_true;
+    tutobj->RecoEnu_shifted[i] = Enu_true;
     tutobj->Q2[i]      = Q2;
     // KS: Currently we store target as 1000060120, therefore we hardcode it to 12
     tutobj->Target[i] = 12;
@@ -216,6 +214,9 @@ const double* samplePDFTutorial::GetPointerToKinematicParameter(KinematicTypes K
   switch (KinPar) {
     case kTrueNeutrinoEnergy:
       return &TutorialSamples[iSample].TrueEnu[iEvent];
+    case kRecoNeutrinoEnergy:
+      // HH - here we return the shifted energy in case of detector systematics
+      return &TutorialSamples[iSample].RecoEnu_shifted[iEvent];
     case kTrueQ2:
       return &TutorialSamples[iSample].Q2[iEvent];
     case kM3Mode:
@@ -261,6 +262,10 @@ std::vector<double> samplePDFTutorial::ReturnKinematicParameterBinning(std::stri
   double bin_width = 0;
   switch(KinematicParameter){
     case(kTrueNeutrinoEnergy):
+      nBins = 20;
+      bin_width = 0.5; //GeV
+      break;
+    case(kRecoNeutrinoEnergy):
       nBins = 20;
       bin_width = 0.5; //GeV
       break;
