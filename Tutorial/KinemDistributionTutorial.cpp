@@ -23,7 +23,7 @@ int main(int argc, char **argv) {
 
   TString OutputName = TString(OutName.str()) + "_KinemPlot" + ".pdf";
 
-  std::vector<std::string> vecParams = {"TrueNeutrinoEnergy", "TrueQ2"};
+  std::vector<std::string> vecParams = {"TrueNeutrinoEnergy", "TrueQ2", "RecoNeutrinoEnergy"};
 
   TCanvas* Canv = new TCanvas("Canv","");
   Canv->Divide(1,2);
