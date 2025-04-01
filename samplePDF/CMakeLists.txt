@@ -11,7 +11,7 @@ set_target_properties(samplePDFTutorial PROPERTIES
     PUBLIC_HEADER "${HEADERS}"
     EXPORT_NAME samplePDFTutorial)
 
-if(NOT CPU_ONLY)
+if(MaCh3_GPU_ENABLED)
   set_target_properties(samplePDFTutorial PROPERTIES CUDA_SEPARABLE_COMPILATION ON)
 endif()
 
