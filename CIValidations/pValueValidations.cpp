@@ -40,7 +40,7 @@ class samplePDFpValue : public samplePDFTutorial
     KinemBlarbTitle({"RecoLeptonMomentum", "RecoLeptonCosTheta"}) {}
 
     inline M3::int_t GetNsamples() override { return 22; };
-    std::string GetSampleName(int Sample) override {return SampleBlarbTitle[Sample];};
+    std::string GetSampleName(int Sample) {return SampleBlarbTitle[Sample];};
     inline std::string GetKinVarLabel(const int sample, const int Dimension) override {return KinemBlarbTitle[Dimension];}
 
      inline void SetupBinning(const M3::int_t Selection, std::vector<double> &BinningX, std::vector<double> &BinningY) override{
