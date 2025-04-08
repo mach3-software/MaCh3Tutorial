@@ -56,10 +56,9 @@ class samplePDFTutorial : public samplePDFFDBase
   // === HH: Functional parameters ===
   enum FuncParEnum {kTotalEScaleND, kDebugNothing, kDebugShift};
   // HH todo: delete all the commented out code after checking
-  void RegisterFunctionalParameters();
-  void resetShifts(int iSample, int iEvent);
+  void RegisterFunctionalParameters() override;
+  void resetShifts(int iSample, int iEvent) override;
 
-  void TotalEScale(const double * par, std::size_t iSample, std::size_t iEvent);
   void DebugShift(const double * par, std::size_t iSample, std::size_t iEvent);
   // =================================
 };
