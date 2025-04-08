@@ -35,7 +35,7 @@ void SampleHandlerTutorial::SetupSplines() {
 // ************************************************
   SplineHandler = nullptr;
 
-  if(XsecCov->GetNumParamsFromDetID(SampleDetID, SystType::kSpline) > 0){
+  if(XsecCov->GetNumParamsFromSampleName(SampleName, SystType::kSpline) > 0){
     SplineHandler = std::unique_ptr<BinnedSplineTutorial>(new BinnedSplineTutorial(XsecCov,Modes));
     InitialiseSplineObject();
   } else {

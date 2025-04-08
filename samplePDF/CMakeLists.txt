@@ -11,7 +11,7 @@ set_target_properties(SampleHandlerTutorial PROPERTIES
     PUBLIC_HEADER "${HEADERS}"
     EXPORT_NAME SampleHandlerTutorial)
 
-if(NOT CPU_ONLY)
+if(MaCh3_GPU_ENABLED)
   set_target_properties(SampleHandlerTutorial PROPERTIES CUDA_SEPARABLE_COMPILATION ON)
 endif()
 
