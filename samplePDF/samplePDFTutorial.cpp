@@ -35,9 +35,20 @@ void samplePDFTutorial::Init() {
 }
 
 void samplePDFTutorial::DebugShift(const double * par, std::size_t iSample, std::size_t iEvent) {
+  // HH: This is a debug function to shift the reco energy to 4 GeV if the reco energy is less than 2 GeV
   if (TutorialSamples[iSample].RecoEnu[iEvent] < 2.0) {
     TutorialSamples[iSample].RecoEnu_shifted[iEvent] = 4;
   }
+}
+
+void samplePDFTutorial::EResLep(const double * par, std::size_t iSample, std::size_t iEvent) {
+  // HH: Lepton energy resolution contribution to reco energy
+  TutorialSamples[iSample].RecoEnu_shifted[iEvent] += (*par) * TutorialSamples[iSample].ELep[iEvent];
+}
+
+void samplePDFTutorial::EResTot(const double * par, std::size_t iSample, std::size_t iEvent) {
+  // HH: Total energy resolution contribution to reco energy
+  TutorialSamples[iSample].RecoEnu_shifted[iEvent] += (*par) * TutorialSamples[iSample].RecoEnu[iEvent];
 }
 
 void samplePDFTutorial::RegisterFunctionalParameters() {
@@ -55,6 +66,14 @@ void samplePDFTutorial::RegisterFunctionalParameters() {
   RegisterIndividualFuncPar("DebugShift",
                             kDebugShift, 
                             [this](const double * par, std::size_t iSample, std::size_t iEvent) { this->DebugShift(par, iSample, iEvent); });
+
+  RegisterIndividualFuncPar("EResLep",
+                            kEResLep, 
+                            [this](const double * par, std::size_t iSample, std::size_t iEvent) { this->EResLep(par, iSample, iEvent); });
+
+  RegisterIndividualFuncPar("EResTot",
+                            kEResTot, 
+                            [this](const double * par, std::size_t iSample, std::size_t iEvent) { this->EResTot(par, iSample, iEvent); });
 }
 
 void samplePDFTutorial::resetShifts(int iSample, int iEvent) {
@@ -121,9 +140,10 @@ int samplePDFTutorial::setupExperimentMC(int iSample) {
   tutobj->Mode.resize(tutobj->nEvents);
   tutobj->Target.resize(tutobj->nEvents);
   tutobj->isNC = new bool[tutobj->nEvents];
+  tutobj->ELep.resize(tutobj->nEvents);
 
   //Truth Variables
-  float Enu_true, Q2, trueCZ;
+  float Enu_true, Q2, trueCZ, ELep;
   int tgt, Mode, PDGLep;
 
   /*
@@ -144,6 +164,8 @@ int samplePDFTutorial::setupExperimentMC(int iSample) {
   _data->SetBranchAddress("Mode", &Mode);
   _data->SetBranchStatus("PDGLep", true);
   _data->SetBranchAddress("PDGLep", &PDGLep);
+  _data->SetBranchStatus("ELep", true);
+  _data->SetBranchAddress("ELep", &ELep);
   // KS: If we have CosineZenith branch this must mean Atmospheric sample
   if (_data->GetBranch("CosineZenith")) {
     MACH3LOG_INFO("Enabling Atmospheric");
@@ -155,8 +177,6 @@ int samplePDFTutorial::setupExperimentMC(int iSample) {
   }
 
   /*
-  _data->SetBranchStatus("ELep", true);
-  _data->SetBranchAddress("ELep", &ELep);
   _data->SetBranchStatus("CosLep", true);
   _data->SetBranchAddress("CosLep", &CosLep);
   _data->SetBranchStatus("flagCC0pi", true);
@@ -172,8 +192,10 @@ int samplePDFTutorial::setupExperimentMC(int iSample) {
     _data->GetEntry(i);
 
     tutobj->TrueEnu[i] = Enu_true;
+    // HH: We don't have Erec in the tutorial sample, so we set it to the true energy
     tutobj->RecoEnu[i] = Enu_true;
     tutobj->RecoEnu_shifted[i] = Enu_true;
+    tutobj->ELep[i] = ELep;
     tutobj->Q2[i]      = Q2;
     // KS: Currently we store target as 1000060120, therefore we hardcode it to 12
     tutobj->Target[i] = 12;

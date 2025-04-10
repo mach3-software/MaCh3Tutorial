@@ -13,4 +13,5 @@ struct tutorial_base {
   std::vector<double> RecoEnu_shifted;
   std::vector<double> Q2;
   std::vector<double> TrueCosZenith;
+  std::vector<double> ELep;
 };
