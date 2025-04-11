@@ -58,7 +58,8 @@ void samplePDFTutorial::RegisterFunctionalParameters() {
   
   // This is the part where we manually enter things
   // A lambda function has to be used so we can refer to a non-static member function
-
+  #pragma GCC diagnostic push
+  #pragma GCC diagnostic ignored "-Wunused-parameter"
   RegisterIndividualFuncPar("DebugNothing", 
                             kDebugNothing, 
                             [this](const double * par, std::size_t iSample, std::size_t iEvent) {});
@@ -75,7 +76,7 @@ void samplePDFTutorial::RegisterFunctionalParameters() {
                             kEResTot, 
                             [this](const double * par, std::size_t iSample, std::size_t iEvent) { this->EResTot(par, iSample, iEvent); });
 }
-
+#pragma GCC diagnostic pop
 void samplePDFTutorial::resetShifts(int iSample, int iEvent) {
   // Reset the shifts to the original values
   TutorialSamples[iSample].RecoEnu_shifted[iEvent] = TutorialSamples[iSample].RecoEnu[iEvent];
