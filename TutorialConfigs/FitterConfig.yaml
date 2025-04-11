@@ -1,5 +1,5 @@
 General:
-  OutputFile: "func_pars_demo.root"
+  OutputFile: "Test.root"
   TutorialSamples: ["TutorialConfigs/Samples/SamplePDF_Tutorial.yaml",
                     #"TutorialConfigs/Samples/SamplePDF_Tutorial_ATM.yaml"
                     ]

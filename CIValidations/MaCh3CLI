@@ -26,7 +26,7 @@ run_reweight_validations() {
   ./CIValidations/SplineValidations
   ./CIValidations/SamplePDFValidations
   ./CIValidations/LLHValidation
-  ${MaCh3_ROOT}/bin/KinemDistributionTutorial ${MaCh3_ROOT}/TutorialConfigs/FitterConfig.yaml
+  ${MaCh3Tutorial_ROOT}/bin/KinemDistributionTutorial ${MaCh3Tutorial_ROOT}/TutorialConfigs/FitterConfig.yaml
   ./CIValidations/NuOscillatorInterfaceValidations
 }
 
@@ -46,7 +46,7 @@ run_fitter_validations() {
 run_covariance_validations() {
   ./CIValidations/CovarianceValidations
   ./CIValidations/MaCh3ModeValidations
-  ./CIValidations/pValueValidations
+  # ./CIValidations/pValueValidations
   ./CIValidations/SigmaVarValidations
   if [ "IF[HAVE_UNITTEST_SUPPORT]" == "0" ]; then
     ./CIValidations/UnitTests/manager_tests

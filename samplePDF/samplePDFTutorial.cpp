@@ -36,7 +36,7 @@ void samplePDFTutorial::Init() {
 
 void samplePDFTutorial::DebugShift(const double * par, std::size_t iSample, std::size_t iEvent) {
   // HH: This is a debug function to shift the reco energy to 4 GeV if the reco energy is less than 2 GeV
-  if (TutorialSamples[iSample].RecoEnu[iEvent] < 2.0) {
+  if (TutorialSamples[iSample].RecoEnu[iEvent] < 2.0 && *par != 0) {
     TutorialSamples[iSample].RecoEnu_shifted[iEvent] = 4;
   }
 }

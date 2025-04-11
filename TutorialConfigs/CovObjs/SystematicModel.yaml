@@ -197,7 +197,7 @@ Systematics:
     ParameterGroup: Xsec
     ParameterValues:
       Generated: 0
-      PreFitValue: 4.
+      PreFitValue: 0.
     StepScale:
       MCMC: 0.2
     SampleNames: ["Tutorial *"]

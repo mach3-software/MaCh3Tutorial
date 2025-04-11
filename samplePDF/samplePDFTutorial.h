@@ -55,7 +55,6 @@ class samplePDFTutorial : public samplePDFFDBase
 
   // === HH: Functional parameters ===
   enum FuncParEnum {kDebugNothing, kDebugShift, kEResLep, kEResTot};
-  // HH todo: delete all the commented out code after checking
   void RegisterFunctionalParameters() override;
   void resetShifts(int iSample, int iEvent) override;
 
