@@ -9,7 +9,7 @@ class samplePDFTutorial : public samplePDFFDBase
  public:
   samplePDFTutorial(std::string mc_version, covarianceXsec* xsec_cov, covarianceOsc* osc_cov = nullptr);
   virtual ~samplePDFTutorial();
-  enum KinematicTypes {kTrueNeutrinoEnergy, kTrueQ2, kM3Mode};
+  enum KinematicTypes {kTrueNeutrinoEnergy, kTrueQ2, kM3Mode, kRecoNeutrinoEnergy};
 
   std::vector<double> ReturnKinematicParameterBinning(std::string KinematicParameter) override;
 
@@ -40,14 +40,26 @@ class samplePDFTutorial : public samplePDFFDBase
     {"TrueNeutrinoEnergy", kTrueNeutrinoEnergy},
     {"TrueQ2", kTrueQ2},
     {"Mode", kM3Mode},
+    {"RecoNeutrinoEnergy", kRecoNeutrinoEnergy},
   };
 
   const std::unordered_map<int, std::string> ReversedKinematicParametersTutorial = {
     {kTrueNeutrinoEnergy, "TrueNeutrinoEnergy"},
     {kTrueQ2, "TrueQ2"},
     {kM3Mode,"Mode"},
+    {kRecoNeutrinoEnergy, "RecoNeutrinoEnergy"},
   };
 
   double pot;
   bool isATM;
+
+  // === HH: Functional parameters ===
+  enum FuncParEnum {kDebugNothing, kDebugShift, kEResLep, kEResTot};
+  void RegisterFunctionalParameters() override;
+  void resetShifts(int iSample, int iEvent) override;
+
+  void DebugShift(const double * par, std::size_t iSample, std::size_t iEvent);
+  void EResLep(const double * par, std::size_t iSample, std::size_t iEvent);
+  void EResTot(const double * par, std::size_t iSample, std::size_t iEvent);
+  // =================================
 };

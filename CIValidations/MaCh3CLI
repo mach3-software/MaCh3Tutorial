@@ -26,7 +26,7 @@ run_reweight_validations() {
   ./CIValidations/SplineValidations
   ./CIValidations/SamplePDFValidations
   ./CIValidations/LLHValidation
-  ${MaCh3_ROOT}/bin/KinemDistributionTutorial ${MaCh3_ROOT}/TutorialConfigs/FitterConfig.yaml
+  ${MaCh3Tutorial_ROOT}/bin/KinemDistributionTutorial ${MaCh3Tutorial_ROOT}/TutorialConfigs/FitterConfig.yaml
   ./CIValidations/NuOscillatorInterfaceValidations
 }
 

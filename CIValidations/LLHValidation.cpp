@@ -20,7 +20,7 @@ int main(int argc, char *argv[])
   }
 
   TFile* file = new TFile("LLH_Test.root", "UPDATE");
-  std::vector<std::string> Names = {"Norm_Param_0", "Norm_Param_1", "Norm_Param_2", "BinnedSplineParam1", "BinnedSplineParam2", "BinnedSplineParam3", "BinnedSplineParam4", "BinnedSplineParam5"};
+  std::vector<std::string> Names = {"Norm_Param_0", "Norm_Param_1", "Norm_Param_2", "BinnedSplineParam1", "BinnedSplineParam2", "BinnedSplineParam3", "BinnedSplineParam4", "BinnedSplineParam5", "DebugShift", "EResLep", "EResTot"};
   std::ofstream outFile("LLH.txt");
   for (size_t i = 0; i < Names.size(); ++i) {
     std::string histPath = "Sample_LLH/" + Names[i] + "_sam";
