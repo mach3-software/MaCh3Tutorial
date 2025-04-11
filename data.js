@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1744310827379,
+  "lastUpdate": 1744398478530,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -3103,6 +3103,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 441.577,
             "range": "± 4.00228",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "f2a4c9207a09042ea946e3cd8c5fc6c212ee1894",
+          "message": "Merge pull request #396 from mach3-software/hhua/feature/functional_params\n\nfeat: functional parameters",
+          "timestamp": "2025-04-12T04:03:40+09:00",
+          "tree_id": "8831e8e10e269fccf72a63f29773853994a2fe5e",
+          "url": "https://github.com/mach3-software/MaCh3/commit/f2a4c9207a09042ea946e3cd8c5fc6c212ee1894"
+        },
+        "date": 1744398477072,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 6.49675,
+            "range": "± 1.1092",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 6.10509,
+            "range": "± 87.5209",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 446.085,
+            "range": "± 5.75022",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
