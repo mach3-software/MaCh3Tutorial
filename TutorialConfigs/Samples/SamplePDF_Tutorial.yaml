@@ -28,3 +28,8 @@ SubSamples:
     splinefile: ""
     nutype: 14
     oscnutype: 14
+
+LikelihoodOptions:
+  #False means you calculate W2 histogram only during first reweight, advisable for Barlow-Beeston
+  UpdateW2: true
+  TestStatistic: "Poisson"
