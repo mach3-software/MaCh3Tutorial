@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1744622735082,
+  "lastUpdate": 1744627250951,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -3193,6 +3193,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 440.425,
             "range": "± 5.31588",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "8d55ffcdeac9d2444ebcde232fad1f5a8b91239c",
+          "message": "Merge pull request #403 from mach3-software/bugfix/ProperTestStat\n\nbugfix: Properly select test statistic",
+          "timestamp": "2025-04-14T19:36:30+09:00",
+          "tree_id": "5d057aecf9445689638ca603f1c207d3ba794c2a",
+          "url": "https://github.com/mach3-software/MaCh3/commit/8d55ffcdeac9d2444ebcde232fad1f5a8b91239c"
+        },
+        "date": 1744627249471,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 6.4872,
+            "range": "± 107.975",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 6.49597,
+            "range": "± 1.21303",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 443.464,
+            "range": "± 5.04976",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
