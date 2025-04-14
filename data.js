@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1744627250951,
+  "lastUpdate": 1744633189941,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -3238,6 +3238,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 443.464,
             "range": "± 5.04976",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "6a236e7340c76e402c86735d92415862304ed839",
+          "message": "Merge pull request #402 from mach3-software/feature/ThreadSafety\n\nfeat: N Threas Sanity Check",
+          "timestamp": "2025-04-14T21:15:32+09:00",
+          "tree_id": "18b815135c4231396f874b13449aa0c15d8ea35c",
+          "url": "https://github.com/mach3-software/MaCh3/commit/6a236e7340c76e402c86735d92415862304ed839"
+        },
+        "date": 1744633188433,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 6.38591,
+            "range": "± 857.228",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 6.11061,
+            "range": "± 753.363",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 441.854,
+            "range": "± 6.55485",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
