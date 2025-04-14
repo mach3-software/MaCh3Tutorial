@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1744398478530,
+  "lastUpdate": 1744622735082,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -3148,6 +3148,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 446.085,
             "range": "± 5.75022",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "35494466+EdAtkin@users.noreply.github.com",
+            "name": "EdAtkin",
+            "username": "EdAtkin"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "1e9d2ffaa17567f9c09ef8eef75bab9cee174847",
+          "message": "Merge pull request #401 from mach3-software/feature/MoreRobustGPU_CI\n\nfeat: More robust GPU CI",
+          "timestamp": "2025-04-14T10:21:17+01:00",
+          "tree_id": "c835936ff6a401eb611fd9ea531d36a3b5674b9d",
+          "url": "https://github.com/mach3-software/MaCh3/commit/1e9d2ffaa17567f9c09ef8eef75bab9cee174847"
+        },
+        "date": 1744622733590,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 6.04848,
+            "range": "± 56.5973",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 6.01437,
+            "range": "± 603.391",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 440.425,
+            "range": "± 5.31588",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
