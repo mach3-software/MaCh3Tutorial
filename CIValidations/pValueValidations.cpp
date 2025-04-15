@@ -1,12 +1,12 @@
 // MaCh3 spline includes
 #include "Utils/Comparison.h"
 #include "samplePDF/SampleHandlerTutorial.h"
-#include "mcmc/SampleSummary.h"
+#include "Fitter/SampleSummary.h"
 
 class samplePDFpValue : public SampleHandlerTutorial
 {
   public:
-    samplePDFpValue(std::string mc_version, SystematicHandlerGeneric* xsec_cov, ParameterHandlerOsc* osc_cov)
+    samplePDFpValue(std::string mc_version, ParameterHandlerGeneric* xsec_cov, ParameterHandlerOsc* osc_cov)
     : SampleHandlerTutorial(mc_version, xsec_cov, osc_cov),
     SampleBlarbTitle({
       "FGD1_numuCC_0pi_0_protons_no_photon",
@@ -40,7 +40,7 @@ class samplePDFpValue : public SampleHandlerTutorial
     KinemBlarbTitle({"RecoLeptonMomentum", "RecoLeptonCosTheta"}) {}
 
     inline M3::int_t GetNsamples() override { return 22; };
-    std::string GetSampleName(int Sample) override {return SampleBlarbTitle[Sample];};
+    std::string GetSampleName(int Sample) const override {return SampleBlarbTitle[Sample];};
     inline std::string GetKinVarLabel(const int sample, const int Dimension) override {return KinemBlarbTitle[Dimension];}
 
      inline void SetupBinning(const M3::int_t Selection, std::vector<double> &BinningX, std::vector<double> &BinningY) override{
@@ -61,7 +61,7 @@ int main(int argc, char *argv[])
     throw MaCh3Exception(__FILE__ , __LINE__ );
   }
   std::vector<std::string> xsecCovMatrixFile = {"TutorialConfigs/CovObjs/SystematicModel.yaml"};
-  auto xsec = std::make_unique<SystematicHandlerGeneric>(xsecCovMatrixFile, "xsec_cov");
+  auto xsec = std::make_unique<ParameterHandlerGeneric>(xsecCovMatrixFile, "xsec_cov");
 
   std::vector<std::string> OscCovMatrixFile = {"TutorialConfigs/CovObjs/OscillationModel.yaml"};
   auto osc = std::make_unique<ParameterHandlerOsc>(OscCovMatrixFile, "osc_cov");
@@ -74,9 +74,9 @@ int main(int argc, char *argv[])
   TString NameTString = TString(name.c_str());
 
   // Reweight and process prior histogram
-  SampleTutorial->reweight();
-  TH1D *SampleHistogramPrior = (TH1D*)SampleTutorial->get1DHist()->Clone(NameTString + "_Prior");
-  SampleTutorial->addData(SampleHistogramPrior);
+  SampleTutorial->Reweight();
+  TH1D *SampleHistogramPrior = (TH1D*)SampleTutorial->Get1DHist()->Clone(NameTString + "_Prior");
+  SampleTutorial->AddData(SampleHistogramPrior);
 
   bool Posterior = true;
   bool FullLLH = false;

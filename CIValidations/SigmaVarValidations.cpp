@@ -1,13 +1,13 @@
 // MaCh3 spline includes
 #include "Utils/Comparison.h"
 #include "samplePDF/SampleHandlerTutorial.h"
-#include "mcmc/SampleSummary.h"
-#include "mcmc/MaCh3Factory.h"
+#include "Fitter/SampleSummary.h"
+#include "Fitter/MaCh3Factory.h"
 
 class samplePDFSigmaVar : public SampleHandlerTutorial
 {
   public:
-    samplePDFSigmaVar(std::string mc_version, SystematicHandlerGeneric* xsec_cov, ParameterHandlerOsc* osc_cov)
+    samplePDFSigmaVar(std::string mc_version, ParameterHandlerGeneric* xsec_cov, ParameterHandlerOsc* osc_cov)
     : SampleHandlerTutorial(mc_version, xsec_cov, osc_cov),
     SampleBlarbTitle({
       "FGD1_numuCC_0pi_0_protons_no_photon",
@@ -79,7 +79,7 @@ class samplePDFSigmaVar : public SampleHandlerTutorial
     } // end constructor
 
     inline M3::int_t GetNsamples() override { return 22; };
-    std::string GetSampleName(int Sample) override {return SampleBlarbTitle[Sample];};
+    std::string GetSampleName(int Sample) {return SampleBlarbTitle[Sample];};
     inline std::string GetKinVarLabel(const int sample, const int Dimension) override {return KinemBlarbTitle[Dimension];}
 
      inline void SetupBinning(const M3::int_t Selection, std::vector<double> &BinningX, std::vector<double> &BinningY) override{
@@ -87,10 +87,10 @@ class samplePDFSigmaVar : public SampleHandlerTutorial
       BinningY = {-1.0, 0.6, 0.7, 0.8, 0.85, 0.88, 0.9, 0.92, 0.94, 0.96, 0.98, 1.0};
     }
 
-    TH1* getData(const int Selection) override   {return PolyHist[Selection];}
-    TH1* getPDF(const int Selection) override    {return PolyHist[Selection];}
-    TH2Poly* getW2(const int Selection) override {return PolyHist[Selection];}
-    TH1* getPDFMode(const int Selection, const int Mode) override {return PolyHist[Selection];}
+    TH1* GetData(const int Selection) override   {return PolyHist[Selection];}
+    TH1* GetPDF(const int Selection) override    {return PolyHist[Selection];}
+    TH2Poly* GetW2(const int Selection) override {return PolyHist[Selection];}
+    TH1* GetPDFMode(const int Selection, const int Mode) override {return PolyHist[Selection];}
 
     std::vector<std::string> SampleBlarbTitle;
     std::vector<std::string> KinemBlarbTitle;
@@ -106,7 +106,7 @@ int main(int argc, char *argv[])
     throw MaCh3Exception(__FILE__ , __LINE__ );
   }
   std::vector<std::string> xsecCovMatrixFile = {"TutorialConfigs/CovObjs/SystematicModel.yaml"};
-  auto xsec = std::make_unique<SystematicHandlerGeneric>(xsecCovMatrixFile, "xsec_cov");
+  auto xsec = std::make_unique<ParameterHandlerGeneric>(xsecCovMatrixFile, "xsec_cov");
   std::vector<std::string> OscCovMatrixFile = {"TutorialConfigs/CovObjs/OscillationModel.yaml"};
   auto osc = std::make_unique<ParameterHandlerOsc>(OscCovMatrixFile, "osc_cov");
 
@@ -115,9 +115,9 @@ int main(int argc, char *argv[])
   TString NameTString = TString(SampleTutorial->GetTitle());
 
   // Reweight and process prior histogram
-  SampleTutorial->reweight();
-  TH1D *SampleHistogramPrior = (TH1D*)SampleTutorial->get1DHist()->Clone(NameTString + "_Prior");
-  SampleTutorial->addData(SampleHistogramPrior);
+  SampleTutorial->Reweight();
+  TH1D *SampleHistogramPrior = (TH1D*)SampleTutorial->Get1DHist()->Clone(NameTString + "_Prior");
+  SampleTutorial->AddData(SampleHistogramPrior);
 
   std::string ManagerInput = "TutorialConfigs/FitterConfig.yaml";
   auto FitManager = std::make_unique<manager>(ManagerInput);
@@ -127,7 +127,7 @@ int main(int argc, char *argv[])
   // Add covariance to MCM
   MaCh3Fitter->addSystObj(xsec.get());
   MaCh3Fitter->addSystObj(osc.get());
-  MaCh3Fitter->addSamplePDF(SampleTutorial.get());
+  MaCh3Fitter->addSampleHandler(SampleTutorial.get());
 
   MaCh3Fitter->RunSigmaVar();
 

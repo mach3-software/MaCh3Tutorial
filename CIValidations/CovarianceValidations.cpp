@@ -1,7 +1,7 @@
 // MaCh3 spline includes
 #include "Utils/Comparison.h"
-#include "covariance/SystematicHandlerGeneric.h"
-#include "covariance/ParameterHandlerOsc.h"
+#include "ParameterHandler/ParameterHandlerGeneric.h"
+#include "ParameterHandler/ParameterHandlerOsc.h"
 
 
 int main(int argc, char *argv[])
@@ -14,10 +14,10 @@ int main(int argc, char *argv[])
   }
 
 ////////////// Normal Xsec //////////////
-  std::vector<std::string> xsecCovMatrixFile = {"TutorialConfigs/CovObjs/SystematicModel.yaml"};
-  auto xsec = std::make_unique<SystematicHandlerGeneric>(xsecCovMatrixFile, "xsec_cov");
+  std::vector<std::string> ParameterMatrixFile = {"TutorialConfigs/CovObjs/SystematicModel.yaml"};
+  auto xsec = std::make_unique<ParameterHandlerGeneric>(ParameterMatrixFile, "xsec_cov");
 
-  std::vector<double> ParProp = {1.05, 0.90, 1.10, 1.05, 1.05, 1.05, 1.05, 1.05, 1.70, 3.20, -1.10, -1.70};
+  std::vector<double> ParProp = {1.05, 0.90, 1.10, 1.05, 1.05, 1.05, 1.05, 1.05, 0., 0.2, -0.1};
   xsec->setParameters(ParProp);
   xsec->printNominalCurrProp();
 
@@ -92,8 +92,8 @@ int main(int argc, char *argv[])
 
 ////////////// Now PCA //////////////
   MACH3LOG_INFO("Testing PCA matrix");
-  xsecCovMatrixFile = {"TutorialConfigs/CovObjs/PCATest.yaml"};
-  auto PCA = std::make_shared<SystematicHandlerGeneric>(xsecCovMatrixFile, "xsec_cov", 0.001);
+  ParameterMatrixFile = {"TutorialConfigs/CovObjs/PCATest.yaml"};
+  auto PCA = std::make_shared<ParameterHandlerGeneric>(ParameterMatrixFile, "xsec_cov", 0.001);
   std::vector<double>  EigenVal = PCA->getEigenValuesMaster();
   for(size_t i = 0; i < EigenVal.size(); i++) {
     outFile << "Eigen Value " << i << " = " << EigenVal[i] << std::endl;
@@ -149,11 +149,11 @@ AdaptionOptions:
   // Convert the string to a YAML node
   YAML::Node AdaptSetting = STRINGtoYAML(yamlContent);
   std::vector<std::string> AdaptiveCovMatrixFile = {"TutorialConfigs/CovObjs/SystematicModel.yaml", "TutorialConfigs/CovObjs/PCATest.yaml"};
-  auto Adapt = std::make_unique<SystematicHandlerGeneric>(AdaptiveCovMatrixFile, "xsec_cov");
+  auto Adapt = std::make_unique<ParameterHandlerGeneric>(AdaptiveCovMatrixFile, "xsec_cov");
   //KS: Let's make Doctor Wallace proud
   Adapt->initialiseAdaption(AdaptSetting);
 
-  std::vector<double> ParAdapt = {1.05, 0.90, 1.10, 1.05, 1.05, 1.05, 1.05, 1.05, 1.70, 3.20, -1.10, -1.70, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0 };
+  std::vector<double> ParAdapt = {1.05, 0.90, 1.10, 1.05, 1.05, 1.05, 1.05, 1.05, 0., 0.2, -0.1, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0 };
   Adapt->setParameters(ParAdapt);
   bool increase = true;
   for(int i = 0; i < 50000; ++i ) {

@@ -8,7 +8,7 @@ SelectionCuts:
     Bounds: [ 0., 4 ]
 
 Binning:
-  XVarStr : "TrueNeutrinoEnergy"
+  XVarStr : "RecoNeutrinoEnergy"
   XVarBins: [0.,  0.5,  1.,  1.25, 1.5, 1.75, 2., 2.25, 2.5, 2.75, 3., 3.25, 3.5, 3.75, 4., 5., 6., 10.]
 
 InputFiles:
@@ -28,3 +28,8 @@ SubSamples:
     splinefile: ""
     nutype: 14
     oscnutype: 14
+
+LikelihoodOptions:
+  #False means you calculate W2 histogram only during first reweight, advisable for Barlow-Beeston
+  UpdateW2: true
+  TestStatistic: "Poisson"

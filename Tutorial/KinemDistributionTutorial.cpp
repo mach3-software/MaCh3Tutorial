@@ -1,5 +1,5 @@
 // MaCh3 includes
-#include "mcmc/MaCh3Factory.h"
+#include "Fitter/MaCh3Factory.h"
 #include "samplePDF/SampleHandlerTutorial.h"
 
 int main(int argc, char **argv) {
@@ -9,7 +9,7 @@ int main(int argc, char **argv) {
   auto FitManager = MaCh3ManagerFactory(argc, argv);
 
   // Initialise covariance class reasonable for Systematics
-  auto xsec = MaCh3CovarianceFactory<SystematicHandlerGeneric>(FitManager.get(), "Xsec");
+  auto xsec = MaCh3CovarianceFactory<ParameterHandlerGeneric>(FitManager.get(), "Xsec");
   auto osc  = MaCh3CovarianceFactory<ParameterHandlerOsc>(FitManager.get(), "Osc");
 
   // Initialise samplePDF
@@ -23,7 +23,7 @@ int main(int argc, char **argv) {
 
   TString OutputName = TString(OutName.str()) + "_KinemPlot" + ".pdf";
 
-  std::vector<std::string> vecParams = {"TrueNeutrinoEnergy", "TrueQ2"};
+  std::vector<std::string> vecParams = {"TrueNeutrinoEnergy", "TrueQ2", "RecoNeutrinoEnergy"};
 
   TCanvas* Canv = new TCanvas("Canv","");
   Canv->Divide(1,2);
@@ -58,7 +58,7 @@ int main(int argc, char **argv) {
   if(vecParams.size() == 2)
   {
     for (size_t iPDF = 0;iPDF < mySamples.size(); iPDF++) {
-      TH2D* Hist = static_cast<TH2D*>(mySamples[iPDF]->get2DVarHist(vecParams[0], vecParams[1]));
+      TH2D* Hist = static_cast<TH2D*>(mySamples[iPDF]->Get2DVarHist(vecParams[0], vecParams[1]));
 
       Canv->cd(1);
       Hist->SetTitle(mySamples[iPDF]->GetTitle().c_str());

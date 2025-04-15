@@ -169,61 +169,15 @@ Systematics:
 
 - Systematic:
     Names:
-      FancyName: Func_Param_0
+      FancyName: DebugShift
     Error: 6
     FlatPrior: false
     IsFixed: false
-    ParameterBounds: [-10., 15.]
-    ParameterGroup: Xsec
-    ParameterValues:
-      Generated: 0
-      PreFitValue: 2.
-    Correlations:
-      - Func_Param_2: 0.778
-      - Func_Param_1: 0.870
-      - Func_Param_3: 0.653
-    StepScale:
-      MCMC: 0.2
-    SampleNames: ["Tutorial *"]
-    Type: Functional
-
-- Systematic:
-    Names:
-      FancyName: Func_Param_1
-    Error: 6
-    FlatPrior: false
-    IsFixed: false
-
-    ParameterBounds: [-10., 15.]
-    ParameterGroup: Xsec
-    ParameterValues:
-      Generated: 0
-      PreFitValue: 4.
-    Correlations:
-      - Func_Param_0: 0.870
-      - Func_Param_2: 0.653
-      - Func_Param_3: 0.778
-    StepScale:
-      MCMC: 0.2
-    SampleNames: ["Tutorial *"]
-    Type: Functional
-
-- Systematic:
-    Names:
-      FancyName: Func_Param_2
-    Error: 6
-    FlatPrior: false
-    IsFixed: false
-
     ParameterBounds: [-10., 15.]
     ParameterGroup: Xsec
     ParameterValues:
       Generated: 0
       PreFitValue: 0.
-    Correlations:
-      - Func_Param_0: 0.778
-      - Func_Param_1: 0.653
-      - Func_Param_3: 0.870
     StepScale:
       MCMC: 0.2
     SampleNames: ["Tutorial *"]
@@ -231,20 +185,31 @@ Systematics:
 
 - Systematic:
     Names:
-      FancyName: Func_Param_3
-    Error: 6
+      FancyName: EResLep
+    Error: 0.1
     FlatPrior: false
     IsFixed: false
-
     ParameterBounds: [-10., 15.]
     ParameterGroup: Xsec
     ParameterValues:
       Generated: 0
-      PreFitValue: 0.
-    Correlations:
-      - Func_Param_0: 0.653
-      - Func_Param_2: 0.870
-      - Func_Param_1: 0.778
+      PreFitValue: 0
+    StepScale:
+      MCMC: 0.2
+    SampleNames: ["Tutorial *"]
+    Type: Functional
+
+- Systematic:
+    Names:
+      FancyName: EResTot
+    Error: 0.1
+    FlatPrior: false
+    IsFixed: false
+    ParameterBounds: [-10., 15.]
+    ParameterGroup: Xsec
+    ParameterValues:
+      Generated: 0
+      PreFitValue: 0
     StepScale:
       MCMC: 0.2
     SampleNames: ["Tutorial *"]

@@ -30,6 +30,55 @@ void SampleHandlerTutorial::Init() {
   MACH3LOG_INFO("-------------------------------------------------------------------");
 }
 
+void SampleHandlerTutorial::DebugShift(const double * par, std::size_t iSample, std::size_t iEvent) {
+  // HH: This is a debug function to shift the reco energy to 4 GeV if the reco energy is less than 2 GeV
+  if (TutorialSamples[iSample].RecoEnu[iEvent] < 2.0 && *par != 0) {
+    TutorialSamples[iSample].RecoEnu_shifted[iEvent] = 4;
+  }
+}
+
+void SampleHandlerTutorial::EResLep(const double * par, std::size_t iSample, std::size_t iEvent) {
+  // HH: Lepton energy resolution contribution to reco energy
+  TutorialSamples[iSample].RecoEnu_shifted[iEvent] += (*par) * TutorialSamples[iSample].ELep[iEvent];
+}
+
+void SampleHandlerTutorial::EResTot(const double * par, std::size_t iSample, std::size_t iEvent) {
+  // HH: Total energy resolution contribution to reco energy
+  TutorialSamples[iSample].RecoEnu_shifted[iEvent] += (*par) * TutorialSamples[iSample].RecoEnu[iEvent];
+}
+
+void SampleHandlerTutorial::RegisterFunctionalParameters() {
+  MACH3LOG_INFO("Registering functional parameters");
+  // This function manually populates the map of functional parameters
+  // Maps the name of the functional parameter to the pointer of the function
+  
+  // This is the part where we manually enter things
+  // A lambda function has to be used so we can refer to a non-static member function
+  #pragma GCC diagnostic push
+  #pragma GCC diagnostic ignored "-Wunused-parameter"
+  RegisterIndividualFuncPar("DebugNothing", 
+                            kDebugNothing, 
+                            [this](const double * par, std::size_t iSample, std::size_t iEvent) {});
+
+  RegisterIndividualFuncPar("DebugShift",
+                            kDebugShift, 
+                            [this](const double * par, std::size_t iSample, std::size_t iEvent) { this->DebugShift(par, iSample, iEvent); });
+
+  RegisterIndividualFuncPar("EResLep",
+                            kEResLep, 
+                            [this](const double * par, std::size_t iSample, std::size_t iEvent) { this->EResLep(par, iSample, iEvent); });
+
+  RegisterIndividualFuncPar("EResTot",
+                            kEResTot, 
+                            [this](const double * par, std::size_t iSample, std::size_t iEvent) { this->EResTot(par, iSample, iEvent); });
+}
+#pragma GCC diagnostic pop
+void SampleHandlerTutorial::resetShifts(int iSample, int iEvent) {
+  // Reset the shifts to the original values
+  TutorialSamples[iSample].RecoEnu_shifted[iEvent] = TutorialSamples[iSample].RecoEnu[iEvent];
+}
+
+
 // ************************************************
 void SampleHandlerTutorial::SetupSplines() {
 // ************************************************
@@ -82,13 +131,16 @@ int SampleHandlerTutorial::SetupExperimentMC(int iSample) {
   }
   tutobj->nEvents = static_cast<int>(_data->GetEntries());
   tutobj->TrueEnu.resize(tutobj->nEvents);
+  tutobj->RecoEnu.resize(tutobj->nEvents);
+  tutobj->RecoEnu_shifted.resize(tutobj->nEvents);
   tutobj->Q2.resize(tutobj->nEvents);
   tutobj->Mode.resize(tutobj->nEvents);
   tutobj->Target.resize(tutobj->nEvents);
   tutobj->isNC = new bool[tutobj->nEvents];
+  tutobj->ELep.resize(tutobj->nEvents);
 
   //Truth Variables
-  float Enu_true, Q2, trueCZ;
+  float Enu_true, Q2, trueCZ, ELep;
   int tgt, Mode, PDGLep;
 
   /*
@@ -109,6 +161,8 @@ int SampleHandlerTutorial::SetupExperimentMC(int iSample) {
   _data->SetBranchAddress("Mode", &Mode);
   _data->SetBranchStatus("PDGLep", true);
   _data->SetBranchAddress("PDGLep", &PDGLep);
+  _data->SetBranchStatus("ELep", true);
+  _data->SetBranchAddress("ELep", &ELep);
   // KS: If we have CosineZenith branch this must mean Atmospheric sample
   if (_data->GetBranch("CosineZenith")) {
     MACH3LOG_INFO("Enabling Atmospheric");
@@ -120,8 +174,6 @@ int SampleHandlerTutorial::SetupExperimentMC(int iSample) {
   }
 
   /*
-  _data->SetBranchStatus("ELep", true);
-  _data->SetBranchAddress("ELep", &ELep);
   _data->SetBranchStatus("CosLep", true);
   _data->SetBranchAddress("CosLep", &CosLep);
   _data->SetBranchStatus("flagCC0pi", true);
@@ -137,6 +189,10 @@ int SampleHandlerTutorial::SetupExperimentMC(int iSample) {
     _data->GetEntry(i);
 
     tutobj->TrueEnu[i] = Enu_true;
+    // HH: We don't have Erec in the tutorial sample, so we set it to the true energy
+    tutobj->RecoEnu[i] = Enu_true;
+    tutobj->RecoEnu_shifted[i] = Enu_true;
+    tutobj->ELep[i] = ELep;
     tutobj->Q2[i]      = Q2;
     // KS: Currently we store target as 1000060120, therefore we hardcode it to 12
     tutobj->Target[i] = 12;
@@ -176,6 +232,9 @@ const double* SampleHandlerTutorial::GetPointerToKinematicParameter(KinematicTyp
   switch (KinPar) {
     case kTrueNeutrinoEnergy:
       return &TutorialSamples[iSample].TrueEnu[iEvent];
+    case kRecoNeutrinoEnergy:
+      // HH - here we return the shifted energy in case of detector systematics
+      return &TutorialSamples[iSample].RecoEnu_shifted[iEvent];
     case kTrueQ2:
       return &TutorialSamples[iSample].Q2[iEvent];
     case kM3Mode:
@@ -221,6 +280,10 @@ std::vector<double> SampleHandlerTutorial::ReturnKinematicParameterBinning(std::
   double bin_width = 0;
   switch(KinematicParameter){
     case(kTrueNeutrinoEnergy):
+      nBins = 20;
+      bin_width = 0.5; //GeV
+      break;
+    case(kRecoNeutrinoEnergy):
       nBins = 20;
       bin_width = 0.5; //GeV
       break;

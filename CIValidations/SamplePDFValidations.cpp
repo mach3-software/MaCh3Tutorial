@@ -12,7 +12,7 @@ int main(int argc, char *argv[])
   }
 
   std::vector<std::string> xsecCovMatrixFile = {"TutorialConfigs/CovObjs/SystematicModel.yaml"};
-  SystematicHandlerGeneric* xsec = new SystematicHandlerGeneric(xsecCovMatrixFile, "xsec_cov");
+  ParameterHandlerGeneric* xsec = new ParameterHandlerGeneric(xsecCovMatrixFile, "xsec_cov");
 
   std::vector<std::string> OscCovMatrixFile = {"TutorialConfigs/CovObjs/OscillationModel.yaml"};
   ParameterHandlerOsc* osc = new ParameterHandlerOsc(OscCovMatrixFile, "osc_cov");
@@ -28,9 +28,9 @@ int main(int argc, char *argv[])
     TString NameTString = TString(name.c_str());
 
     // Reweight and process prior histogram
-    Sample->reweight();
-    TH1D *SampleHistogramPrior = (TH1D*)Sample->get1DHist()->Clone(NameTString + "_Prior");
-    Sample->addData(SampleHistogramPrior);
+    Sample->Reweight();
+    TH1D *SampleHistogramPrior = (TH1D*)Sample->Get1DHist()->Clone(NameTString + "_Prior");
+    Sample->AddData(SampleHistogramPrior);
 
     // Write initial info to file
     outFile << "Info for sample: " << NameTString << std::endl;
@@ -40,16 +40,16 @@ int main(int argc, char *argv[])
     // Set oscillation parameters and reweight for posterior
     std::vector<double> OscParProp = {0.3, 0.5, 0.020, 7.53e-5, 2.494e-3, 0.0, 295, 2.6, 0.5, 15};
     osc->setParameters(OscParProp);
-    Sample->reweight();
+    Sample->Reweight();
 
     // Process posterior histogram
-    TH1D *SampleHistogramPost = (TH1D*)Sample->get1DHist()->Clone(NameTString + "_Post");
+    TH1D *SampleHistogramPost = (TH1D*)Sample->Get1DHist()->Clone(NameTString + "_Post");
     outFile << "Rates Post:" << SampleHistogramPrior->Integral() << std::endl;
     outFile << "Likelihood:" << std::fabs(Sample->GetLikelihood()) << std::endl;
 
     MACH3LOG_INFO("Now trying to compare each weight individually");
-    for (int iSample = 0; iSample < Sample->getNMCSamples(); ++iSample) {
-      for (int iEntry = 0; iEntry < Sample->getNEventsInSample(iSample); ++iEntry) {
+    for (int iSample = 0; iSample < Sample->GetNMCSamples(); ++iSample) {
+      for (int iEntry = 0; iEntry < Sample->GetNEventsInSample(iSample); ++iEntry) {
         double weight = Sample->GetEventWeight(iSample, iEntry);
         outFile<< "Sample: "<< NameTString << " Channel: "<< iSample<<" Event: " << iEntry <<" weight: " << weight << std::endl;
       }

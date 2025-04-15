@@ -1,5 +1,5 @@
 // MaCh3 spline includes
-#include "mcmc/MaCh3Factory.h"
+#include "Fitter/MaCh3Factory.h"
 #include "samplePDF/SampleHandlerTutorial.h"
 
 int main(int argc, char *argv[]){
@@ -8,7 +8,7 @@ int main(int argc, char *argv[]){
   std::string OutputName = "LLH_" + FitManager->raw()["General"]["OutputFile"].as<std::string>();
   FitManager->OverrideSettings("General", "OutputFile", OutputName);
   // Initialise covariance class reasonable for Systematics
-  auto xsec = MaCh3CovarianceFactory<SystematicHandlerGeneric>(FitManager.get(), "Xsec");
+  auto xsec = MaCh3CovarianceFactory<ParameterHandlerGeneric>(FitManager.get(), "Xsec");
   auto osc  = MaCh3CovarianceFactory<ParameterHandlerOsc>(FitManager.get(), "Osc");
 
   // Initialise samplePDF
@@ -21,7 +21,7 @@ int main(int argc, char *argv[]){
   MaCh3Fitter->addSystObj(xsec.get());
   MaCh3Fitter->addSystObj(osc.get());
   for (size_t i = 0; i < SampleConfig.size(); ++i) {
-    MaCh3Fitter->addSamplePDF(mySamples[i]);
+    MaCh3Fitter->addSampleHandler(mySamples[i]);
   }
   // Run LLH scan
   MaCh3Fitter->RunLLHScan();
