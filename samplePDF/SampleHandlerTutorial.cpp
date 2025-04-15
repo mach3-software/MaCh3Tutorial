@@ -1,7 +1,7 @@
 #include "samplePDF/SampleHandlerTutorial.h"
 
 // ************************************************
-SampleHandlerTutorial::SampleHandlerTutorial(std::string mc_version_, SystematicHandlerGeneric* xsec_cov_, ParameterHandlerOsc* osc_cov_) : SampleHandlerFD(mc_version_, xsec_cov_, osc_cov_) {
+SampleHandlerTutorial::SampleHandlerTutorial(const std::string& config_name, ParameterHandlerGeneric* parameter_handler, ParameterHandlerOsc* oscillation_handler) : SampleHandlerFD(config_name, parameter_handler, oscillation_handler) {
 // ************************************************
   KinematicParameters = &KinematicParametersTutorial;
   ReversedKinematicParameters = &ReversedKinematicParametersTutorial;
@@ -35,8 +35,8 @@ void SampleHandlerTutorial::SetupSplines() {
 // ************************************************
   SplineHandler = nullptr;
 
-  if(XsecCov->GetNumParamsFromSampleName(SampleName, SystType::kSpline) > 0){
-    SplineHandler = std::unique_ptr<BinnedSplineTutorial>(new BinnedSplineTutorial(XsecCov,Modes));
+  if(ParHandler->GetNumParamsFromSampleName(SampleName, SystType::kSpline) > 0){
+    SplineHandler = std::unique_ptr<BinnedSplineTutorial>(new BinnedSplineTutorial(ParHandler,Modes));
     InitialiseSplineObject();
   } else {
     MACH3LOG_WARN("Not using splines");
@@ -56,7 +56,7 @@ void SampleHandlerTutorial::SetupWeightPointers() {
 }
 
 // ************************************************
-int SampleHandlerTutorial::setupExperimentMC(int iSample) {
+int SampleHandlerTutorial::SetupExperimentMC(int iSample) {
 // ************************************************
 
   tutorial_base *tutobj = &(TutorialSamples[iSample]);
@@ -196,7 +196,7 @@ const double* SampleHandlerTutorial::GetPointerToKinematicParameter(std::string 
   return GetPointerToKinematicParameter(KinPar, iSample, iEvent);
 }
 
-void SampleHandlerTutorial::setupFDMC(int iSample) {
+void SampleHandlerTutorial::SetupFDMC(int iSample) {
   tutorial_base *tutobj = &(TutorialSamples[iSample]);
   auto &fdobj = MCSamples[iSample];  
   

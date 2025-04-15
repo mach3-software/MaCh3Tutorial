@@ -1,15 +1,15 @@
 #pragma once
 
-#include "covariance/ParameterHandlerOsc.h"
-#include "covariance/SystematicHandlerGeneric.h"
-#include "samplePDF/SampleHandlerFD.h"
-#include "samplePDF/StructsTutorial.h"
+#include "ParameterHandler/ParameterHandlerOsc.h"
+#include "ParameterHandler/ParameterHandlerGeneric.h"
+#include "Samples/SampleHandlerFD.h"
+#include "StructsTutorial.h"
 #include "splines/BinnedSplinesTutorial.h"
 
 class SampleHandlerTutorial : public SampleHandlerFD
 {
  public:
-  SampleHandlerTutorial(std::string mc_version, SystematicHandlerGeneric* xsec_cov, ParameterHandlerOsc* osc_cov = nullptr);
+  SampleHandlerTutorial(std::string mc_version, ParameterHandlerGeneric* xsec_cov, ParameterHandlerOsc* osc_cov = nullptr);
   virtual ~SampleHandlerTutorial();
   enum KinematicTypes {kTrueNeutrinoEnergy, kTrueQ2, kM3Mode};
 
@@ -23,7 +23,7 @@ class SampleHandlerTutorial : public SampleHandlerFD
 
   void SetupWeightPointers() override;
 
-  int setupExperimentMC(int iSample) override;
+  int SetupExperimentMC(int iSample) override;
 
   double ReturnKinematicParameter(KinematicTypes KinPar, int iSample, int iEvent);
   double ReturnKinematicParameter(double KinematicVariable, int iSample, int iEvent) override;
@@ -33,7 +33,7 @@ class SampleHandlerTutorial : public SampleHandlerFD
   const double* GetPointerToKinematicParameter(std::string KinematicParameter, int iSample, int iEvent) override;
   const double* GetPointerToKinematicParameter(double KinematicVariable, int iSample, int iEvent) override;
 
-  void setupFDMC(int iSample) override;
+  void SetupFDMC(int iSample) override;
   void CalcWeightFunc(int iSample, int iEvent) override {return; (void)iSample; (void)iEvent;}
 
   std::vector<struct tutorial_base> TutorialSamples;
