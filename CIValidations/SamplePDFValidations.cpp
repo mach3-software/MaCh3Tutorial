@@ -16,7 +16,7 @@ int main(int argc, char *argv[])
 
   std::vector<std::string> OscCovMatrixFile = {"TutorialConfigs/CovObjs/OscillationModel.yaml"};
   ParameterHandlerOsc* osc = new ParameterHandlerOsc(OscCovMatrixFile, "osc_cov");
-  osc->setParameters();
+  osc->SetParameters();
 
   // Open a file in write mode
   std::ofstream outFile("NewSampleOut.txt");
@@ -39,7 +39,7 @@ int main(int argc, char *argv[])
 
     // Set oscillation parameters and reweight for posterior
     std::vector<double> OscParProp = {0.3, 0.5, 0.020, 7.53e-5, 2.494e-3, 0.0, 295, 2.6, 0.5, 15};
-    osc->setParameters(OscParProp);
+    osc->SetParameters(OscParProp);
     Sample->Reweight();
 
     // Process posterior histogram

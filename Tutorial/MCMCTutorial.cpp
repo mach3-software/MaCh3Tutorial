@@ -17,13 +17,13 @@ int main(int argc, char *argv[]) {
   // Create MCMC Class
   std::unique_ptr<FitterBase> MaCh3Fitter = MaCh3FitterFactory(FitManager.get());
   // Add covariance to MCM
-  MaCh3Fitter->addSystObj(xsec.get());
-  MaCh3Fitter->addSystObj(osc.get());
+  MaCh3Fitter->AddSystObj(xsec.get());
+  MaCh3Fitter->AddSystObj(osc.get());
   for (size_t i = 0; i < SampleConfig.size(); ++i) {
-    MaCh3Fitter->addSampleHandler(mySamples[i]);
+    MaCh3Fitter->AddSampleHandler(mySamples[i]);
   }
   // Run MCMCM
-  MaCh3Fitter->runMCMC();
+  MaCh3Fitter->RunMCMC();
 
   for (size_t i = 0; i < SampleConfig.size(); ++i) {
     delete mySamples[i];

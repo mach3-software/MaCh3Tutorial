@@ -125,9 +125,9 @@ int main(int argc, char *argv[])
   // Create MCMC Class
   std::unique_ptr<FitterBase> MaCh3Fitter = MaCh3FitterFactory(FitManager.get());
   // Add covariance to MCM
-  MaCh3Fitter->addSystObj(xsec.get());
-  MaCh3Fitter->addSystObj(osc.get());
-  MaCh3Fitter->addSampleHandler(SampleTutorial.get());
+  MaCh3Fitter->AddSystObj(xsec.get());
+  MaCh3Fitter->AddSystObj(osc.get());
+  MaCh3Fitter->AddSampleHandler(SampleTutorial.get());
 
   MaCh3Fitter->RunSigmaVar();
 

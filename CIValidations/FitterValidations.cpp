@@ -42,8 +42,8 @@ void FitVal(const std::string& Algo, bool MoreTests)
   TH1D *SampleHistogramPrior = (TH1D*)Sample->Get1DHist()->Clone(NameTString+"_Prior");
   Sample->AddData(SampleHistogramPrior);
 
-  MaCh3Fitter->addSystObj(xsec.get());
-  MaCh3Fitter->addSampleHandler(Sample.get());
+  MaCh3Fitter->AddSystObj(xsec.get());
+  MaCh3Fitter->AddSampleHandler(Sample.get());
   if(MoreTests)
   {
     MaCh3Fitter->DragRace();
@@ -51,7 +51,7 @@ void FitVal(const std::string& Algo, bool MoreTests)
     MaCh3Fitter->Run2DLLHScan();
     MaCh3Fitter->GetStepScaleBasedOnLLHScan();
   }
-  MaCh3Fitter->runMCMC();
+  MaCh3Fitter->RunMCMC();
 }
 
 void StartFromPosteriorTest(const std::string& PreviousName)
@@ -63,11 +63,11 @@ void StartFromPosteriorTest(const std::string& PreviousName)
 
   auto xsec = MaCh3CovarianceFactory<ParameterHandlerGeneric>(FitManager.get(), "Xsec");
   std::unique_ptr<mcmc> MarkovChain = std::make_unique<mcmc>(FitManager.get());
-  MarkovChain->addSystObj(xsec.get());
+  MarkovChain->AddSystObj(xsec.get());
 
   MarkovChain->StartFromPreviousFit(PreviousName);
 
-  MarkovChain->runMCMC();
+  MarkovChain->RunMCMC();
 }
 
 int main(int argc, char *argv[])

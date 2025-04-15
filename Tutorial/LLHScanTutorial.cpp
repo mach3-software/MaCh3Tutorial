@@ -18,10 +18,10 @@ int main(int argc, char *argv[]){
   // Create MCMC Class
   std::unique_ptr<FitterBase> MaCh3Fitter = MaCh3FitterFactory(FitManager.get());
   // Add covariance to MCM
-  MaCh3Fitter->addSystObj(xsec.get());
-  MaCh3Fitter->addSystObj(osc.get());
+  MaCh3Fitter->AddSystObj(xsec.get());
+  MaCh3Fitter->AddSystObj(osc.get());
   for (size_t i = 0; i < SampleConfig.size(); ++i) {
-    MaCh3Fitter->addSampleHandler(mySamples[i]);
+    MaCh3Fitter->AddSampleHandler(mySamples[i]);
   }
   // Run LLH scan
   MaCh3Fitter->RunLLHScan();
