@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1744633189941,
+  "lastUpdate": 1745489699336,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -3283,6 +3283,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 441.854,
             "range": "± 6.55485",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "67589487+henry-wallace-phys@users.noreply.github.com",
+            "name": "Henry Wallace",
+            "username": "henry-wallace-phys"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "ab808357e8ee8c44d218bd126f2e2455b976af45",
+          "message": "Merge pull request #409 from mach3-software/feature/ClonningUtils\n\nfeat: Clone Wrapper",
+          "timestamp": "2025-04-24T11:10:23+01:00",
+          "tree_id": "9fc013719c9a671005005ea69f8af268ce5f141e",
+          "url": "https://github.com/mach3-software/MaCh3/commit/ab808357e8ee8c44d218bd126f2e2455b976af45"
+        },
+        "date": 1745489697813,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 6.46632,
+            "range": "± 1.10303",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 6.42219,
+            "range": "± 1.28895",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 445.037,
+            "range": "± 5.57249",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
