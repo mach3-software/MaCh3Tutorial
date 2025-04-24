@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1745490275987,
+  "lastUpdate": 1745501545048,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -3373,6 +3373,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 449.561,
             "range": "± 4.47445",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "1ee526e78239aaf4cd30b62b7f787c8bb971e094",
+          "message": "Merge pull request #411 from mach3-software/dbarrow257/bugfix/NuOscEqualBinningFix\n\nbugfix: NuOsc Equal Binning Logic Change",
+          "timestamp": "2025-04-24T22:28:05+09:00",
+          "tree_id": "b9cc1ca592195588caba20b34370b1f3a12bc785",
+          "url": "https://github.com/mach3-software/MaCh3/commit/1ee526e78239aaf4cd30b62b7f787c8bb971e094"
+        },
+        "date": 1745501543444,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 6.32356,
+            "range": "± 681.709",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 6.11082,
+            "range": "± 176.68",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 439.649,
+            "range": "± 4.82323",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
