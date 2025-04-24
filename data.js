@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1745501545048,
+  "lastUpdate": 1745502169957,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -3418,6 +3418,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 439.649,
             "range": "± 4.82323",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "d3a6497da7f96f4842e4a027d04bfd855d0d4688",
+          "message": "Merge pull request #408 from mach3-software/feature/SecondManagerConstructor\n\nfeat: Yaml Merging",
+          "timestamp": "2025-04-24T22:29:34+09:00",
+          "tree_id": "de5004275ebe2595d81eda66a3bea2fd09dc8f7c",
+          "url": "https://github.com/mach3-software/MaCh3/commit/d3a6497da7f96f4842e4a027d04bfd855d0d4688"
+        },
+        "date": 1745502168039,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 6.43074,
+            "range": "± 194.301",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 6.35749,
+            "range": "± 230.331",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 450.669,
+            "range": "± 4.99124",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
