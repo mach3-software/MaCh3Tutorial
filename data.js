@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1745502169957,
+  "lastUpdate": 1745586349471,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -3463,6 +3463,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 450.669,
             "range": "± 4.99124",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "a96d3c0ed69bedb2dfea78f97d72443fb655ddb0",
+          "message": "Merge pull request #407 from mach3-software/feature/CmakeNuOscGPUFlatOFF\n\nfeat: Ability to turn off gpu for NuOsc",
+          "timestamp": "2025-04-25T22:01:32+09:00",
+          "tree_id": "ce6449dc61e24c0a7cc99a00a23bfe148e50c6d5",
+          "url": "https://github.com/mach3-software/MaCh3/commit/a96d3c0ed69bedb2dfea78f97d72443fb655ddb0"
+        },
+        "date": 1745586347961,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 6.25188,
+            "range": "± 182.924",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 6.22353,
+            "range": "± 594.396",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 442.343,
+            "range": "± 5.83385",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
