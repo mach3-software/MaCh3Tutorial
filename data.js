@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1745586388739,
+  "lastUpdate": 1745586415408,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -3553,6 +3553,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 443.979,
             "range": "± 4.24717",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "16ed46a62035a9b37f54dfeee7f6546939522415",
+          "message": "Merge pull request #412 from mach3-software/feature/Bounds\n\nfeat: Ability to speicfy \"empty\" bounds",
+          "timestamp": "2025-04-25T22:02:44+09:00",
+          "tree_id": "2b5cb0323136900417ef6aac849cdd65b220929f",
+          "url": "https://github.com/mach3-software/MaCh3/commit/16ed46a62035a9b37f54dfeee7f6546939522415"
+        },
+        "date": 1745586413908,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 6.12905,
+            "range": "± 181.7",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 6.01271,
+            "range": "± 78.1709",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 435.902,
+            "range": "± 4.71798",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
