@@ -1,6 +1,4 @@
 // MaCh3 includes
-#include "manager/MaCh3Logger.h"
-#include "manager/YamlHelper.h"
 #include "mcmc/MaCh3Factory.h"
 #include "samplePDF/samplePDFTutorial.h"
 
