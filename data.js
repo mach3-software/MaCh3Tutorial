@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1745586349471,
+  "lastUpdate": 1745586388739,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -3508,6 +3508,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 442.343,
             "range": "± 5.83385",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "49b7136bcda13c304c988759c4ab0bcbf15d5117",
+          "message": "Merge pull request #414 from mach3-software/featureTidySpline\n\nfeat: Minor RAM tweaks for spline",
+          "timestamp": "2025-04-25T22:01:59+09:00",
+          "tree_id": "d9905c62795a6bebb423c59bf02bedc711b20d15",
+          "url": "https://github.com/mach3-software/MaCh3/commit/49b7136bcda13c304c988759c4ab0bcbf15d5117"
+        },
+        "date": 1745586386808,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 6.32661,
+            "range": "± 691.653",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 6.22037,
+            "range": "± 225.901",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 443.979,
+            "range": "± 4.24717",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
