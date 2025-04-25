@@ -28,6 +28,8 @@ std::vector<std::string> BinnedSplineTutorial::GetTokensFromSplineName(std::stri
   if (tokens->GetEntries() == 7) {
     ReturnVec[TokenOrdering::kVar3BinToken] = (static_cast<TObjString*>(tokens->At(6)))->GetString();
   }
-
+  tokens->Delete();
+  delete tokens;
+  
   return ReturnVec;
 }
