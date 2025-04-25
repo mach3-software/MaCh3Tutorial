@@ -126,13 +126,15 @@ std::string yamlContent = R"(
 AdaptionOptions:
   Settings:
     # When do we start throwing from our adaptive matrix?
-    AdaptionStartThrow: 10
+    StartThrow: 10
     # When do we start putting steps into our adaptive covariance?
-    AdaptionStartUpdate: 0
+    StartUpdate: 0
     # When do we end updating our covariance?
-    AdaptionEndUpdate: 50000
+    EndUpdate: 50000
     # How often do we change our matrix throws?
-    AdaptionUpdateStep: 1000
+    UpdateStep: 1000
+    # Where shall we write the adapted matrices to?
+    OutputFileName: "test_adaptive_output.root"
   Covariance:
     # So now we list individual matrices, let's just do xsec
     xsec_cov:
