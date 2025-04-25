@@ -11,12 +11,7 @@ int main(int argc, char *argv[]) {
   // Initialise covariance class reasonable for Systematics
   auto xsec = MaCh3CovarianceFactory<covarianceXsec>(FitManager.get(), "Xsec");
   auto osc  = MaCh3CovarianceFactory<covarianceOsc>(FitManager.get(), "Osc");
-
-  if(CheckNodeExists(FitManager->raw(), "General", "AdaptionOptions")){
-    MACH3LOG_INFO("Initialising adaptive MCMC for parameters in {}", xsec->getName());
-    xsec->initialiseAdaption(FitManager->raw()["General"]);
-  }
-
+ 
   // Initialise samplePDF
   auto SampleConfig = FitManager->raw()["General"]["TutorialSamples"].as<std::vector<std::string>>();
   auto mySamples = MaCh3SamplePDFFactory<samplePDFTutorial>(SampleConfig, xsec.get(), osc.get());
