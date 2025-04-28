@@ -136,10 +136,9 @@ TEST_CASE("ConvertTH2DToTH2Poly", "[HistogramUtils]") {
   GetBinning(BinningX, BinningY);
 
   TH2D* Hist = new TH2D("Hist", "Hist;X-axis;Y-axis", BinningX.size()-1, BinningX.data(), BinningY.size()-1, BinningY.data());
-  // WARNING this will be fixed on Core soon
-  //TH2Poly* Poly = ConvertTH2DtoTH2Poly(Hist);
-  //REQUIRE(Poly->GetNumberOfBins() == 400);
-  //delete Poly;
+  TH2Poly* Poly = ConvertTH2DtoTH2Poly(Hist);
+  REQUIRE(Poly->GetNumberOfBins() == 400);
+  delete Poly;
 
   delete Hist;
 }
