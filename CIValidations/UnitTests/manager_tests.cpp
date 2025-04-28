@@ -1,4 +1,5 @@
 #include "catch2/catch_test_macros.hpp"
+#include "catch2/matchers/catch_matchers_floating_point.hpp"
 
 #include "manager/YamlHelper.h"
 
@@ -149,5 +150,45 @@ outer:
 
     // Ensure full replacement when `a` is null
     REQUIRE(Merged["hello"].as<std::string>() == "world");
+  }
+}
+
+
+TEST_CASE("Check GetBounds", "[Yamlhelper]") {
+  SECTION("Check Default")
+  {
+    std::string Bounds = "Bounds: [0, 4]";
+    YAML::Node TextNode = STRINGtoYAML(Bounds);
+    auto TempBoundsVec = GetBounds(TextNode["Bounds"]);
+
+    REQUIRE_THAT(TempBoundsVec[0], Catch::Matchers::WithinAbs(0, 1e-6));
+    REQUIRE_THAT(TempBoundsVec[1], Catch::Matchers::WithinAbs(4, 1e-6));
+  }
+  SECTION("Check with upper empty bound")
+  {
+    std::string Bounds = "Bounds: [0, \"\"]";
+    YAML::Node TextNode = STRINGtoYAML(Bounds);
+    auto TempBoundsVec = GetBounds(TextNode["Bounds"]);
+
+    REQUIRE_THAT(TempBoundsVec[0], Catch::Matchers::WithinAbs(0, 1e-6));
+    REQUIRE_THAT(TempBoundsVec[1], Catch::Matchers::WithinAbs(M3::KinematicUpBound, 1e-6));
+  }
+  SECTION("Check with bottom empty bound")
+  {
+    std::string Bounds = "Bounds: [\"\", 10]";
+    YAML::Node TextNode = STRINGtoYAML(Bounds);
+    auto TempBoundsVec = GetBounds(TextNode["Bounds"]);
+
+    REQUIRE_THAT(TempBoundsVec[0], Catch::Matchers::WithinAbs(M3::KinematicLowBound , 1e-6));
+    REQUIRE_THAT(TempBoundsVec[1], Catch::Matchers::WithinAbs(10, 1e-6));
+  }
+  SECTION("Check with both bounds empty")
+  {
+    std::string Bounds = "Bounds: [\"\", \"\"]";
+    YAML::Node TextNode = STRINGtoYAML(Bounds);
+    auto TempBoundsVec = GetBounds(TextNode["Bounds"]);
+
+    REQUIRE_THAT(TempBoundsVec[0], Catch::Matchers::WithinAbs(M3::KinematicLowBound , 1e-6));
+    REQUIRE_THAT(TempBoundsVec[1], Catch::Matchers::WithinAbs(M3::KinematicUpBound , 1e-6));
   }
 }
