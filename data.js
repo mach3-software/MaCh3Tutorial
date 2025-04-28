@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1745586415408,
+  "lastUpdate": 1745831759263,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -3598,6 +3598,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 435.902,
             "range": "± 4.71798",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "35494466+EdAtkin@users.noreply.github.com",
+            "name": "EdAtkin",
+            "username": "EdAtkin"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "12c1b899e7a125337c0f99db169d3cf14447c218",
+          "message": "Merge pull request #405 from mach3-software/hhua/feature/adaptiveMCMC_PR\n\nbreaking: adaptive mcmc update",
+          "timestamp": "2025-04-28T10:10:46+01:00",
+          "tree_id": "fe95d350b04facdbad931b6497b052df25009bfe",
+          "url": "https://github.com/mach3-software/MaCh3/commit/12c1b899e7a125337c0f99db169d3cf14447c218"
+        },
+        "date": 1745831757679,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 6.28131,
+            "range": "± 77.5873",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 6.34731,
+            "range": "± 704.69",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 437.16,
+            "range": "± 7.7767",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
