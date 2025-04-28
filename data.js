@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1745834339729,
+  "lastUpdate": 1745836346465,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -3733,6 +3733,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 443.056,
             "range": "± 6.18124",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "eff56f2ae7789eca2bdd123c0a274df64926ecbd",
+          "message": "Merge pull request #417 from mach3-software/feature/MaxThreadSanity\n\nbugfix: Improve Thread Sanity",
+          "timestamp": "2025-04-28T19:26:54+09:00",
+          "tree_id": "006e75af265fc3b03e68ac4d55415071590ca0ee",
+          "url": "https://github.com/mach3-software/MaCh3/commit/eff56f2ae7789eca2bdd123c0a274df64926ecbd"
+        },
+        "date": 1745836344939,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 6.59876,
+            "range": "± 114.232",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 6.57364,
+            "range": "± 319.655",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 447.773,
+            "range": "± 18.275",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
