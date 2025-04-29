@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1745923202809,
+  "lastUpdate": 1745936473334,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -3823,6 +3823,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 447.086,
             "range": "± 7.16379",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "95d7053c116ebd9d55f6edaef53b1c7801b788de",
+          "message": "Merge pull request #419 from mach3-software/feature/SaferYaml\n\nfeat: Safer Yaml Handling",
+          "timestamp": "2025-04-29T23:16:19+09:00",
+          "tree_id": "c43002a71627956d0d22c23949b38f762e44194b",
+          "url": "https://github.com/mach3-software/MaCh3/commit/95d7053c116ebd9d55f6edaef53b1c7801b788de"
+        },
+        "date": 1745936471102,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 6.2383,
+            "range": "± 108.856",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 6.14508,
+            "range": "± 89.0098",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 439.658,
+            "range": "± 7.01211",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
