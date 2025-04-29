@@ -24,7 +24,7 @@ class samplePDFTutorial : public samplePDFFDBase
   int setupExperimentMC(int iSample) override;
 
   double ReturnKinematicParameter(KinematicTypes KinPar, int iSample, int iEvent);
-  double ReturnKinematicParameter(double KinematicVariable, int iSample, int iEvent) override;
+  double ReturnKinematicParameter(int KinematicVariable, int iSample, int iEvent) override;
   double ReturnKinematicParameter(std::string KinematicParameter, int iSample, int iEvent) override;
 
   const double* GetPointerToKinematicParameter(KinematicTypes KinPar, int iSample, int iEvent);
