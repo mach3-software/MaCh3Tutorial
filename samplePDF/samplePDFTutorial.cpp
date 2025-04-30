@@ -34,19 +34,19 @@ void samplePDFTutorial::Init() {
   MACH3LOG_INFO("-------------------------------------------------------------------");
 }
 
-void samplePDFTutorial::DebugShift(const double * par, std::size_t iSample, std::size_t iEvent) {
+void samplePDFTutorial::DebugShift(const double * par, const std::size_t iSample, const std::size_t iEvent) {
   // HH: This is a debug function to shift the reco energy to 4 GeV if the reco energy is less than 2 GeV
   if (TutorialSamples[iSample].RecoEnu[iEvent] < 2.0 && *par != 0) {
     TutorialSamples[iSample].RecoEnu_shifted[iEvent] = 4;
   }
 }
 
-void samplePDFTutorial::EResLep(const double * par, std::size_t iSample, std::size_t iEvent) {
+void samplePDFTutorial::EResLep(const double * par, const std::size_t iSample, const std::size_t iEvent) {
   // HH: Lepton energy resolution contribution to reco energy
   TutorialSamples[iSample].RecoEnu_shifted[iEvent] += (*par) * TutorialSamples[iSample].ELep[iEvent];
 }
 
-void samplePDFTutorial::EResTot(const double * par, std::size_t iSample, std::size_t iEvent) {
+void samplePDFTutorial::EResTot(const double * par, const std::size_t iSample, const std::size_t iEvent) {
   // HH: Total energy resolution contribution to reco energy
   TutorialSamples[iSample].RecoEnu_shifted[iEvent] += (*par) * TutorialSamples[iSample].RecoEnu[iEvent];
 }
@@ -60,14 +60,6 @@ void samplePDFTutorial::RegisterFunctionalParameters() {
   // A lambda function has to be used so we can refer to a non-static member function
   #pragma GCC diagnostic push
   #pragma GCC diagnostic ignored "-Wunused-parameter"
-  RegisterIndividualFuncPar("DebugNothing", 
-                            kDebugNothing, 
-                            [this](const double * par, std::size_t iSample, std::size_t iEvent) {});
-
-  RegisterIndividualFuncPar("DebugShift",
-                            kDebugShift, 
-                            [this](const double * par, std::size_t iSample, std::size_t iEvent) { this->DebugShift(par, iSample, iEvent); });
-
   RegisterIndividualFuncPar("EResLep",
                             kEResLep, 
                             [this](const double * par, std::size_t iSample, std::size_t iEvent) { this->EResLep(par, iSample, iEvent); });
