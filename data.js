@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1746026772848,
+  "lastUpdate": 1746032871220,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -4093,6 +4093,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 442.105,
             "range": "± 6.85367",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "2191923e97124519f90d179cb1fe353aca9461e9",
+          "message": "Merge pull request #418 from mach3-software/feature/OverrideConfigs\n\nfeat: Allow to override config with another config",
+          "timestamp": "2025-05-01T02:03:04+09:00",
+          "tree_id": "c62d95d4d0fba4ade13379cedd922be9a6021320",
+          "url": "https://github.com/mach3-software/MaCh3/commit/2191923e97124519f90d179cb1fe353aca9461e9"
+        },
+        "date": 1746032869188,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 4.11725,
+            "range": "± 89.7304",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 4.05373,
+            "range": "± 367.15",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 441.519,
+            "range": "± 4.93838",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
