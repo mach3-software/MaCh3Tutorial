@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1745936473334,
+  "lastUpdate": 1746011388889,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -3868,6 +3868,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 439.658,
             "range": "± 7.01211",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "3418c2942580cd0811e4c094f4c4735d088f2637",
+          "message": "Merge pull request #420 from mach3-software/feature/KinematicCuts\n\nbreaking: Add Kinematic Cut Struct",
+          "timestamp": "2025-04-30T20:05:06+09:00",
+          "tree_id": "af78bdf915129535cdb40bd86af4932ab492ecca",
+          "url": "https://github.com/mach3-software/MaCh3/commit/3418c2942580cd0811e4c094f4c4735d088f2637"
+        },
+        "date": 1746011387108,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 4.04078,
+            "range": "± 76.174",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 3.98919,
+            "range": "± 92.3952",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 440.181,
+            "range": "± 6.98",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
