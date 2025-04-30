@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1746017948893,
+  "lastUpdate": 1746026723869,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -3958,6 +3958,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 439.23,
             "range": "± 5.58849",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "e5a51f3226781834bbc0be028997723b42d58d17",
+          "message": "Merge pull request #425 from mach3-software/dbarrow257/demo/SharedNuOscObject\n\nfeat: Shared NuOscillator object for fixed binning across all samples",
+          "timestamp": "2025-05-01T00:20:28+09:00",
+          "tree_id": "c4fdd42ac4d6c126ee96143772125abc13424c95",
+          "url": "https://github.com/mach3-software/MaCh3/commit/e5a51f3226781834bbc0be028997723b42d58d17"
+        },
+        "date": 1746026717000,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 4.19153,
+            "range": "± 82.3125",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 4.13987,
+            "range": "± 318.869",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 445.818,
+            "range": "± 7.038",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
