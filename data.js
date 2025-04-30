@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1746026751075,
+  "lastUpdate": 1746026772848,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -4048,6 +4048,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 443.368,
             "range": "± 5.89813",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "4b37352871048baf3e68369d7f30795b655be7cb",
+          "message": "Merge pull request #422 from mach3-software/featureTidy\n\ntidy: Minor Yaml and Spline tidy",
+          "timestamp": "2025-05-01T00:21:10+09:00",
+          "tree_id": "b31a15acecd6276facbb42ba4c2d7c7b4225f798",
+          "url": "https://github.com/mach3-software/MaCh3/commit/4b37352871048baf3e68369d7f30795b655be7cb"
+        },
+        "date": 1746026770804,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 4.2586,
+            "range": "± 147.874",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 4.22625,
+            "range": "± 436.005",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 442.105,
+            "range": "± 6.85367",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
