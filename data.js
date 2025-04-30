@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1746011388889,
+  "lastUpdate": 1746017948893,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -3913,6 +3913,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 440.181,
             "range": "± 6.98",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "de3834a2f4d73d580c3bf245cbbdd57793e7e26e",
+          "message": "Merge pull request #423 from mach3-software/feature_universalSetup\n\nfeat: Universal setup: bash, sh, zsh, ksh, dash",
+          "timestamp": "2025-04-30T21:54:19+09:00",
+          "tree_id": "5a9fef5f6ca75c2050a134b2da5b246d9861159d",
+          "url": "https://github.com/mach3-software/MaCh3/commit/de3834a2f4d73d580c3bf245cbbdd57793e7e26e"
+        },
+        "date": 1746017946638,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 4.10653,
+            "range": "± 172.715",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 4.00949,
+            "range": "± 53.5094",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 439.23,
+            "range": "± 5.58849",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
