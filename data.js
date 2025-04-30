@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1746032871220,
+  "lastUpdate": 1746048460953,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -4138,6 +4138,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 441.519,
             "range": "± 4.93838",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "062e007383469320f55e7507706844d2139a6b46",
+          "message": "Merge pull request #426 from mach3-software/dbarrow257/feat/NuOscVersBump\n\nfeat: Update NuOscillatorSetup.cmake to use v1.3.1",
+          "timestamp": "2025-05-01T06:22:50+09:00",
+          "tree_id": "554324b97e3e84a576439a1c32aa24e3bd5e1ef3",
+          "url": "https://github.com/mach3-software/MaCh3/commit/062e007383469320f55e7507706844d2139a6b46"
+        },
+        "date": 1746048459166,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 4.1912,
+            "range": "± 61.0954",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 4.1516,
+            "range": "± 393.83",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 438.989,
+            "range": "± 25.0083",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
