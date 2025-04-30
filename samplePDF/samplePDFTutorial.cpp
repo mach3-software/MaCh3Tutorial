@@ -214,8 +214,8 @@ double samplePDFTutorial::ReturnKinematicParameter(KinematicTypes KinPar, int iS
   return *paramPointer;
 }
 
-double samplePDFTutorial::ReturnKinematicParameter(double KinematicVariable, int iSample, int iEvent) {
-  KinematicTypes KinPar = static_cast<KinematicTypes>(std::round(KinematicVariable));
+double samplePDFTutorial::ReturnKinematicParameter(int KinematicVariable, int iSample, int iEvent) {
+  KinematicTypes KinPar = static_cast<KinematicTypes>(KinematicVariable);
   return ReturnKinematicParameter(KinPar, iSample, iEvent);
 }
 
