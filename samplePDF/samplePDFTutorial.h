@@ -54,12 +54,12 @@ class samplePDFTutorial : public samplePDFFDBase
   bool isATM;
 
   // === HH: Functional parameters ===
-  enum FuncParEnum {kDebugNothing, kDebugShift, kEResLep, kEResTot};
+  enum FuncParEnum {kDebugShift, kEResLep, kEResTot};
   void RegisterFunctionalParameters() override;
   void resetShifts(int iSample, int iEvent) override;
 
-  void DebugShift(const double * par, std::size_t iSample, std::size_t iEvent);
-  void EResLep(const double * par, std::size_t iSample, std::size_t iEvent);
-  void EResTot(const double * par, std::size_t iSample, std::size_t iEvent);
+  void DebugShift(const double * par, const std::size_t iSample, const std::size_t iEvent);
+  void EResLep(const double * par, const std::size_t iSample, const std::size_t iEvent);
+  void EResTot(const double * par, const std::size_t iSample, const std::size_t iEvent);
   // =================================
 };

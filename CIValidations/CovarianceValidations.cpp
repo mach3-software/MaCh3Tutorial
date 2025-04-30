@@ -17,7 +17,7 @@ int main(int argc, char *argv[])
   std::vector<std::string> xsecCovMatrixFile = {"TutorialConfigs/CovObjs/SystematicModel.yaml"};
   auto xsec = std::make_unique<covarianceXsec>(xsecCovMatrixFile, "xsec_cov");
 
-  std::vector<double> ParProp = {1.05, 0.90, 1.10, 1.05, 1.05, 1.05, 1.05, 1.05, 0., 0.2, -0.1};
+  std::vector<double> ParProp = {1.05, 0.90, 1.10, 1.05, 1.05, 1.05, 1.05, 1.05, 0., 0.2};
   xsec->setParameters(ParProp);
   xsec->printNominalCurrProp();
 
@@ -155,7 +155,7 @@ AdaptionOptions:
   //KS: Let's make Doctor Wallace proud
   Adapt->initialiseAdaption(AdaptSetting);
 
-  std::vector<double> ParAdapt = {1.05, 0.90, 1.10, 1.05, 1.05, 1.05, 1.05, 1.05, 0., 0.2, -0.1, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0 };
+  std::vector<double> ParAdapt = {1.05, 0.90, 1.10, 1.05, 1.05, 1.05, 1.05, 1.05, 0., 0.2, -0.1, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0};
   Adapt->setParameters(ParAdapt);
   bool increase = true;
   for(int i = 0; i < 50000; ++i ) {
