@@ -4,10 +4,11 @@
 #include "samplePDF/samplePDFFDBase.h"
 #include "samplePDF/StructsTutorial.h"
 
+/// @brief Class responsible for handling implementation of samples used in analysis, reweighting and returning LLH
 class samplePDFTutorial : public samplePDFFDBase
 {
  public:
-  samplePDFTutorial(std::string mc_version, covarianceXsec* xsec_cov, covarianceOsc* osc_cov = nullptr);
+  samplePDFTutorial(std::string mc_version, covarianceXsec* xsec_cov, covarianceOsc* osc_cov = nullptr, OscillatorBase* Oscillator_ = nullptr);
   virtual ~samplePDFTutorial();
   enum KinematicTypes {kTrueNeutrinoEnergy, kTrueQ2, kM3Mode, kRecoNeutrinoEnergy};
 
