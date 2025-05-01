@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1746048460953,
+  "lastUpdate": 1746093299478,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -4183,6 +4183,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 438.989,
             "range": "± 25.0083",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "a99c76dc1fb2bac2128bd573038d928e7dd2e24f",
+          "message": "Merge pull request #427 from mach3-software/feautre/NuOscDestructorTweak\n\nbugfix: Fix Shared NuOsc destructor",
+          "timestamp": "2025-05-01T18:50:18+09:00",
+          "tree_id": "7cdbf9e61f21bbf43901f6cd102153c0822f799f",
+          "url": "https://github.com/mach3-software/MaCh3/commit/a99c76dc1fb2bac2128bd573038d928e7dd2e24f"
+        },
+        "date": 1746093297832,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 4.22613,
+            "range": "± 222.163",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 4.11204,
+            "range": "± 98.8777",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 435.241,
+            "range": "± 5.72316",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
