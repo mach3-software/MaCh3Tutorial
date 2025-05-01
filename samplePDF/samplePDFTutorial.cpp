@@ -5,7 +5,8 @@
 #include "splines/splineFDBase.h"
 
 // ************************************************
-samplePDFTutorial::samplePDFTutorial(std::string mc_version_, covarianceXsec* xsec_cov_, covarianceOsc* osc_cov_) : samplePDFFDBase(mc_version_, xsec_cov_, osc_cov_) {
+samplePDFTutorial::samplePDFTutorial(std::string mc_version_, covarianceXsec* xsec_cov_, covarianceOsc* osc_cov_, OscillatorBase* Oscillator_)
+: samplePDFFDBase(mc_version_, xsec_cov_, osc_cov_, Oscillator_) {
 // ************************************************
   KinematicParameters = &KinematicParametersTutorial;
   ReversedKinematicParameters = &ReversedKinematicParametersTutorial;
