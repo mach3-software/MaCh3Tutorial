@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1746113261725,
+  "lastUpdate": 1746184162046,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -4273,6 +4273,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 439.694,
             "range": "± 4.59932",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "4ac21d17c184389dd9d4ff0a8997fd3a484f3514",
+          "message": "Merge pull request #429 from mach3-software/feature/FixAdaptionStartFromPrevious\n\nbreaking: Fix Setting initial steps for adaption when starting from previous chain",
+          "timestamp": "2025-05-02T20:04:40+09:00",
+          "tree_id": "73ef43fe8aa5479ae3a94ab5c236e73903def10c",
+          "url": "https://github.com/mach3-software/MaCh3/commit/4ac21d17c184389dd9d4ff0a8997fd3a484f3514"
+        },
+        "date": 1746184160370,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 4.12793,
+            "range": "± 87.7292",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 4.01225,
+            "range": "± 65.2337",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 431.583,
+            "range": "± 7.76043",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
