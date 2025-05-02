@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1746184162046,
+  "lastUpdate": 1746198047524,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -4318,6 +4318,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 431.583,
             "range": "± 7.76043",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "de2f07d6ad31adbda98de8b18bc639c33883a8e3",
+          "message": "Merge pull request #430 from mach3-software/hwallace/feature/likelihood_calc_speedup\n\nfeat: Tiny efficiency improvement",
+          "timestamp": "2025-05-02T23:55:40+09:00",
+          "tree_id": "c1a606c2f55fd3a2d58f4ee0b633566c278aa082",
+          "url": "https://github.com/mach3-software/MaCh3/commit/de2f07d6ad31adbda98de8b18bc639c33883a8e3"
+        },
+        "date": 1746198045358,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 5.59824,
+            "range": "± 4.6963",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 4.07356,
+            "range": "± 94.04",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 442.828,
+            "range": "± 4.27194",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
