@@ -191,4 +191,77 @@ TEST_CASE("Check GetBounds", "[Yamlhelper]") {
     REQUIRE_THAT(TempBoundsVec[0], Catch::Matchers::WithinAbs(M3::KinematicLowBound , 1e-6));
     REQUIRE_THAT(TempBoundsVec[1], Catch::Matchers::WithinAbs(M3::KinematicUpBound , 1e-6));
   }
+
+  SECTION("Check error handling for single variable")
+  {
+    std::string Bounds = "Bounds: [0]";
+    YAML::Node TextNode = STRINGtoYAML(Bounds);
+    REQUIRE_THROWS(GetBounds(TextNode["Bounds"]));
+  }
+  SECTION("Check error handling for multiple variable")
+  {
+    std::string Bounds = "Bounds: [0, 10, 100]";
+    YAML::Node TextNode = STRINGtoYAML(Bounds);
+    REQUIRE_THROWS(GetBounds(TextNode["Bounds"]));
+  }
+  SECTION("Check error handling for unspecified values")
+  {
+    std::string Bounds = "Bounds: [0, \"blarb\"]";
+    YAML::Node TextNode = STRINGtoYAML(Bounds);
+    REQUIRE_THROWS(GetBounds(TextNode["Bounds"]));
+  }
+  SECTION("Check error handling for invalid type")
+  {
+    std::string Bounds = "Bounds: [0, {val: 10}]";
+    YAML::Node TextNode = STRINGtoYAML(Bounds);
+    REQUIRE_THROWS(GetBounds(TextNode["Bounds"]));
+  }
+}
+
+TEST_CASE("Check M3OpenConfig", "[Yamlhelper]") {
+
+  SECTION("Invalid file extension throws") {
+    REQUIRE_THROWS(M3OpenConfig("config.toml"));
+  }
+
+  SECTION("Nonexistent file throws") {
+    REQUIRE_THROWS(M3OpenConfig("does_not_exist.yaml"));
+  }
+
+  SECTION("YAML file with bad dash formatting throws") {
+    std::ofstream out("bad.yaml");
+    out << "Config:\n"
+    "-badValue: 1\n";  // no space after '-'
+    out.close();
+
+    REQUIRE_THROWS(M3OpenConfig("bad.yaml"));
+
+    std::remove("bad.yaml");
+  }
+
+  SECTION("Valid YAML file loads successfully") {
+    std::ofstream out("valid.yaml");
+    out << "Config:\n"
+    "- goodValue: 1\n";  // has space after '-'
+    out.close();
+
+    YAML::Node config;
+    REQUIRE_NOTHROW(config = M3OpenConfig("valid.yaml"));
+    REQUIRE(config["Config"]);
+    REQUIRE(config["Config"][0]["goodValue"].as<int>() == 1);
+
+    std::remove("valid.yaml");
+  }
+
+  SECTION("YAML with document separator '---' doesn't throw") {
+    std::ofstream out("doc_sep.yaml");
+    out << "---\nConfig:\n  Value: 42\n";
+    out.close();
+
+    YAML::Node config;
+    REQUIRE_NOTHROW(config = M3OpenConfig("doc_sep.yaml"));
+    REQUIRE(config["Config"]["Value"].as<int>() == 42);
+
+    std::remove("doc_sep.yaml");
+  }
 }
