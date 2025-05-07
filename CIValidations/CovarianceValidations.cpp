@@ -3,6 +3,46 @@
 #include "covariance/covarianceXsec.h"
 #include "covariance/covarianceOsc.h"
 
+void TuneValidations()
+{
+  YAML::Node Node = M3OpenConfig("TutorialConfigs/CovObjs/SystematicModel.yaml");
+  std::vector<double> TuneValues = {1.05, 0.90, 1.10, 1.05, 1.05, 1.05, 1.05, 1.05, 0., 10};
+  std::string Tune = "WackyTune";
+
+  M3::AddTuneValues(Node, TuneValues, Tune);
+
+  std::vector<double> TuneErrors =  {0.01, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01};
+
+  // Example correlation matrix (10x10 identity matrix as a placeholder)
+  std::vector<std::vector<double>> CorrelationMatrix(10, std::vector<double>(10, 0.0));
+  for (std::size_t i = 0; i < 10; ++i) {
+    for (std::size_t j = 0; j < 10; ++j) {
+      if (i == j) {
+        CorrelationMatrix[i][j] = 1.0;
+      } else {
+        CorrelationMatrix[i][j] = 0.1;
+      }
+    }
+  }
+
+  M3::MakeCorrelationMatrix(Node, TuneValues, TuneErrors, CorrelationMatrix);
+
+  std::vector<std::string> FancyNames = {
+    "Norm_Param_0",
+    "Norm_Param_1",
+    "Norm_Param_2",
+    "BinnedSplineParam1",
+    "BinnedSplineParam2",
+    "BinnedSplineParam3",
+    "BinnedSplineParam4",
+    "BinnedSplineParam5",
+    "EResLep",
+    "EResTot"
+  };
+  M3::AddTuneValues(Node, TuneValues, Tune, FancyNames);
+  M3::MakeCorrelationMatrix(Node, TuneValues, TuneErrors, CorrelationMatrix, FancyNames);
+
+}
 
 int main(int argc, char *argv[])
 {
@@ -176,6 +216,8 @@ AdaptionOptions:
   outFile.close();
   bool TheSame = CompareTwoFiles("CIValidations/TestOutputs/CovarianceOut.txt", "NewCovarianceOut.txt");
 
+  TuneValidations();
+
   if(!TheSame) {
     MACH3LOG_CRITICAL("Different likelihood mate");
     throw MaCh3Exception(__FILE__ , __LINE__ );
@@ -185,3 +227,4 @@ AdaptionOptions:
 
   return 0;
 }
+
