@@ -17,7 +17,7 @@ int main(int argc, char *argv[])
   std::vector<std::string> ParameterMatrixFile = {"TutorialConfigs/CovObjs/SystematicModel.yaml"};
   auto xsec = std::make_unique<ParameterHandlerGeneric>(ParameterMatrixFile, "xsec_cov");
 
-  std::vector<double> ParProp = {1.05, 0.90, 1.10, 1.05, 1.05, 1.05, 1.05, 1.05, 0., 0.2, -0.1};
+  std::vector<double> ParProp = {1.05, 0.90, 1.10, 1.05, 1.05, 1.05, 1.05, 1.05, 0., 0.2};
   xsec->SetParameters(ParProp);
   xsec->PrintNominalCurrProp();
 
@@ -126,13 +126,15 @@ std::string yamlContent = R"(
 AdaptionOptions:
   Settings:
     # When do we start throwing from our adaptive matrix?
-    AdaptionStartThrow: 10
+    StartThrow: 10
     # When do we start putting steps into our adaptive covariance?
-    AdaptionStartUpdate: 0
+    StartUpdate: 0
     # When do we end updating our covariance?
-    AdaptionEndUpdate: 50000
+    EndUpdate: 50000
     # How often do we change our matrix throws?
-    AdaptionUpdateStep: 1000
+    UpdateStep: 1000
+    # Where shall we write the adapted matrices to?
+    OutputFileName: "test_adaptive_output.root"
   Covariance:
     # So now we list individual matrices, let's just do xsec
     xsec_cov:
@@ -153,7 +155,7 @@ AdaptionOptions:
   //KS: Let's make Doctor Wallace proud
   Adapt->InitialiseAdaption(AdaptSetting);
 
-  std::vector<double> ParAdapt = {1.05, 0.90, 1.10, 1.05, 1.05, 1.05, 1.05, 1.05, 0., 0.2, -0.1, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0 };
+  std::vector<double> ParAdapt = {1.05, 0.90, 1.10, 1.05, 1.05, 1.05, 1.05, 1.05, 0., 0.2, -0.1, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0};
   Adapt->SetParameters(ParAdapt);
   bool increase = true;
   for(int i = 0; i < 50000; ++i ) {

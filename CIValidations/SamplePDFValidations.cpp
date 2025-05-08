@@ -2,6 +2,29 @@
 #include "Utils/Comparison.h"
 #include "SamplesTutorial/SampleHandlerTutorial.h"
 
+_MaCh3_Safe_Include_Start_ //{
+#include "Oscillator/OscillatorFactory.h"
+_MaCh3_Safe_Include_End_ //}
+
+void SharedNuOscTest(const std::string& config, ParameterHandlerGeneric* xsec, ParameterHandlerOsc* osc){
+  OscillatorBase* OscillatorObj = nullptr;
+  MACH3LOG_INFO("Utilising a shared NuOscillator object between all atmospheric samples");
+
+  OscillatorFactory* OscillFactory = new OscillatorFactory();
+
+  std::string OscillatorConfig = std::string(std::getenv("MaCh3Tutorial_ROOT")) + "/TutorialConfigs/NuOscillator/CUDAProb3.yaml";
+  OscillatorObj = OscillFactory->CreateOscillator(OscillatorConfig);
+  OscillatorObj->Setup();
+  delete OscillFactory;
+
+  SampleHandlerTutorial *Sample1 = new SampleHandlerTutorial(config, xsec, osc, OscillatorObj);
+  SampleHandlerTutorial *Sample2 = new SampleHandlerTutorial(config, xsec, osc, OscillatorObj);
+
+  delete Sample1;
+  delete Sample2;
+  delete OscillatorObj;
+}
+
 int main(int argc, char *argv[])
 {
   SetMaCh3LoggerFormat();
@@ -72,6 +95,8 @@ int main(int argc, char *argv[])
   } else {
     MACH3LOG_INFO("Everything is correct");
   }
+
+  SharedNuOscTest(SampleConfig.back(), xsec, osc);
 
   delete xsec;
   delete osc;

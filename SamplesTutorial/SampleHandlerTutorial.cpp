@@ -1,7 +1,7 @@
 #include "SamplesTutorial/SampleHandlerTutorial.h"
 
 // ************************************************
-SampleHandlerTutorial::SampleHandlerTutorial(const std::string& config_name, ParameterHandlerGeneric* parameter_handler, ParameterHandlerOsc* oscillation_handler) : SampleHandlerFD(config_name, parameter_handler, oscillation_handler) {
+SampleHandlerTutorial::SampleHandlerTutorial(const std::string& config_name, ParameterHandlerGeneric* parameter_handler, ParameterHandlerOsc* oscillation_handler, OscillatorBase* Oscillator_) : SampleHandlerFD(config_name, parameter_handler, oscillation_handler, Oscillator_) {
 // ************************************************
   KinematicParameters = &KinematicParametersTutorial;
   ReversedKinematicParameters = &ReversedKinematicParametersTutorial;
@@ -30,19 +30,19 @@ void SampleHandlerTutorial::Init() {
   MACH3LOG_INFO("-------------------------------------------------------------------");
 }
 
-void SampleHandlerTutorial::DebugShift(const double * par, std::size_t iSample, std::size_t iEvent) {
+void SampleHandlerTutorial::DebugShift(const double * par, const std::size_t iSample, const std::size_t iEvent) {
   // HH: This is a debug function to shift the reco energy to 4 GeV if the reco energy is less than 2 GeV
   if (TutorialSamples[iSample].RecoEnu[iEvent] < 2.0 && *par != 0) {
     TutorialSamples[iSample].RecoEnu_shifted[iEvent] = 4;
   }
 }
 
-void SampleHandlerTutorial::EResLep(const double * par, std::size_t iSample, std::size_t iEvent) {
+void SampleHandlerTutorial::EResLep(const double * par, const std::size_t iSample, const std::size_t iEvent) {
   // HH: Lepton energy resolution contribution to reco energy
   TutorialSamples[iSample].RecoEnu_shifted[iEvent] += (*par) * TutorialSamples[iSample].ELep[iEvent];
 }
 
-void SampleHandlerTutorial::EResTot(const double * par, std::size_t iSample, std::size_t iEvent) {
+void SampleHandlerTutorial::EResTot(const double * par, const std::size_t iSample, const std::size_t iEvent) {
   // HH: Total energy resolution contribution to reco energy
   TutorialSamples[iSample].RecoEnu_shifted[iEvent] += (*par) * TutorialSamples[iSample].RecoEnu[iEvent];
 }

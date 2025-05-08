@@ -9,7 +9,7 @@
 class SampleHandlerTutorial : public SampleHandlerFD
 {
  public:
-  SampleHandlerTutorial(const std::string& config_name, ParameterHandlerGeneric* parameter_handler, ParameterHandlerOsc* oscillation_handler = nullptr);
+  SampleHandlerTutorial(const std::string& config_name, ParameterHandlerGeneric* parameter_handler, ParameterHandlerOsc* oscillation_handler = nullptr, OscillatorBase* Oscillator_ = nullptr);
   virtual ~SampleHandlerTutorial();
   enum KinematicTypes {kTrueNeutrinoEnergy, kTrueQ2, kM3Mode, kRecoNeutrinoEnergy};
 

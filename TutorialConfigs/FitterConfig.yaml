@@ -72,8 +72,4 @@ LLHScan:
   # Add physical ranges for special params whose priors/errors may not be well well-defined
   ScanRanges:
     #delta_cp: [-3.14,3.14]
-    
-LikelihoodOptions:
-  #False means you calculate W2 histogram only during the first reweight, advisable for Barlow-Beeston
-  UpdateW2: false
-  TestStatistic: "Barlow-Beeston"
+

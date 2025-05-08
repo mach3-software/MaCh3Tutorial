@@ -169,27 +169,11 @@ Systematics:
 
 - Systematic:
     Names:
-      FancyName: DebugShift
-    Error: 6
-    FlatPrior: false
-    IsFixed: false
-    ParameterBounds: [-10., 15.]
-    ParameterGroup: Xsec
-    ParameterValues:
-      Generated: 0
-      PreFitValue: 0.
-    StepScale:
-      MCMC: 0.2
-    SampleNames: ["Tutorial *"]
-    Type: Functional
-
-- Systematic:
-    Names:
       FancyName: EResLep
-    Error: 0.1
+    Error: 0.01
     FlatPrior: false
     IsFixed: false
-    ParameterBounds: [-10., 15.]
+    ParameterBounds: [-1., 1.]
     ParameterGroup: Xsec
     ParameterValues:
       Generated: 0
@@ -198,14 +182,16 @@ Systematics:
       MCMC: 0.2
     SampleNames: ["Tutorial *"]
     Type: Functional
+    Correlations:
+    - EResTot: 0.50
 
 - Systematic:
     Names:
       FancyName: EResTot
-    Error: 0.1
+    Error: 0.01
     FlatPrior: false
     IsFixed: false
-    ParameterBounds: [-10., 15.]
+    ParameterBounds: [-1., 1.]
     ParameterGroup: Xsec
     ParameterValues:
       Generated: 0
@@ -214,3 +200,5 @@ Systematics:
       MCMC: 0.2
     SampleNames: ["Tutorial *"]
     Type: Functional
+    Correlations:
+    - EResLep: 0.50
