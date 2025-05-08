@@ -1,4 +1,4 @@
-#include "samplePDF/SampleHandlerTutorial.h"
+#include "SamplesTutorial/SampleHandlerTutorial.h"
 
 // ************************************************
 SampleHandlerTutorial::SampleHandlerTutorial(const std::string& config_name, ParameterHandlerGeneric* parameter_handler, ParameterHandlerOsc* oscillation_handler) : SampleHandlerFD(config_name, parameter_handler, oscillation_handler) {
@@ -56,19 +56,19 @@ void SampleHandlerTutorial::RegisterFunctionalParameters() {
   // A lambda function has to be used so we can refer to a non-static member function
   #pragma GCC diagnostic push
   #pragma GCC diagnostic ignored "-Wunused-parameter"
-  RegisterIndividualFuncPar("DebugNothing", 
+  RegisterIndividualFunctionalParameter("DebugNothing", 
                             kDebugNothing, 
                             [this](const double * par, std::size_t iSample, std::size_t iEvent) {});
 
-  RegisterIndividualFuncPar("DebugShift",
+  RegisterIndividualFunctionalParameter("DebugShift",
                             kDebugShift, 
                             [this](const double * par, std::size_t iSample, std::size_t iEvent) { this->DebugShift(par, iSample, iEvent); });
 
-  RegisterIndividualFuncPar("EResLep",
+  RegisterIndividualFunctionalParameter("EResLep",
                             kEResLep, 
                             [this](const double * par, std::size_t iSample, std::size_t iEvent) { this->EResLep(par, iSample, iEvent); });
 
-  RegisterIndividualFuncPar("EResTot",
+  RegisterIndividualFunctionalParameter("EResTot",
                             kEResTot, 
                             [this](const double * par, std::size_t iSample, std::size_t iEvent) { this->EResTot(par, iSample, iEvent); });
 }
@@ -218,7 +218,7 @@ double SampleHandlerTutorial::ReturnKinematicParameter(KinematicTypes KinPar, in
   return *paramPointer;
 }
 
-double SampleHandlerTutorial::ReturnKinematicParameter(double KinematicVariable, int iSample, int iEvent) {
+double SampleHandlerTutorial::ReturnKinematicParameter(int KinematicVariable, int iSample, int iEvent) {
   KinematicTypes KinPar = static_cast<KinematicTypes>(std::round(KinematicVariable));
   return ReturnKinematicParameter(KinPar, iSample, iEvent);
 }

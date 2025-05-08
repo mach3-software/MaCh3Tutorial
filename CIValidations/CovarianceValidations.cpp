@@ -1,7 +1,7 @@
 // MaCh3 spline includes
 #include "Utils/Comparison.h"
-#include "ParameterHandler/ParameterHandlerGeneric.h"
-#include "ParameterHandler/ParameterHandlerOsc.h"
+#include "Parameters/ParameterHandlerGeneric.h"
+#include "Parameters/ParameterHandlerOsc.h"
 
 
 int main(int argc, char *argv[])

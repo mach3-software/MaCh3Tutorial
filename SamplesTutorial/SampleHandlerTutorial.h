@@ -1,10 +1,10 @@
 #pragma once
 
-#include "ParameterHandler/ParameterHandlerOsc.h"
-#include "ParameterHandler/ParameterHandlerGeneric.h"
+#include "Parameters/ParameterHandlerOsc.h"
+#include "Parameters/ParameterHandlerGeneric.h"
 #include "Samples/SampleHandlerFD.h"
 #include "StructsTutorial.h"
-#include "splines/BinnedSplinesTutorial.h"
+#include "SplinesTutorial/BinnedSplinesTutorial.h"
 
 class SampleHandlerTutorial : public SampleHandlerFD
 {
@@ -26,12 +26,12 @@ class SampleHandlerTutorial : public SampleHandlerFD
   int SetupExperimentMC(int iSample) override;
 
   double ReturnKinematicParameter(KinematicTypes KinPar, int iSample, int iEvent);
-  double ReturnKinematicParameter(double KinematicVariable, int iSample, int iEvent) override;
-  double ReturnKinematicParameter(std::string KinematicParameter, int iSample, int iEvent) override;
+  double ReturnKinematicParameter(int KinematicVariable, int iSample, int iEvent);
+  double ReturnKinematicParameter(std::string KinematicParameter, int iSample, int iEvent);
 
   const double* GetPointerToKinematicParameter(KinematicTypes KinPar, int iSample, int iEvent);
   const double* GetPointerToKinematicParameter(std::string KinematicParameter, int iSample, int iEvent) override;
-  const double* GetPointerToKinematicParameter(double KinematicVariable, int iSample, int iEvent) override;
+  const double* GetPointerToKinematicParameter(double KinematicVariable, int iSample, int iEvent);
 
   void SetupFDMC(int iSample) override;
   void CalcWeightFunc(int iSample, int iEvent) override {return; (void)iSample; (void)iEvent;}

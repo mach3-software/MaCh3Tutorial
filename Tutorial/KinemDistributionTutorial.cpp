@@ -1,6 +1,6 @@
 // MaCh3 includes
 #include "Fitter/MaCh3Factory.h"
-#include "samplePDF/SampleHandlerTutorial.h"
+#include "SamplesTutorial/SampleHandlerTutorial.h"
 
 int main(int argc, char **argv) {
   int Selection = 0; //0 to loop modes, 1 to loop osc channels

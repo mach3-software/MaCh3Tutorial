@@ -1,6 +1,6 @@
 #include "BinnedSplinesTutorial.h"
-#include "ParameterHandler/ParameterHandlerGeneric.h"
-#include "splines/BinnedSplineHandler.h"
+#include "Parameters/ParameterHandlerGeneric.h"
+#include "Splines/BinnedSplineHandler.h"
 
 BinnedSplineTutorial::BinnedSplineTutorial(ParameterHandlerGeneric *parameter_handler, MaCh3Modes* Modes_) : BinnedSplineHandler(parameter_handler, Modes_) {
 }

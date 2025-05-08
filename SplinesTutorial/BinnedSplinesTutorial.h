@@ -1,8 +1,8 @@
 #pragma once
 
 //MaCh3 includes
-#include "ParameterHandler/ParameterHandlerGeneric.h"
-#include "splines/BinnedSplineHandler.h"
+#include "Parameters/ParameterHandlerGeneric.h"
+#include "Splines/BinnedSplineHandler.h"
 
 class BinnedSplineTutorial : public BinnedSplineHandler
 {

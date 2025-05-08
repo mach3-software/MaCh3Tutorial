@@ -1,8 +1,8 @@
 // MaCh3 spline includes
 #include "Fitter/MaCh3Factory.h"
-#include "ParameterHandler/ParameterHandlerGeneric.h"
+#include "Parameters/ParameterHandlerGeneric.h"
 #include "Utils/Comparison.h"
-#include "samplePDF/SampleHandlerTutorial.h"
+#include "SamplesTutorial/SampleHandlerTutorial.h"
 
 void FitVal(const std::string& Algo, bool MoreTests)
 {

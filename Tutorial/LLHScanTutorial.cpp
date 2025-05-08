@@ -1,6 +1,6 @@
 // MaCh3 spline includes
 #include "Fitter/MaCh3Factory.h"
-#include "samplePDF/SampleHandlerTutorial.h"
+#include "SamplesTutorial/SampleHandlerTutorial.h"
 
 int main(int argc, char *argv[]){
   // Initialise manger responsible for config handling
