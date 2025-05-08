@@ -1,6 +1,8 @@
 #include "BinnedSplinesTutorial.h"
+#include "Parameters/ParameterHandlerGeneric.h"
+#include "Splines/BinnedSplineHandler.h"
 
-BinnedSplineTutorial::BinnedSplineTutorial(covarianceXsec *xsec_cov, MaCh3Modes* Modes_) : splineFDBase(xsec_cov, Modes_) {
+BinnedSplineTutorial::BinnedSplineTutorial(ParameterHandlerGeneric *parameter_handler, MaCh3Modes* Modes_) : BinnedSplineHandler(parameter_handler, Modes_) {
 }
 
 BinnedSplineTutorial::~BinnedSplineTutorial() {

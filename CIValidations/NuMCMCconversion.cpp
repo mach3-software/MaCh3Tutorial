@@ -6,7 +6,7 @@
 #include "TNamed.h"
 #include "TObjString.h"
 
-#include "mcmc/MaCh3Factory.h"
+#include "Fitter/MaCh3Factory.h"
 
 int main(int argc, char *argv[])
 {

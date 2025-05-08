@@ -1,15 +1,16 @@
 #pragma once
 
-#include "covariance/covarianceOsc.h"
-#include "samplePDF/samplePDFFDBase.h"
-#include "samplePDF/StructsTutorial.h"
+#include "Parameters/ParameterHandlerOsc.h"
+#include "Parameters/ParameterHandlerGeneric.h"
+#include "Samples/SampleHandlerFD.h"
+#include "StructsTutorial.h"
+#include "SplinesTutorial/BinnedSplinesTutorial.h"
 
-/// @brief Class responsible for handling implementation of samples used in analysis, reweighting and returning LLH
-class samplePDFTutorial : public samplePDFFDBase
+class SampleHandlerTutorial : public SampleHandlerFD
 {
  public:
-  samplePDFTutorial(std::string mc_version, covarianceXsec* xsec_cov, covarianceOsc* osc_cov = nullptr, OscillatorBase* Oscillator_ = nullptr);
-  virtual ~samplePDFTutorial();
+  SampleHandlerTutorial(const std::string& config_name, ParameterHandlerGeneric* parameter_handler, ParameterHandlerOsc* oscillation_handler = nullptr, OscillatorBase* Oscillator_ = nullptr);
+  virtual ~SampleHandlerTutorial();
   enum KinematicTypes {kTrueNeutrinoEnergy, kTrueQ2, kM3Mode, kRecoNeutrinoEnergy};
 
   std::vector<double> ReturnKinematicParameterBinning(std::string KinematicParameter) override;
@@ -22,17 +23,17 @@ class samplePDFTutorial : public samplePDFFDBase
 
   void SetupWeightPointers() override;
 
-  int setupExperimentMC(int iSample) override;
+  int SetupExperimentMC(int iSample) override;
 
   double ReturnKinematicParameter(KinematicTypes KinPar, int iSample, int iEvent);
-  double ReturnKinematicParameter(int KinematicVariable, int iSample, int iEvent) override;
-  double ReturnKinematicParameter(std::string KinematicParameter, int iSample, int iEvent) override;
+  double ReturnKinematicParameter(int KinematicVariable, int iSample, int iEvent);
+  double ReturnKinematicParameter(std::string KinematicParameter, int iSample, int iEvent);
 
   const double* GetPointerToKinematicParameter(KinematicTypes KinPar, int iSample, int iEvent);
   const double* GetPointerToKinematicParameter(std::string KinematicParameter, int iSample, int iEvent) override;
-  const double* GetPointerToKinematicParameter(double KinematicVariable, int iSample, int iEvent) override;
+  const double* GetPointerToKinematicParameter(double KinematicVariable, int iSample, int iEvent);
 
-  void setupFDMC(int iSample) override;
+  void SetupFDMC(int iSample) override;
   void CalcWeightFunc(int iSample, int iEvent) override {return; (void)iSample; (void)iEvent;}
 
   std::vector<struct tutorial_base> TutorialSamples;
@@ -55,12 +56,12 @@ class samplePDFTutorial : public samplePDFFDBase
   bool isATM;
 
   // === HH: Functional parameters ===
-  enum FuncParEnum {kDebugShift, kEResLep, kEResTot};
+  enum FuncParEnum {kDebugNothing, kDebugShift, kEResLep, kEResTot};
   void RegisterFunctionalParameters() override;
   void resetShifts(int iSample, int iEvent) override;
 
-  void DebugShift(const double * par, const std::size_t iSample, const std::size_t iEvent);
-  void EResLep(const double * par, const std::size_t iSample, const std::size_t iEvent);
-  void EResTot(const double * par, const std::size_t iSample, const std::size_t iEvent);
+  void DebugShift(const double * par, std::size_t iSample, std::size_t iEvent);
+  void EResLep(const double * par, std::size_t iSample, std::size_t iEvent);
+  void EResTot(const double * par, std::size_t iSample, std::size_t iEvent);
   // =================================
 };

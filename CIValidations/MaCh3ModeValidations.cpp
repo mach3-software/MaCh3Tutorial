@@ -1,6 +1,6 @@
 // MaCh3 spline includes
 #include "Utils/Comparison.h"
-#include "manager/MaCh3Modes.h"
+#include "Manager/MaCh3Modes.h"
 
 /// Current tests include
 int main(int argc, char *argv[])
