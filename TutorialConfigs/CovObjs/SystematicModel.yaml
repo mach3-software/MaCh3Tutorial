@@ -78,6 +78,8 @@ Systematics:
       Mode: [0]
       InterpolationType: TSpline3
       SplineName: mysyst1
+      SplineKnotUpBound: 2
+      SplineKnotLowBound: 0.5
     SampleNames: ["Tutorial *"]
     StepScale:
       MCMC: 0.2

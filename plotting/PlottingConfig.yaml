@@ -31,9 +31,6 @@ GetPostfitParamPlots:
     ## makes param names muuuuch easier to read if param plots are vertical, (not implemented yet tho hehe)
     plotVertical: false
 
-    ## The minimiser to use for making GUNDAM plots, should be "Hesse" or "Migrad"
-    gundamMinimiser: "Hesse"
-
     ## Some stylistic choices
     colorPalette: "BlackBlueGreen"
     prefitHistStyle: "redHatchedError" 
