@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1746697027997,
+  "lastUpdate": 1746731017425,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -4453,6 +4453,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 437.879,
             "range": "± 5.31023",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "38df5f62e1d947bb72d5a2693293f36dcb0b57ce",
+          "message": "Merge pull request #435 from mach3-software/feature/TaskChecker\n\nfeat: Bot for Task Checking",
+          "timestamp": "2025-05-09T03:58:55+09:00",
+          "tree_id": "0f7d89e7cd4d358de1f1e4ab6c7312e29ca48bb5",
+          "url": "https://github.com/mach3-software/MaCh3/commit/38df5f62e1d947bb72d5a2693293f36dcb0b57ce"
+        },
+        "date": 1746731015555,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 4.24502,
+            "range": "± 106.847",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 4.11124,
+            "range": "± 655.055",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 437.317,
+            "range": "± 5.49092",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
