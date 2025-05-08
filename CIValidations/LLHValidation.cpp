@@ -19,7 +19,7 @@ int main(int argc, char *argv[])
     MACH3LOG_WARN("Error: system call failed with code {}", ret);
   }
 
-  TFile* file = new TFile("LLH_Test.root", "UPDATE");
+  auto file = std::unique_ptr<TFile>(TFile::Open("LLH_Test.root", "UPDATE"));
   std::vector<std::string> Names = {"Norm_Param_0", "Norm_Param_1", "Norm_Param_2", "BinnedSplineParam1", "BinnedSplineParam2", "BinnedSplineParam3", "BinnedSplineParam4", "BinnedSplineParam5", "EResLep", "EResTot"};
   std::ofstream outFile("LLH.txt");
   for (size_t i = 0; i < Names.size(); ++i) {
@@ -45,6 +45,5 @@ int main(int argc, char *argv[])
   }
 
   file->Close();
-  delete file;
   return 0;
 }

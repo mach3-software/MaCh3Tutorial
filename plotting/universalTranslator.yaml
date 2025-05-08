@@ -162,13 +162,14 @@ Parameters:
         "Norm_Param_1",
         "Norm_Param_2",
 
-        "Spline_Param_0",
-        "Spline_Param_1",
-        
-        "Func_Param_0",
-        "Func_Param_1",
-        "Func_Param_2",
-        "Func_Param_3",
+        "BinnedSplineParam1",
+        "BinnedSplineParam2",
+        "BinnedSplineParam3",
+        "BinnedSplineParam4",
+        "BinnedSplineParam5",
+
+        "EResLep",
+        "EResTot",
 
         "sin2th_12",
         "sin2th_23",
@@ -201,23 +202,26 @@ Parameters:
         ## lets pretend this one is a flux parameter
         tags: ["systematic", "norm", "flux"]
 
-    Spline_Param_0:
+    BinnedSplineParam1:
         tags: ["systematic", "spline", "xsec"]
 
-    Spline_Param_1:
+    BinnedSplineParam2:
         tags: ["systematic", "spline", "det-syst"]
     
-    Func_Param_0:
+    BinnedSplineParam3:
+        tags: ["systematic", "spline", "det-syst"]
+
+    BinnedSplineParam4:
+        tags: ["systematic", "spline", "det-syst"]
+
+    BinnedSplineParam5:
+        tags: ["systematic", "spline", "det-syst"]
+
+    EResLep:
         tags: ["systematic", "func", "xsec"]
 
-    Func_Param_1:
+    EResTot:
         tags: ["systematic", "func", "xsec"]
-
-    Func_Param_2:
-        tags: ["systematic", "func", "detsyst"]
-
-    Func_Param_3:
-        tags: ["systematic", "func", "detsyst"]
     
     sin2th_12:
         tags: ["oscillation", "angle"]
