@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1746731017425,
+  "lastUpdate": 1746865736083,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -4498,6 +4498,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 437.317,
             "range": "± 5.49092",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "0a010d9a1e6f33a65eca36c032a6ebe4b5c66d10",
+          "message": "Merge pull request #438 from mach3-software/feature/NewsletterUpdate\n\nfeat: Expand Newsletter",
+          "timestamp": "2025-05-10T17:24:12+09:00",
+          "tree_id": "600d71f3928d4280fe06f986446294fff76554f5",
+          "url": "https://github.com/mach3-software/MaCh3/commit/0a010d9a1e6f33a65eca36c032a6ebe4b5c66d10"
+        },
+        "date": 1746865734017,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 4.12735,
+            "range": "± 224.168",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 4.08369,
+            "range": "± 657.796",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 428.953,
+            "range": "± 5.41882",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
