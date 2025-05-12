@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1746865736083,
+  "lastUpdate": 1747039581008,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -4543,6 +4543,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 428.953,
             "range": "± 5.41882",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "b9e307030efa5d8df5252206f5fc44c626ecff35",
+          "message": "Merge pull request #441 from mach3-software/feature/Ubi9\n\nfeat: Ubi9 Cuda Container",
+          "timestamp": "2025-05-12T17:41:42+09:00",
+          "tree_id": "dd3e00842d569a0b3bdfde1c9d319ebda590b82b",
+          "url": "https://github.com/mach3-software/MaCh3/commit/b9e307030efa5d8df5252206f5fc44c626ecff35"
+        },
+        "date": 1747039578837,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 4.17552,
+            "range": "± 778.049",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 4.02439,
+            "range": "± 69.0861",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 434.85,
+            "range": "± 5.49696",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
