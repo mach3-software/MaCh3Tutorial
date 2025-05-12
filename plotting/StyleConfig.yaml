@@ -72,18 +72,15 @@ PrettyNames:
 
     ## first nice names for parameters
     parameters:
-
         Norm_Param_0: "#pi FSI"
         Norm_Param_1: "det syst 0"
         Norm_Param_2: "#Phi_{0}"
 
-        Spline_Param_0: "XSec 0"
-        Spline_Param_1: "det syst 1"
+        BinnedSplineParam4: "XSec 0"
+        BinnedSplineParam5: "det syst 1"
         
-        Func_Param_0: "XSec 1"
-        Func_Param_1: "XSec 2"
-        Func_Param_2: "det syst 2"
-        Func_Param_3: "det syst 3"
+        EResLep: "Energy Resolution Lepton"
+        EResTot: "Energy Resolution Total"
 
         sin2th_12: "sin^{2}#theta_{12}"
         sin2th_23: "sin^{2}#theta_{23}"
@@ -97,7 +94,6 @@ PrettyNames:
 
     ## now same for samples
     samples:
-        
         SAMPLE_1: "sample 1"
         SAMPLE_2: "sample 2"
         SAMPLE_3: "sample 3"
