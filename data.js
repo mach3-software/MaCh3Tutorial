@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1747085918599,
+  "lastUpdate": 1747086898776,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -4633,6 +4633,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 447.803,
             "range": "± 10.1589",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "c0ab4ff0c92ae067ffba773745201ce9fd5a061e",
+          "message": "Merge pull request #436 from mach3-software/feature/ContribUpdate\n\ntidy: Add some info about C++ standard and practice to contributing",
+          "timestamp": "2025-05-13T06:50:17+09:00",
+          "tree_id": "08b55e9c858728f3d11c1d1cf0edde5abf9df420",
+          "url": "https://github.com/mach3-software/MaCh3/commit/c0ab4ff0c92ae067ffba773745201ce9fd5a061e"
+        },
+        "date": 1747086896645,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 4.20412,
+            "range": "± 57.0522",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 4.23676,
+            "range": "± 474.55",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 435.575,
+            "range": "± 5.8745",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
