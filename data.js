@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1747086898776,
+  "lastUpdate": 1747086951687,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -4678,6 +4678,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 435.575,
             "range": "± 5.8745",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "9569b9accb508639d65dbf8cc1c9ed964a23384b",
+          "message": "Merge pull request #434 from mach3-software/feature/YamlCovarianceTuneUpdate\n\nfeat: Add Tune or Correlations to Yaml",
+          "timestamp": "2025-05-13T06:51:15+09:00",
+          "tree_id": "3cc11ce1109d6b49ee134dc06d4e19bda95b8581",
+          "url": "https://github.com/mach3-software/MaCh3/commit/9569b9accb508639d65dbf8cc1c9ed964a23384b"
+        },
+        "date": 1747086949623,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 4.0382,
+            "range": "± 59.9884",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 3.98808,
+            "range": "± 539.395",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 432.377,
+            "range": "± 5.95034",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
