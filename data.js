@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1747039581008,
+  "lastUpdate": 1747085918599,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -4588,6 +4588,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 434.85,
             "range": "± 5.49696",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "0d119171c4755479b4e8bd3c22459b14bb09be62",
+          "message": "Merge pull request #424 from mach3-software/feature_rename\n\nbreaking: renaming of core classes",
+          "timestamp": "2025-05-13T06:33:52+09:00",
+          "tree_id": "27557a5b5dfe9a6ece4071512e5805e7363de3f4",
+          "url": "https://github.com/mach3-software/MaCh3/commit/0d119171c4755479b4e8bd3c22459b14bb09be62"
+        },
+        "date": 1747085916736,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 4.15336,
+            "range": "± 230.011",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 3.90376,
+            "range": "± 226.756",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 447.803,
+            "range": "± 10.1589",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
