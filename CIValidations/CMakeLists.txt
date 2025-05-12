@@ -14,7 +14,7 @@ foreach(app
     )
 
     add_executable(${app} ${app}.cpp)
-    target_link_libraries(${app} MaCh3Tutorial::ValidationsUtils MaCh3Tutorial::SampleHandlerTutorial)
+    target_link_libraries(${app} MaCh3Tutorial::ValidationsUtils MaCh3Tutorial::SamplesTutorial)
     if(MaCh3Tutorial_Coverage_ENABLED)
       target_compile_options(${app} PRIVATE --coverage)
       target_link_options(${app} PRIVATE --coverage)
