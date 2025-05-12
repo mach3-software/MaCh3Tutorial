@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1747086951687,
+  "lastUpdate": 1747087038108,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -4723,6 +4723,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 432.377,
             "range": "± 5.95034",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "2bda48b43ffc81ee0c252601b1783c65a7d4dcb6",
+          "message": "Merge pull request #437 from mach3-software/feature/KnotCapping\n\nfeat: Individual Knot Capping for Binned Splines",
+          "timestamp": "2025-05-13T06:52:30+09:00",
+          "tree_id": "c3ee1862c5c122e79a1c8c61b280ee0597940a39",
+          "url": "https://github.com/mach3-software/MaCh3/commit/2bda48b43ffc81ee0c252601b1783c65a7d4dcb6"
+        },
+        "date": 1747087036291,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 4.58659,
+            "range": "± 550.975",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 4.44295,
+            "range": "± 29.7241",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 443.111,
+            "range": "± 4.33071",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
