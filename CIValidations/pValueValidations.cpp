@@ -67,7 +67,7 @@ int main(int argc, char *argv[])
   auto osc = std::make_unique<ParameterHandlerOsc>(OscCovMatrixFile, "osc_cov");
   osc->SetParameters();
 
-  std::string SampleConfig = "TutorialConfigs/Samples/SamplePDF_Tutorial.yaml";
+  std::string SampleConfig = "TutorialConfigs/Samples/SampleHandler_Tutorial.yaml";
   auto SampleTutorial = std::make_unique<samplePDFpValue>(SampleConfig, xsec.get(), osc.get());
 
   std::string name = SampleTutorial->GetTitle();

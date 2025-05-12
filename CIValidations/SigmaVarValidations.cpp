@@ -110,7 +110,7 @@ int main(int argc, char *argv[])
   std::vector<std::string> OscCovMatrixFile = {"TutorialConfigs/CovObjs/OscillationModel.yaml"};
   auto osc = std::make_unique<ParameterHandlerOsc>(OscCovMatrixFile, "osc_cov");
 
-  std::string SampleConfig = "TutorialConfigs/Samples/SamplePDF_Tutorial.yaml";
+  std::string SampleConfig = "TutorialConfigs/Samples/SampleHandler_Tutorial.yaml";
   auto SampleTutorial = std::make_unique<samplePDFSigmaVar>(SampleConfig, xsec.get(), osc.get());
   TString NameTString = TString(SampleTutorial->GetTitle());
 

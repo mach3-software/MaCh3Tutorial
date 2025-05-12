@@ -34,7 +34,7 @@ void FitVal(const std::string& Algo, bool MoreTests)
     throw MaCh3Exception(__FILE__ , __LINE__ );
   }
 
-  std::string SampleConfig = {"TutorialConfigs/Samples/SamplePDF_Tutorial.yaml"};
+  std::string SampleConfig = {"TutorialConfigs/Samples/SampleHandler_Tutorial.yaml"};
   auto Sample = std::make_unique<SampleHandlerTutorial>(SampleConfig, xsec.get(), osc.get());
   Sample->Reweight();
   std::string name = Sample->GetTitle();

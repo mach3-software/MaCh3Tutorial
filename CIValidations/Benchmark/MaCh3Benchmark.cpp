@@ -18,8 +18,8 @@ TEST_CASE("Benchmark MaCh3") {
   Covs.push_back(osc.get());
 
   // Initialise samplePDF
-  auto BeamSamples = MaCh3SampleHandlerFactory<SampleHandlerTutorial>({"TutorialConfigs/Samples/SamplePDF_Tutorial.yaml"}, xsec.get(), osc.get());
-  auto ATMSamples = MaCh3SampleHandlerFactory<SampleHandlerTutorial>({"TutorialConfigs/Samples/SamplePDF_Tutorial_ATM.yaml"}, xsec.get(), osc.get());
+  auto BeamSamples = MaCh3SampleHandlerFactory<SampleHandlerTutorial>({"TutorialConfigs/Samples/SampleHandler_Tutorial.yaml"}, xsec.get(), osc.get());
+  auto ATMSamples = MaCh3SampleHandlerFactory<SampleHandlerTutorial>({"TutorialConfigs/Samples/SampleHandler_Tutorial_ATM.yaml"}, xsec.get(), osc.get());
 
   BENCHMARK("Beam Reweight") {
     for (size_t s = 0; s < Covs.size(); ++s) {

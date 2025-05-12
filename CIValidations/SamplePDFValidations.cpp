@@ -43,7 +43,7 @@ int main(int argc, char *argv[])
 
   // Open a file in write mode
   std::ofstream outFile("NewSampleOut.txt");
-  std::vector<std::string> SampleConfig = {"TutorialConfigs/Samples/SamplePDF_Tutorial.yaml", "TutorialConfigs/Samples/SamplePDF_Tutorial_ATM.yaml"};
+  std::vector<std::string> SampleConfig = {"TutorialConfigs/Samples/SampleHandler_Tutorial.yaml", "TutorialConfigs/Samples/SampleHandler_Tutorial_ATM.yaml"};
   for (const auto& configPath : SampleConfig) {
     SampleHandlerTutorial *Sample = new SampleHandlerTutorial({configPath}, xsec, osc);
 
