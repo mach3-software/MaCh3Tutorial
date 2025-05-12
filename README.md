@@ -154,7 +154,7 @@ General:
 ```
 
 ## How to Develop New Samples
-First we gonna investigate how to modify sample, let's take a look at `TutorialConfigs/Samples/SamplePDF_Tutorial.yaml`. Each sample has set of cuts right now we only introduce cut on `TrueNeutrinoEnergy`.
+First we gonna investigate how to modify sample, let's take a look at `TutorialConfigs/Samples/SampleHandler_Tutorial.yaml`. Each sample has set of cuts right now we only introduce cut on `TrueNeutrinoEnergy`.
 ```yaml
 SelectionCuts:
   - KinematicStr: "TrueNeutrinoEnergy"
@@ -179,15 +179,15 @@ You can try again to run MCMC and compare all 3 chains
 ```bash
 ./bin/ProcessMCMC bin/TutorialDiagConfig.yaml Test.root Default_Chain Test_Modified.root Modified_Chain Test_Modified_Sample.root ModifiedSameple_Chain
 ```
-Up to this point we only modified sample but how to add new one? First make copy of sample config `TutorialConfigs/Samples/SamplePDF_Tutorial.yaml` and call it `TutorialConfigs/Samples/SamplePDF_User.yaml`. For the moment feel free to change name, binning etc but keep TutorialConfigs/CovObjs the same. Go wild! Next go to `TutorialConfigs/Samples/FitterConfig.yaml`
+Up to this point we only modified sample but how to add new one? First make copy of sample config `TutorialConfigs/Samples/SampleHandler_Tutorial.yaml` and call it `TutorialConfigs/Samples/SampleHandler_User.yaml`. For the moment feel free to change name, binning etc but keep TutorialConfigs/CovObjs the same. Go wild! Next go to `TutorialConfigs/Samples/FitterConfig.yaml`
 ```yaml
 General:
-  TutorialSamples: ["TutorialConfigs/Samples/SamplePDF_Tutorial.yaml"]
+  TutorialSamples: ["TutorialConfigs/Samples/SampleHandler_Tutorial.yaml"]
 ```
 To add you newly implemented sample you will have to expand config to for example:
 ```yaml
 General:
-  TutorialSamples: ["TutorialConfigs/Samples/SamplePDF_Tutorial.yaml", "TutorialConfigs/Samples/SamplePDF_User.yaml"]
+  TutorialSamples: ["TutorialConfigs/Samples/SampleHandler_Tutorial.yaml", "TutorialConfigs/Samples/SampleHandler_User.yaml"]
 ```
 
 ### Changing Oscillation Engine
@@ -198,7 +198,7 @@ MULTITHREAD MR2T2  PSO  Minuit2 Prob3ppLinear NuFast
 ```
 This way you can easily access information about MaCh3 features, fitter engines and most importantly oscillation engines.
 
-By default we use **NuFast**, however to change to for example **Prob3++** one have to modify sample config `TutorialConfigs/Samples/SamplePDF_Tutorial.yaml`:
+By default we use **NuFast**, however to change to for example **Prob3++** one have to modify sample config `TutorialConfigs/Samples/SampleHandler_Tutorial.yaml`:
 ```yaml
 NuOsc:
   NuOscConfigFile: "TutorialConfigs/NuOscillator/Prob3ppLinear.yaml"
@@ -218,7 +218,7 @@ Up to this point Beam oscitation calculations have been discussed. In terms of M
 * Switch oscillation calculations to engine which supports Atmospheric for example CUDAProb3 (not to be confused with CUDAProb3Linear which supports beam only).
 * Modify Oscillation systematic yaml, instead of density/baseline (and **Ye**) it requires production height.
 
-In tutorial you can try uncommenting `TutorialConfigs/Samples/SamplePDF_Tutorial_ATM.yaml`.
+In tutorial you can try uncommenting `TutorialConfigs/Samples/SampleHandler_Tutorial_ATM.yaml`.
 
 ### Plotting Kinematic Distribution
 You can plot kinematic distribution of your sample using
@@ -231,7 +231,7 @@ Example of plot you can see here:
 <img width="350" alt="Kinematic example" src="https://github.com/user-attachments/assets/534bcb17-f26c-4fc2-a77a-5d253b0ed241">
 
 ### More Advanced Development
-Not everything can be done by modifying config in sample implementation. Actual implementation is in`samplePDF/samplePDFTutorial` this class inherits from `samplePDFFDBase`. The latter class deals with actual reweighting and all heavy lifting. while samplePDFTutorial deals with MC loading etc. This is because each experiment has slightly different MC format and different information available.
+Not everything can be done by modifying config in sample implementation. Actual implementation is in`Samples/SampleHandlerTutorial` this class inherits from `SampleHandlerFDBase`. The latter class deals with actual reweighting and all heavy lifting. while SampleHandlerTutorial deals with MC loading etc. This is because each experiment has slightly different MC format and different information available.
 
 ## MCMC Diagnostic
 Crucial part of MCMC is diagnostic whether chain converged or not. You can produce diagnostic by running.

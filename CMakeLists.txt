@@ -4,7 +4,7 @@ set(CMAKE_VERBOSE_MAKEFILE ON)
 cmake_minimum_required(VERSION 3.14 FATAL_ERROR)
 
 # Create project
-project(MaCh3Tutorial VERSION 1.5.0 LANGUAGES CXX)
+project(MaCh3Tutorial VERSION 2.0.0 LANGUAGES CXX)
 set(MaCh3Tutorial_VERSION ${PROJECT_VERSION})
 
 set(CMAKE_CXX_STANDARD_REQUIRED True)
@@ -63,9 +63,10 @@ if(NOT DEFINED MaCh3_Branch)
 endif()
 
 #If MaCh3 was sourced find it, otherwise use CPM
-#find_package(MaCh3 QUIET EXACT ${MaCh3Tutorial_VERSION})
+#find_package(MaCh3 EXACT ${MaCh3Tutorial_VERSION})
 
 if(NOT MaCh3_FOUND)
+  message(STATUS "MaCh3 is not found locally!")
   set(MaCh3_OPTIONS "")
 
   if(PYTHON_ENABLED)
@@ -128,8 +129,8 @@ cmessage(STATUS "CMAKE CXX Standard: ${CMAKE_CXX_STANDARD}")
 add_subdirectory(Utils)
 add_subdirectory(CIValidations)
 add_subdirectory(Tutorial)
-add_subdirectory(splines)
-add_subdirectory(samplePDF)
+add_subdirectory(SplinesTutorial)
+add_subdirectory(SamplesTutorial)
 
 configure_file(cmake/Templates/setup.MaCh3Tutorial.sh.in "${PROJECT_BINARY_DIR}${CMAKE_FILES_DIRECTORY}/setup.MaCh3Tutorial.sh" @ONLY)
 install(FILES "${PROJECT_BINARY_DIR}${CMAKE_FILES_DIRECTORY}/setup.MaCh3Tutorial.sh" DESTINATION ${CMAKE_INSTALL_PREFIX}/bin)

@@ -1,8 +1,8 @@
 // MaCh3 spline includes
-#include "mcmc/MaCh3Factory.h"
-#include "covariance/covarianceXsec.h"
+#include "Fitters/MaCh3Factory.h"
+#include "Parameters/ParameterHandlerGeneric.h"
 #include "Utils/Comparison.h"
-#include "samplePDF/samplePDFTutorial.h"
+#include "SamplesTutorial/SampleHandlerTutorial.h"
 
 void FitVal(const std::string& Algo, bool MoreTests)
 {
@@ -11,8 +11,8 @@ void FitVal(const std::string& Algo, bool MoreTests)
 
   MACH3LOG_INFO("Testing {}", Algo);
 
-  auto xsec = MaCh3CovarianceFactory<covarianceXsec>(FitManager.get(), "Xsec");
-  auto osc  = MaCh3CovarianceFactory<covarianceOsc>(FitManager.get(), "Osc");
+  auto xsec = MaCh3CovarianceFactory<ParameterHandlerGeneric>(FitManager.get(), "Xsec");
+  auto osc  = MaCh3CovarianceFactory<ParameterHandlerOsc>(FitManager.get(), "Osc");
   std::unique_ptr<FitterBase> MaCh3Fitter = nullptr;
   if(Algo == "MCMC") {
     FitManager->OverrideSettings("General", "OutputFile", "MCMC_Test.root");
@@ -34,16 +34,16 @@ void FitVal(const std::string& Algo, bool MoreTests)
     throw MaCh3Exception(__FILE__ , __LINE__ );
   }
 
-  std::string SampleConfig = {"TutorialConfigs/Samples/SamplePDF_Tutorial.yaml"};
-  auto Sample = std::make_unique<samplePDFTutorial>(SampleConfig, xsec.get(), osc.get());
-  Sample->reweight();
+  std::string SampleConfig = {"TutorialConfigs/Samples/SampleHandler_Tutorial.yaml"};
+  auto Sample = std::make_unique<SampleHandlerTutorial>(SampleConfig, xsec.get(), osc.get());
+  Sample->Reweight();
   std::string name = Sample->GetTitle();
   TString NameTString = TString(name.c_str());
-  TH1D *SampleHistogramPrior = (TH1D*)Sample->get1DHist()->Clone(NameTString+"_Prior");
-  Sample->addData(SampleHistogramPrior);
+  TH1D *SampleHistogramPrior = (TH1D*)Sample->Get1DHist()->Clone(NameTString+"_Prior");
+  Sample->AddData(SampleHistogramPrior);
 
-  MaCh3Fitter->addSystObj(xsec.get());
-  MaCh3Fitter->addSamplePDF(Sample.get());
+  MaCh3Fitter->AddSystObj(xsec.get());
+  MaCh3Fitter->AddSampleHandler(Sample.get());
   if(MoreTests)
   {
     MaCh3Fitter->DragRace();
@@ -51,7 +51,7 @@ void FitVal(const std::string& Algo, bool MoreTests)
     MaCh3Fitter->Run2DLLHScan();
     MaCh3Fitter->GetStepScaleBasedOnLLHScan();
   }
-  MaCh3Fitter->runMCMC();
+  MaCh3Fitter->RunMCMC();
 }
 
 void StartFromPosteriorTest(const std::string& PreviousName)
@@ -61,13 +61,13 @@ void StartFromPosteriorTest(const std::string& PreviousName)
 
   FitManager->OverrideSettings("General", "OutputFile", "MCMC_Test_Start.root");
 
-  auto xsec = MaCh3CovarianceFactory<covarianceXsec>(FitManager.get(), "Xsec");
+  auto xsec = MaCh3CovarianceFactory<ParameterHandlerGeneric>(FitManager.get(), "Xsec");
   std::unique_ptr<mcmc> MarkovChain = std::make_unique<mcmc>(FitManager.get());
-  MarkovChain->addSystObj(xsec.get());
+  MarkovChain->AddSystObj(xsec.get());
 
   MarkovChain->StartFromPreviousFit(PreviousName);
 
-  MarkovChain->runMCMC();
+  MarkovChain->RunMCMC();
 }
 
 int main(int argc, char *argv[])

@@ -1,7 +1,7 @@
 #include "catch2/catch_test_macros.hpp"
 #include "catch2/matchers/catch_matchers_floating_point.hpp"
 
-#include "mcmc/StatisticalUtils.h"
+#include "Fitters/StatisticalUtils.h"
 
 // Test for Jeffreys Scale
 TEST_CASE("Jeffreys Scale", "[StatisticalUtils]") {
