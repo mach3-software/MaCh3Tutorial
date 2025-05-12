@@ -1,14 +1,14 @@
 // MaCh3 spline includes
 #include "Utils/Comparison.h"
-#include "samplePDF/samplePDFTutorial.h"
-#include "mcmc/SampleSummary.h"
-#include "mcmc/MaCh3Factory.h"
+#include "SamplesTutorial/SampleHandlerTutorial.h"
+#include "Fitters/SampleSummary.h"
+#include "Fitters/MaCh3Factory.h"
 
-class samplePDFSigmaVar : public samplePDFTutorial
+class samplePDFSigmaVar : public SampleHandlerTutorial
 {
   public:
-    samplePDFSigmaVar(std::string mc_version, covarianceXsec* xsec_cov, covarianceOsc* osc_cov)
-    : samplePDFTutorial(mc_version, xsec_cov, osc_cov),
+    samplePDFSigmaVar(std::string mc_version, ParameterHandlerGeneric* xsec_cov, ParameterHandlerOsc* osc_cov)
+    : SampleHandlerTutorial(mc_version, xsec_cov, osc_cov),
     SampleBlarbTitle({
       "FGD1_numuCC_0pi_0_protons_no_photon",
       "FGD1_numuCC_0pi_N_protons_no_photon",
@@ -87,10 +87,10 @@ class samplePDFSigmaVar : public samplePDFTutorial
       BinningY = {-1.0, 0.6, 0.7, 0.8, 0.85, 0.88, 0.9, 0.92, 0.94, 0.96, 0.98, 1.0};
     }
 
-    TH1* getData(const int Selection) override   {return PolyHist[Selection];}
-    TH1* getPDF(const int Selection) override    {return PolyHist[Selection];}
-    TH2Poly* getW2(const int Selection) override {return PolyHist[Selection];}
-    TH1* getPDFMode(const int Selection, const int Mode) override {return PolyHist[Selection];}
+    TH1* GetData(const int Selection) override   {return PolyHist[Selection];}
+    TH1* GetPDF(const int Selection) override    {return PolyHist[Selection];}
+    TH2Poly* GetW2(const int Selection) override {return PolyHist[Selection];}
+    TH1* GetPDFMode(const int Selection, const int Mode) override {return PolyHist[Selection];}
 
     std::vector<std::string> SampleBlarbTitle;
     std::vector<std::string> KinemBlarbTitle;
@@ -106,18 +106,18 @@ int main(int argc, char *argv[])
     throw MaCh3Exception(__FILE__ , __LINE__ );
   }
   std::vector<std::string> xsecCovMatrixFile = {"TutorialConfigs/CovObjs/SystematicModel.yaml"};
-  auto xsec = std::make_unique<covarianceXsec>(xsecCovMatrixFile, "xsec_cov");
+  auto xsec = std::make_unique<ParameterHandlerGeneric>(xsecCovMatrixFile, "xsec_cov");
   std::vector<std::string> OscCovMatrixFile = {"TutorialConfigs/CovObjs/OscillationModel.yaml"};
-  auto osc = std::make_unique<covarianceOsc>(OscCovMatrixFile, "osc_cov");
+  auto osc = std::make_unique<ParameterHandlerOsc>(OscCovMatrixFile, "osc_cov");
 
-  std::string SampleConfig = "TutorialConfigs/Samples/SamplePDF_Tutorial.yaml";
+  std::string SampleConfig = "TutorialConfigs/Samples/SampleHandler_Tutorial.yaml";
   auto SampleTutorial = std::make_unique<samplePDFSigmaVar>(SampleConfig, xsec.get(), osc.get());
   TString NameTString = TString(SampleTutorial->GetTitle());
 
   // Reweight and process prior histogram
-  SampleTutorial->reweight();
-  TH1D *SampleHistogramPrior = (TH1D*)SampleTutorial->get1DHist()->Clone(NameTString + "_Prior");
-  SampleTutorial->addData(SampleHistogramPrior);
+  SampleTutorial->Reweight();
+  TH1D *SampleHistogramPrior = (TH1D*)SampleTutorial->Get1DHist()->Clone(NameTString + "_Prior");
+  SampleTutorial->AddData(SampleHistogramPrior);
 
   std::string ManagerInput = "TutorialConfigs/FitterConfig.yaml";
   auto FitManager = std::make_unique<manager>(ManagerInput);
@@ -125,9 +125,9 @@ int main(int argc, char *argv[])
   // Create MCMC Class
   std::unique_ptr<FitterBase> MaCh3Fitter = MaCh3FitterFactory(FitManager.get());
   // Add covariance to MCM
-  MaCh3Fitter->addSystObj(xsec.get());
-  MaCh3Fitter->addSystObj(osc.get());
-  MaCh3Fitter->addSamplePDF(SampleTutorial.get());
+  MaCh3Fitter->AddSystObj(xsec.get());
+  MaCh3Fitter->AddSystObj(osc.get());
+  MaCh3Fitter->AddSampleHandler(SampleTutorial.get());
 
   MaCh3Fitter->RunSigmaVar();
 
