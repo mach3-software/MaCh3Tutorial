@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1747087038108,
+  "lastUpdate": 1747087861725,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -4768,6 +4768,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 443.111,
             "range": "± 4.33071",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "e021ac2c6c5b790f622fdcc1528e94e32bc12c0a",
+          "message": "Merge pull request #440 from mach3-software/feature/ROOTdcitionary\n\nfeat: ROOT Dicitonary to recude copy pasting",
+          "timestamp": "2025-05-13T07:06:11+09:00",
+          "tree_id": "7288a6d1da4d0244da68bff37614de989a82bc23",
+          "url": "https://github.com/mach3-software/MaCh3/commit/e021ac2c6c5b790f622fdcc1528e94e32bc12c0a"
+        },
+        "date": 1747087859900,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 4.07685,
+            "range": "± 69.1327",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 3.96274,
+            "range": "± 69.9131",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 435.982,
+            "range": "± 5.05471",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
