@@ -12,7 +12,7 @@ int main(int argc, char *argv[]) {
 
   // Initialise samplePDF
   auto SampleConfig = FitManager->raw()["General"]["TutorialSamples"].as<std::vector<std::string>>();
-  auto mySamples = MaCh3SamplePDFFactory<SampleHandlerTutorial>(SampleConfig, xsec.get(), osc.get());
+  auto mySamples = MaCh3SampleHandlerFactory<SampleHandlerTutorial>(SampleConfig, xsec.get(), osc.get());
 
   // Create MCMC Class
   std::unique_ptr<FitterBase> MaCh3Fitter = MaCh3FitterFactory(FitManager.get());
