@@ -1,7 +1,7 @@
 General:
   OutputFile: "Test.root"
-  TutorialSamples: ["TutorialConfigs/Samples/SamplePDF_Tutorial.yaml",
-                    #"TutorialConfigs/Samples/SamplePDF_Tutorial_ATM.yaml"
+  TutorialSamples: ["TutorialConfigs/Samples/SampleHandler_Tutorial.yaml",
+                    #"TutorialConfigs/Samples/SampleHandler_Tutorial_ATM.yaml"
                     ]
   FittingAlgorithm: "MCMC"
 

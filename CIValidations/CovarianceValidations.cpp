@@ -1,7 +1,7 @@
 // MaCh3 spline includes
 #include "Utils/Comparison.h"
-#include "covariance/covarianceXsec.h"
-#include "covariance/covarianceOsc.h"
+#include "Parameters/ParameterHandlerGeneric.h"
+#include "Parameters/ParameterHandlerOsc.h"
 
 void TuneValidations()
 {
@@ -54,12 +54,12 @@ int main(int argc, char *argv[])
   }
 
 ////////////// Normal Xsec //////////////
-  std::vector<std::string> xsecCovMatrixFile = {"TutorialConfigs/CovObjs/SystematicModel.yaml"};
-  auto xsec = std::make_unique<covarianceXsec>(xsecCovMatrixFile, "xsec_cov");
+  std::vector<std::string> ParameterMatrixFile = {"TutorialConfigs/CovObjs/SystematicModel.yaml"};
+  auto xsec = std::make_unique<ParameterHandlerGeneric>(ParameterMatrixFile, "xsec_cov");
 
   std::vector<double> ParProp = {1.05, 0.90, 1.10, 1.05, 1.05, 1.05, 1.05, 1.05, 0., 0.2};
-  xsec->setParameters(ParProp);
-  xsec->printNominalCurrProp();
+  xsec->SetParameters(ParProp);
+  xsec->PrintNominalCurrProp();
 
   xsec->DumpMatrixToFile("xsec_2024a_flux_21bv2.root");
 
@@ -75,10 +75,10 @@ int main(int argc, char *argv[])
     if (i % (Ntoys/10) == 0) {
       MaCh3Utils::PrintProgressBar(i, Ntoys);
     }
-    xsec->throwParameters();
+    xsec->ThrowParameters();
   }
-  xsec->setParameters(ParProp);
-  xsec->acceptStep();
+  xsec->SetParameters(ParProp);
+  xsec->AcceptStep();
   ///// Test Params from DetId /////
   const std::vector<std::string> AffectedSamples = {"Tutorial Beam", "Tutorial ATM", "tutorial beam", "blarb" "ATM"};
   for (size_t id = 0; id < AffectedSamples.size(); ++id)
@@ -127,36 +127,36 @@ int main(int argc, char *argv[])
 
   // Make sure we can reproduce parameter proposal
   for (int i = 0; i < xsec->GetNumParams(); ++i) {
-    outFile << "Proposed Step for param " << i  << " is equal to=" << xsec->getParProp(i) << std::endl;
+    outFile << "Proposed Step for param " << i  << " is equal to=" << xsec->GetParProp(i) << std::endl;
   }
 
 ////////////// Now PCA //////////////
   MACH3LOG_INFO("Testing PCA matrix");
-  xsecCovMatrixFile = {"TutorialConfigs/CovObjs/PCATest.yaml"};
-  auto PCA = std::make_shared<covarianceXsec>(xsecCovMatrixFile, "xsec_cov", 0.001);
-  std::vector<double>  EigenVal = PCA->getEigenValuesMaster();
+  ParameterMatrixFile = {"TutorialConfigs/CovObjs/PCATest.yaml"};
+  auto PCA = std::make_shared<ParameterHandlerGeneric>(ParameterMatrixFile, "xsec_cov", 0.001);
+  std::vector<double>  EigenVal = PCA->GetEigenValuesMaster();
   for(size_t i = 0; i < EigenVal.size(); i++) {
     outFile << "Eigen Value " << i << " = " << EigenVal[i] << std::endl;
   }
 
-  TVectorD eigen_values = PCA->getEigenValues();
+  TVectorD eigen_values = PCA->GetEigenValues();
   double sum = 0;
   for(int i = 0; i < eigen_values.GetNrows(); i++){
     sum += eigen_values(i);
   }
   outFile << "Sum of Eigen Value: " << sum << std::endl;
 
-  outFile << "Num of PCA pars: " << PCA->getNpars() << std::endl;
-  for(int i = 0; i < PCA->getNpars(); i++){
-    outFile << "Param in PCA base: " << i << " = " << PCA->getParCurr_PCA(i) << std::endl;
+  outFile << "Num of PCA pars: " << PCA->GetNParameters() << std::endl;
+  for(int i = 0; i < PCA->GetNParameters(); i++){
+    outFile << "Param in PCA base: " << i << " = " << PCA->GetParCurrPCA(i) << std::endl;
   }
 
 ////////////// Now Osc //////////////
   std::vector<std::string> OscCovMatrixFile = {"TutorialConfigs/CovObjs/OscillationModel.yaml"};
-  auto osc = std::make_unique<covarianceOsc>(OscCovMatrixFile, "osc_cov");
+  auto osc = std::make_unique<ParameterHandlerOsc>(OscCovMatrixFile, "osc_cov");
   std::vector<double> OscParProp = {0.3, 0.5, 0.020, 7.53e-5, 2.494e-3, 0.0, 295, 2.6, 0.5, 15};
-  osc->setParameters(OscParProp);
-  osc->printNominalCurrProp();
+  osc->SetParameters(OscParProp);
+  osc->PrintNominalCurrProp();
   outFile << "Likelihood Osc=" << osc->GetLikelihood() << std::endl;
 
 ////////////// Now Adaptive //////////////
@@ -191,12 +191,12 @@ AdaptionOptions:
   // Convert the string to a YAML node
   YAML::Node AdaptSetting = STRINGtoYAML(yamlContent);
   std::vector<std::string> AdaptiveCovMatrixFile = {"TutorialConfigs/CovObjs/SystematicModel.yaml", "TutorialConfigs/CovObjs/PCATest.yaml"};
-  auto Adapt = std::make_unique<covarianceXsec>(AdaptiveCovMatrixFile, "xsec_cov");
+  auto Adapt = std::make_unique<ParameterHandlerGeneric>(AdaptiveCovMatrixFile, "xsec_cov");
   //KS: Let's make Doctor Wallace proud
-  Adapt->initialiseAdaption(AdaptSetting);
+  Adapt->InitialiseAdaption(AdaptSetting);
 
   std::vector<double> ParAdapt = {1.05, 0.90, 1.10, 1.05, 1.05, 1.05, 1.05, 1.05, 0., 0.2, -0.1, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0};
-  Adapt->setParameters(ParAdapt);
+  Adapt->SetParameters(ParAdapt);
   bool increase = true;
   for(int i = 0; i < 50000; ++i ) {
 
@@ -208,10 +208,10 @@ AdaptionOptions:
     for (double& param : ParAdapt) {
       param += (increase ? 0.001 : -0.001);
     }
-    Adapt->setParameters(ParAdapt);
-    Adapt->acceptStep();
+    Adapt->SetParameters(ParAdapt);
+    Adapt->AcceptStep();
   }
-  Adapt->saveAdaptiveToFile("Wacky.root", "xsec");
+  Adapt->SaveAdaptiveToFile("Wacky.root", "xsec");
 
   outFile.close();
   bool TheSame = CompareTwoFiles("CIValidations/TestOutputs/CovarianceOut.txt", "NewCovarianceOut.txt");

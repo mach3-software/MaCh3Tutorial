@@ -1,7 +1,7 @@
 #include "catch2/catch_test_macros.hpp"
 #include "catch2/matchers/catch_matchers_floating_point.hpp"
 
-#include "samplePDF/samplePDFBase.h"
+#include "Samples/SampleHandlerBase.h"
 
 void GetBinning(std::vector<double>& BinningX, std::vector<double>&  BinningY)
 {

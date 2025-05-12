@@ -1,7 +1,7 @@
 #include "catch2/catch_test_macros.hpp"
 #include "catch2/matchers/catch_matchers_floating_point.hpp"
 
-#include "manager/YamlHelper.h"
+#include "Manager/YamlHelper.h"
 
 TEST_CASE("OverrideConfig modifies YAML nodes", "[Yamlhelper]") {
   YAML::Node lineup = YAML::Load("{1B: Prince Fielder, 2B: Rickie Weeks, LF: Ryan Braun}");

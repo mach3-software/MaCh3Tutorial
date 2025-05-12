@@ -1,12 +1,7 @@
-#include "splines/splineFDBase.h"
-#include "StructsTutorial.h"
-#include "splines/BinnedSplinesTutorial.h"
-#include "samplePDF/samplePDFTutorial.h"
-#include "splines/splineFDBase.h"
+#include "SamplesTutorial/SampleHandlerTutorial.h"
 
 // ************************************************
-samplePDFTutorial::samplePDFTutorial(std::string mc_version_, covarianceXsec* xsec_cov_, covarianceOsc* osc_cov_, OscillatorBase* Oscillator_)
-: samplePDFFDBase(mc_version_, xsec_cov_, osc_cov_, Oscillator_) {
+SampleHandlerTutorial::SampleHandlerTutorial(const std::string& config_name, ParameterHandlerGeneric* parameter_handler, ParameterHandlerOsc* oscillation_handler, OscillatorBase* Oscillator_) : SampleHandlerFD(config_name, parameter_handler, oscillation_handler, Oscillator_) {
 // ************************************************
   KinematicParameters = &KinematicParametersTutorial;
   ReversedKinematicParameters = &ReversedKinematicParametersTutorial;
@@ -16,13 +11,13 @@ samplePDFTutorial::samplePDFTutorial(std::string mc_version_, covarianceXsec* xs
 }
 
 // ************************************************
-samplePDFTutorial::~samplePDFTutorial() {
+SampleHandlerTutorial::~SampleHandlerTutorial() {
 // ************************************************
 
 }
 
 // ************************************************
-void samplePDFTutorial::Init() {
+void SampleHandlerTutorial::Init() {
 // ************************************************
   TutorialSamples.resize(nSamples, tutorial_base());
 
@@ -35,24 +30,24 @@ void samplePDFTutorial::Init() {
   MACH3LOG_INFO("-------------------------------------------------------------------");
 }
 
-void samplePDFTutorial::DebugShift(const double * par, const std::size_t iSample, const std::size_t iEvent) {
+void SampleHandlerTutorial::DebugShift(const double * par, const std::size_t iSample, const std::size_t iEvent) {
   // HH: This is a debug function to shift the reco energy to 4 GeV if the reco energy is less than 2 GeV
   if (TutorialSamples[iSample].RecoEnu[iEvent] < 2.0 && *par != 0) {
     TutorialSamples[iSample].RecoEnu_shifted[iEvent] = 4;
   }
 }
 
-void samplePDFTutorial::EResLep(const double * par, const std::size_t iSample, const std::size_t iEvent) {
+void SampleHandlerTutorial::EResLep(const double * par, const std::size_t iSample, const std::size_t iEvent) {
   // HH: Lepton energy resolution contribution to reco energy
   TutorialSamples[iSample].RecoEnu_shifted[iEvent] += (*par) * TutorialSamples[iSample].ELep[iEvent];
 }
 
-void samplePDFTutorial::EResTot(const double * par, const std::size_t iSample, const std::size_t iEvent) {
+void SampleHandlerTutorial::EResTot(const double * par, const std::size_t iSample, const std::size_t iEvent) {
   // HH: Total energy resolution contribution to reco energy
   TutorialSamples[iSample].RecoEnu_shifted[iEvent] += (*par) * TutorialSamples[iSample].RecoEnu[iEvent];
 }
 
-void samplePDFTutorial::RegisterFunctionalParameters() {
+void SampleHandlerTutorial::RegisterFunctionalParameters() {
   MACH3LOG_INFO("Registering functional parameters");
   // This function manually populates the map of functional parameters
   // Maps the name of the functional parameter to the pointer of the function
@@ -61,35 +56,43 @@ void samplePDFTutorial::RegisterFunctionalParameters() {
   // A lambda function has to be used so we can refer to a non-static member function
   #pragma GCC diagnostic push
   #pragma GCC diagnostic ignored "-Wunused-parameter"
-  RegisterIndividualFuncPar("EResLep",
+  RegisterIndividualFunctionalParameter("DebugNothing", 
+                            kDebugNothing, 
+                            [this](const double * par, std::size_t iSample, std::size_t iEvent) {});
+
+  RegisterIndividualFunctionalParameter("DebugShift",
+                            kDebugShift, 
+                            [this](const double * par, std::size_t iSample, std::size_t iEvent) { this->DebugShift(par, iSample, iEvent); });
+
+  RegisterIndividualFunctionalParameter("EResLep",
                             kEResLep, 
                             [this](const double * par, std::size_t iSample, std::size_t iEvent) { this->EResLep(par, iSample, iEvent); });
 
-  RegisterIndividualFuncPar("EResTot",
+  RegisterIndividualFunctionalParameter("EResTot",
                             kEResTot, 
                             [this](const double * par, std::size_t iSample, std::size_t iEvent) { this->EResTot(par, iSample, iEvent); });
 }
 #pragma GCC diagnostic pop
-void samplePDFTutorial::resetShifts(int iSample, int iEvent) {
+void SampleHandlerTutorial::resetShifts(int iSample, int iEvent) {
   // Reset the shifts to the original values
   TutorialSamples[iSample].RecoEnu_shifted[iEvent] = TutorialSamples[iSample].RecoEnu[iEvent];
 }
 
 
 // ************************************************
-void samplePDFTutorial::SetupSplines() {
+void SampleHandlerTutorial::SetupSplines() {
 // ************************************************
   SplineHandler = nullptr;
 
-  if(XsecCov->GetNumParamsFromSampleName(SampleName, SystType::kSpline) > 0){
-    SplineHandler = std::unique_ptr<splineFDBase>(new BinnedSplineTutorial(XsecCov,Modes));
+  if(ParHandler->GetNumParamsFromSampleName(SampleName, SystType::kSpline) > 0){
+    SplineHandler = std::unique_ptr<BinnedSplineTutorial>(new BinnedSplineTutorial(ParHandler,Modes));
     InitialiseSplineObject();
   } else {
     MACH3LOG_WARN("Not using splines");
   }
 }
 // ************************************************
-void samplePDFTutorial::SetupWeightPointers() {
+void SampleHandlerTutorial::SetupWeightPointers() {
 // ************************************************
   for (size_t i = 0; i < MCSamples.size(); ++i) {
     for (int j = 0; j < MCSamples[i].nEvents; ++j) {
@@ -102,7 +105,7 @@ void samplePDFTutorial::SetupWeightPointers() {
 }
 
 // ************************************************
-int samplePDFTutorial::setupExperimentMC(int iSample) {
+int SampleHandlerTutorial::SetupExperimentMC(int iSample) {
 // ************************************************
 
   tutorial_base *tutobj = &(TutorialSamples[iSample]);
@@ -210,22 +213,22 @@ int samplePDFTutorial::setupExperimentMC(int iSample) {
   return tutobj->nEvents;
 }
 
-double samplePDFTutorial::ReturnKinematicParameter(KinematicTypes KinPar, int iSample, int iEvent) {
+double SampleHandlerTutorial::ReturnKinematicParameter(KinematicTypes KinPar, int iSample, int iEvent) {
   const double* paramPointer = GetPointerToKinematicParameter(KinPar, iSample, iEvent);
   return *paramPointer;
 }
 
-double samplePDFTutorial::ReturnKinematicParameter(int KinematicVariable, int iSample, int iEvent) {
-  KinematicTypes KinPar = static_cast<KinematicTypes>(KinematicVariable);
+double SampleHandlerTutorial::ReturnKinematicParameter(int KinematicVariable, int iSample, int iEvent) {
+  KinematicTypes KinPar = static_cast<KinematicTypes>(std::round(KinematicVariable));
   return ReturnKinematicParameter(KinPar, iSample, iEvent);
 }
 
-double samplePDFTutorial::ReturnKinematicParameter(std::string KinematicParameter, int iSample, int iEvent) {
+double SampleHandlerTutorial::ReturnKinematicParameter(std::string KinematicParameter, int iSample, int iEvent) {
   KinematicTypes KinPar = static_cast<KinematicTypes>(ReturnKinematicParameterFromString(KinematicParameter));
   return ReturnKinematicParameter(KinPar, iSample, iEvent);
 }
 
-const double* samplePDFTutorial::GetPointerToKinematicParameter(KinematicTypes KinPar, int iSample, int iEvent) {
+const double* SampleHandlerTutorial::GetPointerToKinematicParameter(KinematicTypes KinPar, int iSample, int iEvent) {
   switch (KinPar) {
     case kTrueNeutrinoEnergy:
       return &TutorialSamples[iSample].TrueEnu[iEvent];
@@ -242,17 +245,17 @@ const double* samplePDFTutorial::GetPointerToKinematicParameter(KinematicTypes K
   }
 }
 
-const double* samplePDFTutorial::GetPointerToKinematicParameter(double KinematicVariable, int iSample, int iEvent) {
+const double* SampleHandlerTutorial::GetPointerToKinematicParameter(double KinematicVariable, int iSample, int iEvent) {
   KinematicTypes KinPar = static_cast<KinematicTypes>(std::round(KinematicVariable));
   return GetPointerToKinematicParameter(KinPar, iSample, iEvent);
 }
 
-const double* samplePDFTutorial::GetPointerToKinematicParameter(std::string KinematicParameter, int iSample, int iEvent) {
+const double* SampleHandlerTutorial::GetPointerToKinematicParameter(std::string KinematicParameter, int iSample, int iEvent) {
   KinematicTypes KinPar = static_cast<KinematicTypes>(ReturnKinematicParameterFromString(KinematicParameter));
   return GetPointerToKinematicParameter(KinPar, iSample, iEvent);
 }
 
-void samplePDFTutorial::setupFDMC(int iSample) {
+void SampleHandlerTutorial::SetupFDMC(int iSample) {
   tutorial_base *tutobj = &(TutorialSamples[iSample]);
   auto &fdobj = MCSamples[iSample];  
   
@@ -269,7 +272,7 @@ void samplePDFTutorial::setupFDMC(int iSample) {
   }
 }
 
-std::vector<double> samplePDFTutorial::ReturnKinematicParameterBinning(std::string KinematicParameterStr) {
+std::vector<double> SampleHandlerTutorial::ReturnKinematicParameterBinning(std::string KinematicParameterStr) {
   std::vector<double> binningVector;
   KinematicTypes KinematicParameter = static_cast<KinematicTypes>(ReturnKinematicParameterFromString(KinematicParameterStr));
 
