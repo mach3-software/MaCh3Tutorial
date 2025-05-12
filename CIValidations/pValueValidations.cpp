@@ -1,7 +1,7 @@
 // MaCh3 spline includes
 #include "Utils/Comparison.h"
 #include "SamplesTutorial/SampleHandlerTutorial.h"
-#include "Fitter/SampleSummary.h"
+#include "Fitters/SampleSummary.h"
 
 class samplePDFpValue : public SampleHandlerTutorial
 {

@@ -1,5 +1,5 @@
 // MaCh3 includes
-#include "Fitter/MaCh3Factory.h"
+#include "Fitters/MaCh3Factory.h"
 #include "SamplesTutorial/SampleHandlerTutorial.h"
 
 int main(int argc, char *argv[]) {
