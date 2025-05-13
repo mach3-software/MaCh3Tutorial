@@ -11,9 +11,10 @@ int main(int argc, char *argv[])
     throw MaCh3Exception(__FILE__ , __LINE__ );
   }
   MACH3LOG_INFO("Testing LLH scan");
+  std::string TutorialPath = std::getenv("MaCh3Tutorial_ROOT");
 
-  std::string command = std::string(std::getenv("MaCh3Tutorial_ROOT")) + "/bin/LLHScanTutorial " +
-                        std::string(std::getenv("MaCh3Tutorial_ROOT")) + "/TutorialConfigs/FitterConfig.yaml";
+  std::string command = TutorialPath + "/bin/LLHScanTutorial " +
+                        TutorialPath + "/TutorialConfigs/FitterConfig.yaml";
   int ret = system(command.c_str());
   if (ret != 0) {
     MACH3LOG_WARN("Error: system call failed with code {}", ret);
@@ -36,7 +37,7 @@ int main(int argc, char *argv[])
   }
   outFile.close();
 
-  bool TheSame = CompareTwoFiles("CIValidations/TestOutputs/LLHOut.txt", "LLH.txt");
+  bool TheSame = CompareTwoFiles(TutorialPath + "/CIValidations/TestOutputs/LLHOut.txt", "LLH.txt");
   if(!TheSame) {
     MACH3LOG_CRITICAL("Something is wrong with LLH");
     throw MaCh3Exception(__FILE__ , __LINE__ );
