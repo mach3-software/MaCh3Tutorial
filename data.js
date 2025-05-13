@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1747118726824,
+  "lastUpdate": 1747129838688,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -4858,6 +4858,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 442.711,
             "range": "± 6.64842",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "f95f9087a5784146e698bf48b960a3ccaf3ca543",
+          "message": "It's HandlerFD not HandlerFDBase",
+          "timestamp": "2025-05-13T10:45:55+01:00",
+          "tree_id": "7d91655b16f11b696b86764d0e803fadd8fd590e",
+          "url": "https://github.com/mach3-software/MaCh3/commit/f95f9087a5784146e698bf48b960a3ccaf3ca543"
+        },
+        "date": 1747129836647,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 4.14191,
+            "range": "± 65.3245",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 4.01184,
+            "range": "± 59.4568",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 435.985,
+            "range": "± 3.46729",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
