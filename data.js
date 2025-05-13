@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1747087861725,
+  "lastUpdate": 1747118726824,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -4813,6 +4813,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 435.982,
             "range": "± 5.05471",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "skwarczynskikamil@gmail.com",
+            "name": "Kamil Skwarczynski",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "skwarczynskikamil@gmail.com",
+            "name": "Kamil Skwarczynski",
+            "username": "KSkwarczynski"
+          },
+          "distinct": true,
+          "id": "8ef077d55f93301d5be69474fac44ce9dd5b13be",
+          "message": "Fix sphinx documentation",
+          "timestamp": "2025-05-13T06:40:27Z",
+          "tree_id": "dda1eb53b78997fcf3867d9f107bf057093f9c8e",
+          "url": "https://github.com/mach3-software/MaCh3/commit/8ef077d55f93301d5be69474fac44ce9dd5b13be"
+        },
+        "date": 1747118724957,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 4.3426,
+            "range": "± 266.242",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 4.28435,
+            "range": "± 352.166",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 442.711,
+            "range": "± 6.64842",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
