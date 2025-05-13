@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1747129838688,
+  "lastUpdate": 1747149781405,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -4903,6 +4903,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 435.985,
             "range": "± 3.46729",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "skwarczynskikamil@gmail.com",
+            "name": "Kamil Skwarczynski",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "skwarczynskikamil@gmail.com",
+            "name": "Kamil Skwarczynski",
+            "username": "KSkwarczynski"
+          },
+          "distinct": true,
+          "id": "34c9ae03b535b41f635fefb41940019d28ed4698",
+          "message": "Quickly fix cmake, coudn't find_package due to different pahts :(",
+          "timestamp": "2025-05-13T15:17:23Z",
+          "tree_id": "f61c9d8ad623fa0de40209418387a7b643b7f992",
+          "url": "https://github.com/mach3-software/MaCh3/commit/34c9ae03b535b41f635fefb41940019d28ed4698"
+        },
+        "date": 1747149779271,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 4.213,
+            "range": "± 181.176",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 4.20609,
+            "range": "± 601.745",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 433.839,
+            "range": "± 11.2877",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
