@@ -105,12 +105,14 @@ int main(int argc, char *argv[])
     MACH3LOG_CRITICAL("You specified arguments, but none are needed. (Program name: {})", argv[0]);
     throw MaCh3Exception(__FILE__ , __LINE__ );
   }
-  std::vector<std::string> xsecCovMatrixFile = {"TutorialConfigs/CovObjs/SystematicModel.yaml"};
+  std::string TutorialPath = std::getenv("MaCh3Tutorial_ROOT");
+
+  std::vector<std::string> xsecCovMatrixFile = {TutorialPath + "/TutorialConfigs/CovObjs/SystematicModel.yaml"};
   auto xsec = std::make_unique<ParameterHandlerGeneric>(xsecCovMatrixFile, "xsec_cov");
-  std::vector<std::string> OscCovMatrixFile = {"TutorialConfigs/CovObjs/OscillationModel.yaml"};
+  std::vector<std::string> OscCovMatrixFile = {TutorialPath + "/TutorialConfigs/CovObjs/OscillationModel.yaml"};
   auto osc = std::make_unique<ParameterHandlerOsc>(OscCovMatrixFile, "osc_cov");
 
-  std::string SampleConfig = "TutorialConfigs/Samples/SampleHandler_Tutorial.yaml";
+  std::string SampleConfig = TutorialPath + "/TutorialConfigs/Samples/SampleHandler_Tutorial.yaml";
   auto SampleTutorial = std::make_unique<samplePDFSigmaVar>(SampleConfig, xsec.get(), osc.get());
   TString NameTString = TString(SampleTutorial->GetTitle());
 
@@ -119,7 +121,7 @@ int main(int argc, char *argv[])
   TH1D *SampleHistogramPrior = (TH1D*)SampleTutorial->Get1DHist()->Clone(NameTString + "_Prior");
   SampleTutorial->AddData(SampleHistogramPrior);
 
-  std::string ManagerInput = "TutorialConfigs/FitterConfig.yaml";
+  std::string ManagerInput = TutorialPath + "/TutorialConfigs/FitterConfig.yaml";
   auto FitManager = std::make_unique<manager>(ManagerInput);
 
   // Create MCMC Class

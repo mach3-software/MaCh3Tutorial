@@ -13,7 +13,8 @@ int main(int argc, char *argv[])
   }
   MACH3LOG_INFO("Testing MaCh3 Mode");
 
-  std::string ModeInput = "TutorialConfigs/MaCh3Modes.yaml";
+  std::string TutorialPath = std::getenv("MaCh3Tutorial_ROOT");
+  std::string ModeInput = TutorialPath + "/TutorialConfigs/MaCh3Modes.yaml";
   auto Modes = std::make_unique<MaCh3Modes>(ModeInput);
 
   std::ofstream outFile("NewMaCh3ModeOut.txt");
@@ -51,7 +52,7 @@ int main(int argc, char *argv[])
 
   outFile.close();
 
-  bool TheSame = CompareTwoFiles("CIValidations/TestOutputs/MaCh3ModeOut.txt", "NewMaCh3ModeOut.txt");
+  bool TheSame = CompareTwoFiles(TutorialPath + "/CIValidations/TestOutputs/MaCh3ModeOut.txt", "NewMaCh3ModeOut.txt");
   if(!TheSame) {
     MACH3LOG_CRITICAL("Something is wrong with MaCh3 modes");
     throw MaCh3Exception(__FILE__ , __LINE__ );
