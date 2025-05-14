@@ -5,7 +5,8 @@
 
 void TuneValidations()
 {
-  YAML::Node Node = M3OpenConfig("TutorialConfigs/CovObjs/SystematicModel.yaml");
+  std::string TutorialPath = std::getenv("MaCh3Tutorial_ROOT");
+  YAML::Node Node = M3OpenConfig(TutorialPath + "/TutorialConfigs/CovObjs/SystematicModel.yaml");
   std::vector<double> TuneValues = {1.05, 0.90, 1.10, 1.05, 1.05, 1.05, 1.05, 1.05, 0., 10};
   std::string Tune = "WackyTune";
 
@@ -52,9 +53,9 @@ int main(int argc, char *argv[])
     MACH3LOG_CRITICAL("You specified arguments, but none are needed. (Program name: {})", argv[0]);
     throw MaCh3Exception(__FILE__ , __LINE__ );
   }
-
+  std::string TutorialPath = std::getenv("MaCh3Tutorial_ROOT");
 ////////////// Normal Xsec //////////////
-  std::vector<std::string> ParameterMatrixFile = {"TutorialConfigs/CovObjs/SystematicModel.yaml"};
+  std::vector<std::string> ParameterMatrixFile = {TutorialPath + "/TutorialConfigs/CovObjs/SystematicModel.yaml"};
   auto xsec = std::make_unique<ParameterHandlerGeneric>(ParameterMatrixFile, "xsec_cov");
 
   std::vector<double> ParProp = {1.05, 0.90, 1.10, 1.05, 1.05, 1.05, 1.05, 1.05, 0., 0.2};
@@ -132,7 +133,7 @@ int main(int argc, char *argv[])
 
 ////////////// Now PCA //////////////
   MACH3LOG_INFO("Testing PCA matrix");
-  ParameterMatrixFile = {"TutorialConfigs/CovObjs/PCATest.yaml"};
+  ParameterMatrixFile = {TutorialPath + "/TutorialConfigs/CovObjs/PCATest.yaml"};
   auto PCA = std::make_shared<ParameterHandlerGeneric>(ParameterMatrixFile, "xsec_cov", 0.001);
   std::vector<double>  EigenVal = PCA->GetEigenValuesMaster();
   for(size_t i = 0; i < EigenVal.size(); i++) {
@@ -152,7 +153,7 @@ int main(int argc, char *argv[])
   }
 
 ////////////// Now Osc //////////////
-  std::vector<std::string> OscCovMatrixFile = {"TutorialConfigs/CovObjs/OscillationModel.yaml"};
+  std::vector<std::string> OscCovMatrixFile = {TutorialPath + "/TutorialConfigs/CovObjs/OscillationModel.yaml"};
   auto osc = std::make_unique<ParameterHandlerOsc>(OscCovMatrixFile, "osc_cov");
   std::vector<double> OscParProp = {0.3, 0.5, 0.020, 7.53e-5, 2.494e-3, 0.0, 295, 2.6, 0.5, 15};
   osc->SetParameters(OscParProp);
@@ -190,7 +191,8 @@ AdaptionOptions:
 
   // Convert the string to a YAML node
   YAML::Node AdaptSetting = STRINGtoYAML(yamlContent);
-  std::vector<std::string> AdaptiveCovMatrixFile = {"TutorialConfigs/CovObjs/SystematicModel.yaml", "TutorialConfigs/CovObjs/PCATest.yaml"};
+  std::vector<std::string> AdaptiveCovMatrixFile = {TutorialPath + "/TutorialConfigs/CovObjs/SystematicModel.yaml",
+                                                    TutorialPath + "/TutorialConfigs/CovObjs/PCATest.yaml"};
   auto Adapt = std::make_unique<ParameterHandlerGeneric>(AdaptiveCovMatrixFile, "xsec_cov");
   //KS: Let's make Doctor Wallace proud
   Adapt->InitialiseAdaption(AdaptSetting);
@@ -214,7 +216,7 @@ AdaptionOptions:
   Adapt->SaveAdaptiveToFile("Wacky.root", "xsec");
 
   outFile.close();
-  bool TheSame = CompareTwoFiles("CIValidations/TestOutputs/CovarianceOut.txt", "NewCovarianceOut.txt");
+  bool TheSame = CompareTwoFiles(TutorialPath + + "/CIValidations/TestOutputs/CovarianceOut.txt", "NewCovarianceOut.txt");
 
   TuneValidations();
 

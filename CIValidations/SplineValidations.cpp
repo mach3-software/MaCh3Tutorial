@@ -11,15 +11,16 @@ int main(int argc, char *argv[])
     throw MaCh3Exception(__FILE__ , __LINE__ );
   }
   MACH3LOG_INFO("Testing Spline Monolith");
+  std::string TutorialPath = std::getenv("MaCh3Tutorial_ROOT");
 
-  std::string Input = "TutorialConfigs/MC/SplineFile.root";
+  std::string Input = TutorialPath + "/TutorialConfigs/MC/SplineFile.root";
   std::vector<std::string> Dials = {"Spline_0", "Spline_1", "Spline_2", "Spline_3"};
   std::vector<double> Dial_Values = {1.21, 1, 1, 1};
   std::vector< std::vector<TResponseFunction_red*> > MasterSpline = GetMasterSpline(Input, Dials);
 
   std::vector<RespFuncType> SplineType = {kTSpline3_red, kTSpline3_red, kTSpline3_red, kTSpline3_red};
   const unsigned int Nevents = MasterSpline.size();
-  SMonolith* Splines = new SMonolith(MasterSpline, SplineType, true);
+  auto Splines = std::make_unique<SMonolith>(MasterSpline, SplineType, true);
 
   std::vector< const double* > splineParsPointer(Dials.size());
   for (unsigned int i = 0; i < Dials.size(); ++i) {
@@ -41,7 +42,7 @@ int main(int argc, char *argv[])
 ////// Testing Pre Computed Spline
   MACH3LOG_INFO("Testing Spline Monolith with Flattened ROOT inputs");
 
-  SMonolith* SplinesFlat = new SMonolith("SplineFile.root");
+  auto SplinesFlat = std::make_unique<SMonolith>("SplineFile.root");
   for (unsigned int i = 0; i < Dials.size(); ++i) {
     splineParsPointer[i] = &Dial_Values[i];
   }
@@ -56,9 +57,7 @@ int main(int argc, char *argv[])
   }
 
   outFile.close();
-  delete Splines;
-  delete SplinesFlat;
-  bool TheSame = CompareTwoFiles("CIValidations/TestOutputs/SplineMonoOut.txt", "NewSplineMonoOut.txt");
+  bool TheSame = CompareTwoFiles(TutorialPath + "/CIValidations/TestOutputs/SplineMonoOut.txt", "NewSplineMonoOut.txt");
 
   if(!TheSame) {
     MACH3LOG_CRITICAL("Different weights mate");
