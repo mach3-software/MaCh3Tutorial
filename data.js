@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1747243641530,
+  "lastUpdate": 1747243678622,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -4993,6 +4993,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 435.718,
             "range": "± 4.88559",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "c1c7569dfda3be543455e2d23af9c0ae45ea3ba9",
+          "message": "Merge pull request #444 from mach3-software/featuer/TidyPCA\n\ntidy: PCA prefit intialsition now in PCA Hnadler",
+          "timestamp": "2025-05-15T02:23:08+09:00",
+          "tree_id": "014ead35aa23017ee8395ccd9bd4b341f9bcd1f5",
+          "url": "https://github.com/mach3-software/MaCh3/commit/c1c7569dfda3be543455e2d23af9c0ae45ea3ba9"
+        },
+        "date": 1747243676817,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 4.24549,
+            "range": "± 78.1397",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 4.15529,
+            "range": "± 94.1315",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 436.941,
+            "range": "± 3.82684",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
