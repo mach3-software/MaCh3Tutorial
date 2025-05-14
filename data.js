@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1747243720940,
+  "lastUpdate": 1747243740695,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -5083,6 +5083,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 427.633,
             "range": "± 4.50564",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "ee4b4ee214137bade3dd564745bddce0073ca508",
+          "message": "Merge pull request #449 from mach3-software/feature/UnityFix\n\nbreaking: Reduce Unity type weirdness",
+          "timestamp": "2025-05-15T02:24:16+09:00",
+          "tree_id": "cedce1e59cf174deeb759a2ac2074a13e4881d76",
+          "url": "https://github.com/mach3-software/MaCh3/commit/ee4b4ee214137bade3dd564745bddce0073ca508"
+        },
+        "date": 1747243738837,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 4.16912,
+            "range": "± 494.295",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 4.06133,
+            "range": "± 177.13",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 433.129,
+            "range": "± 5.41166",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
