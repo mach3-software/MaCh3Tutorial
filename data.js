@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1747149781405,
+  "lastUpdate": 1747243641530,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -4948,6 +4948,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 433.839,
             "range": "± 11.2877",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "7dd2c3ba76efcef97f5fdf5d0e28567cd2c84219",
+          "message": "Merge pull request #443 from mach3-software/feature/DoxygenUpdate\n\ntidy: Increase usage of groups in Doxygen",
+          "timestamp": "2025-05-15T02:22:37+09:00",
+          "tree_id": "adadd2e48e61f2f32a7e474ab805620b6c30c529",
+          "url": "https://github.com/mach3-software/MaCh3/commit/7dd2c3ba76efcef97f5fdf5d0e28567cd2c84219"
+        },
+        "date": 1747243639861,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 4.33938,
+            "range": "± 79.1032",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 4.16252,
+            "range": "± 91.0461",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 435.718,
+            "range": "± 4.88559",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
