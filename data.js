@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1747244250096,
+  "lastUpdate": 1747244278132,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -5263,6 +5263,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 435.181,
             "range": "± 5.78285",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "110b8269c7ab07988cb4f6d2ad403958cc3adeaa",
+          "message": "Merge pull request #454 from mach3-software/feature/GPUcodeScanning\n\nfeat: Expand CodeQL to also perform GPU compilation",
+          "timestamp": "2025-05-15T02:33:07+09:00",
+          "tree_id": "aa758543d4f820369e8be396f8eafb04952ef2d7",
+          "url": "https://github.com/mach3-software/MaCh3/commit/110b8269c7ab07988cb4f6d2ad403958cc3adeaa"
+        },
+        "date": 1747244275870,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 4.27422,
+            "range": "± 182.629",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 4.21052,
+            "range": "± 74.7574",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 436.722,
+            "range": "± 6.29773",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
