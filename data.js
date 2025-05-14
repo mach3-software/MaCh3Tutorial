@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1747243798103,
+  "lastUpdate": 1747243824994,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -5173,6 +5173,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 436.747,
             "range": "± 6.6177",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "bbb26e0435766536b33c2cef19c4c859581ffe87",
+          "message": "Merge pull request #446 from mach3-software/featue/LessHardcodedFlipping\n\ntidy: More flexible parameter flipping",
+          "timestamp": "2025-05-15T02:25:43+09:00",
+          "tree_id": "8b770d471c999e9cf7c31529b35e38eb7f518ca5",
+          "url": "https://github.com/mach3-software/MaCh3/commit/bbb26e0435766536b33c2cef19c4c859581ffe87"
+        },
+        "date": 1747243822973,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 4.1896,
+            "range": "± 445.755",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 4.06762,
+            "range": "± 146.475",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 425.95,
+            "range": "± 6.29596",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
