@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1747247676428,
+  "lastUpdate": 1747248648966,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -5398,6 +5398,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 435.035,
             "range": "± 3.25476",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "31003009+dbarrow257@users.noreply.github.com",
+            "name": "dbarrow257",
+            "username": "dbarrow257"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "bcff41c5c0ecdd2a0f463029ca1ab8c9f2359cd5",
+          "message": "Merge pull request #451 from mach3-software/feature/TypeParameterBase\n\ntidy: TypeParameterBase and unifcation of GetXParsFromSampleName",
+          "timestamp": "2025-05-14T19:46:05+01:00",
+          "tree_id": "bbe9c13f4e1e083243d1bfeee3e6a7de8040e4d2",
+          "url": "https://github.com/mach3-software/MaCh3/commit/bcff41c5c0ecdd2a0f463029ca1ab8c9f2359cd5"
+        },
+        "date": 1747248647175,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 4.0867,
+            "range": "± 225.813",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 4.04153,
+            "range": "± 287.342",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 438.209,
+            "range": "± 6.15384",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
