@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1747248648966,
+  "lastUpdate": 1747253111607,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -5443,6 +5443,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 438.209,
             "range": "± 6.15384",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "5505b99fd94f6ccd14f57071fae1ee0700274748",
+          "message": "Merge pull request #452 from mach3-software/hwallace/feature/adaptive_fix_par_interface\n\nfeat: adaptive fix par interface",
+          "timestamp": "2025-05-15T05:00:14+09:00",
+          "tree_id": "d66a30eaaf366605199381f092a0eaaa336a1bd8",
+          "url": "https://github.com/mach3-software/MaCh3/commit/5505b99fd94f6ccd14f57071fae1ee0700274748"
+        },
+        "date": 1747253109749,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 4.35469,
+            "range": "± 811.884",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 4.104,
+            "range": "± 59.0884",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 438.154,
+            "range": "± 4.76591",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
