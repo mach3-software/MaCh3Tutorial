@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1747244278132,
+  "lastUpdate": 1747246575160,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -5308,6 +5308,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 436.722,
             "range": "± 6.29773",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "31003009+dbarrow257@users.noreply.github.com",
+            "name": "dbarrow257",
+            "username": "dbarrow257"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "24440c8021710e1b52edabfb129f845a6a000ec4",
+          "message": "Merge pull request #448 from mach3-software/feature/AdaptionHandlerPointer\n\ntidy: Adaptive Handler into pointer",
+          "timestamp": "2025-05-14T19:11:21+01:00",
+          "tree_id": "b9fff59c62da19b4ea2515fa61e4bc8ca6d51504",
+          "url": "https://github.com/mach3-software/MaCh3/commit/24440c8021710e1b52edabfb129f845a6a000ec4"
+        },
+        "date": 1747246573359,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 4.35734,
+            "range": "± 119.516",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 4.24774,
+            "range": "± 202.501",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 428.112,
+            "range": "± 6.20755",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
