@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1747243678622,
+  "lastUpdate": 1747243720940,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -5038,6 +5038,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 436.941,
             "range": "± 3.82684",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "60c698d6a8779b0ccc39b1ab5d7358c2bb40a02d",
+          "message": "Merge pull request #447 from mach3-software/feature/SamplePDFTidy\n\ntidy: Avoid code duplicates in Sample Handler",
+          "timestamp": "2025-05-15T02:24:00+09:00",
+          "tree_id": "991f673912afb4b4871906b0790c063f2368e6d4",
+          "url": "https://github.com/mach3-software/MaCh3/commit/60c698d6a8779b0ccc39b1ab5d7358c2bb40a02d"
+        },
+        "date": 1747243719247,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 4.23569,
+            "range": "± 38.0534",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 4.08751,
+            "range": "± 156.51",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 427.633,
+            "range": "± 4.50564",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
