@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1747243740695,
+  "lastUpdate": 1747243798103,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -5128,6 +5128,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 433.129,
             "range": "± 5.41166",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "5d22575f7728094cfd2fabf1c8741a6b61b4abae",
+          "message": "Merge pull request #445 from mach3-software/feature/CUDAsantiy\n\ntidy: turn off sliglhy annoing cuda warnings",
+          "timestamp": "2025-05-15T02:25:26+09:00",
+          "tree_id": "d5c27397ac1703c6185af68eae84ca3e6a432550",
+          "url": "https://github.com/mach3-software/MaCh3/commit/5d22575f7728094cfd2fabf1c8741a6b61b4abae"
+        },
+        "date": 1747243796589,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 4.80461,
+            "range": "± 2.48801",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 4.05754,
+            "range": "± 61.4384",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 436.747,
+            "range": "± 6.6177",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
