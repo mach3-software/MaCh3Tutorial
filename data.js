@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1747246575160,
+  "lastUpdate": 1747247676428,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -5353,6 +5353,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 428.112,
             "range": "± 6.20755",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "31003009+dbarrow257@users.noreply.github.com",
+            "name": "dbarrow257",
+            "username": "dbarrow257"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "62ebc35102187ef6201451e3da5721b3c5316296",
+          "message": "Merge pull request #450 from mach3-software/feature/OscillatorHandler\n\nfeat: Oscillation Handler",
+          "timestamp": "2025-05-14T19:29:32+01:00",
+          "tree_id": "cd294bdd1dc6430d562c6a898d717cbd91e2a2c8",
+          "url": "https://github.com/mach3-software/MaCh3/commit/62ebc35102187ef6201451e3da5721b3c5316296"
+        },
+        "date": 1747247674469,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 4.06313,
+            "range": "± 45.1185",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 4.63472,
+            "range": "± 3.16479",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 435.035,
+            "range": "± 3.25476",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
