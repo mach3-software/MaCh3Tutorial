@@ -111,8 +111,8 @@ int SampleHandlerTutorial::SetupExperimentMC(int iSample) {
 // ************************************************
 
   tutorial_base *tutobj = &(TutorialSamples[iSample]);
-  int nutype = sample_nupdgunosc[iSample];
-  int oscnutype = sample_nupdg[iSample];
+  int nutype = OscChannels[iSample].InitPDG;
+  int oscnutype = OscChannels[iSample].FinalPDG;
 
   tutobj->nutype = nutype;
   tutobj->oscnutype = oscnutype;
