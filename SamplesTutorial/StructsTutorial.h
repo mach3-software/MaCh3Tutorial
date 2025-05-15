@@ -1,29 +1,26 @@
 #pragma once
 
 /// @brief class holding basic information about tutorial MC
-struct tutorial_base {
+struct TutorialMCInfo {
   /// @brief Constructor
-  tutorial_base() {
-    isNC = nullptr;
+  TutorialMCInfo() {
   }
   /// @brief Destructor
-  ~tutorial_base() {
-    if(isNC) delete[] isNC;
+  ~TutorialMCInfo() {
   }
-  /// neutrino type
-  int nutype;
-  /// type of neutrino
-  int oscnutype;
-  ///signal or not
-  bool signal;
   /// total number of events
   int nEvents;
+
+  /// neutrino type
+  std::vector<int> nutype;
+  /// type of neutrino
+  std::vector<int> oscnutype;
   /// target material
   std::vector<int> Target;
   /// interaction mode
   std::vector<double> Mode;
   /// is Neutral Current or not
-  bool *isNC;
+  std::vector<bool> isNC;
   /// true neutrino energy
   std::vector<double> TrueEnu;
   /// Reco neutrino energy
