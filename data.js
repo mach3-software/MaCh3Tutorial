@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1747300352312,
+  "lastUpdate": 1747312703023,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -5578,6 +5578,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 434.059,
             "range": "± 9.25191",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "5b1545dbb51d56a1c234ec4f7a2b174cc935e556",
+          "message": "Merge pull request #457 from mach3-software/feature/DoxygenFix\n\nfeat: Doxygen interactive SVG",
+          "timestamp": "2025-05-15T21:33:27+09:00",
+          "tree_id": "f3940a9e52ad89784c54178a04740067b0830aee",
+          "url": "https://github.com/mach3-software/MaCh3/commit/5b1545dbb51d56a1c234ec4f7a2b174cc935e556"
+        },
+        "date": 1747312701365,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 4.26136,
+            "range": "± 43.8203",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 4.15629,
+            "range": "± 197.099",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 438.562,
+            "range": "± 4.16438",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
