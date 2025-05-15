@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1747253111607,
+  "lastUpdate": 1747300336757,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -5488,6 +5488,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 438.154,
             "range": "± 4.76591",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "48488935fee64e690167efc0f2a245e9040dd6ca",
+          "message": "Merge pull request #455 from mach3-software/feature/OscChannelInfo\n\nbreaking: Osc Channel Info",
+          "timestamp": "2025-05-15T18:07:28+09:00",
+          "tree_id": "a682ab260a74e06afeb3f77933fd929856655f89",
+          "url": "https://github.com/mach3-software/MaCh3/commit/48488935fee64e690167efc0f2a245e9040dd6ca"
+        },
+        "date": 1747300334889,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 4.3137,
+            "range": "± 507.05",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 4.16807,
+            "range": "± 55.4718",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 436.223,
+            "range": "± 6.7003",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
