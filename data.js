@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1747300336757,
+  "lastUpdate": 1747300352312,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -5533,6 +5533,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 436.223,
             "range": "± 6.7003",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "7b094d5c48d458335703e1233f9e95c9819671f9",
+          "message": "Merge pull request #456 from mach3-software/feature/GeneralTidy\n\ntidy: General post renaming tidy",
+          "timestamp": "2025-05-15T18:07:50+09:00",
+          "tree_id": "822b7594f561417828734ce1f269da32344cccd8",
+          "url": "https://github.com/mach3-software/MaCh3/commit/7b094d5c48d458335703e1233f9e95c9819671f9"
+        },
+        "date": 1747300350737,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 4.0882,
+            "range": "± 45.1638",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 3.88962,
+            "range": "± 58.8324",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 434.059,
+            "range": "± 9.25191",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
