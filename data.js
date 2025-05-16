@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1747312703023,
+  "lastUpdate": 1747402694768,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -5623,6 +5623,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 438.562,
             "range": "± 4.16438",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "31003009+dbarrow257@users.noreply.github.com",
+            "name": "dbarrow257",
+            "username": "dbarrow257"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "a510051600b2d20484857a0eb021d2e4c93e28bb",
+          "message": "Merge pull request #460 from mach3-software/feature/kskwarczynski/OscParamsSanity\n\ntidy: OscParams Sanity",
+          "timestamp": "2025-05-16T14:33:17+01:00",
+          "tree_id": "80b1699db21064dabf261dddf43121127ad22d6f",
+          "url": "https://github.com/mach3-software/MaCh3/commit/a510051600b2d20484857a0eb021d2e4c93e28bb"
+        },
+        "date": 1747402692858,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 4.17149,
+            "range": "± 53.7762",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 4.0428,
+            "range": "± 58.3527",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 438.617,
+            "range": "± 4.03349",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
