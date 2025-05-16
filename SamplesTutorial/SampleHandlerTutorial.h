@@ -24,20 +24,20 @@ class SampleHandlerTutorial : public SampleHandlerFD
 
   void SetupWeightPointers() override;
 
-  int SetupExperimentMC(int iSample) override;
+  int SetupExperimentMC() override;
 
-  double ReturnKinematicParameter(KinematicTypes KinPar, int iSample, int iEvent);
-  double ReturnKinematicParameter(int KinematicVariable, int iSample, int iEvent);
-  double ReturnKinematicParameter(std::string KinematicParameter, int iSample, int iEvent);
+  double ReturnKinematicParameter(KinematicTypes KinPar, int iEvent);
+  double ReturnKinematicParameter(int KinematicVariable, int iEvent);
+  double ReturnKinematicParameter(std::string KinematicParameter, int iEvent);
 
-  const double* GetPointerToKinematicParameter(KinematicTypes KinPar, int iSample, int iEvent);
-  const double* GetPointerToKinematicParameter(std::string KinematicParameter, int iSample, int iEvent) override;
-  const double* GetPointerToKinematicParameter(double KinematicVariable, int iSample, int iEvent);
+  const double* GetPointerToKinematicParameter(KinematicTypes KinPar, int iEvent);
+  const double* GetPointerToKinematicParameter(std::string KinematicParameter, int iEvent) override;
+  const double* GetPointerToKinematicParameter(double KinematicVariable, int iEvent);
 
-  void SetupFDMC(int iSample) override;
-  void CalcWeightFunc(int iSample, int iEvent) override {return; (void)iSample; (void)iEvent;}
+  void SetupFDMC() override;
+  void CalcWeightFunc(int iEvent) override {return; (void)iEvent;}
 
-  std::vector<struct tutorial_base> TutorialSamples;
+  TutorialMCInfo TutorialSamples;
 
   const std::unordered_map<std::string, int> KinematicParametersTutorial = {
     {"TrueNeutrinoEnergy", kTrueNeutrinoEnergy},
@@ -59,10 +59,10 @@ class SampleHandlerTutorial : public SampleHandlerFD
   // === HH: Functional parameters ===
   enum FuncParEnum {kDebugNothing, kDebugShift, kEResLep, kEResTot};
   void RegisterFunctionalParameters() override;
-  void resetShifts(int iSample, int iEvent) override;
+  void resetShifts(int iEvent) override;
 
-  void DebugShift(const double * par, std::size_t iSample, std::size_t iEvent);
-  void EResLep(const double * par, std::size_t iSample, std::size_t iEvent);
-  void EResTot(const double * par, std::size_t iSample, std::size_t iEvent);
+  void DebugShift(const double* par, std::size_t iEvent);
+  void EResLep(const double* par, std::size_t iEvent);
+  void EResTot(const double* par, std::size_t iEvent);
   // =================================
 };

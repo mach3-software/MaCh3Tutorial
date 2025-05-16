@@ -66,11 +66,9 @@ int main(int argc, char *argv[])
     outFile << "Likelihood:" << std::fabs(Sample->GetLikelihood()) << std::endl;
 
     MACH3LOG_INFO("Now trying to compare each weight individually");
-    for (int iSample = 0; iSample < Sample->GetNMCSamples(); ++iSample) {
-      for (int iEntry = 0; iEntry < Sample->GetNEventsInSample(iSample); ++iEntry) {
-        double weight = Sample->GetEventWeight(iSample, iEntry);
-        outFile<< "Sample: "<< NameTString << " Channel: "<< iSample<<" Event: " << iEntry <<" weight: " << weight << std::endl;
-      }
+    for (int iEntry = 0; iEntry < Sample->GetNEvents(); ++iEntry) {
+      double weight = Sample->GetEventWeight(iEntry);
+      outFile<< "Sample: "<< NameTString << " Event: " << iEntry <<" weight: " << weight << std::endl;
     }
 
     for (int TestStat = 0; TestStat < TestStatistic::kNTestStatistics; ++TestStat) {
