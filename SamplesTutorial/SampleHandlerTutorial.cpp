@@ -96,7 +96,7 @@ void SampleHandlerTutorial::SetupSplines() {
 // ************************************************
 void SampleHandlerTutorial::SetupWeightPointers() {
 // ************************************************
-  for (int j = 0; j < MCSamples.nEvents; ++j) {
+  for (unsigned int j = 0; j < GetNEvents(); ++j) {
     MCSamples.ntotal_weight_pointers[j] = 2;
     MCSamples.total_weight_pointers[j].resize(MCSamples.ntotal_weight_pointers[j]);
     MCSamples.total_weight_pointers[j][0] = MCSamples.osc_w_pointer[j];
@@ -115,19 +115,17 @@ int SampleHandlerTutorial::SetupExperimentMC() {
   Long64_t nEntries = _Chain->GetEntries();
   delete _Chain;
 
-
   TutorialMCInfo *tutobj = &(TutorialSamples);
-  tutobj->nEvents = static_cast<int>(nEntries);
-  tutobj->TrueEnu.resize(tutobj->nEvents);
-  tutobj->RecoEnu.resize(tutobj->nEvents);
-  tutobj->RecoEnu_shifted.resize(tutobj->nEvents);
-  tutobj->Q2.resize(tutobj->nEvents);
-  tutobj->Mode.resize(tutobj->nEvents);
-  tutobj->Target.resize(tutobj->nEvents);
-  tutobj->isNC.resize(tutobj->nEvents);
-  tutobj->ELep.resize(tutobj->nEvents);
-  tutobj->nutype.resize(tutobj->nEvents);
-  tutobj->oscnutype.resize(tutobj->nEvents);
+  tutobj->TrueEnu.resize(nEntries);
+  tutobj->RecoEnu.resize(nEntries);
+  tutobj->RecoEnu_shifted.resize(nEntries);
+  tutobj->Q2.resize(nEntries);
+  tutobj->Mode.resize(nEntries);
+  tutobj->Target.resize(nEntries);
+  tutobj->isNC.resize(nEntries);
+  tutobj->ELep.resize(nEntries);
+  tutobj->nutype.resize(nEntries);
+  tutobj->oscnutype.resize(nEntries);
 
   int TotalEventCounter = 0.;
   for(int iChannel = 0 ; iChannel < static_cast<int>(OscChannels.size()); iChannel++) {
@@ -178,8 +176,8 @@ int SampleHandlerTutorial::SetupExperimentMC() {
       if(iChannel == 0) {
         MACH3LOG_INFO("Enabling Atmospheric");
         isATM = true;
-        tutobj->TrueCosZenith.resize(tutobj->nEvents);
-        MCSamples.rw_truecz.resize(tutobj->nEvents);
+        tutobj->TrueCosZenith.resize(nEntries);
+        MCSamples.rw_truecz.resize(nEntries);
       }
       _data->SetBranchStatus("CosineZenith", true);
       _data->SetBranchAddress("CosineZenith", &trueCZ);
@@ -197,7 +195,7 @@ int SampleHandlerTutorial::SetupExperimentMC() {
     */
 
     _data->GetEntry(0);
-    for (int i = 0; i < tutobj->nEvents; ++i) { // Loop through tree
+    for (int i = 0; i < nEntries; ++i) { // Loop through tree
       _data->GetEntry(i);
 
       tutobj->TrueEnu[TotalEventCounter] = Enu_true;
@@ -227,7 +225,7 @@ int SampleHandlerTutorial::SetupExperimentMC() {
     delete _sampleFile;
     MACH3LOG_INFO("Initialised channel: {}/{}", iChannel, OscChannels.size());
   }
-  return tutobj->nEvents;
+  return nEntries;
 }
 
 double SampleHandlerTutorial::ReturnKinematicParameter(KinematicTypes KinPar, int iEvent) {
@@ -276,7 +274,7 @@ void SampleHandlerTutorial::SetupFDMC() {
   TutorialMCInfo *tutobj = &(TutorialSamples);
   auto &fdobj = MCSamples;
   
-  for(int iEvent = 0 ;iEvent < fdobj.nEvents ; ++iEvent) {
+  for(int iEvent = 0 ;iEvent < GetNEvents(); ++iEvent) {
     fdobj.rw_etru[iEvent] = &(tutobj->TrueEnu[iEvent]);
     fdobj.mode[iEvent] = &(tutobj->Mode[iEvent]);
     fdobj.Target[iEvent] = &(tutobj->Target[iEvent]);

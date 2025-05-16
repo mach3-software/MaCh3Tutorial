@@ -8,9 +8,6 @@ struct TutorialMCInfo {
   /// @brief Destructor
   ~TutorialMCInfo() {
   }
-  /// total number of events
-  int nEvents;
-
   /// neutrino type
   std::vector<int> nutype;
   /// type of neutrino
