@@ -131,6 +131,12 @@ int main(int argc, char *argv[])
     outFile << "Proposed Step for param " << i  << " is equal to=" << xsec->GetParProp(i) << std::endl;
   }
 
+  //Now we check if Tune works
+  xsec->SetTune("PostND");
+  for (int i = 0; i < xsec->GetNumParams(); ++i) {
+    outFile << "PostND Tune for param " << i  << " is equal to=" << xsec->GetParProp(i) << std::endl;
+  }
+
 ////////////// Now PCA //////////////
   MACH3LOG_INFO("Testing PCA matrix");
   ParameterMatrixFile = {TutorialPath + "/TutorialConfigs/CovObjs/PCATest.yaml"};

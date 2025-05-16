@@ -15,6 +15,7 @@ Systematics:
     ParameterValues:
       Generated: 0.307
       PreFitValue: 0.307
+      PostND: 0.307
     StepScale:
       MCMC: 1.0
     Type: Osc
@@ -32,6 +33,7 @@ Systematics:
     ParameterValues:
       Generated: 0.546
       PreFitValue: 0.546
+      PostND: 0.546
     StepScale:
       MCMC: 1.0
     Type: Osc
@@ -49,6 +51,7 @@ Systematics:
     ParameterValues:
       Generated: 0.0220
       PreFitValue: 0.0220
+      PostND: 0.0220
     StepScale:
       MCMC: 5.0
     Type: Osc
@@ -66,6 +69,7 @@ Systematics:
     ParameterValues:
       Generated: 0.0000753
       PreFitValue: 0.0000753
+      PostND: 0.0000753
     StepScale:
       MCMC: 1.0
     Type: Osc
@@ -83,6 +87,7 @@ Systematics:
     ParameterValues:
       Generated: 0.002536
       PreFitValue: 0.002536
+      PostND: 0.002536
     StepScale:
       MCMC: 1.0
     Type: Osc
@@ -101,6 +106,7 @@ Systematics:
     ParameterValues:
       Generated: -1.601
       PreFitValue: -1.601
+      PostND: -1.601
     StepScale:
       MCMC: 1.0
     Type: Osc
@@ -118,6 +124,7 @@ Systematics:
     ParameterValues:
       Generated: 295
       PreFitValue: 295
+      PostND: 295
     StepScale:
       MCMC: 1.0
     Type: Osc
@@ -135,6 +142,7 @@ Systematics:
     ParameterValues:
       Generated: 2.6
       PreFitValue: 2.6
+      PostND: 2.6
     StepScale:
       MCMC: 1.0
     Type: Osc
@@ -152,6 +160,7 @@ Systematics:
     ParameterValues:
       Generated: 0.5
       PreFitValue: 0.5
+      PostND: 0.5
     StepScale:
       MCMC: 1.0
     Type: Osc
@@ -169,6 +178,7 @@ Systematics:
     ParameterValues:
       Generated: 15
       PreFitValue: 15
+      PostND: 15
     StepScale:
       MCMC: 1.0
     Type: Osc
