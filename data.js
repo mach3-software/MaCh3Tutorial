@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1747670506797,
+  "lastUpdate": 1747677892382,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -5803,6 +5803,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 437.595,
             "range": "± 5.89943",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "5c6e5d086f1bdd0df09cf7013015a81448650937",
+          "message": "Merge pull request #459 from mach3-software/feature/kskwarczynski/Tunes\n\nbreaking: Introdcue Tunes",
+          "timestamp": "2025-05-20T02:59:41+09:00",
+          "tree_id": "5a238c231df4e4c5a4978c82efc2c6e332c1d3fb",
+          "url": "https://github.com/mach3-software/MaCh3/commit/5c6e5d086f1bdd0df09cf7013015a81448650937"
+        },
+        "date": 1747677889982,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 3.29173,
+            "range": "± 92.3517",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 3.22273,
+            "range": "± 73.6697",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 436.05,
+            "range": "± 2.70798",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
