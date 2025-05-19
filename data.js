@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1747402694768,
+  "lastUpdate": 1747658529547,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -5668,6 +5668,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 438.617,
             "range": "± 4.03349",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "66e8d8d6b1390eba5f79e59e302090f79e071ee9",
+          "message": "Merge pull request #458 from mach3-software/feature/OscChannelRemoval\n\nbreaking: Remove Oscillation Channel Loop Structure",
+          "timestamp": "2025-05-19T21:37:18+09:00",
+          "tree_id": "89226913212e3ac57104db53a4d48e486b1962bf",
+          "url": "https://github.com/mach3-software/MaCh3/commit/66e8d8d6b1390eba5f79e59e302090f79e071ee9"
+        },
+        "date": 1747658527722,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 3.54992,
+            "range": "± 424.217",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 3.37477,
+            "range": "± 192.547",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 434.746,
+            "range": "± 5.08644",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
