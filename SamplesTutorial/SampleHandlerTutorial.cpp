@@ -112,7 +112,7 @@ int SampleHandlerTutorial::SetupExperimentMC() {
     _Chain->Add(filename.c_str());
   }
   // To loop over all events:
-  Long64_t nEntries = _Chain->GetEntries();
+  int nEntries = static_cast<int>(_Chain->GetEntries());
   delete _Chain;
 
   TutorialMCInfo *tutobj = &(TutorialSamples);
