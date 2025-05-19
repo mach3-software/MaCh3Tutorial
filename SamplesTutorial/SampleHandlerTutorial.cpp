@@ -274,7 +274,7 @@ void SampleHandlerTutorial::SetupFDMC() {
   TutorialMCInfo *tutobj = &(TutorialSamples);
   auto &fdobj = MCSamples;
   
-  for(int iEvent = 0 ;iEvent < GetNEvents(); ++iEvent) {
+  for(unsigned int iEvent = 0 ;iEvent < GetNEvents(); ++iEvent) {
     fdobj.rw_etru[iEvent] = &(tutobj->TrueEnu[iEvent]);
     fdobj.mode[iEvent] = &(tutobj->Mode[iEvent]);
     fdobj.Target[iEvent] = &(tutobj->Target[iEvent]);
