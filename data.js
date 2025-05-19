@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1747678590642,
+  "lastUpdate": 1747679173956,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -5893,6 +5893,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 425.702,
             "range": "± 5.69584",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "c369c2c37199525a36fa08de882df25befc64b36",
+          "message": "Move UpdateAdaption to public so I can start robustly test adaptive MCMC",
+          "timestamp": "2025-05-19T19:21:27+01:00",
+          "tree_id": "25f6e2098bbffd73a77d96ef598e4e8430d9ad2e",
+          "url": "https://github.com/mach3-software/MaCh3/commit/c369c2c37199525a36fa08de882df25befc64b36"
+        },
+        "date": 1747679172202,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 3.29299,
+            "range": "± 122.805",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 3.17157,
+            "range": "± 118.123",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 438.575,
+            "range": "± 8.07051",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
