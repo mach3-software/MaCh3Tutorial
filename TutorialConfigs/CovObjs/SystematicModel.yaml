@@ -15,6 +15,7 @@ Systematics:
     ParameterValues:
       Generated: 1.
       PreFitValue: 1.
+      PostND: 1.5
     SampleNames: ["Tutorial *"]
     StepScale:
       MCMC: 0.2
@@ -35,6 +36,7 @@ Systematics:
     ParameterValues:
       Generated: 1.
       PreFitValue: 1.
+      PostND: 1.2
     SampleNames: ["Tutorial *"]
     StepScale:
       MCMC: 0.2
@@ -43,7 +45,6 @@ Systematics:
 - Systematic:
     Names:
       FancyName: Norm_Param_2
-
     Error: 0.40
     FlatPrior: false
     IsFixed: false
@@ -57,6 +58,7 @@ Systematics:
     ParameterValues:
       Generated: 1.
       PreFitValue: 1.
+      PostND: 0.9
     SampleNames: ["Tutorial *"]
     StepScale:
       MCMC: 0.2
@@ -73,6 +75,7 @@ Systematics:
     ParameterValues:
       Generated: 1.0
       PreFitValue: 1.0
+      PostND: 0.8
     SplineInformation:
       # affects CCQE events
       Mode: [0]
@@ -96,6 +99,7 @@ Systematics:
     ParameterValues:
       Generated: 1.0
       PreFitValue: 1.0
+      PostND: 0.95
     SplineInformation:
       #affects CC1pipm events
       Mode: [2]
@@ -117,6 +121,7 @@ Systematics:
     ParameterValues:
       Generated: 1.0
       PreFitValue: 1.0
+      PostND: 1.12
     SplineInformation:
       #affects CC2p2h events
       Mode: [1]
@@ -138,6 +143,7 @@ Systematics:
     ParameterValues:
       Generated: 1.0
       PreFitValue: 1.0
+      PostND: 1.05
     SplineInformation:
       #affects CCMPi events
       Mode: [3]
@@ -159,6 +165,7 @@ Systematics:
     ParameterValues:
       Generated: 1.0
       PreFitValue: 1.0
+      PostND: 1.02
     SplineInformation:
       #affects CCDIS events
       Mode: [4]
@@ -180,6 +187,7 @@ Systematics:
     ParameterValues:
       Generated: 0
       PreFitValue: 0
+      PostND: 0.2
     StepScale:
       MCMC: 0.2
     SampleNames: ["Tutorial *"]
@@ -198,6 +206,7 @@ Systematics:
     ParameterValues:
       Generated: 0
       PreFitValue: 0
+      PostND: -0.1
     StepScale:
       MCMC: 0.2
     SampleNames: ["Tutorial *"]
