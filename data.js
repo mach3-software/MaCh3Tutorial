@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1747658529547,
+  "lastUpdate": 1747667656858,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -5713,6 +5713,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 434.746,
             "range": "± 5.08644",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "6e2d2e804d0a1b7aa63f61deffd846d381d9451b",
+          "message": "Merge pull request #465 from mach3-software/bugfix/nosektom/CovSettingsSave\n\nbugfix: Write the covariance settings to disk before closing the file",
+          "timestamp": "2025-05-20T00:09:23+09:00",
+          "tree_id": "a3ff5ddfdc29a096ca310cd960100450e5faa8ba",
+          "url": "https://github.com/mach3-software/MaCh3/commit/6e2d2e804d0a1b7aa63f61deffd846d381d9451b"
+        },
+        "date": 1747667655119,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 3.3744,
+            "range": "± 166.13",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 3.23314,
+            "range": "± 68.6569",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 436.826,
+            "range": "± 4.45208",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
