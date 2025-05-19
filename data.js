@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1747679173956,
+  "lastUpdate": 1747679790976,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -5938,6 +5938,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 438.575,
             "range": "± 8.07051",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "ad95c9618cb4c1c44407c6ebbcc08800f4a9f4ba",
+          "message": "Merge pull request #466 from mach3-software/feature/kskwarczynski/OscillatorSanity\n\nfeat: Make Sure shared NuOscillator has same number of paramters",
+          "timestamp": "2025-05-20T03:31:51+09:00",
+          "tree_id": "49abb2095e30acd806131693567206f9bd8eb912",
+          "url": "https://github.com/mach3-software/MaCh3/commit/ad95c9618cb4c1c44407c6ebbcc08800f4a9f4ba"
+        },
+        "date": 1747679789353,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 3.18208,
+            "range": "± 131.819",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 3.07845,
+            "range": "± 184.122",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 428.824,
+            "range": "± 5.5156",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
