@@ -207,7 +207,6 @@ AdaptionOptions:
   Adapt->SetParameters(ParAdapt);
   bool increase = true;
   for(int i = 0; i < 50000; ++i ) {
-
     // Determine the direction of adjustment
     if (i % 20 == 10) { // Switch direction every 10 iterations
       increase = !increase;
@@ -219,6 +218,18 @@ AdaptionOptions:
     Adapt->SetParameters(ParAdapt);
     Adapt->AcceptStep();
   }
+  auto ParMeans = Adapt->GetParameterMeans();
+  for(size_t i = 0; i < ParMeans.size(); i++) {
+    outFile << "Adapt, Param means: " << i << " = " << ParMeans[i] << std::endl;
+  }
+  TMatrixDSym* Matrix = Adapt->GetAdaptiveHandler()->adaptive_covariance();
+  int dim = Matrix->GetNrows();
+  for (int i = 0; i < dim; ++i) {
+    for (int j = 0; j < dim; ++j) {
+      outFile << "Adapt matrix: " << i << ", " << j << " = " << (*Matrix)(i, j) << std::endl;
+    }
+  }
+
   Adapt->SaveAdaptiveToFile("Wacky.root", "xsec");
 
   outFile.close();

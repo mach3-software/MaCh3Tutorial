@@ -40,7 +40,7 @@ include(${CMAKE_CURRENT_BINARY_DIR}/cmake/CPM.cmake)
 include(CIValidations)
 
 ##################################  MaCh3  ######################################
-option(MaCh3_CPM "Whether MaCh3 was obrained using CPM or find_package" OFF)
+option(MaCh3_CPM "Whether MaCh3 was obtained using CPM or find_package" OFF)
 
 # KS: Here we try to find tag matching tutorial version. If we can't find one then use develop
 # This will allow to grab tutorial for tagged MaCh3 version without a need of manually changing version
