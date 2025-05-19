@@ -140,7 +140,7 @@ int main(int argc, char *argv[])
     outFile << "Eigen Value " << i << " = " << EigenVal[i] << std::endl;
   }
 
-  TVectorD eigen_values = PCA->GetEigenValues();
+  TVectorD eigen_values = PCA->GetPCAHandler()->GetEigenValues();
   double sum = 0;
   for(int i = 0; i < eigen_values.GetNrows(); i++){
     sum += eigen_values(i);
