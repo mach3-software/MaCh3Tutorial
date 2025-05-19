@@ -135,7 +135,7 @@ int main(int argc, char *argv[])
   MACH3LOG_INFO("Testing PCA matrix");
   ParameterMatrixFile = {TutorialPath + "/TutorialConfigs/CovObjs/PCATest.yaml"};
   auto PCA = std::make_shared<ParameterHandlerGeneric>(ParameterMatrixFile, "xsec_cov", 0.001);
-  std::vector<double>  EigenVal = PCA->GetEigenValuesMaster();
+  std::vector<double>  EigenVal = PCA->GetPCAHandler()->GetEigenValuesMaster();
   for(size_t i = 0; i < EigenVal.size(); i++) {
     outFile << "Eigen Value " << i << " = " << EigenVal[i] << std::endl;
   }
@@ -149,7 +149,7 @@ int main(int argc, char *argv[])
 
   outFile << "Num of PCA pars: " << PCA->GetNParameters() << std::endl;
   for(int i = 0; i < PCA->GetNParameters(); i++){
-    outFile << "Param in PCA base: " << i << " = " << PCA->GetParCurrPCA(i) << std::endl;
+    outFile << "Param in PCA base: " << i << " = " << PCA->GetPCAHandler()->GetParCurrPCA(i) << std::endl;
   }
 
 ////////////// Now Osc //////////////
