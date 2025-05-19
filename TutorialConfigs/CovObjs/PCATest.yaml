@@ -20,7 +20,6 @@ Systematics:
     SampleNames: ["Tutorial *"]
     Error: '0.059243759525005685'
     KinematicCuts:
-      - HornCurrent: [0.5, 1.5]
       - TrueNeutrinoEnergy: [0.0, 0.4]
     NeutrinoFlavourUnosc: [14]
 
@@ -51,7 +50,6 @@ Systematics:
     SampleNames: ["Tutorial *"]
     Error: '0.052534917752228155'
     KinematicCuts:
-      - HornCurrent: [0.5, 1.5]
       - TrueNeutrinoEnergy: [0.4, 0.5]
     NeutrinoFlavourUnosc: [14]
 
@@ -82,7 +80,6 @@ Systematics:
     SampleNames: ["Tutorial *"]
     Error: '0.05293373520097801'
     KinematicCuts:
-      - HornCurrent: [0.5, 1.5]
       - TrueNeutrinoEnergy: [0.5, 0.6]
     NeutrinoFlavourUnosc: [14]
 
@@ -113,7 +110,6 @@ Systematics:
     SampleNames: ["Tutorial *"]
     Error: '0.05145497551998185'
     KinematicCuts:
-      - HornCurrent: [0.5, 1.5]
       - TrueNeutrinoEnergy: [0.6, 0.7]
     NeutrinoFlavourUnosc: [14]
 
@@ -144,7 +140,6 @@ Systematics:
     SampleNames: ["Tutorial *"]
     Error: '0.07381951635860204'
     KinematicCuts:
-      - HornCurrent: [0.5, 1.5]
       - TrueNeutrinoEnergy: [0.7, 1.0]
     NeutrinoFlavourUnosc: [14]
 
@@ -175,7 +170,6 @@ Systematics:
     SampleNames: ["Tutorial *"]
     Error: '0.0875849864515004'
     KinematicCuts:
-      - HornCurrent: [0.5, 1.5]
       - TrueNeutrinoEnergy: [1.0, 1.5]
     NeutrinoFlavourUnosc: [14]
 
@@ -206,7 +200,6 @@ Systematics:
     SampleNames: ["Tutorial *"]
     Error: '0.06983573708919912'
     KinematicCuts:
-      - HornCurrent: [0.5, 1.5]
       - TrueNeutrinoEnergy: [1.5, 2.5]
     NeutrinoFlavourUnosc: [14]
 
@@ -237,7 +230,6 @@ Systematics:
     SampleNames: ["Tutorial *"]
     Error: '0.04979912201292179'
     KinematicCuts:
-      - HornCurrent: [0.5, 1.5]
       - TrueNeutrinoEnergy: [2.5, 3.5]
     NeutrinoFlavourUnosc: [14]
     ParameterBounds: [0, 9999]
@@ -267,7 +259,6 @@ Systematics:
     SampleNames: ["Tutorial *"]
     Error: 0.05020509536942895
     KinematicCuts:
-      - HornCurrent: [0.5, 1.5]
       - TrueNeutrinoEnergy: [3.5, 5.0]
     NeutrinoFlavourUnosc: [14]
     ParameterBounds: [0, 9999]
@@ -297,7 +288,6 @@ Systematics:
     SampleNames: ["Tutorial *"]
     Error: 0.07016589681893176
     KinematicCuts:
-      - HornCurrent: [0.5, 1.5]
       - TrueNeutrinoEnergy: [5.0, 7.0]
     NeutrinoFlavourUnosc: [14]
 
