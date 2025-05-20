@@ -37,7 +37,7 @@ class SampleHandlerTutorial : public SampleHandlerFD
   void SetupFDMC() override;
   void CalcWeightFunc(int iEvent) override {return; (void)iEvent;}
 
-  TutorialMCInfo TutorialSamples;
+  std::vector<TutorialMCInfo> TutorialSamples;
 
   const std::unordered_map<std::string, int> KinematicParametersTutorial = {
     {"TrueNeutrinoEnergy", kTrueNeutrinoEnergy},
