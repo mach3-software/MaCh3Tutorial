@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1747679790976,
+  "lastUpdate": 1747915585785,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -5983,6 +5983,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 428.824,
             "range": "± 5.5156",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "36967264+yash-quark@users.noreply.github.com",
+            "name": "Yashwanth S Prabhu",
+            "username": "yash-quark"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "66a1b84b88429cd18c7fd91cb3d5592debf124cb",
+          "message": "Merge pull request #474 from mach3-software/tidy/UpdateLoggerMessage\n\ntidy: Minor update to logger message",
+          "timestamp": "2025-05-22T21:01:35+09:00",
+          "tree_id": "442abb2552824a686104f37f1db683c2fca748ba",
+          "url": "https://github.com/mach3-software/MaCh3/commit/66a1b84b88429cd18c7fd91cb3d5592debf124cb"
+        },
+        "date": 1747915584176,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 3.25685,
+            "range": "± 59.5003",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 3.21692,
+            "range": "± 249.077",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 434.342,
+            "range": "± 4.81309",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
