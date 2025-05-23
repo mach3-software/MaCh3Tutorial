@@ -140,7 +140,7 @@ int main(int argc, char *argv[])
 ////////////// Now PCA //////////////
   MACH3LOG_INFO("Testing PCA matrix");
   ParameterMatrixFile = {TutorialPath + "/TutorialConfigs/CovObjs/PCATest.yaml"};
-  auto PCA = std::make_shared<ParameterHandlerGeneric>(ParameterMatrixFile, "xsec_cov", 0.001);
+  auto PCA = std::make_unique<ParameterHandlerGeneric>(ParameterMatrixFile, "xsec_cov", 0.001);
   std::vector<double>  EigenVal = PCA->GetPCAHandler()->GetEigenValuesMaster();
   for(size_t i = 0; i < EigenVal.size(); i++) {
     outFile << "Eigen Value " << i << " = " << EigenVal[i] << std::endl;
