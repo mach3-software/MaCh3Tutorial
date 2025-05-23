@@ -20,6 +20,14 @@ void SharedNuOscTest(const std::string& config, ParameterHandlerGeneric* xsec, P
   delete Sample2;
 }
 
+void NoSplinesNoOscTest(const std::string& config){
+  MACH3LOG_INFO("Utilising a shared NuOscillator object between all atmospheric samples");
+  std::string TutorialPath = std::getenv("MaCh3Tutorial_ROOT");
+  std::vector<std::string> ParameterMatrixFile = {TutorialPath + "/TutorialConfigs/CovObjs/PCATest.yaml"};
+  auto xsec = std::make_unique<ParameterHandlerGeneric>(ParameterMatrixFile, "xsec_cov");
+  auto Sample = std::make_unique<SampleHandlerTutorial>(config, xsec.get());
+}
+
 int main(int argc, char *argv[])
 {
   SetMaCh3LoggerFormat();
@@ -90,6 +98,7 @@ int main(int argc, char *argv[])
   }
 
   SharedNuOscTest(SampleConfig.back(), xsec, osc);
+  NoSplinesNoOscTest(SampleConfig.back());
 
   delete xsec;
   delete osc;
