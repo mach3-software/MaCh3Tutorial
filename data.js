@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1748009428272,
+  "lastUpdate": 1748014350341,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -6253,6 +6253,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 489.489,
             "range": "± 18.4206",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "ewan.miller@kcl.ac.uk",
+            "name": "Ewan Miller",
+            "username": "ewanwm"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "19c1544107c70c542a5f543007b608b0c6f8ed7d",
+          "message": "Merge pull request #475 from mach3-software/fix/make-GetPostFitParamPlots-work\n\nbugfix: Make GetPostFitParamPlots app work again",
+          "timestamp": "2025-05-23T17:27:45+02:00",
+          "tree_id": "87c01ee57b195fe05ae5ae41c62673447680a43a",
+          "url": "https://github.com/mach3-software/MaCh3/commit/19c1544107c70c542a5f543007b608b0c6f8ed7d"
+        },
+        "date": 1748014348541,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 3.1884,
+            "range": "± 80.4562",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 3.08868,
+            "range": "± 90.1789",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 432.915,
+            "range": "± 5.69853",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
