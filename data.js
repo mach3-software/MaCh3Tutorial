@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1748008468902,
+  "lastUpdate": 1748009349566,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -6118,6 +6118,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 443.112,
             "range": "± 9.6348",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "4fcbe218e8cde9a1c22a361267651327f17dd77c",
+          "message": "Merge pull request #469 from mach3-software/tidy/kskwarczynski/FitterTidy\n\ntidy: PSO and Minutit classes",
+          "timestamp": "2025-05-23T23:04:18+09:00",
+          "tree_id": "4f2d59ec4f4f9afcc6e921074eec8d4c0b225069",
+          "url": "https://github.com/mach3-software/MaCh3/commit/4fcbe218e8cde9a1c22a361267651327f17dd77c"
+        },
+        "date": 1748009347775,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 3.26028,
+            "range": "± 108.304",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 3.15526,
+            "range": "± 92.858",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 434.513,
+            "range": "± 9.91477",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
