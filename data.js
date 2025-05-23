@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1748009410578,
+  "lastUpdate": 1748009428272,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -6208,6 +6208,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 436.149,
             "range": "± 5.1242",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "c83b9348df921d0d4afd0c8441aa11dd2f021072",
+          "message": "Merge pull request #470 from mach3-software/feature/kskwarczynski/NormParamSanity\n\ntidy: Check Norms can't go below 0",
+          "timestamp": "2025-05-23T23:04:56+09:00",
+          "tree_id": "cb922b87510becd02474bbc789a59c7d66d4e6a2",
+          "url": "https://github.com/mach3-software/MaCh3/commit/c83b9348df921d0d4afd0c8441aa11dd2f021072"
+        },
+        "date": 1748009426468,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 4.45371,
+            "range": "± 398.679",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 3.73813,
+            "range": "± 331.106",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 489.489,
+            "range": "± 18.4206",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
