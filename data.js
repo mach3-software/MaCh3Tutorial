@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1748008421704,
+  "lastUpdate": 1748008468902,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -6073,6 +6073,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 440.515,
             "range": "± 3.7656",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "188d5558b2e8c5d19ae680be3d12809c5796f3fa",
+          "message": "Merge pull request #471 from mach3-software/tidy/kskwarczynski/RemoveDuplicates\n\ntidy: Remove Code duplicates related to LLH scan",
+          "timestamp": "2025-05-23T22:49:29+09:00",
+          "tree_id": "afbab251311b86697385adc0516bcd242055b93e",
+          "url": "https://github.com/mach3-software/MaCh3/commit/188d5558b2e8c5d19ae680be3d12809c5796f3fa"
+        },
+        "date": 1748008467254,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 3.27133,
+            "range": "± 85.8242",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 3.19242,
+            "range": "± 118.924",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 443.112,
+            "range": "± 9.6348",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
