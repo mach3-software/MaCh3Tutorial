@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1748009349566,
+  "lastUpdate": 1748009410578,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -6163,6 +6163,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 434.513,
             "range": "± 9.91477",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "3aa355f02c61699fc5da3d08e09a3d29ad9564d9",
+          "message": "Merge pull request #473 from mach3-software/tidy/kskwarczynski/PCAtweaks\n\ntidy: PCA Handler reniaming and update",
+          "timestamp": "2025-05-23T23:05:29+09:00",
+          "tree_id": "6c796442b4460ab1005d57556f8944b995e6fcc9",
+          "url": "https://github.com/mach3-software/MaCh3/commit/3aa355f02c61699fc5da3d08e09a3d29ad9564d9"
+        },
+        "date": 1748009408915,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 3.41688,
+            "range": "± 86.7731",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 3.28599,
+            "range": "± 64.0383",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 436.149,
+            "range": "± 5.1242",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
