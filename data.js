@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1747915585785,
+  "lastUpdate": 1748008421704,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -6028,6 +6028,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 434.342,
             "range": "± 4.81309",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "4fea9b34228fed64bb5d2bb3bb7f7f4bddfad4d4",
+          "message": "Merge pull request #472 from mach3-software/feature/kskwarczynski/AdaptPCA\n\ntidy: Do not allow adpation and PCA",
+          "timestamp": "2025-05-23T22:48:43+09:00",
+          "tree_id": "0267a20597ad64c1a7b6b4b54c0d14bd87214bba",
+          "url": "https://github.com/mach3-software/MaCh3/commit/4fea9b34228fed64bb5d2bb3bb7f7f4bddfad4d4"
+        },
+        "date": 1748008419969,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 3.32065,
+            "range": "± 72.8924",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 3.68324,
+            "range": "± 2.50138",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 440.515,
+            "range": "± 3.7656",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
