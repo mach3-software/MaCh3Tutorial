@@ -100,6 +100,25 @@ Output should look like file below, and it convey same information as individual
 
 <img width="350" alt="Posterior example" src="https://github.com/user-attachments/assets/27e3e4c8-629e-4c05-ac64-f6a7bec85331">
 
+#### Correlation Matrix Plotting
+If you have run **ProcessMCMC** with option "PlotCorr" you will have in output correlation matrix. 
+This is a handy tool for viewing how correlated parameters are. However mature analyses with hundreds of parameters may run into the problem of having too large plots.
+To plot only a subset of parameters we recommend using **MatrixPlotter**.
+```bash
+bin/MatrixPlotter bin/TutorialDiagConfig.yaml Test_drawCorr.root
+```
+Within MatrixPlot.pdf you should see a plot like this.
+<img width="350" alt="Posterior example" src="https://github.com/user-attachments/assets/14471069-27e7-4ea3-9d75-232615aa246a">
+In this example, you can see only two parameters. Using TutorialDiagConfig.yaml you can easily modify it either by adding more Titles, or more parameters.
+
+```yaml
+MatrixPlotter:
+  Titles: [
+    "Norm",
+  ]
+  Norm: ["Norm_Param_0", "Norm_Param_1", "BinnedSplineParam1",
+  ]
+```
 ## How to Develop Model of Systematic Uncertainties
 In the next step you gonna modify analysis setup and repeat steps.
 First let's better understand `TutorialConfigs/CovObjs/SystematicModel.yaml`. This config controls what systematic uncertainties will be used in the analysis for example like this:
