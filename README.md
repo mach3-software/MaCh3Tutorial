@@ -101,7 +101,7 @@ Output should look like file below, and it convey same information as individual
 <img width="350" alt="Posterior example" src="https://github.com/user-attachments/assets/27e3e4c8-629e-4c05-ac64-f6a7bec85331">
 
 #### Correlation Matrix Plotting
-If you have run **ProcessMCMC** with option "PlotCorr" you will have in output correlation matrix. 
+If you have run **ProcessMCMC** with option "PlotCorr" you will have in output correlation matrix.
 This is a handy tool for viewing how correlated parameters are. However mature analyses with hundreds of parameters may run into the problem of having too large plots.
 To plot only a subset of parameters we recommend using **MatrixPlotter**.
 ```bash
