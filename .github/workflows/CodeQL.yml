@@ -4,7 +4,7 @@ name: "CodeQL C++ Analysis"
 
 on:
   schedule:
-    - cron: '0 0 * * 0' # Every Sunday at midnight
+    - cron: '0 0 * * 1' # KS: Every Monday at midnight to not disturb during weekend...
 
 jobs:
   analyze:
