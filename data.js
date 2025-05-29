@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1748511707546,
+  "lastUpdate": 1748515271671,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -6433,6 +6433,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 433.797,
             "range": "± 3.75444",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "1f23a3a437b4762c9c7b790693194c0bf2ab7107",
+          "message": "Merge pull request #479 from mach3-software/feature/kskwarczynski/CmakeGraph\n\nfeat: Weekly Cmake Dependancy Graph",
+          "timestamp": "2025-05-29T19:36:32+09:00",
+          "tree_id": "906ee2756026432d7b5186539ca28f3b0a899257",
+          "url": "https://github.com/mach3-software/MaCh3/commit/1f23a3a437b4762c9c7b790693194c0bf2ab7107"
+        },
+        "date": 1748515270065,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 3.26336,
+            "range": "± 285.192",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 3.17126,
+            "range": "± 90.4216",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 435.348,
+            "range": "± 5.31681",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
