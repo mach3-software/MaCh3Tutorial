@@ -1,3 +1,0 @@
-# requirements for running python tests
-
-pytest
