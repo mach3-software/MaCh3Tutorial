@@ -33,6 +33,7 @@ jobs:
           - title: MaCh3_ATMFD_Profile
             app: MCMCTutorial
             args: TutorialConfigs/FitterConfig.yaml --override OverideConfig.yaml
+            SampleName: SampleHandler_Tutorial_ATM.yaml
             outpath: /opt/Profiling/
             NSteps: 1000
 
