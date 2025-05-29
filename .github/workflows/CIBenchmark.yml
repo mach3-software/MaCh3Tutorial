@@ -1,0 +1,95 @@
+# Performs weekly performance regression
+name: Weekly Profiler
+
+# The events that trigger the workflow
+on:
+  schedule:
+    - cron: '0 0 * * 1' # KS: Every Monday at midnight
+  push:
+    branches:
+      - feature/kskwarczynski/MoreBots
+
+permissions:
+  contents: write
+  packages: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    name: Weekly Profiler
+
+    strategy:
+      fail-fast: false  # KS: Prevents cancellation of remaining jobs if one fails
+      matrix:
+        include:
+          - title: MaCh3_BeamFD_Profile
+            app: MCMCTutorial
+            args: TutorialConfigs/FitterConfig.yaml --override OverideConfig.yaml
+            outpath: /opt/Profiling/
+            SampleName: SampleHandler_Tutorial.yaml
+            NSteps: 10000
+
+          - title: MaCh3_ATMFD_Profile
+            app: MCMCTutorial
+            args: TutorialConfigs/FitterConfig.yaml --override OverideConfig.yaml
+            outpath: /opt/Profiling/
+            NSteps: 1000
+
+    container:
+      image: ghcr.io/mach3-software/mach3:alma9v1.3.0
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install gperftools
+        run: |
+          dnf install -y epel-release
+          dnf install -y gperftools
+          mkdir -p ${{ matrix.outpath }}
+
+      - name: Build Code
+        run: |
+          mkdir build
+          cd build
+          cmake ../ -DMaCh3Tutorial_PROFILING_ENABLED=TRUE
+          make -j4 install
+
+      - name: Run Profiling
+        run: |
+          cd build
+          source bin/setup.MaCh3.sh
+          source bin/setup.MaCh3Tutorial.sh
+
+          export CPUPROFILE=${{ matrix.outpath }}/MaCh3Tutorial
+
+          cat > OverideConfig.yaml <<EOF
+General:
+  TutorialSamples: ["TutorialConfigs/Samples/${{ matrix.SampleName }}"]
+MCMC:
+  NSteps: ${{ matrix.NSteps }}
+EOF
+
+          bin/${{ matrix.app }} ${{ matrix.args }}
+
+      - name: Produce PDF Plot
+        run: |
+          cd build
+          source bin/setup.MaCh3.sh
+          source bin/setup.MaCh3Tutorial.sh
+
+          pprof ./bin/MCMCTutorial ${{ matrix.outpath }}/MaCh3Tutorial --focus="RunMCMC" --pdf > ${{ matrix.outpath }}/${{ matrix.title }}.pdf
+
+      - name: Push Plot to gh-benchmarks Branch
+        run: |
+          git clone https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/mach3-software/MaCh3Tutorial.git Plot
+          cd Plot
+          git checkout gh-benchmarks
+          mv ${{ matrix.outpath }}/${{ matrix.title }}.pdf .
+
+          git config --global user.email "github-actions@github.com"
+          git config --global user.name "github-actions"
+          git add ${{ matrix.title }}.pdf
+          git commit -m "Update ${{ matrix.title }}" || echo "No changes to commit"
+          git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/mach3-software/MaCh3Tutorial.git gh-benchmarks
