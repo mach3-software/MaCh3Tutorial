@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1748515271671,
+  "lastUpdate": 1748525114236,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -6478,6 +6478,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 435.348,
             "range": "± 5.31681",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "ceed5e8044a7d53c62f1977fbc6e0dbe7d63753a",
+          "message": "Merge pull request #483 from mach3-software/tidy/kskwarczynski/PCAstuff\n\ntidy: Move remaining PCA Variables",
+          "timestamp": "2025-05-29T22:20:16+09:00",
+          "tree_id": "df27e23bb4f77617e7e546f0d00bc66374d27a59",
+          "url": "https://github.com/mach3-software/MaCh3/commit/ceed5e8044a7d53c62f1977fbc6e0dbe7d63753a"
+        },
+        "date": 1748525111918,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 3.11681,
+            "range": "± 60.1179",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 3.35538,
+            "range": "± 1.70379",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 437.065,
+            "range": "± 3.32123",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
