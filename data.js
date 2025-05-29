@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1748510658558,
+  "lastUpdate": 1748511707546,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -6388,6 +6388,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 435.789,
             "range": "± 3.63701",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "2e391e525b8d28304706ca198970e331624d9233",
+          "message": "Merge pull request #478 from mach3-software/bugfix/kskwarczynski/FixGPUCompilationFlags\n\nbugfix: No more GPU compilation warnings",
+          "timestamp": "2025-05-29T18:36:58+09:00",
+          "tree_id": "941f978191f1f83ed03edcc66add59d398117630",
+          "url": "https://github.com/mach3-software/MaCh3/commit/2e391e525b8d28304706ca198970e331624d9233"
+        },
+        "date": 1748511705830,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 3.20284,
+            "range": "± 50.257",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 3.07808,
+            "range": "± 56.382",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 433.797,
+            "range": "± 3.75444",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
