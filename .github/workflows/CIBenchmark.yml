@@ -65,11 +65,11 @@ jobs:
           export CPUPROFILE=${{ matrix.outpath }}/MaCh3Tutorial
 
           cat > OverideConfig.yaml <<EOF
-General:
-  TutorialSamples: ["TutorialConfigs/Samples/${{ matrix.SampleName }}"]
-MCMC:
-  NSteps: ${{ matrix.NSteps }}
-EOF
+          General:
+            TutorialSamples: ["TutorialConfigs/Samples/${{ matrix.SampleName }}"]
+            MCMC:
+                NSteps: ${{ matrix.NSteps }}
+          EOF
 
           bin/${{ matrix.app }} ${{ matrix.args }}
 
