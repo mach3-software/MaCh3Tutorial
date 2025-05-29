@@ -158,6 +158,19 @@ int main(int argc, char *argv[])
     outFile << "Param in PCA base: " << i << " = " << PCA->GetPCAHandler()->GetParCurrPCA(i) << std::endl;
   }
 
+  TMatrixD EigenVectors = PCA->GetPCAHandler()->GetEigenVectors();
+  for (int i = 0; i < EigenVectors.GetNrows(); ++i) {
+    for (int j = 0; j < EigenVectors.GetNcols(); ++j) {
+      outFile << "Eigen Vectors: " << i << ", " << j << " = " << EigenVectors(i, j) << std::endl;
+    }
+  }
+
+  TMatrixD TransferMatrix = PCA->GetPCAHandler()->GetTransferMatrix();
+  for (int i = 0; i < TransferMatrix.GetNrows(); ++i) {
+    for (int j = 0; j < TransferMatrix.GetNcols(); ++j) {
+      outFile << "Transfer Matrix: " << i << ", " << j << " = " << TransferMatrix(i, j) << std::endl;
+    }
+  }
 ////////////// Now Osc //////////////
   std::vector<std::string> OscCovMatrixFile = {TutorialPath + "/TutorialConfigs/CovObjs/OscillationModel.yaml"};
   auto osc = std::make_unique<ParameterHandlerOsc>(OscCovMatrixFile, "osc_cov");
