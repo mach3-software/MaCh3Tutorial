@@ -5,9 +5,6 @@ name: Weekly Profiler
 on:
   schedule:
     - cron: '0 0 * * 1' # KS: Every Monday at midnight
-  push:
-    branches:
-      - feature/kskwarczynski/MoreBots
 
 permissions:
   contents: write
