@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1748426094033,
+  "lastUpdate": 1748510658558,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -6343,6 +6343,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 435.28,
             "range": "± 5.24757",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "431884ac26c4847e616a08db7ddc7fa5aba56ba9",
+          "message": "Merge pull request #484 from mach3-software/tidy/yprabhu/MoreLoggerCleanup\n\ntidy: Update leftover GetName to GetTitle in data histogram handling",
+          "timestamp": "2025-05-29T18:19:19+09:00",
+          "tree_id": "6a66d64b409baaa526865ef0b7345a263aec9dd4",
+          "url": "https://github.com/mach3-software/MaCh3/commit/431884ac26c4847e616a08db7ddc7fa5aba56ba9"
+        },
+        "date": 1748510656621,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 3.29677,
+            "range": "± 72.0606",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 3.43638,
+            "range": "± 1.71169",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 435.789,
+            "range": "± 3.63701",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
