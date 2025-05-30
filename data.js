@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1748606564875,
+  "lastUpdate": 1748621572323,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -6568,6 +6568,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 428.394,
             "range": "± 2.96334",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "a4088140038064d65b8795fa6a5d00d9ec0db5bd",
+          "message": "Merge pull request #477 from mach3-software/bugfix/kskwarczynski/FixToROOTio\n\nbugfix: Improve Cachins Steps for Correlation calcautions",
+          "timestamp": "2025-05-31T01:08:09+09:00",
+          "tree_id": "2cd94daaa0eb7d6e80916c79c504142de8cd23ea",
+          "url": "https://github.com/mach3-software/MaCh3/commit/a4088140038064d65b8795fa6a5d00d9ec0db5bd"
+        },
+        "date": 1748621570569,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 3.06463,
+            "range": "± 60.8838",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 3.00005,
+            "range": "± 373.902",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 428.684,
+            "range": "± 2.41696",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
