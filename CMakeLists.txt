@@ -63,7 +63,7 @@ if(NOT DEFINED MaCh3_Branch)
 endif()
 
 #If MaCh3 was sourced find it, otherwise use CPM
-#find_package(MaCh3 EXACT ${MaCh3Tutorial_VERSION})
+find_package(MaCh3 EXACT ${MaCh3Tutorial_VERSION})
 
 if(NOT MaCh3_FOUND)
   message(STATUS "MaCh3 is not found locally!")

@@ -30,4 +30,13 @@ struct TutorialMCInfo {
   std::vector<double> TrueCosZenith;
   /// Lepton energy
   std::vector<double> ELep;
+
+  // === JM Particle-level kinematic parameters ===
+  /// particle energy
+  std::vector<std::vector<double>> particle_energy;
+  /// particle pdg
+  std::vector<std::vector<double>> particle_pdg;
+  /// particle angle to beam
+  std::vector<std::vector<double>> particle_beamangle;
+  // ==============================================
 };

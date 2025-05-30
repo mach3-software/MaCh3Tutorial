@@ -8,6 +8,11 @@ SampleHandlerTutorial::SampleHandlerTutorial(const std::string& config_name, Par
   KinematicParameters = &KinematicParametersTutorial;
   ReversedKinematicParameters = &ReversedKinematicParametersTutorial;
 
+  // === JM assign kinematic vector maps ===
+  KinematicVectors = &KinematicVectorsTutorial;
+  ReversedKinematicVectors = &ReversedKinematicVectorsTutorial;
+  // =======================================
+
   isATM = false;
   Initialise();
 }
@@ -127,6 +132,12 @@ int SampleHandlerTutorial::SetupExperimentMC() {
   tutobj->nutype.resize(nEntries);
   tutobj->oscnutype.resize(nEntries);
 
+  // === JM resize particle-level vectors ===
+  tutobj->particle_energy.resize(nEntries);
+  tutobj->particle_pdg.resize(nEntries);
+  tutobj->particle_beamangle.resize(nEntries);
+  // ========================================
+
   int TotalEventCounter = 0.;
   for(int iChannel = 0 ; iChannel < static_cast<int>(OscChannels.size()); iChannel++) {
 
@@ -195,8 +206,25 @@ int SampleHandlerTutorial::SetupExperimentMC() {
     */
 
     _data->GetEntry(0);
+    std::random_device rd;
+    std::mt19937 gen(rd());
+    std::uniform_int_distribution<> unif(0,3);
+    std::normal_distribution<> mu_angle(0,M_PI/8);
+    std::normal_distribution<> pi_angle(0,M_PI/2);
+    std::uniform_real_distribution<> nucl_angle(-M_PI,M_PI);
+    std::exponential_distribution<> pi_energy(1./0.5);
+    std::exponential_distribution<> nucl_energy(1./2);
+
     for (int i = 0; i < nEntries; ++i) { // Loop through tree
       _data->GetEntry(i);
+      
+      // === JM resize particle-level vectors ===
+      // JM: We don't have particle-level info in the tutorial sample, so will fake it
+      int nParticles = static_cast<int>(Enu_true+3); //fake number of particles in event
+      tutobj->particle_energy[TotalEventCounter].resize(nParticles);
+      tutobj->particle_pdg[TotalEventCounter].resize(nParticles);
+      tutobj->particle_beamangle[TotalEventCounter].resize(nParticles);
+      // ========================================
 
       tutobj->TrueEnu[TotalEventCounter] = Enu_true;
       // HH: We don't have Erec in the tutorial sample, so we set it to the true energy
@@ -219,6 +247,52 @@ int SampleHandlerTutorial::SetupExperimentMC() {
       if(isATM) {
         tutobj->TrueCosZenith[TotalEventCounter] = trueCZ;
       }
+
+      // === JM loop through particles in event ===
+      for (int iParticle = 0; iParticle < nParticles; ++iParticle) {
+        //JM: No particle-level data in sample, so fake it
+        if (iParticle==0) {
+          if (ELep >= Enu_true) MACH3LOG_ERROR("ELep ({} GeV) > Enu ({} GeV)", ELep, Enu_true);
+          tutobj->particle_pdg[TotalEventCounter][iParticle] = PDGLep;
+          tutobj->particle_energy[TotalEventCounter][iParticle] = ELep;
+          tutobj->particle_beamangle[TotalEventCounter][iParticle] = mu_angle(gen);
+        }
+        else {
+          int particle_seed = unif(gen);
+          double angle, energy;
+          int pdg;
+          switch (particle_seed) {
+            case 0: 
+              pdg = 211;
+              energy = pi_energy(gen);
+              angle = pi_angle(gen);
+              while (angle>M_PI || angle<-M_PI) angle = pi_angle(gen);
+              break;
+            case 1:
+              pdg = -211;
+              energy = pi_energy(gen);
+              angle = pi_angle(gen);
+              while (angle>M_PI || angle<-M_PI) angle = pi_angle(gen);
+              break;
+            case 2: 
+              pdg = 2212;
+              energy = nucl_energy(gen);
+              angle = nucl_angle(gen);
+              break;
+            case 3:
+              pdg = 2112;
+              energy = nucl_energy(gen);
+              angle = nucl_angle(gen);
+              break;
+            default:
+              break;
+          }
+          tutobj->particle_energy[TotalEventCounter][iParticle] = energy;
+          tutobj->particle_beamangle[TotalEventCounter][iParticle] = angle;
+          tutobj->particle_pdg[TotalEventCounter][iParticle] = pdg;
+        }
+      }
+      // ==========================================
       TotalEventCounter++;
     }
     _sampleFile->Close();
@@ -242,6 +316,32 @@ double SampleHandlerTutorial::ReturnKinematicParameter(std::string KinematicPara
   KinematicTypes KinPar = static_cast<KinematicTypes>(ReturnKinematicParameterFromString(KinematicParameter));
   return ReturnKinematicParameter(KinPar, iEvent);
 }
+
+// === JM Define ReturnKinematicVector functions === 
+std::vector<double> SampleHandlerTutorial::ReturnKinematicVector(KinematicParticleVecs KinVec, int iEvent) {
+  switch (KinVec) {
+    case kParticleEnergy:
+      return TutorialSamples.particle_energy[iEvent];
+    case kParticlePDG:
+      return TutorialSamples.particle_pdg[iEvent];
+    case kParticleBeamAngle:
+      return TutorialSamples.particle_beamangle[iEvent];
+    default:
+      MACH3LOG_ERROR("Unrecognized Kinematic Vector: {}", static_cast<int>(KinVec));
+      throw MaCh3Exception(__FILE__, __LINE__);
+  }
+}
+
+std::vector<double> SampleHandlerTutorial::ReturnKinematicVector(int KinematicVector, int iEvent) {
+  KinematicParticleVecs KinVec = static_cast<KinematicParticleVecs>(std::round(KinematicVector));
+  return ReturnKinematicVector(KinVec, iEvent);
+}
+
+std::vector<double> SampleHandlerTutorial::ReturnKinematicVector(std::string KinematicVector, int iEvent) {
+  KinematicParticleVecs KinVec = static_cast<KinematicParticleVecs>(ReturnKinematicVectorFromString(KinematicVector));
+  return ReturnKinematicVector(KinVec, iEvent);
+}
+// =================================================
 
 const double* SampleHandlerTutorial::GetPointerToKinematicParameter(KinematicTypes KinPar, int iEvent) {
   switch (KinPar) {
@@ -273,7 +373,7 @@ const double* SampleHandlerTutorial::GetPointerToKinematicParameter(std::string 
 void SampleHandlerTutorial::SetupFDMC() {
   TutorialMCInfo *tutobj = &(TutorialSamples);
   auto &fdobj = MCSamples;
-  
+
   for(unsigned int iEvent = 0 ;iEvent < GetNEvents(); ++iEvent) {
     fdobj.rw_etru[iEvent] = &(tutobj->TrueEnu[iEvent]);
     fdobj.mode[iEvent] = &(tutobj->Mode[iEvent]);
@@ -312,6 +412,43 @@ std::vector<double> SampleHandlerTutorial::ReturnKinematicParameterBinning(std::
 
   for(int bin_i = 0 ; bin_i < nBins ; bin_i++){
     binningVector.push_back(bin_i*bin_width);
+  }
+
+  return binningVector;
+}
+std::vector<double> SampleHandlerTutorial::ReturnKinematicVectorBinning(std::string KinematicVectorStr) {
+  std::vector<double> binningVector;
+  KinematicParticleVecs KinematicVector = static_cast<KinematicParticleVecs>(ReturnKinematicVectorFromString(KinematicVectorStr));
+
+  int nBins = 0;
+  double bin_start = 0;
+  double bin_end = 0;
+
+  switch(KinematicVector){
+    case(kParticleEnergy):
+      nBins = 20;
+      bin_start = 0;
+      bin_end = 6;
+      break;
+    case(kParticlePDG):
+      nBins = 100;
+      bin_start = -2000;
+      bin_end = 2000;
+      break;
+    case(kParticleBeamAngle):
+      nBins = 20;
+      bin_start = -M_PI;
+      bin_end = M_PI;
+      break;
+    default:
+      MACH3LOG_ERROR("Binning for {} not found", KinematicVectorStr);
+      throw MaCh3Exception(__FILE__,__LINE__);
+      break;
+  }
+  double step = (bin_end - bin_start)/nBins;
+
+  for(double bin_i = bin_start; bin_i <= bin_end; bin_i+=step){
+    binningVector.push_back(bin_i);
   }
 
   return binningVector;
