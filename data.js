@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1748626697563,
+  "lastUpdate": 1748627775971,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -6703,6 +6703,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 430.645,
             "range": "± 3.71034",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "f7da9287e8425890cc8377c558e0448dd103ddef",
+          "message": "Merge pull request #468 from mach3-software/feature/kskwarczynski/struct\n\ntidy: Split Structs",
+          "timestamp": "2025-05-31T02:51:23+09:00",
+          "tree_id": "549f40086dcdff7edab07ba4162fa55f069de827",
+          "url": "https://github.com/mach3-software/MaCh3/commit/f7da9287e8425890cc8377c558e0448dd103ddef"
+        },
+        "date": 1748627773702,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 3.43445,
+            "range": "± 780.893",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 3.31865,
+            "range": "± 365.447",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 428.398,
+            "range": "± 3.09884",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
