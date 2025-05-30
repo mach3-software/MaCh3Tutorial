@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1748621572323,
+  "lastUpdate": 1748622150721,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -6613,6 +6613,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 428.684,
             "range": "± 2.41696",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "31ecfa5ae4c8a16aaed34a9dcd71fcc6f962f1d0",
+          "message": "Merge pull request #486 from mach3-software/tidy/kskwarczynski/CovarianceTidy\n\ntidy: Moving Helpers from CovBase to Utils",
+          "timestamp": "2025-05-31T01:17:40+09:00",
+          "tree_id": "7bbce8460a2e8ee0b17e4ff965d2578343d4be9e",
+          "url": "https://github.com/mach3-software/MaCh3/commit/31ecfa5ae4c8a16aaed34a9dcd71fcc6f962f1d0"
+        },
+        "date": 1748622148859,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 3.15363,
+            "range": "± 62.8571",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 3.0455,
+            "range": "± 58.3602",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 435.552,
+            "range": "± 4.26976",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
