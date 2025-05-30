@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1748622150721,
+  "lastUpdate": 1748626697563,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -6658,6 +6658,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 435.552,
             "range": "± 4.26976",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "c184d17bd5b35ec5e34341e4d66ce9720176b2be",
+          "message": "Merge pull request #480 from mach3-software/feature/kskwarczynski/FromGroupVariables\n\nfeat: Expand usage of Param Group",
+          "timestamp": "2025-05-31T02:33:35+09:00",
+          "tree_id": "a229a74e3dab66e6e955cd2067a76a6a377791e1",
+          "url": "https://github.com/mach3-software/MaCh3/commit/c184d17bd5b35ec5e34341e4d66ce9720176b2be"
+        },
+        "date": 1748626695893,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 3.08089,
+            "range": "± 58.1359",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 3.02045,
+            "range": "± 47.3357",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 430.645,
+            "range": "± 3.71034",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
