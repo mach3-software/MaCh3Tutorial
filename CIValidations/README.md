@@ -1,13 +1,16 @@
 # CIValidations
 
 ## CovarianceValidations
-* testing LLH for cov xsc and osc
-* checking PCA initialisation and eigen values etc
-* checking Adaptive initialisation
-* checking if throwing works
-* checking if dumping matrix to root file works
-* checking if DetID operation return same number of params
+* Testing LLH for cov xsc and osc
+* Checking PCA initialisation and eigen values etc
+* Checking PCA with not all paramters being eigen decomposed
+* Checking Adaptive initialisation and mean values
+* Checking if throwing works
+* Checking if dumping matrix to root file works
+* Checking if DetID operation return same number of params
 * Checking if we can reproduce step proposal (fixed Random Number)
+* Checking if tune correctly set values
+* Checking if modifying YAML file with tune or correlation matrix works
 
 ## FitterValidations
 * Running MCMC, MinuitFit, PSO
@@ -31,6 +34,9 @@
 ## pValueValidations
 * Checking if SampleSummary class works
 
+## SigmaVarValidations
+* Checking if Sigma Var works
+
 ## SplineValidations
 * Initialisation of SplineMonolith
 * Checking dumping flat tree works
@@ -43,6 +49,8 @@
 * Dump and compare event weights
 * Dump and compare weight for each event
 * Compare LLH using different test statistics
+* Test shared Oscillator
+* Test Sample PDF without Splines and Oscillator
 
 ## UnitTests
 
