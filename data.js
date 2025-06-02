@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1748856578025,
+  "lastUpdate": 1748857374627,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -6793,6 +6793,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 434.091,
             "range": "± 4.41238",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "f34ac50ad2939d464f18e80075b3072066dbcbef",
+          "message": "Merge pull request #485 from mach3-software/feature/kskwarczynski/MakeSplineResponse\n\nfeat: Response Fucntion Gneration",
+          "timestamp": "2025-06-02T18:38:01+09:00",
+          "tree_id": "1f6771df6f091d994c87075aae9e43654b55f04d",
+          "url": "https://github.com/mach3-software/MaCh3/commit/f34ac50ad2939d464f18e80075b3072066dbcbef"
+        },
+        "date": 1748857372421,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 3.42356,
+            "range": "± 798.359",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 3.33431,
+            "range": "± 833.629",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 437.258,
+            "range": "± 28.7187",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
