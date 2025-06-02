@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1748857374627,
+  "lastUpdate": 1748868822145,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -6838,6 +6838,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 437.258,
             "range": "± 28.7187",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "7d4977d06cb43ba8940b4f46f60e1d1304bfce08",
+          "message": "Merge pull request #490 from mach3-software/hwallace/autocorr_avg\n\nfeat: Average Autocorrelation plotting",
+          "timestamp": "2025-06-02T21:48:51+09:00",
+          "tree_id": "033c3a579a95b8b349d3472157c02a1f62aed857",
+          "url": "https://github.com/mach3-software/MaCh3/commit/7d4977d06cb43ba8940b4f46f60e1d1304bfce08"
+        },
+        "date": 1748868820000,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 3.18213,
+            "range": "± 72.2993",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 3.07425,
+            "range": "± 66.3928",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 435.086,
+            "range": "± 3.73421",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
