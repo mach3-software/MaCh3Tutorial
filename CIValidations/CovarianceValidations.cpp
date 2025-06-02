@@ -43,6 +43,14 @@ void TuneValidations()
   M3::AddTuneValues(Node, TuneValues, Tune, FancyNames);
   M3::MakeCorrelationMatrix(Node, TuneValues, TuneErrors, CorrelationMatrix, FancyNames);
 
+  std::vector<std::string> ParameterMatrixFile = {TutorialPath + "/UpdatedMatrixWithTuneWackyTune.yaml"};
+  auto TuneTestx = std::make_unique<ParameterHandlerGeneric>(ParameterMatrixFile, "xsec_cov");
+
+  //Now we check if Tune works
+  TuneTestx->SetTune("WackyTune");
+
+  ParameterMatrixFile = {TutorialPath + "/UpdatedCorrelationMatrix.yaml"};
+  auto CorrTest = std::make_unique<ParameterHandlerGeneric>(ParameterMatrixFile, "xsec_cov");
 }
 
 int main(int argc, char *argv[])
@@ -156,6 +164,56 @@ int main(int argc, char *argv[])
   outFile << "Num of PCA pars: " << PCA->GetNParameters() << std::endl;
   for(int i = 0; i < PCA->GetNParameters(); i++){
     outFile << "Param in PCA base: " << i << " = " << PCA->GetPCAHandler()->GetParCurrPCA(i) << std::endl;
+  }
+
+  TMatrixD EigenVectors = PCA->GetPCAHandler()->GetEigenVectors();
+  for (int i = 0; i < EigenVectors.GetNrows(); ++i) {
+    for (int j = 0; j < EigenVectors.GetNcols(); ++j) {
+      outFile << "Eigen Vectors: " << i << ", " << j << " = " << EigenVectors(i, j) << std::endl;
+    }
+  }
+
+  TMatrixD TransferMatrix = PCA->GetPCAHandler()->GetTransferMatrix();
+  for (int i = 0; i < TransferMatrix.GetNrows(); ++i) {
+    for (int j = 0; j < TransferMatrix.GetNcols(); ++j) {
+      outFile << "Transfer Matrix: " << i << ", " << j << " = " << TransferMatrix(i, j) << std::endl;
+    }
+  }
+
+////////////// Now PCA with several undecomposed //////////////
+  MACH3LOG_INFO("Testing PCA matrix with undecomposed ");
+  ParameterMatrixFile = {TutorialPath + "/TutorialConfigs/CovObjs/SystematicModel.yaml",
+                        TutorialPath + "/TutorialConfigs/CovObjs/PCATest.yaml"};
+  auto PCA_2 = std::make_unique<ParameterHandlerGeneric>(ParameterMatrixFile, "xsec_cov", 0.01, 10, 19);
+  std::vector<double> EigenVal2 = PCA_2->GetPCAHandler()->GetEigenValuesMaster();
+  for(size_t i = 0; i < EigenVal2.size(); i++) {
+    outFile << "Eigen Value " << i << " = " << EigenVal2[i] << std::endl;
+  }
+
+  TVectorD eigen_values2 = PCA_2->GetPCAHandler()->GetEigenValues();
+  sum = 0;
+  for(int i = 0; i < eigen_values2.GetNrows(); i++){
+    sum += eigen_values2(i);
+  }
+  outFile << "PCA_2 Sum of Eigen Value: " << sum << std::endl;
+
+  outFile << "Num of PCA_2 pars: " << PCA_2->GetNParameters() << std::endl;
+  for(int i = 0; i < PCA_2->GetNParameters(); i++){
+    outFile << "Param in PCA_2 base: " << i << " = " << PCA_2->GetPCAHandler()->GetParCurrPCA(i) << std::endl;
+  }
+
+  TMatrixD EigenVectors2 = PCA_2->GetPCAHandler()->GetEigenVectors();
+  for (int i = 0; i < EigenVectors2.GetNrows(); ++i) {
+    for (int j = 0; j < EigenVectors2.GetNcols(); ++j) {
+      outFile << "PCA_2 Eigen Vectors: " << i << ", " << j << " = " << EigenVectors2(i, j) << std::endl;
+    }
+  }
+
+  TMatrixD TransferMatrix2 = PCA_2->GetPCAHandler()->GetTransferMatrix();
+  for (int i = 0; i < TransferMatrix2.GetNrows(); ++i) {
+    for (int j = 0; j < TransferMatrix2.GetNcols(); ++j) {
+      outFile << "PCA_2 Transfer Matrix: " << i << ", " << j << " = " << TransferMatrix2(i, j) << std::endl;
+    }
   }
 
 ////////////// Now Osc //////////////
