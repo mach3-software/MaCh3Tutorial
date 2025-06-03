@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1748936370765,
+  "lastUpdate": 1748938962615,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -6973,6 +6973,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 439.476,
             "range": "± 7.68398",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "skwarczynskikamil@gmail.com",
+            "name": "Kamil Skwarczynski",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "skwarczynskikamil@gmail.com",
+            "name": "Kamil Skwarczynski",
+            "username": "KSkwarczynski"
+          },
+          "distinct": true,
+          "id": "ffd24878dc1701646ecd15fa425dedfd17a41d92",
+          "message": "bugfix: Change how utils save correaltion matrix, becasue peviously stupid yaml code wasn't reding them correctly...",
+          "timestamp": "2025-06-03T08:17:51Z",
+          "tree_id": "501ad511e8926a24865dca71f714eca684290263",
+          "url": "https://github.com/mach3-software/MaCh3/commit/ffd24878dc1701646ecd15fa425dedfd17a41d92"
+        },
+        "date": 1748938960847,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 3.34167,
+            "range": "± 62.2474",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 3.20915,
+            "range": "± 58.941",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 434.13,
+            "range": "± 4.0851",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
