@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1748935265315,
+  "lastUpdate": 1748936370765,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -6928,6 +6928,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 432.11,
             "range": "± 4.02127",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "e815c6e1d234085b1616855f14d942a9c92583f7",
+          "message": "Merge pull request #488 from mach3-software/feature/kskwarczynski/PCAThrowing\n\nfeat: Parameter throwing in PCA",
+          "timestamp": "2025-06-03T16:34:25+09:00",
+          "tree_id": "b5fc8923aa65342f781b1d608bdc2c181a3c4835",
+          "url": "https://github.com/mach3-software/MaCh3/commit/e815c6e1d234085b1616855f14d942a9c92583f7"
+        },
+        "date": 1748936368750,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 3.4999,
+            "range": "± 55.3818",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 3.40229,
+            "range": "± 50.1818",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 439.476,
+            "range": "± 7.68398",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
