@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1748868822145,
+  "lastUpdate": 1748935265315,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -6883,6 +6883,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 435.086,
             "range": "± 3.73421",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "3d1ef28158241602d0c9e6647f9d37c4e5189910",
+          "message": "Merge pull request #491 from mach3-software/feature/kskwarczynski/BREAK\n\nfeat: Use break when doing bin fidning",
+          "timestamp": "2025-06-03T16:16:18+09:00",
+          "tree_id": "67d9b62c1e9144ab7e1f284dba73539da73224d9",
+          "url": "https://github.com/mach3-software/MaCh3/commit/3d1ef28158241602d0c9e6647f9d37c4e5189910"
+        },
+        "date": 1748935263439,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 3.26846,
+            "range": "± 114.183",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 3.10278,
+            "range": "± 104.537",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 432.11,
+            "range": "± 4.02127",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
