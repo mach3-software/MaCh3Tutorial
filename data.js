@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1748938962615,
+  "lastUpdate": 1748946010182,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -7018,6 +7018,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 434.13,
             "range": "± 4.0851",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "7b42a2cbacf5a7ec4d4475ddae1d2d8b6711269f",
+          "message": "Merge pull request #482 from mach3-software/feature/kskwarczynski/CIbuildFromForks\n\nfeat: CI build to work with forks",
+          "timestamp": "2025-06-03T19:15:23+09:00",
+          "tree_id": "4eca64ebba3f8910ec1c981ab71167e8123a55a6",
+          "url": "https://github.com/mach3-software/MaCh3/commit/7b42a2cbacf5a7ec4d4475ddae1d2d8b6711269f"
+        },
+        "date": 1748946008473,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 3.16305,
+            "range": "± 93.9559",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 3.11761,
+            "range": "± 122.615",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 433.685,
+            "range": "± 5.86576",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
