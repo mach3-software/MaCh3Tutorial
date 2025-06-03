@@ -103,7 +103,7 @@ int main(int argc, char **argv) {
       }};
 
       //All particle plot
-      TH1D* Hist = static_cast<TH1D*>(mySamples[iPDF]->Get1DVarHist(vecParticleParams[iParam], true));
+      TH1D* Hist = static_cast<TH1D*>(mySamples[iPDF]->Get1DVarHist(vecParticleParams[iParam]));
 
       Canv->cd(1);
       Hist->SetTitle(vecParticleParams[iParam].c_str());
@@ -113,7 +113,7 @@ int main(int argc, char **argv) {
       delete Hist;
 
       //Pion plot
-      Hist = static_cast<TH1D*>(mySamples[iPDF]->Get1DVarHist(vecParticleParams[iParam], true, pipluscut));
+      Hist = static_cast<TH1D*>(mySamples[iPDF]->Get1DVarHist(vecParticleParams[iParam], pipluscut));
 
       Canv->cd(1);
       Hist->SetTitle(("Pi+_"+vecParticleParams[iParam]).c_str());
@@ -123,7 +123,7 @@ int main(int argc, char **argv) {
       delete Hist;
       
       //Proton plot
-      Hist = static_cast<TH1D*>(mySamples[iPDF]->Get1DVarHist(vecParticleParams[iParam], true, protoncut));
+      Hist = static_cast<TH1D*>(mySamples[iPDF]->Get1DVarHist(vecParticleParams[iParam], protoncut));
 
       Canv->cd(1);
       Hist->SetTitle(("Proton_"+vecParticleParams[iParam]).c_str());
@@ -133,7 +133,7 @@ int main(int argc, char **argv) {
       delete Hist;
       
       //Muon plot
-      Hist = static_cast<TH1D*>(mySamples[iPDF]->Get1DVarHist(vecParticleParams[iParam], true, muoncut));
+      Hist = static_cast<TH1D*>(mySamples[iPDF]->Get1DVarHist(vecParticleParams[iParam], muoncut));
 
       Canv->cd(1);
       Hist->SetTitle(("Muon_"+vecParticleParams[iParam]).c_str());
@@ -143,7 +143,7 @@ int main(int argc, char **argv) {
       delete Hist;
 
       //Muon and enu cut plot
-      Hist = static_cast<TH1D*>(mySamples[iPDF]->Get1DVarHist(vecParticleParams[iParam], true, muon_and_enucut));
+      Hist = static_cast<TH1D*>(mySamples[iPDF]->Get1DVarHist(vecParticleParams[iParam], muon_and_enucut));
 
       Canv->cd(1);
       Hist->SetTitle(("Muon_"+vecParticleParams[iParam]+"_Enu>2GeV").c_str());
@@ -155,7 +155,7 @@ int main(int argc, char **argv) {
     }
   }
   for (size_t iPDF = 0; iPDF < mySamples.size(); iPDF++) {
-    TH2D* Hist = static_cast<TH2D*>(mySamples[iPDF]->Get2DVarHist(vecParticleParams[1],vecParticleParams[0], true));
+    TH2D* Hist = static_cast<TH2D*>(mySamples[iPDF]->Get2DVarHist(vecParticleParams[1],vecParticleParams[0]));
 
     Canv->cd(1);
     Hist->SetTitle((vecParticleParams[1]+" vs "+vecParticleParams[0]).c_str());
