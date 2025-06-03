@@ -17,8 +17,8 @@ Systematics:
       PreFitValue: 0.307
       PostND: 0.307
     StepScale:
-      MCMC: 1.0
-    Type: Osc
+      MCMC: 0.9
+    Type: Oscillation
 
 - Systematic:
     Names:
@@ -29,14 +29,18 @@ Systematics:
     Error: 0.021
     FlatPrior: true
     ParameterBounds: [0, 1]
+    # flip octant around point of maximal disappearance (0.5112)
+    # this ensures we move to a parameter value which has the same oscillation probability
+    SpecialProposal:
+        FlipParameter: 0.5112
     ParameterGroup: Osc
     ParameterValues:
       Generated: 0.546
       PreFitValue: 0.546
       PostND: 0.546
     StepScale:
-      MCMC: 1.0
-    Type: Osc
+      MCMC: 0.9
+    Type: Oscillation
 
 - Systematic:
     Names:
@@ -54,7 +58,7 @@ Systematics:
       PostND: 0.0220
     StepScale:
       MCMC: 5.0
-    Type: Osc
+    Type: Oscillation
 
 - Systematic:
     Names:
@@ -71,8 +75,8 @@ Systematics:
       PreFitValue: 0.0000753
       PostND: 0.0000753
     StepScale:
-      MCMC: 1.0
-    Type: Osc
+      MCMC: 0.9
+    Type: Oscillation
 
 - Systematic:
     Names:
@@ -82,6 +86,8 @@ Systematics:
     SampleNames: ["Tutorial *"]
     Error: 0.000034
     FlatPrior: true
+    SpecialProposal:
+        FlipParameter: 0.
     ParameterBounds: [-999, 999]
     ParameterGroup: Osc
     ParameterValues:
@@ -89,8 +95,8 @@ Systematics:
       PreFitValue: 0.002536
       PostND: 0.002536
     StepScale:
-      MCMC: 1.0
-    Type: Osc
+      MCMC: 0.9
+    Type: Oscillation
 
 - Systematic:
     Names:
@@ -99,6 +105,8 @@ Systematics:
 
     SampleNames: ["Tutorial *"]
     Error: 6.28331122896200340
+    SpecialProposal:
+        CircularBounds: [-3.141592, 3.141592]
     FlatPrior: true
     # It has special treatment as it is continuous param
     ParameterBounds: [-999, 999]
@@ -108,8 +116,8 @@ Systematics:
       PreFitValue: -1.601
       PostND: -1.601
     StepScale:
-      MCMC: 1.0
-    Type: Osc
+      MCMC: 0.9
+    Type: Oscillation
 
 - Systematic:
     Names:
@@ -126,8 +134,8 @@ Systematics:
       PreFitValue: 295
       PostND: 295
     StepScale:
-      MCMC: 1.0
-    Type: Osc
+      MCMC: 0.9
+    Type: Oscillation
 
 - Systematic:
     Names:
@@ -144,8 +152,8 @@ Systematics:
       PreFitValue: 2.6
       PostND: 2.6
     StepScale:
-      MCMC: 1.0
-    Type: Osc
+      MCMC: 0.9
+    Type: Oscillation
 
 - Systematic:
     Names:
@@ -162,8 +170,8 @@ Systematics:
       PreFitValue: 0.5
       PostND: 0.5
     StepScale:
-      MCMC: 1.0
-    Type: Osc
+      MCMC: 0.9
+    Type: Oscillation
 
 - Systematic:
     Names:
@@ -180,5 +188,5 @@ Systematics:
       PreFitValue: 15
       PostND: 15
     StepScale:
-      MCMC: 1.0
-    Type: Osc
+      MCMC: 0.9
+    Type: Oscillation
