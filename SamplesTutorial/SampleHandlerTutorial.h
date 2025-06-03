@@ -21,7 +21,6 @@ class SampleHandlerTutorial : public SampleHandlerFD
   // =============================================
 
   std::vector<double> ReturnKinematicParameterBinning(std::string KinematicParameter) override;
-  std::vector<double> ReturnKinematicVectorBinning(std::string KinematicVector) override;
 
  protected:
   void Init() override;
@@ -41,6 +40,7 @@ class SampleHandlerTutorial : public SampleHandlerFD
   std::vector<double> ReturnKinematicVector(KinematicParticleVecs KinVec, int iEvent);
   std::vector<double> ReturnKinematicVector(int KinematicVector, int iEvent);
   std::vector<double> ReturnKinematicVector(std::string KinematicVector, int iEvent);
+  std::vector<double> ReturnKinematicVectorBinning(std::string KinematicParameter);
   // ===========================================================================
 
   const double* GetPointerToKinematicParameter(KinematicTypes KinPar, int iEvent);
