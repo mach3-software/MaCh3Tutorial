@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1748946010182,
+  "lastUpdate": 1748967116811,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -7063,6 +7063,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 433.685,
             "range": "± 5.86576",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "3dce9ae1bd95fb95ef77824b33e956e2c23ecb07",
+          "message": "Merge pull request #492 from mach3-software/feature/kskwarczynski/BinarySearch\n\nfeat: Binary search bin finding",
+          "timestamp": "2025-06-04T01:07:22+09:00",
+          "tree_id": "b0b8e2ce5e03215ff0a592a6b807625837155bab",
+          "url": "https://github.com/mach3-software/MaCh3/commit/3dce9ae1bd95fb95ef77824b33e956e2c23ecb07"
+        },
+        "date": 1748967115160,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 3.18492,
+            "range": "± 83.5766",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 3.08058,
+            "range": "± 71.3473",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 433.722,
+            "range": "± 5.5568",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
