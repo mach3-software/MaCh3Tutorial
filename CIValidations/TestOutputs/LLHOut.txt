@@ -459,7 +459,7 @@ Dial BinnedSplineParam2 bin = 58 content = 126.035934
 Dial BinnedSplineParam2 bin = 59 content = 161.354120
 Dial BinnedSplineParam2 bin = 60 content = 200.894014
 Dial BinnedSplineParam2 bin = 61 content = 244.615017
-Dial BinnedSplineParam2 bin = 62 content = 292.477193
+Dial BinnedSplineParam2 bin = 62 content = 292.477194
 Dial BinnedSplineParam2 bin = 63 content = 344.441260
 Dial BinnedSplineParam2 bin = 64 content = 400.468567
 Dial BinnedSplineParam2 bin = 65 content = 460.521089
