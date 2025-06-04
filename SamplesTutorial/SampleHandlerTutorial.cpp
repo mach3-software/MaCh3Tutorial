@@ -386,7 +386,7 @@ void SampleHandlerTutorial::SetupFDMC() {
 }
 
 std::vector<double> SampleHandlerTutorial::ReturnKinematicParameterBinning(std::string KinematicParameterStr) {
-  if (IsParticleVarString(KinematicParameterStr)) return ReturnKinematicVectorBinning(KinematicParameterStr);
+  if (IsSubEventVarString(KinematicParameterStr)) return ReturnKinematicVectorBinning(KinematicParameterStr);
 
   std::vector<double> binningVector;
   KinematicTypes KinematicParameter = static_cast<KinematicTypes>(ReturnKinematicParameterFromString(KinematicParameterStr));
