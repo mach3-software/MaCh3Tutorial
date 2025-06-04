@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1748969972002,
+  "lastUpdate": 1749052082804,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -7153,6 +7153,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 438.522,
             "range": "± 3.73066",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "031ba04ae080d90f2b30d6cafb6c0c7c69aadff6",
+          "message": "Merge pull request #496 from mach3-software/feture/kskwkwarczynski/Sanitiser\n\nbreaking: Before fit sanitiser",
+          "timestamp": "2025-06-05T00:43:17+09:00",
+          "tree_id": "53c57cdb945b197ada8cb5790a3a72a96df950a2",
+          "url": "https://github.com/mach3-software/MaCh3/commit/031ba04ae080d90f2b30d6cafb6c0c7c69aadff6"
+        },
+        "date": 1749052080816,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.64336,
+            "range": "± 55.0669",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.56111,
+            "range": "± 73.7829",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 429.875,
+            "range": "± 3.41229",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
