@@ -74,33 +74,10 @@ int main(int argc, char **argv) {
   //JM: Make the plots for particle level parameters
   for (size_t iParam = 0; iParam < vecParticleParams.size(); iParam++) {
     for (size_t iPDF = 0; iPDF < mySamples.size(); iPDF++) {
-      std::vector<KinematicCut> muon_and_enucut = {
-        {
-          mySamples[iPDF]->ReturnKinematicVectorFromString("ParticlePDG"),
-          true,
-          12.5, 13.5
-        },
-        {
-          mySamples[iPDF]->ReturnKinematicParameterFromString("TrueNeutrinoEnergy"),
-          false,
-          2, 100
-        }
-      };
-      std::vector<KinematicCut> muoncut = {{
-        mySamples[iPDF]->ReturnKinematicVectorFromString("ParticlePDG"),
-          true,
-          12.5, 13.5
-      }};
-      std::vector<KinematicCut> pipluscut = {{
-        mySamples[iPDF]->ReturnKinematicVectorFromString("ParticlePDG"),
-          true,
-          210.5, 211.5
-      }};
-      std::vector<KinematicCut> protoncut = {{
-        mySamples[iPDF]->ReturnKinematicVectorFromString("ParticlePDG"),
-          true,
-          2211.5, 2212.5
-      }};
+      std::vector<KinematicCut> enucut = {{mySamples[iPDF]->ReturnKinematicParameterFromString("TrueNeutrinoEnergy"), 2, 100}};
+      std::vector<KinematicCut> muoncut = {{mySamples[iPDF]->ReturnKinematicVectorFromString("ParticlePDG"), 12.5, 13.5}};
+      std::vector<KinematicCut> pipluscut = {{mySamples[iPDF]->ReturnKinematicVectorFromString("ParticlePDG"), 210.5, 211.5}};
+      std::vector<KinematicCut> protoncut = {{mySamples[iPDF]->ReturnKinematicVectorFromString("ParticlePDG"), 2211.5, 2212.5}};
 
       //All particle plot
       TH1D* Hist = static_cast<TH1D*>(mySamples[iPDF]->Get1DVarHist(vecParticleParams[iParam]));
@@ -113,7 +90,7 @@ int main(int argc, char **argv) {
       delete Hist;
 
       //Pion plot
-      Hist = static_cast<TH1D*>(mySamples[iPDF]->Get1DVarHist(vecParticleParams[iParam], pipluscut));
+      Hist = static_cast<TH1D*>(mySamples[iPDF]->Get1DVarHist(vecParticleParams[iParam], {}, pipluscut));
 
       Canv->cd(1);
       Hist->SetTitle(("Pi+_"+vecParticleParams[iParam]).c_str());
@@ -123,7 +100,7 @@ int main(int argc, char **argv) {
       delete Hist;
       
       //Proton plot
-      Hist = static_cast<TH1D*>(mySamples[iPDF]->Get1DVarHist(vecParticleParams[iParam], protoncut));
+      Hist = static_cast<TH1D*>(mySamples[iPDF]->Get1DVarHist(vecParticleParams[iParam], {}, protoncut));
 
       Canv->cd(1);
       Hist->SetTitle(("Proton_"+vecParticleParams[iParam]).c_str());
@@ -133,7 +110,7 @@ int main(int argc, char **argv) {
       delete Hist;
       
       //Muon plot
-      Hist = static_cast<TH1D*>(mySamples[iPDF]->Get1DVarHist(vecParticleParams[iParam], muoncut));
+      Hist = static_cast<TH1D*>(mySamples[iPDF]->Get1DVarHist(vecParticleParams[iParam], {}, muoncut));
 
       Canv->cd(1);
       Hist->SetTitle(("Muon_"+vecParticleParams[iParam]).c_str());
@@ -143,7 +120,7 @@ int main(int argc, char **argv) {
       delete Hist;
 
       //Muon and enu cut plot
-      Hist = static_cast<TH1D*>(mySamples[iPDF]->Get1DVarHist(vecParticleParams[iParam], muon_and_enucut));
+      Hist = static_cast<TH1D*>(mySamples[iPDF]->Get1DVarHist(vecParticleParams[iParam], enucut, muoncut));
 
       Canv->cd(1);
       Hist->SetTitle(("Muon_"+vecParticleParams[iParam]+"_Enu>2GeV").c_str());
