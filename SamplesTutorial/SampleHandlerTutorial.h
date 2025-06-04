@@ -26,6 +26,8 @@ class SampleHandlerTutorial : public SampleHandlerFD
 
   int SetupExperimentMC() override;
 
+  void CleanMemoryBeforeFit() {} override;
+
   double ReturnKinematicParameter(KinematicTypes KinPar, int iEvent);
   double ReturnKinematicParameter(int KinematicVariable, int iEvent);
   double ReturnKinematicParameter(std::string KinematicParameter, int iEvent);
