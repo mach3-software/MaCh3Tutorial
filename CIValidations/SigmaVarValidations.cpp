@@ -87,7 +87,7 @@ class samplePDFSigmaVar : public SampleHandlerTutorial
       BinningY = {-1.0, 0.6, 0.7, 0.8, 0.85, 0.88, 0.9, 0.92, 0.94, 0.96, 0.98, 1.0};
     }
 
-    void CleanMemoryBeforeFit() {} override;
+    void CleanMemoryBeforeFit() override {};
 
     TH1* GetData(const int Selection) override   {return PolyHist[Selection];}
     TH1* GetPDF(const int Selection) override    {return PolyHist[Selection];}
