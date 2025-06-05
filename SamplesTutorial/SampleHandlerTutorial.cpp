@@ -86,7 +86,7 @@ void SampleHandlerTutorial::SetupSplines() {
   SplineHandler = nullptr;
 
   if(ParHandler->GetNumParamsFromSampleName(SampleName, SystType::kSpline) > 0){
-    SplineHandler = std::make_unique<BinnedSplineTutorial>(ParHandler, Modes);
+    SplineHandler = std::make_unique<BinnedSplineTutorial>(ParHandler, Modes.get());
     InitialiseSplineObject();
   } else {
     MACH3LOG_WARN("Not using splines");

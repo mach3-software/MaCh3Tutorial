@@ -55,7 +55,7 @@ int main(int argc, char *argv[])
 
     // Reweight and process prior histogram
     Sample->Reweight();
-    TH1D *SampleHistogramPrior = (TH1D*)Sample->Get1DHist()->Clone(NameTString + "_Prior");
+    TH1D *SampleHistogramPrior = (TH1D*)Sample->GetMCHist(1)->Clone(NameTString + "_Prior");
     Sample->AddData(SampleHistogramPrior);
 
     // Write initial info to file
@@ -69,7 +69,7 @@ int main(int argc, char *argv[])
     Sample->Reweight();
 
     // Process posterior histogram
-    TH1D *SampleHistogramPost = (TH1D*)Sample->Get1DHist()->Clone(NameTString + "_Post");
+    TH1D *SampleHistogramPost = (TH1D*)Sample->GetMCHist(1)->Clone(NameTString + "_Post");
     outFile << "Rates Post:" << SampleHistogramPrior->Integral() << std::endl;
     outFile << "Likelihood:" << std::fabs(Sample->GetLikelihood()) << std::endl;
 
