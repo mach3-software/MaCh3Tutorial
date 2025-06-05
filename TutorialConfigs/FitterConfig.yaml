@@ -73,3 +73,48 @@ LLHScan:
   ScanRanges:
     #delta_cp: [-3.14,3.14]
 
+#KinemDistribution extra plots to draw
+KinematicDistributionPlots:
+- Name: "Particle Energy vs Particle Angle to Beam"
+  VarStrings: ["ParticleBeamAngle", "ParticleEnergy"]
+  VarBins: [[50,-3.1416, 3.1416], [50,0,4]]
+- Name: "Particle Energy (muons only)"
+  VarStrings: ["ParticleEnergy"]
+  VarBins: [[50,0,4]]
+  KinematicCuts:
+  - VarString: "ParticlePDG"
+    Range: [12.5, 13.5]
+- Name: "Particle Energy (muons only, true Enu > 1GeV)"
+  VarStrings: ["ParticleEnergy"]
+  VarBins: [[50,0,4]]
+  KinematicCuts:
+  - VarString: "ParticlePDG"
+    Range: [12.5, 13.5]
+  - VarString: "TrueNeutrinoEnergy"
+    Range: [1, 100]
+- Name: "Particle Energy vs True Neutrino Energy (protons only)"
+  VarStrings: ["TrueNeutrinoEnergy", "ParticleEnergy"]
+  VarBins: [[50,0,4], [50,0,4]]
+  KinematicCuts:
+  - VarString: "ParticlePDG"
+    Range: [2211.5,2212.5]
+- Name: "Particle Energy vs True Neutrino Energy (protons only, true Enu > 1GeV)"
+  VarStrings: ["TrueNeutrinoEnergy", "ParticleEnergy"]
+  VarBins: [[50,0,4], [50,0,4]]
+  KinematicCuts:
+  - VarString: "ParticlePDG"
+    Range: [2211.5,2212.5]
+  - VarString: "TrueNeutrinoEnergy"
+    Range: [1,100]
+- Name: "True Neutrino Energy vs True Q2"
+  VarStrings: ["TrueQ2", "TrueNeutrinoEnergy"]
+  VarBins: [[50,0,3],[50,0,4]]
+- Name: "True Neutrino Energy" 
+  VarStrings: ["TrueNeutrinoEnergy"]
+  VarBins: [[50,0,4]]
+- Name: "True Neutrino Energy (0.4 to 2 GeV)"
+  VarStrings: ["TrueNeutrinoEnergy"]
+  VarBins: [[50,0,4]]
+  KinematicCuts:
+  - VarString: "TrueNeutrinoEnergy"
+    Range: [0.4,2]

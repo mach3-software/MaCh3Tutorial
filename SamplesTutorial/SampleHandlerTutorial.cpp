@@ -220,7 +220,7 @@ int SampleHandlerTutorial::SetupExperimentMC() {
       
       // === JM resize particle-level vectors ===
       // JM: We don't have particle-level info in the tutorial sample, so will fake it
-      int nParticles = static_cast<int>(Enu_true+3); //fake number of particles in event
+      int nParticles = 5; //fake number of particles in event
       tutobj->particle_energy[TotalEventCounter].resize(nParticles);
       tutobj->particle_pdg[TotalEventCounter].resize(nParticles);
       tutobj->particle_beamangle[TotalEventCounter].resize(nParticles);
@@ -252,7 +252,6 @@ int SampleHandlerTutorial::SetupExperimentMC() {
       for (int iParticle = 0; iParticle < nParticles; ++iParticle) {
         //JM: No particle-level data in sample, so fake it
         if (iParticle==0) {
-          if (ELep >= Enu_true) MACH3LOG_ERROR("ELep ({} GeV) > Enu ({} GeV)", ELep, Enu_true);
           tutobj->particle_pdg[TotalEventCounter][iParticle] = PDGLep;
           tutobj->particle_energy[TotalEventCounter][iParticle] = ELep;
           tutobj->particle_beamangle[TotalEventCounter][iParticle] = mu_angle(gen);
