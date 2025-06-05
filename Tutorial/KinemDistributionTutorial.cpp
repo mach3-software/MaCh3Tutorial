@@ -16,7 +16,7 @@ struct Plot {
 };
 
 int main(int argc, char **argv) {
-  int Selection = 0; //0 to loop modes, 1 to loop osc channels
+  int Selection = 1; //0 to loop modes, 1 to loop osc channels
 
   // Initialise manger responsible for config handling
   auto FitManager = MaCh3ManagerFactory(argc, argv);
@@ -46,7 +46,15 @@ int main(int argc, char **argv) {
     Plot PlotToDraw;
     PlotToDraw.Name = ConfigPlot["Name"].as<std::string>();
     PlotToDraw.VarStrings = ConfigPlot["VarStrings"].as<std::vector<std::string>>();
+    if (PlotToDraw.VarStrings.size() != 1 && PlotToDraw.VarStrings.size() != 2) {
+      MACH3LOG_ERROR("Error in yaml file: In KinemDistribtuion Plot {}, VarStrings is of size {}. VarString should be of size 1 or 2 (higher dimensional histogram plotting is not yet supported)");
+      throw MaCh3Exception(__FILE__,__LINE__);
+    }
     PlotToDraw.BinEdges = ConfigPlot["VarBins"].as<std::vector<std::vector<double>>>();
+    if (PlotToDraw.BinEdges.size() != 1 && PlotToDraw.BinEdges.size() != 2) {
+      MACH3LOG_ERROR("Error in yaml file: In KinemDistribtuion Plot {}, BinEdges is of size {}. VarString should be of size 1 or 2 (higher dimensional histogram plotting is not yet supported)");
+      throw MaCh3Exception(__FILE__,__LINE__);
+    }
     
     //If binning vector is of size 3, treat as [nbins, xmin, xmax] (otherwise treat as bin edges)
     for (unsigned int iBinning=0; iBinning<PlotToDraw.BinEdges.size(); iBinning++) {
