@@ -32,6 +32,8 @@ class SampleHandlerTutorial : public SampleHandlerFD
 
   int SetupExperimentMC() override;
 
+  void CleanMemoryBeforeFit() override {};
+
   double ReturnKinematicParameter(KinematicTypes KinPar, int iEvent);
   double ReturnKinematicParameter(int KinematicVariable, int iEvent);
   double ReturnKinematicParameter(std::string KinematicParameter, int iEvent);
@@ -50,7 +52,7 @@ class SampleHandlerTutorial : public SampleHandlerFD
   void SetupFDMC() override;
   void CalcWeightFunc(int iEvent) override {return; (void)iEvent;}
 
-  TutorialMCInfo TutorialSamples;
+  std::vector<TutorialMCInfo> TutorialSamples;
 
   const std::unordered_map<std::string, int> KinematicParametersTutorial = {
     {"TrueNeutrinoEnergy", kTrueNeutrinoEnergy},

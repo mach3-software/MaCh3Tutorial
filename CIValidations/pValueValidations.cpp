@@ -39,6 +39,8 @@ class samplePDFpValue : public SampleHandlerTutorial
     }),
     KinemBlarbTitle({"RecoLeptonMomentum", "RecoLeptonCosTheta"}) {}
 
+    void CleanMemoryBeforeFit() override {};
+
     inline M3::int_t GetNsamples() override { return 22; };
     std::string GetSampleName(int Sample) const override {return SampleBlarbTitle[Sample];};
     inline std::string GetKinVarLabel(const int sample, const int Dimension) override {return KinemBlarbTitle[Dimension];}

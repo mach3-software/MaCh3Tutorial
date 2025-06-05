@@ -3,7 +3,8 @@
 #include "Parameters/ParameterHandlerGeneric.h"
 #include "Parameters/ParameterHandlerOsc.h"
 
-void TuneValidations()
+/// @brief This simply updates YAML file
+void TuneValidations(std::ostream& outFile)
 {
   std::string TutorialPath = std::getenv("MaCh3Tutorial_ROOT");
   YAML::Node Node = M3OpenConfig(TutorialPath + "/TutorialConfigs/CovObjs/SystematicModel.yaml");
@@ -43,6 +44,83 @@ void TuneValidations()
   M3::AddTuneValues(Node, TuneValues, Tune, FancyNames);
   M3::MakeCorrelationMatrix(Node, TuneValues, TuneErrors, CorrelationMatrix, FancyNames);
 
+  std::vector<std::string> ParameterMatrixFile = {TutorialPath + "/UpdatedMatrixWithTuneWackyTune.yaml"};
+  auto TuneTestx = std::make_unique<ParameterHandlerGeneric>(ParameterMatrixFile, "xsec_cov");
+
+  //Now we check if Tune works
+  TuneTestx->SetTune("WackyTune");
+
+  for (int i = 0; i < TuneTestx->GetNumParams(); ++i) {
+    outFile << "WackyTune for param " << i  << " is equal to=" << TuneTestx->GetParProp(i) << std::endl;
+  }
+
+  ParameterMatrixFile = {TutorialPath + "/UpdatedCorrelationMatrix.yaml"};
+  auto CorrTest = std::make_unique<ParameterHandlerGeneric>(ParameterMatrixFile, "xsec_cov");
+
+  for (int i = 0; i < CorrTest->GetNumParams(); ++i) {
+    for (int j = 0; j < CorrTest->GetNumParams(); ++j) {
+      outFile << "Yaml loaded Inv Cov Matrix for " << i << " and " << j << " is equal to=" << CorrTest->GetInvCovMatrix(i, j) << std::endl;
+    }
+  }
+}
+
+
+void TestPCA(const std::string& label,
+             const std::vector<std::string>& matrixFiles,
+             double threshold,
+             int firstIndex,
+             int lastIndex,
+             int Ntoys,
+             std::ostream& outFile)
+{
+  MACH3LOG_INFO("Testing PCA matrix {}", label);
+  std::unique_ptr<ParameterHandlerGeneric> PCA = nullptr;
+  if(firstIndex == -999 && lastIndex == -999){
+    PCA = std::make_unique<ParameterHandlerGeneric>(matrixFiles, "xsec_cov", threshold);
+  } else{
+    PCA = std::make_unique<ParameterHandlerGeneric>(matrixFiles, "xsec_cov", threshold, firstIndex, lastIndex);
+  }
+
+  std::vector<double> EigenVal = PCA->GetPCAHandler()->GetEigenValuesMaster();
+  for (size_t i = 0; i < EigenVal.size(); i++) {
+    outFile << label << " Eigen Value " << i << " = " << EigenVal[i] << std::endl;
+  }
+
+  TVectorD eigen_values = PCA->GetPCAHandler()->GetEigenValues();
+  double sum = 0;
+  for (int i = 0; i < eigen_values.GetNrows(); i++) {
+    sum += eigen_values(i);
+  }
+  outFile << label << " Sum of Eigen Value: " << sum << std::endl;
+
+  outFile << "Num of " << label << " PCA pars: " << PCA->GetNParameters() << std::endl;
+  for (int i = 0; i < PCA->GetNParameters(); i++) {
+    outFile << "Param in " << label << " PCA base: " << i << " = " << PCA->GetPCAHandler()->GetParCurrPCA(i) << std::endl;
+  }
+
+  TMatrixD EigenVectors = PCA->GetPCAHandler()->GetEigenVectors();
+  for (int i = 0; i < EigenVectors.GetNrows(); ++i) {
+    for (int j = 0; j < EigenVectors.GetNcols(); ++j) {
+      outFile << label << " Eigen Vectors: " << i << ", " << j << " = " << EigenVectors(i, j) << std::endl;
+    }
+  }
+
+  TMatrixD TransferMatrix = PCA->GetPCAHandler()->GetTransferMatrix();
+  for (int i = 0; i < TransferMatrix.GetNrows(); ++i) {
+    for (int j = 0; j < TransferMatrix.GetNcols(); ++j) {
+      outFile << label << " Transfer Matrix: " << i << ", " << j << " = " << TransferMatrix(i, j) << std::endl;
+    }
+  }
+
+  MACH3LOG_INFO("Testing throwing from covariance for {}", label);
+  for (int i = 0; i < Ntoys; i++) {
+    if (i % (Ntoys / 10) == 0) {
+      MaCh3Utils::PrintProgressBar(i, Ntoys);
+    }
+    PCA->ThrowParameters();
+  }
+
+  PCA->AcceptStep();
 }
 
 int main(int argc, char *argv[])
@@ -69,7 +147,7 @@ int main(int argc, char *argv[])
   outFile << "Likelihood Xsec=" << xsec->GetLikelihood() << std::endl;
 
   ///// Test throwing /////
-  const int Ntoys = 100;
+  constexpr int Ntoys = 100;
   MACH3LOG_INFO("Testing throwing from covariance");
 
   for (int i = 0; i < Ntoys; i++) {
@@ -138,26 +216,20 @@ int main(int argc, char *argv[])
   }
 
 ////////////// Now PCA //////////////
-  MACH3LOG_INFO("Testing PCA matrix");
-  ParameterMatrixFile = {TutorialPath + "/TutorialConfigs/CovObjs/PCATest.yaml"};
-  auto PCA = std::make_unique<ParameterHandlerGeneric>(ParameterMatrixFile, "xsec_cov", 0.001);
-  std::vector<double>  EigenVal = PCA->GetPCAHandler()->GetEigenValuesMaster();
-  for(size_t i = 0; i < EigenVal.size(); i++) {
-    outFile << "Eigen Value " << i << " = " << EigenVal[i] << std::endl;
-  }
-
-  TVectorD eigen_values = PCA->GetPCAHandler()->GetEigenValues();
-  double sum = 0;
-  for(int i = 0; i < eigen_values.GetNrows(); i++){
-    sum += eigen_values(i);
-  }
-  outFile << "Sum of Eigen Value: " << sum << std::endl;
-
-  outFile << "Num of PCA pars: " << PCA->GetNParameters() << std::endl;
-  for(int i = 0; i < PCA->GetNParameters(); i++){
-    outFile << "Param in PCA base: " << i << " = " << PCA->GetPCAHandler()->GetParCurrPCA(i) << std::endl;
-  }
-
+  TestPCA("PCA",
+          {TutorialPath + "/TutorialConfigs/CovObjs/PCATest.yaml"},
+          0.001,
+          -999, -999,
+          Ntoys,
+          outFile);
+////////////// Now PCA with several undecomposed //////////////
+  TestPCA("PCA_2",
+          {TutorialPath + "/TutorialConfigs/CovObjs/SystematicModel.yaml",
+            TutorialPath + "/TutorialConfigs/CovObjs/PCATest.yaml"},
+          0.01,
+          10, 19,
+          Ntoys,
+          outFile);
 ////////////// Now Osc //////////////
   std::vector<std::string> OscCovMatrixFile = {TutorialPath + "/TutorialConfigs/CovObjs/OscillationModel.yaml"};
   auto osc = std::make_unique<ParameterHandlerOsc>(OscCovMatrixFile, "osc_cov");
@@ -233,10 +305,13 @@ AdaptionOptions:
 
   Adapt->SaveAdaptiveToFile("Wacky.root", "xsec");
 
+////////////// Now Tune //////////////
+  TuneValidations(outFile);
+
+////////////// The End //////////////
   outFile.close();
   bool TheSame = CompareTwoFiles(TutorialPath + + "/CIValidations/TestOutputs/CovarianceOut.txt", "NewCovarianceOut.txt");
 
-  TuneValidations();
 
   if(!TheSame) {
     MACH3LOG_CRITICAL("Different likelihood mate");

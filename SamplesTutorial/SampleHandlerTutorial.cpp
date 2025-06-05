@@ -37,19 +37,19 @@ void SampleHandlerTutorial::Init() {
 
 void SampleHandlerTutorial::DebugShift(const double * par, std::size_t iEvent) {
   // HH: This is a debug function to shift the reco energy to 4 GeV if the reco energy is less than 2 GeV
-  if (TutorialSamples.RecoEnu[iEvent] < 2.0 && *par != 0) {
-    TutorialSamples.RecoEnu_shifted[iEvent] = 4;
+  if (TutorialSamples[iEvent].RecoEnu < 2.0 && *par != 0) {
+    TutorialSamples[iEvent].RecoEnu_shifted = 4;
   }
 }
 
 void SampleHandlerTutorial::EResLep(const double * par, std::size_t iEvent) {
   // HH: Lepton energy resolution contribution to reco energy
-  TutorialSamples.RecoEnu_shifted[iEvent] += (*par) * TutorialSamples.ELep[iEvent];
+  TutorialSamples[iEvent].RecoEnu_shifted += (*par) * TutorialSamples[iEvent].ELep;
 }
 
 void SampleHandlerTutorial::EResTot(const double * par, std::size_t iEvent) {
   // HH: Total energy resolution contribution to reco energy
-  TutorialSamples.RecoEnu_shifted[iEvent] += (*par) * TutorialSamples.RecoEnu[iEvent];
+  TutorialSamples[iEvent].RecoEnu_shifted += (*par) * TutorialSamples[iEvent].RecoEnu;
 }
 
 void SampleHandlerTutorial::RegisterFunctionalParameters() {
@@ -81,7 +81,7 @@ void SampleHandlerTutorial::RegisterFunctionalParameters() {
 
 void SampleHandlerTutorial::resetShifts(int iEvent) {
   // Reset the shifts to the original values
-  TutorialSamples.RecoEnu_shifted[iEvent] = TutorialSamples.RecoEnu[iEvent];
+  TutorialSamples[iEvent].RecoEnu_shifted = TutorialSamples[iEvent].RecoEnu;
 }
 
 
@@ -102,10 +102,9 @@ void SampleHandlerTutorial::SetupSplines() {
 void SampleHandlerTutorial::SetupWeightPointers() {
 // ************************************************
   for (unsigned int j = 0; j < GetNEvents(); ++j) {
-    MCSamples.ntotal_weight_pointers[j] = 2;
-    MCSamples.total_weight_pointers[j].resize(MCSamples.ntotal_weight_pointers[j]);
-    MCSamples.total_weight_pointers[j][0] = MCSamples.osc_w_pointer[j];
-    MCSamples.total_weight_pointers[j][1] = &(MCSamples.xsec_w[j]);
+    MCSamples[j].total_weight_pointers.resize(2);
+    MCSamples[j].total_weight_pointers[0] = MCSamples[j].osc_w_pointer;
+    MCSamples[j].total_weight_pointers[1] = &(MCSamples[j].xsec_w);
   }
 }
 
@@ -120,23 +119,7 @@ int SampleHandlerTutorial::SetupExperimentMC() {
   int nEntries = static_cast<int>(_Chain->GetEntries());
   delete _Chain;
 
-  TutorialMCInfo *tutobj = &(TutorialSamples);
-  tutobj->TrueEnu.resize(nEntries);
-  tutobj->RecoEnu.resize(nEntries);
-  tutobj->RecoEnu_shifted.resize(nEntries);
-  tutobj->Q2.resize(nEntries);
-  tutobj->Mode.resize(nEntries);
-  tutobj->Target.resize(nEntries);
-  tutobj->isNC.resize(nEntries);
-  tutobj->ELep.resize(nEntries);
-  tutobj->nutype.resize(nEntries);
-  tutobj->oscnutype.resize(nEntries);
-
-  // === JM resize particle-level vectors ===
-  tutobj->particle_energy.resize(nEntries);
-  tutobj->particle_pdg.resize(nEntries);
-  tutobj->particle_beamangle.resize(nEntries);
-  // ========================================
+  TutorialSamples.resize(nEntries);
 
   int TotalEventCounter = 0.;
   for(int iChannel = 0 ; iChannel < static_cast<int>(OscChannels.size()); iChannel++) {
@@ -187,8 +170,6 @@ int SampleHandlerTutorial::SetupExperimentMC() {
       if(iChannel == 0) {
         MACH3LOG_INFO("Enabling Atmospheric");
         isATM = true;
-        tutobj->TrueCosZenith.resize(nEntries);
-        MCSamples.rw_truecz.resize(nEntries);
       }
       _data->SetBranchStatus("CosineZenith", true);
       _data->SetBranchAddress("CosineZenith", &trueCZ);
@@ -221,40 +202,40 @@ int SampleHandlerTutorial::SetupExperimentMC() {
       // === JM resize particle-level vectors ===
       // JM: We don't have particle-level info in the tutorial sample, so will fake it
       int nParticles = 5; //fake number of particles in event
-      tutobj->particle_energy[TotalEventCounter].resize(nParticles);
-      tutobj->particle_pdg[TotalEventCounter].resize(nParticles);
-      tutobj->particle_beamangle[TotalEventCounter].resize(nParticles);
+      TutorialSamples[TotalEventCounter].particle_energy.resize(nParticles);
+      TutorialSamples[TotalEventCounter].particle_pdg.resize(nParticles);
+      TutorialSamples[TotalEventCounter].particle_beamangle.resize(nParticles);
       // ========================================
 
-      tutobj->TrueEnu[TotalEventCounter] = Enu_true;
+      TutorialSamples[TotalEventCounter].TrueEnu = Enu_true;
       // HH: We don't have Erec in the tutorial sample, so we set it to the true energy
-      tutobj->RecoEnu[TotalEventCounter] = Enu_true;
-      tutobj->RecoEnu_shifted[TotalEventCounter] = Enu_true;
-      tutobj->ELep[TotalEventCounter] = ELep;
-      tutobj->Q2[TotalEventCounter]      = Q2;
+      TutorialSamples[TotalEventCounter].RecoEnu = Enu_true;
+      TutorialSamples[TotalEventCounter].RecoEnu_shifted = Enu_true;
+      TutorialSamples[TotalEventCounter].ELep = ELep;
+      TutorialSamples[TotalEventCounter].Q2     = Q2;
       // KS: Currently we store target as 1000060120, therefore we hardcode it to 12
-      tutobj->Target[TotalEventCounter] = 12;
-      tutobj->Mode[TotalEventCounter]   = Modes->GetModeFromGenerator(std::abs(Mode));
-      tutobj->nutype[TotalEventCounter] = nutype_;
-      tutobj->oscnutype[TotalEventCounter] = oscnutype_;
+      TutorialSamples[TotalEventCounter].Target = 12;
+      TutorialSamples[TotalEventCounter].Mode   = Modes->GetModeFromGenerator(std::abs(Mode));
+      TutorialSamples[TotalEventCounter].nutype = nutype_;
+      TutorialSamples[TotalEventCounter].oscnutype = oscnutype_;
 
       if (std::abs(PDGLep) == 12 || std::abs(PDGLep) == 14 || std::abs(PDGLep) == 16) {
-        tutobj->isNC[TotalEventCounter] = true;
+        TutorialSamples[TotalEventCounter].isNC = true;
       } else {
-        tutobj->isNC[TotalEventCounter] = false;
+        TutorialSamples[TotalEventCounter].isNC = false;
       }
 
       if(isATM) {
-        tutobj->TrueCosZenith[TotalEventCounter] = trueCZ;
+        TutorialSamples[TotalEventCounter].TrueCosZenith = trueCZ;
       }
 
       // === JM loop through particles in event ===
       for (int iParticle = 0; iParticle < nParticles; ++iParticle) {
         //JM: No particle-level data in sample, so fake it
         if (iParticle==0) {
-          tutobj->particle_pdg[TotalEventCounter][iParticle] = PDGLep;
-          tutobj->particle_energy[TotalEventCounter][iParticle] = ELep;
-          tutobj->particle_beamangle[TotalEventCounter][iParticle] = mu_angle(gen);
+          TutorialSamples[TotalEventCounter].particle_pdg[iParticle] = PDGLep;
+          TutorialSamples[TotalEventCounter].particle_energy[iParticle] = ELep;
+          TutorialSamples[TotalEventCounter].particle_beamangle[iParticle] = mu_angle(gen);
         }
         else {
           int particle_seed = unif(gen);
@@ -286,9 +267,9 @@ int SampleHandlerTutorial::SetupExperimentMC() {
             default:
               break;
           }
-          tutobj->particle_energy[TotalEventCounter][iParticle] = energy;
-          tutobj->particle_beamangle[TotalEventCounter][iParticle] = angle;
-          tutobj->particle_pdg[TotalEventCounter][iParticle] = pdg;
+          TutorialSamples[TotalEventCounter].particle_energy[iParticle] = energy;
+          TutorialSamples[TotalEventCounter].particle_beamangle[iParticle] = angle;
+          TutorialSamples[TotalEventCounter].particle_pdg[iParticle] = pdg;
         }
       }
       // ==========================================
@@ -345,14 +326,14 @@ std::vector<double> SampleHandlerTutorial::ReturnKinematicVector(std::string Kin
 const double* SampleHandlerTutorial::GetPointerToKinematicParameter(KinematicTypes KinPar, int iEvent) {
   switch (KinPar) {
     case kTrueNeutrinoEnergy:
-      return &TutorialSamples.TrueEnu[iEvent];
+      return &TutorialSamples[iEvent].TrueEnu;
     case kRecoNeutrinoEnergy:
       // HH - here we return the shifted energy in case of detector systematics
-      return &TutorialSamples.RecoEnu_shifted[iEvent];
+      return &TutorialSamples[iEvent].RecoEnu_shifted;
     case kTrueQ2:
-      return &TutorialSamples.Q2[iEvent];
+      return &TutorialSamples[iEvent].Q2;
     case kM3Mode:
-      return &TutorialSamples.Mode[iEvent];
+      return &TutorialSamples[iEvent].Mode;
     default:
       MACH3LOG_ERROR("Unrecognized Kinematic Parameter type: {}", static_cast<int>(KinPar));
       throw MaCh3Exception(__FILE__, __LINE__);
@@ -370,17 +351,14 @@ const double* SampleHandlerTutorial::GetPointerToKinematicParameter(std::string 
 }
 
 void SampleHandlerTutorial::SetupFDMC() {
-  TutorialMCInfo *tutobj = &(TutorialSamples);
-  auto &fdobj = MCSamples;
-
   for(unsigned int iEvent = 0 ;iEvent < GetNEvents(); ++iEvent) {
-    fdobj.rw_etru[iEvent] = &(tutobj->TrueEnu[iEvent]);
-    fdobj.mode[iEvent] = &(tutobj->Mode[iEvent]);
-    fdobj.Target[iEvent] = &(tutobj->Target[iEvent]);
-    fdobj.isNC[iEvent] = tutobj->isNC[iEvent];
-    fdobj.nupdgUnosc[iEvent] = &(tutobj->nutype[iEvent]);
-    fdobj.nupdg[iEvent] = &(tutobj->oscnutype[iEvent]);
-    if(isATM) fdobj.rw_truecz[iEvent] = &(tutobj->TrueCosZenith[iEvent]);
+    MCSamples[iEvent].rw_etru = &(TutorialSamples[iEvent].TrueEnu);
+    MCSamples[iEvent].mode = &(TutorialSamples[iEvent].Mode);
+    MCSamples[iEvent].Target = &(TutorialSamples[iEvent].Target);
+    MCSamples[iEvent].isNC = TutorialSamples[iEvent].isNC;
+    MCSamples[iEvent].nupdgUnosc = &(TutorialSamples[iEvent].nutype);
+    MCSamples[iEvent].nupdg = &(TutorialSamples[iEvent].oscnutype);
+    if(isATM) MCSamples[iEvent].rw_truecz = &(TutorialSamples[iEvent].TrueCosZenith);
   }
 }
 

@@ -38,24 +38,7 @@ std::vector< std::vector<TResponseFunction_red*> > GetMasterSpline(
     {
       // get the graph
       xsecgraph[k] = static_cast<TGraph*>(grapharrays[k]->At(0));
-
-      TSpline3 *spline = NULL;
-      TSpline3_red *spline_red = NULL;
-      // For a valid spline we require it not be null and have more than one point
-      if (xsecgraph[k] && xsecgraph[k]->GetN() > 1)
-      {
-        // Create the TSpline3* from the TGraph* and build the coefficients
-        spline = new TSpline3(std::to_string(k).c_str(), xsecgraph[k]);
-        spline->SetNameTitle(std::to_string(k).c_str(), std::to_string(k).c_str());
-
-        // Make the reduced TSpline3 format and delete the old spline
-        spline_red = new TSpline3_red(spline, kTSpline3);
-
-        // For events without the jth spline, set to NULL
-      } else {
-        spline_red = NULL;
-      }
-      MasterSpline[i][k] = spline_red;
+      MasterSpline[i][k] = CreateResponseFunction(xsecgraph[k], kTSpline3_red, kTSpline3, std::to_string(k).c_str());
     }
   } // end for j loop
   for(int i = 0; i < nSplineParams; i++) {

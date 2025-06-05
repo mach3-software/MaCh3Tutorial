@@ -9,34 +9,34 @@ struct TutorialMCInfo {
   ~TutorialMCInfo() {
   }
   /// neutrino type
-  std::vector<int> nutype;
+  int nutype = M3::_BAD_INT_;
   /// type of neutrino
-  std::vector<int> oscnutype;
+  int oscnutype = M3::_BAD_INT_;
   /// target material
-  std::vector<int> Target;
+  int Target = M3::_BAD_INT_;
   /// interaction mode
-  std::vector<double> Mode;
+  double Mode = M3::_BAD_DOUBLE_;
   /// is Neutral Current or not
-  std::vector<bool> isNC;
+  bool isNC = false;
   /// true neutrino energy
-  std::vector<double> TrueEnu;
+  double TrueEnu = M3::_BAD_DOUBLE_;
   /// Reco neutrino energy
-  std::vector<double> RecoEnu;
+  double RecoEnu = M3::_BAD_DOUBLE_;
   /// shifted neutrino energy
-  std::vector<double> RecoEnu_shifted;
+  double RecoEnu_shifted = M3::_BAD_DOUBLE_;
   /// 4-momentum transfer
-  std::vector<double> Q2;
+  double Q2 = M3::_BAD_DOUBLE_;
   /// True Cosine zentih only used for atmospheric
-  std::vector<double> TrueCosZenith;
+  double TrueCosZenith = M3::_BAD_DOUBLE_;
   /// Lepton energy
-  std::vector<double> ELep;
+  double ELep = M3::_BAD_DOUBLE_;
 
   // === JM Particle-level kinematic parameters ===
   /// particle energy
-  std::vector<std::vector<double>> particle_energy;
+  std::vector<double> particle_energy = {};
   /// particle pdg
-  std::vector<std::vector<double>> particle_pdg;
+  std::vector<double> particle_pdg = {};
   /// particle angle to beam
-  std::vector<std::vector<double>> particle_beamangle;
+  std::vector<double> particle_beamangle = {};
   // ==============================================
 };
