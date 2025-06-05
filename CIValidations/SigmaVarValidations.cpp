@@ -120,7 +120,7 @@ int main(int argc, char *argv[])
 
   // Reweight and process prior histogram
   SampleTutorial->Reweight();
-  TH1D *SampleHistogramPrior = (TH1D*)SampleTutorial->Get1DHist()->Clone(NameTString + "_Prior");
+  TH1D *SampleHistogramPrior = (TH1D*)SampleTutorial->GetMCHist(1)->Clone(NameTString + "_Prior");
   SampleTutorial->AddData(SampleHistogramPrior);
 
   std::string ManagerInput = TutorialPath + "/TutorialConfigs/FitterConfig.yaml";

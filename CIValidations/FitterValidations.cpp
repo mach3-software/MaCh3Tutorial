@@ -40,7 +40,7 @@ void FitVal(const std::string& Algo, bool MoreTests)
   Sample->Reweight();
   std::string name = Sample->GetTitle();
   TString NameTString = TString(name.c_str());
-  TH1D *SampleHistogramPrior = (TH1D*)Sample->Get1DHist()->Clone(NameTString+"_Prior");
+  TH1D *SampleHistogramPrior = (TH1D*)Sample->GetMCHist(1)->Clone(NameTString+"_Prior");
   Sample->AddData(SampleHistogramPrior);
 
   MaCh3Fitter->AddSystObj(xsec.get());
