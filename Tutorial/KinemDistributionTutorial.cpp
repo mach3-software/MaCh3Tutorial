@@ -16,7 +16,8 @@ struct Plot {
 };
 
 int main(int argc, char **argv) {
-  int Selection = 1; //0 to loop modes, 1 to loop osc channels
+  //JM OscillationChannel kinematic variable does not exist, so only supports looping modes
+  int Selection = 0; //0 to loop modes, 1 to loop osc channels
 
   // Initialise manger responsible for config handling
   auto FitManager = MaCh3ManagerFactory(argc, argv);
