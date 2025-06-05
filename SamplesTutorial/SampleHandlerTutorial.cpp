@@ -301,11 +301,11 @@ double SampleHandlerTutorial::ReturnKinematicParameter(std::string KinematicPara
 std::vector<double> SampleHandlerTutorial::ReturnKinematicVector(KinematicParticleVecs KinVec, int iEvent) {
   switch (KinVec) {
     case kParticleEnergy:
-      return TutorialSamples.particle_energy[iEvent];
+      return TutorialSamples[iEvent].particle_energy;
     case kParticlePDG:
-      return TutorialSamples.particle_pdg[iEvent];
+      return TutorialSamples[iEvent].particle_pdg;
     case kParticleBeamAngle:
-      return TutorialSamples.particle_beamangle[iEvent];
+      return TutorialSamples[iEvent].particle_beamangle;
     default:
       MACH3LOG_ERROR("Unrecognized Kinematic Vector: {}", static_cast<int>(KinVec));
       throw MaCh3Exception(__FILE__, __LINE__);
