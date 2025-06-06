@@ -31,3 +31,14 @@ struct TutorialMCInfo {
   /// Lepton energy
   double ELep = M3::_BAD_DOUBLE_;
 };
+
+struct TutorialMCPlottingInfo {
+  // === JM Particle-level kinematic parameters ===
+  /// particle energy
+  std::vector<double> particle_energy = {};
+  /// particle pdg
+  std::vector<double> particle_pdg = {};
+  /// particle angle to beam
+  std::vector<double> particle_beamangle = {};
+  // ==============================================
+};
