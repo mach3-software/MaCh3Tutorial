@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1749201809703,
+  "lastUpdate": 1749219365893,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -7288,6 +7288,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 434.084,
             "range": "± 4.6602",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "j.martin24@imperial.ac.uk",
+            "name": "Jude",
+            "username": "Jude412"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "14e4783b142bcb0c8d6e87799eba1cf7debe5005",
+          "message": "Merge pull request #493 from mach3-software/jmartin/feature/particle-level-kinpars\n\nfeat: allow plotting of particle-level kinematic parameters\n\nParticle-level parameters can be plotted with Get1DVarHist and Get2DVarHist. These functions check if the plotting variable is from the map \"KinematicParameters\" (ie. an event-level variable) or from \"KinematicVectors\" (ie. a subevent-level variable) and then either fill for every event or every particle accordingly. For such plots, one can also introduce kinematic cuts on particle-level variables. Changes should only affect plotting, not fitting.",
+          "timestamp": "2025-06-06T15:11:14+01:00",
+          "tree_id": "183727af59a9afb293ed40cd8883a312bb6d2106",
+          "url": "https://github.com/mach3-software/MaCh3/commit/14e4783b142bcb0c8d6e87799eba1cf7debe5005"
+        },
+        "date": 1749219364240,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.64108,
+            "range": "± 130.017",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.56204,
+            "range": "± 93.8532",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 433.939,
+            "range": "± 3.95105",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
