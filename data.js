@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1749120141794,
+  "lastUpdate": 1749201809703,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -7243,6 +7243,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 435.352,
             "range": "± 2.95836",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "ae79841bf8ec6c03e4a953fdcf9f101f006684f6",
+          "message": "Merge pull request #494 from mach3-software/feature/kskwarczynski/CovarianceLargeMerge\n\nbreaking: Merge Osc and Generic Param Handler",
+          "timestamp": "2025-06-06T18:18:42+09:00",
+          "tree_id": "7f25bd7e271db2e1fc46a5db9e3b23c23f76512f",
+          "url": "https://github.com/mach3-software/MaCh3/commit/ae79841bf8ec6c03e4a953fdcf9f101f006684f6"
+        },
+        "date": 1749201807750,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.65375,
+            "range": "± 61.8611",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.56809,
+            "range": "± 65.1318",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 434.084,
+            "range": "± 4.6602",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
