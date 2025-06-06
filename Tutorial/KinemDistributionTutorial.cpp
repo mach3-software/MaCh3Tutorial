@@ -152,11 +152,11 @@ int main(int argc, char **argv) {
       }
 
       if (histdim == 1) {
-        Hist = (TH1*)mySamples[iPDF]->Get1DVarHist(PlotVar_Str[0], EventSelectionVector, SubEventSelectionVector, WeightStyle, &AxisX);
+        Hist = (TH1*)mySamples[iPDF]->Get1DVarHist(PlotVar_Str[0], EventSelectionVector, WeightStyle, &AxisX, SubEventSelectionVector);
         Hist->GetYaxis()->SetTitle("Events");
       }
       else {
-        Hist = (TH1*)mySamples[iPDF]->Get2DVarHist(PlotVar_Str[0], PlotVar_Str[1], EventSelectionVector, SubEventSelectionVector, WeightStyle, &AxisX, &AxisY);
+        Hist = (TH1*)mySamples[iPDF]->Get2DVarHist(PlotVar_Str[0], PlotVar_Str[1], EventSelectionVector, WeightStyle, &AxisX, &AxisY, SubEventSelectionVector);
         Hist->GetYaxis()->SetTitle(PlotVar_Str[1].c_str());
       }
       Canv->cd(1);
