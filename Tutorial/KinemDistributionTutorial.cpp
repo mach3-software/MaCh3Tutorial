@@ -44,13 +44,13 @@ int main(int argc, char **argv) {
   
   for (const auto& ConfigPlot : ConfigPlots) {
     Plot PlotToDraw;
-    PlotToDraw.Name = ConfigPlot["Name"].as<std::string>();
-    PlotToDraw.VarStrings = ConfigPlot["VarStrings"].as<std::vector<std::string>>();
+    PlotToDraw.Name = Get<std::string>(ConfigPlot["Name"],  __FILE__, __LINE__);
+    PlotToDraw.VarStrings = Get<std::vector<std::string>>(ConfigPlot["VarStrings"], __FILE__, __LINE__);
     if (PlotToDraw.VarStrings.size() != 1 && PlotToDraw.VarStrings.size() != 2) {
       MACH3LOG_ERROR("Error in yaml file: In KinemDistribtuion Plot {}, VarStrings is of size {}. VarString should be of size 1 or 2 (higher dimensional histogram plotting is not yet supported)");
       throw MaCh3Exception(__FILE__,__LINE__);
     }
-    PlotToDraw.BinEdges = ConfigPlot["VarBins"].as<std::vector<std::vector<double>>>();
+    PlotToDraw.BinEdges = Get<std::vector<std::vector<double>>>(ConfigPlot["VarBins"], __FILE__,__LINE__);
     if (PlotToDraw.BinEdges.size() != 1 && PlotToDraw.BinEdges.size() != 2) {
       MACH3LOG_ERROR("Error in yaml file: In KinemDistribtuion Plot {}, BinEdges is of size {}. VarString should be of size 1 or 2 (higher dimensional histogram plotting is not yet supported)");
       throw MaCh3Exception(__FILE__,__LINE__);

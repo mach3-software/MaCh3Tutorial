@@ -108,6 +108,10 @@ void SampleHandlerTutorial::SetupWeightPointers() {
   }
 }
 
+void SampleHandlerTutorial::CleanMemoryBeforeFit() {
+  std::vector<TutorialMCPlottingInfo>().swap(TutorialPlottingSamples);
+}
+
 // ************************************************
 int SampleHandlerTutorial::SetupExperimentMC() {
 // ************************************************
@@ -120,6 +124,7 @@ int SampleHandlerTutorial::SetupExperimentMC() {
   delete _Chain;
 
   TutorialSamples.resize(nEntries);
+  TutorialPlottingSamples.resize(nEntries);
 
   int TotalEventCounter = 0.;
   for(int iChannel = 0 ; iChannel < static_cast<int>(OscChannels.size()); iChannel++) {
@@ -202,9 +207,9 @@ int SampleHandlerTutorial::SetupExperimentMC() {
       // === JM resize particle-level vectors ===
       // JM: We don't have particle-level info in the tutorial sample, so will fake it
       int nParticles = 5; //fake number of particles in event
-      TutorialSamples[TotalEventCounter].particle_energy.resize(nParticles);
-      TutorialSamples[TotalEventCounter].particle_pdg.resize(nParticles);
-      TutorialSamples[TotalEventCounter].particle_beamangle.resize(nParticles);
+      TutorialPlottingSamples[TotalEventCounter].particle_energy.resize(nParticles);
+      TutorialPlottingSamples[TotalEventCounter].particle_pdg.resize(nParticles);
+      TutorialPlottingSamples[TotalEventCounter].particle_beamangle.resize(nParticles);
       // ========================================
 
       TutorialSamples[TotalEventCounter].TrueEnu = Enu_true;
@@ -233,9 +238,9 @@ int SampleHandlerTutorial::SetupExperimentMC() {
       for (int iParticle = 0; iParticle < nParticles; ++iParticle) {
         //JM: No particle-level data in sample, so fake it
         if (iParticle==0) {
-          TutorialSamples[TotalEventCounter].particle_pdg[iParticle] = PDGLep;
-          TutorialSamples[TotalEventCounter].particle_energy[iParticle] = ELep;
-          TutorialSamples[TotalEventCounter].particle_beamangle[iParticle] = mu_angle(gen);
+          TutorialPlottingSamples[TotalEventCounter].particle_pdg[iParticle] = PDGLep;
+          TutorialPlottingSamples[TotalEventCounter].particle_energy[iParticle] = ELep;
+          TutorialPlottingSamples[TotalEventCounter].particle_beamangle[iParticle] = mu_angle(gen);
         }
         else {
           int particle_seed = unif(gen);
@@ -267,9 +272,9 @@ int SampleHandlerTutorial::SetupExperimentMC() {
             default:
               break;
           }
-          TutorialSamples[TotalEventCounter].particle_energy[iParticle] = energy;
-          TutorialSamples[TotalEventCounter].particle_beamangle[iParticle] = angle;
-          TutorialSamples[TotalEventCounter].particle_pdg[iParticle] = pdg;
+          TutorialPlottingSamples[TotalEventCounter].particle_energy[iParticle] = energy;
+          TutorialPlottingSamples[TotalEventCounter].particle_beamangle[iParticle] = angle;
+          TutorialPlottingSamples[TotalEventCounter].particle_pdg[iParticle] = pdg;
         }
       }
       // ==========================================
@@ -301,11 +306,11 @@ double SampleHandlerTutorial::ReturnKinematicParameter(std::string KinematicPara
 std::vector<double> SampleHandlerTutorial::ReturnKinematicVector(KinematicParticleVecs KinVec, int iEvent) {
   switch (KinVec) {
     case kParticleEnergy:
-      return TutorialSamples[iEvent].particle_energy;
+      return TutorialPlottingSamples[iEvent].particle_energy;
     case kParticlePDG:
-      return TutorialSamples[iEvent].particle_pdg;
+      return TutorialPlottingSamples[iEvent].particle_pdg;
     case kParticleBeamAngle:
-      return TutorialSamples[iEvent].particle_beamangle;
+      return TutorialPlottingSamples[iEvent].particle_beamangle;
     default:
       MACH3LOG_ERROR("Unrecognized Kinematic Vector: {}", static_cast<int>(KinVec));
       throw MaCh3Exception(__FILE__, __LINE__);

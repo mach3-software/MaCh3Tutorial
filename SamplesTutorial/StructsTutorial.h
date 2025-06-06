@@ -30,7 +30,9 @@ struct TutorialMCInfo {
   double TrueCosZenith = M3::_BAD_DOUBLE_;
   /// Lepton energy
   double ELep = M3::_BAD_DOUBLE_;
+};
 
+struct TutorialMCPlottingInfo {
   // === JM Particle-level kinematic parameters ===
   /// particle energy
   std::vector<double> particle_energy = {};
