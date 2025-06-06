@@ -57,7 +57,7 @@ int main(int argc, char *argv[])
   TFile *TempFile = new TFile(argv[1], "open");
   TDirectory* CovarianceFolder = (TDirectory*)TempFile->Get("CovarianceFolder");
 
-  TMacro *OscConfig = (TMacro*)(CovarianceFolder->Get("Config_osc_cov"));
+  TMacro *OscConfig = (TMacro*)(CovarianceFolder->Get("Config_xsec_cov"));
 
   YAML::Node OscSettings = TMacroToYAML(*OscConfig);
 
