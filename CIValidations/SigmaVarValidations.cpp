@@ -7,8 +7,8 @@
 class samplePDFSigmaVar : public SampleHandlerTutorial
 {
   public:
-    samplePDFSigmaVar(std::string mc_version, ParameterHandlerGeneric* xsec_cov, ParameterHandlerOsc* osc_cov)
-    : SampleHandlerTutorial(mc_version, xsec_cov, osc_cov),
+    samplePDFSigmaVar(std::string mc_version, ParameterHandlerGeneric* xsec_cov)
+    : SampleHandlerTutorial(mc_version, xsec_cov),
     SampleBlarbTitle({
       "FGD1_numuCC_0pi_0_protons_no_photon",
       "FGD1_numuCC_0pi_N_protons_no_photon",
@@ -109,13 +109,13 @@ int main(int argc, char *argv[])
   }
   std::string TutorialPath = std::getenv("MaCh3Tutorial_ROOT");
 
-  std::vector<std::string> xsecCovMatrixFile = {TutorialPath + "/TutorialConfigs/CovObjs/SystematicModel.yaml"};
+  std::vector<std::string> xsecCovMatrixFile = {TutorialPath + "/TutorialConfigs/CovObjs/SystematicModel.yaml",
+                                                TutorialPath + "/TutorialConfigs/CovObjs/OscillationModel.yaml"
+                                                };
   auto xsec = std::make_unique<ParameterHandlerGeneric>(xsecCovMatrixFile, "xsec_cov");
-  std::vector<std::string> OscCovMatrixFile = {TutorialPath + "/TutorialConfigs/CovObjs/OscillationModel.yaml"};
-  auto osc = std::make_unique<ParameterHandlerOsc>(OscCovMatrixFile, "osc_cov");
 
   std::string SampleConfig = TutorialPath + "/TutorialConfigs/Samples/SampleHandler_Tutorial.yaml";
-  auto SampleTutorial = std::make_unique<samplePDFSigmaVar>(SampleConfig, xsec.get(), osc.get());
+  auto SampleTutorial = std::make_unique<samplePDFSigmaVar>(SampleConfig, xsec.get());
   TString NameTString = TString(SampleTutorial->GetTitle());
 
   // Reweight and process prior histogram
@@ -130,7 +130,6 @@ int main(int argc, char *argv[])
   std::unique_ptr<FitterBase> MaCh3Fitter = MaCh3FitterFactory(FitManager.get());
   // Add covariance to MCM
   MaCh3Fitter->AddSystObj(xsec.get());
-  MaCh3Fitter->AddSystObj(osc.get());
   MaCh3Fitter->AddSampleHandler(SampleTutorial.get());
 
   MaCh3Fitter->RunSigmaVar();

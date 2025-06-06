@@ -2,8 +2,8 @@
 
 // ************************************************
 SampleHandlerTutorial::SampleHandlerTutorial(const std::string& config_name, ParameterHandlerGeneric* parameter_handler,
-                                             ParameterHandlerOsc* oscillation_handler, const std::shared_ptr<OscillationHandler>&  Oscillator_)
-                                             : SampleHandlerFD(config_name, parameter_handler, oscillation_handler, Oscillator_) {
+                                             const std::shared_ptr<OscillationHandler>&  Oscillator_)
+                                             : SampleHandlerFD(config_name, parameter_handler, Oscillator_) {
 // ************************************************
   KinematicParameters = &KinematicParametersTutorial;
   ReversedKinematicParameters = &ReversedKinematicParametersTutorial;

@@ -1,7 +1,5 @@
 #pragma once
 
-#include "Parameters/ParameterHandlerOsc.h"
-#include "Parameters/ParameterHandlerGeneric.h"
 #include "Samples/SampleHandlerFD.h"
 #include "StructsTutorial.h"
 #include "SplinesTutorial/BinnedSplinesTutorial.h"
@@ -10,7 +8,7 @@ class SampleHandlerTutorial : public SampleHandlerFD
 {
  public:
   SampleHandlerTutorial(const std::string& config_name, ParameterHandlerGeneric* parameter_handler,
-                        ParameterHandlerOsc* oscillation_handler = nullptr, const std::shared_ptr<OscillationHandler>& Oscillator_ = nullptr);
+                        const std::shared_ptr<OscillationHandler>& Oscillator_ = nullptr);
   virtual ~SampleHandlerTutorial();
   enum KinematicTypes {kTrueNeutrinoEnergy, kTrueQ2, kM3Mode, kRecoNeutrinoEnergy};
 

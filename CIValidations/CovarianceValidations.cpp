@@ -1,7 +1,6 @@
 // MaCh3 spline includes
 #include "Utils/Comparison.h"
 #include "Parameters/ParameterHandlerGeneric.h"
-#include "Parameters/ParameterHandlerOsc.h"
 
 /// @brief This simply updates YAML file
 void TuneValidations(std::ostream& outFile)
@@ -232,7 +231,7 @@ int main(int argc, char *argv[])
           outFile);
 ////////////// Now Osc //////////////
   std::vector<std::string> OscCovMatrixFile = {TutorialPath + "/TutorialConfigs/CovObjs/OscillationModel.yaml"};
-  auto osc = std::make_unique<ParameterHandlerOsc>(OscCovMatrixFile, "osc_cov");
+  auto osc = std::make_unique<ParameterHandlerGeneric>(OscCovMatrixFile, "osc_cov");
   std::vector<double> OscParProp = {0.3, 0.5, 0.020, 7.53e-5, 2.494e-3, 0.0, 295, 2.6, 0.5, 15};
   osc->SetParameters(OscParProp);
   osc->PrintNominalCurrProp();

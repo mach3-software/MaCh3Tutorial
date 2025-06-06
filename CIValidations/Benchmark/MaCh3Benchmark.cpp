@@ -11,15 +11,13 @@ TEST_CASE("Benchmark MaCh3") {
 
   // Initialise covariance class reasonable for Systematics
   auto xsec = MaCh3CovarianceFactory<ParameterHandlerGeneric>(FitManager.get(), "Xsec");
-  auto osc  = MaCh3CovarianceFactory<ParameterHandlerOsc>(FitManager.get(), "Osc");
 
   std::vector<ParameterHandlerBase*> Covs;
   Covs.push_back(xsec.get());
-  Covs.push_back(osc.get());
 
   // Initialise samplePDF
-  auto BeamSamples = MaCh3SampleHandlerFactory<SampleHandlerTutorial>({"TutorialConfigs/Samples/SampleHandler_Tutorial.yaml"}, xsec.get(), osc.get());
-  auto ATMSamples = MaCh3SampleHandlerFactory<SampleHandlerTutorial>({"TutorialConfigs/Samples/SampleHandler_Tutorial_ATM.yaml"}, xsec.get(), osc.get());
+  auto BeamSamples = MaCh3SampleHandlerFactory<SampleHandlerTutorial>({"TutorialConfigs/Samples/SampleHandler_Tutorial.yaml"}, xsec.get());
+  auto ATMSamples = MaCh3SampleHandlerFactory<SampleHandlerTutorial>({"TutorialConfigs/Samples/SampleHandler_Tutorial_ATM.yaml"}, xsec.get());
 
   BENCHMARK("Beam Reweight") {
     for (size_t s = 0; s < Covs.size(); ++s) {
