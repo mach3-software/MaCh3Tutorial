@@ -77,7 +77,7 @@ ProcessMCMC:
     - ["sin2th_23", ["LO", "UO"], [0, 0.5], [0.5, 1]]
 
   SavageDickey:
-    - ["BinnedSplineParam1", 1.0, [0, 0]]  # Last array doesn't matter as parameter has Gaussian
+    - ["BinnedSplineParam1", 1.0, [0, 2]]  # Last array doesn't matter as parameter has Gaussian
 
   BipolarPlot:
     - ["BinnedSplineParam1", [0, 1]]
