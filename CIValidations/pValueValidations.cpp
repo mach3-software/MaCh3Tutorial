@@ -6,8 +6,8 @@
 class samplePDFpValue : public SampleHandlerTutorial
 {
   public:
-    samplePDFpValue(std::string mc_version, ParameterHandlerGeneric* xsec_cov, ParameterHandlerOsc* osc_cov)
-    : SampleHandlerTutorial(mc_version, xsec_cov, osc_cov),
+    samplePDFpValue(std::string mc_version, ParameterHandlerGeneric* xsec_cov)
+    : SampleHandlerTutorial(mc_version, xsec_cov),
     SampleBlarbTitle({
       "FGD1_numuCC_0pi_0_protons_no_photon",
       "FGD1_numuCC_0pi_N_protons_no_photon",
@@ -64,22 +64,20 @@ int main(int argc, char *argv[])
   }
   std::string TutorialPath = std::getenv("MaCh3Tutorial_ROOT");
 
-  std::vector<std::string> xsecCovMatrixFile = {TutorialPath + "/TutorialConfigs/CovObjs/SystematicModel.yaml"};
+  std::vector<std::string> xsecCovMatrixFile = {TutorialPath + "/TutorialConfigs/CovObjs/SystematicModel.yaml",
+                                                TutorialPath + "/TutorialConfigs/CovObjs/OscillationModel.yaml"
+                                                };
   auto xsec = std::make_unique<ParameterHandlerGeneric>(xsecCovMatrixFile, "xsec_cov");
 
-  std::vector<std::string> OscCovMatrixFile = {TutorialPath + "/TutorialConfigs/CovObjs/OscillationModel.yaml"};
-  auto osc = std::make_unique<ParameterHandlerOsc>(OscCovMatrixFile, "osc_cov");
-  osc->SetParameters();
-
   std::string SampleConfig = TutorialPath + "/TutorialConfigs/Samples/SampleHandler_Tutorial.yaml";
-  auto SampleTutorial = std::make_unique<samplePDFpValue>(SampleConfig, xsec.get(), osc.get());
+  auto SampleTutorial = std::make_unique<samplePDFpValue>(SampleConfig, xsec.get());
 
   std::string name = SampleTutorial->GetTitle();
   TString NameTString = TString(name.c_str());
 
   // Reweight and process prior histogram
   SampleTutorial->Reweight();
-  TH1D *SampleHistogramPrior = (TH1D*)SampleTutorial->Get1DHist()->Clone(NameTString + "_Prior");
+  TH1D *SampleHistogramPrior = (TH1D*)SampleTutorial->GetMCHist(1)->Clone(NameTString + "_Prior");
   SampleTutorial->AddData(SampleHistogramPrior);
 
   bool Posterior = true;

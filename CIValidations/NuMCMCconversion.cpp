@@ -25,7 +25,7 @@ int main(int argc, char *argv[])
   TChain* myChain = new TChain("posteriors","");
   myChain->Add(argv[1]);
 
-  std::map<std::string, std::string> branch_map = {
+  const std::map<std::string, std::string> branch_map = {
     {"sin2th_23", "Theta23"},
     {"sin2th_13", "Theta13"},
     {"sin2th_12", "Theta12"},
@@ -35,7 +35,7 @@ int main(int argc, char *argv[])
   };
 
   // Map for pointers to the original branches
-  std::map<std::string, double*> branch_pointers = {
+  const std::map<std::string, double*> branch_pointers = {
     {"sin2th_23", &t_sin2th_23},
     {"sin2th_13", &t_sin2th_13},
     {"sin2th_12", &t_sin2th_12},
@@ -50,24 +50,23 @@ int main(int argc, char *argv[])
   // Enable branches based on map and set their addresses
   for (const auto& [old_name, new_name] : branch_map) {
     myChain->SetBranchStatus(old_name.c_str(), 1);
-    myChain->SetBranchAddress(old_name.c_str(), branch_pointers[old_name]);
+    myChain->SetBranchAddress(old_name.c_str(), branch_pointers.at(old_name));
   }
 
   /// Load cov osc
   TFile *TempFile = new TFile(argv[1], "open");
   TDirectory* CovarianceFolder = (TDirectory*)TempFile->Get("CovarianceFolder");
 
-  TMacro *OscConfig = (TMacro*)(CovarianceFolder->Get("Config_osc_cov"));
+  TMacro *OscConfig = (TMacro*)(CovarianceFolder->Get("Config_xsec_cov"));
 
   YAML::Node OscSettings = TMacroToYAML(*OscConfig);
-
   // Create the new file and tree
   TFile* newfile = new TFile(argv[2], "recreate");
   TTree* newtree = new TTree("mcmc", "mcmc");
 
   // Create new branches in new tree with the mapped names
   for (const auto& [old_name, new_name] : branch_map) {
-    newtree->Branch(new_name.c_str(), branch_pointers[old_name], (new_name + "/D").c_str());
+    newtree->Branch(new_name.c_str(), branch_pointers.at(old_name), (new_name + "/D").c_str());
   }
 
   for (int i = 0; i < myChain->GetEntries(); ++i)
@@ -92,26 +91,27 @@ int main(int argc, char *argv[])
 
   for (auto const &entry : OscSettings["Systematics"])
   {
-    std::string param_name = entry["Systematic"]["Names"]["ParameterName"].as<std::string>();
-    bool flat_prior = entry["Systematic"]["FlatPrior"].as<bool>();
-    std::string mapped_name = branch_map[param_name];  // Get the mapped name
-    if(mapped_name == "") continue;
+    std::string param_name = Get<std::string>(entry["Systematic"]["Names"]["FancyName"], __FILE__, __LINE__);
+    auto it = branch_map.find(param_name);
+    if (it == branch_map.end()) continue;
+    std::string mapped_name = it->second;
     std::string distribution;
+    bool flat_prior = Get<bool>(entry["Systematic"]["FlatPrior"], __FILE__, __LINE__);
 
     if (param_name.rfind("sin", 0) == 0) {
       if (flat_prior) {
         distribution = "Uniform:sin^2(" + mapped_name + ")";
       } else {
-        double prefit_value = entry["Systematic"]["ParameterValues"]["PreFitValue"].as<double>();
-        double error = entry["Systematic"]["Error"].as<double>();
+        double prefit_value = Get<double>(entry["Systematic"]["ParameterValues"]["PreFitValue"], __FILE__, __LINE__);
+        double error = Get<double>(entry["Systematic"]["Error"], __FILE__, __LINE__);
         distribution = "Gaussian(" + std::to_string(prefit_value) + ", " + std::to_string(error) + "):sin^2(" + mapped_name + ")";
       }
     } else {
       if (flat_prior) {
         distribution = "Uniform:" + mapped_name;
       } else {
-        double prefit_value = entry["Systematic"]["ParameterValues"]["PreFitValue"].as<double>();
-        double error = entry["Systematic"]["Error"].as<double>();
+        double prefit_value = Get<double>(entry["Systematic"]["ParameterValues"]["PreFitValue"], __FILE__, __LINE__);
+        double error = Get<double>(entry["Systematic"]["Error"], __FILE__, __LINE__);
         distribution = "Gaussian(" + std::to_string(prefit_value) + ", " + std::to_string(error) + "):" + mapped_name;
       }
     }

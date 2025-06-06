@@ -6,15 +6,15 @@ _MaCh3_Safe_Include_Start_ //{
 #include "Oscillator/OscillatorFactory.h"
 _MaCh3_Safe_Include_End_ //}
 
-void SharedNuOscTest(const std::string& config, ParameterHandlerGeneric* xsec, ParameterHandlerOsc* osc){
+void SharedNuOscTest(const std::string& config, ParameterHandlerGeneric* xsec){
   MACH3LOG_INFO("Utilising a shared NuOscillator object between all atmospheric samples");
 
   std::string OscillatorConfig = std::string(std::getenv("MaCh3Tutorial_ROOT")) + "/TutorialConfigs/NuOscillator/CUDAProb3.yaml";
-  std::vector<const double*> OscParams = osc->GetOscParsFromSampleName("Tutorial ATM");
+  std::vector<const double*> OscParams = xsec->GetOscParsFromSampleName("Tutorial ATM");
   auto OscillatorObj = std::make_shared<OscillationHandler>(OscillatorConfig, true, OscParams, 6);
 
-  SampleHandlerTutorial *Sample1 = new SampleHandlerTutorial(config, xsec, osc, OscillatorObj);
-  SampleHandlerTutorial *Sample2 = new SampleHandlerTutorial(config, xsec, osc, OscillatorObj);
+  SampleHandlerTutorial *Sample1 = new SampleHandlerTutorial(config, xsec, OscillatorObj);
+  SampleHandlerTutorial *Sample2 = new SampleHandlerTutorial(config, xsec, OscillatorObj);
 
   delete Sample1;
   delete Sample2;
@@ -37,25 +37,22 @@ int main(int argc, char *argv[])
     throw MaCh3Exception(__FILE__ , __LINE__ );
   }
 
-  std::vector<std::string> xsecCovMatrixFile = {"TutorialConfigs/CovObjs/SystematicModel.yaml"};
+  std::vector<std::string> xsecCovMatrixFile = {"TutorialConfigs/CovObjs/SystematicModel.yaml", "TutorialConfigs/CovObjs/OscillationModel.yaml"};
   ParameterHandlerGeneric* xsec = new ParameterHandlerGeneric(xsecCovMatrixFile, "xsec_cov");
-
-  std::vector<std::string> OscCovMatrixFile = {"TutorialConfigs/CovObjs/OscillationModel.yaml"};
-  ParameterHandlerOsc* osc = new ParameterHandlerOsc(OscCovMatrixFile, "osc_cov");
-  osc->SetParameters();
+  xsec->SetParameters();
 
   // Open a file in write mode
   std::ofstream outFile("NewSampleOut.txt");
   std::vector<std::string> SampleConfig = {"TutorialConfigs/Samples/SampleHandler_Tutorial.yaml", "TutorialConfigs/Samples/SampleHandler_Tutorial_ATM.yaml"};
   for (const auto& configPath : SampleConfig) {
-    SampleHandlerTutorial *Sample = new SampleHandlerTutorial({configPath}, xsec, osc);
+    SampleHandlerTutorial *Sample = new SampleHandlerTutorial({configPath}, xsec);
 
     std::string name = Sample->GetTitle();
     TString NameTString = TString(name.c_str());
 
     // Reweight and process prior histogram
     Sample->Reweight();
-    TH1D *SampleHistogramPrior = (TH1D*)Sample->Get1DHist()->Clone(NameTString + "_Prior");
+    TH1D *SampleHistogramPrior = (TH1D*)Sample->GetMCHist(1)->Clone(NameTString + "_Prior");
     Sample->AddData(SampleHistogramPrior);
 
     // Write initial info to file
@@ -65,11 +62,11 @@ int main(int argc, char *argv[])
 
     // Set oscillation parameters and reweight for posterior
     std::vector<double> OscParProp = {0.3, 0.5, 0.020, 7.53e-5, 2.494e-3, 0.0, 295, 2.6, 0.5, 15};
-    osc->SetParameters(OscParProp);
+    xsec->SetGroupOnlyParameters("Osc", OscParProp);
     Sample->Reweight();
 
     // Process posterior histogram
-    TH1D *SampleHistogramPost = (TH1D*)Sample->Get1DHist()->Clone(NameTString + "_Post");
+    TH1D *SampleHistogramPost = (TH1D*)Sample->GetMCHist(1)->Clone(NameTString + "_Post");
     outFile << "Rates Post:" << SampleHistogramPrior->Integral() << std::endl;
     outFile << "Likelihood:" << std::fabs(Sample->GetLikelihood()) << std::endl;
 
@@ -97,11 +94,10 @@ int main(int argc, char *argv[])
     MACH3LOG_INFO("Everything is correct");
   }
 
-  SharedNuOscTest(SampleConfig.back(), xsec, osc);
+  SharedNuOscTest(SampleConfig.back(), xsec);
   NoSplinesNoOscTest(SampleConfig.back());
 
   delete xsec;
-  delete osc;
 
   return 0;
 }

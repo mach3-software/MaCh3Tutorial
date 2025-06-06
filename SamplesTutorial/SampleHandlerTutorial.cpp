@@ -2,8 +2,8 @@
 
 // ************************************************
 SampleHandlerTutorial::SampleHandlerTutorial(const std::string& config_name, ParameterHandlerGeneric* parameter_handler,
-                                             ParameterHandlerOsc* oscillation_handler, const std::shared_ptr<OscillationHandler>&  Oscillator_)
-                                             : SampleHandlerFD(config_name, parameter_handler, oscillation_handler, Oscillator_) {
+                                             const std::shared_ptr<OscillationHandler>&  Oscillator_)
+                                             : SampleHandlerFD(config_name, parameter_handler, Oscillator_) {
 // ************************************************
   KinematicParameters = &KinematicParametersTutorial;
   ReversedKinematicParameters = &ReversedKinematicParametersTutorial;
@@ -91,7 +91,7 @@ void SampleHandlerTutorial::SetupSplines() {
   SplineHandler = nullptr;
 
   if(ParHandler->GetNumParamsFromSampleName(SampleName, SystType::kSpline) > 0){
-    SplineHandler = std::make_unique<BinnedSplineTutorial>(ParHandler, Modes);
+    SplineHandler = std::make_unique<BinnedSplineTutorial>(ParHandler, Modes.get());
     InitialiseSplineObject();
   } else {
     MACH3LOG_WARN("Not using splines");

@@ -24,11 +24,10 @@ int main(int argc, char **argv) {
 
   // Initialise covariance class reasonable for Systematics
   auto xsec = MaCh3CovarianceFactory<ParameterHandlerGeneric>(FitManager.get(), "Xsec");
-  auto osc  = MaCh3CovarianceFactory<ParameterHandlerOsc>(FitManager.get(), "Osc");
 
   // Initialise samplePDF
   auto SampleConfig = FitManager->raw()["General"]["TutorialSamples"].as<std::vector<std::string>>();
-  auto mySamples = MaCh3SampleHandlerFactory<SampleHandlerTutorial>(SampleConfig, xsec.get(), osc.get());
+  auto mySamples = MaCh3SampleHandlerFactory<SampleHandlerTutorial>(SampleConfig, xsec.get());
 
   // Output file is named after output filename in config plus plot variable(s)
   std::string configOutName = FitManager->raw()["General"]["OutputFile"].as<std::string>();

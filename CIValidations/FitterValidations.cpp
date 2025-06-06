@@ -13,7 +13,6 @@ void FitVal(const std::string& Algo, bool MoreTests)
   MACH3LOG_INFO("Testing {}", Algo);
 
   auto xsec = MaCh3CovarianceFactory<ParameterHandlerGeneric>(FitManager.get(), "Xsec");
-  auto osc  = MaCh3CovarianceFactory<ParameterHandlerOsc>(FitManager.get(), "Osc");
   std::unique_ptr<FitterBase> MaCh3Fitter = nullptr;
   if(Algo == "MCMC") {
     FitManager->OverrideSettings("General", "OutputFile", "MCMC_Test.root");
@@ -36,11 +35,11 @@ void FitVal(const std::string& Algo, bool MoreTests)
   }
 
   std::string SampleConfig = {TutorialPath + "/TutorialConfigs/Samples/SampleHandler_Tutorial.yaml"};
-  auto Sample = std::make_unique<SampleHandlerTutorial>(SampleConfig, xsec.get(), osc.get());
+  auto Sample = std::make_unique<SampleHandlerTutorial>(SampleConfig, xsec.get());
   Sample->Reweight();
   std::string name = Sample->GetTitle();
   TString NameTString = TString(name.c_str());
-  TH1D *SampleHistogramPrior = (TH1D*)Sample->Get1DHist()->Clone(NameTString+"_Prior");
+  TH1D *SampleHistogramPrior = (TH1D*)Sample->GetMCHist(1)->Clone(NameTString+"_Prior");
   Sample->AddData(SampleHistogramPrior);
 
   MaCh3Fitter->AddSystObj(xsec.get());

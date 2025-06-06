@@ -68,8 +68,8 @@ GetPostfitParamPlots:
         [
             "Norm_Param_0", 
             "BinnedSplineParam1",
-            "Func_Param_0",
-            "Func_Param_1"
+            "EResLep",
+            "EResTot"
         ]
     ]
 
@@ -77,8 +77,6 @@ GetPostfitParamPlots:
         [
             "Norm_Param_1", 
             "BinnedSplineParam2",
-            "Func_Param_2",
-            "Func_Param_3"
         ]
     ]
 

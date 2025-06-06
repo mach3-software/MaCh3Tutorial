@@ -38,18 +38,14 @@ General:
     BurnInSteps: 200000
   Systematics:
     XsecCovName: "xsec_cov"
-    XsecFix: [ ]
+    XsecFix: [ "baseline", "density", "Ye", "prod_height" ]
     XsecCovFile: ["TutorialConfigs/CovObjs/SystematicModel.yaml",
+                  "TutorialConfigs/CovObjs/OscillationModel.yaml"
                   #"TutorialConfigs/CovObjs/PCATest.yaml"
                   ]
     XsecPCAThreshold: -1
     XsecPCAParams: [-999, -999]
     XsecStepScale: 0.05
-
-    OscCovName: "osc_cov"
-    OscCovFile: ["TutorialConfigs/CovObjs/OscillationModel.yaml"]
-    OscFix: ["baseline", "density", "Ye", "prod_height"]
-    OscStepScale: 0.045
 
 # Prior/Posterior predictive settings
 Predictive:
