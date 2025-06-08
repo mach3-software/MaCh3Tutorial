@@ -109,7 +109,7 @@ void SampleHandlerTutorial::SetupWeightPointers() {
 }
 
 void SampleHandlerTutorial::CleanMemoryBeforeFit() {
-  std::vector<TutorialMCPlottingInfo>().swap(TutorialPlottingSamples);
+  CleanVector(TutorialPlottingSamples);
 }
 
 // ************************************************
