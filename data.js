@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1749464632860,
+  "lastUpdate": 1749466252051,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -7378,6 +7378,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 431.845,
             "range": "± 3.85478",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "5435be968cd56937c5bcea487f725a9a1d36e0d3",
+          "message": "Merge pull request #502 from mach3-software/feature/kskwarczynski/XsecCovExtractor\n\nfeat: Flexible Config getter from chain",
+          "timestamp": "2025-06-09T19:46:02+09:00",
+          "tree_id": "34162cf42a425124cb366f959ebe2421c393cdd2",
+          "url": "https://github.com/mach3-software/MaCh3/commit/5435be968cd56937c5bcea487f725a9a1d36e0d3"
+        },
+        "date": 1749466249871,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.7713,
+            "range": "± 841.68",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.69626,
+            "range": "± 840.199",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 432.043,
+            "range": "± 4.19068",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
