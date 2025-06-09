@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1749466252051,
+  "lastUpdate": 1749473987857,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -7423,6 +7423,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 432.043,
             "range": "± 4.19068",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "40c064332be935c79717318e816351d5c490fdb8",
+          "message": "Merge pull request #503 from mach3-software/feature/kskwarczynski/BinningStruct\n\nfeat: Do not store binning twice",
+          "timestamp": "2025-06-09T21:54:54+09:00",
+          "tree_id": "5eccdf4dc441496c46af166912ff4b1c526f7b20",
+          "url": "https://github.com/mach3-software/MaCh3/commit/40c064332be935c79717318e816351d5c490fdb8"
+        },
+        "date": 1749473986048,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.69462,
+            "range": "± 295.335",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.5818,
+            "range": "± 81.7171",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 436.08,
+            "range": "± 4.55198",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
