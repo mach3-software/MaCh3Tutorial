@@ -192,11 +192,14 @@ TEST_CASE("Check GetBounds", "[Yamlhelper]") {
     REQUIRE_THAT(TempBoundsVec[1], Catch::Matchers::WithinAbs(M3::KinematicUpBound , 1e-6));
   }
 
-  SECTION("Check error handling for single variable")
-  {
+  SECTION("Single-value bound expands to +/- 0.5") {
     std::string Bounds = "Bounds: [0]";
     YAML::Node TextNode = STRINGtoYAML(Bounds);
-    REQUIRE_THROWS(GetBounds(TextNode["Bounds"]));
+    std::vector<double> result = GetBounds(TextNode["Bounds"]);
+
+    REQUIRE(result.size() == 2);
+    REQUIRE_THAT(result[0], Catch::Matchers::WithinAbs(-0.5, 1e-6));
+    REQUIRE_THAT(result[1], Catch::Matchers::WithinAbs(0.5, 1e-6));
   }
   SECTION("Check error handling for multiple variable")
   {
@@ -215,6 +218,45 @@ TEST_CASE("Check GetBounds", "[Yamlhelper]") {
     std::string Bounds = "Bounds: [0, {val: 10}]";
     YAML::Node TextNode = STRINGtoYAML(Bounds);
     REQUIRE_THROWS(GetBounds(TextNode["Bounds"]));
+  }
+}
+
+
+TEST_CASE("Check Get2DBounds", "[Yamlhelper]") {
+  SECTION("Check full bounds entry") {
+    std::string Bounds = "Bounds: [[0.5, 1.5], [2.0, 3.0]]";
+    YAML::Node TextNode = STRINGtoYAML(Bounds);
+    auto result = Get2DBounds(TextNode["Bounds"]);
+
+    REQUIRE(result.size() == 2);
+    REQUIRE_THAT(result[0][0], Catch::Matchers::WithinAbs(0.5, 1e-6));
+    REQUIRE_THAT(result[0][1], Catch::Matchers::WithinAbs(1.5, 1e-6));
+    REQUIRE_THAT(result[1][0], Catch::Matchers::WithinAbs(2.0, 1e-6));
+    REQUIRE_THAT(result[1][1], Catch::Matchers::WithinAbs(3.0, 1e-6));
+  }
+
+  SECTION("Check single-value entries get expanded") {
+    std::string Bounds = "Bounds: [[1], [3]]";
+    YAML::Node TextNode = STRINGtoYAML(Bounds);
+    auto result = Get2DBounds(TextNode["Bounds"]);
+
+    REQUIRE(result.size() == 2);
+    REQUIRE_THAT(result[0][0], Catch::Matchers::WithinAbs(0.5, 1e-6));
+    REQUIRE_THAT(result[0][1], Catch::Matchers::WithinAbs(1.5, 1e-6));
+    REQUIRE_THAT(result[1][0], Catch::Matchers::WithinAbs(2.5, 1e-6));
+    REQUIRE_THAT(result[1][1], Catch::Matchers::WithinAbs(3.5, 1e-6));
+  }
+
+  SECTION("Check throws on invalid structure") {
+    std::string Bounds = "Bounds: [1, 2, 3]";
+    YAML::Node TextNode = STRINGtoYAML(Bounds);
+    REQUIRE_THROWS(Get2DBounds(TextNode["Bounds"]));
+  }
+
+  SECTION("Check throws on nested invalid type") {
+    std::string Bounds = "Bounds: [[1, 2, 3]]";
+    YAML::Node TextNode = STRINGtoYAML(Bounds);
+    REQUIRE_THROWS(Get2DBounds(TextNode["Bounds"]));
   }
 }
 
