@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1749219365893,
+  "lastUpdate": 1749464632860,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -7333,6 +7333,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 433.939,
             "range": "± 3.95105",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "31003009+dbarrow257@users.noreply.github.com",
+            "name": "dbarrow257",
+            "username": "dbarrow257"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "427d6e16141be3d3aa98397c615bc3ca4f3c05a4",
+          "message": "Merge pull request #504 from mach3-software/tidy/kskwarczynski/UpdateReadme\n\ntidy: Additional cmake options to readme",
+          "timestamp": "2025-06-09T11:19:07+01:00",
+          "tree_id": "56693a4ddfea0dc153214a4257171a5053668f9c",
+          "url": "https://github.com/mach3-software/MaCh3/commit/427d6e16141be3d3aa98397c615bc3ca4f3c05a4"
+        },
+        "date": 1749464631216,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.63932,
+            "range": "± 107.587",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.55521,
+            "range": "± 122.649",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 431.845,
+            "range": "± 3.85478",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
