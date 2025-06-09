@@ -244,7 +244,7 @@ You can plot kinematic distribution of your sample using
 ```bash
 ./bin/KinemDistributionTutorial TutorialConfigs/FitterConfig.yaml
 ```
-Notice same config being used. In other words you can add or disable sample, modify cuts in same way as was discussed.
+Notice same config being used. In other words you can add or disable sample, modify cuts in same way as was discussed. At the bottom of the config, you can specify any individual variables you would like to plot with this executable, along with any selection cuts for each plot.
 Example of plot you can see here:
 
 <img width="350" alt="Kinematic example" src="https://github.com/user-attachments/assets/534bcb17-f26c-4fc2-a77a-5d253b0ed241">

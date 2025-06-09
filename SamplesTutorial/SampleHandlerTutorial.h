@@ -3,6 +3,7 @@
 #include "Samples/SampleHandlerFD.h"
 #include "StructsTutorial.h"
 #include "SplinesTutorial/BinnedSplinesTutorial.h"
+#include <random>
 
 class SampleHandlerTutorial : public SampleHandlerFD
 {
@@ -10,7 +11,12 @@ class SampleHandlerTutorial : public SampleHandlerFD
   SampleHandlerTutorial(const std::string& config_name, ParameterHandlerGeneric* parameter_handler,
                         const std::shared_ptr<OscillationHandler>& Oscillator_ = nullptr);
   virtual ~SampleHandlerTutorial();
+
   enum KinematicTypes {kTrueNeutrinoEnergy, kTrueQ2, kM3Mode, kRecoNeutrinoEnergy};
+  
+  // === JM enum for particle-level parameters ===
+  enum KinematicParticleVecs {kParticleEnergy, kParticlePDG, kParticleBeamAngle};
+  // =============================================
 
   std::vector<double> ReturnKinematicParameterBinning(std::string KinematicParameter) override;
 
@@ -24,11 +30,18 @@ class SampleHandlerTutorial : public SampleHandlerFD
 
   int SetupExperimentMC() override;
 
-  void CleanMemoryBeforeFit() override {};
+  void CleanMemoryBeforeFit() override;
 
   double ReturnKinematicParameter(KinematicTypes KinPar, int iEvent);
   double ReturnKinematicParameter(int KinematicVariable, int iEvent);
   double ReturnKinematicParameter(std::string KinematicParameter, int iEvent);
+  
+  // === JM ReturnKinematicVector declarations for particle-level parameters ===
+  std::vector<double> ReturnKinematicVector(KinematicParticleVecs KinVec, int iEvent);
+  std::vector<double> ReturnKinematicVector(int KinematicVector, int iEvent);
+  std::vector<double> ReturnKinematicVector(std::string KinematicVector, int iEvent);
+  std::vector<double> ReturnKinematicVectorBinning(std::string KinematicParameter);
+  // ===========================================================================
 
   const double* GetPointerToKinematicParameter(KinematicTypes KinPar, int iEvent);
   const double* GetPointerToKinematicParameter(std::string KinematicParameter, int iEvent) override;
@@ -38,6 +51,7 @@ class SampleHandlerTutorial : public SampleHandlerFD
   void CalcWeightFunc(int iEvent) override {return; (void)iEvent;}
 
   std::vector<TutorialMCInfo> TutorialSamples;
+  std::vector<TutorialMCPlottingInfo> TutorialPlottingSamples;
 
   const std::unordered_map<std::string, int> KinematicParametersTutorial = {
     {"TrueNeutrinoEnergy", kTrueNeutrinoEnergy},
@@ -52,6 +66,20 @@ class SampleHandlerTutorial : public SampleHandlerFD
     {kM3Mode,"Mode"},
     {kRecoNeutrinoEnergy, "RecoNeutrinoEnergy"},
   };
+  
+  // === JM maps for particle-level parameters ===
+  const std::unordered_map<std::string, int> KinematicVectorsTutorial = {
+    {"ParticleEnergy", kParticleEnergy},
+    {"ParticlePDG", kParticlePDG},
+    {"ParticleBeamAngle", kParticleBeamAngle},
+  };
+
+  const std::unordered_map<int, std::string> ReversedKinematicVectorsTutorial = {
+    {kParticleEnergy, "ParticleEnergy"},
+    {kParticlePDG, "ParticlePDG"},
+    {kParticleBeamAngle, "kParticleBeamAngle"},
+  };
+  // =============================================
 
   double pot;
   bool isATM;

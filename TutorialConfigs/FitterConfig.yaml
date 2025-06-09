@@ -69,3 +69,14 @@ LLHScan:
   ScanRanges:
     #delta_cp: [-3.14,3.14]
 
+#KinemDistribution extra plots to draw
+KinematicDistributionPlots:
+- Name: "True Neutrino Energy (0.5 GeV < Enu < 3 GeV)"
+  VarStrings: ["TrueNeutrinoEnergy"]
+  VarBins: [[40,0,4]]
+  KinematicCuts:
+  - VarString: "TrueNeutrinoEnergy"
+    Range: [0.5,3]
+- Name: "Q2 vs True Enu"
+  VarStrings: ["TrueNeutrinoEnergy", "TrueQ2"]
+  VarBins: [[50,0,4],[50,0,6]]
