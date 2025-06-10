@@ -63,7 +63,7 @@ if(NOT DEFINED MaCh3_Branch)
 endif()
 
 #If MaCh3 was sourced find it, otherwise use CPM
-#find_package(MaCh3 QUIET EXACT ${MaCh3Tutorial_VERSION})
+find_package(MaCh3 QUIET EXACT ${MaCh3Tutorial_VERSION})
 
 if(NOT MaCh3_FOUND)
   set(MaCh3_OPTIONS "")
@@ -112,10 +112,11 @@ endif()
 #target_compile_options(MaCh3 INTERFACE "-pg")
 #target_link_options(MaCh3 INTERFACE "-pg")
 
-find_package(OpenMP)
-if(OpenMP_CXX_FOUND)
-    target_link_libraries(MaCh3 INTERFACE OpenMP::OpenMP_CXX)
-endif()
+#ETA - pretty sure this needs to go into core
+#find_package(OpenMP)
+#if(OpenMP_CXX_FOUND)
+#    target_link_libraries(MaCh3 INTERFACE OpenMP::OpenMP_CXX)
+#endif()
 
 if(USE_FPGA)
   if(NOT DEFINED FPGA_DEVICE)
@@ -152,10 +153,11 @@ if(USE_FPGA)
 
 endif()
 
-target_compile_options(MaCh3 INTERFACE "-O0 -fno-eliminate-unused-debug-types")
-target_link_libraries(MaCh3 INTERFACE spdlog::spdlog)
-# include_directories(/opt/intel/oneapi/compiler/2024.2/include)
-# link_directories(/opt/intel/oneapi/compiler/2024.2/include)
+#ETA - similarly this I think is for core
+#target_compile_options(MaCh3 INTERFACE "-O0 -fno-eliminate-unused-debug-types")
+#target_link_libraries(MaCh3 INTERFACE spdlog::spdlog)
+## include_directories(/opt/intel/oneapi/compiler/2024.2/include)
+## link_directories(/opt/intel/oneapi/compiler/2024.2/include)
 
 if(NOT TARGET MaCh3::All)
   cmessage(FATAL_ERROR "MaCh3 Tutorial Expected dependency target: MaCh3::All, did you source setup.MaCh3.sh")
