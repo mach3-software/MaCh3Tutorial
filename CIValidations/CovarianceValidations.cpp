@@ -290,11 +290,11 @@ AdaptionOptions:
     Adapt->UpdateAdaptiveCovariance();
     Adapt->AcceptStep();
   }
-  auto ParMeans = Adapt->GetParameterMeans();
+  auto ParMeans = Adapt->GetAdaptiveHandler()->GetParameterMeans();
   for(size_t i = 0; i < ParMeans.size(); i++) {
     outFile << "Adapt, Param means: " << i << " = " << ParMeans[i] << std::endl;
   }
-  TMatrixDSym* Matrix = Adapt->GetAdaptiveHandler()->adaptive_covariance;
+  TMatrixDSym* Matrix = Adapt->GetAdaptiveHandler()->GetAdaptiveCovariance();
   int dim = Matrix->GetNrows();
   for (int i = 0; i < dim; ++i) {
     for (int j = 0; j < dim; ++j) {
@@ -302,8 +302,10 @@ AdaptionOptions:
     }
   }
 
-  Adapt->SaveAdaptiveToFile("Wacky.root", "xsec");
+  outFile << "Total Number Of Steps " << Adapt->GetAdaptiveHandler()->GetTotalSteps() << std::endl;
+  outFile << "Total Number Of AMCMC Params " << Adapt->GetAdaptiveHandler()->GetNumParams() << std::endl;
 
+  Adapt->SaveAdaptiveToFile("Wacky.root", "xsec");
 ////////////// Now Tune //////////////
   TuneValidations(outFile);
 
