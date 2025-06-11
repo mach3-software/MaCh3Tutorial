@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1749473987857,
+  "lastUpdate": 1749650889572,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -7468,6 +7468,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 436.08,
             "range": "± 4.55198",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "5d89c974e6e3ad3a5a70855999e2343de7bb77b6",
+          "message": "Merge pull request #510 from mach3-software/tidy/kskwarczynski/FitterBaseSmartPTR\n\ntidy: Fitter Base updates",
+          "timestamp": "2025-06-11T23:03:14+09:00",
+          "tree_id": "08bf97f19377527e3f80b582781e2078697453f1",
+          "url": "https://github.com/mach3-software/MaCh3/commit/5d89c974e6e3ad3a5a70855999e2343de7bb77b6"
+        },
+        "date": 1749650887200,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.68784,
+            "range": "± 181.673",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.56882,
+            "range": "± 102.303",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 437.843,
+            "range": "± 4.0611",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
