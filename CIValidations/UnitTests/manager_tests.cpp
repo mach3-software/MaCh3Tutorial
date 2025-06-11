@@ -264,4 +264,77 @@ TEST_CASE("Check M3OpenConfig", "[Yamlhelper]") {
 
     std::remove("doc_sep.yaml");
   }
+
+  SECTION("YAML with multi-line flow-style list parses successfully") {
+    std::ofstream out("multiline_flow.yaml");
+    out << "YourScore: [-2000.0, -1960.0, -1920.0, -1880.0, -1840.0, -1800.0,\n"
+    "            -1760.0, -1720.0, -1680.0, -1640.0, -1600.0, -1560.0]\n";
+    out.close();
+
+    YAML::Node config;
+    REQUIRE_NOTHROW(config = M3OpenConfig("multiline_flow.yaml"));
+    REQUIRE(config["YourScore"]);
+    REQUIRE(config["YourScore"].IsSequence());
+    REQUIRE(config["YourScore"].size() == 12);
+    REQUIRE(config["YourScore"][0].as<double>() == -2000.0);
+    REQUIRE(config["YourScore"][11].as<double>() == -1560.0);
+
+    std::remove("multiline_flow.yaml");
+  }
+
+  SECTION("YAML with comments and indentation parses correctly") {
+    std::ofstream out("comments.yaml");
+    out << "# This is a comment\n"
+    "Config:\n"
+    "  - value1: 10  # inline comment\n"
+    "  - value2: 20\n";
+    out.close();
+
+    YAML::Node config;
+    REQUIRE_NOTHROW(config = M3OpenConfig("comments.yaml"));
+    REQUIRE(config["Config"].IsSequence());
+    REQUIRE(config["Config"][0]["value1"].as<int>() == 10);
+    REQUIRE(config["Config"][1]["value2"].as<int>() == 20);
+
+    std::remove("comments.yaml");
+  }
+
+  SECTION("YAML with nested flow-style lists parses successfully") {
+    std::ofstream out("nested_flow.yaml");
+    out << "Nested: [[1, 2], [3, 4], [5, 6]]\n";
+    out.close();
+
+    YAML::Node config;
+    REQUIRE_NOTHROW(config = M3OpenConfig("nested_flow.yaml"));
+    REQUIRE(config["Nested"].IsSequence());
+    REQUIRE(config["Nested"][0].IsSequence());
+    REQUIRE(config["Nested"][0][0].as<int>() == 1);
+    REQUIRE(config["Nested"][2][1].as<int>() == 6);
+
+    std::remove("nested_flow.yaml");
+  }
+
+  SECTION("YAML with multiple documents parses successfully") {
+    std::ofstream out("multi_doc.yaml");
+    out << "---\nConfig1:\n  Value: 1\n---\nConfig2:\n  Value: 2\n";
+    out.close();
+
+    YAML::Node config;
+    REQUIRE_NOTHROW(config = M3OpenConfig("multi_doc.yaml"));
+    REQUIRE(config["Config1"]["Value"].as<int>() == 1);
+
+    std::remove("multi_doc.yaml");
+  }
+
+  SECTION("YAML with unicode characters parses successfully") {
+    std::ofstream out("unicode.yaml");
+    out << "Greeting: \"こんにちは\"\n";
+    out.close();
+
+    YAML::Node config;
+    REQUIRE_NOTHROW(config = M3OpenConfig("unicode.yaml"));
+    REQUIRE(config["Greeting"].as<std::string>() == "こんにちは");
+
+    std::remove("unicode.yaml");
+  }
 }
