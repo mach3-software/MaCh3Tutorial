@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1749650889572,
+  "lastUpdate": 1749655115618,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -7513,6 +7513,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 437.843,
             "range": "± 4.0611",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "a5bc432347f97ab1f1616e6e8448429db0ef67d4",
+          "message": "Merge pull request #507 from mach3-software/tidy/kskwarczynski/CircualrBoundsSanity\n\ntidy: Ensure Circular Bounds are within Physic bounds",
+          "timestamp": "2025-06-12T00:13:47+09:00",
+          "tree_id": "912cb74a35b441ec73f4cd7c4e769eac9169f22f",
+          "url": "https://github.com/mach3-software/MaCh3/commit/a5bc432347f97ab1f1616e6e8448429db0ef67d4"
+        },
+        "date": 1749655113869,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.65282,
+            "range": "± 69.4529",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.56792,
+            "range": "± 59.6339",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 435.989,
+            "range": "± 3.86376",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
