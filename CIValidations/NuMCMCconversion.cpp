@@ -56,8 +56,7 @@ int main(int argc, char *argv[])
   /// Load cov osc
   TFile *TempFile = new TFile(argv[1], "open");
   TDirectory* CovarianceFolder = (TDirectory*)TempFile->Get("CovarianceFolder");
-
-  TMacro *OscConfig = (TMacro*)(CovarianceFolder->Get("Config_xsec_cov"));
+  TMacro *OscConfig = M3::GetConfigMacroFromChain(CovarianceFolder);
 
   YAML::Node OscSettings = TMacroToYAML(*OscConfig);
   // Create the new file and tree
@@ -71,7 +70,8 @@ int main(int argc, char *argv[])
 
   for (int i = 0; i < myChain->GetEntries(); ++i)
   {
-    if (i % 10000 == 0) std::cout << i << std::endl;
+    if (i % 10000 == 0) MaCh3Utils::PrintProgressBar(i, myChain->GetEntries());
+
     myChain->GetEntry(i);
 
     t_sin2th_23 = std::asin(std::sqrt(t_sin2th_23));
@@ -129,7 +129,6 @@ int main(int argc, char *argv[])
 
   // Write the TList to the directory
   paramList->Write("priors", TObject::kSingleKey);
-
 
   TObjString doi("https://doi.org/10.5281/zenodo.13642670");
 
