@@ -33,3 +33,5 @@ LikelihoodOptions:
   #False means you calculate W2 histogram only during first reweight, advisable for Barlow-Beeston
   UpdateW2: true
   TestStatistic: "Poisson"
+
+BinningFile: "TutorialConfigs/Samples/TutorialBinning.yaml"
