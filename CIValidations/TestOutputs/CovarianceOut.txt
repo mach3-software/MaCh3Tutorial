@@ -1355,6 +1355,8 @@ Adapt matrix: 19, 16 = 0.000948806
 Adapt matrix: 19, 17 = 0.000948806
 Adapt matrix: 19, 18 = 0.000948806
 Adapt matrix: 19, 19 = 0.000948806
+Total Number Of Steps 50000
+Total Number Of AMCMC Params 20
 WackyTune for param 0 is equal to=1.05
 WackyTune for param 1 is equal to=0.9
 WackyTune for param 2 is equal to=1.1
