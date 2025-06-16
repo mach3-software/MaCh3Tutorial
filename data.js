@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1750067087486,
+  "lastUpdate": 1750068120428,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -7693,6 +7693,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 436.279,
             "range": "± 4.69822",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "6feb09e83fbf24aca4f2b25fcd93246e6ae7e96c",
+          "message": "Merge pull request #508 from mach3-software/feature/kskwarczynski/StroeMoreInfo\n\nfeat: Store More info In Chain output",
+          "timestamp": "2025-06-16T18:57:06+09:00",
+          "tree_id": "bd4864b6605a43b107d28f2c13c7a5ae3ba90870",
+          "url": "https://github.com/mach3-software/MaCh3/commit/6feb09e83fbf24aca4f2b25fcd93246e6ae7e96c"
+        },
+        "date": 1750068118377,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.69068,
+            "range": "± 243.652",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.55388,
+            "range": "± 77.322",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 434.645,
+            "range": "± 4.54689",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
