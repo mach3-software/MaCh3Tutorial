@@ -18,8 +18,6 @@ class SampleHandlerTutorial : public SampleHandlerFD
   enum KinematicParticleVecs {kParticleEnergy, kParticlePDG, kParticleBeamAngle};
   // =============================================
 
-  std::vector<double> ReturnKinematicParameterBinning(std::string KinematicParameter) override;
-
  protected:
   void Init() override;
 
