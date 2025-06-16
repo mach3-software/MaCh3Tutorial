@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1749655115618,
+  "lastUpdate": 1750061615378,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -7558,6 +7558,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 435.989,
             "range": "± 3.86376",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "563508282b65df4f8db207ab0f25cab6b2579ac9",
+          "message": "Merge pull request #512 from mach3-software/tidy/kskwarczynski/adaptiveproperclass\n\nbreaking: Turn AMCMC into proper class",
+          "timestamp": "2025-06-16T17:08:52+09:00",
+          "tree_id": "e6d3e8b1f6d08603e11581ee4d3fc36be7c2e303",
+          "url": "https://github.com/mach3-software/MaCh3/commit/563508282b65df4f8db207ab0f25cab6b2579ac9"
+        },
+        "date": 1750061613711,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.63092,
+            "range": "± 86.2278",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.55044,
+            "range": "± 64.3724",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 434.778,
+            "range": "± 3.45134",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
