@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1750068120428,
+  "lastUpdate": 1750069797109,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -7738,6 +7738,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 434.645,
             "range": "± 4.54689",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "31003009+dbarrow257@users.noreply.github.com",
+            "name": "dbarrow257",
+            "username": "dbarrow257"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "3e07140c6371f4de1c99d58cc1f994c40db30225",
+          "message": "Merge pull request #513 from mach3-software/feature/kskwarczynski/BinningVarsNotEventVars\n\ntidy: Bin Edeges no longer per event and add FindXBin",
+          "timestamp": "2025-06-16T11:25:05+01:00",
+          "tree_id": "edf39b46380e4f8a3d558e4e188e249c2e974909",
+          "url": "https://github.com/mach3-software/MaCh3/commit/3e07140c6371f4de1c99d58cc1f994c40db30225"
+        },
+        "date": 1750069794892,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.75045,
+            "range": "± 50.9075",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.67204,
+            "range": "± 71.3088",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 429.956,
+            "range": "± 4.78406",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
