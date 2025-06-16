@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1750061640350,
+  "lastUpdate": 1750067087486,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -7648,6 +7648,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 434.426,
             "range": "± 2.94549",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "fb061488b13e856315d52249745d3fb5c6eb5c7d",
+          "message": "Merge pull request #511 from mach3-software/feature/kskwarczynski/ReturnBinningVect\n\nbreaking: Return Projection binning from yaml",
+          "timestamp": "2025-06-16T18:39:47+09:00",
+          "tree_id": "6e27b9dac93e7cdb939e6cd3f21f083d58ef3d5e",
+          "url": "https://github.com/mach3-software/MaCh3/commit/fb061488b13e856315d52249745d3fb5c6eb5c7d"
+        },
+        "date": 1750067085447,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.65086,
+            "range": "± 107.542",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.55541,
+            "range": "± 75.0687",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 436.279,
+            "range": "± 4.69822",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
