@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1750069797109,
+  "lastUpdate": 1750071154128,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -7783,6 +7783,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 429.956,
             "range": "± 4.78406",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "31003009+dbarrow257@users.noreply.github.com",
+            "name": "dbarrow257",
+            "username": "dbarrow257"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "1ad9f5931427c6f6a7350b3d75718a10bcd8cce8",
+          "message": "Merge pull request #509 from mach3-software/feature/kskwarczynski/jarlskog\n\nfeat: Port Jarlskog",
+          "timestamp": "2025-06-16T11:47:52+01:00",
+          "tree_id": "1b4c2111aa5827219d5dd63bb753fc49abebd9f4",
+          "url": "https://github.com/mach3-software/MaCh3/commit/1ad9f5931427c6f6a7350b3d75718a10bcd8cce8"
+        },
+        "date": 1750071152383,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.76406,
+            "range": "± 133.877",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.73069,
+            "range": "± 430.71",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 429.054,
+            "range": "± 5.07462",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
