@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1750061615378,
+  "lastUpdate": 1750061640350,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -7603,6 +7603,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 434.778,
             "range": "± 3.45134",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "e0c72a928d0a92093da43c76a4fd4c24b9ed1e2a",
+          "message": "Merge pull request #506 from mach3-software/feature/KSkwarczynski/DiscreteNormParams\n\nfeat: Discrete Norm parameters",
+          "timestamp": "2025-06-16T17:09:16+09:00",
+          "tree_id": "735a5224e2d7f00cb2e88caa9d66b40524bf3b39",
+          "url": "https://github.com/mach3-software/MaCh3/commit/e0c72a928d0a92093da43c76a4fd4c24b9ed1e2a"
+        },
+        "date": 1750061638593,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.63213,
+            "range": "± 35.8251",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.56299,
+            "range": "± 53.2088",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 434.426,
+            "range": "± 2.94549",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
