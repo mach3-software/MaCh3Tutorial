@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1750071154128,
+  "lastUpdate": 1750421037409,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -7828,6 +7828,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 429.054,
             "range": "± 5.07462",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "31003009+dbarrow257@users.noreply.github.com",
+            "name": "dbarrow257",
+            "username": "dbarrow257"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "74b352c840d496188beecf0043893342e24bbc19",
+          "message": "Merge pull request #518 from mach3-software/fekature/kskwarczynkis/DoNotDisturb\n\ntidy: Stale Issue Bot will no longer disturb weekends",
+          "timestamp": "2025-06-20T12:59:05+01:00",
+          "tree_id": "de3ed97fb1a11feaa63497e9dea7d3bbef84505b",
+          "url": "https://github.com/mach3-software/MaCh3/commit/74b352c840d496188beecf0043893342e24bbc19"
+        },
+        "date": 1750421035468,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.87604,
+            "range": "± 82.3047",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.79749,
+            "range": "± 58.2561",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 438.474,
+            "range": "± 3.93403",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
