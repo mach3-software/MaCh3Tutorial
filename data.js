@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1750699983118,
+  "lastUpdate": 1750706387099,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -7963,6 +7963,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 437.21,
             "range": "± 5.24016",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "31003009+dbarrow257@users.noreply.github.com",
+            "name": "dbarrow257",
+            "username": "dbarrow257"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "f4c20a15527b033c349bcc0847f06d4261cc522f",
+          "message": "Merge pull request #523 from mach3-software/dbarrow257/feature/FileToPDGMap\n\nfeat: Add FileTo[Init,Final]PDGMap which defines PDG for given file",
+          "timestamp": "2025-06-23T20:14:31+01:00",
+          "tree_id": "aec56f7fc8a3075cd32eeb1fff18e4d353d4a88e",
+          "url": "https://github.com/mach3-software/MaCh3/commit/f4c20a15527b033c349bcc0847f06d4261cc522f"
+        },
+        "date": 1750706384759,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.84858,
+            "range": "± 390.204",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.75687,
+            "range": "± 204.249",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 433.858,
+            "range": "± 3.59559",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
