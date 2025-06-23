@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1750696710324,
+  "lastUpdate": 1750699983118,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -7918,6 +7918,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 458.286,
             "range": "± 9.93966",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "486da042edf29338653a54054a930d0da371498d",
+          "message": "Merge pull request #517 from mach3-software/feature/kskwarczynski/sanity\n\nfeat: Check for bin ordering",
+          "timestamp": "2025-06-24T02:27:58+09:00",
+          "tree_id": "6cccc856fefe1a9bdd3896be0d7a73f4e61e3439",
+          "url": "https://github.com/mach3-software/MaCh3/commit/486da042edf29338653a54054a930d0da371498d"
+        },
+        "date": 1750699981073,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.86863,
+            "range": "± 59.1313",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.78304,
+            "range": "± 70.127",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 437.21,
+            "range": "± 5.24016",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
