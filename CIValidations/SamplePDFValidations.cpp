@@ -13,11 +13,8 @@ void SharedNuOscTest(const std::string& config, ParameterHandlerGeneric* xsec){
   std::vector<const double*> OscParams = xsec->GetOscParsFromSampleName("Tutorial ATM");
   auto OscillatorObj = std::make_shared<OscillationHandler>(OscillatorConfig, true, OscParams, 6);
 
-  SampleHandlerTutorial *Sample1 = new SampleHandlerTutorial(config, xsec, OscillatorObj);
-  SampleHandlerTutorial *Sample2 = new SampleHandlerTutorial(config, xsec, OscillatorObj);
-
-  delete Sample1;
-  delete Sample2;
+  auto Sample1 = std::make_unique<SampleHandlerTutorial>(config, xsec, OscillatorObj);
+  auto Sample2 = std::make_unique<SampleHandlerTutorial>(config, xsec, OscillatorObj);
 }
 
 void NoSplinesNoOscTest(const std::string& config){
@@ -26,6 +23,57 @@ void NoSplinesNoOscTest(const std::string& config){
   std::vector<std::string> ParameterMatrixFile = {TutorialPath + "/TutorialConfigs/CovObjs/PCATest.yaml"};
   auto xsec = std::make_unique<ParameterHandlerGeneric>(ParameterMatrixFile, "xsec_cov");
   auto Sample = std::make_unique<SampleHandlerTutorial>(config, xsec.get());
+}
+
+void SampleLLHValidation(std::ostream& outFile, const std::string& OriginalSample, ParameterHandlerGeneric* xsec, const bool W2) {
+  std::string NameTString = OriginalSample;
+  xsec->SetParameters();
+
+  // Load YAML config from file
+  YAML::Node config = M3OpenConfig(NameTString);
+
+  // Set UpdateW2 based on input flag
+  config["LikelihoodOptions"]["UpdateW2"] = W2;
+
+  // Convert to string
+  std::string configStr = YAMLtoSTRING(config);
+
+  // Get MaCh3Tutorial_ROOT environment variable
+  const char* rootEnv = std::getenv("MaCh3Tutorial_ROOT");
+  if (!rootEnv) {
+    throw std::runtime_error("Environment variable MaCh3Tutorial_ROOT is not set.");
+  }
+
+  std::string tempConfigPath = std::string(rootEnv) + "/mach3_temp_config.yaml";
+
+  // Write config string to file
+  std::ofstream configOut(tempConfigPath);
+  configOut << configStr;
+  configOut.close();
+
+  // Use modified config
+  auto Sample = std::make_unique<SampleHandlerTutorial>(tempConfigPath, xsec);
+  Sample->Reweight();
+
+  TH1D* SampleHistogramPrior = static_cast<TH1D*>(Sample->GetMCHist(1)->Clone((NameTString + "_Prior").c_str()));
+  Sample->AddData(SampleHistogramPrior);
+
+  // Set oscillation parameters and reweight for posterior
+  std::vector<double> OscParProp = {0.3, 0.5, 0.020, 7.53e-5, 2.494e-3, 0.0, 295, 2.6, 0.5, 15};
+  xsec->SetGroupOnlyParameters("Osc", OscParProp);
+  Sample->Reweight();
+
+  for (int TestStat = 0; TestStat < TestStatistic::kNTestStatistics; ++TestStat) {
+    Sample->SetTestStatistic(TestStatistic(TestStat));
+    outFile << "Sample: " << Sample->GetTitle()
+    << " update w2: " << std::boolalpha << W2
+    << " LLH is: " << std::fixed << std::setprecision(6)
+    << std::fabs(Sample->GetLikelihood())
+    << " using: " << TestStatistic_ToString(TestStatistic(TestStat)) << " test stat"
+    << std::endl;
+  }
+
+  std::remove(tempConfigPath.c_str());
 }
 
 int main(int argc, char *argv[])
@@ -76,10 +124,8 @@ int main(int argc, char *argv[])
       outFile<< "Sample: "<< NameTString << " Event: " << iEntry <<" weight: " << weight << std::endl;
     }
 
-    for (int TestStat = 0; TestStat < TestStatistic::kNTestStatistics; ++TestStat) {
-      Sample->SetTestStatistic(TestStatistic(TestStat));
-      outFile<< "Sample: "<< NameTString << " LLH is: " << std::fixed << std::setprecision(6) << std::fabs(Sample->GetLikelihood()) <<" using: " << TestStatistic_ToString(TestStatistic(TestStat)) <<" test stat"<< std::endl;
-    }
+    SampleLLHValidation(outFile, configPath, xsec, true);
+    SampleLLHValidation(outFile, configPath, xsec, false);
 
     // Clean up dynamically allocated Sample if needed
     delete SampleHistogramPost;
