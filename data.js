@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1750793702349,
+  "lastUpdate": 1750796006505,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -8053,6 +8053,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 430.434,
             "range": "± 4.2611",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "562078ab6d1bbf4c30ea0448b53f4618409bb1c7",
+          "message": "Merge pull request #526 from mach3-software/feature/VarSanitiser\n\nfeat: Fit variabel sanitiser",
+          "timestamp": "2025-06-25T05:08:36+09:00",
+          "tree_id": "dcc84a92d06af655d3dd2cf31f0cb36e0049f537",
+          "url": "https://github.com/mach3-software/MaCh3/commit/562078ab6d1bbf4c30ea0448b53f4618409bb1c7"
+        },
+        "date": 1750796004701,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.84163,
+            "range": "± 49.0594",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.77938,
+            "range": "± 160.657",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 429.673,
+            "range": "± 3.23577",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
