@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1750706387099,
+  "lastUpdate": 1750793702349,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -8008,6 +8008,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 433.858,
             "range": "± 3.59559",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "28698f6c735ddb45f8cc56568b58b6e5250b6b32",
+          "message": "Merge pull request #520 from mach3-software/feature/nosektom/loglcalcs\n\nfeat: LogL calculations for low MC predictinos and 0 MC predictions limits, GetTestStatLLH optimization",
+          "timestamp": "2025-06-25T04:30:16+09:00",
+          "tree_id": "a6130c561f2324dda2927e319f16605a3e842ecc",
+          "url": "https://github.com/mach3-software/MaCh3/commit/28698f6c735ddb45f8cc56568b58b6e5250b6b32"
+        },
+        "date": 1750793700091,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.79029,
+            "range": "± 65.6251",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.69412,
+            "range": "± 63.7053",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 430.434,
+            "range": "± 4.2611",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
