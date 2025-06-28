@@ -1,6 +1,5 @@
 #!/bin/bash
 #set -x  # Enable command tracing
-set -e  # Exit on error
 
 # Check if no arguments are provided
 if [ "$#" -eq 0 ]; then
@@ -8,8 +7,16 @@ if [ "$#" -eq 0 ]; then
   exit 1
 fi
 
-mach3tutorial-config --has-feature UNITTESTS || true
-HAVE_UNITTEST_SUPPORT=${?}
+mach3tutorial-config --has-feature UNITTESTS
+HAVE_UNITTEST_SUPPORT=$?
+
+if [ "$HAVE_UNITTEST_SUPPORT" -eq 0 ]; then
+  echo "UNITTESTS support: YES"
+else
+  echo "UNITTESTS support: NO"
+fi
+
+set -e  # Exit on error
 
 # Display help message
 show_help() {
@@ -48,7 +55,7 @@ run_covariance_validations() {
   ./CIValidations/MaCh3ModeValidations
   ./CIValidations/pValueValidations
   ./CIValidations/SigmaVarValidations
-  if [ "IF[HAVE_UNITTEST_SUPPORT]" == "0" ]; then
+  if [ "$HAVE_UNITTEST_SUPPORT" -eq 0 ]; then
     ./CIValidations/UnitTests/manager_tests
     ./CIValidations/UnitTests/histogram_tests
     ./CIValidations/UnitTests/statistical_tests
