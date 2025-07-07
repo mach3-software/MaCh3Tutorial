@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1750957469996,
+  "lastUpdate": 1751880293915,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -8143,6 +8143,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 403.381,
             "range": "± 7.15456",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "c72b902ede27dd8f4cf3bcead022f75f26900f4c",
+          "message": "Merge pull request #530 from mach3-software/feature/kskwarczynski/singleboundsanity\n\nfeat: Sanity Check for bound getting",
+          "timestamp": "2025-07-07T18:19:58+09:00",
+          "tree_id": "0d8536942516189acdf55cf81b4e0e058dca45fb",
+          "url": "https://github.com/mach3-software/MaCh3/commit/c72b902ede27dd8f4cf3bcead022f75f26900f4c"
+        },
+        "date": 1751880291683,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.80169,
+            "range": "± 62.1051",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.71806,
+            "range": "± 82.0646",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 394.732,
+            "range": "± 3.59916",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
