@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1751880293915,
+  "lastUpdate": 1751883867082,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -8188,6 +8188,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 394.732,
             "range": "± 3.59916",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "ab0c075413c704140eaa5c927fc585abbaaac5c9",
+          "message": "Merge pull request #529 from mach3-software/feature/kskwarczynski/SampleSpeedTidy\n\ntidy: Removal of oboslete stuff and micro optimisation",
+          "timestamp": "2025-07-07T19:19:33+09:00",
+          "tree_id": "839d1f79b1361e61e891384f6abef61964d6f33b",
+          "url": "https://github.com/mach3-software/MaCh3/commit/ab0c075413c704140eaa5c927fc585abbaaac5c9"
+        },
+        "date": 1751883865355,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.75376,
+            "range": "± 85.3586",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.68115,
+            "range": "± 91.0493",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 398.557,
+            "range": "± 2.75365",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
