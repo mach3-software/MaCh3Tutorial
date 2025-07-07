@@ -219,6 +219,11 @@ TEST_CASE("Check GetBounds", "[Yamlhelper]") {
     YAML::Node TextNode = STRINGtoYAML(Bounds);
     REQUIRE_THROWS(GetBounds(TextNode["Bounds"]));
   }
+  SECTION("Check error handling for single-element non-integer bound") {
+    std::string Bounds = "Bounds: [0.5]";
+    YAML::Node TextNode = STRINGtoYAML(Bounds);
+    REQUIRE_THROWS(GetBounds(TextNode["Bounds"]));
+  }
 }
 
 
