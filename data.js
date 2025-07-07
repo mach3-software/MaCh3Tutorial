@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1751907632102,
+  "lastUpdate": 1751908967553,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -8413,6 +8413,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 400.155,
             "range": "± 4.95748",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "146d13bfd39ef71b693430db8f603ded3bd6b0b4",
+          "message": "Merge pull request #538 from mach3-software/feature/kskwarczynski/yamlErrror\n\ntidy: More helpfull yaml error messages",
+          "timestamp": "2025-07-08T02:17:39+09:00",
+          "tree_id": "b294c68c4ea8979f62fe72ba34693ff536e5439e",
+          "url": "https://github.com/mach3-software/MaCh3/commit/146d13bfd39ef71b693430db8f603ded3bd6b0b4"
+        },
+        "date": 1751908965427,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.7569,
+            "range": "± 73.3001",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.70593,
+            "range": "± 205.968",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 395.728,
+            "range": "± 3.49788",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
