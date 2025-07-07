@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1751886987667,
+  "lastUpdate": 1751891382069,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -8278,6 +8278,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 396.253,
             "range": "± 7.62442",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "de5399fd095441324c19ab1716fed533c8f603bb",
+          "message": "Merge pull request #531 from mach3-software/feature/kskwarczynski/saveproposalconfigurable\n\nfeat: SaveProposal is now configurable",
+          "timestamp": "2025-07-07T21:24:54+09:00",
+          "tree_id": "ebc784b937d91fafc86e8986745a66b5f70c6648",
+          "url": "https://github.com/mach3-software/MaCh3/commit/de5399fd095441324c19ab1716fed533c8f603bb"
+        },
+        "date": 1751891380144,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.91014,
+            "range": "± 841.065",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.83334,
+            "range": "± 840.823",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 391.979,
+            "range": "± 3.23852",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
