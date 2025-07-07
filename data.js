@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1751891382069,
+  "lastUpdate": 1751906945119,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -8323,6 +8323,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 391.979,
             "range": "± 3.23852",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "63b839b44bca4689ec34fa5ef63022b750873146",
+          "message": "Merge pull request #544 from mach3-software/kskwarczynski/feat/botaler\n\ntidy: Modify Bot Alert threshold",
+          "timestamp": "2025-07-08T01:44:13+09:00",
+          "tree_id": "4d210de73859d28e3b715646b4a8f5611f44d067",
+          "url": "https://github.com/mach3-software/MaCh3/commit/63b839b44bca4689ec34fa5ef63022b750873146"
+        },
+        "date": 1751906943431,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.77036,
+            "range": "± 64.5107",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.6952,
+            "range": "± 89.7044",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 394.528,
+            "range": "± 4.14613",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
