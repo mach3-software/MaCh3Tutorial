@@ -111,6 +111,18 @@ void TestPCA(const std::string& label,
     }
   }
 
+  for (int i = 0; i < PCA->GetPCAHandler()->GetNumberPCAedParameters(); i++) {
+    outFile << "Param in " << label << " Is Decomposed: " << i << " = " << PCA->GetPCAHandler()->IsParameterDecomposed(i) << std::endl;
+  }
+
+  for (int i = 0; i < PCA->GetPCAHandler()->GetNumberPCAedParameters(); i++) {
+    outFile << "Param in " << label << " Prefit Value: " << i << " = " << PCA->GetPCAHandler()->GetPreFitValuePCA(i) << std::endl;
+  }
+
+  for (int i = 0; i < PCA->GetPCAHandler()->GetNumberPCAedParameters(); i++) {
+    outFile << "Param in " << label << " is Fixed: " << i << " = " << PCA->GetPCAHandler()->IsParameterFixedPCA(i) << std::endl;
+  }
+
   MACH3LOG_INFO("Testing throwing from covariance for {}", label);
   for (int i = 0; i < Ntoys; i++) {
     if (i % (Ntoys / 10) == 0) {
@@ -120,6 +132,11 @@ void TestPCA(const std::string& label,
   }
 
   PCA->AcceptStep();
+
+  PCA->ToggleFixAllParameters();
+  for (int i = 0; i < PCA->GetPCAHandler()->GetNumberPCAedParameters(); i++) {
+    outFile << "Param in " << label << " is Fixed: " << i << " = " << PCA->GetPCAHandler()->IsParameterFixedPCA(i) << std::endl;
+  }
 }
 
 int main(int argc, char *argv[])
@@ -208,10 +225,36 @@ int main(int argc, char *argv[])
     outFile << "Proposed Step for param " << i  << " is equal to=" << xsec->GetParProp(i) << std::endl;
   }
 
+  for (int i = 0; i < xsec->GetNumParams(); ++i) {
+    outFile << "Diagonal error for param " << i  << " is equal to=" << xsec->GetDiagonalError(i) << std::endl;
+  }
+
   //Now we check if Tune works
   xsec->SetTune("PostND");
   for (int i = 0; i < xsec->GetNumParams(); ++i) {
     outFile << "PostND Tune for param " << i  << " is equal to=" << xsec->GetParProp(i) << std::endl;
+  }
+
+  std::vector<std::string> paramNames = {"Norm_Param_2", "BinnedSplineParam3", "EResLep"};
+  for (const auto& name : paramNames) {
+    outFile << "Index for param " << name << " is " << xsec->GetParIndex(name) << std::endl;
+  }
+
+  std::vector<std::string> groupNames = {"Xsec", "Flux"};
+  for (const auto& group : groupNames) {
+    outFile << "Number of parameters in group " << group << " is " << xsec->GetNumParFromGroup(group) << std::endl;
+  }
+
+  xsec->SetGroupOnlyParameters("Xsec");
+  xsec->SetGroupOnlyParameters(std::vector<std::string>{ "Xsec", "Flux" });
+
+  // Now check fixing
+  for (int i = 0; i < xsec->GetNumParams(); i++) {
+    outFile << "Is param " << i  << " fixed=" << xsec->IsParameterFixed(i) << std::endl;
+  }
+  xsec->ToggleFixAllParameters();
+  for (int i = 0; i < xsec->GetNumParams(); i++) {
+    outFile << "Is param " << i  << " fixed=" << xsec->IsParameterFixed(i) << std::endl;
   }
 
 ////////////// Now PCA //////////////
@@ -301,11 +344,20 @@ AdaptionOptions:
       outFile << "Adapt matrix: " << i << ", " << j << " = " << (*Matrix)(i, j) << std::endl;
     }
   }
-
   outFile << "Total Number Of Steps " << Adapt->GetAdaptiveHandler()->GetTotalSteps() << std::endl;
   outFile << "Total Number Of AMCMC Params " << Adapt->GetAdaptiveHandler()->GetNumParams() << std::endl;
 
   Adapt->SaveAdaptiveToFile("Wacky.root", "xsec");
+
+  // Now check fixing
+  for (int i = 0; i < Adapt->GetNumParams(); i++) {
+    outFile << "Adapt is param " << i  << " fixed=" << Adapt->IsParameterFixed(i) << std::endl;
+  }
+  Adapt->ToggleFixAllParameters();
+  for (int i = 0; i < Adapt->GetNumParams(); i++) {
+    outFile << "Adapt is param " << i  << " fixed=" << Adapt->IsParameterFixed(i) << std::endl;
+  }
+
 ////////////// Now Tune //////////////
   TuneValidations(outFile);
 
