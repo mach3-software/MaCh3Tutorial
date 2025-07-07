@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1751883867082,
+  "lastUpdate": 1751886987667,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -8233,6 +8233,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 398.557,
             "range": "± 2.75365",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "a3bd0633b8e376995dc6580ea6f423bb7bb6ea6d",
+          "message": "Merge pull request #537 from mach3-software/tidy/kskwarczynski/Docueamntion\n\ntidy: Update test stat documentation",
+          "timestamp": "2025-07-07T20:11:40+09:00",
+          "tree_id": "9d8d693a3ca14a8755efd4381098b741d85b6c99",
+          "url": "https://github.com/mach3-software/MaCh3/commit/a3bd0633b8e376995dc6580ea6f423bb7bb6ea6d"
+        },
+        "date": 1751886985959,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.80875,
+            "range": "± 277.403",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.67242,
+            "range": "± 35.5571",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 396.253,
+            "range": "± 7.62442",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
