@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1751981209045,
+  "lastUpdate": 1751990326285,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -8593,6 +8593,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 383.972,
             "range": "± 3.0412",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "2ac230164dd03f3c24b98acb78dea6f9aa948771",
+          "message": "Merge pull request #532 from mach3-software/feature/kskwarczynski/SafeCombine\n\nfeat: Safer Combine Chains",
+          "timestamp": "2025-07-09T00:53:56+09:00",
+          "tree_id": "373445db783ce3df027e2f7d73d24138b468fc13",
+          "url": "https://github.com/mach3-software/MaCh3/commit/2ac230164dd03f3c24b98acb78dea6f9aa948771"
+        },
+        "date": 1751990323587,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.72518,
+            "range": "± 56.1493",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.65309,
+            "range": "± 71.0178",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 383.979,
+            "range": "± 2.78568",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
