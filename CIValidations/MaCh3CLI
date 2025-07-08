@@ -28,6 +28,7 @@ run_reweight_validations() {
   ./CIValidations/LLHValidation
   ${MaCh3Tutorial_ROOT}/bin/KinemDistributionTutorial ${MaCh3Tutorial_ROOT}/TutorialConfigs/FitterConfig.yaml
   ./CIValidations/NuOscillatorInterfaceValidations
+  ./CIValidations/PredictiveValidations
 }
 
 run_fitter_validations() {
