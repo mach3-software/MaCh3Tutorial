@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1751908967553,
+  "lastUpdate": 1751965192942,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -8458,6 +8458,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 395.728,
             "range": "± 3.49788",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "b0b0df9f9ed7286524689962918a3d4f6c339c36",
+          "message": "Merge pull request #540 from mach3-software/feature/kskwarczynski/GPUVerbose\n\ntidy: More verbose GPU Printer",
+          "timestamp": "2025-07-08T17:55:06+09:00",
+          "tree_id": "f3df9c9cbc6b41abd18ff1a6d024fe9c6b388ff9",
+          "url": "https://github.com/mach3-software/MaCh3/commit/b0b0df9f9ed7286524689962918a3d4f6c339c36"
+        },
+        "date": 1751965191116,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.73578,
+            "range": "± 76.0286",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.66356,
+            "range": "± 81.5544",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 388.474,
+            "range": "± 3.22325",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
