@@ -76,6 +76,41 @@ void SampleLLHValidation(std::ostream& outFile, const std::string& OriginalSampl
   std::remove(tempConfigPath.c_str());
 }
 
+void ValidateTestStatistic(std::ostream& outFile, const std::string& OriginalSample, ParameterHandlerGeneric* xsec) {
+  // Use modified config
+  auto Sample = std::make_unique<SampleHandlerTutorial>(OriginalSample, xsec);
+  Sample->Reweight();
+
+  TH1D* SampleHistogramPrior = static_cast<TH1D*>(Sample->GetMCHist(1)->Clone("Blarb_Prior"));
+  Sample->AddData(SampleHistogramPrior);
+
+  // Define test vectors, feel free to expand it
+  std::vector<double> data_values = {0.0, M3::_LOW_MC_BOUND_, 0.5, 1.0, 100000};
+  std::vector<double> mc_values   = {0.0, M3::_LOW_MC_BOUND_, 0.5, 1.0, 100000};
+  std::vector<double> w2_values   = {0.0, M3::_LOW_MC_BOUND_, 0.5, 1.0, 100000};
+
+  // Loop over all test statistics
+  for (int TestStat = 0; TestStat < TestStatistic::kNTestStatistics; ++TestStat) {
+    Sample->SetTestStatistic(TestStatistic(TestStat));
+    // Loop over all combinations of data, mc, w2
+    for (double data : data_values) {
+      for (double mc : mc_values) {
+        for (double w2 : w2_values) {
+          const double llh = Sample->GetTestStatLLH(data, mc, w2);
+          std::ostringstream line;
+          line << std::fixed << std::setprecision(6)
+          << "TestStatistic " << TestStatistic_ToString(TestStatistic(TestStat))
+          << ", Data: " << data
+          << ", MC: " << mc
+          << ", w²: " << w2
+          << ", LLH: " << llh;
+          outFile << line.str() << "\n";
+        } // end loop over w2
+      } // end loop over mc
+    } // end loop over data
+  } // end loop over test stat
+}
+
 int main(int argc, char *argv[])
 {
   SetMaCh3LoggerFormat();
@@ -131,6 +166,7 @@ int main(int argc, char *argv[])
     delete SampleHistogramPost;
     delete Sample;
   }
+  ValidateTestStatistic(outFile, SampleConfig[0], xsec);
   bool TheSame = CompareTwoFiles("CIValidations/TestOutputs/SampleOut.txt", "NewSampleOut.txt");
 
   if(!TheSame) {
