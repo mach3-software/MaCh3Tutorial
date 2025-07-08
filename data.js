@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1751977648268,
+  "lastUpdate": 1751981209045,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -8548,6 +8548,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 387.871,
             "range": "± 2.71416",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "b8e7bc0d9eb963b583a85b565ff60bda1a137b89",
+          "message": "Merge pull request #546 from mach3-software/feature/FixGraphBot\n\nbugfix: Graph bot udpate",
+          "timestamp": "2025-07-08T22:21:56+09:00",
+          "tree_id": "817c05b6eecc17e25e04ea615eb53f8dbc8b7a37",
+          "url": "https://github.com/mach3-software/MaCh3/commit/b8e7bc0d9eb963b583a85b565ff60bda1a137b89"
+        },
+        "date": 1751981206791,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.75697,
+            "range": "± 90.366",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.66465,
+            "range": "± 46.3254",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 383.972,
+            "range": "± 3.0412",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
