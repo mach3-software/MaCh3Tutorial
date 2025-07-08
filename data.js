@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1751965192942,
+  "lastUpdate": 1751977648268,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -8503,6 +8503,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 388.474,
             "range": "± 3.22325",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "d1409cc56bdc380155a7b78dce423566a8867b9f",
+          "message": "Merge pull request #524 from mach3-software/feature/kskwarczynski/StopToNameHardcdoingForOsc\n\nfeat: Stop hardcdoing names for Osc params in MCMC Processor",
+          "timestamp": "2025-07-08T21:22:43+09:00",
+          "tree_id": "2ac3f84029f111e25623cefa180136b235ba5397",
+          "url": "https://github.com/mach3-software/MaCh3/commit/d1409cc56bdc380155a7b78dce423566a8867b9f"
+        },
+        "date": 1751977646345,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.80929,
+            "range": "± 445.961",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.66121,
+            "range": "± 65.066",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 387.871,
+            "range": "± 2.71416",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
