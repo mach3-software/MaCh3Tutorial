@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1751990326285,
+  "lastUpdate": 1751992773313,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -8638,6 +8638,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 383.979,
             "range": "± 2.78568",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "895c1515ea9bdce33185fd86613f1758f8b5d5c2",
+          "message": "Merge pull request #539 from mach3-software/feature/kskwarczynski/morSanitizers\n\ntidy: Wildcard sanitizer",
+          "timestamp": "2025-07-09T01:34:33+09:00",
+          "tree_id": "dc51749274066219e30e182c3d0b89c2a09a259e",
+          "url": "https://github.com/mach3-software/MaCh3/commit/895c1515ea9bdce33185fd86613f1758f8b5d5c2"
+        },
+        "date": 1751992770906,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.79223,
+            "range": "± 82.1704",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.70589,
+            "range": "± 71.3602",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 398.616,
+            "range": "± 6.55054",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
