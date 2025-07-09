@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1751992773313,
+  "lastUpdate": 1752055632097,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -8683,6 +8683,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 398.616,
             "range": "± 6.55054",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "8937d4f4e574dcfd1b529af656548343bc88b271",
+          "message": "Merge pull request #534 from mach3-software/feature/kskwarczynski/STL\n\nfeat: Use STL over TMath",
+          "timestamp": "2025-07-09T19:02:27+09:00",
+          "tree_id": "6db6ad1196197bac3bc09cd1088bb2b368cfcfb8",
+          "url": "https://github.com/mach3-software/MaCh3/commit/8937d4f4e574dcfd1b529af656548343bc88b271"
+        },
+        "date": 1752055629955,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.75745,
+            "range": "± 98.2607",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.70369,
+            "range": "± 304.523",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 386.753,
+            "range": "± 4.92003",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
