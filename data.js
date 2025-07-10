@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1752140109378,
+  "lastUpdate": 1752146732284,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -8863,6 +8863,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 389.033,
             "range": "± 4.48108",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "3072fe239585ef6d55f9f60de67d22934030c5d7",
+          "message": "Merge pull request #542 from mach3-software/kskwarczynski/feature/OpenSanitizer\n\nfeat: Wrapper around Open to safegarud from missconfigured paths",
+          "timestamp": "2025-07-10T20:20:44+09:00",
+          "tree_id": "2e6b7ed4ea17839d4f60bb9d64a77652beecfa50",
+          "url": "https://github.com/mach3-software/MaCh3/commit/3072fe239585ef6d55f9f60de67d22934030c5d7"
+        },
+        "date": 1752146730138,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.82936,
+            "range": "± 258.497",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.72906,
+            "range": "± 94.1246",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 391.7,
+            "range": "± 4.34291",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
