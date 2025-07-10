@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1752059016778,
+  "lastUpdate": 1752135732548,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -8773,6 +8773,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 388.732,
             "range": "± 3.67607",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "c9a6581bc51a1f20835fb360cdfcf3f93e087da5",
+          "message": "Merge pull request #548 from mach3-software/feature/kskwarczynski/ifdefcuda\n\ntidy: Use MaCh3_CUDA",
+          "timestamp": "2025-07-10T17:17:15+09:00",
+          "tree_id": "a58ed667230cd62df28a6795c695e6c3020cc50c",
+          "url": "https://github.com/mach3-software/MaCh3/commit/c9a6581bc51a1f20835fb360cdfcf3f93e087da5"
+        },
+        "date": 1752135730383,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 3.19227,
+            "range": "± 31.9775",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 3.12196,
+            "range": "± 238.443",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 396.697,
+            "range": "± 5.5501",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
