@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1752135732548,
+  "lastUpdate": 1752140109378,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -8818,6 +8818,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 396.697,
             "range": "± 5.5501",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "87846d120a03664c65272220d8b79a5fd95c61e2",
+          "message": "Merge pull request #549 from mach3-software/feature_processMCMC_plottingupdates\n\nfeat: Add more options to ProcessMCMC credible region plotting",
+          "timestamp": "2025-07-10T18:30:32+09:00",
+          "tree_id": "a27f7cb4845001c731de0517241133e7e8f8b65a",
+          "url": "https://github.com/mach3-software/MaCh3/commit/87846d120a03664c65272220d8b79a5fd95c61e2"
+        },
+        "date": 1752140107360,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.80927,
+            "range": "± 109.414",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.7266,
+            "range": "± 87.5249",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 389.033,
+            "range": "± 4.48108",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
