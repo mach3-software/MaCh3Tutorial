@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1752162806461,
+  "lastUpdate": 1752163748437,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -8998,6 +8998,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 394.478,
             "range": "± 5.43627",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "a144a17d072f7ecb85d4ddb41d0187a0724cbdba",
+          "message": "Merge pull request #536 from mach3-software/feature/kskwarczynski/PCAsanitizer\n\nfeat: PCA sanitizer",
+          "timestamp": "2025-07-11T01:04:20+09:00",
+          "tree_id": "b62e430716fb0f00c53b96a47f241d78bb0a7ff1",
+          "url": "https://github.com/mach3-software/MaCh3/commit/a144a17d072f7ecb85d4ddb41d0187a0724cbdba"
+        },
+        "date": 1752163746332,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.85111,
+            "range": "± 62.5676",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.83594,
+            "range": "± 327.556",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 388.87,
+            "range": "± 3.5255",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
