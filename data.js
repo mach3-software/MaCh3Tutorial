@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1752146732284,
+  "lastUpdate": 1752158003116,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -8908,6 +8908,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 391.7,
             "range": "± 4.34291",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "ab5884dfe01c0c8fac846263b303ac69c638eb79",
+          "message": "Merge pull request #552 from mach3-software/hwallace/feature/diagnostics_with_labels\n\nfeat: Add labels to Diagnostics plots",
+          "timestamp": "2025-07-10T23:28:43+09:00",
+          "tree_id": "784ea17c7a60acbec23732ae966a05c6f65d5a97",
+          "url": "https://github.com/mach3-software/MaCh3/commit/ab5884dfe01c0c8fac846263b303ac69c638eb79"
+        },
+        "date": 1752158001123,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.79846,
+            "range": "± 170.937",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.69023,
+            "range": "± 43.5295",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 385.488,
+            "range": "± 3.75387",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
