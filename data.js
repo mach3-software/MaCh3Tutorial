@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1752158003116,
+  "lastUpdate": 1752162806461,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -8953,6 +8953,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 385.488,
             "range": "± 3.75387",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "02aaa835a9fdc87e1ecf2a30fafbe6e114113dc1",
+          "message": "Merge pull request #550 from mach3-software/tidy/kskwarczynski/IsParamFixed\n\ntidy: Tweak how we change whether fixed param",
+          "timestamp": "2025-07-11T00:48:31+09:00",
+          "tree_id": "4a258641957893fb7696bcab5768998da74de427",
+          "url": "https://github.com/mach3-software/MaCh3/commit/02aaa835a9fdc87e1ecf2a30fafbe6e114113dc1"
+        },
+        "date": 1752162804366,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.89121,
+            "range": "± 87.5616",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.79109,
+            "range": "± 73.7203",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 394.478,
+            "range": "± 5.43627",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
