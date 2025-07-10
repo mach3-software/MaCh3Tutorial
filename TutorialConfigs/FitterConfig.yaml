@@ -97,7 +97,7 @@ AdaptionOptions:
     # So now we list individual matrices, let's just do xsec
     xsec_cov:
       # Do we want to adapt this matrix?
-      DoAdaption: true
+      DoAdaption: false
       # So we can separate out flux and xsec
       MatrixBlocks: [ ]
       # External Settings
