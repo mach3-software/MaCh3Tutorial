@@ -5,6 +5,9 @@ name: Weekly Profiler
 on:
   schedule:
     - cron: '0 0 * * 1' # KS: Every Monday at midnight
+  push:
+    branches:
+      - feature/kskwarczynski/AdaptiveBot
 
 permissions:
   contents: write
@@ -24,15 +27,25 @@ jobs:
             app: MCMCTutorial
             args: TutorialConfigs/FitterConfig.yaml --override OverideConfig.yaml
             outpath: /opt/Profiling/
-            SampleName: SampleHandler_Tutorial.yaml
+            SampleName: TutorialConfigs/Samples/SampleHandler_Tutorial.yaml
+            DoAdaption: false
             NSteps: 10000
 
           - title: MaCh3_ATMFD_Profile
             app: MCMCTutorial
             args: TutorialConfigs/FitterConfig.yaml --override OverideConfig.yaml
-            SampleName: SampleHandler_Tutorial_ATM.yaml
+            SampleName: TutorialConfigs/Samples/SampleHandler_Tutorial_ATM.yaml
             outpath: /opt/Profiling/
+            DoAdaption: false
             NSteps: 1000
+
+          - title: MaCh3_Adaptive_Profile
+            app: MCMCTutorial
+            args: TutorialConfigs/FitterConfig.yaml --override OverideConfig.yaml
+            SampleName:
+            outpath: /opt/Profiling/
+            DoAdaption: true
+            NSteps: 1000000
 
     container:
       image: ghcr.io/mach3-software/mach3:alma9v1.3.0
@@ -64,9 +77,14 @@ jobs:
 
           cat > OverideConfig.yaml <<EOF
           General:
-            TutorialSamples: ["TutorialConfigs/Samples/${{ matrix.SampleName }}"]
+            TutorialSamples: ["${{ matrix.SampleName }}"]
             MCMC:
                 NSteps: ${{ matrix.NSteps }}
+
+          AdaptionOptions:
+            Covariance:
+              xsec_cov:
+                DoAdaption: ${{ matrix.DoAdaption }}
           EOF
 
           bin/${{ matrix.app }} ${{ matrix.args }}
