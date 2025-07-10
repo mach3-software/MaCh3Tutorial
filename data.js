@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1752163748437,
+  "lastUpdate": 1752166270066,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -9043,6 +9043,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 388.87,
             "range": "± 3.5255",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "07aa992a7374107525c6305c7fd44ef3e1268f87",
+          "message": "Merge pull request #543 from mach3-software/kskwarczynski/feature/CloneData\n\ntidy: Clone Data",
+          "timestamp": "2025-07-11T01:45:58+09:00",
+          "tree_id": "2ceda2a83bf4864f25affe54fdae5d494ffae479",
+          "url": "https://github.com/mach3-software/MaCh3/commit/07aa992a7374107525c6305c7fd44ef3e1268f87"
+        },
+        "date": 1752166267737,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.85819,
+            "range": "± 302.594",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.76272,
+            "range": "± 106.957",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 392.226,
+            "range": "± 6.45783",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
