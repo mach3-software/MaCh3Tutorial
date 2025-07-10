@@ -27,14 +27,14 @@ jobs:
             app: MCMCTutorial
             args: TutorialConfigs/FitterConfig.yaml --override OverideConfig.yaml
             outpath: /opt/Profiling/
-            SampleName: TutorialConfigs/Samples/SampleHandler_Tutorial.yaml
+            SampleName: "TutorialConfigs/Samples/SampleHandler_Tutorial.yaml"
             DoAdaption: false
             NSteps: 10000
 
           - title: MaCh3_ATMFD_Profile
             app: MCMCTutorial
             args: TutorialConfigs/FitterConfig.yaml --override OverideConfig.yaml
-            SampleName: TutorialConfigs/Samples/SampleHandler_Tutorial_ATM.yaml
+            SampleName: "TutorialConfigs/Samples/SampleHandler_Tutorial_ATM.yaml"
             outpath: /opt/Profiling/
             DoAdaption: false
             NSteps: 1000
@@ -77,7 +77,7 @@ jobs:
 
           cat > OverideConfig.yaml <<EOF
           General:
-            TutorialSamples: ["${{ matrix.SampleName }}"]
+            TutorialSamples: [${{ matrix.SampleName }}]
             MCMC:
                 NSteps: ${{ matrix.NSteps }}
 
