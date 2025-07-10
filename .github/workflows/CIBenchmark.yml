@@ -23,21 +23,21 @@ jobs:
       fail-fast: false  # KS: Prevents cancellation of remaining jobs if one fails
       matrix:
         include:
-          - title: MaCh3_BeamFD_Profile
-            app: MCMCTutorial
-            args: TutorialConfigs/FitterConfig.yaml --override OverideConfig.yaml
-            outpath: /opt/Profiling/
-            SampleName: "TutorialConfigs/Samples/SampleHandler_Tutorial.yaml"
-            DoAdaption: false
-            NSteps: 10000
+          #- title: MaCh3_BeamFD_Profile
+          #  app: MCMCTutorial
+          #  args: TutorialConfigs/FitterConfig.yaml --override OverideConfig.yaml
+          #  outpath: /opt/Profiling/
+          #  SampleName: "TutorialConfigs/Samples/SampleHandler_Tutorial.yaml"
+          #  DoAdaption: false
+          #  NSteps: 10000
 
-          - title: MaCh3_ATMFD_Profile
-            app: MCMCTutorial
-            args: TutorialConfigs/FitterConfig.yaml --override OverideConfig.yaml
-            SampleName: "TutorialConfigs/Samples/SampleHandler_Tutorial_ATM.yaml"
-            outpath: /opt/Profiling/
-            DoAdaption: false
-            NSteps: 1000
+          #- title: MaCh3_ATMFD_Profile
+          #  app: MCMCTutorial
+          #  args: TutorialConfigs/FitterConfig.yaml --override OverideConfig.yaml
+          #  SampleName: "TutorialConfigs/Samples/SampleHandler_Tutorial_ATM.yaml"
+          #  outpath: /opt/Profiling/
+          #  DoAdaption: false
+          #  NSteps: 1000
 
           - title: MaCh3_Adaptive_Profile
             app: MCMCTutorial
@@ -82,6 +82,8 @@ jobs:
                 NSteps: ${{ matrix.NSteps }}
 
           AdaptionOptions:
+            Settings:
+              EndUpdate: ${{ matrix.NSteps }}
             Covariance:
               xsec_cov:
                 DoAdaption: ${{ matrix.DoAdaption }}
