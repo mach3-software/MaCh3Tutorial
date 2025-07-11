@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1752226742964,
+  "lastUpdate": 1752235565474,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -9178,6 +9178,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 386.836,
             "range": "± 3.56925",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "d4ab1d9312b861242eb1633f6bda276ec4376826",
+          "message": "Merge pull request #541 from mach3-software/feature/kskwarczynski/PredictiveThrower\n\nfeat: PriorPosterior Predictive",
+          "timestamp": "2025-07-11T21:01:08+09:00",
+          "tree_id": "506bbb12aaeeea06a68a4b3db2431db1b220842b",
+          "url": "https://github.com/mach3-software/MaCh3/commit/d4ab1d9312b861242eb1633f6bda276ec4376826"
+        },
+        "date": 1752235563259,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.85064,
+            "range": "± 65.3596",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.83695,
+            "range": "± 301.13",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 392.13,
+            "range": "± 3.28114",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
