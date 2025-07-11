@@ -85,3 +85,28 @@ KinematicDistributionPlots:
 - Name: "Q2 vs True Enu"
   VarStrings: ["TrueNeutrinoEnergy", "TrueQ2"]
   VarBins: [[50,0,4],[50,0,6]]
+
+
+AdaptionOptions:
+  Settings:
+    # When do we start throwing from our adaptive matrix?
+    StartThrow: 2000
+    # When do we start putting steps into our adaptive covariance?
+    StartUpdate: 0
+    # When do we end updating our covariance?
+    EndUpdate: 50000
+    # How often do we change our matrix throws?
+    UpdateStep: 1000
+    OutputFileName: "Adapt.root"
+  Covariance:
+    # So now we list individual matrices, let's just do xsec
+    xsec_cov:
+      # Do we want to adapt this matrix?
+      DoAdaption: false
+      # So we can separate out flux and xsec
+      MatrixBlocks: [ ]
+      # External Settings
+      UseExternalMatrix: false
+      ExternalMatrixFileName: ""
+      ExternalMatrixName: ""
+      ExternalMeansName: ""
