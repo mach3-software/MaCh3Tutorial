@@ -285,12 +285,12 @@ We recommend chasing both scales running MCMC again and later producing auto-cor
 You can make plots using:
 
 ```bash
-PlotMCMCDiag Test_MCMC_Diag.root
+PlotMCMCDiag Test_MCMC_Diag.root "mcmc_diagnostics"
 ```
 If you add second/third arguemnt it will compare several files:
 
 ```bash
-PlotMCMCDiag Test_MCMC_Diag.root SecondFile_MCMC_Diag.root
+PlotMCMCDiag Test_MCMC_Diag.root "first file label" SecondFile_MCMC_Diag.root "second file label"
 ```
 
 ### Running Multiple Chains
