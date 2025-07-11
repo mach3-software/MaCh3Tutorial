@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1752235565474,
+  "lastUpdate": 1752242652474,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -9223,6 +9223,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 392.13,
             "range": "± 3.28114",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "fc510032cc1499c719c37f8e7fe5337e47d5a0fd",
+          "message": "Merge pull request #553 from mach3-software/feature/kskwarczynski/PostPredBot\n\nfeat: Post Pred bot",
+          "timestamp": "2025-07-11T22:58:57+09:00",
+          "tree_id": "76cef564b5ede6b2237627f6ba36003d16b59357",
+          "url": "https://github.com/mach3-software/MaCh3/commit/fc510032cc1499c719c37f8e7fe5337e47d5a0fd"
+        },
+        "date": 1752242650211,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.87751,
+            "range": "± 199.264",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.82639,
+            "range": "± 146.572",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 412.861,
+            "range": "± 7.1193",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
