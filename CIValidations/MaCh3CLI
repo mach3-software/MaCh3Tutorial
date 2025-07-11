@@ -47,7 +47,7 @@ run_fitter_validations() {
   ${MaCh3_ROOT}/bin/MatrixPlotter bin/TutorialDiagConfig.yaml MCMC_Test_drawCorr.root
   ${MaCh3_ROOT}/bin/GetPostfitParamPlots MCMC_Test_drawCorr.root
   ${MaCh3_ROOT}/bin/PlotLLH MCMC_Test.root
-  ${MaCh3_ROOT}/bin/PlotMCMCDiag MCMC_Test_MCMC_Diag.root MCMC_Test_MCMC_Diag.root
+  ${MaCh3_ROOT}/bin/PlotMCMCDiag MCMC_Test_MCMC_Diag.root "test_plot_1" MCMC_Test_MCMC_Diag.root "test_plot_2"
 }
 
 run_covariance_validations() {
