@@ -37,6 +37,9 @@
 ## SigmaVarValidations
 * Checking if Sigma Var works
 
+## PredictiveValidations
+* Checking if Predictive Thrower produces same format and posterior predictive value and errors are identical using stored toys
+
 ## SplineValidations
 * Initialisation of SplineMonolith
 * Checking dumping flat tree works

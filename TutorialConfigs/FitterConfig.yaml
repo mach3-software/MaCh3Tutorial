@@ -49,11 +49,16 @@ General:
 
 # Prior/Posterior predictive settings
 Predictive:
-  Ntoy: 10
+  Ntoy: 1000
   #Ntoy: 5000
   #Use Full LLH or only sample contribution based on discussion with Asher we almost always only want the sample likelihood
   FullLLH: false
-  PosteriorFiles: "EMPTY"
+  PriorPredictive: false
+  BurnInSteps: 100
+  PosteriorFile: "PostChain.root"
+  ThrowParamGroupOnly: []
+  ThrowSinlgeParams: []
+  DebugHistograms: true
 
 # LLH Scan settings  
 LLHScan:
