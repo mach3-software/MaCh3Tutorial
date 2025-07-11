@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1752222897685,
+  "lastUpdate": 1752226742964,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -9133,6 +9133,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 388.953,
             "range": "± 4.20455",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "d9eaceea8bcbd7e1994fc07d39b5ecdd88f8b669",
+          "message": "Merge pull request #554 from mach3-software/hwallace/feature/readme_update\n\nfeat: Diagnostics readme update and file name change",
+          "timestamp": "2025-07-11T18:34:12+09:00",
+          "tree_id": "1f16b52ae5571e29e8cfc87e0a8acb2020c14ab8",
+          "url": "https://github.com/mach3-software/MaCh3/commit/d9eaceea8bcbd7e1994fc07d39b5ecdd88f8b669"
+        },
+        "date": 1752226740738,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.84198,
+            "range": "± 78.6529",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.75925,
+            "range": "± 71.6034",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 386.836,
+            "range": "± 3.56925",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
