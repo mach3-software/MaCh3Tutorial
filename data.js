@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1752242652474,
+  "lastUpdate": 1752248208936,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -9268,6 +9268,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 412.861,
             "range": "± 7.1193",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "a10a2a5f63dc16c2061e37a12190a9e226fd8d7d",
+          "message": "Merge pull request #525 from mach3-software/feature/NoSpeicalProposalForFixed\n\nfeat: Do not apply special proposal for fixed params",
+          "timestamp": "2025-07-12T00:31:38+09:00",
+          "tree_id": "9ce3ca596aa74620c59d740d595098021abeea9f",
+          "url": "https://github.com/mach3-software/MaCh3/commit/a10a2a5f63dc16c2061e37a12190a9e226fd8d7d"
+        },
+        "date": 1752248206706,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.93639,
+            "range": "± 69.8138",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.89702,
+            "range": "± 226.376",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 397.958,
+            "range": "± 3.74889",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
