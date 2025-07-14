@@ -5,7 +5,7 @@
 int main(int argc, char *argv[]){
   // Initialise manger responsible for config handling
   auto FitManager = MaCh3ManagerFactory(argc, argv);
-  std::string OutputName = "LLH_" + FitManager->raw()["General"]["OutputFile"].as<std::string>();
+  std::string OutputName = "SigmaVar_" + FitManager->raw()["General"]["OutputFile"].as<std::string>();
   FitManager->OverrideSettings("General", "OutputFile", OutputName);
   // Initialise covariance class reasonable for Systematics
   auto xsec = MaCh3CovarianceFactory<ParameterHandlerGeneric>(FitManager.get(), "Xsec");
@@ -22,7 +22,7 @@ int main(int argc, char *argv[]){
     MaCh3Fitter->AddSampleHandler(mySamples[i]);
   }
   // Run LLH scan
-  MaCh3Fitter->RunLLHScan();
+  MaCh3Fitter->RunSigmaVarFD();
   for (size_t i = 0; i < SampleConfig.size(); ++i) {
     delete mySamples[i];
   }

@@ -10,6 +10,7 @@ foreach(app
     NuOscillatorInterfaceValidations
     pValueValidations
     SigmaVarValidations
+    SigmaVarFDValidation
     LLHValidation
     PredictiveValidations
     )

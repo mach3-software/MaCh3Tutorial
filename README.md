@@ -26,7 +26,8 @@ MaCh3 is predominantly C++ software although some functionality are available th
 6. [Useful Settings](#useful-settings)
 7. [How to Plot?](#how-to-plot)
     1. [How to run LLH scan](#how-to-run-llh-scan)
-    2. [Plotting with Python](#plotting-with-python)
+    2. [How to run Sigma Variation](#how-to-run-sigma-variation)
+    3. [Plotting with Python](#plotting-with-python)
 
 ## How to Start?
 To compile simply
@@ -337,14 +338,17 @@ Read more [here](https://mach3-software.github.io/MaCh3/Structs_8h.html#a960da89
 
 ## How to Plot?
 
-There are a number of apps included to make plots from the results of your fits, llh scans etc. You can find more details on them and how they work in the main MaCh3 wiki [here](https://github.com/mach3-software/MaCh3/wiki). There you will also find some instructions on how you can write yor own plotting scripts.
+There are a number of apps included to make plots from the results of your fits, llh scans etc. You can find more details on them and how they work in the main MaCh3 wiki [here](https://github.com/mach3-software/MaCh3/wiki). There you will also find some instructions on how you can write your own plotting scripts.
 
 The plotting library is configured using yaml files. You can see some examples of such config files in the plotting directory, and a detailed explanation of them is given in [the wiki](https://github.com/mach3-software/MaCh3/wiki).
 
 Some examples on how to make some "standard" plots are given below.
 
 ### How to run LLH scan
-You can run MCMC in very similar way as MCMC
+LLH scan is a procedure where one changes value of single parameter, reweight MC and calculates likelihood.
+If running with Asimov setting at prior value LLH should be 0. Rate at which LLH is increasing with increase of value indiceate how sensitive your MC is to give parameter.
+
+You can run LLH scan in very similar way as MCMC
 ```bash
 ./bin/LLHScanTutorial TutorialConfigs/FitterConfig.yaml
 ```
@@ -359,6 +363,13 @@ It is possible to compare several files simply by:
 
 ```bash
 PlotLLH LLH_Test.root LLH_Test_2.root
+```
+
+### How to run Sigma Variation
+Sigma Var is conceptually similar to LLH scan however here instead of looking how LLH changes one investigate actual sample spectra.
+
+```bash
+./bin/SigmaVarTutorial TutorialConfigs/FitterConfig.yaml
 ```
 
 ### Plotting with Python

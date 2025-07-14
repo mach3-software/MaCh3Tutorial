@@ -4,6 +4,7 @@ foreach(app
     MCMCTutorial
     LLHScanTutorial
     PredictiveTutorial
+    SigmaVarTutorial
     KinemDistributionTutorial
     )
     add_executable(${app} ${app}.cpp)
