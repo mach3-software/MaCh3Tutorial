@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1752248208936,
+  "lastUpdate": 1752483092307,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -9313,6 +9313,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 397.958,
             "range": "± 3.74889",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "82369f939158db2e65f341bc4cb95a845c66f551",
+          "message": "Merge pull request #515 from mach3-software/featrue/kskwarczynski/SigmaVar\n\nfeat: Sigma Var for FD",
+          "timestamp": "2025-07-14T17:46:36+09:00",
+          "tree_id": "a7c471be9d20e043e29f53322db8a8f637838ffb",
+          "url": "https://github.com/mach3-software/MaCh3/commit/82369f939158db2e65f341bc4cb95a845c66f551"
+        },
+        "date": 1752483090415,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.82704,
+            "range": "± 51.2858",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.7728,
+            "range": "± 155.922",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 392.24,
+            "range": "± 4.59578",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
