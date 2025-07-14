@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1752484700516,
+  "lastUpdate": 1752486034315,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -9403,6 +9403,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 390.65,
             "range": "± 3.10171",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "88c30ea56451c20a32d3f69eacf2f8bc049c320b",
+          "message": "Merge pull request #557 from mach3-software/patch/better-processmcmc-error\n\nbugfix: make error message in processMCMC app a bit clearer",
+          "timestamp": "2025-07-14T18:35:31+09:00",
+          "tree_id": "aa14a95588ee9aeb8cca0b6bf60b1725dcf49435",
+          "url": "https://github.com/mach3-software/MaCh3/commit/88c30ea56451c20a32d3f69eacf2f8bc049c320b"
+        },
+        "date": 1752486032194,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 3.16541,
+            "range": "± 2.03939",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.74863,
+            "range": "± 63.0611",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 388.248,
+            "range": "± 3.16513",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
