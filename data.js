@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1752486034315,
+  "lastUpdate": 1752495531641,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -9448,6 +9448,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 388.248,
             "range": "± 3.16513",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "8cb15f5075afc99578be06c8ed6e3b3147df2eb0",
+          "message": "Merge pull request #556 from mach3-software/tidy/kskwarczynski/StopSavingADtpiveSoOFten\n\ntidy: Stop Saving Adatpive So often",
+          "timestamp": "2025-07-14T21:13:53+09:00",
+          "tree_id": "980b04094a1f4e80a436335ef383cb1fdbed4e42",
+          "url": "https://github.com/mach3-software/MaCh3/commit/8cb15f5075afc99578be06c8ed6e3b3147df2eb0"
+        },
+        "date": 1752495529748,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.86112,
+            "range": "± 64.7022",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.77674,
+            "range": "± 58.0795",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 394.796,
+            "range": "± 3.48645",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
