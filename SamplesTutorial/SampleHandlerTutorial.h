@@ -31,19 +31,18 @@ class SampleHandlerTutorial : public SampleHandlerFD
   void CleanMemoryBeforeFit() override;
 
   double ReturnKinematicParameter(KinematicTypes KinPar, int iEvent);
-  double ReturnKinematicParameter(int KinematicVariable, int iEvent);
-  double ReturnKinematicParameter(std::string KinematicParameter, int iEvent);
+  double ReturnKinematicParameter(int KinematicVariable, int iEvent) override;
+  double ReturnKinematicParameter(std::string KinematicParameter, int iEvent) override;
   
   // === JM ReturnKinematicVector declarations for particle-level parameters ===
   std::vector<double> ReturnKinematicVector(KinematicParticleVecs KinVec, int iEvent);
-  std::vector<double> ReturnKinematicVector(int KinematicVector, int iEvent);
-  std::vector<double> ReturnKinematicVector(std::string KinematicVector, int iEvent);
-  std::vector<double> ReturnKinematicVectorBinning(std::string KinematicParameter);
+  std::vector<double> ReturnKinematicVector(int KinematicVector, int iEvent) override;
+  std::vector<double> ReturnKinematicVector(std::string KinematicVector, int iEvent) override;
   // ===========================================================================
 
   const double* GetPointerToKinematicParameter(KinematicTypes KinPar, int iEvent);
   const double* GetPointerToKinematicParameter(std::string KinematicParameter, int iEvent) override;
-  const double* GetPointerToKinematicParameter(double KinematicVariable, int iEvent);
+  const double* GetPointerToKinematicParameter(double KinematicVariable, int iEvent) override;
 
   void SetupFDMC() override;
   void CalcWeightFunc(int iEvent) override {return; (void)iEvent;}
