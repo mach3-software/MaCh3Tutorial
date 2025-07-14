@@ -74,6 +74,17 @@ LLHScan:
   ScanRanges:
     #delta_cp: [-3.14,3.14]
 
+SigmaVar:
+  SigmaArray: [-3, -1, 0, 1, 3]
+  SkipVector: []
+
+  CustomRange:
+    Norm_Param_0:
+      "-3": 0.25
+      "-1": 0.5
+      "1": 1.25
+      "3": 1.5
+
 #KinemDistribution extra plots to draw
 KinematicDistributionPlots:
 - Name: "True Neutrino Energy (0.5 GeV < Enu < 3 GeV)"
