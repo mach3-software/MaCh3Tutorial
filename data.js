@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1752483092307,
+  "lastUpdate": 1752484700516,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -9358,6 +9358,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 392.24,
             "range": "± 4.59578",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "350507073230630f96ad7e70364bef78dd950b53",
+          "message": "Merge pull request #551 from mach3-software/feature/skwarczynski/icpx\n\nfeat: ICPX Bot",
+          "timestamp": "2025-07-14T18:13:28+09:00",
+          "tree_id": "546210c5847671df3d3d5750942c82604b8f1134",
+          "url": "https://github.com/mach3-software/MaCh3/commit/350507073230630f96ad7e70364bef78dd950b53"
+        },
+        "date": 1752484698474,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.86549,
+            "range": "± 56.3704",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.77022,
+            "range": "± 70.4221",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 390.65,
+            "range": "± 3.10171",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
