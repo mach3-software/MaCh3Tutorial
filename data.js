@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1752495531641,
+  "lastUpdate": 1752497791398,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -9493,6 +9493,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 394.796,
             "range": "± 3.48645",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "d893ad944fd2b5379d275455c393155d5f3ca73c",
+          "message": "Merge pull request #558 from mach3-software/tidy/kskwarczynski/splinetidy\n\ntidy: Reduce push back in Spline Binned",
+          "timestamp": "2025-07-14T21:51:16+09:00",
+          "tree_id": "a07e075523a200f37a62d0024fa3c509f92a9a6e",
+          "url": "https://github.com/mach3-software/MaCh3/commit/d893ad944fd2b5379d275455c393155d5f3ca73c"
+        },
+        "date": 1752497789078,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.85349,
+            "range": "± 66.9013",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.76769,
+            "range": "± 75.2542",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 397.339,
+            "range": "± 6.06098",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
