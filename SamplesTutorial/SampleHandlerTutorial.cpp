@@ -339,6 +339,8 @@ const double* SampleHandlerTutorial::GetPointerToKinematicParameter(KinematicTyp
       return &TutorialSamples[iEvent].Q2;
     case kM3Mode:
       return &TutorialSamples[iEvent].Mode;
+    case kOscChannel:
+      return GetPointerToOscChannel(iEvent);
     default:
       MACH3LOG_ERROR("Unrecognized Kinematic Parameter type: {}", static_cast<int>(KinPar));
       throw MaCh3Exception(__FILE__, __LINE__);
