@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1752497946053,
+  "lastUpdate": 1752652680751,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -9583,6 +9583,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 398.712,
             "range": "± 5.22853",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "7a2e6d73ff0e2e2abfa675f3c28e1fe11f1217a6",
+          "message": "Merge pull request #561 from mach3-software/tidy/kskwarczynski/undef\n\ntidy: Unify default values in MCMC Processor",
+          "timestamp": "2025-07-16T16:52:47+09:00",
+          "tree_id": "6b81c89eb79550017ac7600b6eae323f707ce41c",
+          "url": "https://github.com/mach3-software/MaCh3/commit/7a2e6d73ff0e2e2abfa675f3c28e1fe11f1217a6"
+        },
+        "date": 1752652678338,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.90937,
+            "range": "± 100.429",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.85715,
+            "range": "± 206.296",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 397.245,
+            "range": "± 3.71159",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
