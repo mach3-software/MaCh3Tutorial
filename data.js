@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1752652680751,
+  "lastUpdate": 1752654704703,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -9628,6 +9628,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 397.245,
             "range": "± 3.71159",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "e1cf04f750acc3b43d9e7a71e9ea65327533774f",
+          "message": "Merge pull request #560 from mach3-software/tidy/kskwarczynski/Override\n\ntidy: Overide compiler flag",
+          "timestamp": "2025-07-16T17:26:42+09:00",
+          "tree_id": "70f849e37a9872cf9a314d65818c7dd91b63b9ba",
+          "url": "https://github.com/mach3-software/MaCh3/commit/e1cf04f750acc3b43d9e7a71e9ea65327533774f"
+        },
+        "date": 1752654702710,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.91624,
+            "range": "± 82.1906",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.83508,
+            "range": "± 125.173",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 392.463,
+            "range": "± 6.06794",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
