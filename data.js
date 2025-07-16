@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1752654704703,
+  "lastUpdate": 1752660065525,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -9673,6 +9673,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 392.463,
             "range": "± 6.06794",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "3e64a799473bd0749446cbf26cf665efe112cfcd",
+          "message": "Merge pull request #562 from mach3-software/tidy/kskwarczynski/memroyamangment\n\nbugfix: minor memory leak",
+          "timestamp": "2025-07-16T18:55:54+09:00",
+          "tree_id": "74971c33fc45a9e08612f5c47535dd12ae5852cb",
+          "url": "https://github.com/mach3-software/MaCh3/commit/3e64a799473bd0749446cbf26cf665efe112cfcd"
+        },
+        "date": 1752660063568,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 3.08778,
+            "range": "± 205.233",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.99155,
+            "range": "± 98.5438",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 397.955,
+            "range": "± 3.08851",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
