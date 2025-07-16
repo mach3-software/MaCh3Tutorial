@@ -73,6 +73,7 @@ void SampleLLHValidation(std::ostream& outFile, const std::string& OriginalSampl
     << std::endl;
   }
 
+  Sample->PrintIntegral();
   std::remove(tempConfigPath.c_str());
 }
 

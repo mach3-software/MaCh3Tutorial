@@ -12,7 +12,7 @@ class SampleHandlerTutorial : public SampleHandlerFD
                         const std::shared_ptr<OscillationHandler>& Oscillator_ = nullptr);
   virtual ~SampleHandlerTutorial();
 
-  enum KinematicTypes {kTrueNeutrinoEnergy, kTrueQ2, kM3Mode, kRecoNeutrinoEnergy};
+  enum KinematicTypes {kTrueNeutrinoEnergy, kTrueQ2, kM3Mode, kRecoNeutrinoEnergy, kOscChannel};
   
   // === JM enum for particle-level parameters ===
   enum KinematicParticleVecs {kParticleEnergy, kParticlePDG, kParticleBeamAngle};
@@ -55,6 +55,7 @@ class SampleHandlerTutorial : public SampleHandlerFD
     {"TrueQ2", kTrueQ2},
     {"Mode", kM3Mode},
     {"RecoNeutrinoEnergy", kRecoNeutrinoEnergy},
+    {"OscillationChannel", kOscChannel},
   };
 
   const std::unordered_map<int, std::string> ReversedKinematicParametersTutorial = {
@@ -62,6 +63,7 @@ class SampleHandlerTutorial : public SampleHandlerFD
     {kTrueQ2, "TrueQ2"},
     {kM3Mode,"Mode"},
     {kRecoNeutrinoEnergy, "RecoNeutrinoEnergy"},
+    {kOscChannel, "OscillationChannel"},
   };
   
   // === JM maps for particle-level parameters ===
