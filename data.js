@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1752660065525,
+  "lastUpdate": 1752834274718,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -9718,6 +9718,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 397.955,
             "range": "± 3.08851",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "bda600b2b2cdc3885836114e6b7740f42d297181",
+          "message": "Merge pull request #564 from mach3-software/tidy/kskwarczynski/cmakeTweak\n\ntidy: Cmake Plotting tweak",
+          "timestamp": "2025-07-18T19:19:30+09:00",
+          "tree_id": "43d98cc524b7d20f42b0024a85fc52083d0b2843",
+          "url": "https://github.com/mach3-software/MaCh3/commit/bda600b2b2cdc3885836114e6b7740f42d297181"
+        },
+        "date": 1752834272781,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 3.1299,
+            "range": "± 123.116",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 3.07493,
+            "range": "± 270.524",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 394.173,
+            "range": "± 3.3663",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
