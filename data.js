@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1752836960027,
+  "lastUpdate": 1752841195966,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -9808,6 +9808,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 396.555,
             "range": "± 6.72112",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "75fb9194e3d916a48fd44b8a632c4dd32c5d3ff0",
+          "message": "Merge pull request #565 from mach3-software/feature/kskwarczynski/PropLog\n\nfeat: Ability to save LogLproposed",
+          "timestamp": "2025-07-18T21:14:46+09:00",
+          "tree_id": "065ff3c916249278f9b0d545a403d8060313dab4",
+          "url": "https://github.com/mach3-software/MaCh3/commit/75fb9194e3d916a48fd44b8a632c4dd32c5d3ff0"
+        },
+        "date": 1752841193656,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 3.04415,
+            "range": "± 89.7488",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.95625,
+            "range": "± 66.7587",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 397.802,
+            "range": "± 4.86864",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
