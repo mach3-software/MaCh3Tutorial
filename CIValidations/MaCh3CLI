@@ -36,6 +36,7 @@ run_reweight_validations() {
   ${MaCh3Tutorial_ROOT}/bin/KinemDistributionTutorial ${MaCh3Tutorial_ROOT}/TutorialConfigs/FitterConfig.yaml
   ./CIValidations/NuOscillatorInterfaceValidations
   ./CIValidations/PredictiveValidations
+  ./CIValidations/SplinePlotting/SplinePlotting
 }
 
 run_fitter_validations() {

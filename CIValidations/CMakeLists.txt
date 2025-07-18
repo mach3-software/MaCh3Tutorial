@@ -44,3 +44,5 @@ endif()
 if(MaCh3Tutorial_Benchmark_ENABLED)
   add_subdirectory(Benchmark)
 endif()
+
+add_subdirectory(SplinePlotting)
