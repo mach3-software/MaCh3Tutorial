@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1752841195966,
+  "lastUpdate": 1752842647339,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -9853,6 +9853,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 397.802,
             "range": "± 4.86864",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "efef988667f3a9c2b6aeb39c8f9f80686655c1f9",
+          "message": "Merge pull request #567 from mach3-software/feature/kskwarczynski/savageJarl\n\nfeat: Savage Dickey for Jarlskog",
+          "timestamp": "2025-07-18T21:38:55+09:00",
+          "tree_id": "21b5be37c3d596256aa52ec4d4e3bbe450e149e1",
+          "url": "https://github.com/mach3-software/MaCh3/commit/efef988667f3a9c2b6aeb39c8f9f80686655c1f9"
+        },
+        "date": 1752842645217,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 3.10073,
+            "range": "± 93.6888",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 3.01657,
+            "range": "± 49.4295",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 399.365,
+            "range": "± 4.70672",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
