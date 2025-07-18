@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1752842647339,
+  "lastUpdate": 1752845718621,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -9898,6 +9898,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 399.365,
             "range": "± 4.70672",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "63615ba6bfc0fc58f14312a9d5d78017bbba50e3",
+          "message": "Merge pull request #568 from mach3-software/tidy/kskwrczynski/cmakeStandr\n\ntidy: Set minimal allowed standard",
+          "timestamp": "2025-07-18T22:30:19+09:00",
+          "tree_id": "fe7bc5a2f219a88d7d3253a63f3191c165f1675c",
+          "url": "https://github.com/mach3-software/MaCh3/commit/63615ba6bfc0fc58f14312a9d5d78017bbba50e3"
+        },
+        "date": 1752845716682,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 3.05011,
+            "range": "± 51.6885",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.97572,
+            "range": "± 106.223",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 392.329,
+            "range": "± 2.59536",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
