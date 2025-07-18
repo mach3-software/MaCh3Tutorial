@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1752834274718,
+  "lastUpdate": 1752836960027,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -9763,6 +9763,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 394.173,
             "range": "± 3.3663",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "e4891d046c9a068daac6bf1ad1452d211861b860",
+          "message": "Merge pull request #566 from mach3-software/bugfix/kskwarczynski/SplineCosntuct\n\nbugfix: Correctly set coefficents when making TSpline3 out of TSpline3_ref",
+          "timestamp": "2025-07-18T20:04:12+09:00",
+          "tree_id": "5ab316e0842dd6e590b835fa53590b59cf7f9189",
+          "url": "https://github.com/mach3-software/MaCh3/commit/e4891d046c9a068daac6bf1ad1452d211861b860"
+        },
+        "date": 1752836957601,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 3.07569,
+            "range": "± 96.2972",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 3.00181,
+            "range": "± 75.2069",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 396.555,
+            "range": "± 6.72112",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
