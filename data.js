@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1752845718621,
+  "lastUpdate": 1753088062318,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -9943,6 +9943,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 392.329,
             "range": "± 2.59536",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "86ad4d7b8d5147d9a0d75f0ff1fa49b5a0e398b8",
+          "message": "Merge pull request #570 from mach3-software/dependabot/github_actions/dot-github/workflows/actions/first-interaction-2\n\ntidy: bump actions/first-interaction from 1 to 2 in /.github/workflows",
+          "timestamp": "2025-07-21T17:49:14+09:00",
+          "tree_id": "bad73e99eee309d62c9b20c861258ceed1c5a0f9",
+          "url": "https://github.com/mach3-software/MaCh3/commit/86ad4d7b8d5147d9a0d75f0ff1fa49b5a0e398b8"
+        },
+        "date": 1753088060097,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 3.08663,
+            "range": "± 96.3416",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.99108,
+            "range": "± 66.473",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 390.322,
+            "range": "± 5.25942",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
