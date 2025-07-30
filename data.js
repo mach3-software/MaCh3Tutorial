@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1753907738409,
+  "lastUpdate": 1753909734893,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -10033,6 +10033,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 385.625,
             "range": "± 4.59548",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "31003009+dbarrow257@users.noreply.github.com",
+            "name": "dbarrow257",
+            "username": "dbarrow257"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "bd769c872f88fb40d0d2002fb055f7a600bdf108",
+          "message": "Merge pull request #572 from mach3-software/feautr/kskwarczynski/constexpr\n\ntidy: Constexpr in spline code",
+          "timestamp": "2025-07-30T22:03:50+01:00",
+          "tree_id": "b55008bb7f5deadea5b3a1bf9e15c023c3c34e6a",
+          "url": "https://github.com/mach3-software/MaCh3/commit/bd769c872f88fb40d0d2002fb055f7a600bdf108"
+        },
+        "date": 1753909732990,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 3.06805,
+            "range": "± 72.7776",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 3.01241,
+            "range": "± 138.865",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 398.682,
+            "range": "± 4.2021",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
