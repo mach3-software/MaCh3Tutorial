@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1753910873348,
+  "lastUpdate": 1753911782265,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -10123,6 +10123,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 391.767,
             "range": "± 5.72174",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "31003009+dbarrow257@users.noreply.github.com",
+            "name": "dbarrow257",
+            "username": "dbarrow257"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "a67319feeec09d052ac8af1cc766b7a3d7ffbff7",
+          "message": "Merge pull request #559 from mach3-software/feature/kskwarczynski/FelxibleBinning\n\nfeat: Total Bin instead of X and Y",
+          "timestamp": "2025-07-30T22:38:02+01:00",
+          "tree_id": "a556f11e03e7ab7a03163100b6ae375c8274cc27",
+          "url": "https://github.com/mach3-software/MaCh3/commit/a67319feeec09d052ac8af1cc766b7a3d7ffbff7"
+        },
+        "date": 1753911780277,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.92651,
+            "range": "± 476.15",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.81673,
+            "range": "± 87.7418",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 395.041,
+            "range": "± 4.68131",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
