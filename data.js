@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1753909734893,
+  "lastUpdate": 1753910873348,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -10078,6 +10078,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 398.682,
             "range": "± 4.2021",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "31003009+dbarrow257@users.noreply.github.com",
+            "name": "dbarrow257",
+            "username": "dbarrow257"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "b33426b0978287c4e8f53e22c59d73fded7c4164",
+          "message": "Merge pull request #571 from mach3-software/tidy/kskwarczynski/AdaptionSantiy\n\ntidy: do not allow adaption to be initialsied twice",
+          "timestamp": "2025-07-30T22:22:42+01:00",
+          "tree_id": "61cb3a25cdc8858ce65f891e0117363b1f24fe38",
+          "url": "https://github.com/mach3-software/MaCh3/commit/b33426b0978287c4e8f53e22c59d73fded7c4164"
+        },
+        "date": 1753910871296,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 3.04596,
+            "range": "± 73.1198",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.99448,
+            "range": "± 208.033",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 391.767,
+            "range": "± 5.72174",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
