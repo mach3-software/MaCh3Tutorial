@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1753911782265,
+  "lastUpdate": 1753912753073,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -10168,6 +10168,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 395.041,
             "range": "± 4.68131",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "31003009+dbarrow257@users.noreply.github.com",
+            "name": "dbarrow257",
+            "username": "dbarrow257"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "16287d13c71220f585db977d03ef84c62220153d",
+          "message": "Merge pull request #563 from mach3-software/feature/splineLinearLastKnot\n\nbugfix: Stop Accessing out of bound knot",
+          "timestamp": "2025-07-30T22:54:16+01:00",
+          "tree_id": "d5276bd799bac46a090221c232992c54b5fe0bee",
+          "url": "https://github.com/mach3-software/MaCh3/commit/16287d13c71220f585db977d03ef84c62220153d"
+        },
+        "date": 1753912751343,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.88312,
+            "range": "± 67.562",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.80456,
+            "range": "± 47.8866",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 387.528,
+            "range": "± 3.48047",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
