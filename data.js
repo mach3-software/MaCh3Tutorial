@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1753088062318,
+  "lastUpdate": 1753907738409,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -9988,6 +9988,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 390.322,
             "range": "± 5.25942",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "31003009+dbarrow257@users.noreply.github.com",
+            "name": "dbarrow257",
+            "username": "dbarrow257"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "a9741dec7584439997d126d9de03b536c407cf0a",
+          "message": "Merge pull request #573 from mach3-software/tidy/kskwarczytnski/MatrixPlotterUpdate\n\ntidy: No longer print correlation in each bin for larger matrices",
+          "timestamp": "2025-07-30T21:30:36+01:00",
+          "tree_id": "0a7c24d5d66fc9eec1c5e6d7b6ab06b418792942",
+          "url": "https://github.com/mach3-software/MaCh3/commit/a9741dec7584439997d126d9de03b536c407cf0a"
+        },
+        "date": 1753907736008,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 3.07331,
+            "range": "± 183.611",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.9607,
+            "range": "± 89.4019",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 385.625,
+            "range": "± 4.59548",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
