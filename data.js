@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1753912753073,
+  "lastUpdate": 1753977751249,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -10213,6 +10213,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 387.528,
             "range": "± 3.48047",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "8230507f3217e8a91fbf4924287b2ce054ccc58c",
+          "message": "Merge pull request #576 from mach3-software/bugfix_Diag_FDCov\n\nbugfix: small fix for FD and ND cov grabbing so it's (less) hard-coded",
+          "timestamp": "2025-08-01T00:57:28+09:00",
+          "tree_id": "674fa2fff09ad4699e925f74020ff9926613ca41",
+          "url": "https://github.com/mach3-software/MaCh3/commit/8230507f3217e8a91fbf4924287b2ce054ccc58c"
+        },
+        "date": 1753977748942,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.87991,
+            "range": "± 75.949",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.78931,
+            "range": "± 65.2355",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 390.504,
+            "range": "± 3.51569",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
