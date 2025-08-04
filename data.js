@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1753977751249,
+  "lastUpdate": 1754321711888,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -10258,6 +10258,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 390.504,
             "range": "± 3.51569",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "ff8306259b92e70b8749df76273bf0f7f66748d9",
+          "message": "Merge pull request #577 from mach3-software/feature/kskwarczynski/Sanitizers\n\ntidy: Step Number Sanitizer",
+          "timestamp": "2025-08-05T00:29:51+09:00",
+          "tree_id": "3d66abe002d7cf9816d3f9a277a87db52963f30b",
+          "url": "https://github.com/mach3-software/MaCh3/commit/ff8306259b92e70b8749df76273bf0f7f66748d9"
+        },
+        "date": 1754321709866,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 3.93196,
+            "range": "± 449.595",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 4.40006,
+            "range": "± 688.86",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 412.766,
+            "range": "± 11.3951",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
