@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1754321711888,
+  "lastUpdate": 1754476286635,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -10303,6 +10303,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 412.766,
             "range": "± 11.3951",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "31003009+dbarrow257@users.noreply.github.com",
+            "name": "dbarrow257",
+            "username": "dbarrow257"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "54eacc34ce4526c37e3658c5ab07355168eb8284",
+          "message": "Merge pull request #580 from mach3-software/tidy/kskwarczynski/PlotDiagMCMCSafeMemory\n\ntidy: Stop leaking in Plot Diag",
+          "timestamp": "2025-08-06T11:26:13+01:00",
+          "tree_id": "9676f671930c82b7414b435f615f190b242193ed",
+          "url": "https://github.com/mach3-software/MaCh3/commit/54eacc34ce4526c37e3658c5ab07355168eb8284"
+        },
+        "date": 1754476284279,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.90893,
+            "range": "± 81.8538",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.84855,
+            "range": "± 62.4685",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 392.088,
+            "range": "± 4.26328",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
