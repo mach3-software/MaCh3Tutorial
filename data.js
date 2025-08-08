@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1754481118569,
+  "lastUpdate": 1754675582038,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -10393,6 +10393,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 393.061,
             "range": "± 4.01865",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "4b3fa2fab93f97b1e4a819a622aed6c49f2da227",
+          "message": "Merge pull request #581 from mach3-software/dbarrow257-patch-1\n\nfeat: Bump NuOscillator version",
+          "timestamp": "2025-08-09T02:47:59+09:00",
+          "tree_id": "5737231cf24a8a5d0e3b149769135f4e2a53fde7",
+          "url": "https://github.com/mach3-software/MaCh3/commit/4b3fa2fab93f97b1e4a819a622aed6c49f2da227"
+        },
+        "date": 1754675580178,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.90235,
+            "range": "± 112.7",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.81149,
+            "range": "± 222.025",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 388.658,
+            "range": "± 3.80296",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
