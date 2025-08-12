@@ -16,7 +16,7 @@ jobs:
 
       # Checkout the MaCh3 repository
       - name: Checkout MaCh3 repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           repository: mach3-software/MaCh3
           path: MaCh3
