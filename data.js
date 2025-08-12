@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1754675582038,
+  "lastUpdate": 1754990250678,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -10438,6 +10438,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 388.658,
             "range": "± 3.80296",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "cbf16726fd4cbc44d17612500990b7814e06ed1e",
+          "message": "Merge pull request #587 from mach3-software/dependabot/github_actions/dot-github/workflows/actions/first-interaction-3\n\ntidy: bump actions/first-interaction from 2 to 3 in /.github/workflows",
+          "timestamp": "2025-08-12T18:12:25+09:00",
+          "tree_id": "f0792a19b672c227219183a352a73a908e93d54c",
+          "url": "https://github.com/mach3-software/MaCh3/commit/cbf16726fd4cbc44d17612500990b7814e06ed1e"
+        },
+        "date": 1754990248785,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.92614,
+            "range": "± 254.994",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.8184,
+            "range": "± 74.0034",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 396.164,
+            "range": "± 3.26581",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
