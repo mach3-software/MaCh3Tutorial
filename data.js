@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1755078454311,
+  "lastUpdate": 1755080626923,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -10573,6 +10573,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 397.39,
             "range": "± 3.98462",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "b7dc384e0a8c244e6517d3961ec690e0ebc455a7",
+          "message": "Merge pull request #584 from mach3-software/feature/kskwarczynski/VerboseSplines\n\nfeat: Spline Verbosity",
+          "timestamp": "2025-08-13T19:18:41+09:00",
+          "tree_id": "4558a90f80c0e039ebcf0688e31cdd08c7d9dcf5",
+          "url": "https://github.com/mach3-software/MaCh3/commit/b7dc384e0a8c244e6517d3961ec690e0ebc455a7"
+        },
+        "date": 1755080625035,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.88503,
+            "range": "± 86.9551",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.8246,
+            "range": "± 338.989",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 391.374,
+            "range": "± 3.04448",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
