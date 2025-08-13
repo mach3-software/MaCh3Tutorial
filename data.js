@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1755076580108,
+  "lastUpdate": 1755078454311,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -10528,6 +10528,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 395.209,
             "range": "± 4.99294",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "956d27d155a6f21d0a7990faff04f3be5d6d4be9",
+          "message": "Merge pull request #585 from mach3-software/tidy/kskwarczynski/MCMCprocSanitizers\n\ntidy: MCMC Processor Sanitizers",
+          "timestamp": "2025-08-13T18:42:28+09:00",
+          "tree_id": "8c71698fb6db61241f65bb1be63a0d93845283ef",
+          "url": "https://github.com/mach3-software/MaCh3/commit/956d27d155a6f21d0a7990faff04f3be5d6d4be9"
+        },
+        "date": 1755078452322,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.89035,
+            "range": "± 124.902",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.82721,
+            "range": "± 123.731",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 397.39,
+            "range": "± 3.98462",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
