@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1755080626923,
+  "lastUpdate": 1755084469617,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -10618,6 +10618,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 391.374,
             "range": "± 3.04448",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "60f58faefae772cda30c663cdd8b0cff58163b35",
+          "message": "Merge pull request #586 from mach3-software/dependabot/github_actions/dot-github/workflows/actions/checkout-5\n\ntidy: bump actions/checkout from 4 to 5 in /.github/workflows",
+          "timestamp": "2025-08-13T20:22:39+09:00",
+          "tree_id": "769e051d04430ceb4066da549412782478566849",
+          "url": "https://github.com/mach3-software/MaCh3/commit/60f58faefae772cda30c663cdd8b0cff58163b35"
+        },
+        "date": 1755084467717,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.87328,
+            "range": "± 98.3845",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.80578,
+            "range": "± 209.488",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 397.301,
+            "range": "± 5.57339",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
