@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1754990250678,
+  "lastUpdate": 1755076580108,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -10483,6 +10483,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 396.164,
             "range": "± 3.26581",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "8964a0a488d6b4c68e489855fd920feba8ffd3f6",
+          "message": "Merge pull request #588 from mach3-software/feature/kskkwarczynski/FillHistUnification\n\ntidy: Fill MC Hist more scalable",
+          "timestamp": "2025-08-13T18:11:12+09:00",
+          "tree_id": "c4f235bb2c3923dd4308bc71c7eddcc332ba6fea",
+          "url": "https://github.com/mach3-software/MaCh3/commit/8964a0a488d6b4c68e489855fd920feba8ffd3f6"
+        },
+        "date": 1755076578117,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.93984,
+            "range": "± 119.811",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.82666,
+            "range": "± 211.116",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 395.209,
+            "range": "± 4.99294",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
