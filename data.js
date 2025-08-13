@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1755084469617,
+  "lastUpdate": 1755109962098,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -10663,6 +10663,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 397.301,
             "range": "± 5.57339",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "0775d1e71014b977ce8993d35a1039b9f64e04fb",
+          "message": "Merge pull request #590 from mach3-software/feature/kskwarczyn/PsotfitParamPlot\n\ntidy: Improve Plotting param overlay",
+          "timestamp": "2025-08-14T03:27:26+09:00",
+          "tree_id": "cfabc23c296bdeb937037855ecbc4f8badef0719",
+          "url": "https://github.com/mach3-software/MaCh3/commit/0775d1e71014b977ce8993d35a1039b9f64e04fb"
+        },
+        "date": 1755109959726,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.86744,
+            "range": "± 72.4894",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.77028,
+            "range": "± 71.5886",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 393.941,
+            "range": "± 6.40441",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
