@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1755109962098,
+  "lastUpdate": 1755176467110,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -10708,6 +10708,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 393.941,
             "range": "± 6.40441",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "2a1ef8ad4675759cfdb5c4cbbb5487039ee9869e",
+          "message": "Merge pull request #589 from mach3-software/bugfix/kskwarczynski/AdaptFix\n\nbugfix: Reset Step Size when loading adapt matrix",
+          "timestamp": "2025-08-14T21:56:05+09:00",
+          "tree_id": "21f3682d2d58a38ef910e1f63e05283b0cd9d106",
+          "url": "https://github.com/mach3-software/MaCh3/commit/2a1ef8ad4675759cfdb5c4cbbb5487039ee9869e"
+        },
+        "date": 1755176465329,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.86875,
+            "range": "± 77.8247",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.78629,
+            "range": "± 75.9388",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 391.085,
+            "range": "± 3.5846",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
