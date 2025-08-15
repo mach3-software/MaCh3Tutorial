@@ -69,6 +69,7 @@ Being able to visualise and analyse output of MCMC is standard procedure after c
 where **Test.root** is the output of running MCMCTutorial as described [here](#how-to-run-mcmc).
 You can find results in **Test_drawCorr.pdf**
 One of plots you will encounter is:
+
 <img width="350" alt="Posterior example" src="https://github.com/user-attachments/assets/1073a76e-5d82-4321-8952-e098d1b0717f">
 
 It is marginalised posterior of a single parameter. This is main output of MCMC.
@@ -109,7 +110,9 @@ To plot only a subset of parameters we recommend using **MatrixPlotter**.
 bin/MatrixPlotter bin/TutorialDiagConfig.yaml Test_drawCorr.root
 ```
 Within MatrixPlot.pdf you should see a plot like this.
+
 <img width="350" alt="Posterior example" src="https://github.com/user-attachments/assets/14471069-27e7-4ea3-9d75-232615aa246a">
+
 In this example, you can see only two parameters. Using TutorialDiagConfig.yaml you can easily modify it either by adding more Titles, or more parameters.
 
 ```yaml
