@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1755176467110,
+  "lastUpdate": 1755262798507,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -10753,6 +10753,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 391.085,
             "range": "± 3.5846",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "67589487+henry-wallace-phys@users.noreply.github.com",
+            "name": "Henry Wallace",
+            "username": "henry-wallace-phys"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "271d760209b253fe5748b8e9a86d9a6b928f9300",
+          "message": "Merge pull request #583 from mach3-software/hwallace/feature/likelihood_store_fix\n\nbugfix: Store correct syst/sample likelihoods when saving steps in MCMC",
+          "timestamp": "2025-08-15T13:55:00+01:00",
+          "tree_id": "1ec219fcaa99a39c721843cd27941c310a1af327",
+          "url": "https://github.com/mach3-software/MaCh3/commit/271d760209b253fe5748b8e9a86d9a6b928f9300"
+        },
+        "date": 1755262796564,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 3.16679,
+            "range": "± 2.1241",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.75489,
+            "range": "± 79.1166",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 386.152,
+            "range": "± 3.07941",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
