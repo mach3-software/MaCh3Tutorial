@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1755599860487,
+  "lastUpdate": 1755600815762,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -10888,6 +10888,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 397.952,
             "range": "± 5.10965",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "31003009+dbarrow257@users.noreply.github.com",
+            "name": "dbarrow257",
+            "username": "dbarrow257"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "722ef4bceed038c747f196f59bfb4a319519b578",
+          "message": "Merge pull request #594 from mach3-software/feature/kskwarczynski/stepNumberUnification\n\ntidy: unify wheter step is UInt or Int",
+          "timestamp": "2025-08-19T11:48:19+01:00",
+          "tree_id": "03ad4c80114c1b564df215a9856ebbf52efa89ba",
+          "url": "https://github.com/mach3-software/MaCh3/commit/722ef4bceed038c747f196f59bfb4a319519b578"
+        },
+        "date": 1755600813431,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.85627,
+            "range": "± 87.9908",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.77644,
+            "range": "± 76.2621",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 399.366,
+            "range": "± 3.8856",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
