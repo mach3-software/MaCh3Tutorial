@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1755598550796,
+  "lastUpdate": 1755599860487,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -10843,6 +10843,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 394.692,
             "range": "± 3.52322",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "31003009+dbarrow257@users.noreply.github.com",
+            "name": "dbarrow257",
+            "username": "dbarrow257"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "6c5a23bfdcca9df804a1e06c666f17fd1f85008a",
+          "message": "Merge pull request #595 from mach3-software/feature/kskwarczynski/udpateCPM\n\ntidy: Update CPM from 0.40.2 to 0.42.0",
+          "timestamp": "2025-08-19T11:32:24+01:00",
+          "tree_id": "728e45f377c49ee4b3e3dae82d7018ae4c0708d0",
+          "url": "https://github.com/mach3-software/MaCh3/commit/6c5a23bfdcca9df804a1e06c666f17fd1f85008a"
+        },
+        "date": 1755599858187,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.89599,
+            "range": "± 96.9445",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.80083,
+            "range": "± 79.7673",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 397.952,
+            "range": "± 5.10965",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
