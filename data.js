@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1755600815762,
+  "lastUpdate": 1755689532737,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -10933,6 +10933,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 399.366,
             "range": "± 3.8856",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "db65122b271316bc45c9823085f9e69cf97b48d0",
+          "message": "Merge pull request #592 from mach3-software/feature/kskwarczynski/MatrixPlot\n\nfeat: Matrix Param Group Plot",
+          "timestamp": "2025-08-20T20:27:19+09:00",
+          "tree_id": "144dca1191931dba2df7f2e0850b2c6bc62bc2aa",
+          "url": "https://github.com/mach3-software/MaCh3/commit/db65122b271316bc45c9823085f9e69cf97b48d0"
+        },
+        "date": 1755689530879,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.8781,
+            "range": "± 137.91",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.78549,
+            "range": "± 134.936",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 391.096,
+            "range": "± 3.83856",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
