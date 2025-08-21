@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1755689532737,
+  "lastUpdate": 1755762967824,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -10978,6 +10978,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 391.096,
             "range": "± 3.83856",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "c4e9bc00e9ea6167ed366737724751e6d10f2cfa",
+          "message": "Merge pull request #597 from mach3-software/feature/kskwarczynski/setMaxEntires\n\nfeat: Allow to decrease entires in MCMC Processor",
+          "timestamp": "2025-08-21T16:50:56+09:00",
+          "tree_id": "b1c57e81a014d8ce0782cb235eaeb2de540629fb",
+          "url": "https://github.com/mach3-software/MaCh3/commit/c4e9bc00e9ea6167ed366737724751e6d10f2cfa"
+        },
+        "date": 1755762965433,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.866,
+            "range": "± 76.8934",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.77098,
+            "range": "± 71.9387",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 394.815,
+            "range": "± 5.54783",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
