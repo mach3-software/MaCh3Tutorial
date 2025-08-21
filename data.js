@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1755762967824,
+  "lastUpdate": 1755770954699,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -11023,6 +11023,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 394.815,
             "range": "± 5.54783",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "614c135596c64d548d428725f3c7feb3331a7f8b",
+          "message": "Merge pull request #598 from mach3-software/feature/kskwarczynski/GlobalBinReloaded\n\nfeat: Introduce Global bin number offset",
+          "timestamp": "2025-08-21T19:04:02+09:00",
+          "tree_id": "9b5bb713d0be1f93416286ac597b11be92d011d5",
+          "url": "https://github.com/mach3-software/MaCh3/commit/614c135596c64d548d428725f3c7feb3331a7f8b"
+        },
+        "date": 1755770952729,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.84936,
+            "range": "± 74.258",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.76921,
+            "range": "± 51.7581",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 392.498,
+            "range": "± 5.85603",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
