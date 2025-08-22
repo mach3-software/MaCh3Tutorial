@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1755770954699,
+  "lastUpdate": 1755860801645,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -11068,6 +11068,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 392.498,
             "range": "± 5.85603",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "5cef8062e6b4473f84af1d150503fe5f9ab38d65",
+          "message": "Merge pull request #591 from mach3-software/tidy/kskwarczynski/plottingupdates\n\ntidy: Safer Plotting",
+          "timestamp": "2025-08-22T20:01:31+09:00",
+          "tree_id": "afe0071f9f1df75412cc617af703240b93193371",
+          "url": "https://github.com/mach3-software/MaCh3/commit/5cef8062e6b4473f84af1d150503fe5f9ab38d65"
+        },
+        "date": 1755860799436,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.90811,
+            "range": "± 108.161",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.79742,
+            "range": "± 60.4193",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 400.252,
+            "range": "± 5.90384",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
