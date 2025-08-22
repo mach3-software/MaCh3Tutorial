@@ -112,6 +112,52 @@ void ValidateTestStatistic(std::ostream& outFile, const std::string& OriginalSam
   } // end loop over test stat
 }
 
+void LoadSplineValidation(std::ostream& outFile, const std::string& OriginalSample, ParameterHandlerGeneric* xsec, bool LoadFile, bool MakeSFile) {
+  std::string NameTString = OriginalSample;
+  xsec->SetParameters();
+
+  // Load YAML config from file
+  YAML::Node config = M3OpenConfig(NameTString);
+
+  // Set UpdateW2 based on input flag
+  config["InputFiles"]["LoadSplineFile"] = LoadFile;
+  config["InputFiles"]["PrepSplineFile"] = MakeSFile;
+
+  // Convert to string
+  std::string configStr = YAMLtoSTRING(config);
+
+  // Get MaCh3Tutorial_ROOT environment variable
+  const char* rootEnv = std::getenv("MaCh3Tutorial_ROOT");
+  if (!rootEnv) {
+    throw std::runtime_error("Environment variable MaCh3Tutorial_ROOT is not set.");
+  }
+
+  std::string tempConfigPath = std::string(rootEnv) + "/mach3_temp_config.yaml";
+
+  // Write config string to file
+  std::ofstream configOut(tempConfigPath);
+  configOut << configStr;
+  configOut.close();
+
+  // Use modified config
+  auto Sample = std::make_unique<SampleHandlerTutorial>(tempConfigPath, xsec);
+  Sample->Reweight();
+
+  TH1D* SampleHistogramPrior = static_cast<TH1D*>(Sample->GetMCHist(1)->Clone((NameTString + "_Prior").c_str()));
+  Sample->AddData(SampleHistogramPrior);
+
+  // Set oscillation parameters and reweight for posterior
+  std::vector<double> OscParProp = {0.3, 0.5, 0.020, 7.53e-5, 2.494e-3, 0.0, 295, 2.6, 0.5, 15};
+  xsec->SetGroupOnlyParameters("Osc", OscParProp);
+  Sample->Reweight();
+
+  outFile << "Info for sample: " << NameTString << std::endl;
+  outFile << "Rates Prior: " << SampleHistogramPrior->Integral() << std::endl;
+  outFile << "Likelihood: " << std::fabs(Sample->GetLikelihood()) << std::endl;
+
+  std::remove(tempConfigPath.c_str());
+}
+
 int main(int argc, char *argv[])
 {
   SetMaCh3LoggerFormat();
@@ -162,6 +208,8 @@ int main(int argc, char *argv[])
 
     SampleLLHValidation(outFile, configPath, xsec, true);
     SampleLLHValidation(outFile, configPath, xsec, false);
+    LoadSplineValidation(outFile, configPath, xsec, false, true);
+    LoadSplineValidation(outFile, configPath, xsec, true, false);
 
     // Clean up dynamically allocated Sample if needed
     delete SampleHistogramPost;
