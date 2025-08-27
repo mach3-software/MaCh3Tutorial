@@ -9,10 +9,16 @@ DiagMCMC:
 
 #########################################
 ProcessMCMC:
-  #Select which parameters blocks to reject for example ND and FD detector, look for starting string
-  ExcludedTypes: []
   #Select which parameter names to remove, for example all flux, look for starting string
   ExcludedNames: []
+  #Select which parameter to remove based on to whcih group they belong, like Xsec, Flux or Osc
+  ExcludedGroups: []
+  #Select which parameters blocks to reject for example ND and FD detector, look for starting string
+  # WARNING this is used only for Legacy pramtaers i.e. one which do not use parameterHandlerGeneric
+  ExcludedTypes: []
+  # Allow to decrease number of entries if chain is HUUGE
+  #MaxEntries = 10000
+
   #AdditionalCuts
   Posterior1DCut: ""
   #Posterior1DCut: "delm2_23 > 0"
@@ -112,11 +118,8 @@ GetPenaltyTerm:
     - false
     - "-logL_{Spline}"
 
-
-
 #########################################
 MatrixPlotter:
-
   Titles: [
     "Norm",
     "Spline",
@@ -127,3 +130,10 @@ MatrixPlotter:
 
   Spline: ["BinnedSplineParam1", "BinnedSplineParam2"
   ]
+
+
+
+#########################################
+SmearChain:
+  Smear: [ ["delm2_23", "delta_cp"], [2.70e-5, 0.01]]
+  SaveUnsmearedBranch: false
