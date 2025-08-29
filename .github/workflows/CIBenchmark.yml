@@ -24,22 +24,32 @@ jobs:
             app: MCMCTutorial
             args: TutorialConfigs/FitterConfig.yaml --override OverideConfig.yaml
             outpath: /opt/Profiling/
-            SampleName: SampleHandler_Tutorial.yaml
+            SampleName: "TutorialConfigs/Samples/SampleHandler_Tutorial.yaml"
+            DoAdaption: false
             NSteps: 10000
 
           - title: MaCh3_ATMFD_Profile
             app: MCMCTutorial
             args: TutorialConfigs/FitterConfig.yaml --override OverideConfig.yaml
-            SampleName: SampleHandler_Tutorial_ATM.yaml
+            SampleName: "TutorialConfigs/Samples/SampleHandler_Tutorial_ATM.yaml"
             outpath: /opt/Profiling/
+            DoAdaption: false
             NSteps: 1000
+
+          - title: MaCh3_Adaptive_Profile
+            app: MCMCTutorial
+            args: TutorialConfigs/FitterConfig.yaml --override OverideConfig.yaml
+            SampleName:
+            outpath: /opt/Profiling/
+            DoAdaption: true
+            NSteps: 1000000
 
     container:
       image: ghcr.io/mach3-software/mach3:alma9v1.3.0
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Install gperftools
         run: |
@@ -64,9 +74,16 @@ jobs:
 
           cat > OverideConfig.yaml <<EOF
           General:
-            TutorialSamples: ["TutorialConfigs/Samples/${{ matrix.SampleName }}"]
+            TutorialSamples: [${{ matrix.SampleName }}]
             MCMC:
                 NSteps: ${{ matrix.NSteps }}
+
+          AdaptionOptions:
+            Settings:
+              EndUpdate: ${{ matrix.NSteps }}
+            Covariance:
+              xsec_cov:
+                DoAdaption: ${{ matrix.DoAdaption }}
           EOF
 
           bin/${{ matrix.app }} ${{ matrix.args }}

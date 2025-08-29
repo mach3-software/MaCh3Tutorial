@@ -35,6 +35,8 @@ run_reweight_validations() {
   ./CIValidations/LLHValidation
   ${MaCh3Tutorial_ROOT}/bin/KinemDistributionTutorial ${MaCh3Tutorial_ROOT}/TutorialConfigs/FitterConfig.yaml
   ./CIValidations/NuOscillatorInterfaceValidations
+  ./CIValidations/PredictiveValidations
+  ./CIValidations/SplinePlotting/SplinePlotting
 }
 
 run_fitter_validations() {
@@ -47,7 +49,7 @@ run_fitter_validations() {
   ${MaCh3_ROOT}/bin/MatrixPlotter bin/TutorialDiagConfig.yaml MCMC_Test_drawCorr.root
   ${MaCh3_ROOT}/bin/GetPostfitParamPlots MCMC_Test_drawCorr.root
   ${MaCh3_ROOT}/bin/PlotLLH MCMC_Test.root
-  ${MaCh3_ROOT}/bin/PlotMCMCDiag MCMC_Test_MCMC_Diag.root MCMC_Test_MCMC_Diag.root
+  ${MaCh3_ROOT}/bin/PlotMCMCDiag MCMC_Test_MCMC_Diag.root "test_plot_1" MCMC_Test_MCMC_Diag.root "test_plot_2"
 }
 
 run_covariance_validations() {
@@ -55,6 +57,7 @@ run_covariance_validations() {
   ./CIValidations/MaCh3ModeValidations
   ./CIValidations/pValueValidations
   ./CIValidations/SigmaVarValidations
+  ./CIValidations/SigmaVarFDValidation
   if [ "$HAVE_UNITTEST_SUPPORT" -eq 0 ]; then
     ./CIValidations/UnitTests/manager_tests
     ./CIValidations/UnitTests/histogram_tests

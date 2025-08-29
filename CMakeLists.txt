@@ -4,7 +4,7 @@ set(CMAKE_VERBOSE_MAKEFILE ON)
 cmake_minimum_required(VERSION 3.14 FATAL_ERROR)
 
 # Create project
-project(MaCh3Tutorial VERSION 2.2.1 LANGUAGES CXX)
+project(MaCh3Tutorial VERSION 2.2.3 LANGUAGES CXX)
 set(MaCh3Tutorial_VERSION ${PROJECT_VERSION})
 
 set(CMAKE_CXX_STANDARD_REQUIRED True)
@@ -32,7 +32,7 @@ LIST(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_LIST_DIR}/cmake/Modules)
 # download CPM.cmake
 file(
   DOWNLOAD
-  https://github.com/cpm-cmake/CPM.cmake/releases/download/v0.40.2/CPM.cmake
+  https://github.com/cpm-cmake/CPM.cmake/releases/download/v0.42.0/CPM.cmake
   ${CMAKE_CURRENT_BINARY_DIR}/cmake/CPM.cmake
 )
 include(${CMAKE_CURRENT_BINARY_DIR}/cmake/CPM.cmake)

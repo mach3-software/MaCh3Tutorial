@@ -1,0 +1,70 @@
+Integral for sample Tutorial integral142842
+Sample Tutorial bin 1 content 7682.56
+Sample Tutorial bin 1 error 86.4935
+Sample Tutorial bin 2 content 16411.4
+Sample Tutorial bin 2 error 79.4411
+Sample Tutorial bin 3 content 11404.3
+Sample Tutorial bin 3 error 73.3222
+Sample Tutorial bin 4 content 12054.6
+Sample Tutorial bin 4 error 54.9174
+Sample Tutorial bin 5 content 12008.5
+Sample Tutorial bin 5 error 51.2226
+Sample Tutorial bin 6 content 11928.7
+Sample Tutorial bin 6 error 52.8753
+Sample Tutorial bin 7 content 8385.66
+Sample Tutorial bin 7 error 33.8206
+Sample Tutorial bin 8 content 7787.38
+Sample Tutorial bin 8 error 31.0834
+Sample Tutorial bin 9 content 7487.1
+Sample Tutorial bin 9 error 31.3942
+Sample Tutorial bin 10 content 6984.64
+Sample Tutorial bin 10 error 42.0948
+Sample Tutorial bin 11 content 11490.9
+Sample Tutorial bin 11 error 44.5462
+Sample Tutorial bin 12 content 10733.5
+Sample Tutorial bin 12 error 42.1108
+Sample Tutorial bin 13 content 9683.85
+Sample Tutorial bin 13 error 37.293
+Sample Tutorial bin 14 content 8798.81
+Sample Tutorial bin 14 error 55.5335
+Sample Tutorial bin 15 content 0.0205002
+Sample Tutorial bin 15 error 0.204068
+Sample Tutorial bin 16 content 0
+Sample Tutorial bin 16 error 0
+Sample Tutorial bin 17 content 0
+Sample Tutorial bin 17 error 0
+Integral for sample Tutorial ATM integral53531.3
+Sample Tutorial ATM bin 1 content 78.0577
+Sample Tutorial ATM bin 1 error 1.24877
+Sample Tutorial ATM bin 2 content 769.865
+Sample Tutorial ATM bin 2 error 10.8565
+Sample Tutorial ATM bin 3 content 1591.6
+Sample Tutorial ATM bin 3 error 13.8265
+Sample Tutorial ATM bin 4 content 1738.64
+Sample Tutorial ATM bin 4 error 12.9006
+Sample Tutorial ATM bin 5 content 2761.7
+Sample Tutorial ATM bin 5 error 19.0224
+Sample Tutorial ATM bin 6 content 2956.81
+Sample Tutorial ATM bin 6 error 19.9024
+Sample Tutorial ATM bin 7 content 2775.87
+Sample Tutorial ATM bin 7 error 18.1719
+Sample Tutorial ATM bin 8 content 3089.19
+Sample Tutorial ATM bin 8 error 21.2885
+Sample Tutorial ATM bin 9 content 3485.27
+Sample Tutorial ATM bin 9 error 21.2522
+Sample Tutorial ATM bin 10 content 3837.36
+Sample Tutorial ATM bin 10 error 31.6674
+Sample Tutorial ATM bin 11 content 7406.28
+Sample Tutorial ATM bin 11 error 87.5078
+Sample Tutorial ATM bin 12 content 8006.02
+Sample Tutorial ATM bin 12 error 33.5217
+Sample Tutorial ATM bin 13 content 7304.7
+Sample Tutorial ATM bin 13 error 43.8766
+Sample Tutorial ATM bin 14 content 7729.87
+Sample Tutorial ATM bin 14 error 91.6412
+Sample Tutorial ATM bin 15 content 0.0879203
+Sample Tutorial ATM bin 15 error 0.516312
+Sample Tutorial ATM bin 16 content 0
+Sample Tutorial ATM bin 16 error 0
+Sample Tutorial ATM bin 17 content 0
+Sample Tutorial ATM bin 17 error 0
