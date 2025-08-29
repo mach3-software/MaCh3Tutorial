@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1756468327186,
+  "lastUpdate": 1756473683022,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -11158,6 +11158,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 396.022,
             "range": "± 4.35728",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "2acf5120b9be36d104755d22a386bcd9954e6ccd",
+          "message": "Merge pull request #609 from mach3-software/tdiy/kskwarczynski/doxy\n\nbugfix: Proper doxygen for Delayed",
+          "timestamp": "2025-08-29T14:16:09+01:00",
+          "tree_id": "fb9abed33f8f170c84246f03b1fc2844940899a8",
+          "url": "https://github.com/mach3-software/MaCh3/commit/2acf5120b9be36d104755d22a386bcd9954e6ccd"
+        },
+        "date": 1756473680947,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.88873,
+            "range": "± 114.532",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.84371,
+            "range": "± 233.676",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 401.286,
+            "range": "± 9.51221",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
