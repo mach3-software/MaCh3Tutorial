@@ -1,9 +1,9 @@
 General:
   OutputFile: "Test.root"
-  TutorialSamples: ["TutorialConfigs/Samples/SampleHandler_Tutorial.yaml",
+  TutorialSamples:  ["TutorialConfigs/Samples/SampleHandler_Tutorial.yaml"]
                     #"TutorialConfigs/Samples/SampleHandler_Tutorial_ATM.yaml"
-                    ]
-  FittingAlgorithm: "MCMC"
+                    # ]
+  FittingAlgorithm: "MR2T2"
 
   RealData: false
   Asimov: true
@@ -11,13 +11,14 @@ General:
   FakeData: false
   ProcessMCMC: No
   Debug: No
+  
   RandomStart: false
   Seed: 0
   MaCh3Modes: "TutorialConfigs/MaCh3Modes.yaml"
   Fitter:
     FitTestLikelihood: false
   Minuit2:
-    NSteps: 100000
+    NSteps: 1000000
   PSO:
     Constriction: 1
     Inertia: 1.
@@ -26,26 +27,38 @@ General:
     Particles: 10
     Iterations: 10000
     Convergence: 1.
-    TestLikelihoodDim: 9
+    TestLikelihoodDim: 9aut
 
   MCMC:
     NSteps: 10000
     #KS: Sets how frequent (number of steps) you want to autosave your chain, if you autosave rarely chain will be slightly faster, if you job wall is small you might want more frequent autosave to reduce number of lost steps
     #AutoSave: 500
-    AutoSave: 10000
+    AutoSave: 100000
     UseReactorConstraint: No
     #Burn in for posterior predictive code
     BurnInSteps: 200000
+    PrintSummary: False
+
+    # Delayed rejection MCMC
+    # Step scale for first delayed step = initial_scale * scale in parameter handler
+    initial_scale: 1 
+    # Each delayed step is previous scale * decay rate
+    DecayRate: 0.1
+    # Delayed only if steps are OOB [recommend False]
+    DelayOnlyOutBounds: False
+    # Probabilty of delaying a step
+    DelayProbability: 1.0
+    # Max number of delayed steps
+    MaxRejections: 1
   Systematics:
     XsecCovName: "xsec_cov"
     XsecFix: [ "baseline", "density", "Ye", "prod_height" ]
     XsecCovFile: ["TutorialConfigs/CovObjs/SystematicModel.yaml",
-                  "TutorialConfigs/CovObjs/OscillationModel.yaml"
-                  #"TutorialConfigs/CovObjs/PCATest.yaml"
+                  "TutorialConfigs/CovObjs/OscillationModel.yaml",
                   ]
     XsecPCAThreshold: -1
     XsecPCAParams: [-999, -999]
-    XsecStepScale: 0.05
+    XsecStepScale: 0.005
 
 # Prior/Posterior predictive settings
 Predictive:
@@ -80,3 +93,22 @@ KinematicDistributionPlots:
 - Name: "Q2 vs True Enu"
   VarStrings: ["TrueNeutrinoEnergy", "TrueQ2"]
   VarBins: [[50,0,4],[50,0,6]]
+
+AdaptionOptions:
+  Settings:
+    StartThrow: 1000     # [int] At which step do we start throwing from our new matrix?
+    StartUpdate: 1    # [int] At which step do we start adding steps to the covariance matrix?
+    EndUpdate: 10000      # [int] At which step do we stop adding steps + fix the covariance matrix?
+    UpdateStep: 1000     # [int] How often do we want to update i.e. change matrix we're throwing from?
+    SaveNIterations: 10000  # [int] How often do we want to save this to file
+    OutputFileName: "Adapt.root" # [str] Name of the file containing the matrix
+
+  Covariance:
+    xsec_cov: # Name of covariance matrix
+      DoAdaption: False  # [bool] Adapt this parameter
+
+DiagMCMC:
+  nLags: 10000
+
+ProcessMCMC:
+  BurnInSteps: 50000
