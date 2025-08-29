@@ -18,7 +18,7 @@ General:
   Fitter:
     FitTestLikelihood: false
   Minuit2:
-    NSteps: 1000000
+    NSteps: 100000
   PSO:
     Constriction: 1
     Inertia: 1.
@@ -27,13 +27,13 @@ General:
     Particles: 10
     Iterations: 10000
     Convergence: 1.
-    TestLikelihoodDim: 9aut
+    TestLikelihoodDim: 9
 
   MCMC:
     NSteps: 10000
     #KS: Sets how frequent (number of steps) you want to autosave your chain, if you autosave rarely chain will be slightly faster, if you job wall is small you might want more frequent autosave to reduce number of lost steps
     #AutoSave: 500
-    AutoSave: 100000
+    AutoSave: 10000
     UseReactorConstraint: No
     #Burn in for posterior predictive code
     BurnInSteps: 200000
@@ -58,7 +58,7 @@ General:
                   ]
     XsecPCAThreshold: -1
     XsecPCAParams: [-999, -999]
-    XsecStepScale: 0.005
+    XsecStepScale: 0.05
 
 # Prior/Posterior predictive settings
 Predictive:
@@ -106,9 +106,3 @@ AdaptionOptions:
   Covariance:
     xsec_cov: # Name of covariance matrix
       DoAdaption: False  # [bool] Adapt this parameter
-
-DiagMCMC:
-  nLags: 10000
-
-ProcessMCMC:
-  BurnInSteps: 50000
