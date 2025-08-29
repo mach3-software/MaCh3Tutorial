@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1755860801645,
+  "lastUpdate": 1756468327186,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -11113,6 +11113,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 400.252,
             "range": "± 5.90384",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "6de931a4b441ee984a7bdb9cf179749f89963e70",
+          "message": "Merge pull request #606 from mach3-software/hwallace/simple_delayed_implementation\n\nfeat: delayed rejection implementation",
+          "timestamp": "2025-08-29T12:47:00+01:00",
+          "tree_id": "14fbfb8538eb72d6e2f2a09a24ba766bab3be0ea",
+          "url": "https://github.com/mach3-software/MaCh3/commit/6de931a4b441ee984a7bdb9cf179749f89963e70"
+        },
+        "date": 1756468325209,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.90532,
+            "range": "± 78.0609",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.82754,
+            "range": "± 63.8877",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 396.022,
+            "range": "± 4.35728",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
