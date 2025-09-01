@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1756723344395,
+  "lastUpdate": 1756744194606,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -11338,6 +11338,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 392.782,
             "range": "± 2.82787",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "d1bdcbcfce1962ebb631665567ebf5935bc90a61",
+          "message": "Merge pull request #600 from mach3-software/feature/kskwarczynski/ProcessorUpdate\n\nfeat: Enforce Same Binning for posterior compasion",
+          "timestamp": "2025-09-01T17:24:44+01:00",
+          "tree_id": "bf818b9e8cdc79ad8ad3a1120a8bf06eae4a92d1",
+          "url": "https://github.com/mach3-software/MaCh3/commit/d1bdcbcfce1962ebb631665567ebf5935bc90a61"
+        },
+        "date": 1756744192098,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.91135,
+            "range": "± 94.808",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.8303,
+            "range": "± 63.4135",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 391.933,
+            "range": "± 5.42491",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
