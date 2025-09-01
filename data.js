@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1756476952508,
+  "lastUpdate": 1756723344395,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -11293,6 +11293,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 401.93,
             "range": "± 4.81088",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "fcf2e0684b6157be5ddbac02bb16fe1ef5dfe97e",
+          "message": "Merge pull request #611 from mach3-software/hwallace/bugfix/adapt_loop\n\nbugfix: remove unnecessary extra update when adapting",
+          "timestamp": "2025-09-01T11:37:20+01:00",
+          "tree_id": "fe678c2456d1a9402807f722bf40493b7a392663",
+          "url": "https://github.com/mach3-software/MaCh3/commit/fcf2e0684b6157be5ddbac02bb16fe1ef5dfe97e"
+        },
+        "date": 1756723342380,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.94848,
+            "range": "± 92.566",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.87429,
+            "range": "± 49.9407",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 392.782,
+            "range": "± 2.82787",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
