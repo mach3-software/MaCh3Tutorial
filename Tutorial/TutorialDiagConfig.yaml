@@ -11,8 +11,10 @@ DiagMCMC:
 ProcessMCMC:
   #Select which parameter names to remove, for example all flux, look for starting string
   ExcludedNames: []
+  #ExcludedNames: ["Norm_"]
   #Select which parameter to remove based on to whcih group they belong, like Xsec, Flux or Osc
   ExcludedGroups: []
+  #ExcludedNames: ["Osc"]
   #Select which parameters blocks to reject for example ND and FD detector, look for starting string
   # WARNING this is used only for Legacy pramtaers i.e. one which do not use parameterHandlerGeneric
   ExcludedTypes: []
