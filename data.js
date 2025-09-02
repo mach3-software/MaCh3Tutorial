@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1756744194606,
+  "lastUpdate": 1756801255763,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -11383,6 +11383,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 391.933,
             "range": "± 5.42491",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "d5fda90c62f3d83adfd7ffca156ff98c6744b3df",
+          "message": "Merge pull request #605 from mach3-software/feature/kskwarczynski/smearing\n\nfeat: Smear Contours",
+          "timestamp": "2025-09-02T09:15:47+01:00",
+          "tree_id": "a9ce74a9e410aaaaa6b541ea795024a51e558122",
+          "url": "https://github.com/mach3-software/MaCh3/commit/d5fda90c62f3d83adfd7ffca156ff98c6744b3df"
+        },
+        "date": 1756801253635,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.84788,
+            "range": "± 66.3125",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.77545,
+            "range": "± 51.4109",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 393.122,
+            "range": "± 5.95481",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
