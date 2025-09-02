@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1756801255763,
+  "lastUpdate": 1756811004051,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -11428,6 +11428,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 393.122,
             "range": "± 5.95481",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "67589487+henry-wallace-phys@users.noreply.github.com",
+            "name": "Henry Wallace",
+            "username": "henry-wallace-phys"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "b96e3d26476320074a749d62bf9865f69a3980ca",
+          "message": "Merge pull request #612 from mach3-software/feature/kskwarczynski/ProcessorReweight\n\nfeat: MCMC Processor support for chains with weight",
+          "timestamp": "2025-09-02T11:58:17+01:00",
+          "tree_id": "8540609b89036c5a01a3c5b4fdaa890908de2a3d",
+          "url": "https://github.com/mach3-software/MaCh3/commit/b96e3d26476320074a749d62bf9865f69a3980ca"
+        },
+        "date": 1756811002200,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.85992,
+            "range": "± 85.5295",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.80748,
+            "range": "± 137.737",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 392.307,
+            "range": "± 4.32035",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
