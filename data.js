@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1756811004051,
+  "lastUpdate": 1756898669990,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -11473,6 +11473,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 392.307,
             "range": "± 4.32035",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "8717ca74604448ddc04d7155e0a9af75230b569f",
+          "message": "Merge pull request #575 from mach3-software/hhua/patch/covyaml\n\nfeat: arithmetic, Gaussian, HPD for outputting cov YAMLs",
+          "timestamp": "2025-09-03T12:19:16+01:00",
+          "tree_id": "fbd7352922cd0f0ed3d3993eb152fb052da511fc",
+          "url": "https://github.com/mach3-software/MaCh3/commit/8717ca74604448ddc04d7155e0a9af75230b569f"
+        },
+        "date": 1756898667674,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.86581,
+            "range": "± 69.6505",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.78223,
+            "range": "± 82.618",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 390.391,
+            "range": "± 5.90312",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
