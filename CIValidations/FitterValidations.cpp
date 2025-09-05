@@ -21,7 +21,7 @@ void FitVal(const std::string& Algo, bool MoreTests)
   }
   else if (Algo == "DelayedMR2T2" || Algo == "DelayedRejection" || Algo == "DelayedMCMC")
   {
-    FitManager->OverrideSettings("General", "OutputFile", "MCMC_Test.root");
+    FitManager->OverrideSettings("General", "OutputFile", "DelayedMCMC_Test.root");
     MaCh3Fitter = std::make_unique<DelayedMR2T2>(FitManager.get());
   }
   else if (Algo == "PSO")
@@ -92,10 +92,11 @@ int main(int argc, char *argv[])
     throw MaCh3Exception(__FILE__ , __LINE__ );
   }
 
-  std::vector<std::string> Algo = {"MCMC"};
+  // Define algorithms we are testing within CI
+  std::vector<std::string> Algo = {"MCMC", "DelayedMCMC", "PSO"};
+  // Minuit requeirs external library thus do not check it by default
   #ifdef MaCh3_MINUIT2
   Algo.push_back("Minuit2");
-  Algo.push_back("PSO");
   #endif
 
   bool MoreTests = true;
