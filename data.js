@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1757354890607,
+  "lastUpdate": 1757356291666,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -11743,6 +11743,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 395.763,
             "range": "± 3.34471",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "11577b49360e04dad36b707f3893828b097f3806",
+          "message": "Merge pull request #607 from mach3-software/tidy/kskwarczynski/BinningTidy\n\ntidy: Make Separate Function for migration lookup",
+          "timestamp": "2025-09-08T19:25:59+01:00",
+          "tree_id": "83595e12bc64c636e892a4a366d9c6f94d303ba1",
+          "url": "https://github.com/mach3-software/MaCh3/commit/11577b49360e04dad36b707f3893828b097f3806"
+        },
+        "date": 1757356289122,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.8514,
+            "range": "± 56.8123",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.78651,
+            "range": "± 67.7139",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 399.188,
+            "range": "± 3.2673",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
