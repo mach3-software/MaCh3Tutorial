@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1757346668758,
+  "lastUpdate": 1757353454968,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -11608,6 +11608,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 391.487,
             "range": "± 4.3076",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "8f6587740c9e40280a447e2de45d6c7d195478e8",
+          "message": "Merge pull request #619 from mach3-software/tidy/kskwarczynski/DoxyDocuUpdate\n\ntidy: Fix doxygen warnings",
+          "timestamp": "2025-09-08T18:38:56+01:00",
+          "tree_id": "4d4b452dfb460dcf737cabd36be183f1dc570740",
+          "url": "https://github.com/mach3-software/MaCh3/commit/8f6587740c9e40280a447e2de45d6c7d195478e8"
+        },
+        "date": 1757353452541,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.87375,
+            "range": "± 83.1428",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.79521,
+            "range": "± 73.2586",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 391.457,
+            "range": "± 5.10394",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
