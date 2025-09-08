@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1757321788621,
+  "lastUpdate": 1757346668758,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -11563,6 +11563,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 387.468,
             "range": "± 3.40111",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "a34c61ea8bd588c7c5b5d8e08417f2c3daeb282e",
+          "message": "Merge pull request #617 from mach3-software/feature/kskwarczynski/PreserveDocumenation\n\nfeat: Ability to swithc to previous doxygen versions",
+          "timestamp": "2025-09-08T16:45:48+01:00",
+          "tree_id": "42c07cb2aa5a3035f1ab9ad1ea1b3a139598414c",
+          "url": "https://github.com/mach3-software/MaCh3/commit/a34c61ea8bd588c7c5b5d8e08417f2c3daeb282e"
+        },
+        "date": 1757346666578,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.9377,
+            "range": "± 283.651",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.80915,
+            "range": "± 88.7615",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 391.487,
+            "range": "± 4.3076",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
