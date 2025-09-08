@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1757353684677,
+  "lastUpdate": 1757354890607,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -11698,6 +11698,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 402.514,
             "range": "± 11.3824",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "682a22e22aa9227889974df23a4648cf7868a58e",
+          "message": "Merge pull request #616 from mach3-software/feature/kskwarczynski/2DPostComparison\n\nfeat: 2D Comparison",
+          "timestamp": "2025-09-08T19:02:50+01:00",
+          "tree_id": "1a23b87932f319940f1c83bd50225bf6eb3f5dff",
+          "url": "https://github.com/mach3-software/MaCh3/commit/682a22e22aa9227889974df23a4648cf7868a58e"
+        },
+        "date": 1757354888053,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.90607,
+            "range": "± 240.351",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.79146,
+            "range": "± 88.2163",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 395.763,
+            "range": "± 3.34471",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
