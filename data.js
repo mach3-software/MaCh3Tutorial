@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1757353454968,
+  "lastUpdate": 1757353684677,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -11653,6 +11653,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 391.457,
             "range": "± 5.10394",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "dc2e50bf25d74a6e254cd2d5d7c76195148ee28d",
+          "message": "Merge pull request #614 from mach3-software/feature/kskwarczynski/DocumentationFitters\n\ntidy: Updated docuemantion",
+          "timestamp": "2025-09-08T18:42:47+01:00",
+          "tree_id": "bacb42b75f60e2f67b461a6bb3b7bafc670976c8",
+          "url": "https://github.com/mach3-software/MaCh3/commit/dc2e50bf25d74a6e254cd2d5d7c76195148ee28d"
+        },
+        "date": 1757353682688,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.91721,
+            "range": "± 119.267",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.79207,
+            "range": "± 78.9506",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 402.514,
+            "range": "± 11.3824",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
