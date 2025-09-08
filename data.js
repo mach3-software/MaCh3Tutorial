@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1756898669990,
+  "lastUpdate": 1757321788621,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -11518,6 +11518,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 390.391,
             "range": "± 5.90312",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "004ab162e65229e14ccc667e83a9d9a94bc25cb4",
+          "message": "Merge pull request #615 from mach3-software/feature/kskwarczynski/DoxyTest\n\nfeat: Tag Doxygen Bot",
+          "timestamp": "2025-09-08T09:51:19+01:00",
+          "tree_id": "03dfb98b5c7c8384f4d379dc53726d4ed50ec170",
+          "url": "https://github.com/mach3-software/MaCh3/commit/004ab162e65229e14ccc667e83a9d9a94bc25cb4"
+        },
+        "date": 1757321786534,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.84293,
+            "range": "± 93.7878",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.76883,
+            "range": "± 128.043",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 387.468,
+            "range": "± 3.40111",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
