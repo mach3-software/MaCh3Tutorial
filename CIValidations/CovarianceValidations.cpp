@@ -26,7 +26,7 @@ void TuneValidations(std::ostream& outFile)
     }
   }
 
-  M3::MakeCorrelationMatrix(Node, TuneValues, TuneErrors, CorrelationMatrix);
+  M3::MakeCorrelationMatrix(Node, TuneValues, TuneErrors, CorrelationMatrix, "UpdatedCorrelationMatrix_Blarb.yaml");
 
   std::vector<std::string> FancyNames = {
     "Norm_Param_0",
@@ -41,7 +41,7 @@ void TuneValidations(std::ostream& outFile)
     "EResTot"
   };
   M3::AddTuneValues(Node, TuneValues, Tune, FancyNames);
-  M3::MakeCorrelationMatrix(Node, TuneValues, TuneErrors, CorrelationMatrix, FancyNames);
+  M3::MakeCorrelationMatrix(Node, TuneValues, TuneErrors, CorrelationMatrix, "UpdatedCorrelationMatrix.yaml", FancyNames);
 
   std::vector<std::string> ParameterMatrixFile = {TutorialPath + "/UpdatedMatrixWithTuneWackyTune.yaml"};
   auto TuneTestx = std::make_unique<ParameterHandlerGeneric>(ParameterMatrixFile, "xsec_cov");

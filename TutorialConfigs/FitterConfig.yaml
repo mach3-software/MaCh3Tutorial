@@ -1,9 +1,9 @@
 General:
   OutputFile: "Test.root"
-  TutorialSamples: ["TutorialConfigs/Samples/SampleHandler_Tutorial.yaml",
+  TutorialSamples:  ["TutorialConfigs/Samples/SampleHandler_Tutorial.yaml"]
                     #"TutorialConfigs/Samples/SampleHandler_Tutorial_ATM.yaml"
-                    ]
-  FittingAlgorithm: "MCMC"
+                    # ]
+  FittingAlgorithm: "MR2T2"
 
   RealData: false
   Asimov: true
@@ -11,6 +11,7 @@ General:
   FakeData: false
   ProcessMCMC: No
   Debug: No
+  
   RandomStart: false
   Seed: 0
   MaCh3Modes: "TutorialConfigs/MaCh3Modes.yaml"
@@ -36,12 +37,24 @@ General:
     UseReactorConstraint: No
     #Burn in for posterior predictive code
     BurnInSteps: 200000
+    PrintSummary: False
+
+    # Delayed rejection MCMC
+    # Step scale for first delayed step = initial_scale * scale in parameter handler
+    initial_scale: 1 
+    # Each delayed step is previous scale * decay rate
+    DecayRate: 0.1
+    # Delayed only if steps are OOB [recommend False]
+    DelayOnlyOutBounds: False
+    # Probabilty of delaying a step
+    DelayProbability: 1.0
+    # Max number of delayed steps
+    MaxRejections: 1
   Systematics:
     XsecCovName: "xsec_cov"
     XsecFix: [ "baseline", "density", "Ye", "prod_height" ]
     XsecCovFile: ["TutorialConfigs/CovObjs/SystematicModel.yaml",
-                  "TutorialConfigs/CovObjs/OscillationModel.yaml"
-                  #"TutorialConfigs/CovObjs/PCATest.yaml"
+                  "TutorialConfigs/CovObjs/OscillationModel.yaml",
                   ]
     XsecPCAThreshold: -1
     XsecPCAParams: [-999, -999]
@@ -97,27 +110,15 @@ KinematicDistributionPlots:
   VarStrings: ["TrueNeutrinoEnergy", "TrueQ2"]
   VarBins: [[50,0,4],[50,0,6]]
 
-
 AdaptionOptions:
   Settings:
-    # When do we start throwing from our adaptive matrix?
-    StartThrow: 2000
-    # When do we start putting steps into our adaptive covariance?
-    StartUpdate: 0
-    # When do we end updating our covariance?
-    EndUpdate: 50000
-    # How often do we change our matrix throws?
-    UpdateStep: 1000
-    OutputFileName: "Adapt.root"
+    StartThrow: 1000     # [int] At which step do we start throwing from our new matrix?
+    StartUpdate: 1    # [int] At which step do we start adding steps to the covariance matrix?
+    EndUpdate: 10000      # [int] At which step do we stop adding steps + fix the covariance matrix?
+    UpdateStep: 1000     # [int] How often do we want to update i.e. change matrix we're throwing from?
+    SaveNIterations: 10000  # [int] How often do we want to save this to file
+    OutputFileName: "Adapt.root" # [str] Name of the file containing the matrix
+
   Covariance:
-    # So now we list individual matrices, let's just do xsec
-    xsec_cov:
-      # Do we want to adapt this matrix?
-      DoAdaption: false
-      # So we can separate out flux and xsec
-      MatrixBlocks: [ ]
-      # External Settings
-      UseExternalMatrix: false
-      ExternalMatrixFileName: ""
-      ExternalMatrixName: ""
-      ExternalMeansName: ""
+    xsec_cov: # Name of covariance matrix
+      DoAdaption: False  # [bool] Adapt this parameter
