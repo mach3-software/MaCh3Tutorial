@@ -30,10 +30,10 @@ TSpline3* MakeSpline(double x[], double y[], int N,
 }
 
 void MakeSplinePlot(double x[], double y[], int N, TCanvas* c) {
-  constexpr int nInterpolations = 4;
-  constexpr SplineInterpolation interpolationTypes[nInterpolations] = {kTSpline3, kMonotonic, kLinear, kAkima};
-  constexpr Color_t colors[nInterpolations] = {kBlue, kRed, kGreen, kViolet};
-  constexpr Style_t lineStyles[nInterpolations] = {kSolid, kDotted, kDashed, kDashDotted};
+  constexpr int nInterpolations = 5;
+  constexpr SplineInterpolation interpolationTypes[nInterpolations] = {kTSpline3, kMonotonic, kLinear, kAkima, kKochanekBartels};
+  constexpr Color_t colors[nInterpolations] = {kBlue, kRed, kGreen, kViolet, kOrange};
+  constexpr Style_t lineStyles[nInterpolations] = {kSolid, kDotted, kDashed, kDashDotted, kDotted};
 
   std::vector<TSpline3*> splines;
 
