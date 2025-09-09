@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1757423941013,
+  "lastUpdate": 1757426326455,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -12013,6 +12013,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 403.986,
             "range": "± 3.44638",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "8dae36fb3e4db4d930ab208417579fff5ba727d5",
+          "message": "Merge pull request #608 from mach3-software/feature/kskwarczynski/KochanekSpline\n\nfeat: Add Kochanek Bartels spline interpoaltion",
+          "timestamp": "2025-09-09T14:53:06+01:00",
+          "tree_id": "ae56c2ac0190cc7602cb468b71e069d8eb77d9ed",
+          "url": "https://github.com/mach3-software/MaCh3/commit/8dae36fb3e4db4d930ab208417579fff5ba727d5"
+        },
+        "date": 1757426323981,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.88941,
+            "range": "± 97.0085",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.80773,
+            "range": "± 69.3401",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 406.352,
+            "range": "± 3.02712",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
