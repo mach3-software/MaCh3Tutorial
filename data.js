@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1757413088792,
+  "lastUpdate": 1757423941013,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -11968,6 +11968,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 396.861,
             "range": "± 3.51984",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "ad5f2fd15f8e42e7e4f7ff8a8a9366a716b6d103",
+          "message": "Merge pull request #603 from mach3-software/feature/kskwarczynski/SampleTittleSpline\n\nbugfix: Use correclty Sample Name in Spline Code",
+          "timestamp": "2025-09-09T14:13:22+01:00",
+          "tree_id": "045cf8b1b71a988a1262f6de4cbb4f32c6c84f5e",
+          "url": "https://github.com/mach3-software/MaCh3/commit/ad5f2fd15f8e42e7e4f7ff8a8a9366a716b6d103"
+        },
+        "date": 1757423938661,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.88755,
+            "range": "± 84.6011",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.80137,
+            "range": "± 85.3453",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 403.986,
+            "range": "± 3.44638",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
