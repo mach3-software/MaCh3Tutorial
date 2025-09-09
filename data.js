@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1757401737385,
+  "lastUpdate": 1757401768547,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -11833,6 +11833,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 405.874,
             "range": "± 2.66986",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "eddaff4835ba7826498310cd70eaa7a5c4680811",
+          "message": "Merge pull request #620 from mach3-software/dependabot/github_actions/dot-github/workflows/actions/labeler-6\n\ntidy: bump actions/labeler from 5 to 6 in /.github/workflows",
+          "timestamp": "2025-09-09T08:04:04+01:00",
+          "tree_id": "82bc6610d9226fcc0f5e30d7e1f07da122863bda",
+          "url": "https://github.com/mach3-software/MaCh3/commit/eddaff4835ba7826498310cd70eaa7a5c4680811"
+        },
+        "date": 1757401766617,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.87339,
+            "range": "± 55.5669",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.78345,
+            "range": "± 78.2128",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 392.818,
+            "range": "± 7.38568",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
