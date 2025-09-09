@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1757427364366,
+  "lastUpdate": 1757427398360,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -12103,6 +12103,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 399.04,
             "range": "± 3.6151",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "fa322e3a273ea7820474b385c0b57a7521e69a2c",
+          "message": "Merge pull request #602 from mach3-software/feture/kskwarczynski/ContainerUpdate\n\nfeat: All Osc Engines in container",
+          "timestamp": "2025-09-09T15:11:23+01:00",
+          "tree_id": "39b3c73de0db061e870ca474f0333eb77f3c4624",
+          "url": "https://github.com/mach3-software/MaCh3/commit/fa322e3a273ea7820474b385c0b57a7521e69a2c"
+        },
+        "date": 1757427396097,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.89809,
+            "range": "± 107.11",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.80339,
+            "range": "± 74.2494",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 400.173,
+            "range": "± 3.5474",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
