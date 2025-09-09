@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1757426326455,
+  "lastUpdate": 1757427364366,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -12058,6 +12058,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 406.352,
             "range": "± 3.02712",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "26654c18f43eb7cb0505c798960363e79c76523d",
+          "message": "Merge pull request #613 from mach3-software/tidy/kskwarczynski/M3ModeUpdate\n\ntidy: MaCh3 mode alternative constructor",
+          "timestamp": "2025-09-09T15:10:14+01:00",
+          "tree_id": "4aacbb8098eaaccf3d478e33493e1620490e226a",
+          "url": "https://github.com/mach3-software/MaCh3/commit/26654c18f43eb7cb0505c798960363e79c76523d"
+        },
+        "date": 1757427361919,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.87625,
+            "range": "± 56.8897",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.79099,
+            "range": "± 104.867",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 399.04,
+            "range": "± 3.6151",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
