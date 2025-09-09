@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1757356291666,
+  "lastUpdate": 1757401737385,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -11788,6 +11788,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 399.188,
             "range": "± 3.2673",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "4d8e446aa1bb65d48ff40308f5a2c7f9ba7fc223",
+          "message": "Merge pull request #621 from mach3-software/dependabot/github_actions/dot-github/workflows/actions/stale-10\n\ntidy: bump actions/stale from 9 to 10 in /.github/workflows",
+          "timestamp": "2025-09-09T08:03:12+01:00",
+          "tree_id": "920d1c099a7b6deb77a541fd7c989c071b89f98b",
+          "url": "https://github.com/mach3-software/MaCh3/commit/4d8e446aa1bb65d48ff40308f5a2c7f9ba7fc223"
+        },
+        "date": 1757401735038,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.94138,
+            "range": "± 457.854",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.89436,
+            "range": "± 330.132",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 405.874,
+            "range": "± 2.66986",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
