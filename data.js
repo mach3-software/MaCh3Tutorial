@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1757432019615,
+  "lastUpdate": 1757436105841,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -12283,6 +12283,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 400.68,
             "range": "± 4.99042",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "7838fadc3f28c270dee43060499710954636ae65",
+          "message": "Merge pull request #604 from mach3-software/feature/kskwarczynski/appendpath\n\nbugfix: Safer Path appending",
+          "timestamp": "2025-09-09T17:36:28+01:00",
+          "tree_id": "1aad5fa596d760c593dab9746fae6df00521ae07",
+          "url": "https://github.com/mach3-software/MaCh3/commit/7838fadc3f28c270dee43060499710954636ae65"
+        },
+        "date": 1757436103896,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.88575,
+            "range": "± 84.8359",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.87766,
+            "range": "± 442.879",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 389.097,
+            "range": "± 2.8828",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
