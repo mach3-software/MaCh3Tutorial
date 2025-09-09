@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1757410760433,
+  "lastUpdate": 1757413088792,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -11923,6 +11923,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 391.101,
             "range": "± 8.36518",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "67589487+henry-wallace-phys@users.noreply.github.com",
+            "name": "Henry Wallace",
+            "username": "henry-wallace-phys"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "01b06776ecdebe638e4c09ed269572c6604ee644",
+          "message": "Merge pull request #622 from mach3-software/hwallace/bugfix/tittle_to_title\n\nbugfix: tittle->title",
+          "timestamp": "2025-09-09T11:12:48+01:00",
+          "tree_id": "402309139620126d30f96cc66317c4f61a201fc7",
+          "url": "https://github.com/mach3-software/MaCh3/commit/01b06776ecdebe638e4c09ed269572c6604ee644"
+        },
+        "date": 1757413086830,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.93449,
+            "range": "± 102.446",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.84501,
+            "range": "± 86.8528",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 396.861,
+            "range": "± 3.51984",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
