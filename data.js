@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1757427398360,
+  "lastUpdate": 1757431016011,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -12148,6 +12148,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 400.173,
             "range": "± 3.5474",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "5e64465b1ef418f142c223138320015b23fabf18",
+          "message": "Merge pull request #623 from mach3-software/tidy/kskwarczynski/doxygen\n\ntidy: More Fancy WebPage",
+          "timestamp": "2025-09-09T16:11:40+01:00",
+          "tree_id": "f34d0d8f140725f267f14ebabd0caed14f6fe90c",
+          "url": "https://github.com/mach3-software/MaCh3/commit/5e64465b1ef418f142c223138320015b23fabf18"
+        },
+        "date": 1757431013985,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.8689,
+            "range": "± 133.966",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.8044,
+            "range": "± 196.166",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 396.674,
+            "range": "± 5.86492",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
