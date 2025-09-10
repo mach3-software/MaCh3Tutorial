@@ -30,13 +30,14 @@ show_help() {
 
 # Run validation functions
 run_reweight_validations() {
-  ./CIValidations/SplineValidations
-  ./CIValidations/SamplePDFValidations
-  ./CIValidations/LLHValidation
+  ${MaCh3Tutorial_ROOT}/CIValidations/SplineValidations
+  ${MaCh3Tutorial_ROOT}/CIValidations/SamplePDFValidations
+  ${MaCh3Tutorial_ROOT}/CIValidations/LLHValidation
   ${MaCh3Tutorial_ROOT}/bin/KinemDistributionTutorial ${MaCh3Tutorial_ROOT}/TutorialConfigs/FitterConfig.yaml
-  ./CIValidations/NuOscillatorInterfaceValidations
-  ./CIValidations/PredictiveValidations
-  ./CIValidations/SplinePlotting/SplinePlotting
+  ${MaCh3Tutorial_ROOT}/CIValidations/NuOscillatorInterfaceValidations
+  ${MaCh3Tutorial_ROOT}/CIValidations/PredictiveValidations
+  ${MaCh3Tutorial_ROOT}/CIValidations/BinningValidations
+  ${MaCh3Tutorial_ROOT}/CIValidations/SplinePlotting/SplinePlotting
 }
 
 run_fitter_validations() {

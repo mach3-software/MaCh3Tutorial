@@ -13,6 +13,7 @@ foreach(app
     SigmaVarFDValidation
     LLHValidation
     PredictiveValidations
+    BinningValidations
     )
 
     add_executable(${app} ${app}.cpp)

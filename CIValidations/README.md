@@ -45,6 +45,9 @@
 * Checking dumping flat tree works
 * Checking if returned weights agree with previously stored weighs
 
+## BinningValidations
+* Checks if event migration works as intended
+
 ### TODO
 * add test with different interpolations
 

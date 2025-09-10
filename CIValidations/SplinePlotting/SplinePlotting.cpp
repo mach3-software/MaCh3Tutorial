@@ -25,6 +25,7 @@ TSpline3* MakeSpline(double x[], double y[], int N,
   // Style and draw the original spline
   mySpline->SetLineColor(Color);
   mySpline->SetLineStyle(LineStyle);
+  mySpline->SetLineWidth(2);
 
   return mySpline;
 }
@@ -32,7 +33,7 @@ TSpline3* MakeSpline(double x[], double y[], int N,
 void MakeSplinePlot(double x[], double y[], int N, TCanvas* c) {
   constexpr int nInterpolations = 5;
   constexpr SplineInterpolation interpolationTypes[nInterpolations] = {kTSpline3, kMonotonic, kLinear, kAkima, kKochanekBartels};
-  constexpr Color_t colors[nInterpolations] = {kBlue, kRed, kGreen, kViolet, kOrange};
+  constexpr Color_t colors[nInterpolations] = {kBlue, kRed, kGreen, kViolet, kCyan};
   constexpr Style_t lineStyles[nInterpolations] = {kSolid, kDotted, kDashed, kDashDotted, kDotted};
 
   std::vector<TSpline3*> splines;
@@ -53,9 +54,10 @@ void MakeSplinePlot(double x[], double y[], int N, TCanvas* c) {
   }
 
   // Add legend
-  TLegend* legend = new TLegend(0.15, 0.75, 0.45, 0.88);
+  auto legend = std::make_unique<TLegend>(0.15, 0.75, 0.45, 0.88);
   legend->SetFillStyle(0);
   legend->SetBorderSize(0);
+  legend->SetTextSize(0.03);
   legend->AddEntry(knotsGraph, "Knots", "p");
 
   for (int i = 0; i < nInterpolations; ++i) {
@@ -68,7 +70,6 @@ void MakeSplinePlot(double x[], double y[], int N, TCanvas* c) {
   for (int i = 0; i < nInterpolations; ++i) {
     delete splines[i];
   }
-  delete legend;
   delete knotsGraph;
 }
 
@@ -138,7 +139,8 @@ void MakeTF1Plot(double x[], double y[], int N, TCanvas* c) {
   }
 
   // Add legend
-  TLegend* legend = new TLegend(0.15, 0.75, 0.45, 0.88);
+  auto legend = std::make_unique<TLegend>(0.15, 0.75, 0.45, 0.88);
+  legend->SetTextSize(0.03);
   legend->SetFillStyle(0);
   legend->SetBorderSize(0);
   legend->AddEntry(knotsGraph, "Knots", "p");
@@ -154,7 +156,6 @@ void MakeTF1Plot(double x[], double y[], int N, TCanvas* c) {
   for (int i = 0; i < nInterpolations; ++i) {
     delete splines[i];
   }
-  delete legend;
   delete knotsGraph;
 }
 
