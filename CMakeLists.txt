@@ -65,7 +65,7 @@ if(NOT DEFINED MaCh3_Branch)
 endif()
 
 #If MaCh3 was sourced find it, otherwise use CPM
-if(NOT Use_External_MaCh3)
+if(Use_External_MaCh3)
   find_package(MaCh3 EXACT ${MaCh3Tutorial_VERSION})
 endif()
 
