@@ -106,6 +106,9 @@ ProcessMCMC:
   #Fancy example, not physics motivated but to show functionality
   #PriorReweighting: [ ["MAQE", "Pauli_Blocking_C_nu"], [1.05, 0.1], [ 0.04, 0.5] ]
 
+  # This allows to specify custom bin edges for usual 1D plotting
+  CustomBinEdges:
+    delta_cp: [-3.141592, 3.141592]
 #########################################
 GetPenaltyTerm:
   PenaltySets: ["Norm", "Spline"]
