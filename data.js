@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1757947487067,
+  "lastUpdate": 1757948190046,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -12463,6 +12463,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 388.857,
             "range": "± 4.25251",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "e50d5e9dea2fc340888759cf924acf149295e836",
+          "message": "Merge pull request #626 from mach3-software/tidy/kskwarczynsi/SampleIndexGetter\n\ntidy: Unify Sasmple Index Getter",
+          "timestamp": "2025-09-15T15:50:58+01:00",
+          "tree_id": "f31c864561c49321c625ec3d2dfab5f34db1b0b4",
+          "url": "https://github.com/mach3-software/MaCh3/commit/e50d5e9dea2fc340888759cf924acf149295e836"
+        },
+        "date": 1757948187560,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 3.09305,
+            "range": "± 60.63",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 3.02022,
+            "range": "± 70.14",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 397.012,
+            "range": "± 6.09905",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
