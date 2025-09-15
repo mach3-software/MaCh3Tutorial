@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1757943669161,
+  "lastUpdate": 1757947487067,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -12418,6 +12418,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 389.044,
             "range": "± 4.92659",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "f0778e0d7fce8bf05afc9838558490c7e4226b81",
+          "message": "Merge pull request #625 from mach3-software/feature/kskwarczynski/CustomBinning\n\nfeat: Custom Binning in ProcessMCMC",
+          "timestamp": "2025-09-15T15:39:26+01:00",
+          "tree_id": "19db0d6b99b7e69740913b10bd3468f3af53167a",
+          "url": "https://github.com/mach3-software/MaCh3/commit/f0778e0d7fce8bf05afc9838558490c7e4226b81"
+        },
+        "date": 1757947484742,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 3.08329,
+            "range": "± 59.1119",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 3.04484,
+            "range": "± 121.002",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 388.857,
+            "range": "± 4.25251",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
