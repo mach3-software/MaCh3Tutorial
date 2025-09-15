@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1757941752850,
+  "lastUpdate": 1757943669161,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -12373,6 +12373,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 402.625,
             "range": "± 8.3241",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "ef5fba9bff05eadc3ff6e8176d398cafebf3a53f",
+          "message": "Merge pull request #631 from mach3-software/feature/kskwarczynski/BinLookUpUpdate\n\nfeat: Make Bin lookup more scalable",
+          "timestamp": "2025-09-15T14:35:49+01:00",
+          "tree_id": "622757481ff20aac8a545ebea55f82dccc8bbd9f",
+          "url": "https://github.com/mach3-software/MaCh3/commit/ef5fba9bff05eadc3ff6e8176d398cafebf3a53f"
+        },
+        "date": 1757943666682,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 3.134,
+            "range": "± 109.604",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 3.00704,
+            "range": "± 52.5564",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 389.044,
+            "range": "± 4.92659",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
