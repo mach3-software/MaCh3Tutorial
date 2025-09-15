@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1757436105841,
+  "lastUpdate": 1757941752850,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -12328,6 +12328,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 389.097,
             "range": "± 2.8828",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "5408ca06b8a5b1a19911f64b614b2e35d89286fa",
+          "message": "Merge pull request #630 from mach3-software/bugifix/kskwarczynski/FixUbutnuCI\n\nbugfix: Update Ubutnu build",
+          "timestamp": "2025-09-15T14:03:26+01:00",
+          "tree_id": "73a34e754149d2672c127a47246dde8d24d18218",
+          "url": "https://github.com/mach3-software/MaCh3/commit/5408ca06b8a5b1a19911f64b614b2e35d89286fa"
+        },
+        "date": 1757941750868,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.88869,
+            "range": "± 89.8852",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.78722,
+            "range": "± 96.1583",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 402.625,
+            "range": "± 8.3241",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
