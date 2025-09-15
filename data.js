@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1757948190046,
+  "lastUpdate": 1757949132956,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -12508,6 +12508,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 397.012,
             "range": "± 6.09905",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "f836a13cacb67a23fa2d33e51242070998da9a35",
+          "message": "Merge pull request #627 from mach3-software/tidy/kskwarczynski/AlgoName\n\nfeat: Dynamic algorithm name",
+          "timestamp": "2025-09-15T16:06:46+01:00",
+          "tree_id": "21f9e6b91ad070c32e047e79aa976e136994ed9a",
+          "url": "https://github.com/mach3-software/MaCh3/commit/f836a13cacb67a23fa2d33e51242070998da9a35"
+        },
+        "date": 1757949130468,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 3.09748,
+            "range": "± 109.284",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 3.0482,
+            "range": "± 341.108",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 391.62,
+            "range": "± 3.39681",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
