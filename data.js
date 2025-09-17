@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1758114421939,
+  "lastUpdate": 1758116782987,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -12598,6 +12598,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 391.276,
             "range": "± 3.61943",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "8c2778ad4588b193c4cbafd4091ddfb7ddc58780",
+          "message": "Merge pull request #636 from mach3-software/bugfix/CorrectCanvasName\n\nbugfix: Fix buggy canvasname in ProcessMCMC",
+          "timestamp": "2025-09-17T14:40:55+01:00",
+          "tree_id": "6a40f1f254f52d8eeb939b6d24f7d313ea4ffd0b",
+          "url": "https://github.com/mach3-software/MaCh3/commit/8c2778ad4588b193c4cbafd4091ddfb7ddc58780"
+        },
+        "date": 1758116780660,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 3.11743,
+            "range": "± 110.942",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 3.04803,
+            "range": "± 209.965",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 399.869,
+            "range": "± 4.92992",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
