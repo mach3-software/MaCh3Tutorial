@@ -2,6 +2,27 @@
 #include "Utils/Comparison.h"
 #include "Parameters/ParameterHandlerGeneric.h"
 
+void ValidateCholeskyDecomposition(std::ostream& outFile) {
+  // Create a known symmetric positive definite matrix (3x3)
+  TMatrixDSym original(5);
+  original(0,0) =  4.0; original(0,1) = -1.0; original(0,2) =  0.0; original(0,3) =  0.5; original(0,4) = -0.2;
+  original(1,0) = -1.0; original(1,1) =  5.0; original(1,2) = -2.0; original(1,3) =  1.0; original(1,4) =  0.3;
+  original(2,0) =  0.0; original(2,1) = -2.0; original(2,2) =  6.0; original(2,3) = -1.5; original(2,4) =  0.8;
+  original(3,0) =  0.5; original(3,1) =  1.0; original(3,2) = -1.5; original(3,3) =  5.0; original(3,4) = -0.5;
+  original(4,0) = -0.2; original(4,1) =  0.3; original(4,2) =  0.8; original(4,3) = -0.5; original(4,4) =  4.0;
+
+
+  // Get decomposed matrix
+  auto decomposed = M3::GetCholeskyDecomposedMatrix(original, "testMatrix");
+
+  // Print all elements
+  for (Int_t i = 0; i < decomposed.size(); i++) {
+    for (Int_t j = 0; j < decomposed[i].size(); j++) {
+      outFile << "L(" << i << "," << j << ") = " << decomposed[i][j] << std::endl;
+    }
+  }
+}
+
 /// @brief This simply updates YAML file
 void TuneValidations(std::ostream& outFile)
 {
@@ -360,6 +381,8 @@ AdaptionOptions:
 
 ////////////// Now Tune //////////////
   TuneValidations(outFile);
+////////////// Other tests //////////////
+  ValidateCholeskyDecomposition(outFile);
 
 ////////////// The End //////////////
   outFile.close();
