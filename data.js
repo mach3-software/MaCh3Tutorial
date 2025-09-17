@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1758117517030,
+  "lastUpdate": 1758126314439,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -12688,6 +12688,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 397.452,
             "range": "± 6.43198",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "85b8b9b1902788196a7854fddb6ada74f74fa127",
+          "message": "Merge pull request #632 from mach3-software/tidy/kskwarczynski/StopZero\n\ntidy: Stop Zero Correlations",
+          "timestamp": "2025-09-17T17:19:35+01:00",
+          "tree_id": "0ebb143c36bbd92acd036667011cab12f501b537",
+          "url": "https://github.com/mach3-software/MaCh3/commit/85b8b9b1902788196a7854fddb6ada74f74fa127"
+        },
+        "date": 1758126312133,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 3.10835,
+            "range": "± 54.2941",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 3.10074,
+            "range": "± 303.705",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 389.957,
+            "range": "± 4.69131",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
