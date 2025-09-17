@@ -49,7 +49,10 @@ run_fitter_validations() {
   ${MaCh3_ROOT}/bin/GetPenaltyTerm MCMC_Test.root bin/TutorialDiagConfig.yaml
   ${MaCh3_ROOT}/bin/MatrixPlotter bin/TutorialDiagConfig.yaml MCMC_Test_drawCorr.root
   ${MaCh3_ROOT}/bin/GetPostfitParamPlots MCMC_Test_drawCorr.root
+  ${MaCh3_ROOT}/bin/GetPostfitParamPlots MCMC_Test_drawCorr.root MCMC_Test_drawCorr.root # Compare two file
   ${MaCh3_ROOT}/bin/PlotLLH MCMC_Test.root
+  ${MaCh3_ROOT}/bin/PlotLLH MCMC_Test.root MCMC_Test.root MCMC_Test.root MCMC_Test.root MCMC_Test.root # Compare multiple files
+  ${MaCh3_ROOT}/bin/PlotLLH MCMC_Test.root MCMC_Test.root -r -g -l "Plot1;Plot2"
   ${MaCh3_ROOT}/bin/PlotMCMCDiag MCMC_Test_MCMC_Diag.root "test_plot_1" MCMC_Test_MCMC_Diag.root "test_plot_2"
   ${MaCh3_ROOT}/bin/SmearChain MCMC_Test.root bin/TutorialDiagConfig.yaml
   ${MaCh3_ROOT}/bin/ProcessMCMC bin/TutorialDiagConfig.yaml MCMC_Test.root Default MCMC_Test_smeared.root Smeared
