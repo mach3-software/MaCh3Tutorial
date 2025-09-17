@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1758126314439,
+  "lastUpdate": 1758130996098,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -12733,6 +12733,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 389.957,
             "range": "± 4.69131",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "62884913e6c1396c12f843f90391a270aa968c87",
+          "message": "Merge pull request #634 from mach3-software/bugfix/kskwarczynski/MmeoryLeak\n\nbugfix: Stop segfault in Plot LLH",
+          "timestamp": "2025-09-17T18:38:07+01:00",
+          "tree_id": "42df290ff380c5838b81c6b17b1479ccc2574348",
+          "url": "https://github.com/mach3-software/MaCh3/commit/62884913e6c1396c12f843f90391a270aa968c87"
+        },
+        "date": 1758130994048,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 3.0783,
+            "range": "± 76.8078",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.98272,
+            "range": "± 68.4233",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 392.216,
+            "range": "± 5.45019",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
