@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1758130996098,
+  "lastUpdate": 1758532548377,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -12778,6 +12778,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 392.216,
             "range": "± 5.45019",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "c625df246a641b409e8c094ec5de4dff03624c63",
+          "message": "Merge pull request #637 from mach3-software/feature/speedy/Cholesky\n\nfeat: Speedy Cholesky decomposition",
+          "timestamp": "2025-09-22T10:10:24+01:00",
+          "tree_id": "b49a99b2f6af57dc5e280b2315630598f0b756d4",
+          "url": "https://github.com/mach3-software/MaCh3/commit/c625df246a641b409e8c094ec5de4dff03624c63"
+        },
+        "date": 1758532546118,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 3.1067,
+            "range": "± 276.622",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 3.00343,
+            "range": "± 71.7882",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 399.376,
+            "range": "± 5.05672",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
