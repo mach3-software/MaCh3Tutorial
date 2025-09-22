@@ -116,13 +116,13 @@ int main(int argc, char *argv[])
 
   std::string SampleConfig = TutorialPath + "/TutorialConfigs/Samples/SampleHandler_Tutorial.yaml";
   auto SampleTutorial = std::make_unique<samplePDFSigmaVar>(SampleConfig, xsec.get());
-  TString NameTString = TString(SampleTutorial->GetTitle());
-
   // Reweight and process prior histogram
   SampleTutorial->Reweight();
-  TH1D *SampleHistogramPrior = (TH1D*)SampleTutorial->GetMCHist(1)->Clone(NameTString + "_Prior");
-  SampleTutorial->AddData(SampleHistogramPrior);
-
+  for(int iSample = 0; iSample < SampleTutorial->GetNsamples(); iSample++){
+    TString NameTString = TString(SampleTutorial->GetSampleTitle(iSample));
+    TH1D *SampleHistogramPrior = (TH1D*)SampleTutorial->GetMCHist(iSample, 1)->Clone(NameTString + "_Prior");
+    SampleTutorial->AddData(iSample, SampleHistogramPrior);
+  }
   std::string ManagerInput = TutorialPath + "/TutorialConfigs/FitterConfig.yaml";
   auto FitManager = std::make_unique<manager>(ManagerInput);
 

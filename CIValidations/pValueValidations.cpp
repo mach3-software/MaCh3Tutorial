@@ -42,7 +42,7 @@ class samplePDFpValue : public SampleHandlerTutorial
     void CleanMemoryBeforeFit() override {};
 
     inline M3::int_t GetNsamples() override { return 22; };
-    std::string GetSampleName(int Sample) const override {return SampleBlarbTitle[Sample];};
+    std::string GetSampleTitle(const int Sample) const override {return SampleBlarbTitle[Sample];};
     inline std::string GetKinVarLabel(const int sample, const int Dimension) override {return KinemBlarbTitle[Dimension];}
 
      inline void SetupBinning(const M3::int_t Selection, std::vector<double> &BinningX, std::vector<double> &BinningY) override{
@@ -72,13 +72,14 @@ int main(int argc, char *argv[])
   std::string SampleConfig = TutorialPath + "/TutorialConfigs/Samples/SampleHandler_Tutorial.yaml";
   auto SampleTutorial = std::make_unique<samplePDFpValue>(SampleConfig, xsec.get());
 
-  std::string name = SampleTutorial->GetTitle();
-  TString NameTString = TString(name.c_str());
-
   // Reweight and process prior histogram
   SampleTutorial->Reweight();
-  TH1D *SampleHistogramPrior = (TH1D*)SampleTutorial->GetMCHist(1)->Clone(NameTString + "_Prior");
-  SampleTutorial->AddData(SampleHistogramPrior);
+
+  std::string name = SampleTutorial->GetSampleTitle(0);
+  TString NameTString = TString(name.c_str());
+
+  TH1D *SampleHistogramPrior = (TH1D*)SampleTutorial->GetMCHist(0, 1)->Clone(NameTString + "_Prior");
+  SampleTutorial->AddData(0, SampleHistogramPrior);
 
   bool Posterior = true;
   bool FullLLH = false;
@@ -161,7 +162,7 @@ int main(int argc, char *argv[])
   //First grab Data and nominal
   for (M3::int_t i = 0; i < SampleTutorial->GetNsamples(); ++i)
   {
-    std::string Title = SampleTutorial->GetSampleName(i);
+    std::string Title = SampleTutorial->GetSampleTitle(i);
     // Replace the spaces with underscores
     std::replace(Title.begin(), Title.end(), ' ', '_');
     std::string FolderName = "Toys/";
@@ -213,9 +214,8 @@ int main(int argc, char *argv[])
     {
       if(DataVector[j] != NULL)
       {
-
         std::string FolderName = "Toys/";
-        std::string Title = SampleTutorial->GetSampleName(j);
+        std::string Title = SampleTutorial->GetSampleTitle(j);
         // Replace the spaces with underscores
         std::replace(Title.begin(), Title.end(), ' ', '_');
         std::stringstream ss;

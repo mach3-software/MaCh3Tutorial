@@ -1,33 +1,6 @@
-SampleName: "Tutorial Beam"
-SampleTitle: "Tutorial"
-
+SampleHandlerName: "Tutorial Beam"
 POT: 2.1428e+21
 MaCh3ModeConfig: "TutorialConfigs/MaCh3Modes.yaml"
-SelectionCuts:
-  - KinematicStr: "TrueNeutrinoEnergy"
-    Bounds: [ 0., 4 ]
-
-Binning:
-  XVarStr : "RecoNeutrinoEnergy"
-  XVarBins: [0.,  0.5,  1.,  1.25, 1.5, 1.75, 2., 2.25, 2.5, 2.75, 3., 3.25, 3.5, 3.75, 4., 5., 6., 10.]
-
-InputFiles:
-  mtupleprefix: "TutorialConfigs/MC/NuWro"
-  mtuplesuffix: "_FlatTree.root"
-  # No Splines
-  splineprefix: "TutorialConfigs/MC/BinnedSplinesTutorialInputs"
-  splinesuffix: "2D.root"
-NuOsc:
-  NuOscConfigFile: "TutorialConfigs/NuOscillator/NuFASTLinear.yaml"
-  EqualBinningPerOscChannel: true
-
-SubSamples:
-  - Name: "FHC_numu_x_numu"
-    LatexName: "#nu_{#mu} #rightarrow #nu_{#mu}"  
-    mtuplefile: ""
-    splinefile: ""
-    nutype: 14
-    oscnutype: 14
 
 LikelihoodOptions:
   #False means you calculate W2 histogram only during first reweight, advisable for Barlow-Beeston
@@ -35,3 +8,35 @@ LikelihoodOptions:
   TestStatistic: "Poisson"
 
 BinningFile: "TutorialConfigs/Samples/TutorialBinning.yaml"
+
+Samples: ["Tutorial"]
+
+Tutorial:
+  SelectionCuts:
+    - KinematicStr: "TrueNeutrinoEnergy"
+      Bounds: [ 0., 4 ]
+  SampleTitle: "Tutorial"
+
+  Binning:
+    XVarStr : "RecoNeutrinoEnergy"
+    XVarBins: [0.,  0.5,  1.,  1.25, 1.5, 1.75, 2., 2.25, 2.5, 2.75, 3., 3.25, 3.5, 3.75, 4., 5., 6., 10.]
+
+  InputFiles:
+    mtupleprefix: "TutorialConfigs/MC/NuWro"
+    mtuplesuffix: "_FlatTree.root"
+    # No Splines
+    splineprefix: "TutorialConfigs/MC/BinnedSplinesTutorialInputs"
+    splinesuffix: "2D.root"
+  NuOsc:
+    NuOscConfigFile: "TutorialConfigs/NuOscillator/NuFASTLinear.yaml"
+    EqualBinningPerOscChannel: true
+
+  SubSamples:
+    - Name: "FHC_numu_x_numu"
+      LatexName: "#nu_{#mu} #rightarrow #nu_{#mu}"
+      mtuplefile: ""
+      splinefile: ""
+      nutype: 14
+      oscnutype: 14
+
+

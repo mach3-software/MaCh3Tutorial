@@ -90,7 +90,7 @@ void SampleHandlerTutorial::SetupSplines() {
 // ************************************************
   SplineHandler = nullptr;
 
-  if(ParHandler->GetNumParamsFromSampleName(SampleName, SystType::kSpline) > 0){
+  if(ParHandler->GetNumParamsFromSampleName(GetSampleHandlerName(), SystType::kSpline) > 0){
     SplineHandler = std::make_unique<BinnedSplineTutorial>(ParHandler, Modes.get());
     InitialiseSplineObject();
   } else {
@@ -116,9 +116,13 @@ void SampleHandlerTutorial::CleanMemoryBeforeFit() {
 int SampleHandlerTutorial::SetupExperimentMC() {
 // ************************************************
   TChain* _Chain = new TChain("FlatTree_VARS");
-  for (const std::string& filename : mc_files) {
-    _Chain->Add(filename.c_str());
+  for(size_t iSample = 0; iSample < SampleDetails.size(); iSample++)
+  {
+    for (const std::string& filename : SampleDetails[iSample].mc_files) {
+      _Chain->Add(filename.c_str());
+    }
   }
+
   // To loop over all events:
   int nEntries = static_cast<int>(_Chain->GetEntries());
   delete _Chain;
@@ -127,162 +131,169 @@ int SampleHandlerTutorial::SetupExperimentMC() {
   TutorialPlottingSamples.resize(nEntries);
 
   int TotalEventCounter = 0.;
-  for(int iChannel = 0 ; iChannel < static_cast<int>(OscChannels.size()); iChannel++) {
+  for(size_t iSample = 0; iSample < SampleDetails.size(); iSample++)
+  {
+    auto& OscillationChannels = SampleDetails[iSample].OscChannels;
+    for(int iChannel = 0 ; iChannel < static_cast<int>(OscillationChannels.size()); iChannel++)
+    {
+      int nutype_ = OscillationChannels[iChannel].InitPDG;
+      int oscnutype_ = OscillationChannels[iChannel].FinalPDG;
 
-    int nutype_ = OscChannels[iChannel].InitPDG;
-    int oscnutype_ = OscChannels[iChannel].FinalPDG;
 
-    MACH3LOG_INFO("-------------------------------------------------------------------");
-    MACH3LOG_INFO("input file: {}", mc_files[iChannel]);
+      auto FileName = SampleDetails[iSample].mc_files[iChannel];
+      MACH3LOG_INFO("-------------------------------------------------------------------");
+      MACH3LOG_INFO("input file: {}", FileName);
 
-    TFile * _sampleFile = new TFile(mc_files[iChannel].c_str(), "READ");
-    TTree* _data = static_cast<TTree*>(_sampleFile->Get("FlatTree_VARS"));
+      TFile * _sampleFile = new TFile(FileName.c_str(), "READ");
+      TTree* _data = static_cast<TTree*>(_sampleFile->Get("FlatTree_VARS"));
 
-    if(_data){
-      MACH3LOG_INFO("Found \"FlatTree_VARS\" tree in {}", mc_files[iChannel]);
-      MACH3LOG_INFO("With number of entries: {}", _data->GetEntries());
-    } else{
-      MACH3LOG_ERROR("Could not find \"FlatTree_VARS\" tree in {}", mc_files[iChannel]);
-      throw MaCh3Exception(__FILE__, __LINE__);
-    }
-
-    //Truth Variables
-    float Enu_true, Q2, trueCZ, ELep;
-    int tgt, Mode, PDGLep;
-
-    /*
-    double ELep;
-    double CosLep;
-    bool flagCC0pi;
-    bool flagCC1pip;
-    bool flagCC1pim;
-    */
-    _data->SetBranchStatus("*", false);
-    _data->SetBranchStatus("Enu_true", true);
-    _data->SetBranchAddress("Enu_true", &Enu_true);
-    _data->SetBranchStatus("Q2", true);
-    _data->SetBranchAddress("Q2", &Q2);
-    _data->SetBranchStatus("tgt", true);
-    _data->SetBranchAddress("tgt", &tgt);
-    _data->SetBranchStatus("Mode", true);
-    _data->SetBranchAddress("Mode", &Mode);
-    _data->SetBranchStatus("PDGLep", true);
-    _data->SetBranchAddress("PDGLep", &PDGLep);
-    _data->SetBranchStatus("ELep", true);
-    _data->SetBranchAddress("ELep", &ELep);
-    // KS: If we have CosineZenith branch this must mean Atmospheric sample
-    if (_data->GetBranch("CosineZenith")) {
-      if(iChannel == 0) {
-        MACH3LOG_INFO("Enabling Atmospheric");
-        isATM = true;
-      }
-      _data->SetBranchStatus("CosineZenith", true);
-      _data->SetBranchAddress("CosineZenith", &trueCZ);
-    }
-
-    /*
-    _data->SetBranchStatus("CosLep", true);
-    _data->SetBranchAddress("CosLep", &CosLep);
-    _data->SetBranchStatus("flagCC0pi", true);
-    _data->SetBranchAddress("flagCC0pi", &flagCC0pi);
-    _data->SetBranchStatus("flagCC1pip", true);
-    _data->SetBranchAddress("flagCC1pip", &flagCC1pip);
-    _data->SetBranchStatus("flagCC1pim", true);
-    _data->SetBranchAddress("flagCC1pim", &flagCC1pim);
-    */
-
-    _data->GetEntry(0);
-    std::random_device rd;
-    std::mt19937 gen(rd());
-    std::uniform_int_distribution<> unif(0,3);
-    std::normal_distribution<> mu_angle(0,M_PI/8);
-    std::normal_distribution<> pi_angle(0,M_PI/2);
-    std::uniform_real_distribution<> nucl_angle(-M_PI,M_PI);
-    std::exponential_distribution<> pi_energy(1./0.5);
-    std::exponential_distribution<> nucl_energy(1./2);
-
-    for (int i = 0; i < nEntries; ++i) { // Loop through tree
-      _data->GetEntry(i);
-      
-      // === JM resize particle-level vectors ===
-      // JM: We don't have particle-level info in the tutorial sample, so will fake it
-      int nParticles = 5; //fake number of particles in event
-      TutorialPlottingSamples[TotalEventCounter].particle_energy.resize(nParticles);
-      TutorialPlottingSamples[TotalEventCounter].particle_pdg.resize(nParticles);
-      TutorialPlottingSamples[TotalEventCounter].particle_beamangle.resize(nParticles);
-      // ========================================
-
-      TutorialSamples[TotalEventCounter].TrueEnu = Enu_true;
-      // HH: We don't have Erec in the tutorial sample, so we set it to the true energy
-      TutorialSamples[TotalEventCounter].RecoEnu = Enu_true;
-      TutorialSamples[TotalEventCounter].RecoEnu_shifted = Enu_true;
-      TutorialSamples[TotalEventCounter].ELep = ELep;
-      TutorialSamples[TotalEventCounter].Q2     = Q2;
-      // KS: Currently we store target as 1000060120, therefore we hardcode it to 12
-      TutorialSamples[TotalEventCounter].Target = 12;
-      TutorialSamples[TotalEventCounter].Mode   = Modes->GetModeFromGenerator(std::abs(Mode));
-      TutorialSamples[TotalEventCounter].nutype = nutype_;
-      TutorialSamples[TotalEventCounter].oscnutype = oscnutype_;
-
-      if (std::abs(PDGLep) == 12 || std::abs(PDGLep) == 14 || std::abs(PDGLep) == 16) {
-        TutorialSamples[TotalEventCounter].isNC = true;
-      } else {
-        TutorialSamples[TotalEventCounter].isNC = false;
+      if(_data){
+        MACH3LOG_INFO("Found \"FlatTree_VARS\" tree in {}", FileName);
+        MACH3LOG_INFO("With number of entries: {}", _data->GetEntries());
+      } else{
+        MACH3LOG_ERROR("Could not find \"FlatTree_VARS\" tree in {}", FileName);
+        throw MaCh3Exception(__FILE__, __LINE__);
       }
 
-      if(isATM) {
-        TutorialSamples[TotalEventCounter].TrueCosZenith = trueCZ;
-      }
+      //Truth Variables
+      float Enu_true, Q2, trueCZ, ELep;
+      int tgt, Mode, PDGLep;
 
-      // === JM loop through particles in event ===
-      for (int iParticle = 0; iParticle < nParticles; ++iParticle) {
-        //JM: No particle-level data in sample, so fake it
-        if (iParticle==0) {
-          TutorialPlottingSamples[TotalEventCounter].particle_pdg[iParticle] = PDGLep;
-          TutorialPlottingSamples[TotalEventCounter].particle_energy[iParticle] = ELep;
-          TutorialPlottingSamples[TotalEventCounter].particle_beamangle[iParticle] = mu_angle(gen);
+      /*
+      double ELep;
+      double CosLep;
+      bool flagCC0pi;
+      bool flagCC1pip;
+      bool flagCC1pim;
+      */
+      _data->SetBranchStatus("*", false);
+      _data->SetBranchStatus("Enu_true", true);
+      _data->SetBranchAddress("Enu_true", &Enu_true);
+      _data->SetBranchStatus("Q2", true);
+      _data->SetBranchAddress("Q2", &Q2);
+      _data->SetBranchStatus("tgt", true);
+      _data->SetBranchAddress("tgt", &tgt);
+      _data->SetBranchStatus("Mode", true);
+      _data->SetBranchAddress("Mode", &Mode);
+      _data->SetBranchStatus("PDGLep", true);
+      _data->SetBranchAddress("PDGLep", &PDGLep);
+      _data->SetBranchStatus("ELep", true);
+      _data->SetBranchAddress("ELep", &ELep);
+      // KS: If we have CosineZenith branch this must mean Atmospheric sample
+      if (_data->GetBranch("CosineZenith")) {
+        if(iChannel == 0) {
+          MACH3LOG_INFO("Enabling Atmospheric");
+          isATM = true;
         }
-        else {
-          int particle_seed = unif(gen);
-          double angle, energy;
-          int pdg;
-          switch (particle_seed) {
-            case 0: 
-              pdg = 211;
-              energy = pi_energy(gen);
-              angle = pi_angle(gen);
-              while (angle>M_PI || angle<-M_PI) angle = pi_angle(gen);
-              break;
-            case 1:
-              pdg = -211;
-              energy = pi_energy(gen);
-              angle = pi_angle(gen);
-              while (angle>M_PI || angle<-M_PI) angle = pi_angle(gen);
-              break;
-            case 2: 
-              pdg = 2212;
-              energy = nucl_energy(gen);
-              angle = nucl_angle(gen);
-              break;
-            case 3:
-              pdg = 2112;
-              energy = nucl_energy(gen);
-              angle = nucl_angle(gen);
-              break;
-            default:
-              break;
+        _data->SetBranchStatus("CosineZenith", true);
+        _data->SetBranchAddress("CosineZenith", &trueCZ);
+      }
+
+      /*
+      _data->SetBranchStatus("CosLep", true);
+      _data->SetBranchAddress("CosLep", &CosLep);
+      _data->SetBranchStatus("flagCC0pi", true);
+      _data->SetBranchAddress("flagCC0pi", &flagCC0pi);
+      _data->SetBranchStatus("flagCC1pip", true);
+      _data->SetBranchAddress("flagCC1pip", &flagCC1pip);
+      _data->SetBranchStatus("flagCC1pim", true);
+      _data->SetBranchAddress("flagCC1pim", &flagCC1pim);
+      */
+
+      _data->GetEntry(0);
+      std::random_device rd;
+      std::mt19937 gen(rd());
+      std::uniform_int_distribution<> unif(0,3);
+      std::normal_distribution<> mu_angle(0,M_PI/8);
+      std::normal_distribution<> pi_angle(0,M_PI/2);
+      std::uniform_real_distribution<> nucl_angle(-M_PI,M_PI);
+      std::exponential_distribution<> pi_energy(1./0.5);
+      std::exponential_distribution<> nucl_energy(1./2);
+
+      for (int i = 0; i < nEntries; ++i) { // Loop through tree
+        _data->GetEntry(i);
+
+        // === JM resize particle-level vectors ===
+        // JM: We don't have particle-level info in the tutorial sample, so will fake it
+        int nParticles = 5; //fake number of particles in event
+        TutorialPlottingSamples[TotalEventCounter].particle_energy.resize(nParticles);
+        TutorialPlottingSamples[TotalEventCounter].particle_pdg.resize(nParticles);
+        TutorialPlottingSamples[TotalEventCounter].particle_beamangle.resize(nParticles);
+        // ========================================
+
+        TutorialSamples[TotalEventCounter].TrueEnu = Enu_true;
+        // HH: We don't have Erec in the tutorial sample, so we set it to the true energy
+        TutorialSamples[TotalEventCounter].RecoEnu = Enu_true;
+        TutorialSamples[TotalEventCounter].RecoEnu_shifted = Enu_true;
+        TutorialSamples[TotalEventCounter].ELep = ELep;
+        TutorialSamples[TotalEventCounter].Q2     = Q2;
+        // KS: Currently we store target as 1000060120, therefore we hardcode it to 12
+        TutorialSamples[TotalEventCounter].Target = 12;
+        TutorialSamples[TotalEventCounter].Mode   = Modes->GetModeFromGenerator(std::abs(Mode));
+        TutorialSamples[TotalEventCounter].nutype = nutype_;
+        TutorialSamples[TotalEventCounter].oscnutype = oscnutype_;
+        TutorialSamples[TotalEventCounter].Sample = iSample;
+
+        if (std::abs(PDGLep) == 12 || std::abs(PDGLep) == 14 || std::abs(PDGLep) == 16) {
+          TutorialSamples[TotalEventCounter].isNC = true;
+        } else {
+          TutorialSamples[TotalEventCounter].isNC = false;
+        }
+
+        if(isATM) {
+          TutorialSamples[TotalEventCounter].TrueCosZenith = trueCZ;
+        }
+
+        // === JM loop through particles in event ===
+        for (int iParticle = 0; iParticle < nParticles; ++iParticle) {
+          //JM: No particle-level data in sample, so fake it
+          if (iParticle==0) {
+            TutorialPlottingSamples[TotalEventCounter].particle_pdg[iParticle] = PDGLep;
+            TutorialPlottingSamples[TotalEventCounter].particle_energy[iParticle] = ELep;
+            TutorialPlottingSamples[TotalEventCounter].particle_beamangle[iParticle] = mu_angle(gen);
           }
-          TutorialPlottingSamples[TotalEventCounter].particle_energy[iParticle] = energy;
-          TutorialPlottingSamples[TotalEventCounter].particle_beamangle[iParticle] = angle;
-          TutorialPlottingSamples[TotalEventCounter].particle_pdg[iParticle] = pdg;
+          else {
+            int particle_seed = unif(gen);
+            double angle, energy;
+            int pdg;
+            switch (particle_seed) {
+              case 0:
+                pdg = 211;
+                energy = pi_energy(gen);
+                angle = pi_angle(gen);
+                while (angle>M_PI || angle<-M_PI) angle = pi_angle(gen);
+                break;
+              case 1:
+                pdg = -211;
+                energy = pi_energy(gen);
+                angle = pi_angle(gen);
+                while (angle>M_PI || angle<-M_PI) angle = pi_angle(gen);
+                break;
+              case 2:
+                pdg = 2212;
+                energy = nucl_energy(gen);
+                angle = nucl_angle(gen);
+                break;
+              case 3:
+                pdg = 2112;
+                energy = nucl_energy(gen);
+                angle = nucl_angle(gen);
+                break;
+              default:
+                break;
+            }
+            TutorialPlottingSamples[TotalEventCounter].particle_energy[iParticle] = energy;
+            TutorialPlottingSamples[TotalEventCounter].particle_beamangle[iParticle] = angle;
+            TutorialPlottingSamples[TotalEventCounter].particle_pdg[iParticle] = pdg;
+          }
         }
+        // ==========================================
+        TotalEventCounter++;
       }
-      // ==========================================
-      TotalEventCounter++;
+      _sampleFile->Close();
+      delete _sampleFile;
+      MACH3LOG_INFO("Initialised channel: {}/{}", iChannel, GetNOscChannels(iSample));
     }
-    _sampleFile->Close();
-    delete _sampleFile;
-    MACH3LOG_INFO("Initialised channel: {}/{}", iChannel, OscChannels.size());
   }
   return nEntries;
 }
@@ -365,6 +376,7 @@ void SampleHandlerTutorial::SetupFDMC() {
     MCSamples[iEvent].isNC = TutorialSamples[iEvent].isNC;
     MCSamples[iEvent].nupdgUnosc = &(TutorialSamples[iEvent].nutype);
     MCSamples[iEvent].nupdg = &(TutorialSamples[iEvent].oscnutype);
+    MCSamples[iEvent].NomSample = TutorialSamples[iEvent].Sample;
     if(isATM) MCSamples[iEvent].rw_truecz = &(TutorialSamples[iEvent].TrueCosZenith);
   }
 }
