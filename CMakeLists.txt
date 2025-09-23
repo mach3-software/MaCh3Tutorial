@@ -4,7 +4,7 @@ set(CMAKE_VERBOSE_MAKEFILE ON)
 cmake_minimum_required(VERSION 3.14 FATAL_ERROR)
 
 # Create project
-project(MaCh3Tutorial VERSION 2.2.3 LANGUAGES CXX)
+project(MaCh3Tutorial VERSION 2.3.0 LANGUAGES CXX)
 set(MaCh3Tutorial_VERSION ${PROJECT_VERSION})
 
 set(CMAKE_CXX_STANDARD_REQUIRED True)
