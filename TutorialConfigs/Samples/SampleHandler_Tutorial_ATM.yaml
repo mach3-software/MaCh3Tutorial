@@ -1,7 +1,13 @@
+---
+#Global Sample Handler setting
 SampleHandlerName: "Tutorial ATM"
 
 POT: 2.1428e+21
 MaCh3ModeConfig: "TutorialConfigs/MaCh3Modes.yaml"
+
+NuOsc:
+  NuOscConfigFile: "TutorialConfigs/NuOscillator/CUDAProb3.yaml"
+  EqualBinningPerOscChannel: true
 
 LikelihoodOptions:
   #False means you calculate W2 histogram only during first reweight, advisable for Barlow-Beeston
@@ -9,8 +15,10 @@ LikelihoodOptions:
   TestStatistic: "Poisson"
 
 BinningFile: "TutorialConfigs/Samples/TutorialBinning.yaml"
+InputFiles:
+  PrepSplineFile: false
 
-
+#Settings for a single sample
 Samples: ["Tutorial_ATM"]
 Tutorial_ATM:
   SampleTitle: "Tutorial ATM"
@@ -28,10 +36,6 @@ Tutorial_ATM:
     mtuplesuffix: "_FlatTree_ATM.root"
     splineprefix: "TutorialConfigs/MC/BinnedSplinesTutorialInputs"
     splinesuffix: "2D.root"
-
-  NuOsc:
-    NuOscConfigFile: "TutorialConfigs/NuOscillator/CUDAProb3.yaml"
-    EqualBinningPerOscChannel: true
 
   SubSamples:
     - Name: "FHC_numu_x_numu"

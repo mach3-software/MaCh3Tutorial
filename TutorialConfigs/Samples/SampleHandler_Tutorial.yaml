@@ -1,6 +1,12 @@
+---
+#Global Sample Handler setting
 SampleHandlerName: "Tutorial Beam"
 POT: 2.1428e+21
 MaCh3ModeConfig: "TutorialConfigs/MaCh3Modes.yaml"
+
+NuOsc:
+  NuOscConfigFile: "TutorialConfigs/NuOscillator/NuFASTLinear.yaml"
+  EqualBinningPerOscChannel: true
 
 LikelihoodOptions:
   #False means you calculate W2 histogram only during first reweight, advisable for Barlow-Beeston
@@ -8,9 +14,11 @@ LikelihoodOptions:
   TestStatistic: "Poisson"
 
 BinningFile: "TutorialConfigs/Samples/TutorialBinning.yaml"
+InputFiles:
+  PrepSplineFile: false
 
+#Settings for a single sample
 Samples: ["Tutorial"]
-
 Tutorial:
   SelectionCuts:
     - KinematicStr: "TrueNeutrinoEnergy"
@@ -27,9 +35,6 @@ Tutorial:
     # No Splines
     splineprefix: "TutorialConfigs/MC/BinnedSplinesTutorialInputs"
     splinesuffix: "2D.root"
-  NuOsc:
-    NuOscConfigFile: "TutorialConfigs/NuOscillator/NuFASTLinear.yaml"
-    EqualBinningPerOscChannel: true
 
   SubSamples:
     - Name: "FHC_numu_x_numu"
