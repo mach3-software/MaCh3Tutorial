@@ -210,7 +210,7 @@ int SampleHandlerTutorial::SetupExperimentMC() {
       std::exponential_distribution<> pi_energy(1./0.5);
       std::exponential_distribution<> nucl_energy(1./2);
 
-      for (int i = 0; i < nEntries; ++i) { // Loop through tree
+      for (int i = 0; i < _data->GetEntries(); ++i) { // Loop through tree
         _data->GetEntry(i);
 
         // === JM resize particle-level vectors ===
