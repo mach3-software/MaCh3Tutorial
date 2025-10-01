@@ -120,6 +120,27 @@ if(MaCh3_VERSION GREATER MaCh3Tutorial_VERSION)
   cmessage(WARNING "MaCh3Tutorial_VERSION (${MaCh3Tutorial_VERSION}) is smaller than MaCh3_VERSION (${MaCh3_VERSION}), this most likely will not work")
 endif()
 
+########################## PYBIND11 ######################
+if(MaCh3_PYTHON_ENABLED)
+    # Download CPM if not available
+    if(NOT COMMAND CPMAddPackage)
+        file(DOWNLOAD
+            https://github.com/cpm-cmake/CPM.cmake/releases/download/v0.42.0/CPM.cmake
+            ${CMAKE_CURRENT_BINARY_DIR}/CPM.cmake
+        )
+        include(${CMAKE_CURRENT_BINARY_DIR}/CPM.cmake)
+    endif()
+
+    # Add pybind11 to this project so the targets exist
+    CPMAddPackage(
+        NAME pybind11
+        VERSION 2.13.5
+        GITHUB_REPOSITORY "pybind/pybind11"
+        GIT_SHALLOW YES
+        GIT_TAG v2.13.5
+    )
+endif()
+
 ############################  C++ Compiler  ####################################
 get_property(MACH3_CXX_STANDARD GLOBAL PROPERTY MACH3_CXX_STANDARD)
 if(NOT DEFINED MACH3_CXX_STANDARD)
@@ -136,7 +157,9 @@ add_subdirectory(Tutorial)
 add_subdirectory(SplinesTutorial)
 add_subdirectory(SamplesTutorial)
 if(MaCh3_PYTHON_ENABLED)
+  cmessage(STATUS "PYTHON IS ENABLED!!")
   set(CMAKE_INSTALL_RPATH "$ORIGIN/../lib")
+  cmessage(STATUS "CMAKE_INSTALL_RPATH is ${CMAKE_INSTALL_RPATH}")
   add_subdirectory(python)
 endif()
 
