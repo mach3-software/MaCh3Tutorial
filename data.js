@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1758631408540,
+  "lastUpdate": 1759330897998,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -12868,6 +12868,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 396.882,
             "range": "± 6.67765",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "26db4b0bc67c1f0ede70166d80294b979b7f55a0",
+          "message": "Merge pull request #640 from mach3-software/feature/kskwarczynski/DoxyfileMath\n\nbugfix: Correclty display math in doxygen",
+          "timestamp": "2025-10-01T15:56:09+01:00",
+          "tree_id": "17313233791aad815356b0f9a6fd026161c132a5",
+          "url": "https://github.com/mach3-software/MaCh3/commit/26db4b0bc67c1f0ede70166d80294b979b7f55a0"
+        },
+        "date": 1759330895812,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 3.18078,
+            "range": "± 231.869",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 3.04796,
+            "range": "± 38.6725",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 403.179,
+            "range": "± 5.80357",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
