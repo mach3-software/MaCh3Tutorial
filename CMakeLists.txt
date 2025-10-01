@@ -19,8 +19,12 @@ elseif(NOT DEFINED CMAKE_INSTALL_PREFIX)
 endif()
 
 # Use the compilers found in the path
-find_program(CMAKE_C_COMPILER NAMES $ENV{CC} gcc PATHS ENV PATH NO_DEFAULT_PATH)
-find_program(CMAKE_CXX_COMPILER NAMES $ENV{CXX} g++ PATHS ENV PATH NO_DEFAULT_PATH)
+if(NOT CMAKE_C_COMPILER)
+    find_program(CMAKE_C_COMPILER NAMES $ENV{CC} icx gcc PATHS ENV PATH NO_DEFAULT_PATH)
+endif()
+if(NOT CMAKE_CXX_COMPILER)
+    find_program(CMAKE_CXX_COMPILER NAMES $ENV{CXX} icpx g++ PATHS ENV PATH NO_DEFAULT_PATH)
+endif()
 
 LIST(APPEND CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake/Modules)
 
@@ -62,6 +66,12 @@ if(NOT DEFINED MaCh3_Branch)
   endif()
 endif()
 
+find_package(OpenMP REQUIRED)
+if(OpenMP_CXX_FOUND)
+    message(STATUS "Found OpenMP: ${OpenMP_CXX_VERSION}")
+else()
+    message(FATAL_ERROR "OpenMP not found")
+endif()
 #If MaCh3 was sourced find it, otherwise use CPM
 find_package(MaCh3 QUIET EXACT ${MaCh3Tutorial_VERSION})
 
