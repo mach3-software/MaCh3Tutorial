@@ -32,6 +32,7 @@ MaCh3 is predominantly C++ software although some functionality are available th
 ## How to Start?
 To compile simply
 ```bash
+git clone https://github.com/mach3-software/MaCh3Tutorial.git
 mkdir build;
 cd build;
 cmake ../ -DPYTHON_ENABLED=ON [DPYTHON_ENABLED not mandatory]
