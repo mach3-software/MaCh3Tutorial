@@ -123,6 +123,11 @@ GetPenaltyTerm:
     - false
     - "-logL_{Spline}"
 
+
+#########################################
+PlotSigmaVariation:
+
+
 #########################################
 MatrixPlotter:
   Titles: [
