@@ -44,6 +44,9 @@ option(MaCh3_CPM "Whether MaCh3 was obtained using CPM or find_package" OFF)
 option(MaCh3Tutorial_PROFILING_ENABLED "Will run with gperftools" OFF)
 option(Use_External_MaCh3 "Use an externally installed MaCh3 instead of CPM" OFF)
 
+# Force use of specific branch for CI check
+set(MaCh3_Branch "ProcessMCMC_reweighting_plots")
+
 # KS: Here we try to find tag matching tutorial version. If we can't find one then use develop
 # This will allow to grab tutorial for tagged MaCh3 version without a need of manually changing version
 if(NOT DEFINED MaCh3_Branch)
