@@ -3,7 +3,7 @@ add_custom_target(ValidApps)
 foreach(app
     SplineValidations
     FitterValidations
-    #CovarianceValidations
+    CovarianceValidations
     MaCh3ModeValidations
     SamplePDFValidations
     NuMCMCconversion
