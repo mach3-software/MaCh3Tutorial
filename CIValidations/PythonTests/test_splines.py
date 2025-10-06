@@ -88,7 +88,7 @@ def test_monolith(n_values = 10):
         for idx, response in enumerate(response_fn_dicts):
 
             # get a random number in the range covered by the response function
-            rand_val = rng.uniform(response["x"][-1], response["x"][0])
+            rand_val = rng.uniform(response["x"][0], response["x"][-1])
 
             param_array[idx] = rand_val
 
