@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1759836442006,
+  "lastUpdate": 1759837027975,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -12958,6 +12958,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 387.532,
             "range": "± 5.59716",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "31003009+dbarrow257@users.noreply.github.com",
+            "name": "dbarrow257",
+            "username": "dbarrow257"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "8cbdee3879ba03d4a0e0d1eb7d623930ea3606f3",
+          "message": "Merge pull request #647 from mach3-software/dependabot/github_actions/dot-github/workflows/peter-evans/create-or-update-comment-5\n\ntidy: bump peter-evans/create-or-update-comment from 4 to 5 in /.github/workflows",
+          "timestamp": "2025-10-07T12:31:35+01:00",
+          "tree_id": "09f1c49acbd77c83256a90853b0ee6a0c42bfe68",
+          "url": "https://github.com/mach3-software/MaCh3/commit/8cbdee3879ba03d4a0e0d1eb7d623930ea3606f3"
+        },
+        "date": 1759837025824,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 3.11409,
+            "range": "± 50.9114",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 3.04142,
+            "range": "± 78.6799",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 402.305,
+            "range": "± 5.62922",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
