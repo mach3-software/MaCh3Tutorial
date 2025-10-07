@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1759330897998,
+  "lastUpdate": 1759836442006,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -12913,6 +12913,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 403.179,
             "range": "± 5.80357",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "31003009+dbarrow257@users.noreply.github.com",
+            "name": "dbarrow257",
+            "username": "dbarrow257"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "d61b1380eb55dc87e289da00f8ec147ca9f3e011",
+          "message": "Merge pull request #642 from mach3-software/feature/kskwarczynski/sigmaVarPlotting\n\nfeat: Sigma Var Plotting",
+          "timestamp": "2025-10-07T12:22:07+01:00",
+          "tree_id": "79fa2d8b3dc4c6014ec39f8a0fe83b4fc913f680",
+          "url": "https://github.com/mach3-software/MaCh3/commit/d61b1380eb55dc87e289da00f8ec147ca9f3e011"
+        },
+        "date": 1759836439642,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 3.10172,
+            "range": "± 31.0415",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 3.03577,
+            "range": "± 32.8182",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 387.532,
+            "range": "± 5.59716",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
