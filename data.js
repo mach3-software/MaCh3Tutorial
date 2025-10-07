@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1759837027975,
+  "lastUpdate": 1759868190057,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -13003,6 +13003,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 402.305,
             "range": "± 5.62922",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "31003009+dbarrow257@users.noreply.github.com",
+            "name": "dbarrow257",
+            "username": "dbarrow257"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "d300c5da7f13e745571b85570e18a7aa4ef1a445",
+          "message": "Merge pull request #648 from mach3-software/feature/fixICPX\n\nbugfix: ICPX memory",
+          "timestamp": "2025-10-07T21:10:46+01:00",
+          "tree_id": "3b7ca67082355175065f83a6ba51c6170cdfccf2",
+          "url": "https://github.com/mach3-software/MaCh3/commit/d300c5da7f13e745571b85570e18a7aa4ef1a445"
+        },
+        "date": 1759868187777,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 3.27425,
+            "range": "± 775.36",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 3.25161,
+            "range": "± 953.963",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 400.559,
+            "range": "± 3.44331",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
