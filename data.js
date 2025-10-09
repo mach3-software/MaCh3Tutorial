@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1759868190057,
+  "lastUpdate": 1760001509028,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -13048,6 +13048,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 400.559,
             "range": "± 3.44331",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "8de6e315b059122a647a217e89e86591f4cf93d2",
+          "message": "Merge pull request #645 from mach3-software/ProcessMCMC_reweighting_plots\n\nfeat: Process mcmc reweighting plots",
+          "timestamp": "2025-10-09T10:13:09+01:00",
+          "tree_id": "03519bb2371b8b75ce44e140cb5dcc7d46dc7c4d",
+          "url": "https://github.com/mach3-software/MaCh3/commit/8de6e315b059122a647a217e89e86591f4cf93d2"
+        },
+        "date": 1760001506844,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 3.1191,
+            "range": "± 99.2834",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 3.03614,
+            "range": "± 99.4799",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 391.398,
+            "range": "± 2.94236",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
