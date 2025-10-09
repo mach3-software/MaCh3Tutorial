@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1760001509028,
+  "lastUpdate": 1760004555619,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -13093,6 +13093,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 391.398,
             "range": "± 2.94236",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "eb3ba76b33dc8313fa7c7a91fcee1bf5f1864e93",
+          "message": "Merge pull request #649 from mach3-software/ewanwm/fix/fix-python-samples-binding\n\nBugfix: sample handler python binding",
+          "timestamp": "2025-10-09T11:03:39+01:00",
+          "tree_id": "68b56d0c0384473598207ea5b715cc04cd4e3bb2",
+          "url": "https://github.com/mach3-software/MaCh3/commit/eb3ba76b33dc8313fa7c7a91fcee1bf5f1864e93"
+        },
+        "date": 1760004552995,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 3.28462,
+            "range": "± 825.201",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 3.24285,
+            "range": "± 881.414",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 399.347,
+            "range": "± 6.77188",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
