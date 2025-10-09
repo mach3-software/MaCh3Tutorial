@@ -25,8 +25,10 @@ jobs:
     
     - name: Install pyMaCh3
       run: |
+        cd /opt/
         mkdir /python-test-modules
-        pip install . -t /python-test-modules/
+        git clone --branch "develop" https://github.com/mach3-software/MaCh3Tutorial.git MaCh3Core
+        pip install MaCh3Core/ -t /python-test-modules/
 
     - name: Get MaCh3 Validations
       run: |
