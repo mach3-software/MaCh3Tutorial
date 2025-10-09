@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1760004555619,
+  "lastUpdate": 1760019012104,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -13138,6 +13138,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 399.347,
             "range": "± 6.77188",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "ewan.miller@kcl.ac.uk",
+            "name": "Ewan Miller",
+            "username": "ewanwm"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "ee3a9a8942da2e2ee06eb71b7450c58ab76c9fa6",
+          "message": "Merge pull request #650 from mach3-software/ewanwm/bugfix/fix-python-CI-workflow\n\nBugfix: allow CIPythonValidations again",
+          "timestamp": "2025-10-09T15:04:26+01:00",
+          "tree_id": "1272fd60da47591ac4b095b605b5ff679cc850ba",
+          "url": "https://github.com/mach3-software/MaCh3/commit/ee3a9a8942da2e2ee06eb71b7450c58ab76c9fa6"
+        },
+        "date": 1760019009956,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 3.35567,
+            "range": "± 806.564",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 3.27602,
+            "range": "± 831.928",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 406.168,
+            "range": "± 5.42165",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
