@@ -3,12 +3,11 @@
 name: Validations Python CI 
 
 # The events that trigger the workflow
-# on:
-#   pull_request:
-#     branches: [ main ]
-# This workflow temporary don't work, please uncomment this when fixed
 on:
-  workflow_dispatch:  # Placeholder trigger to allow manual runs only
+  pull_request:
+    branches: [ main ]
+    
+  workflow_dispatch: 
 
 permissions:
   contents: read
@@ -34,6 +33,11 @@ jobs:
       run: |
         mkdir python-test-modules
         pip install -r ./CIValidations/PythonTests/requirements.txt -t python-test-modules/
+
+    - name: Install pyMaCh3
+      working-directory: /opt/MaCh3Validations
+      run: |
+        pip install /opt/MaCh3 -t python-test-modules/
 
     - name: Validations
       working-directory: /opt/MaCh3Validations
