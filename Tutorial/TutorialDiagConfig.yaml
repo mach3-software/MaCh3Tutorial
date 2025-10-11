@@ -127,6 +127,10 @@ GetPenaltyTerm:
 #########################################
 PlotSigmaVariation:
 
+#########################################
+PredictivePlotting:
+FileTitle: ["Prior Predictive", "Posterior Predictive"]
+PosteriorColor: [600, 632] # kBlue, kRed
 
 #########################################
 MatrixPlotter:
