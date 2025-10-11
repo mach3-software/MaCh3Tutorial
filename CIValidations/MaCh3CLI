@@ -1,6 +1,5 @@
 #!/bin/bash
 #set -x  # Enable command tracing
-set -e  # Exit on error
 
 # Check if no arguments are provided
 if [ "$#" -eq 0 ]; then
@@ -8,8 +7,16 @@ if [ "$#" -eq 0 ]; then
   exit 1
 fi
 
-mach3tutorial-config --has-feature UNITTESTS || true
-HAVE_UNITTEST_SUPPORT=${?}
+mach3tutorial-config --has-feature UNITTESTS
+HAVE_UNITTEST_SUPPORT=$?
+
+if [ "$HAVE_UNITTEST_SUPPORT" -eq 0 ]; then
+  echo "UNITTESTS support: YES"
+else
+  echo "UNITTESTS support: NO"
+fi
+
+set -e  # Exit on error
 
 # Display help message
 show_help() {
@@ -23,15 +30,18 @@ show_help() {
 
 # Run validation functions
 run_reweight_validations() {
-  ./CIValidations/SplineValidations
-  ./CIValidations/SamplePDFValidations
-  ./CIValidations/LLHValidation
+  ${MaCh3Tutorial_ROOT}/CIValidations/SplineValidations
+  ${MaCh3Tutorial_ROOT}/CIValidations/SamplePDFValidations
+  ${MaCh3Tutorial_ROOT}/CIValidations/LLHValidation
   ${MaCh3Tutorial_ROOT}/bin/KinemDistributionTutorial ${MaCh3Tutorial_ROOT}/TutorialConfigs/FitterConfig.yaml
-  ./CIValidations/NuOscillatorInterfaceValidations
+  ${MaCh3Tutorial_ROOT}/CIValidations/NuOscillatorInterfaceValidations
+  ${MaCh3Tutorial_ROOT}/CIValidations/PredictiveValidations
+  ${MaCh3Tutorial_ROOT}/CIValidations/BinningValidations
+  ${MaCh3Tutorial_ROOT}/CIValidations/SplinePlotting/SplinePlotting
 }
 
 run_fitter_validations() {
-  ./CIValidations/FitterValidations
+  ${MaCh3Tutorial_ROOT}/CIValidations/FitterValidations
   ${MaCh3_ROOT}/bin/ProcessMCMC bin/TutorialDiagConfig.yaml MCMC_Test.root
   ${MaCh3_ROOT}/bin/DiagMCMC MCMC_Test.root bin/TutorialDiagConfig.yaml
   ${MaCh3_ROOT}/bin/RHat 10 MCMC_Test.root MCMC_Test.root MCMC_Test.root MCMC_Test.root
@@ -39,8 +49,15 @@ run_fitter_validations() {
   ${MaCh3_ROOT}/bin/GetPenaltyTerm MCMC_Test.root bin/TutorialDiagConfig.yaml
   ${MaCh3_ROOT}/bin/MatrixPlotter bin/TutorialDiagConfig.yaml MCMC_Test_drawCorr.root
   ${MaCh3_ROOT}/bin/GetPostfitParamPlots MCMC_Test_drawCorr.root
+  ${MaCh3_ROOT}/bin/GetPostfitParamPlots MCMC_Test_drawCorr.root MCMC_Test_drawCorr.root # Compare two file
   ${MaCh3_ROOT}/bin/PlotLLH MCMC_Test.root
-  ${MaCh3_ROOT}/bin/PlotMCMCDiag MCMC_Test_MCMC_Diag.root MCMC_Test_MCMC_Diag.root
+  ${MaCh3_ROOT}/bin/PlotLLH MCMC_Test.root MCMC_Test.root MCMC_Test.root MCMC_Test.root MCMC_Test.root # Compare multiple files
+  ${MaCh3_ROOT}/bin/PlotLLH MCMC_Test.root MCMC_Test.root -r -g -l "Plot1;Plot2"
+  ${MaCh3_ROOT}/bin/PlotMCMCDiag MCMC_Test_MCMC_Diag.root "test_plot_1" MCMC_Test_MCMC_Diag.root "test_plot_2"
+  ${MaCh3_ROOT}/bin/SmearChain MCMC_Test.root bin/TutorialDiagConfig.yaml
+  ${MaCh3_ROOT}/bin/ProcessMCMC bin/TutorialDiagConfig.yaml MCMC_Test.root Default MCMC_Test_smeared.root Smeared
+  ${MaCh3_ROOT}/bin/ReweightMCMC ${MaCh3Tutorial_ROOT}/TutorialConfigs/ReweightingConfigs/PDG_2023_1D.yaml MCMC_Test.root
+  ${MaCh3_ROOT}/bin/PlotSigmaVariation MCMC_Test.root bin/TutorialDiagConfig.yaml
 }
 
 run_covariance_validations() {
@@ -48,7 +65,8 @@ run_covariance_validations() {
   ./CIValidations/MaCh3ModeValidations
   ./CIValidations/pValueValidations
   ./CIValidations/SigmaVarValidations
-  if [ "IF[HAVE_UNITTEST_SUPPORT]" == "0" ]; then
+  ./CIValidations/SigmaVarFDValidation
+  if [ "$HAVE_UNITTEST_SUPPORT" -eq 0 ]; then
     ./CIValidations/UnitTests/manager_tests
     ./CIValidations/UnitTests/histogram_tests
     ./CIValidations/UnitTests/statistical_tests

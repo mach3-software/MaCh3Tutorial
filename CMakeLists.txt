@@ -4,7 +4,7 @@ set(CMAKE_VERBOSE_MAKEFILE ON)
 cmake_minimum_required(VERSION 3.14 FATAL_ERROR)
 
 # Create project
-project(MaCh3Tutorial VERSION 2.2.0 LANGUAGES CXX)
+project(MaCh3Tutorial VERSION 2.2.3 LANGUAGES CXX)
 set(MaCh3Tutorial_VERSION ${PROJECT_VERSION})
 
 set(CMAKE_CXX_STANDARD_REQUIRED True)
@@ -32,7 +32,7 @@ LIST(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_LIST_DIR}/cmake/Modules)
 # download CPM.cmake
 file(
   DOWNLOAD
-  https://github.com/cpm-cmake/CPM.cmake/releases/download/v0.40.2/CPM.cmake
+  https://github.com/cpm-cmake/CPM.cmake/releases/download/v0.42.0/CPM.cmake
   ${CMAKE_CURRENT_BINARY_DIR}/cmake/CPM.cmake
 )
 include(${CMAKE_CURRENT_BINARY_DIR}/cmake/CPM.cmake)
@@ -42,6 +42,7 @@ include(CIValidations)
 ##################################  MaCh3  ######################################
 option(MaCh3_CPM "Whether MaCh3 was obtained using CPM or find_package" OFF)
 option(MaCh3Tutorial_PROFILING_ENABLED "Will run with gperftools" OFF)
+option(Use_External_MaCh3 "Use an externally installed MaCh3 instead of CPM" OFF)
 
 # KS: Here we try to find tag matching tutorial version. If we can't find one then use develop
 # This will allow to grab tutorial for tagged MaCh3 version without a need of manually changing version
@@ -64,7 +65,9 @@ if(NOT DEFINED MaCh3_Branch)
 endif()
 
 #If MaCh3 was sourced find it, otherwise use CPM
-#find_package(MaCh3 EXACT ${MaCh3Tutorial_VERSION})
+if(Use_External_MaCh3)
+  find_package(MaCh3 EXACT ${MaCh3Tutorial_VERSION})
+endif()
 
 if(NOT MaCh3_FOUND)
   message(STATUS "MaCh3 is not found locally!")

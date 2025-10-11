@@ -14,22 +14,34 @@ void FitVal(const std::string& Algo, bool MoreTests)
 
   auto xsec = MaCh3CovarianceFactory<ParameterHandlerGeneric>(FitManager.get(), "Xsec");
   std::unique_ptr<FitterBase> MaCh3Fitter = nullptr;
-  if(Algo == "MCMC") {
+  if (Algo == "MR2T2" || Algo == "MetropolisHastings" || Algo == "MCMC")
+  {
     FitManager->OverrideSettings("General", "OutputFile", "MCMC_Test.root");
-    MaCh3Fitter = std::make_unique<mcmc>(FitManager.get());
-  } else if (Algo == "PSO") {
+    MaCh3Fitter = std::make_unique<MR2T2>(FitManager.get());
+  }
+  else if (Algo == "DelayedMR2T2" || Algo == "DelayedRejection" || Algo == "DelayedMCMC")
+  {
+    FitManager->OverrideSettings("General", "OutputFile", "DelayedMCMC_Test.root");
+    MaCh3Fitter = std::make_unique<DelayedMR2T2>(FitManager.get());
+  }
+  else if (Algo == "PSO")
+  {
     FitManager->OverrideSettings("General", "OutputFile", "PSO_Test.root");
     FitManager->OverrideSettings("General", "Fitter", "FitTestLikelihood", "true");
     MaCh3Fitter = std::make_unique<PSO>(FitManager.get());
-  } else if (Algo == "Minuit2") {
-    #ifdef MaCh3_MINUIT2
+  }
+  else if (Algo == "Minuit2")
+  {
+#ifdef MaCh3_MINUIT2
     FitManager->OverrideSettings("General", "OutputFile", "MINUIT2_Test.root");
     MaCh3Fitter = std::make_unique<MinuitFit>(FitManager.get());
     #else
     MACH3LOG_ERROR("Trying to use Minuit2 however MaCh3 was compiled without Minuit2 support");
     throw MaCh3Exception(__FILE__ , __LINE__ );
     #endif
-  } else {
+  }
+  else
+  {
     MACH3LOG_ERROR("You want to use algorithm {}, I don't recognize it, sry", Algo);
     throw MaCh3Exception(__FILE__ , __LINE__ );
   }
@@ -49,6 +61,7 @@ void FitVal(const std::string& Algo, bool MoreTests)
     MaCh3Fitter->DragRace();
     MaCh3Fitter->RunLLHScan();
     MaCh3Fitter->Run2DLLHScan();
+    MaCh3Fitter->RunSigmaVarFD();
     MaCh3Fitter->GetStepScaleBasedOnLLHScan();
   }
   MaCh3Fitter->RunMCMC();
@@ -63,7 +76,7 @@ void StartFromPosteriorTest(const std::string& PreviousName)
   FitManager->OverrideSettings("General", "OutputFile", "MCMC_Test_Start.root");
 
   auto xsec = MaCh3CovarianceFactory<ParameterHandlerGeneric>(FitManager.get(), "Xsec");
-  std::unique_ptr<mcmc> MarkovChain = std::make_unique<mcmc>(FitManager.get());
+  std::unique_ptr<MR2T2> MarkovChain = std::make_unique<MR2T2>(FitManager.get());
   MarkovChain->AddSystObj(xsec.get());
 
   MarkovChain->StartFromPreviousFit(PreviousName);
@@ -79,10 +92,11 @@ int main(int argc, char *argv[])
     throw MaCh3Exception(__FILE__ , __LINE__ );
   }
 
-  std::vector<std::string> Algo = {"MCMC"};
+  // Define algorithms we are testing within CI
+  std::vector<std::string> Algo = {"MCMC", "DelayedMCMC", "PSO"};
+  // Minuit requeirs external library thus do not check it by default
   #ifdef MaCh3_MINUIT2
   Algo.push_back("Minuit2");
-  Algo.push_back("PSO");
   #endif
 
   bool MoreTests = true;

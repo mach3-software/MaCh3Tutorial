@@ -26,11 +26,13 @@ MaCh3 is predominantly C++ software although some functionality are available th
 6. [Useful Settings](#useful-settings)
 7. [How to Plot?](#how-to-plot)
     1. [How to run LLH scan](#how-to-run-llh-scan)
-    2. [Plotting with Python](#plotting-with-python)
+    2. [How to run Sigma Variation](#how-to-run-sigma-variation)
+    3. [Plotting with Python](#plotting-with-python)
 
 ## How to Start?
 To compile simply
 ```bash
+git clone https://github.com/mach3-software/MaCh3Tutorial.git
 mkdir build;
 cd build;
 cmake ../ -DPYTHON_ENABLED=ON [DPYTHON_ENABLED not mandatory]
@@ -68,6 +70,7 @@ Being able to visualise and analyse output of MCMC is standard procedure after c
 where **Test.root** is the output of running MCMCTutorial as described [here](#how-to-run-mcmc).
 You can find results in **Test_drawCorr.pdf**
 One of plots you will encounter is:
+
 <img width="350" alt="Posterior example" src="https://github.com/user-attachments/assets/1073a76e-5d82-4321-8952-e098d1b0717f">
 
 It is marginalised posterior of a single parameter. This is main output of MCMC.
@@ -108,7 +111,9 @@ To plot only a subset of parameters we recommend using **MatrixPlotter**.
 bin/MatrixPlotter bin/TutorialDiagConfig.yaml Test_drawCorr.root
 ```
 Within MatrixPlot.pdf you should see a plot like this.
+
 <img width="350" alt="Posterior example" src="https://github.com/user-attachments/assets/14471069-27e7-4ea3-9d75-232615aa246a">
+
 In this example, you can see only two parameters. Using TutorialDiagConfig.yaml you can easily modify it either by adding more Titles, or more parameters.
 
 ```yaml
@@ -285,12 +290,12 @@ We recommend chasing both scales running MCMC again and later producing auto-cor
 You can make plots using:
 
 ```bash
-PlotMCMCDiag Test_MCMC_Diag.root
+PlotMCMCDiag Test_MCMC_Diag.root "mcmc_diagnostics"
 ```
 If you add second/third arguemnt it will compare several files:
 
 ```bash
-PlotMCMCDiag Test_MCMC_Diag.root SecondFile_MCMC_Diag.root
+PlotMCMCDiag Test_MCMC_Diag.root "first file label" SecondFile_MCMC_Diag.root "second file label"
 ```
 
 ### Running Multiple Chains
@@ -337,14 +342,17 @@ Read more [here](https://mach3-software.github.io/MaCh3/Structs_8h.html#a960da89
 
 ## How to Plot?
 
-There are a number of apps included to make plots from the results of your fits, llh scans etc. You can find more details on them and how they work in the main MaCh3 wiki [here](https://github.com/mach3-software/MaCh3/wiki). There you will also find some instructions on how you can write yor own plotting scripts.
+There are a number of apps included to make plots from the results of your fits, llh scans etc. You can find more details on them and how they work in the main MaCh3 wiki [here](https://github.com/mach3-software/MaCh3/wiki). There you will also find some instructions on how you can write your own plotting scripts.
 
 The plotting library is configured using yaml files. You can see some examples of such config files in the plotting directory, and a detailed explanation of them is given in [the wiki](https://github.com/mach3-software/MaCh3/wiki).
 
 Some examples on how to make some "standard" plots are given below.
 
 ### How to run LLH scan
-You can run MCMC in very similar way as MCMC
+LLH scan is a procedure where one changes value of single parameter, reweight MC and calculates likelihood.
+If running with Asimov setting at prior value LLH should be 0. Rate at which LLH is increasing with increase of value indiceate how sensitive your MC is to give parameter.
+
+You can run LLH scan in very similar way as MCMC
 ```bash
 ./bin/LLHScanTutorial TutorialConfigs/FitterConfig.yaml
 ```
@@ -361,6 +369,17 @@ It is possible to compare several files simply by:
 PlotLLH LLH_Test.root LLH_Test_2.root
 ```
 
+### How to run Sigma Variation
+Sigma Var is conceptually similar to LLH scan however here instead of looking how LLH changes one investigate actual sample spectra.
+
+```bash
+./bin/SigmaVarTutorial TutorialConfigs/FitterConfig.yaml
+```
+
+Once it finished you can make plots using
+```bash
+./bin/PlotSigmaVariation SigmaVar_Test.root bin/TutorialDiagConfig.yaml
+```
 ### Plotting with Python
 
 If you have installed the python interface for MaCh3 as described

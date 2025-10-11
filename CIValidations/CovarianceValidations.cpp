@@ -2,6 +2,27 @@
 #include "Utils/Comparison.h"
 #include "Parameters/ParameterHandlerGeneric.h"
 
+void ValidateCholeskyDecomposition(std::ostream& outFile) {
+  // Create a known symmetric positive definite matrix (3x3)
+  TMatrixDSym original(5);
+  original(0,0) =  4.0; original(0,1) = -1.0; original(0,2) =  0.0; original(0,3) =  0.5; original(0,4) = -0.2;
+  original(1,0) = -1.0; original(1,1) =  5.0; original(1,2) = -2.0; original(1,3) =  1.0; original(1,4) =  0.3;
+  original(2,0) =  0.0; original(2,1) = -2.0; original(2,2) =  6.0; original(2,3) = -1.5; original(2,4) =  0.8;
+  original(3,0) =  0.5; original(3,1) =  1.0; original(3,2) = -1.5; original(3,3) =  5.0; original(3,4) = -0.5;
+  original(4,0) = -0.2; original(4,1) =  0.3; original(4,2) =  0.8; original(4,3) = -0.5; original(4,4) =  4.0;
+
+
+  // Get decomposed matrix
+  auto decomposed = M3::GetCholeskyDecomposedMatrix(original, "testMatrix");
+
+  // Print all elements
+  for (Int_t i = 0; i < decomposed.size(); i++) {
+    for (Int_t j = 0; j < decomposed[i].size(); j++) {
+      outFile << "L(" << i << "," << j << ") = " << decomposed[i][j] << std::endl;
+    }
+  }
+}
+
 /// @brief This simply updates YAML file
 void TuneValidations(std::ostream& outFile)
 {
@@ -26,7 +47,7 @@ void TuneValidations(std::ostream& outFile)
     }
   }
 
-  M3::MakeCorrelationMatrix(Node, TuneValues, TuneErrors, CorrelationMatrix);
+  M3::MakeCorrelationMatrix(Node, TuneValues, TuneErrors, CorrelationMatrix, "UpdatedCorrelationMatrix_Blarb.yaml");
 
   std::vector<std::string> FancyNames = {
     "Norm_Param_0",
@@ -41,7 +62,7 @@ void TuneValidations(std::ostream& outFile)
     "EResTot"
   };
   M3::AddTuneValues(Node, TuneValues, Tune, FancyNames);
-  M3::MakeCorrelationMatrix(Node, TuneValues, TuneErrors, CorrelationMatrix, FancyNames);
+  M3::MakeCorrelationMatrix(Node, TuneValues, TuneErrors, CorrelationMatrix, "UpdatedCorrelationMatrix.yaml", FancyNames);
 
   std::vector<std::string> ParameterMatrixFile = {TutorialPath + "/UpdatedMatrixWithTuneWackyTune.yaml"};
   auto TuneTestx = std::make_unique<ParameterHandlerGeneric>(ParameterMatrixFile, "xsec_cov");
@@ -111,6 +132,18 @@ void TestPCA(const std::string& label,
     }
   }
 
+  for (int i = 0; i < PCA->GetPCAHandler()->GetNumberPCAedParameters(); i++) {
+    outFile << "Param in " << label << " Is Decomposed: " << i << " = " << PCA->GetPCAHandler()->IsParameterDecomposed(i) << std::endl;
+  }
+
+  for (int i = 0; i < PCA->GetPCAHandler()->GetNumberPCAedParameters(); i++) {
+    outFile << "Param in " << label << " Prefit Value: " << i << " = " << PCA->GetPCAHandler()->GetPreFitValuePCA(i) << std::endl;
+  }
+
+  for (int i = 0; i < PCA->GetPCAHandler()->GetNumberPCAedParameters(); i++) {
+    outFile << "Param in " << label << " is Fixed: " << i << " = " << PCA->GetPCAHandler()->IsParameterFixedPCA(i) << std::endl;
+  }
+
   MACH3LOG_INFO("Testing throwing from covariance for {}", label);
   for (int i = 0; i < Ntoys; i++) {
     if (i % (Ntoys / 10) == 0) {
@@ -120,6 +153,11 @@ void TestPCA(const std::string& label,
   }
 
   PCA->AcceptStep();
+
+  PCA->ToggleFixAllParameters();
+  for (int i = 0; i < PCA->GetPCAHandler()->GetNumberPCAedParameters(); i++) {
+    outFile << "Param in " << label << " is Fixed: " << i << " = " << PCA->GetPCAHandler()->IsParameterFixedPCA(i) << std::endl;
+  }
 }
 
 int main(int argc, char *argv[])
@@ -208,10 +246,36 @@ int main(int argc, char *argv[])
     outFile << "Proposed Step for param " << i  << " is equal to=" << xsec->GetParProp(i) << std::endl;
   }
 
+  for (int i = 0; i < xsec->GetNumParams(); ++i) {
+    outFile << "Diagonal error for param " << i  << " is equal to=" << xsec->GetDiagonalError(i) << std::endl;
+  }
+
   //Now we check if Tune works
   xsec->SetTune("PostND");
   for (int i = 0; i < xsec->GetNumParams(); ++i) {
     outFile << "PostND Tune for param " << i  << " is equal to=" << xsec->GetParProp(i) << std::endl;
+  }
+
+  std::vector<std::string> paramNames = {"Norm_Param_2", "BinnedSplineParam3", "EResLep"};
+  for (const auto& name : paramNames) {
+    outFile << "Index for param " << name << " is " << xsec->GetParIndex(name) << std::endl;
+  }
+
+  std::vector<std::string> groupNames = {"Xsec", "Flux"};
+  for (const auto& group : groupNames) {
+    outFile << "Number of parameters in group " << group << " is " << xsec->GetNumParFromGroup(group) << std::endl;
+  }
+
+  xsec->SetGroupOnlyParameters("Xsec");
+  xsec->SetGroupOnlyParameters(std::vector<std::string>{ "Xsec", "Flux" });
+
+  // Now check fixing
+  for (int i = 0; i < xsec->GetNumParams(); i++) {
+    outFile << "Is param " << i  << " fixed=" << xsec->IsParameterFixed(i) << std::endl;
+  }
+  xsec->ToggleFixAllParameters();
+  for (int i = 0; i < xsec->GetNumParams(); i++) {
+    outFile << "Is param " << i  << " fixed=" << xsec->IsParameterFixed(i) << std::endl;
   }
 
 ////////////// Now PCA //////////////
@@ -290,22 +354,35 @@ AdaptionOptions:
     Adapt->UpdateAdaptiveCovariance();
     Adapt->AcceptStep();
   }
-  auto ParMeans = Adapt->GetParameterMeans();
+  auto ParMeans = Adapt->GetAdaptiveHandler()->GetParameterMeans();
   for(size_t i = 0; i < ParMeans.size(); i++) {
     outFile << "Adapt, Param means: " << i << " = " << ParMeans[i] << std::endl;
   }
-  TMatrixDSym* Matrix = Adapt->GetAdaptiveHandler()->adaptive_covariance;
+  TMatrixDSym* Matrix = Adapt->GetAdaptiveHandler()->GetAdaptiveCovariance();
   int dim = Matrix->GetNrows();
   for (int i = 0; i < dim; ++i) {
     for (int j = 0; j < dim; ++j) {
       outFile << "Adapt matrix: " << i << ", " << j << " = " << (*Matrix)(i, j) << std::endl;
     }
   }
+  outFile << "Total Number Of Steps " << Adapt->GetAdaptiveHandler()->GetTotalSteps() << std::endl;
+  outFile << "Total Number Of AMCMC Params " << Adapt->GetAdaptiveHandler()->GetNumParams() << std::endl;
 
   Adapt->SaveAdaptiveToFile("Wacky.root", "xsec");
 
+  // Now check fixing
+  for (int i = 0; i < Adapt->GetNumParams(); i++) {
+    outFile << "Adapt is param " << i  << " fixed=" << Adapt->IsParameterFixed(i) << std::endl;
+  }
+  Adapt->ToggleFixAllParameters();
+  for (int i = 0; i < Adapt->GetNumParams(); i++) {
+    outFile << "Adapt is param " << i  << " fixed=" << Adapt->IsParameterFixed(i) << std::endl;
+  }
+
 ////////////// Now Tune //////////////
   TuneValidations(outFile);
+////////////// Other tests //////////////
+  ValidateCholeskyDecomposition(outFile);
 
 ////////////// The End //////////////
   outFile.close();

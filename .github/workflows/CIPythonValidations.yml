@@ -3,12 +3,11 @@
 name: Validations Python CI 
 
 # The events that trigger the workflow
-# on:
-#   pull_request:
-#     branches: [ main ]
-# This workflow temporary don't work, please uncomment this when fixed
 on:
-  workflow_dispatch:  # Placeholder trigger to allow manual runs only
+  pull_request:
+    branches: [ main ]
+    
+  workflow_dispatch: 
 
 permissions:
   contents: read
@@ -22,7 +21,14 @@ jobs:
       image: ghcr.io/mach3-software/mach3:alma9v1.3.0
 
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v5
+    
+    - name: Install pyMaCh3
+      run: |
+        cd /opt/
+        mkdir /python-test-modules
+        git clone --branch "develop" https://github.com/mach3-software/MaCh3.git MaCh3Core
+        pip install MaCh3Core/ -t /python-test-modules/
 
     - name: Get MaCh3 Validations
       run: |
@@ -32,14 +38,13 @@ jobs:
     - name: Install pytest
       working-directory: /opt/MaCh3Validations
       run: |
-        mkdir python-test-modules
-        pip install -r ./CIValidations/PythonTests/requirements.txt -t python-test-modules/
+        pip install -r ./CIValidations/PythonTests/requirements.txt -t /python-test-modules/
 
     - name: Validations
       working-directory: /opt/MaCh3Validations
       run: |
         source /opt/root/v6-26-10/bin/thisroot.sh
-        export PYTHONPATH=$PYTHONPATH:$PWD/python-test-modules/
+        export PYTHONPATH=$PYTHONPATH:/python-test-modules/
         export MACH3=$PWD
         
         python3 -m pytest --config TutorialConfigs/FitterConfig.yaml CIValidations/PythonTests

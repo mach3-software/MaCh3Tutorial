@@ -3,6 +3,8 @@ add_custom_target(TutorialApps)
 foreach(app
     MCMCTutorial
     LLHScanTutorial
+    PredictiveTutorial
+    SigmaVarTutorial
     KinemDistributionTutorial
     )
     add_executable(${app} ${app}.cpp)

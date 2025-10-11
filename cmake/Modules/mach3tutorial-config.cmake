@@ -1,11 +1,6 @@
 # Set the creation date
 string(TIMESTAMP CREATION_DATE "%d-%m-%Y")
 
-configure_file(${CMAKE_CURRENT_LIST_DIR}/../Templates/mach3tutorial-config.in
-  "${PROJECT_BINARY_DIR}/mach3tutorial-config" @ONLY)
-install(PROGRAMS
-  "${PROJECT_BINARY_DIR}/mach3tutorial-config" DESTINATION bin)
-
 SET(MACH3_TUTORIAL_FEATURES_LIST)
 
 if(MaCh3Tutorial_UNITTESTS_ENABLED)
@@ -17,3 +12,8 @@ if(MaCh3Tutorial_Coverage_ENABLED)
 endif()
 
 string(REPLACE ";" " " MACH3_TUTORIAL_FEATURES "${MACH3_TUTORIAL_FEATURES_LIST}")
+
+configure_file(${CMAKE_CURRENT_LIST_DIR}/../Templates/mach3tutorial-config.in
+  "${PROJECT_BINARY_DIR}/mach3tutorial-config" @ONLY)
+install(PROGRAMS
+  "${PROJECT_BINARY_DIR}/mach3tutorial-config" DESTINATION bin)

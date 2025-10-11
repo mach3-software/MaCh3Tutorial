@@ -339,6 +339,8 @@ const double* SampleHandlerTutorial::GetPointerToKinematicParameter(KinematicTyp
       return &TutorialSamples[iEvent].Q2;
     case kM3Mode:
       return &TutorialSamples[iEvent].Mode;
+    case kOscChannel:
+      return GetPointerToOscChannel(iEvent);
     default:
       MACH3LOG_ERROR("Unrecognized Kinematic Parameter type: {}", static_cast<int>(KinPar));
       throw MaCh3Exception(__FILE__, __LINE__);
@@ -365,75 +367,4 @@ void SampleHandlerTutorial::SetupFDMC() {
     MCSamples[iEvent].nupdg = &(TutorialSamples[iEvent].oscnutype);
     if(isATM) MCSamples[iEvent].rw_truecz = &(TutorialSamples[iEvent].TrueCosZenith);
   }
-}
-
-std::vector<double> SampleHandlerTutorial::ReturnKinematicParameterBinning(std::string KinematicParameterStr) {
-  if (IsSubEventVarString(KinematicParameterStr)) return ReturnKinematicVectorBinning(KinematicParameterStr);
-
-  std::vector<double> binningVector;
-  KinematicTypes KinematicParameter = static_cast<KinematicTypes>(ReturnKinematicParameterFromString(KinematicParameterStr));
-
-  int nBins = 0;
-  double bin_width = 0;
-  switch(KinematicParameter){
-    case(kTrueNeutrinoEnergy):
-      nBins = 20;
-      bin_width = 0.5; //GeV
-      break;
-    case(kRecoNeutrinoEnergy):
-      nBins = 20;
-      bin_width = 0.5; //GeV
-      break;
-    case(kTrueQ2):
-      nBins = 10;
-      bin_width = 1.0;
-      break;
-    case(kM3Mode):
-      nBins = Modes->GetNModes();
-      bin_width = 1.0;
-      break;
-  }
-
-  for(int bin_i = 0 ; bin_i < nBins ; bin_i++){
-    binningVector.push_back(bin_i*bin_width);
-  }
-
-  return binningVector;
-}
-std::vector<double> SampleHandlerTutorial::ReturnKinematicVectorBinning(std::string KinematicVectorStr) {
-  std::vector<double> binningVector;
-  KinematicParticleVecs KinematicVector = static_cast<KinematicParticleVecs>(ReturnKinematicVectorFromString(KinematicVectorStr));
-
-  int nBins = 0;
-  double bin_start = 0;
-  double bin_end = 0;
-
-  switch(KinematicVector){
-    case(kParticleEnergy):
-      nBins = 20;
-      bin_start = 0;
-      bin_end = 6;
-      break;
-    case(kParticlePDG):
-      nBins = 100;
-      bin_start = -2000;
-      bin_end = 2000;
-      break;
-    case(kParticleBeamAngle):
-      nBins = 20;
-      bin_start = -M_PI;
-      bin_end = M_PI;
-      break;
-    default:
-      MACH3LOG_ERROR("Binning for {} not found", KinematicVectorStr);
-      throw MaCh3Exception(__FILE__,__LINE__);
-      break;
-  }
-  double step = (bin_end - bin_start)/nBins;
-
-  for(double bin_i = bin_start; bin_i <= bin_end; bin_i+=step){
-    binningVector.push_back(bin_i);
-  }
-
-  return binningVector;
 }

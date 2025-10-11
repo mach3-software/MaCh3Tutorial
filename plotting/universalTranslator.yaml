@@ -98,21 +98,21 @@ FitterSpec:
                 location: 
                 [
                     "param_spline_gaus", 
-                    "param_flux_gaus"
+                    "param_xsec_gaus"
                 ] 
                 
             HPD:
                 location: 
                 [
                     "param_spline_HPD", 
-                    "param_flux_HPD"
+                    "param_xsec_HPD"
                 ]
             
             Prior:
                 location: 
                 [
                     "param_spline_prefit", 
-                    "param_flux_prefit"
+                    "param_xsec_prefit"
                 ]
 
         1dPosteriors:

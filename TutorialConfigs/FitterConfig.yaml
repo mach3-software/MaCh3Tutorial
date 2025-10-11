@@ -1,9 +1,9 @@
 General:
   OutputFile: "Test.root"
-  TutorialSamples: ["TutorialConfigs/Samples/SampleHandler_Tutorial.yaml",
+  TutorialSamples:  ["TutorialConfigs/Samples/SampleHandler_Tutorial.yaml"]
                     #"TutorialConfigs/Samples/SampleHandler_Tutorial_ATM.yaml"
-                    ]
-  FittingAlgorithm: "MCMC"
+                    # ]
+  FittingAlgorithm: "MR2T2"
 
   RealData: false
   Asimov: true
@@ -11,6 +11,7 @@ General:
   FakeData: false
   ProcessMCMC: No
   Debug: No
+  
   RandomStart: false
   Seed: 0
   MaCh3Modes: "TutorialConfigs/MaCh3Modes.yaml"
@@ -37,20 +38,29 @@ General:
     #Burn in for posterior predictive code
     BurnInSteps: 200000
 
-    # Example Delayed Rejection settings [use FittingAlgorithm=DelayedMR2T2]
-    # DecayRate: 0.1  # How much to shrink step size by per/rejection
-    # MaxRejections: 1 # Number times to propose additional steps/full step
-    # InitialScale: 1 # Initial step size scale (relative to parameter sigma) for first proposal
-    # DelayOnlyOutBounds: False # Only do delayed rejection if step is out of bounds (less efficient)
-    # DelayProbability: 1.0 # Probability of doing delayed rejection (less efficient)
-    # KeepFlippingOnReject: True # If a step is rejected, do we want to keep flipping for delayed steps?
 
+    # Example Delayed Rejection settings [use FittingAlgorithm=DelayedMR2T2]
+    PrintSummary: False
+    # Delayed rejection MCMC
+    # Step scale for first delayed step = initial_scale * scale in parameter handler
+    initial_scale: 1 
+    # Each delayed step is previous scale * decay rate
+    DecayRate: 0.1
+    # Delayed only if steps are OOB [recommend False]
+    DelayOnlyOutBounds: False
+    # Only do delayed rejection if step is out of bounds (less efficient)
+    DelayProbability: 1.0
+    # Number times to propose additional steps/full step
+    MaxRejections: 1
+    # Initial step size scale (relative to parameter sigma) for first proposal
+    # InitialScale: 1
+    # If a step is rejected, do we want to keep flipping for delayed steps?
+    # KeepFlippingOnReject: True
   Systematics:
     XsecCovName: "xsec_cov"
     XsecFix: [ "baseline", "density", "Ye", "prod_height" ]
     XsecCovFile: ["TutorialConfigs/CovObjs/SystematicModel.yaml",
-                  "TutorialConfigs/CovObjs/OscillationModel.yaml"
-                  #"TutorialConfigs/CovObjs/PCATest.yaml"
+                  "TutorialConfigs/CovObjs/OscillationModel.yaml",
                   ]
     XsecPCAThreshold: -1
     XsecPCAParams: [-999, -999]
@@ -58,11 +68,16 @@ General:
 
 # Prior/Posterior predictive settings
 Predictive:
-  Ntoy: 10
+  Ntoy: 1000
   #Ntoy: 5000
   #Use Full LLH or only sample contribution based on discussion with Asher we almost always only want the sample likelihood
   FullLLH: false
-  PosteriorFiles: "EMPTY"
+  PriorPredictive: false
+  BurnInSteps: 100
+  PosteriorFile: "PostChain.root"
+  ThrowParamGroupOnly: []
+  ThrowSinlgeParams: []
+  DebugHistograms: true
 
 # LLH Scan settings  
 LLHScan:
@@ -78,6 +93,17 @@ LLHScan:
   ScanRanges:
     #delta_cp: [-3.14,3.14]
 
+SigmaVar:
+  SigmaArray: [-3, -1, 0, 1, 3]
+  SkipVector: []
+
+  CustomRange:
+    Norm_Param_0:
+      "-3": 0.25
+      "-1": 0.5
+      "1": 1.25
+      "3": 1.5
+
 #KinemDistribution extra plots to draw
 KinematicDistributionPlots:
 - Name: "True Neutrino Energy (0.5 GeV < Enu < 3 GeV)"
@@ -89,3 +115,16 @@ KinematicDistributionPlots:
 - Name: "Q2 vs True Enu"
   VarStrings: ["TrueNeutrinoEnergy", "TrueQ2"]
   VarBins: [[50,0,4],[50,0,6]]
+
+AdaptionOptions:
+  Settings:
+    StartThrow: 1000     # [int] At which step do we start throwing from our new matrix?
+    StartUpdate: 1    # [int] At which step do we start adding steps to the covariance matrix?
+    EndUpdate: 10000      # [int] At which step do we stop adding steps + fix the covariance matrix?
+    UpdateStep: 1000     # [int] How often do we want to update i.e. change matrix we're throwing from?
+    SaveNIterations: 10000  # [int] How often do we want to save this to file
+    OutputFileName: "Adapt.root" # [str] Name of the file containing the matrix
+
+  Covariance:
+    xsec_cov: # Name of covariance matrix
+      DoAdaption: False  # [bool] Adapt this parameter

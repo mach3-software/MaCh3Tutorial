@@ -2,23 +2,9 @@
 #include "Utils/Comparison.h"
 #include "Manager/MaCh3Modes.h"
 
-/// Current tests include
-int main(int argc, char *argv[])
-{
-  SetMaCh3LoggerFormat();
 
-  if (argc != 1) {
-    MACH3LOG_CRITICAL("You specified arguments, but none are needed. (Program name: ", argv[0]);
-    throw MaCh3Exception(__FILE__ , __LINE__ );
-  }
-  MACH3LOG_INFO("Testing MaCh3 Mode");
-
-  std::string TutorialPath = std::getenv("MaCh3Tutorial_ROOT");
-  std::string ModeInput = TutorialPath + "/TutorialConfigs/MaCh3Modes.yaml";
-  auto Modes = std::make_unique<MaCh3Modes>(ModeInput);
-
-  std::ofstream outFile("NewMaCh3ModeOut.txt");
-
+/// @brief perform test for mode
+void MaCh3ModeValidation(const std::unique_ptr<MaCh3Modes>& Modes, std::ofstream& outFile) {
   outFile << "Mode from generator for 1  = "  << Modes->GetModeFromGenerator(1) << std::endl;
   outFile << "Mode from generator for 2  = "  << Modes->GetModeFromGenerator(2) << std::endl;
   outFile << "Mode from generator for 10 = "  << Modes->GetModeFromGenerator(10) << std::endl;
@@ -49,6 +35,29 @@ int main(int argc, char *argv[])
   outFile << "IsMaCh3ModeNC for 60 = "   << Modes->IsMaCh3ModeNC(60) << std::endl;
 
   outFile << "GetNModes = " << Modes->GetNModes() << std::endl;
+}
+
+int main(int argc, char *argv[])
+{
+  SetMaCh3LoggerFormat();
+
+  if (argc != 1) {
+    MACH3LOG_CRITICAL("You specified arguments, but none are needed. (Program name: ", argv[0]);
+    throw MaCh3Exception(__FILE__ , __LINE__ );
+  }
+  MACH3LOG_INFO("Testing MaCh3 Mode");
+
+  std::string TutorialPath = std::getenv("MaCh3Tutorial_ROOT");
+  std::string ModeInput = TutorialPath + "/TutorialConfigs/MaCh3Modes.yaml";
+  auto Modes = std::make_unique<MaCh3Modes>(ModeInput);
+
+  std::ofstream outFile("NewMaCh3ModeOut.txt");
+  MaCh3ModeValidation(Modes, outFile);
+
+  // Perform tests using
+  YAML::Node Settings = M3OpenConfig(ModeInput);
+  auto Modes_Alt = std::make_unique<MaCh3Modes>(Settings);
+  MaCh3ModeValidation(Modes_Alt, outFile);
 
   outFile.close();
 

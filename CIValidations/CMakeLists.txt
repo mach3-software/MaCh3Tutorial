@@ -10,7 +10,10 @@ foreach(app
     NuOscillatorInterfaceValidations
     pValueValidations
     SigmaVarValidations
+    SigmaVarFDValidation
     LLHValidation
+    PredictiveValidations
+    BinningValidations
     )
 
     add_executable(${app} ${app}.cpp)
@@ -42,3 +45,5 @@ endif()
 if(MaCh3Tutorial_Benchmark_ENABLED)
   add_subdirectory(Benchmark)
 endif()
+
+add_subdirectory(SplinePlotting)

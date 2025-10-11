@@ -9,10 +9,18 @@ DiagMCMC:
 
 #########################################
 ProcessMCMC:
-  #Select which parameters blocks to reject for example ND and FD detector, look for starting string
-  ExcludedTypes: []
   #Select which parameter names to remove, for example all flux, look for starting string
   ExcludedNames: []
+  #ExcludedNames: ["Norm_"]
+  #Select which parameter to remove based on to whcih group they belong, like Xsec, Flux or Osc
+  ExcludedGroups: []
+  #ExcludedNames: ["Osc"]
+  #Select which parameters blocks to reject for example ND and FD detector, look for starting string
+  # WARNING this is used only for Legacy pramtaers i.e. one which do not use parameterHandlerGeneric
+  ExcludedTypes: []
+  # Allow to decrease number of entries if chain is HUUGE
+  #MaxEntries = 10000
+
   #AdditionalCuts
   Posterior1DCut: ""
   #Posterior1DCut: "delm2_23 > 0"
@@ -98,6 +106,9 @@ ProcessMCMC:
   #Fancy example, not physics motivated but to show functionality
   #PriorReweighting: [ ["MAQE", "Pauli_Blocking_C_nu"], [1.05, 0.1], [ 0.04, 0.5] ]
 
+  # This allows to specify custom bin edges for usual 1D plotting
+  CustomBinEdges:
+    delta_cp: [-3.141592, 3.141592]
 #########################################
 GetPenaltyTerm:
   PenaltySets: ["Norm", "Spline"]
@@ -113,10 +124,12 @@ GetPenaltyTerm:
     - "-logL_{Spline}"
 
 
+#########################################
+PlotSigmaVariation:
+
 
 #########################################
 MatrixPlotter:
-
   Titles: [
     "Norm",
     "Spline",
@@ -127,3 +140,10 @@ MatrixPlotter:
 
   Spline: ["BinnedSplineParam1", "BinnedSplineParam2"
   ]
+
+
+
+#########################################
+SmearChain:
+  Smear: [ ["delm2_23", "delta_cp"], [2.70e-5, 0.01]]
+  SaveUnsmearedBranch: false
