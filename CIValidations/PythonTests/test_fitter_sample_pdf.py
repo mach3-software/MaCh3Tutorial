@@ -1,31 +1,24 @@
 ## MaCh3 imports
 import pyMaCh3
-from pyMaCh3 import sample_pdf
+from pyMaCh3 import samples
 from pyMaCh3 import splines
-from pyMaCh3 import fitter
+from pyMaCh3 import fitters
 from pyMaCh3 import manager
-from pyMaCh3 import covariance
-from pyMaCh3 import fitter
+from pyMaCh3 import parameters
 
 ## ROOT imports
 import ROOT
-from ROOT import TClonesArray, TTree, TFile, AddressOf, TGraph
+from ROOT import TTree, TFile, TGraph
 
 ## Other imports
-import random
 import numpy as np
 import typing
-import sys
 import pytest
+import sys
 
-class test_sample(sample_pdf.SamplePDFBase):
+class test_sample(samples.SampleHandlerBase):
 
-    def __init__(self, xsec_cov: covariance.CovarianceXsec):
-        ## need to call the constructor of the abstract base class of this derived object
-        #super(test_sample, self).__init__(
-        #    mc_version = "", # <- this appears to do nothing so string doesnt matter
-        #    xsec_cov = xsec_cov
-        #)
+    def __init__(self, xsec_cov: parameters.ParameterHandlerBase):
 
         super(test_sample, self).__init__()
 
@@ -39,7 +32,7 @@ class test_sample(sample_pdf.SamplePDFBase):
         self.event_weights: np.array = None ## Keep track of the individual weights of our mc events
         
         #self.set_xsec_cov(xsec_cov)
-        self.xsec_cov: covariance.CovarianceXsec = xsec_cov
+        self.xsec_cov: parameters.ParameterHandlerBase = xsec_cov
 
         self.proposed_param_array = np.asarray(xsec_cov.get_proposal_array())
 
@@ -55,9 +48,6 @@ class test_sample(sample_pdf.SamplePDFBase):
 
         # First reset just in case this has already been run
         self.data_event_rate = 0.0
-
-        # first we get the nominal values of the parameters, which is ultimately read in from the yaml config
-        nominal_param_values = self.xsec_cov.get_nominal_par_values()
         
         # Now we set it in the spline monolith and calculate the event weights
         self.spline_monolith.set_param_value_array(self.proposed_param_array[self.spline_indices])
@@ -74,19 +64,20 @@ class test_sample(sample_pdf.SamplePDFBase):
         spline_file: TFile = TFile(file_name)
         sample_sum: TTree = spline_file.sample_sum
 
+        print(sample_sum.Print())
+
         ## check which parameters are spline parameters
         for i in range(self.xsec_cov.get_n_pars()):
             
-            name: str = self.xsec_cov.get_fancy_par_name(i)
-            type: covariance.SystematicType = self.xsec_cov.get_par_type(i)
+            type: parameters.SystematicType = self.xsec_cov.get_par_type(i)
 
-            if(type == covariance.SystematicType.Spline):
+            if(type == parameters.SystematicType.Spline):
 
                 spline_type: splines.InterpolationType = self.xsec_cov.get_par_spline_type(self.n_splines)
                 spline_name: str = self.xsec_cov.get_par_spline_name(self.n_splines)
 
                 self.spline_names.append(spline_name)
-                self.interp_types.append(type)
+                self.interp_types.append(spline_type)
                 self.spline_indices.append(i)
 
                 self.n_splines += 1
@@ -94,7 +85,7 @@ class test_sample(sample_pdf.SamplePDFBase):
         ## read the splines into the master spline array
         master_splines: typing.List[splines.ResponseFunction] = []
         
-        for index, entry in enumerate(sample_sum):
+        for entry in sample_sum:
 
             entry_resp_fns: splines.ResponseFunction = [] # temporary list to hold response functions for this event
 
@@ -155,6 +146,9 @@ class test_sample(sample_pdf.SamplePDFBase):
         llh = self.get_bin_LLH(self.data_event_rate, mc, w2)
 
         return llh
+    
+    def clean_memory_before_fit(self) -> None:
+        pass
 
     def reweight(self) -> None:
         ''' Perform the event reweighting of our MC events. Currently this just does spline reweightign but normalisation should be added in future '''
@@ -180,30 +174,28 @@ def test_sample_pdf(pytestconfig):
     man.print()
 
     # get the config files
-    xsec_cov_names: typing.List[str] = [i.data() for i in man.raw()["General"]["Systematics"]["XsecCovFile"]]
-    osc_cov_names: typing.List[str] = [i.data() for i in man.raw()["General"]["Systematics"]["OscCovFile"]]
+    cov_names: typing.List[str] = ["CIValidations/PythonTests/SystematicModel_EventByEvent.yaml"]
 
     # make the covariance objects
-    xsec_covariance: covariance.CovarianceXsec = covariance.CovarianceXsec(xsec_cov_names)
-    osc_covariance: covariance.CovarianceOsc = covariance.CovarianceOsc(osc_cov_names)
+    covariance: parameters.ParameterHandlerBase = parameters.ParameterHandlerGeneric(cov_names)
 
-    sample: test_sample = test_sample(xsec_covariance)
+    sample: test_sample = test_sample(covariance)
     print("\nParameter values befores throw: ", sample.proposed_param_array)
     sample.reweight()
     print("Event weights before throw: ", sample.event_weights)
     print("Likelihood before throw: ", sample.get_likelihood())
 
     # propose a random step and see likelihoods at the new step
-    xsec_covariance.propose_step()
+    covariance.propose_step()
     print("\nParameter values after throw: ", sample.proposed_param_array)
     sample.reweight()
     print("Event weights after throw: ", sample.event_weights)
     print("Likelihood after throw: ", sample.get_likelihood())
 
     # build a fitter object
-    mcmc_fitter: fitter.MCMC = fitter.MCMC(man)
-    mcmc_fitter.add_syst_object(xsec_covariance)
-    mcmc_fitter.add_sample_PDF(sample)
+    mcmc_fitter:fitters.MCMC = fitters.mcmc(man)
+    mcmc_fitter.add_syst_object(covariance)
+    mcmc_fitter.add_sample_handler(sample)
 
     # run an LLH scan
     mcmc_fitter.run_LLH_scan()

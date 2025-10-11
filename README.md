@@ -376,6 +376,10 @@ Sigma Var is conceptually similar to LLH scan however here instead of looking ho
 ./bin/SigmaVarTutorial TutorialConfigs/FitterConfig.yaml
 ```
 
+Once it finished you can make plots using
+```bash
+./bin/PlotSigmaVariation SigmaVar_Test.root bin/TutorialDiagConfig.yaml
+```
 ### Plotting with Python
 
 If you have installed the python interface for MaCh3 as described

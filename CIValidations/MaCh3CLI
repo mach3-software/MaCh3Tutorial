@@ -56,6 +56,8 @@ run_fitter_validations() {
   ${MaCh3_ROOT}/bin/PlotMCMCDiag MCMC_Test_MCMC_Diag.root "test_plot_1" MCMC_Test_MCMC_Diag.root "test_plot_2"
   ${MaCh3_ROOT}/bin/SmearChain MCMC_Test.root bin/TutorialDiagConfig.yaml
   ${MaCh3_ROOT}/bin/ProcessMCMC bin/TutorialDiagConfig.yaml MCMC_Test.root Default MCMC_Test_smeared.root Smeared
+  ${MaCh3_ROOT}/bin/ReweightMCMC ${MaCh3Tutorial_ROOT}/TutorialConfigs/ReweightingConfigs/PDG_2023_1D.yaml MCMC_Test.root
+  ${MaCh3_ROOT}/bin/PlotSigmaVariation MCMC_Test.root bin/TutorialDiagConfig.yaml
 }
 
 run_covariance_validations() {
