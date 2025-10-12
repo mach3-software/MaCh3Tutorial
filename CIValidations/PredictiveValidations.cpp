@@ -99,7 +99,7 @@ int main(int argc, char *argv[])
     }
   }
 
-  command = tutorialPath + "/bin/PredictivePlotting PredictiveOutputTest.root PredictiveOutputTest.root";
+  command = tutorialPath + "/bin/PredictivePlotting " + tutorialPath + "/bin/TutorialDiagConfig.yaml PredictiveOutputTest.root PredictiveOutputTest.root";
   ret = system(command.c_str());
   if (ret != 0) {
     MACH3LOG_WARN("Error: system call failed with code {}", ret);
