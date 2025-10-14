@@ -37,8 +37,10 @@ General:
     UseReactorConstraint: No
     #Burn in for posterior predictive code
     BurnInSteps: 200000
-    PrintSummary: False
 
+
+    # Example Delayed Rejection settings [use FittingAlgorithm=DelayedMR2T2]
+    PrintSummary: False
     # Delayed rejection MCMC
     # Step scale for first delayed step = initial_scale * scale in parameter handler
     initial_scale: 1 
@@ -46,10 +48,14 @@ General:
     DecayRate: 0.1
     # Delayed only if steps are OOB [recommend False]
     DelayOnlyOutBounds: False
-    # Probabilty of delaying a step
+    # Only do delayed rejection if step is out of bounds (less efficient)
     DelayProbability: 1.0
-    # Max number of delayed steps
+    # Number times to propose additional steps/full step
     MaxRejections: 1
+    # Initial step size scale (relative to parameter sigma) for first proposal
+    # InitialScale: 1
+    # If a step is rejected, do we want to keep flipping for delayed steps?
+    # KeepFlippingOnReject: True
   Systematics:
     XsecCovName: "xsec_cov"
     XsecFix: [ "baseline", "density", "Ye", "prod_height" ]
