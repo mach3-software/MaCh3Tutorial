@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1760434282803,
+  "lastUpdate": 1760435482320,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -13228,6 +13228,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 405.023,
             "range": "± 3.57292",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "31003009+dbarrow257@users.noreply.github.com",
+            "name": "dbarrow257",
+            "username": "dbarrow257"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "ab59214a2e00a1290cd92b224273c79bba873d23",
+          "message": "Merge pull request #652 from mach3-software/dependabot/github_actions/dot-github/workflows/github/codeql-action-4\n\ntidy: bump github/codeql-action from 3 to 4 in /.github/workflows",
+          "timestamp": "2025-10-14T10:45:46+01:00",
+          "tree_id": "60b18e1decb5f55ecce020f2a34073e1a74cf912",
+          "url": "https://github.com/mach3-software/MaCh3/commit/ab59214a2e00a1290cd92b224273c79bba873d23"
+        },
+        "date": 1760435479341,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 3.23929,
+            "range": "± 62.0812",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 3.16341,
+            "range": "± 75.9866",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 395.877,
+            "range": "± 3.86906",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
