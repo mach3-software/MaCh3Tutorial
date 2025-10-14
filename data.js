@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1760019012104,
+  "lastUpdate": 1760434282803,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -13183,6 +13183,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 406.168,
             "range": "± 5.42165",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "31003009+dbarrow257@users.noreply.github.com",
+            "name": "dbarrow257",
+            "username": "dbarrow257"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "5a0a91c23852bcb91bccf938730e7053c8e7b166",
+          "message": "Merge pull request #643 from mach3-software/feature/kskwarczysnki/predictveplotting\n\nfeat: Predictive Plotting",
+          "timestamp": "2025-10-14T10:25:34+01:00",
+          "tree_id": "cdf900f67441de5a0ed674c6afe929fcd9d60dc8",
+          "url": "https://github.com/mach3-software/MaCh3/commit/5a0a91c23852bcb91bccf938730e7053c8e7b166"
+        },
+        "date": 1760434279869,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 3.17537,
+            "range": "± 294.888",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 3.06213,
+            "range": "± 94.4513",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 405.023,
+            "range": "± 3.57292",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
