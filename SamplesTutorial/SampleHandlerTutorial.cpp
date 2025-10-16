@@ -292,7 +292,7 @@ int SampleHandlerTutorial::SetupExperimentMC() {
       }
       _sampleFile->Close();
       delete _sampleFile;
-      MACH3LOG_INFO("Initialised channel: {}/{}", iChannel, GetNOscChannels(iSample));
+      MACH3LOG_INFO("Initialised channel: {}/{}", iChannel, GetNOscChannels(static_cast<int>(iSample)));
     }
   }
   return nEntries;
