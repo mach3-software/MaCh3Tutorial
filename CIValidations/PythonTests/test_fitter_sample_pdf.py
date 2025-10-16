@@ -147,6 +147,15 @@ class test_sample(samples.SampleHandlerBase):
 
         return llh
     
+    def GetName(self) -> str:
+        return "test_sample"
+
+    def GetSampleTitle(self, iSample: int) -> str:
+        return "test_sample_title"
+
+    def GetNOscChannels(self, iSample: int) -> int:
+        return 1
+
     def clean_memory_before_fit(self) -> None:
         pass
 
