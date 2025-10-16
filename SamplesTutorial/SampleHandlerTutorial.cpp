@@ -232,7 +232,7 @@ int SampleHandlerTutorial::SetupExperimentMC() {
         TutorialSamples[TotalEventCounter].Mode   = Modes->GetModeFromGenerator(std::abs(Mode));
         TutorialSamples[TotalEventCounter].nutype = nutype_;
         TutorialSamples[TotalEventCounter].oscnutype = oscnutype_;
-        TutorialSamples[TotalEventCounter].Sample = iSample;
+        TutorialSamples[TotalEventCounter].Sample = static_cast<int>(iSample);
 
         if (std::abs(PDGLep) == 12 || std::abs(PDGLep) == 14 || std::abs(PDGLep) == 16) {
           TutorialSamples[TotalEventCounter].isNC = true;
@@ -376,7 +376,7 @@ void SampleHandlerTutorial::SetupFDMC() {
     MCSamples[iEvent].isNC = TutorialSamples[iEvent].isNC;
     MCSamples[iEvent].nupdgUnosc = &(TutorialSamples[iEvent].nutype);
     MCSamples[iEvent].nupdg = &(TutorialSamples[iEvent].oscnutype);
-    MCSamples[iEvent].NomSample = TutorialSamples[iEvent].Sample;
+    MCSamples[iEvent].NominalSample = TutorialSamples[iEvent].Sample;
     if(isATM) MCSamples[iEvent].rw_truecz = &(TutorialSamples[iEvent].TrueCosZenith);
   }
 }
