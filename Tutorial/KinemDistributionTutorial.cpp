@@ -100,22 +100,23 @@ int main(int argc, char **argv) {
 
     for (size_t iPDF=0; iPDF < mySamples.size(); iPDF++) {
       MACH3LOG_INFO("Number of samples: {}", mySamples[iPDF]->GetNsamples());
+       for(int iSample = 0; iSample < mySamples[iPDF]->GetNsamples(); iSample++){
+        THStack* Stack = new THStack(*mySamples[iPDF]->ReturnStackedHistBySelection1D(iSample, vecParams[iParam], Selection));
+        TLegend* Legend = new TLegend(*mySamples[iPDF]->ReturnStackHistLegend());
 
-      THStack* Stack = new THStack(*mySamples[iPDF]->ReturnStackedHistBySelection1D(vecParams[iParam], Selection));
-      TLegend* Legend = new TLegend(*mySamples[iPDF]->ReturnStackHistLegend());
+        Canv->cd(1);
+        Stack->Draw("HIST");
+        //Due to crappy TStack design, you need to draw THStack first then assign axis titles
+        Stack->SetTitle(mySamples[iPDF]->GetSampleTitle(iSample).c_str());
+        Stack->GetXaxis()->SetTitle((vecParams[iParam]).c_str());
+        Canv->cd(2);
+        Legend->Draw();
 
-      Canv->cd(1);
-      Stack->Draw("HIST");
-      //Due to crappy TStack design, you need to draw THStack first then assign axis titles
-      Stack->SetTitle(mySamples[iPDF]->GetTitle().c_str());
-      Stack->GetXaxis()->SetTitle((vecParams[iParam]).c_str());
-      Canv->cd(2);
-      Legend->Draw();
-
-      Canv->Update();
-      Canv->Print(OutputName);
-      delete Stack; Stack = nullptr;
-      delete Legend; Legend = nullptr;
+        Canv->Update();
+        Canv->Print(OutputName);
+        delete Stack; Stack = nullptr;
+        delete Legend; Legend = nullptr;
+      }
     }
   }
 
@@ -133,39 +134,41 @@ int main(int argc, char **argv) {
     if (histdim == 2) AxisY = TAxis(PlotsToDraw[iHist].BinEdges[1].size()-1,PlotsToDraw[iHist].BinEdges[1].data());
 
     for (size_t iPDF = 0;iPDF < mySamples.size(); iPDF++) {
-      std::vector<KinematicCut> EventSelectionVector = {};
-      std::vector<KinematicCut> SubEventSelectionVector = {};
+      for(int iSample = 0; iSample < mySamples[iPDF]->GetNsamples(); iSample++){
+        std::vector<KinematicCut> EventSelectionVector = {};
+        std::vector<KinematicCut> SubEventSelectionVector = {};
 
-      for (size_t iCut=0; iCut<PlotsToDraw[iHist].SelectionCuts.size(); iCut++) {
-        KinematicCut Selection;
-        Selection.LowerBound = PlotsToDraw[iHist].SelectionCuts[iCut].LowerBound;
-        Selection.UpperBound = PlotsToDraw[iHist].SelectionCuts[iCut].UpperBound;
+        for (size_t iCut=0; iCut<PlotsToDraw[iHist].SelectionCuts.size(); iCut++) {
+          KinematicCut Selection;
+          Selection.LowerBound = PlotsToDraw[iHist].SelectionCuts[iCut].LowerBound;
+          Selection.UpperBound = PlotsToDraw[iHist].SelectionCuts[iCut].UpperBound;
 
-        if (mySamples[iPDF]->IsSubEventVarString(PlotsToDraw[iHist].SelectionCuts[iCut].ParamToCutOn)) {
-          Selection.ParamToCutOnIt = mySamples[iPDF]->ReturnKinematicVectorFromString(PlotsToDraw[iHist].SelectionCuts[iCut].ParamToCutOn);
-          SubEventSelectionVector.push_back(Selection);
+          if (mySamples[iPDF]->IsSubEventVarString(PlotsToDraw[iHist].SelectionCuts[iCut].ParamToCutOn)) {
+            Selection.ParamToCutOnIt = mySamples[iPDF]->ReturnKinematicVectorFromString(PlotsToDraw[iHist].SelectionCuts[iCut].ParamToCutOn);
+            SubEventSelectionVector.push_back(Selection);
+          }
+          else {
+            Selection.ParamToCutOnIt = mySamples[iPDF]->ReturnKinematicParameterFromString(PlotsToDraw[iHist].SelectionCuts[iCut].ParamToCutOn);
+            EventSelectionVector.push_back(Selection);
+          }
+        }
+
+        if (histdim == 1) {
+          Hist = (TH1*)mySamples[iPDF]->Get1DVarHist(iSample, PlotVar_Str[0], EventSelectionVector, WeightStyle, &AxisX, SubEventSelectionVector);
+          Hist->GetYaxis()->SetTitle("Events");
         }
         else {
-          Selection.ParamToCutOnIt = mySamples[iPDF]->ReturnKinematicParameterFromString(PlotsToDraw[iHist].SelectionCuts[iCut].ParamToCutOn);
-          EventSelectionVector.push_back(Selection);
+          Hist = (TH1*)mySamples[iPDF]->Get2DVarHist(iSample, PlotVar_Str[0], PlotVar_Str[1], EventSelectionVector, WeightStyle, &AxisX, &AxisY, SubEventSelectionVector);
+          Hist->GetYaxis()->SetTitle(PlotVar_Str[1].c_str());
         }
+        Canv->cd(1);
+        Hist->SetTitle(PlotsToDraw[iHist].Name.c_str());
+        Hist->GetXaxis()->SetTitle(PlotVar_Str[0].c_str());
+        Hist->SetStats(false);
+        Hist->Draw("COLZ");
+        Canv->Print(OutputName);
+        delete Hist;
       }
-
-      if (histdim == 1) {
-        Hist = (TH1*)mySamples[iPDF]->Get1DVarHist(PlotVar_Str[0], EventSelectionVector, WeightStyle, &AxisX, SubEventSelectionVector);
-        Hist->GetYaxis()->SetTitle("Events");
-      }
-      else {
-        Hist = (TH1*)mySamples[iPDF]->Get2DVarHist(PlotVar_Str[0], PlotVar_Str[1], EventSelectionVector, WeightStyle, &AxisX, &AxisY, SubEventSelectionVector);
-        Hist->GetYaxis()->SetTitle(PlotVar_Str[1].c_str());
-      }
-      Canv->cd(1);
-      Hist->SetTitle(PlotsToDraw[iHist].Name.c_str());
-      Hist->GetXaxis()->SetTitle(PlotVar_Str[0].c_str());
-      Hist->SetStats(false);
-      Hist->Draw("COLZ");
-      Canv->Print(OutputName);
-      delete Hist;
     }
   }
   Canv->Print(OutputName+"]");

@@ -4,11 +4,10 @@
 #include "Fitters/SampleSummary.h"
 #include "Fitters/MaCh3Factory.h"
 
-class samplePDFSigmaVar : public SampleHandlerTutorial
+class samplePDFSigmaVar : public SampleHandlerBase
 {
   public:
-    samplePDFSigmaVar(std::string mc_version, ParameterHandlerGeneric* xsec_cov)
-    : SampleHandlerTutorial(mc_version, xsec_cov),
+    samplePDFSigmaVar() :
     SampleBlarbTitle({
       "FGD1_numuCC_0pi_0_protons_no_photon",
       "FGD1_numuCC_0pi_N_protons_no_photon",
@@ -51,6 +50,7 @@ class samplePDFSigmaVar : public SampleHandlerTutorial
         PolyHist[iSam] = new TH2Poly();
         PolyHist[iSam]->SetName(SampleBlarbTitle[iSam].c_str());
         PolyHist[iSam]->SetTitle(SampleBlarbTitle[iSam].c_str());
+        PolyHist[iSam]->SetDirectory(nullptr);
         double xmax, xmin, ymax, ymin;
         for(unsigned int iy = 0; iy < BinArray_y.size()-1; iy++)
         {
@@ -79,7 +79,7 @@ class samplePDFSigmaVar : public SampleHandlerTutorial
     } // end constructor
 
     inline M3::int_t GetNsamples() override { return 22; };
-    std::string GetSampleName(int Sample) {return SampleBlarbTitle[Sample];};
+    std::string GetSampleTitle(int Sample) const override {return SampleBlarbTitle[Sample];};
     inline std::string GetKinVarLabel(const int sample, const int Dimension) override {return KinemBlarbTitle[Dimension];}
 
      inline void SetupBinning(const M3::int_t Selection, std::vector<double> &BinningX, std::vector<double> &BinningY) override{
@@ -88,6 +88,11 @@ class samplePDFSigmaVar : public SampleHandlerTutorial
     }
 
     void CleanMemoryBeforeFit() override {};
+    std::string GetName() const override {return "samplePDFSigmaVar";};
+    double GetLikelihood() const override {return 666;};
+    double GetSampleLikelihood(const int iSample) const override {return iSample;};
+    int GetNOscChannels(const int iSample) const override {return iSample;};
+    void Reweight() override {return;};
 
     TH1* GetData(const int Selection) override   {return PolyHist[Selection];}
     TH1* GetPDF(const int Selection) override    {return PolyHist[Selection];}
@@ -114,14 +119,7 @@ int main(int argc, char *argv[])
                                                 };
   auto xsec = std::make_unique<ParameterHandlerGeneric>(xsecCovMatrixFile, "xsec_cov");
 
-  std::string SampleConfig = TutorialPath + "/TutorialConfigs/Samples/SampleHandler_Tutorial.yaml";
-  auto SampleTutorial = std::make_unique<samplePDFSigmaVar>(SampleConfig, xsec.get());
-  TString NameTString = TString(SampleTutorial->GetTitle());
-
-  // Reweight and process prior histogram
-  SampleTutorial->Reweight();
-  TH1D *SampleHistogramPrior = (TH1D*)SampleTutorial->GetMCHist(1)->Clone(NameTString + "_Prior");
-  SampleTutorial->AddData(SampleHistogramPrior);
+  auto SampleTutorial = std::make_unique<samplePDFSigmaVar>();
 
   std::string ManagerInput = TutorialPath + "/TutorialConfigs/FitterConfig.yaml";
   auto FitManager = std::make_unique<manager>(ManagerInput);

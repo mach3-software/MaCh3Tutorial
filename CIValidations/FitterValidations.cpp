@@ -49,11 +49,12 @@ void FitVal(const std::string& Algo, bool MoreTests)
   std::string SampleConfig = {TutorialPath + "/TutorialConfigs/Samples/SampleHandler_Tutorial.yaml"};
   auto Sample = std::make_unique<SampleHandlerTutorial>(SampleConfig, xsec.get());
   Sample->Reweight();
-  std::string name = Sample->GetTitle();
-  TString NameTString = TString(name.c_str());
-  TH1D *SampleHistogramPrior = (TH1D*)Sample->GetMCHist(1)->Clone(NameTString+"_Prior");
-  Sample->AddData(SampleHistogramPrior);
-
+  for(int iSample = 0; iSample < Sample->GetNsamples(); iSample++){
+    std::string name = Sample->GetSampleTitle(iSample);
+    TString NameTString = TString(name.c_str());
+    TH1D *SampleHistogramPrior = (TH1D*)Sample->GetMCHist(iSample, 1)->Clone(NameTString+"_Prior");
+    Sample->AddData(iSample, SampleHistogramPrior);
+  }
   MaCh3Fitter->AddSystObj(xsec.get());
   MaCh3Fitter->AddSampleHandler(Sample.get());
   if(MoreTests)
