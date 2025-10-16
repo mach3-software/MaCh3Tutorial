@@ -212,7 +212,7 @@ int main(int argc, char *argv[])
     MACH3LOG_INFO("Now trying to compare each weight individually");
     for (int iEntry = 0; iEntry < Sample->GetNEvents(); ++iEntry) {
       double weight = Sample->GetEventWeight(iEntry);
-      outFile<< "Sample: "<< Sample->GetSampleHandlerName() << " Event: " << iEntry <<" weight: " << weight << std::endl;
+      outFile<< "Sample: "<< Sample->GetName() << " Event: " << iEntry <<" weight: " << weight << std::endl;
     }
 
     SampleLLHValidation(outFile, configPath, xsec, true);

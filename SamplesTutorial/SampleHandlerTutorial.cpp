@@ -90,7 +90,7 @@ void SampleHandlerTutorial::SetupSplines() {
 // ************************************************
   SplineHandler = nullptr;
 
-  if(ParHandler->GetNumParamsFromSampleName(GetSampleHandlerName(), SystType::kSpline) > 0){
+  if(ParHandler->GetNumParamsFromSampleName(GetName(), SystType::kSpline) > 0){
     SplineHandler = std::make_unique<BinnedSplineTutorial>(ParHandler, Modes.get());
     InitialiseSplineObject();
   } else {

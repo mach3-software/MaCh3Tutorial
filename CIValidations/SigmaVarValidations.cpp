@@ -88,7 +88,7 @@ class samplePDFSigmaVar : public SampleHandlerBase
     }
 
     void CleanMemoryBeforeFit() override {};
-    std::string GetSampleHandlerName() const override {return "samplePDFSigmaVar";};
+    std::string GetName() const override {return "samplePDFSigmaVar";};
     double GetLikelihood() const override {return 666;};
     double GetSampleLikelihood(const int iSample) const override {return iSample;};
     int GetNOscChannels(const int iSample) const override {return iSample;};
