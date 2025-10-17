@@ -63,8 +63,8 @@ TEST_CASE("Benchmark MaCh3") {
     }
   };
 
-  for (size_t i = 0; i < BeamSamples.size(); ++i) {
-    delete BeamSamples[i];
+  for (size_t i = 0; i < NDSamples.size(); ++i) {
+    delete NDSamples[i];
   }
   for (size_t i = 0; i < BeamSamples.size(); ++i) {
     delete BeamSamples[i];
