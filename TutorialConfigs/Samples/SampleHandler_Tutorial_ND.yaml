@@ -1,0 +1,138 @@
+---
+#Global Sample Handler setting
+SampleHandlerName: "ND2137"
+POT: 2.1428e+21
+MaCh3ModeConfig: "TutorialConfigs/MaCh3Modes.yaml"
+
+NuOsc:
+  NuOscConfigFile: "TutorialConfigs/NuOscillator/NuFASTLinear.yaml"
+  EqualBinningPerOscChannel: true
+
+LikelihoodOptions:
+  #False means you calculate W2 histogram only during first reweight, advisable for Barlow-Beeston
+  UpdateW2: true
+  TestStatistic: "Poisson"
+
+BinningFile: "TutorialConfigs/Samples/TutorialBinning.yaml"
+InputFiles:
+  PrepSplineFile: false
+
+#Settings for a single sample
+Samples: ["ND_CC0pi", "ND_CC1pip", "ND_CCPi0", "ND_NC0pi", "ND_NC1pi0"]
+ND_CC0pi:
+  SampleTitle: "ND_CC0pi"
+
+  Binning:
+    XVarStr : "RecoNeutrinoEnergy"
+    XVarBins: [0.,  0.5,  1.,  1.25, 1.5, 1.75, 2., 2.25, 2.5, 2.75, 3., 3.25, 3.5, 3.75, 4., 5., 6., 10.]
+    YVarStr : "TrueQ2"
+    YVarBins: [0.,  0.5,  1.,  1.25, 1.5, 1.75, 2., 5]
+
+  InputFiles:
+    mtupleprefix: "TutorialConfigs/MC/NuWro"
+    mtuplesuffix: "_FlatTree_ND_CC0pi.root"
+    # No Splines
+    splineprefix: "TutorialConfigs/MC/BinnedSplinesTutorialInputs"
+    splinesuffix: "2D.root"
+
+  SubSamples:
+    - Name: "FHC_numu_x_numu"
+      LatexName: "#nu_{#mu} #rightarrow #nu_{#mu}"
+      mtuplefile: ""
+      splinefile: ""
+      nutype: 14
+      oscnutype: 14
+
+ND_CC1pip:
+  SampleTitle: "ND_CC1pip"
+
+  Binning:
+    XVarStr : "RecoNeutrinoEnergy"
+    XVarBins: [0.,  0.5,  1.,  1.25, 1.5, 1.75, 2., 2.25, 2.5, 2.75, 3., 3.25, 3.5, 3.75, 4., 5., 6., 10.]
+    YVarStr : "TrueQ2"
+    YVarBins: [0.,  0.5,  1.,  1.25, 1.5, 1.75, 2., 5]
+
+  InputFiles:
+    mtupleprefix: "TutorialConfigs/MC/NuWro"
+    mtuplesuffix: "_FlatTree_ND_CC1pip.root"
+    # No Splines
+    splineprefix: "TutorialConfigs/MC/BinnedSplinesTutorialInputs"
+    splinesuffix: "2D.root"
+
+  SubSamples:
+    - Name: "FHC_numu_x_numu"
+      LatexName: "#nu_{#mu} #rightarrow #nu_{#mu}"
+      mtuplefile: ""
+      splinefile: ""
+      nutype: 14
+      oscnutype: 14
+
+ND_CCPi0:
+  SampleTitle: "ND_CCPi0"
+
+  Binning:
+    XVarStr : "RecoNeutrinoEnergy"
+    XVarBins: [0.,  0.5,  1.,  1.25, 1.5, 1.75, 2., 2.25, 2.5, 2.75, 3., 3.25, 3.5, 3.75, 4., 5., 6., 10.]
+    YVarStr : "TrueQ2"
+    YVarBins: [0.,  0.5,  1.,  1.25, 1.5, 1.75, 2., 5]
+
+  InputFiles:
+    mtupleprefix: "TutorialConfigs/MC/NuWro"
+    mtuplesuffix: "_FlatTree_ND_CCPi0.root"
+    # No Splines
+    splineprefix: "TutorialConfigs/MC/BinnedSplinesTutorialInputs"
+    splinesuffix: "2D.root"
+
+  SubSamples:
+    - Name: "FHC_numu_x_numu"
+      LatexName: "#nu_{#mu} #rightarrow #nu_{#mu}"
+      mtuplefile: ""
+      splinefile: ""
+      nutype: 14
+      oscnutype: 14
+
+ND_NC0pi:
+  SampleTitle: "ND_NC0pi"
+
+  Binning:
+    XVarStr : "RecoNeutrinoEnergy"
+    XVarBins: [0.,  0.5,  1.,  1.25, 1.5, 1.75, 2., 2.25, 2.5, 2.75, 3., 3.25, 3.5, 3.75, 4.]
+    YVarStr : "TrueQ2"
+    YVarBins: [0.,  0.5,  1.,  1.25, 1.5, 1.75, 2.]
+
+  InputFiles:
+    mtupleprefix: "TutorialConfigs/MC/NuWro"
+    mtuplesuffix: "_FlatTree_ND_NC0pi.root"
+    # No Splines
+    splineprefix: "TutorialConfigs/MC/BinnedSplinesTutorialInputs"
+    splinesuffix: "2D.root"
+
+  SubSamples:
+    - Name: "FHC_numu_x_numu"
+      LatexName: "#nu_{#mu} #rightarrow #nu_{#mu}"
+      mtuplefile: ""
+      splinefile: ""
+      nutype: 14
+      oscnutype: 14
+
+ND_NC1pi0:
+  SampleTitle: "ND_NC1pi0"
+
+  Binning:
+    XVarStr : "RecoNeutrinoEnergy"
+    XVarBins: [0.,  0.5,  1.,  1.25, 1.5, 1.75, 2., 2.25, 2.5, 2.75, 3., 3.25, 3.5, 3.75, 4., 5., 6., 10.]
+
+  InputFiles:
+    mtupleprefix: "TutorialConfigs/MC/NuWro"
+    mtuplesuffix: "_FlatTree_ND_NC1pi0.root"
+    # No Splines
+    splineprefix: "TutorialConfigs/MC/BinnedSplinesTutorialInputs"
+    splinesuffix: "2D.root"
+
+  SubSamples:
+    - Name: "FHC_numu_x_numu"
+      LatexName: "#nu_{#mu} #rightarrow #nu_{#mu}"
+      mtuplefile: ""
+      splinefile: ""
+      nutype: 14
+      oscnutype: 14

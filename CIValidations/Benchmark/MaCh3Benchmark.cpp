@@ -18,6 +18,7 @@ TEST_CASE("Benchmark MaCh3") {
   // Initialise samplePDF
   auto BeamSamples = MaCh3SampleHandlerFactory<SampleHandlerTutorial>({"TutorialConfigs/Samples/SampleHandler_Tutorial.yaml"}, xsec.get());
   auto ATMSamples = MaCh3SampleHandlerFactory<SampleHandlerTutorial>({"TutorialConfigs/Samples/SampleHandler_Tutorial_ATM.yaml"}, xsec.get());
+  auto NDSamples = MaCh3SampleHandlerFactory<SampleHandlerTutorial>({"TutorialConfigs/Samples/SampleHandler_Tutorial_ND.yaml"}, xsec.get());
 
   BENCHMARK("Beam Reweight") {
     for (size_t s = 0; s < Covs.size(); ++s) {
@@ -50,6 +51,21 @@ TEST_CASE("Benchmark MaCh3") {
     }
   };
 
+  BENCHMARK("ND Reweight") {
+    for (size_t s = 0; s < Covs.size(); ++s) {
+      Covs[s]->ProposeStep();
+      Covs[s]->AcceptStep();
+      Covs[s]->GetLikelihood();
+    }
+    for(unsigned int ivs = 0; ivs < NDSamples.size(); ivs++ ) {
+      NDSamples[ivs]->Reweight();
+      NDSamples[ivs]->GetLikelihood();
+    }
+  };
+
+  for (size_t i = 0; i < BeamSamples.size(); ++i) {
+    delete BeamSamples[i];
+  }
   for (size_t i = 0; i < BeamSamples.size(); ++i) {
     delete BeamSamples[i];
   }
