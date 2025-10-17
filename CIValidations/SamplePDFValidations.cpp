@@ -56,9 +56,13 @@ void SampleLLHValidation(std::ostream& outFile, const std::string& OriginalSampl
   Sample->Reweight();
 
   for(int iSample = 0; iSample < Sample->GetNsamples(); iSample++){
-    TH1D* SampleHistogramPrior = static_cast<TH1D*>(Sample->GetMCHist(iSample, 1)->Clone((NameTString + "_Prior").c_str()));
-    Sample->AddData(iSample, SampleHistogramPrior);
-
+    if (Sample->GetNDim(iSample) == 1) {
+      TH1D* SampleHistogramPrior = static_cast<TH1D*>(Sample->GetMCHist(iSample, 1)->Clone((NameTString + "_Prior").c_str()));
+      Sample->AddData(iSample, SampleHistogramPrior);
+    } else {
+      TH2D* SampleHistogramPrior = static_cast<TH2D*>(Sample->GetMCHist(iSample, 2)->Clone((NameTString + "_Prior").c_str()));
+      Sample->AddData(iSample, SampleHistogramPrior);
+    }
     // Set oscillation parameters and reweight for posterior
     std::vector<double> OscParProp = {0.3, 0.5, 0.020, 7.53e-5, 2.494e-3, 0.0, 295, 2.6, 0.5, 15};
     xsec->SetGroupOnlyParameters("Osc", OscParProp);
@@ -86,8 +90,13 @@ void ValidateTestStatistic(std::ostream& outFile, const std::string& OriginalSam
   auto Sample = std::make_unique<SampleHandlerTutorial>(OriginalSample, xsec);
   Sample->Reweight();
   for(int iSample = 0; iSample < Sample->GetNsamples(); iSample++){
-    TH1D* SampleHistogramPrior = static_cast<TH1D*>(Sample->GetMCHist(iSample, 1)->Clone("Blarb_Prior"));
-    Sample->AddData(iSample, SampleHistogramPrior);
+    if (Sample->GetNDim(iSample) == 1) {
+      TH1D* SampleHistogramPrior = static_cast<TH1D*>(Sample->GetMCHist(iSample, 1)->Clone("Blarb_Prior"));
+      Sample->AddData(iSample, SampleHistogramPrior);
+    } else {
+      TH2D* SampleHistogramPrior = static_cast<TH2D*>(Sample->GetMCHist(iSample, 2)->Clone("Blarb_Prior"));
+      Sample->AddData(iSample, SampleHistogramPrior);
+    }
   }
 
   // Define test vectors, feel free to expand it
@@ -149,9 +158,14 @@ void LoadSplineValidation(std::ostream& outFile, const std::string& OriginalSamp
   Sample->Reweight();
 
   for(int iSample = 0; iSample < Sample->GetNsamples(); iSample++){
-    TH1D* SampleHistogramPrior = static_cast<TH1D*>(Sample->GetMCHist(iSample, 1)->Clone((NameTString + "_Prior").c_str()));
-    Sample->AddData(iSample, SampleHistogramPrior);
-
+    TH1* SampleHistogramPrior = nullptr;
+    if (Sample->GetNDim(iSample) == 1) {
+      SampleHistogramPrior = static_cast<TH1D*>(Sample->GetMCHist(iSample, 1)->Clone((NameTString + "_Prior").c_str()));
+      Sample->AddData(iSample, static_cast<TH1D*>(SampleHistogramPrior));
+    } else {
+      SampleHistogramPrior = static_cast<TH2D*>(Sample->GetMCHist(iSample, 2)->Clone((NameTString + "_Prior").c_str()));
+      Sample->AddData(iSample, static_cast<TH2D*>(SampleHistogramPrior));
+    }
     // Set oscillation parameters and reweight for posterior
     std::vector<double> OscParProp = {0.3, 0.5, 0.020, 7.53e-5, 2.494e-3, 0.0, 295, 2.6, 0.5, 15};
     xsec->SetGroupOnlyParameters("Osc", OscParProp);
@@ -180,7 +194,9 @@ int main(int argc, char *argv[])
 
   // Open a file in write mode
   std::ofstream outFile("NewSampleOut.txt");
-  std::vector<std::string> SampleConfig = {"TutorialConfigs/Samples/SampleHandler_Tutorial.yaml", "TutorialConfigs/Samples/SampleHandler_Tutorial_ATM.yaml"};
+  std::vector<std::string> SampleConfig = {"TutorialConfigs/Samples/SampleHandler_Tutorial.yaml",
+                                          "TutorialConfigs/Samples/SampleHandler_Tutorial_ATM.yaml",
+                                          "TutorialConfigs/Samples/SampleHandler_Tutorial_ND.yaml"};
   for (const auto& configPath : SampleConfig) {
     SampleHandlerTutorial *Sample = new SampleHandlerTutorial({configPath}, xsec);
 
@@ -190,9 +206,14 @@ int main(int argc, char *argv[])
 
       // Reweight and process prior histogram
       Sample->Reweight();
-      TH1D *SampleHistogramPrior = (TH1D*)Sample->GetMCHist(iSample, 1)->Clone(NameTString + "_Prior");
-      Sample->AddData(iSample, SampleHistogramPrior);
-
+      TH1* SampleHistogramPrior = nullptr;
+      if (Sample->GetNDim(iSample) == 1) {
+        SampleHistogramPrior = static_cast<TH1D*>(Sample->GetMCHist(iSample, 1)->Clone((NameTString + "_Prior").Data()));
+        Sample->AddData(iSample, static_cast<TH1D*>(SampleHistogramPrior));
+      } else {
+        SampleHistogramPrior = static_cast<TH2D*>(Sample->GetMCHist(iSample, 2)->Clone((NameTString + "_Prior").Data()));
+        Sample->AddData(iSample, static_cast<TH2D*>(SampleHistogramPrior));
+      }
       // Write initial info to file
       outFile << "Info for sample: " << NameTString << std::endl;
       outFile << "Rates Prior: " << SampleHistogramPrior->Integral() << std::endl;
