@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1760435482320,
+  "lastUpdate": 1760690166142,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -13273,6 +13273,51 @@ window.BENCHMARK_DATA = {
             "name": "ATM Reweight",
             "value": 395.877,
             "range": "± 3.86906",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "fa47b106864517250be37da2478dcff78529f22e",
+          "message": "Merge pull request #639 from mach3-software/feature/kskwarczynski/multipleSamplesOneObject\n\nbreaking: Multiple Samples in one object",
+          "timestamp": "2025-10-17T09:30:35+01:00",
+          "tree_id": "fde16d5e213a43f9020da0fc440704a820f3e251",
+          "url": "https://github.com/mach3-software/MaCh3/commit/fa47b106864517250be37da2478dcff78529f22e"
+        },
+        "date": 1760690163501,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 3.15026,
+            "range": "± 90.6965",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 3.0459,
+            "range": "± 62.4602",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 398.004,
+            "range": "± 5.91125",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
