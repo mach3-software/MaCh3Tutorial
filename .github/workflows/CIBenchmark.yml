@@ -27,7 +27,15 @@ jobs:
             SampleName: "TutorialConfigs/Samples/SampleHandler_Tutorial.yaml"
             DoAdaption: false
             NSteps: 10000
-
+            
+          - title: MaCh3_ND_Profile
+            app: MCMCTutorial
+            args: TutorialConfigs/FitterConfig.yaml --override OverideConfig.yaml
+            outpath: /opt/Profiling/
+            SampleName: "TutorialConfigs/Samples/SampleHandler_Tutorial_ND.yaml"
+            DoAdaption: false
+            NSteps: 10000
+            
           - title: MaCh3_ATMFD_Profile
             app: MCMCTutorial
             args: TutorialConfigs/FitterConfig.yaml --override OverideConfig.yaml
