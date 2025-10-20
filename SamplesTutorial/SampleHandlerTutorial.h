@@ -12,7 +12,7 @@ class SampleHandlerTutorial : public SampleHandlerFD
                         const std::shared_ptr<OscillationHandler>& Oscillator_ = nullptr);
   virtual ~SampleHandlerTutorial();
 
-  enum KinematicTypes {kTrueNeutrinoEnergy, kTrueQ2, kM3Mode, kRecoNeutrinoEnergy, kOscChannel};
+  enum KinematicTypes {kTrueNeutrinoEnergy, TrueCosineZenith, kTrueQ2, kTarget, kM3Mode, kRecoNeutrinoEnergy, kOscChannel};
   
   // === JM enum for particle-level parameters ===
   enum KinematicParticleVecs {kParticleEnergy, kParticlePDG, kParticleBeamAngle};
@@ -30,19 +30,19 @@ class SampleHandlerTutorial : public SampleHandlerFD
 
   void CleanMemoryBeforeFit() override;
 
-  double ReturnKinematicParameter(KinematicTypes KinPar, int iEvent);
-  double ReturnKinematicParameter(int KinematicVariable, int iEvent) override;
-  double ReturnKinematicParameter(std::string KinematicParameter, int iEvent) override;
+  double ReturnKinematicParameter(const KinematicTypes KinPar, const int iEvent) const;
+  double ReturnKinematicParameter(const int KinematicVariable, const int iEvent) const override;
+  double ReturnKinematicParameter(const std::string& KinematicParameter, const int iEvent) const override;
   
   // === JM ReturnKinematicVector declarations for particle-level parameters ===
-  std::vector<double> ReturnKinematicVector(KinematicParticleVecs KinVec, int iEvent);
-  std::vector<double> ReturnKinematicVector(int KinematicVector, int iEvent) override;
-  std::vector<double> ReturnKinematicVector(std::string KinematicVector, int iEvent) override;
+  std::vector<double> ReturnKinematicVector(const KinematicParticleVecs KinVec, const int iEvent) const;
+  std::vector<double> ReturnKinematicVector(const int KinematicVector, const int iEvent) const override;
+  std::vector<double> ReturnKinematicVector(const std::string& KinematicVector, const int iEvent) const override;
   // ===========================================================================
 
-  const double* GetPointerToKinematicParameter(KinematicTypes KinPar, int iEvent);
-  const double* GetPointerToKinematicParameter(std::string KinematicParameter, int iEvent) override;
-  const double* GetPointerToKinematicParameter(double KinematicVariable, int iEvent) override;
+  const double* GetPointerToKinematicParameter(const KinematicTypes KinPar, const int iEvent) const;
+  const double* GetPointerToKinematicParameter(const std::string& KinematicParameter, const int iEvent) const override;
+  const double* GetPointerToKinematicParameter(const double KinematicVariable, const int iEvent) const override;
 
   void SetupFDMC() override;
   void CalcWeightFunc(int iEvent) override {return; (void)iEvent;}
@@ -52,6 +52,8 @@ class SampleHandlerTutorial : public SampleHandlerFD
 
   const std::unordered_map<std::string, int> KinematicParametersTutorial = {
     {"TrueNeutrinoEnergy", kTrueNeutrinoEnergy},
+    {"TrueCosineZenith", TrueCosineZenith},
+    {"Target", kTarget},
     {"TrueQ2", kTrueQ2},
     {"Mode", kM3Mode},
     {"RecoNeutrinoEnergy", kRecoNeutrinoEnergy},
@@ -60,6 +62,8 @@ class SampleHandlerTutorial : public SampleHandlerFD
 
   const std::unordered_map<int, std::string> ReversedKinematicParametersTutorial = {
     {kTrueNeutrinoEnergy, "TrueNeutrinoEnergy"},
+    {TrueCosineZenith, "TrueCosineZenith"},
+    {kTarget, "Target"},
     {kTrueQ2, "TrueQ2"},
     {kM3Mode,"Mode"},
     {kRecoNeutrinoEnergy, "RecoNeutrinoEnergy"},

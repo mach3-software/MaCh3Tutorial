@@ -13,7 +13,7 @@ struct TutorialMCInfo {
   /// type of neutrino
   int oscnutype = M3::_BAD_INT_;
   /// target material
-  int Target = M3::_BAD_INT_;
+  double Target = M3::_BAD_INT_;
   /// target material
   int Sample = M3::_BAD_INT_;
   /// interaction mode
