@@ -1,6 +1,50 @@
 // MaCh3 spline includes
 #include "Utils/Comparison.h"
-#include "Samples/SampleStructs.h"
+#include "Samples/BinningHandler.h"
+
+void BinningHandlerValidations(std::ostream& outFile) {
+  auto Binning = std::make_unique<BinningHandler>();
+
+std::string yamlBinning1 = R"(
+XVarStr : "RecoNeutrinoEnergy"
+XVarBins: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1]
+YVarStr : "TrueQ2"
+YVarBins: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1]
+)";
+
+  YAML::Node Binning1 = STRINGtoYAML(yamlBinning1);
+  SampleInfo SingleSample;
+  Binning->SetupSampleBinning(Binning1, SingleSample);
+
+std::string yamlContent = R"(
+XVarStr : "RecoNeutrinoEnergy"
+XVarBins: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1]
+)";
+
+  YAML::Node Binning2 = STRINGtoYAML(yamlContent);
+  Binning->SetupSampleBinning(Binning2, SingleSample);
+
+  std::vector<int> Samples = {0, 1};
+  std::vector<double> XVars = {-1, 0, 0.5, 0.7, 1, 10};
+  std::vector<int> NomXBins = {0, 1, 2, 3};
+  std::vector<int> NomYBins = {0, 1, 2, 3};
+  // Loop over all combinations
+  for (int sample : Samples) {
+    for (double xvar : XVars) {
+      for (int nomXBin : NomXBins) {
+        for (int nomYBin : NomYBins) {
+          const int GlobalBin = Binning->FindGlobalBin(sample, xvar, nomXBin, nomYBin);
+          outFile << "Sample " << sample
+                  << ", XVar: " << xvar
+                  << ", NomXBin: " << nomXBin
+                  << ", NomYBin: " << nomYBin
+                  << ", GlobalBin: " << GlobalBin
+                  << std::endl;
+        }
+      }
+    }
+  }
+}
 
 int main(int argc, char *argv[])
 {
@@ -68,6 +112,8 @@ int main(int argc, char *argv[])
 
     }
   }
+////////////// Additional Validations //////////////
+  BinningHandlerValidations(outFile);
 
 ////////////// The End //////////////
   outFile.close();
