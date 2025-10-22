@@ -67,3 +67,28 @@ if [ -d "${MaCh3Tutorial_ROOT}/lib64" ]; then
 fi
 
 unset SETUPDIR
+
+# Python bindings configuration
+PYTHON_ENABLED=@MaCh3_PYTHON_ENABLED@
+
+if [ "${PYTHON_ENABLED}" = "ON" ] || [ "${PYTHON_ENABLED}" = "TRUE" ] || [ "${PYTHON_ENABLED}" = "1" ]; then
+    # Python bindings are enabled
+    PYMACH3_PATH="@PYMACH3_PATH@"
+    
+    if [ -d "${PYMACH3_PATH}" ]; then
+        if [ -z "${PYTHONPATH}" ]; then
+            export PYTHONPATH="${PYMACH3_PATH}"
+        else
+            # Prepend to existing PYTHONPATH, avoiding duplicates
+            if [[ ":${PYTHONPATH}:" != *":${PYMACH3_PATH}:"* ]]; then
+                export PYTHONPATH="${PYMACH3_PATH}:${PYTHONPATH}"
+            fi
+        fi
+        echo "✓ Added pyMaCh3 to PYTHONPATH: ${PYMACH3_PATH}"
+    else
+        echo "⚠️  Warning: pyMaCh3 directory not found at ${PYMACH3_PATH}"
+        echo "   Python bindings may not have been built successfully"
+    fi
+else
+    echo "Python bindings not enabled in this build"
+fi
