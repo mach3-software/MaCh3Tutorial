@@ -160,6 +160,7 @@ if(MaCh3_PYTHON_ENABLED)
   cmessage(STATUS "PYTHON IS ENABLED!!")
   set(CMAKE_INSTALL_RPATH "$ORIGIN/../lib")
   cmessage(STATUS "CMAKE_INSTALL_RPATH is ${CMAKE_INSTALL_RPATH}")
+  set(PYMACH3_PATH ${CMAKE_BINARY_DIR}/python/pyMaCh3)
   add_subdirectory(python)
 endif()
 
