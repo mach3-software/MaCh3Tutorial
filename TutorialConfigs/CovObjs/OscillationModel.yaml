@@ -127,7 +127,7 @@ Systematics:
     SampleNames: ["Tutorial Beam"]
     Error: 1.0
     FlatPrior: true
-    ParameterBounds: [0, 999]
+    ParameterBounds: [0, 9999]
     ParameterGroup: Osc
     ParameterValues:
       Generated: 295
