@@ -308,9 +308,9 @@ std::string yamlContent = R"(
 AdaptionOptions:
   Settings:
     # When do we start throwing from our adaptive matrix?
-    StartThrow: 10
+    StartThrow: 10000
     # When do we start putting steps into our adaptive covariance?
-    StartUpdate: 0
+    StartUpdate: 100
     # When do we end updating our covariance?
     EndUpdate: 50000
     # How often do we change our matrix throws?
