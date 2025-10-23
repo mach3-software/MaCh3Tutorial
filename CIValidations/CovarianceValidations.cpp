@@ -308,9 +308,9 @@ std::string yamlContent = R"(
 AdaptionOptions:
   Settings:
     # When do we start throwing from our adaptive matrix?
-    StartThrow: 10000
+    StartThrow: 4000
     # When do we start putting steps into our adaptive covariance?
-    StartUpdate: 100
+    StartUpdate: 1000
     # When do we end updating our covariance?
     EndUpdate: 50000
     # How often do we change our matrix throws?
@@ -334,21 +334,25 @@ AdaptionOptions:
   YAML::Node AdaptSetting = STRINGtoYAML(yamlContent);
   std::vector<std::string> AdaptiveCovMatrixFile = {TutorialPath + "/TutorialConfigs/CovObjs/SystematicModel.yaml",
                                                     TutorialPath + "/TutorialConfigs/CovObjs/PCATest.yaml"};
+
+  MACH3LOG_INFO("Creating adaptive covariance handler");
   auto Adapt = std::make_unique<ParameterHandlerGeneric>(AdaptiveCovMatrixFile, "xsec_cov");
   //KS: Let's make Doctor Wallace proud
   Adapt->InitialiseAdaption(AdaptSetting);
+  MACH3LOG_INFO("Adaption initialised");
 
   std::vector<double> ParAdapt = {1.05, 0.90, 1.10, 1.05, 1.05, 1.05, 1.05, 1.05, 0., 0.2, -0.1, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0};
   Adapt->SetParameters(ParAdapt);
   bool increase = true;
   for(int i = 0; i < 50000; ++i ) {
+    
     // Determine the direction of adjustment
     if (i % 20 == 10) { // Switch direction every 10 iterations
       increase = !increase;
     }
     // Adjust parameters
-    for (double& param : ParAdapt) {
-      param += (increase ? 0.01 : -0.01);
+    for (size_t i = 0; i < ParAdapt.size(); i++) {
+      ParAdapt[i] += (increase ? 0.01 : -0.01)*i;
     }
     Adapt->SetParameters(ParAdapt);
     Adapt->UpdateAdaptiveCovariance();
@@ -359,10 +363,12 @@ AdaptionOptions:
     outFile << "Adapt, Param means: " << i << " = " << ParMeans[i] << std::endl;
   }
   TMatrixDSym* Matrix = Adapt->GetAdaptiveHandler()->GetAdaptiveCovariance();
+  double adapt_scale = Adapt->GetAdaptiveHandler()->GetAdaptionScale();
+  outFile << "Adapt scale: " << adapt_scale << std::endl;
   int dim = Matrix->GetNrows();
   for (int i = 0; i < dim; ++i) {
     for (int j = 0; j < dim; ++j) {
-      outFile << "Adapt matrix: " << i << ", " << j << " = " << (*Matrix)(i, j) << std::endl;
+      outFile << "Adapt matrix: " << i << ", " << j << " = " << (*Matrix)(i, j)*adapt_scale << std::endl;
     }
   }
   outFile << "Total Number Of Steps " << Adapt->GetAdaptiveHandler()->GetTotalSteps() << std::endl;
