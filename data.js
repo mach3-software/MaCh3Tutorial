@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1761207190775,
+  "lastUpdate": 1761208544461,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -13578,6 +13578,58 @@ window.BENCHMARK_DATA = {
             "name": "ND Reweight",
             "value": 432.653,
             "range": "± 79.2069",
+            "unit": "us",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "ea01fbcfbec6f62cfd2a4b757f847c0418b50281",
+          "message": "Merge pull request #657 from mach3-software/kskwarczynski/tidy/adaptivesanitizer\n\ntidy: Sanitizer for Adaptive MCMC",
+          "timestamp": "2025-10-23T09:30:05+01:00",
+          "tree_id": "9de9e37b4a595e39842346ff6735c8f20bee5ec5",
+          "url": "https://github.com/mach3-software/MaCh3/commit/ea01fbcfbec6f62cfd2a4b757f847c0418b50281"
+        },
+        "date": 1761208541643,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 3.15371,
+            "range": "± 47.6625",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 3.09021,
+            "range": "± 119.718",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 390.352,
+            "range": "± 4.06427",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ND Reweight",
+            "value": 411.266,
+            "range": "± 44.3135",
             "unit": "us",
             "extra": "100 samples\n1 iterations"
           }
