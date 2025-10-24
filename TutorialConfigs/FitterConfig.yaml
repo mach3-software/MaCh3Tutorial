@@ -127,6 +127,12 @@ AdaptionOptions:
     SaveNIterations: 10000  # [int] How often do we want to save this to file
     OutputFileName: "Adapt.root" # [str] Name of the file containing the matrix
 
+    # Robbins Monroe adaption settings
+    UseRobbinsMonro: False # Do we use this along with adaption 
+    TargetAcceptance: 0.234 # Target acceptance rate
+    TotalRobbinsMonroRestarts: 5 # How many times do we restart the Robbins Monro count
+    AcceptanceRateBatchSize: 5000 # How often do we restart the Robbins Monro count
+
   Covariance:
     xsec_cov: # Name of covariance matrix
       DoAdaption: False  # [bool] Adapt this parameter
