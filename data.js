@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1761677068608,
+  "lastUpdate": 1761681868824,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -13838,6 +13838,58 @@ window.BENCHMARK_DATA = {
             "name": "ND Reweight",
             "value": 402.475,
             "range": "± 58.8065",
+            "unit": "us",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "5215b45fdaebee52dd3632cbaec7b3b38daa46b2",
+          "message": "Merge pull request #668 from mach3-software/bugfix/kskwarczynki/avoid-collapse\n\nbugfix: Avoid collpase in autocorrelation code",
+          "timestamp": "2025-10-28T19:58:52Z",
+          "tree_id": "119d78f812c385efae0ab75bcf38e9adf7bd7638",
+          "url": "https://github.com/mach3-software/MaCh3/commit/5215b45fdaebee52dd3632cbaec7b3b38daa46b2"
+        },
+        "date": 1761681866444,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 3.15914,
+            "range": "± 48.0224",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 3.0847,
+            "range": "± 57.0858",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 392.514,
+            "range": "± 4.58306",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ND Reweight",
+            "value": 393.705,
+            "range": "± 35.951",
             "unit": "us",
             "extra": "100 samples\n1 iterations"
           }
