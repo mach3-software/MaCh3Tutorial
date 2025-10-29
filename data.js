@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1761681868824,
+  "lastUpdate": 1761738305466,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -13890,6 +13890,58 @@ window.BENCHMARK_DATA = {
             "name": "ND Reweight",
             "value": 393.705,
             "range": "± 35.951",
+            "unit": "us",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "b708f652422b7987d1690195a0b8429528cee939",
+          "message": "Merge pull request #671 from mach3-software/patch/hwallace/scaling_adaptive\n\nfeat: Update to store global step scale when using RM adaptive",
+          "timestamp": "2025-10-29T11:39:13Z",
+          "tree_id": "ef1287eb30415930a0a3e3c1b9216122d508d811",
+          "url": "https://github.com/mach3-software/MaCh3/commit/b708f652422b7987d1690195a0b8429528cee939"
+        },
+        "date": 1761738302396,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 3.12712,
+            "range": "± 34.0356",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 3.05586,
+            "range": "± 58.6367",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 395.61,
+            "range": "± 2.8469",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ND Reweight",
+            "value": 400.523,
+            "range": "± 47.2447",
             "unit": "us",
             "extra": "100 samples\n1 iterations"
           }
