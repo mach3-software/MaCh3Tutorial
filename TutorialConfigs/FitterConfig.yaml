@@ -2,7 +2,7 @@ General:
   OutputFile: "Test.root"
   TutorialSamples:  [
                     "TutorialConfigs/Samples/SampleHandler_Tutorial.yaml",
-                    #"TutorialConfigs/Samples/SampleHandler_Tutorial_ATM.yaml"
+                    #"TutorialConfigs/Samples/SampleHandler_Tutorial_ATM.yaml",
                     #"TutorialConfigs/Samples/SampleHandler_Tutorial_ND.yaml"
                       ]
   FittingAlgorithm: "MR2T2"
