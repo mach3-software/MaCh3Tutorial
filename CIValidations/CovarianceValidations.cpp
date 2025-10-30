@@ -160,6 +160,61 @@ void TestPCA(const std::string& label,
   }
 }
 
+void TestAdaptive(std::ostream& outFile, const YAML::Node& AdaptSetting, const std::string& Name) {
+  std::string TutorialPath = std::getenv("MaCh3Tutorial_ROOT");
+  std::vector<std::string> AdaptiveCovMatrixFile = {TutorialPath + "/TutorialConfigs/CovObjs/SystematicModel.yaml",
+                                                    TutorialPath + "/TutorialConfigs/CovObjs/PCATest.yaml"};
+
+  MACH3LOG_INFO("Creating adaptive covariance handler");
+  auto Adapt = std::make_unique<ParameterHandlerGeneric>(AdaptiveCovMatrixFile, "xsec_cov");
+  //KS: Let's make Doctor Wallace proud
+  Adapt->InitialiseAdaption(AdaptSetting);
+  MACH3LOG_INFO("Adaption initialised");
+
+  std::vector<double> ParAdapt = {1.05, 0.90, 1.10, 1.05, 1.05, 1.05, 1.05, 1.05, 0., 0.2, -0.1, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0};
+  Adapt->SetParameters(ParAdapt);
+  bool increase = true;
+  for(int i = 0; i < 50000; ++i ) {
+    // Determine the direction of adjustment
+    if (i % 20 == 10) { // Switch direction every 10 iterations
+      increase = !increase;
+    }
+    // Adjust parameters
+    for (size_t i = 0; i < ParAdapt.size(); i++) {
+      ParAdapt[i] += (increase ? 0.01 : -0.01)*i;
+    }
+    Adapt->SetParameters(ParAdapt);
+    Adapt->UpdateAdaptiveCovariance();
+    Adapt->AcceptStep();
+  }
+  auto ParMeans = Adapt->GetAdaptiveHandler()->GetParameterMeans();
+  for(size_t i = 0; i < ParMeans.size(); i++) {
+    outFile << "Adapt " << Name << ", Param means: " << i << " = " << ParMeans[i] << std::endl;
+  }
+  TMatrixDSym* Matrix = Adapt->GetAdaptiveHandler()->GetAdaptiveCovariance();
+  double adapt_scale = Adapt->GetAdaptiveHandler()->GetAdaptionScale();
+  outFile << "Adapt "<< Name <<" scale: " << adapt_scale << std::endl;
+  int dim = Matrix->GetNrows();
+  for (int i = 0; i < dim; ++i) {
+    for (int j = 0; j < dim; ++j) {
+      outFile << "Adapt "<< Name <<" matrix: " << i << ", " << j << " = " << (*Matrix)(i, j)*adapt_scale << std::endl;
+    }
+  }
+  outFile << "Total Number Of Steps " << Adapt->GetAdaptiveHandler()->GetTotalSteps() << std::endl;
+  outFile << "Total Number Of AMCMC Params " << Adapt->GetAdaptiveHandler()->GetNumParams() << std::endl;
+
+  Adapt->SaveAdaptiveToFile("Wacky.root", "xsec");
+
+  // Now check fixing
+  for (int i = 0; i < Adapt->GetNumParams(); i++) {
+    outFile << "Adapt "<< Name <<" is param " << i  << " fixed=" << Adapt->IsParameterFixed(i) << std::endl;
+  }
+  Adapt->ToggleFixAllParameters();
+  for (int i = 0; i < Adapt->GetNumParams(); i++) {
+    outFile << "Adapt " << Name <<" is param " << i  << " fixed=" << Adapt->IsParameterFixed(i) << std::endl;
+  }
+}
+
 int main(int argc, char *argv[])
 {
   SetMaCh3LoggerFormat();
@@ -332,58 +387,44 @@ AdaptionOptions:
 
   // Convert the string to a YAML node
   YAML::Node AdaptSetting = STRINGtoYAML(yamlContent);
-  std::vector<std::string> AdaptiveCovMatrixFile = {TutorialPath + "/TutorialConfigs/CovObjs/SystematicModel.yaml",
-                                                    TutorialPath + "/TutorialConfigs/CovObjs/PCATest.yaml"};
+  TestAdaptive(outFile, AdaptSetting, "normal");
 
-  MACH3LOG_INFO("Creating adaptive covariance handler");
-  auto Adapt = std::make_unique<ParameterHandlerGeneric>(AdaptiveCovMatrixFile, "xsec_cov");
-  //KS: Let's make Doctor Wallace proud
-  Adapt->InitialiseAdaption(AdaptSetting);
-  MACH3LOG_INFO("Adaption initialised");
+// KS: To lazy to write yaml so let's make string and convert it'
+std::string yamlContent2 = R"(
+AdaptionOptions:
+  Settings:
+    # When do we start throwing from our adaptive matrix?
+    StartThrow: 2000
+    # When do we start putting steps into our adaptive covariance?
+    StartUpdate: 100
+    # When do we end updating our covariance?
+    EndUpdate: 50000
+    # How often do we change our matrix throws?
+    UpdateStep: 100
+    # Where shall we write the adapted matrices to?
+    OutputFileName: "test_adaptive_output.root"
+    # Robbins Monroe adaption settings
+    UseRobbinsMonro: True # Do we use this along with adaption
+    TargetAcceptance: 0.234 # Target acceptance rate
+    TotalRobbinsMonroRestarts: 5 # How many times do we restart the Robbins Monroe count
+    AcceptanceRateBatchSize: 5000 # How often do we restart the Robbins Monroe count
 
-  std::vector<double> ParAdapt = {1.05, 0.90, 1.10, 1.05, 1.05, 1.05, 1.05, 1.05, 0., 0.2, -0.1, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0};
-  Adapt->SetParameters(ParAdapt);
-  bool increase = true;
-  for(int i = 0; i < 50000; ++i ) {
-    
-    // Determine the direction of adjustment
-    if (i % 20 == 10) { // Switch direction every 10 iterations
-      increase = !increase;
-    }
-    // Adjust parameters
-    for (size_t i = 0; i < ParAdapt.size(); i++) {
-      ParAdapt[i] += (increase ? 0.01 : -0.01)*i;
-    }
-    Adapt->SetParameters(ParAdapt);
-    Adapt->UpdateAdaptiveCovariance();
-    Adapt->AcceptStep();
-  }
-  auto ParMeans = Adapt->GetAdaptiveHandler()->GetParameterMeans();
-  for(size_t i = 0; i < ParMeans.size(); i++) {
-    outFile << "Adapt, Param means: " << i << " = " << ParMeans[i] << std::endl;
-  }
-  TMatrixDSym* Matrix = Adapt->GetAdaptiveHandler()->GetAdaptiveCovariance();
-  double adapt_scale = Adapt->GetAdaptiveHandler()->GetAdaptionScale();
-  outFile << "Adapt scale: " << adapt_scale << std::endl;
-  int dim = Matrix->GetNrows();
-  for (int i = 0; i < dim; ++i) {
-    for (int j = 0; j < dim; ++j) {
-      outFile << "Adapt matrix: " << i << ", " << j << " = " << (*Matrix)(i, j)*adapt_scale << std::endl;
-    }
-  }
-  outFile << "Total Number Of Steps " << Adapt->GetAdaptiveHandler()->GetTotalSteps() << std::endl;
-  outFile << "Total Number Of AMCMC Params " << Adapt->GetAdaptiveHandler()->GetNumParams() << std::endl;
+  Covariance:
+    # So now we list individual matrices, let's just do xsec
+    xsec_cov:
+      # Do we want to adapt this matrix?
+      DoAdaption: true
+      MatrixBlocks: [[]]
+      # External Settings
+      UseExternalMatrix: false
+      ExternalMatrixFileName: ""
+      ExternalMatrixName: ""
+      ExternalMeansName: ""
+)";
 
-  Adapt->SaveAdaptiveToFile("Wacky.root", "xsec");
-
-  // Now check fixing
-  for (int i = 0; i < Adapt->GetNumParams(); i++) {
-    outFile << "Adapt is param " << i  << " fixed=" << Adapt->IsParameterFixed(i) << std::endl;
-  }
-  Adapt->ToggleFixAllParameters();
-  for (int i = 0; i < Adapt->GetNumParams(); i++) {
-    outFile << "Adapt is param " << i  << " fixed=" << Adapt->IsParameterFixed(i) << std::endl;
-  }
+  // Convert the string to a YAML node
+  YAML::Node AdaptSetting2 = STRINGtoYAML(yamlContent);
+  TestAdaptive(outFile, AdaptSetting2, "Robins-Monroe");
 
 ////////////// Now Tune //////////////
   TuneValidations(outFile);
