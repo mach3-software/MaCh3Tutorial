@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1761738305466,
+  "lastUpdate": 1761822624297,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -13942,6 +13942,58 @@ window.BENCHMARK_DATA = {
             "name": "ND Reweight",
             "value": 400.523,
             "range": "± 47.2447",
+            "unit": "us",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "16cd05eb9bd7532f1f8e5af016c50622b24b34b0",
+          "message": "Merge pull request #674 from mach3-software/patch/hwallace/save_correct_matrix\n\nbugfix: Save scaled adaptive matrix",
+          "timestamp": "2025-10-30T11:04:33Z",
+          "tree_id": "e50691e747493ab9b9b86e4bb75b8016137b3c50",
+          "url": "https://github.com/mach3-software/MaCh3/commit/16cd05eb9bd7532f1f8e5af016c50622b24b34b0"
+        },
+        "date": 1761822621399,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 3.30625,
+            "range": "± 562.976",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 3.09831,
+            "range": "± 69.0292",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 394.274,
+            "range": "± 3.14479",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ND Reweight",
+            "value": 398.257,
+            "range": "± 65.2223",
             "unit": "us",
             "extra": "100 samples\n1 iterations"
           }
