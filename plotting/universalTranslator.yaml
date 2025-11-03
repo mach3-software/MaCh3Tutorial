@@ -67,10 +67,9 @@ FitterSpec:
             ## we specify the locations in the same way as above, the only difference is that now there is an additional
             ## token, {SAMPLE}, which will be expanded to the fitter specific sample name when the code 
             ## is looking for LLH scans for a particular sample
-            location: 
-            [
-                "NOT CURRENTLY IMPLEMENTED IN TUTORIAL!!",
-            ]
+            location: [
+                "{SAMPLE}_LLH:{PARAMETER}{SAMPLE}",
+                ]
 
 
 
@@ -127,13 +126,15 @@ FitterSpec:
 
 ## Now we define what samples are available for this particular experiment
 Samples:
-
     ## Here we define the master list of all the available samples
     Samples: 
     [
-        "SAMPLE_1",
-        "SAMPLE_2",
-        "SAMPLE_3",
+        "Tutorial",
+        "ND_CC0pi",
+        "ND_CC1pip",
+        "ND_CCPi0",
+        "ND_NC0pi",
+        "ND_NC1pi0",
     ]
 
     SAMPLE_1: 
