@@ -71,6 +71,8 @@ run_covariance_validations() {
     ./CIValidations/UnitTests/histogram_tests
     ./CIValidations/UnitTests/statistical_tests
   fi
+  ${MaCh3Tutorial_ROOT}/bin/LLHScanTutorial TutorialConfigs/FitterConfig.yaml
+  ${MaCh3Tutorial_ROOT}/bin/PlotLLH LLH_Test.root -s -g -l "blarb.root"
 }
 
 run_nu_mcmc_tools_validations() {

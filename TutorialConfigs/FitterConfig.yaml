@@ -86,7 +86,7 @@ LLHScan:
   # don't make LLH for certain systematic groups
   #LLHScanSkipVector: []
   # Save individual sample contributions to the LLH
-  LLHScanBySample: false
+  LLHScanBySample: true
   # Number of points we run LLH scans for each systematic
   #LLHScanPoints: 50
   # Number of points for 2D scan in each direction

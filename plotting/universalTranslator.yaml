@@ -41,10 +41,7 @@ FitterSpec:
             ## - likelihood_scans/Penalty_LLH/BLEEE_param2_pen
             ## - likelihood_scans/Penalty_LLH/BLOOO_param3_pen
             ## then the following path would correctly find the scans
-            location: 
-            [
-                "xsec_LLH:{PARAMETER}_xsec",
-            ]
+            location: ["xsec_LLH:{PARAMETER}_xsec",]
             
         total_LLH:
             ## Fitters may split parameters across multiple different directories
@@ -67,10 +64,9 @@ FitterSpec:
             ## we specify the locations in the same way as above, the only difference is that now there is an additional
             ## token, {SAMPLE}, which will be expanded to the fitter specific sample name when the code 
             ## is looking for LLH scans for a particular sample
-            location: 
-            [
-                "NOT CURRENTLY IMPLEMENTED IN TUTORIAL!!",
-            ]
+            location: [
+                "{SAMPLE}_LLH:{PARAMETER}{SAMPLE}",
+                ]
 
 
 
@@ -95,30 +91,23 @@ FitterSpec:
             Gauss:
                 ## EM: specify possible locations and then scan through all of them when reading the input
                 ##     code will look through the TH1D at each location and check it for the parameter it is looking for
-                location: 
-                [
-                    "param_spline_gaus", 
-                    "param_xsec_gaus"
-                ] 
+                location: ["param_spline_gaus",
+                           "param_xsec_gaus"
+                          ]
                 
             HPD:
-                location: 
-                [
-                    "param_spline_HPD", 
-                    "param_xsec_HPD"
-                ]
+                location: ["param_spline_HPD",
+                           "param_xsec_HPD"
+                           ]
             
             Prior:
-                location: 
-                [
-                    "param_spline_prefit", 
-                    "param_xsec_prefit"
-                ]
+                location: ["param_spline_prefit",
+                           "param_xsec_prefit"
+                          ]
 
         1dPosteriors:
-            location: [
-                "Post_1d_hists:{PARAMETER}",
-            ]
+            location: ["Post_1d_hists:{PARAMETER}",
+                      ]
 
         MCMCsteps:
             location: [
@@ -127,14 +116,14 @@ FitterSpec:
 
 ## Now we define what samples are available for this particular experiment
 Samples:
-
     ## Here we define the master list of all the available samples
-    Samples: 
-    [
-        "SAMPLE_1",
-        "SAMPLE_2",
-        "SAMPLE_3",
-    ]
+    Samples: ["Tutorial",
+              "ND_CC0pi",
+              "ND_CC1pip",
+              "ND_CCPi0",
+              "ND_NC0pi",
+              "ND_NC1pi0",
+             ]
 
     SAMPLE_1: 
         FITTER_1:
@@ -156,8 +145,7 @@ Samples:
 Parameters:
 
     ## First set out the master list of parameters
-    Parameters: 
-    [  
+    Parameters: [
         "Norm_Param_0",
         "Norm_Param_1",
         "Norm_Param_2",
