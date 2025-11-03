@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1762163867996,
+  "lastUpdate": 1762169717766,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -14202,6 +14202,58 @@ window.BENCHMARK_DATA = {
             "name": "ND Reweight",
             "value": 395.075,
             "range": "± 45.2939",
+            "unit": "us",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "9409b6246865f7cedc822c34243bff106725a7a0",
+          "message": "Merge pull request #677 from mach3-software/kskwarczynski/tidy/contirubting\n\ntidy: Tag info to contributing",
+          "timestamp": "2025-11-03T11:29:34Z",
+          "tree_id": "c824fae3473ba4d7cb8df6209a058f32fd482b71",
+          "url": "https://github.com/mach3-software/MaCh3/commit/9409b6246865f7cedc822c34243bff106725a7a0"
+        },
+        "date": 1762169715458,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.96765,
+            "range": "± 61.5316",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 4.17404,
+            "range": "± 3.48916",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 396.314,
+            "range": "± 3.2383",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ND Reweight",
+            "value": 396.28,
+            "range": "± 89.2241",
             "unit": "us",
             "extra": "100 samples\n1 iterations"
           }
