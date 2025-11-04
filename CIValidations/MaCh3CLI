@@ -73,6 +73,7 @@ run_covariance_validations() {
   fi
   ${MaCh3Tutorial_ROOT}/bin/LLHScanTutorial TutorialConfigs/FitterConfig.yaml
   ${MaCh3Tutorial_ROOT}/bin/PlotLLH LLH_Test.root -s -g -l "blarb.root"
+  ${MaCh3Tutorial_ROOT}/bin/PlotLLH LLH_Test.root LLH_Test.root -s -g -r
 }
 
 run_nu_mcmc_tools_validations() {
