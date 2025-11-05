@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1762339705189,
+  "lastUpdate": 1762340480637,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -14410,6 +14410,58 @@ window.BENCHMARK_DATA = {
             "name": "ND Reweight",
             "value": 330.27,
             "range": "± 42.1432",
+            "unit": "us",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "4ea33db8b7b4f54d4ea1e35030e7d4281d56ef9e",
+          "message": "Merge pull request #683 from mach3-software/bugfix/kskwarczynski/plotting\n\nbugfix: Bring back ice cream to plotting",
+          "timestamp": "2025-11-05T10:55:22Z",
+          "tree_id": "2fd44730053c5be4f5a865f7c82f57a2c7d67651",
+          "url": "https://github.com/mach3-software/MaCh3/commit/4ea33db8b7b4f54d4ea1e35030e7d4281d56ef9e"
+        },
+        "date": 1762340477628,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.63383,
+            "range": "± 103.101",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.54306,
+            "range": "± 82.9521",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 389.504,
+            "range": "± 5.77534",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ND Reweight",
+            "value": 321.704,
+            "range": "± 35.05",
             "unit": "us",
             "extra": "100 samples\n1 iterations"
           }
