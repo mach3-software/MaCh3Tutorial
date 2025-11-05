@@ -24,7 +24,7 @@ class SampleHandlerTutorial : public SampleHandlerFD
   ///@brief Setup our spline file, this calls InitialseSplineObject() under the hood
   void SetupSplines() override;
 
-  void SetupWeightPointers() override;
+  void AddAdditionalWeightPointers() override;
 
   int SetupExperimentMC() override;
 
