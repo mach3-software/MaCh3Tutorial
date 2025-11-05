@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1762269476889,
+  "lastUpdate": 1762339705189,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -14358,6 +14358,58 @@ window.BENCHMARK_DATA = {
             "name": "ND Reweight",
             "value": 410.32,
             "range": "± 50.876",
+            "unit": "us",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "1c3d055fc3ca328bf0c16dc45cdb2cdd0166df1b",
+          "message": "Merge pull request #663 from mach3-software/kskwarczynski/breaking/WeightPointers\n\nbreaking: Setup Weight Pointers in Core",
+          "timestamp": "2025-11-05T10:42:40Z",
+          "tree_id": "e78013761f65ab75d87ee09c6c003bf1b5d656b1",
+          "url": "https://github.com/mach3-software/MaCh3/commit/1c3d055fc3ca328bf0c16dc45cdb2cdd0166df1b"
+        },
+        "date": 1762339702672,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.65953,
+            "range": "± 96.6444",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.56514,
+            "range": "± 58.1142",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 395.519,
+            "range": "± 6.182",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ND Reweight",
+            "value": 330.27,
+            "range": "± 42.1432",
             "unit": "us",
             "extra": "100 samples\n1 iterations"
           }
