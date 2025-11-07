@@ -86,7 +86,7 @@ LLHScan:
   # don't make LLH for certain systematic groups
   #LLHScanSkipVector: []
   # Save individual sample contributions to the LLH
-  LLHScanBySample: false
+  LLHScanBySample: true
   # Number of points we run LLH scans for each systematic
   #LLHScanPoints: 50
   # Number of points for 2D scan in each direction
@@ -130,8 +130,8 @@ AdaptionOptions:
     # Robbins Monroe adaption settings
     UseRobbinsMonro: False # Do we use this along with adaption 
     TargetAcceptance: 0.234 # Target acceptance rate
-    TotalRobbinsMonroRestarts: 5 # How many times do we restart the Robbins Monro count
-    AcceptanceRateBatchSize: 5000 # How often do we restart the Robbins Monro count
+    TotalRobbinsMonroRestarts: 5 # How many times do we restart the Robbins Monroe count
+    AcceptanceRateBatchSize: 5000 # How often do we restart the Robbins Monroe count
 
   Covariance:
     xsec_cov: # Name of covariance matrix
