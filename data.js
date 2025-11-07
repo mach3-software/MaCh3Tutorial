@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1762542187171,
+  "lastUpdate": 1762544562165,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -14514,6 +14514,58 @@ window.BENCHMARK_DATA = {
             "name": "ND Reweight",
             "value": 341.544,
             "range": "± 51.0566",
+            "unit": "us",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "1b5c56a3ca6dcda8215366a87ce4cbc2c3a7fe99",
+          "message": "Merge pull request #685 from mach3-software/kskwarczynski/feature/ViolinFor3plots\n\nfeat: Violin plots with 3 plots",
+          "timestamp": "2025-11-07T19:37:04Z",
+          "tree_id": "219dbaa95d7028461bf4b5ce441eb3c042a352fe",
+          "url": "https://github.com/mach3-software/MaCh3/commit/1b5c56a3ca6dcda8215366a87ce4cbc2c3a7fe99"
+        },
+        "date": 1762544559487,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.63783,
+            "range": "± 106.768",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.56028,
+            "range": "± 108.429",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 391.276,
+            "range": "± 6.30985",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ND Reweight",
+            "value": 333.88,
+            "range": "± 62.9709",
             "unit": "us",
             "extra": "100 samples\n1 iterations"
           }
