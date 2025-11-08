@@ -99,13 +99,9 @@ void SampleHandlerTutorial::SetupSplines() {
 }
 
 // ************************************************
-void SampleHandlerTutorial::SetupWeightPointers() {
+void SampleHandlerTutorial::AddAdditionalWeightPointers() {
 // ************************************************
-  for (unsigned int j = 0; j < GetNEvents(); ++j) {
-    MCSamples[j].total_weight_pointers.resize(2);
-    MCSamples[j].total_weight_pointers[0] = MCSamples[j].osc_w_pointer;
-    MCSamples[j].total_weight_pointers[1] = &(MCSamples[j].xsec_w);
-  }
+
 }
 
 void SampleHandlerTutorial::CleanMemoryBeforeFit() {

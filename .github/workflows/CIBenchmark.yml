@@ -109,6 +109,7 @@ jobs:
           git clone https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/mach3-software/MaCh3Tutorial.git Plot
           cd Plot
           git checkout gh-benchmarks
+          git pull origin gh-benchmarks  # Pull any changes from the remote branch
           mv ${{ matrix.outpath }}/${{ matrix.title }}.pdf .
 
           git config --global user.email "github-actions@github.com"
