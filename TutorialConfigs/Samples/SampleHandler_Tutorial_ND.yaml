@@ -130,7 +130,7 @@ ND_NC1pi0:
     splinesuffix: "2D.root"
 
   SubSamples:
-    - Name: "FHC_numu_x_numu"
+    - Name: "numu_x_numu"
       LatexName: "#nu_{#mu} #rightarrow #nu_{#mu}"
       mtuplefile: ""
       splinefile: ""

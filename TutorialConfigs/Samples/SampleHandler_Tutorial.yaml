@@ -30,18 +30,45 @@ Tutorial:
     XVarBins: [0.,  0.5,  1.,  1.25, 1.5, 1.75, 2., 2.25, 2.5, 2.75, 3., 3.25, 3.5, 3.75, 4., 5., 6., 10.]
 
   InputFiles:
-    mtupleprefix: "TutorialConfigs/MC/NuWro"
-    mtuplesuffix: "_FlatTree.root"
-    # No Splines
+    mtupleprefix: "TutorialConfigs/MC/NuWro_"
+    mtuplesuffix: "_FlatTree_Beam.root"
     splineprefix: "TutorialConfigs/MC/BinnedSplinesTutorialInputs"
     splinesuffix: "2D.root"
 
   SubSamples:
-    - Name: "FHC_numu_x_numu"
+    - Name: "numu-x-numu"
       LatexName: "#nu_{#mu} #rightarrow #nu_{#mu}"
-      mtuplefile: ""
+      mtuplefile: "numu_x_numu"
       splinefile: ""
       nutype: 14
       oscnutype: 14
-
-
+    - Name: "nue-x-nue"
+      LatexName: "#nu_{e} #rightarrow #nu_{e}"
+      mtuplefile: "nue_x_nue"
+      splinefile: ""
+      nutype: 12
+      oscnutype: 12
+    - Name: "numubar-x-numubar"
+      LatexName: "#bar{#nu}_{#mu} #rightarrow #bar{#nu}_{#mu}"
+      mtuplefile: "numubar_x_numubar"
+      splinefile: ""
+      nutype: -14
+      oscnutype: -14
+    - Name: "nuebar-x-nuebar"
+      LatexName: "#bar{#nu}_{e} #rightarrow #bar{#nu}_{e}"
+      mtuplefile: "nuebar_x_nuebar"
+      splinefile: ""
+      nutype: -12
+      oscnutype: -12
+    - Name: "numu-x-nue"
+      LatexName: "#nu_{#mu} #rightarrow #nu_{e}"
+      mtuplefile: "numu_x_nue"
+      splinefile: ""
+      nutype: 14
+      oscnutype: 12
+    - Name: "numubar-x-nuebar"
+      LatexName: "#bar{#nu}_{#mu} #rightarrow #bar{#nu}_{e}"
+      mtuplefile: "numubar_x_nuebar"
+      splinefile: ""
+      nutype: -14
+      oscnutype: -12
