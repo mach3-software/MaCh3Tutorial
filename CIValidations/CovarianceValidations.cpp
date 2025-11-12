@@ -209,6 +209,13 @@ void TestAdaptive(std::ostream& outFile, const YAML::Node& AdaptSetting, const s
   for (int i = 0; i < Adapt->GetNumParams(); i++) {
     outFile << "Adapt "<< Name <<" is param " << i  << " fixed=" << Adapt->IsParameterFixed(i) << std::endl;
   }
+  // KS: This is hack to prevent getting error for fixing parameter out of bounds
+  for (int i = 0; i < Adapt->GetNumParams(); i++) {
+    auto Value = Adapt->GetParCurr(i);
+    if(Value > Adapt->GetUpperBound(i) || Value < Adapt->GetLowerBound(i)) {
+      Adapt->SetParCurrProp(i, Adapt->GetParInit(i));
+    }
+  }
   Adapt->ToggleFixAllParameters();
   for (int i = 0; i < Adapt->GetNumParams(); i++) {
     outFile << "Adapt " << Name <<" is param " << i  << " fixed=" << Adapt->IsParameterFixed(i) << std::endl;
