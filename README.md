@@ -215,7 +215,7 @@ General:
 ```
 
 <details>
-<summary>## Samples using same config</summary>
+<summary>**Samples using same config**</summary>
 Above explained adding new samples via separate configs (resulting in creation of new object). However it may be simpler to add new sample using same config. You can find example of such config here: `TutorialConfigs/Samples/SampleHandler_Tutorial_ND.yaml`.
 
 With general scheme being:
