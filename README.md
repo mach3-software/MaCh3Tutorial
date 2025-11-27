@@ -214,6 +214,25 @@ General:
   TutorialSamples: ["TutorialConfigs/Samples/SampleHandler_Tutorial.yaml", "TutorialConfigs/Samples/SampleHandler_User.yaml"]
 ```
 
+<details>
+  <summary>Samples using same config</summary>
+  Above explained adding new samples via separate configs (resulting in creation of new object). However it may be simpler to add new sample using same config. You can find example of such config here: `TutorialConfigs/Samples/SampleHandler_Tutorial_ND.yaml`.
+
+  With general scheme being:
+```yaml
+General Settings like MaCh3 mode, NuOscillator
+
+Samples: ["Sample_1", "Sample_2"]
+
+Sample_1:
+  Settings for Sample 1 like binning, osc channels cutc etc
+
+Sample_2:
+  Settings for Sample 2 like binning, osc channels cutc etc
+```
+  Such approach may be more beneficial performance wise but especially if you are sharing common MC and detector it can be more appealing to store it within single C++ object.
+</details>
+
 ### Changing Oscillation Engine
 MaCh3 has access to many oscillation engines via NuOscillator framework. First you can check features using following command
 ```bash
