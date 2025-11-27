@@ -27,7 +27,6 @@ MaCh3 is predominantly C++ software although some functionality are available th
 7. [How to Plot?](#how-to-plot)
     1. [How to run LLH scan](#how-to-run-llh-scan)
     2. [How to run Sigma Variation](#how-to-run-sigma-variation)
-    3. [Plotting with Python](#plotting-with-python)
 
 ## How to Start?
 To compile simply
@@ -215,7 +214,7 @@ General:
 ```
 
 <details>
-<summary><strong>Samples using same config</strong></summary>
+<summary><strong>(Detailed) Samples using same config</strong></summary>
 Above explained adding new samples via separate configs (resulting in creation of new object). However it may be simpler to add new sample using same config. You can find example of such config here: `TutorialConfigs/Samples/SampleHandler_Tutorial_ND.yaml`.
 
 With general scheme being:
@@ -399,7 +398,9 @@ Once it finished you can make plots using
 ```bash
 ./bin/PlotSigmaVariation SigmaVar_Test.root bin/TutorialDiagConfig.yaml
 ```
-### Plotting with Python
+
+<details>
+<summary><strong>(Detailed) Plotting with Python</strong></summary>
 
 If you have installed the python interface for MaCh3 as described
 [here](https://github.com/mach3-software/MaCh3?tab=readme-ov-file#python)
@@ -447,6 +448,7 @@ which will give you some plots that look something like
 
 <img width="350" alt="LLH scan example" src="https://github.com/user-attachments/assets/f16ad571-68da-42e3-ae6b-e984d03a58c3">
 
+</details>
 
 ## Issues
 If you encountered any issues or find something confusing please contact us:
