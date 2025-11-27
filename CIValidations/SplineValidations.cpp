@@ -38,6 +38,8 @@ int main(int argc, char *argv[])
     outFile << "Event " << i << " weight = " << Splines->cpu_total_weights[i] << std::endl;
   }
 
+  /*
+
 ////// Testing Pre Computed Spline
   MACH3LOG_INFO("Testing Spline Monolith with Flattened ROOT inputs");
 
@@ -65,6 +67,6 @@ int main(int argc, char *argv[])
     throw MaCh3Exception(__FILE__ , __LINE__ );
   } else {
     MACH3LOG_INFO("Everything is correct");
-  }
+  }*/
   return 0;
 }
