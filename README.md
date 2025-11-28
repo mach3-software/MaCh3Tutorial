@@ -13,7 +13,7 @@ MaCh3 is predominantly C++ software although some functionality are available th
 1. [How to Start?](#how-to-start)
 2. [How to Run MCMC](#how-to-run-mcmc)
     1. [MCMC Chain](#mcmc-chain)
-      1. [Correlation Matrix Plotting](#correlation-matrix-plotting)
+        1. [Correlation Matrix Plotting](#correlation-matrix-plotting)
 3. [Posterior Predictive Analysis](#posterior-predictive-analysis)
     1. [Plotting Posterior Predictive Distributions](#plotting-posterior-predictive-distributions)
     2. [Prior Predictive Distributions](#prior-predictive-distributions)
