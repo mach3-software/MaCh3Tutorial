@@ -13,18 +13,20 @@ MaCh3 is predominantly C++ software although some functionality are available th
 1. [How to Start?](#how-to-start)
 2. [How to Run MCMC](#how-to-run-mcmc)
     1. [MCMC Chain](#mcmc-chain)
-3. [How to Develop Model of Systematic Uncertainties](#how-to-develop-model-of-systematic-uncertainties)
+      1. [Correlation Matrix Plotting](#correlation-matrix-plotting)
+3. [Posterior Predictive Analysis](#posterior-predictive-analysis)
+4. [How to Develop Model of Systematic Uncertainties](#how-to-develop-model-of-systematic-uncertainties)
     1. [How to Plot Comparisons?](#how-to-plot-comparisons)
     2. [More Advanced Systematic Development](#more-advanced-systematic-development)
-4. [How to Develop New Samples](#how-to-develop-new-samples)
+5. [How to Develop New Samples](#how-to-develop-new-samples)
     1. [Changing Oscillation Engine](#changing-oscillation-engine)
     2. [Atmospheric Sample](#atmospheric-sample)
     3. [Plotting Kinematic Distribution](#plotting-kinematic-distribution)
     4. [More Advanced Development](#more-advanced-development)
-5. [MCMC Diagnostic](#mcmc-diagnostic)
+6. [MCMC Diagnostic](#mcmc-diagnostic)
     1. [Running Multiple Chains](#running-multiple-chains)
-6. [Useful Settings](#useful-settings)
-7. [How to Plot?](#how-to-plot)
+7. [Useful Settings](#useful-settings)
+8. [How to Plot?](#how-to-plot)
     1. [How to run LLH scan](#how-to-run-llh-scan)
     2. [How to run Sigma Variation](#how-to-run-sigma-variation)
 
@@ -123,6 +125,57 @@ MatrixPlotter:
   Norm: ["Norm_Param_0", "Norm_Param_1", "BinnedSplineParam1",
   ]
 ```
+## Posterior Predictive Analysis
+Since MCMC produces a posterior distribution rather than a single best-fit value, one needs to use a Posterior Predictive Analysis (PPA) to produce spectra after the fit. The idea is to draw parameter sets from the MCMC chains and generate a toy spectrum for each set. The final distribution of spectra is then obtained from all these toy spectra, reflecting the full uncertainty encoded in the posterior.
+
+Once you run MCMC you can produce this distribution using following command.
+```bash
+./bin/PredictiveTutorial TutorialConfigs/FitterConfig.yaml General:OutputFile:PredictiveOutputTest.root
+```
+There are several settings in yaml allowing to control, what is important to be aware that PosteriorFile should point to result of MCMC while OutputFile point to actual result of Posterior Predictive
+```yaml
+Predictive:
+  PosteriorFile: "Test.root"
+```
+
+Output will look something like:
+
+ADD PLOT BLARB!!!!
+
+### Plotting Posterior Predictive Distributions
+Once you generated distribution you can plot them using:
+```bash
+./bin/PredictivePlotting ./bin/TutorialDiagConfig.yaml PredictiveOutputTest.root
+```
+Output will look like:
+
+ADD PLOT BLARB!!!!
+
+
+### Prior Predictive Distributions
+Above we discussed Posterior Predictive i.e. using posterior information after running a chain. One can use same setup to run Prior Predictve Analysis. Main difference being we throw from Prior covariance matrix isntead of posterior chain.
+
+To activate we need to change single parmater
+```yaml
+# Prior/Posterior predictive settings
+Predictive:
+  # If false will run posterior predictive
+  PriorPredictive: true
+```
+
+We can run it with following command
+```bash
+./bin/PredictiveTutorial TutorialConfigs/FitterConfig.yaml General:OutputFile:PriorPredictiveOutputTest.root Predictive:PriorPredictive:True
+```
+
+Finally we can compare files using already known executable:
+```bash
+./bin/PredictivePlotting ./bin/TutorialDiagConfig.yaml PredictiveOutputTest.root PriorPredictiveOutputTest.root
+```
+ADD PLOT BLARB!!!!
+
+One can see Prior distribution having much larger error, this give idea how well we constraints to parameters.
+
 ## How to Develop Model of Systematic Uncertainties
 In the next step you gonna modify analysis setup and repeat steps.
 First let's better understand `TutorialConfigs/CovObjs/SystematicModel.yaml`. This config controls what systematic uncertainties will be used in the analysis for example like this:
