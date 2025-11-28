@@ -142,7 +142,7 @@ Predictive:
 
 Output will look something like:
 
-ADD PLOT BLARB!!!!
+<img width="350" alt="PostPred" src="https://github.com/user-attachments/assets/d7b70e6d-0802-4816-89ee-6d11ee89047b">
 
 ### Plotting Posterior Predictive Distributions
 Once you generated distribution you can plot them using:
@@ -151,8 +151,7 @@ Once you generated distribution you can plot them using:
 ```
 Output will look like:
 
-ADD PLOT BLARB!!!!
-
+<img width="350" alt="PostPredPlot" src="https://github.com/user-attachments/assets/1f9bad86-4b53-453a-919f-4b837495b60c">
 
 ### Prior Predictive Distributions
 Above we discussed Posterior Predictive i.e. using posterior information after running a chain. One can use same setup to run Prior Predictve Analysis. Main difference being we throw from Prior covariance matrix isntead of posterior chain.
@@ -174,7 +173,7 @@ Finally we can compare files using already known executable:
 ```bash
 ./bin/PredictivePlotting ./bin/TutorialDiagConfig.yaml PredictiveOutputTest.root PriorPredictiveOutputTest.root
 ```
-ADD PLOT BLARB!!!!
+<img width="350" alt="PriorPredPlot" src="https://github.com/user-attachments/assets/5308f707-04aa-4c57-bf59-5d000d535463">
 
 One can see Prior distribution having much larger error, this give idea how well we constraints to parameters.
 
