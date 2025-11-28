@@ -5,7 +5,7 @@ Systematics:
       FancyName: Norm_Param_0
     Error: 0.11
     FlatPrior: false
-    IsFixed: false
+    FixParam: false
     Mode: [ 1 ]
     ParameterBounds: [0, 999.]
     ParameterGroup: Xsec
@@ -26,7 +26,7 @@ Systematics:
       FancyName: Norm_Param_1
     Error: 0.18
     FlatPrior: false
-    IsFixed: false
+    FixParam: false
     Mode: [ 1 ]
     ParameterBounds: [0, 999.]
     ParameterGroup: Xsec
@@ -47,7 +47,7 @@ Systematics:
       FancyName: Norm_Param_2
     Error: 0.40
     FlatPrior: false
-    IsFixed: false
+    FixParam: false
     Mode: [ 1 ]
 
     ParameterBounds: [0, 9999.]
@@ -69,7 +69,7 @@ Systematics:
       FancyName: BinnedSplineParam1
     Error: 1.0
     FlatPrior: True
-    IsFixed: false
+    FixParam: false
     ParameterBounds: [0., 2.]
     ParameterGroup: Xsec
     ParameterValues:
@@ -93,7 +93,7 @@ Systematics:
       FancyName: BinnedSplineParam2
     Error: 1.0
     FlatPrior: True
-    IsFixed: false
+    FixParam: false
     ParameterBounds: [0., 2.]
     ParameterGroup: Xsec
     ParameterValues:
@@ -115,7 +115,7 @@ Systematics:
       FancyName: BinnedSplineParam3
     Error: 1.0
     FlatPrior: True
-    IsFixed: false
+    FixParam: false
     ParameterBounds: [0., 2.]
     ParameterGroup: Xsec
     ParameterValues:
@@ -137,7 +137,7 @@ Systematics:
       FancyName: BinnedSplineParam4
     Error: 1.0
     FlatPrior: True
-    IsFixed: false
+    FixParam: false
     ParameterBounds: [0., 2.]
     ParameterGroup: Xsec
     ParameterValues:
@@ -159,7 +159,7 @@ Systematics:
       FancyName: BinnedSplineParam5
     Error: 1.0
     FlatPrior: True
-    IsFixed: false
+    FixParam: false
     ParameterBounds: [0., 2.]
     ParameterGroup: Xsec
     ParameterValues:
@@ -181,7 +181,7 @@ Systematics:
       FancyName: EResLep
     Error: 0.01
     FlatPrior: false
-    IsFixed: false
+    FixParam: false
     ParameterBounds: [-1., 1.]
     ParameterGroup: Xsec
     ParameterValues:
@@ -200,7 +200,7 @@ Systematics:
       FancyName: EResTot
     Error: 0.01
     FlatPrior: false
-    IsFixed: false
+    FixParam: false
     ParameterBounds: [-1., 1.]
     ParameterGroup: Xsec
     ParameterValues:

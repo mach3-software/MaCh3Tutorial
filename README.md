@@ -133,7 +133,7 @@ First let's better understand `TutorialConfigs/CovObjs/SystematicModel.yaml`. Th
       FancyName: Norm_Param_0
     Error: 0.11
     FlatPrior: false
-    IsFixed: false
+    FixParam: false
     Mode: [ 0 ]
     ParameterBounds: [0, 999.]
     ParameterGroup: Xsec

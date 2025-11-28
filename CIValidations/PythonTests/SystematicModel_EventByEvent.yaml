@@ -5,7 +5,7 @@ Systematics:
       FancyName: Spline_Param_0
     Error: 0.06
     FlatPrior: false
-    IsFixed: false
+    FixParam: false
     Mode: []
     ParameterBounds: [0.0, 9999]
     ParameterGroup: Xsec
@@ -26,7 +26,7 @@ Systematics:
       FancyName: Spline_Param_1
     Error: 1.0
     FlatPrior: True
-    IsFixed: false
+    FixParam: false
     Mode: []
     ParameterBounds: [0., 1.]
     ParameterGroup: Xsec
