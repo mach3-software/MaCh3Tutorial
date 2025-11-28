@@ -19,6 +19,7 @@ int main(int argc, char *argv[])
   int ret = system(command.c_str());
   if (ret != 0) {
     MACH3LOG_WARN("Error: system call failed with code {}", ret);
+    throw MaCh3Exception(__FILE__, __LINE__);
   }
 
   auto file = std::unique_ptr<TFile>(TFile::Open("SigmaVar_Test.root", "UPDATE"));

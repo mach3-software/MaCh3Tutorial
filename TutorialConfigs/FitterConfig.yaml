@@ -34,12 +34,7 @@ General:
   MCMC:
     NSteps: 10000
     #KS: Sets how frequent (number of steps) you want to autosave your chain, if you autosave rarely chain will be slightly faster, if you job wall is small you might want more frequent autosave to reduce number of lost steps
-    #AutoSave: 500
     AutoSave: 10000
-    UseReactorConstraint: No
-    #Burn in for posterior predictive code
-    BurnInSteps: 200000
-
 
     # Example Delayed Rejection settings [use FittingAlgorithm=DelayedMR2T2]
     PrintSummary: False
@@ -71,12 +66,15 @@ General:
 # Prior/Posterior predictive settings
 Predictive:
   Ntoy: 1000
-  #Ntoy: 5000
   #Use Full LLH or only sample contribution based on discussion with Asher we almost always only want the sample likelihood
   FullLLH: false
+  # If false will run posterior predictive
   PriorPredictive: false
-  BurnInSteps: 100
-  PosteriorFile: "PostChain.root"
+  # number of burn in steps
+  BurnInSteps: 1000
+  # Name of file from which we are sampling
+  PosteriorFile: "Test.root"
+  # Allow to specify to throw/vary only params coming from single group like Xsec. Allow to evalauete errors coming from this group. Can't be mixed with throw single param
   ThrowParamGroupOnly: []
   ThrowSinlgeParams: []
   DebugHistograms: true

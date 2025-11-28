@@ -13,21 +13,24 @@ MaCh3 is predominantly C++ software although some functionality are available th
 1. [How to Start?](#how-to-start)
 2. [How to Run MCMC](#how-to-run-mcmc)
     1. [MCMC Chain](#mcmc-chain)
-3. [How to Develop Model of Systematic Uncertainties](#how-to-develop-model-of-systematic-uncertainties)
+        1. [Correlation Matrix Plotting](#correlation-matrix-plotting)
+3. [Posterior Predictive Analysis](#posterior-predictive-analysis)
+    1. [Plotting Posterior Predictive Distributions](#plotting-posterior-predictive-distributions)
+    2. [Prior Predictive Distributions](#prior-predictive-distributions)
+4. [How to Develop Model of Systematic Uncertainties](#how-to-develop-model-of-systematic-uncertainties)
     1. [How to Plot Comparisons?](#how-to-plot-comparisons)
     2. [More Advanced Systematic Development](#more-advanced-systematic-development)
-4. [How to Develop New Samples](#how-to-develop-new-samples)
+5. [How to Develop New Samples](#how-to-develop-new-samples)
     1. [Changing Oscillation Engine](#changing-oscillation-engine)
     2. [Atmospheric Sample](#atmospheric-sample)
     3. [Plotting Kinematic Distribution](#plotting-kinematic-distribution)
     4. [More Advanced Development](#more-advanced-development)
-5. [MCMC Diagnostic](#mcmc-diagnostic)
+6. [MCMC Diagnostic](#mcmc-diagnostic)
     1. [Running Multiple Chains](#running-multiple-chains)
-6. [Useful Settings](#useful-settings)
-7. [How to Plot?](#how-to-plot)
+7. [Useful Settings](#useful-settings)
+8. [How to Plot?](#how-to-plot)
     1. [How to run LLH scan](#how-to-run-llh-scan)
     2. [How to run Sigma Variation](#how-to-run-sigma-variation)
-    3. [Plotting with Python](#plotting-with-python)
 
 ## How to Start?
 To compile simply
@@ -124,6 +127,56 @@ MatrixPlotter:
   Norm: ["Norm_Param_0", "Norm_Param_1", "BinnedSplineParam1",
   ]
 ```
+## Posterior Predictive Analysis
+Since MCMC produces a posterior distribution rather than a single best-fit value, one needs to use a Posterior Predictive Analysis (PPA) to produce spectra after the fit. The idea is to draw parameter sets from the MCMC chains and generate a toy spectrum for each set. The final distribution of spectra is then obtained from all these toy spectra, reflecting the full uncertainty encoded in the posterior.
+
+Once you run MCMC you can produce this distribution using following command.
+```bash
+./bin/PredictiveTutorial TutorialConfigs/FitterConfig.yaml General:OutputFile:PredictiveOutputTest.root
+```
+There are several settings in yaml allowing to control, what is important to be aware that PosteriorFile should point to result of MCMC while OutputFile point to actual result of Posterior Predictive
+```yaml
+Predictive:
+  PosteriorFile: "Test.root"
+```
+
+Output will look something like:
+
+<img width="350" alt="PostPred" src="https://github.com/user-attachments/assets/d7b70e6d-0802-4816-89ee-6d11ee89047b">
+
+### Plotting Posterior Predictive Distributions
+Once you generated distribution you can plot them using:
+```bash
+./bin/PredictivePlotting ./bin/TutorialDiagConfig.yaml PredictiveOutputTest.root
+```
+Output will look like:
+
+<img width="350" alt="PostPredPlot" src="https://github.com/user-attachments/assets/1f9bad86-4b53-453a-919f-4b837495b60c">
+
+### Prior Predictive Distributions
+Above we discussed Posterior Predictive i.e. using posterior information after running a chain. One can use same setup to run Prior Predictve Analysis. Main difference being we throw from Prior covariance matrix isntead of posterior chain.
+
+To activate we need to change single parmater
+```yaml
+# Prior/Posterior predictive settings
+Predictive:
+  # If false will run posterior predictive
+  PriorPredictive: true
+```
+
+We can run it with following command
+```bash
+./bin/PredictiveTutorial TutorialConfigs/FitterConfig.yaml General:OutputFile:PriorPredictiveOutputTest.root Predictive:PriorPredictive:True
+```
+
+Finally we can compare files using already known executable:
+```bash
+./bin/PredictivePlotting ./bin/TutorialDiagConfig.yaml PredictiveOutputTest.root PriorPredictiveOutputTest.root
+```
+<img width="350" alt="PriorPredPlot" src="https://github.com/user-attachments/assets/5308f707-04aa-4c57-bf59-5d000d535463">
+
+One can see Prior distribution having much larger error, this give idea how well we constraints to parameters.
+
 ## How to Develop Model of Systematic Uncertainties
 In the next step you gonna modify analysis setup and repeat steps.
 First let's better understand `TutorialConfigs/CovObjs/SystematicModel.yaml`. This config controls what systematic uncertainties will be used in the analysis for example like this:
@@ -213,6 +266,25 @@ To add you newly implemented sample you will have to expand config to for exampl
 General:
   TutorialSamples: ["TutorialConfigs/Samples/SampleHandler_Tutorial.yaml", "TutorialConfigs/Samples/SampleHandler_User.yaml"]
 ```
+
+<details>
+<summary><strong>(Detailed) Samples using same config</strong></summary>
+Above explained adding new samples via separate configs (resulting in creation of new object). However it may be simpler to add new sample using same config. You can find example of such config here: `TutorialConfigs/Samples/SampleHandler_Tutorial_ND.yaml`.
+
+With general scheme being:
+```yaml
+General Settings like MaCh3 mode, NuOscillator
+
+Samples: ["Sample_1", "Sample_2"]
+
+Sample_1:
+  Settings for Sample 1 like binning, osc channels cutc etc
+
+Sample_2:
+  Settings for Sample 2 like binning, osc channels cutc etc
+```
+Such approach may be more beneficial performance wise but especially if you are sharing common MC and detector it can be more appealing to store it within single C++ object.
+</details>
 
 ### Changing Oscillation Engine
 MaCh3 has access to many oscillation engines via NuOscillator framework. First you can check features using following command
@@ -380,7 +452,9 @@ Once it finished you can make plots using
 ```bash
 ./bin/PlotSigmaVariation SigmaVar_Test.root bin/TutorialDiagConfig.yaml
 ```
-### Plotting with Python
+
+<details>
+<summary><strong>(Detailed) Plotting with Python</strong></summary>
 
 If you have installed the python interface for MaCh3 as described
 [here](https://github.com/mach3-software/MaCh3?tab=readme-ov-file#python)
@@ -428,6 +502,7 @@ which will give you some plots that look something like
 
 <img width="350" alt="LLH scan example" src="https://github.com/user-attachments/assets/f16ad571-68da-42e3-ae6b-e984d03a58c3">
 
+</details>
 
 ## Issues
 If you encountered any issues or find something confusing please contact us:

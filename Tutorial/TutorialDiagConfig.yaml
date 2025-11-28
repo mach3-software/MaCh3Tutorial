@@ -129,8 +129,8 @@ PlotSigmaVariation:
 
 #########################################
 PredictivePlotting:
-FileTitle: ["Prior Predictive", "Posterior Predictive"]
-PosteriorColor: [600, 632] # kBlue, kRed
+  FileTitle: ["Posterior Predictive", "Prior Predictive"]
+  PosteriorColor: [632, 600] # kRed, kBlue
 
 #########################################
 MatrixPlotter:
