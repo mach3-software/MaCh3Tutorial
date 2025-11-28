@@ -15,6 +15,8 @@ MaCh3 is predominantly C++ software although some functionality are available th
     1. [MCMC Chain](#mcmc-chain)
       1. [Correlation Matrix Plotting](#correlation-matrix-plotting)
 3. [Posterior Predictive Analysis](#posterior-predictive-analysis)
+    1. [Plotting Posterior Predictive Distributions](#plotting-posterior-predictive-distributions)
+    2. [Prior Predictive Distributions](#prior-predictive-distributions)
 4. [How to Develop Model of Systematic Uncertainties](#how-to-develop-model-of-systematic-uncertainties)
     1. [How to Plot Comparisons?](#how-to-plot-comparisons)
     2. [More Advanced Systematic Development](#more-advanced-systematic-development)
