@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1764022442417,
+  "lastUpdate": 1764583468086,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -14878,6 +14878,58 @@ window.BENCHMARK_DATA = {
             "name": "ND Reweight",
             "value": 344.318,
             "range": "± 53.2204",
+            "unit": "us",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "2207def79ceda5a0e2501a195d3556bb30942b7b",
+          "message": "Merge pull request #700 from mach3-software/kskwarczynski/feature/PlottingUpdate\n\nfeat: Preditcitve Plotting with one file",
+          "timestamp": "2025-12-01T09:58:33Z",
+          "tree_id": "5cb63b9586f09a65d8682a9bef683c1709381cc3",
+          "url": "https://github.com/mach3-software/MaCh3/commit/2207def79ceda5a0e2501a195d3556bb30942b7b"
+        },
+        "date": 1764583465030,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.77684,
+            "range": "± 80.8303",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.80849,
+            "range": "± 600.093",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 397.492,
+            "range": "± 3.30908",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ND Reweight",
+            "value": 328.661,
+            "range": "± 38.0047",
             "unit": "us",
             "extra": "100 samples\n1 iterations"
           }
