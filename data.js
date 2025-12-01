@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1764587552979,
+  "lastUpdate": 1764588767780,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -14982,6 +14982,58 @@ window.BENCHMARK_DATA = {
             "name": "ND Reweight",
             "value": 348.574,
             "range": "± 45.7107",
+            "unit": "us",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "13025ba3abc48edfd5b3ca51ca92b92280122d5b",
+          "message": "Merge pull request #692 from mach3-software/fix/plotting-LLH-scans\n\nbugfix: LLH scan plotting",
+          "timestamp": "2025-12-01T11:27:03Z",
+          "tree_id": "c9f49aa95d1ef76fc451681f89c3ed1c52bb1f85",
+          "url": "https://github.com/mach3-software/MaCh3/commit/13025ba3abc48edfd5b3ca51ca92b92280122d5b"
+        },
+        "date": 1764588764574,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.99864,
+            "range": "± 32.6042",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.92036,
+            "range": "± 58.8763",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 459.353,
+            "range": "± 5.0991",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ND Reweight",
+            "value": 375.584,
+            "range": "± 21.1265",
             "unit": "us",
             "extra": "100 samples\n1 iterations"
           }
