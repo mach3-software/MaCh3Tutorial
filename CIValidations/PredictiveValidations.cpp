@@ -55,6 +55,7 @@ int main(int argc, char *argv[])
   int ret = system(command.c_str());
   if (ret != 0) {
     MACH3LOG_WARN("Error: system call failed with code {}", ret);
+    throw MaCh3Exception(__FILE__, __LINE__);
   }
 
   std::ofstream outFile("NewPredictiveOut.txt");
@@ -102,7 +103,8 @@ int main(int argc, char *argv[])
   command = tutorialPath + "/bin/PredictivePlotting " + tutorialPath + "/bin/TutorialDiagConfig.yaml PredictiveOutputTest.root PredictiveOutputTest.root";
   ret = system(command.c_str());
   if (ret != 0) {
-    MACH3LOG_WARN("Error: system call failed with code {}", ret);
+    MACH3LOG_CRITICAL("Error: system call failed with code {}", ret);
+    throw MaCh3Exception(__FILE__, __LINE__);
   }
 
   bool TheSame = CompareTwoFiles("CIValidations/TestOutputs/Predictive.txt", "NewPredictiveOut.txt");
