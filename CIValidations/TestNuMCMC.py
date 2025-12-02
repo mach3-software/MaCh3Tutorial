@@ -17,8 +17,8 @@ samples = MCMCSamples(root_file_path, "mcmc")
 stack = PlotStack(samples)
 
 #define a 1D and 2D plot; note the 1D plot has both non-equal bins and is split by mass-ordering
-stack.add_plot(["Deltam2_32", "Theta23"],[],[50,50],[[2.2E-3,2.7E-3],[0.7,0.9]])
-stack.add_plot(["DeltaCP"],[],[-np.pi, -0.95*np.pi, -0.9*np.pi, -0.85*np.pi, -0.8*np.pi, -0.75*np.pi,
+stack.add_plot(["Deltam2_32", "Theta23"],[],[],[50,50],[[2.2E-3,2.7E-3],[0.7,0.9]])
+stack.add_plot(["DeltaCP_pipi"],[],[],[-np.pi, -0.95*np.pi, -0.9*np.pi, -0.85*np.pi, -0.8*np.pi, -0.75*np.pi,
                                    -0.7*np.pi,  -0.65*np.pi,  -0.6*np.pi,  -0.55*np.pi,  -0.5*np.pi,
                                     -0.45*np.pi,  -0.4*np.pi,  -0.35*np.pi,  -0.3*np.pi,  -0.25*np.pi,
                                      -0.2*np.pi,  -0.15*np.pi,  -0.1*np.pi,  -0.05*np.pi, 0,
