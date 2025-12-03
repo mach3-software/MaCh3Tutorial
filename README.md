@@ -18,9 +18,9 @@ MaCh3 is predominantly C++ software, although some functionality is available th
 3. [Posterior Predictive Analysis](#posterior-predictive-analysis)
     1. [Plotting Posterior Predictive Distributions](#plotting-posterior-predictive-distributions)
     2. [Prior Predictive Distributions](#prior-predictive-distributions)
-4. [How to Develop Model of Systematic Uncertainties](#how-to-develop-model-of-systematic-uncertainties)
-    1. [How to Plot Comparisons?](#how-to-plot-comparisons)
-    2. [More Advanced Systematic Development](#more-advanced-systematic-development)
+4. [How to Develop a Model of Systematic Uncertainties](#how-to-develop-a-model-of-systematic-uncertainties)
+    1. [How to Compare Chains](#how-to-compare-chains)
+    2. [Holding Parameters Fixed](#holding-parameters-fixed)
 5. [How to Develop New Samples](#how-to-develop-new-samples)
     1. [Changing Oscillation Engine](#changing-oscillation-engine)
     2. [Atmospheric Sample](#atmospheric-sample)
@@ -180,9 +180,11 @@ Finally, we can compare the prior and posterior predictive spectra with the prev
 
 Here, you can see that the prior distribution has much larger errors. This gives you some idea how well we constrain parameters during the fitting process.
 
-## How to Develop Model of Systematic Uncertainties
-In the next step you gonna modify analysis setup and repeat steps.
-First let's better understand `TutorialConfigs/CovObjs/SystematicModel.yaml`. This config controls what systematic uncertainties will be used in the analysis for example like this:
+## How to Develop a Model of Systematic Uncertainties
+
+In the next step, we will modify the analysis setup and repeat steps to see the impact.
+
+First let's get a better understanding `TutorialConfigs/CovObjs/SystematicModel.yaml`. This is the main config that controls what systematic uncertainties will be used in the analysis. For example:
 ```yaml
 - Systematic:
     Names:
@@ -204,34 +206,33 @@ First let's better understand `TutorialConfigs/CovObjs/SystematicModel.yaml`. Th
       MCMC: 0.2
     Type: Norm
 ```
-If you want to read more about implementation please go [here](https://github.com/mach3-software/MaCh3/wiki/02.-Implementation-of-Systematic)
+If you want to read more about the specifics of implementating systematics in the configs, please see [here](https://github.com/mach3-software/MaCh3/wiki/02.-Implementation-of-Systematic)
 
-As first step let's modify `Error: 0.11` to `Error: 2.0`, this should significantly modify error which should be noticeable in MCMC.
+As a first step let's modify `Error: 0.11` to `Error: 2.0`. This significantly changes the prior uncertainty on the `Norm_Param_0` parameter. Such a change should be very noticeable in the MCMC posterior.
 
-Lastly we need to modify name of output file. This is governed by manager class (read more [here](https://github.com/mach3-software/MaCh3/wiki/01.-Manager-and-config-handling)) modify `OutputFile: "Test.root"` in `TutorialConfigs/FitterConfig.yaml` to for example
-`OutputFile: "Test_Modified.root"`.
+Let's also modify the output file name so we don't overwrite our previous outputs. This is governed by the manager class (read more [here](https://github.com/mach3-software/MaCh3/wiki/01.-Manager-and-config-handling)). You can modify this in the configs by for example changing `OutputFile: "Test.root"` in `TutorialConfigs/FitterConfig.yaml` to `OutputFile: "Test_Modified.root"` (or you could use a parameter override by adding `General:OutputFile:Test_Modified.root` as a command line argument).
 
-Now let's run MCMC again
+With the modifications, let's run MCMC again:
 ```bash
 ./bin/MCMCTutorial TutorialConfigs/FitterConfig.yaml
 ```
-Congratulations! 🎉
-Next step is to compare both chains.
+Congratulations, you have sucessfully modified the MCMC! 🎉
 
-### How to Plot Comparisons?
-Now that you have two chains you can try comparing them using following.
+### How to Compare Chains
+Now that you have two chains you can try comparing them using the following:
 ```bash
 ./bin/ProcessMCMC bin/TutorialDiagConfig.yaml Test.root Default_Chain Test_Modified.root Modified_Chain
 ```
-This will produce pdf file with overlayed posteriors. Most should be similarly except modified parameter.
+This will produce a pdf with plots showing overlayed posteriors from both chains. Most should be similarly except modified parameter.
 
-### More Advanced Systematic Development
-Sometimes you may want to fix parameter, for example if it causing problem to the fitter or you want to run fit with and without parameters to compare results. To fix parameter just pass name in the `TutorialConfigs/CovObjs/FitterConfig.yaml`
+### Holding Parameters Fixed
+Sometimes you may want to fix a parameter to some nominal value to stop it from moving during the MCMC. For example, if a parameter is causing some problem to the fitter, or you want to compare what happens with and without some new parameter, this option would be very useful to you. To fix a parameter, just pass the parameter's name to the `TutorialConfigs/CovObjs/FitterConfig.yaml`:
 ```yaml
 General:
   Systematics:
     XsecFix: [ "Norm_Param_0" ]
 ```
+If you were to run a new MCMC with this configuration, you should see that `Norm_Param_0` does not move from its nominal position during the chain.
 
 ## How to Develop New Samples
 First we gonna investigate how to modify sample, let's take a look at `TutorialConfigs/Samples/SampleHandler_Tutorial.yaml`. Each sample has set of cuts right now we only introduce cut on `TrueNeutrinoEnergy`.
