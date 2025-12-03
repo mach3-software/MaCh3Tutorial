@@ -22,10 +22,12 @@ MaCh3 is predominantly C++ software, although some functionality is available th
     1. [How to Compare Chains](#how-to-compare-chains)
     2. [Holding Parameters Fixed](#holding-parameters-fixed)
 5. [How to Develop New Samples](#how-to-develop-new-samples)
-    1. [Changing Oscillation Engine](#changing-oscillation-engine)
-    2. [Atmospheric Sample](#atmospheric-sample)
-    3. [Plotting Kinematic Distribution](#plotting-kinematic-distribution)
-    4. [More Advanced Development](#more-advanced-development)
+    1. [Modifying Analysis Samples](#modifying-analysis-samples)
+    2. [Adding a New Sample](#adding-a-new-sample)
+    3. [Changing Oscillation Engine](#changing-oscillation-engine)
+    4. [Atmospheric Sample](#atmospheric-sample)
+    5. [Plotting Kinematic Distribution](#plotting-kinematic-distribution)
+    6. [More Advanced Development](#more-advanced-development)
 6. [MCMC Diagnostic](#mcmc-diagnostic)
     1. [Running Multiple Chains](#running-multiple-chains)
 7. [Useful Settings](#useful-settings)
@@ -181,8 +183,7 @@ Finally, we can compare the prior and posterior predictive spectra with the prev
 Here, you can see that the prior distribution has much larger errors. This gives you some idea how well we constrain parameters during the fitting process.
 
 ## How to Develop a Model of Systematic Uncertainties
-
-In the next step, we will modify the analysis setup and repeat steps to see the impact.
+The systematic uncertainties in the MCMC describe how we are modeling the underlying physics. For example, you might have a cross-section model that describes how neutrinos interact with nuclei. For such a model, you may have several parameters that help implement the model in code, such as the absolute cross-section normalization, or the relative normalization for neutrino and anti-neutrino interactions. In this step, we will modify the analysis setup for one of our systematic parameters and repeat the tutorial steps to see the impact.
 
 First let's get a better understanding `TutorialConfigs/CovObjs/SystematicModel.yaml`. This is the main config that controls what systematic uncertainties will be used in the analysis. For example:
 ```yaml
@@ -235,13 +236,16 @@ General:
 If you were to run a new MCMC with this configuration, you should see that `Norm_Param_0` does not move from its nominal position during the chain.
 
 ## How to Develop New Samples
-First we gonna investigate how to modify sample, let's take a look at `TutorialConfigs/Samples/SampleHandler_Tutorial.yaml`. Each sample has set of cuts right now we only introduce cut on `TrueNeutrinoEnergy`.
+Analysis samples are where we compare data and simulation to extract our physics results. For example, you might have an analysis sample that is enriched in neutral-current pi0 events to precisely study NC-pi0 cross sections. In this section, we will modify an existing analysis sample to explore how the inner workings of MaCh3 operate, and then see how to add a new one.
+
+### Modifying Analysis Samples
+To begin, let's take a look at `TutorialConfigs/Samples/SampleHandler_Tutorial.yaml`. Each sample has a set of cuts that select events into the sample and reject others. Right now, let's focus on the cut on `TrueNeutrinoEnergy`:
 ```yaml
 SelectionCuts:
   - KinematicStr: "TrueNeutrinoEnergy"
     Bounds: [ 0., 4 ]
 ```
-We can introduce additional cut for example on Q2 by expanding config like this:
+We can introduce additional cuts to the sample by expanding the `SelectionCuts` in the config. For example, we could add a cut on Q2 like this:
 ```yaml
 SelectionCuts:
   - KinematicStr: "TrueNeutrinoEnergy"
@@ -250,32 +254,31 @@ SelectionCuts:
     Bounds: [ 0.6, 1 ]
 ```
 
-You can also easily switch variable in which you bin sample.
+You can also easily change what variable the sample is binned in to get slightly different fit results. For example, we could change `RecoNeutrinoEnergy` to `TrueNeutrinoEnergy` in `TutorialConfigs/Samples/SampleHandler_Tutorial.yaml`:
 ```yaml
 Binning:
   XVarStr : "TrueNeutrinoEnergy"
   XVarBins: [0.,  0.5,  1.,  1.25, 1.5, 1.75, 2., 2.25, 2.5, 2.75, 3., 3.25, 3.5, 3.75, 4., 5., 6., 10.]
 ```
-You can try again to run MCMC and compare all 3 chains
+You can run the MCMC again using this new configuration (after changing the output file name again!), and then compare all 3 chains using:
 ```bash
 ./bin/ProcessMCMC bin/TutorialDiagConfig.yaml Test.root Default_Chain Test_Modified.root Modified_Chain Test_Modified_Sample.root ModifiedSameple_Chain
 ```
-Up to this point we only modified sample but how to add new one? First make copy of sample config `TutorialConfigs/Samples/SampleHandler_Tutorial.yaml` and call it `TutorialConfigs/Samples/SampleHandler_User.yaml`. For the moment feel free to change name, binning etc but keep TutorialConfigs/CovObjs the same. Go wild! Next go to `TutorialConfigs/Samples/FitterConfig.yaml`
-```yaml
-General:
-  TutorialSamples: ["TutorialConfigs/Samples/SampleHandler_Tutorial.yaml"]
-```
-To add you newly implemented sample you will have to expand config to for example:
+
+### Adding a New Sample
+Up to this point we have only modified an existing sample, but how would we add a new one? We can start by first making a copy of the sample config `TutorialConfigs/Samples/SampleHandler_Tutorial.yaml` and calling it `TutorialConfigs/Samples/SampleHandler_User.yaml`. For the moment feel free to change the sample name, binning, whatever you want. Go wild! Just be sure to keep `TutorialConfigs/CovObjs` the same, or things will break.
+
+Next, go to the main config (`TutorialConfigs/Samples/FitterConfig.yaml`) and add in your newly-implemented sample by expanding the `TutorialSamples` section:
 ```yaml
 General:
   TutorialSamples: ["TutorialConfigs/Samples/SampleHandler_Tutorial.yaml", "TutorialConfigs/Samples/SampleHandler_User.yaml"]
 ```
 
 <details>
-<summary><strong>(Detailed) Samples using same config</strong></summary>
-Above explained adding new samples via separate configs (resulting in creation of new object). However it may be simpler to add new sample using same config. You can find example of such config here: `TutorialConfigs/Samples/SampleHandler_Tutorial_ND.yaml`.
+<summary><strong>(Detailed) Samples using the same config</strong></summary>
+The above explained adding new samples via separate configs (resulting in the creation of a new sample object when the code runs). It is possible for you to instead add your new sample directly to the existing sample config. You can find an example of doing so here: `TutorialConfigs/Samples/SampleHandler_Tutorial_ND.yaml`.
 
-With general scheme being:
+The general scheme for doing this is to specify a list of `Samples` in the config, and then flesh out the sample details within different `Sample` blocks in the yaml like this:
 ```yaml
 General Settings like MaCh3 mode, NuOscillator
 
@@ -287,7 +290,7 @@ Sample_1:
 Sample_2:
   Settings for Sample 2 like binning, osc channels cutc etc
 ```
-Such approach may be more beneficial performance wise but especially if you are sharing common MC and detector it can be more appealing to store it within single C++ object.
+This approach may give a performance boost, but is especially nice if you are sharing common MC and detector systematics, since then everything can be to store within a single C++ object.
 </details>
 
 ### Changing Oscillation Engine
