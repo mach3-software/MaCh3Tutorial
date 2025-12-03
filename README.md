@@ -336,26 +336,25 @@ Notice that we are using the same config as the MCMC tutorial here. At the botto
 Not everything can be done by modifying config in sample implementation. The actual implementation of samples is in `Samples/SampleHandlerTutorial`, which inherits from `SampleHandlerFDBase`. The latter class deals with actual event reweighting and general heavy lifting. `SampleHandlerTutorial` deals with more specific information, like MC variable loading. This is because each experiment has slightly different MC format and different information available, and so it must be implemented in a custom manner.
 
 ## MCMC Diagnostic
-Crucial part of MCMC is diagnostic whether chain converged or not. You can produce diagnostic by running.
-
+A crucial part of MCMC is diagnosing whether a chain has converged or not. You can produce chain diagnostics by running:
 ```bash
 ./bin/DiagMCMC Test.root bin/TutorialDiagConfig.yaml
 ```
-
-This will produce plethora of diagnostic however one most often checked are autocreation's which indicate how correlated are MCMC steps which are n-steps apart. We want autocreation's to drop fast.
-You can read about other diagnostic here on [here](https://github.com/mach3-software/MaCh3/wiki/11.-Step-size-tuning)
+This will produce a plethora of diagnostic information. One of most important of these are the autocorrelations for each of the parameters. Autocorrelation indicates how correlated MCMC steps are when they are n-steps apart in the chain. Generally speaking, we want the autocorrelation to drop to 0 fast and stay around there (like in the plot below). You can read about other diagnostics [here](https://github.com/mach3-software/MaCh3/wiki/11.-Step-size-tuning), but it is sufficient for now to focus on autocorrelation.
 
 <img width="350" alt="Posterior example" src="https://github.com/user-attachments/assets/e146698c-713c-4daf-90df-adeb3051539b">
 
-Best way to reduce auto-corelations is by step size tunning. There are two step-scale available.
+The best way to reduce autocorrelations is step size tunning. In MaCh3, there are two types of step size parameters:
 
-Global which affect identically every parameter and it is proportional to all parameters can be found in `TutorialConfigs/FitterConfig.yaml`:
+**Global** step sizes apply to every parameter in the MCMC identically as a proportional scaling factor. In `TutorialConfigs/FitterConfig.yaml`, an example of this is `XsecStepScale`:
 ```yaml
 General:
   Systematics:
     XsecStepScale: 0.05
 ```
-or individual step scale affecting single parameters which highly depend on parameters boundary sensitivity etc can be found in `TutorialConfigs/CovObjs/SystematicModel.yaml`.
+which applies to all `Xsec`-type parameters universally, and can be used to quickly increase or decrease the step sizes of all parameters simultaneously.
+
+**Individual** step sizes affect each parameter independently from one another. The tuning of these is highly parameter-dependent (for example, different parameters have different prior errors, data constraints, and boundary sensitivity). In general, these can be found in `TutorialConfigs/CovObjs/SystematicModel.yaml`, as `StepScale` parameters:
 ```yaml
 - Systematic:
     Names:
@@ -363,43 +362,38 @@ or individual step scale affecting single parameters which highly depend on para
     StepScale:
       MCMC: 0.2
 ```
-We recommend chasing both scales running MCMC again and later producing auto-corelations. Understanding how auto-corelations change while playing with step-size is very useful skill.
+Changing this will only affect `Norm_Param_0` during the MCMC (to first order).
 
-You can make plots using:
+For the tutorial here, try changing both scales running the MCMC again, and then checking the autocorrelations. Understanding how autocorrelations change while playing with step-size is an extremely useful skill that is fundamental to understanding MCMC tuning.
 
+You can make plots from the diagnostic output using:
 ```bash
-PlotMCMCDiag Test_MCMC_Diag.root "mcmc_diagnostics"
+./bin/PlotMCMCDiag Test_MCMC_Diag.root "mcmc_diagnostics"
 ```
-If you add second/third arguemnt it will compare several files:
-
+If you add a second/third arguemnt, the macro can compare several files:
 ```bash
-PlotMCMCDiag Test_MCMC_Diag.root "first file label" SecondFile_MCMC_Diag.root "second file label"
+./bin/PlotMCMCDiag Test_MCMC_Diag.root "first file label" SecondFile_MCMC_Diag.root "second file label"
 ```
 
 ### Running Multiple Chains
-At this point, you should be aware that to have a smooth posterior distribution,
-you may need a lot of steps, which can be time-consuming. A great property of MCMC
-is that once a chain reaches the stationary distribution (or, in other words, converges),
-it samples the same distribution. This means we can run several chains in parallel.
-Computing clusters give us the ability to run thousands of MCMC chains in parallel,
-allowing us to accumulate steps very fast.
+At this point, you should be aware that to have a smooth posterior distribution, you may need a lot of steps, which can be time-consuming. A great property of MCMC is that once a chain reaches the stationary distribution (or, in other words, converges), it continues to sample from the same distribution. We can leverage this by running several chains in parallel. Computing clusters give us the ability to run thousands of MCMC chains in parallel, allowing us to accumulate steps very fast.
 
-The only caveat of this method is that chains have to converge to the same stationary distribution (there can only be one stationary distribution but chains can stuck in local minima or not converge due to wrong step-size tunning). To validate if chains converged we can use **RHat**.
+The only caveat of this method is that the parallel chains have to converge to the *same* stationary distribution for it to work (it is possible for there to be one stationary distribution, but have chains get stuck in local minima or not converge due to poor step-size tunning). To validate if chains converged we can use the $\widehat{R}$ metric, which compares the MCMC mixing of different parallel chains to determine if they have converged to the same stationary distribution. For details on what this metric is more specifically, see [here](https://mc-stan.org/docs/2_18/reference-manual/notation-for-samples-chains-and-draws.html).
 
-In the following example 1000 indicate number of toys we want to sample while other arguments indicate different chains. You can pass as many chains as you want
+The following code will calculate the $\widehat{R}$ metric across four different MCMC chains (which you should run yourself to test! Be sure to use identical configurations for all four chains). Here, 1000 indicates the number of steps we want to sample from the chains, while the other arguments indicate different MCMC output files. You can pass as many chains as you want.
 ```bash
 ./bin/RHat 1000 MCMC_Test_1.root MCMC_Test_2.root MCMC_Test_3.root MCMC_Test_4.root
 ```
 
-**RHat** is estimator of variance between chains, in other words it should be peaking at 1. Single entry in histogram refers to single parameters. If your distribution has a tail reaching beyond 1.1 (according to Gellman) then this maybe indicate some chains haven't converged to the same distribution. Which MUST be investigated in analysis (in this tutorial main culprit will be number of steps)
+$\widehat{R}$ is essentially the ratio of the variance between different MCMC chains to the variance within a single chain. As such, we expect well-mixed chains to peak at 1, indicating that the two variances are the same. In the following plot, a single entry in the histogram refers to a single parameter from the MCMC. If your distribution has a tail reaching beyond 1.1 (according to Gellman) then this likely indicates some chains haven't converged to the same distribution. If this is the case, you MUST investigate, as it indicates something wrong with your MCMC (note: in this tutorial, the most-likely reason you may end up with $\widehat{R}>1.1$ will be a lack of sufficient MCMC steps; run longer chains and see if it helps).
 
 <img width="350" alt="Posterior example" src="https://github.com/user-attachments/assets/eada5efd-ca8f-42a4-a710-4dced5c3e3da">
 
-Once you validated that chains converged you may need to merge them
+Once you validated that your parallel chains have converged, you can merge them into one big chain using:
 ```bash
 ./bin/CombineMaCh3Chains -o MergedChain.root MCMC_Test_1.root MCMC_Test_2.root MCMC_Test_3.root MCMC_Test_4.root
 ```
-This works very similarly to **hadd** although has some advantages, main one being it checks if chains were run with the same settings. If for example one chains was run with different systematic parameters then this should be caught and raised.
+This works very similarly to `hadd`, although this method has some advantages. The main one is that it checks if chains were run with the same settings (if chains have different settings, they are not the same MCMC, and therefore cannot be merged). If for example one chain was run with different systematic parameters, then this will be caught here.
 
 ## Useful Settings
 There are plenty of useful settings in
