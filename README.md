@@ -1,9 +1,9 @@
 # Welcome to MaCh3 Tutorial
-After this tutorial you should know how to run MCMC, implement systematic uncertainties new samples and how to plot standard Bayesian diagnostic.
+After this tutorial you should know how to run MCMC, implement systematic uncertainties, new samples, and how to plot standard Bayesian diagnostics.
 
-Current setup include single sample with several cross-section and oscillation parameters.
+The current setup includes a single sample with several cross-section and oscillation parameters.
 
-MaCh3 is predominantly C++ software although some functionality are available through python as well. To access them please use tale of contents.
+MaCh3 is predominantly C++ software, although some functionality is available through python as well. See the table of contents for more.
 
 [![Code - Documented](https://img.shields.io/badge/Code-Documented-2ea44f)](https://github.com/mach3-software/MaCh3/wiki)
 [![Container Image](https://img.shields.io/badge/Container-Image-brightgreen)](https://github.com/mach3-software/MaCh3Tutorial/pkgs/container/mach3tutorial)
@@ -12,8 +12,9 @@ MaCh3 is predominantly C++ software although some functionality are available th
 ## Table of contents
 1. [How to Start?](#how-to-start)
 2. [How to Run MCMC](#how-to-run-mcmc)
-    1. [MCMC Chain](#mcmc-chain)
-        1. [Correlation Matrix Plotting](#correlation-matrix-plotting)
+    1. [Processing MCMC Outputs](#processing-mcmc-outputs)
+    2. [Plotting MCMC Posteriors](#plotting-mcmc-posteriors)
+    3. [Plotting Correlation Matrix](#plotting-correlation-matrix)
 3. [Posterior Predictive Analysis](#posterior-predictive-analysis)
     1. [Plotting Posterior Predictive Distributions](#plotting-posterior-predictive-distributions)
     2. [Prior Predictive Distributions](#prior-predictive-distributions)
@@ -51,7 +52,7 @@ alternatively you can use containers by
 ```bash
 docker pull ghcr.io/mach3-software/mach3tutorial:alma9latest
 ```
-To reed more how to use containers check our wiki [here](https://github.com/mach3-software/MaCh3/wiki/12.-Containers)
+To read more about how to use containers, check our wiki [here](https://github.com/mach3-software/MaCh3/wiki/12.-Containers)
 
 ## How to run MCMC
 To run MCMC simply
@@ -59,66 +60,63 @@ To run MCMC simply
 ./bin/MCMCTutorial TutorialConfigs/FitterConfig.yaml
 ```
 Congratulations! 🎉
-You have just completed finished you first MCMC chain. You can view `Test.root` for example in TBrowser like in plot below.
+You have just finished your first MCMC chain. You can view `Test.root` for example in TBrowser like in plot below.
 
 <img width="350" alt="Posterior example" src="https://github.com/user-attachments/assets/6d4c97e2-f36b-456e-8e7b-1751f142d2ac">
 
-Single entry in tree represent single MCMC step. Other then debug purposes it is highly recommended to use MaCh3 processing tools.
+A single entry in the tree represents a single MCMC step. Other than debug purposes, it is highly recommended to use MaCh3 processing tools for further visualisation.
 
-### MCMC Chain
-Being able to visualise and analyse output of MCMC is standard procedure after chain has finished, you can produce simple plots with
-```bash
-./bin/ProcessMCMC bin/TutorialDiagConfig.yaml Test.root
-```
-where **Test.root** is the output of running MCMCTutorial as described [here](#how-to-run-mcmc).
-You can find results in **Test_drawCorr.pdf**
-One of plots you will encounter is:
-
-<img width="350" alt="Posterior example" src="https://github.com/user-attachments/assets/1073a76e-5d82-4321-8952-e098d1b0717f">
-
-It is marginalised posterior of a single parameter. This is main output of MCMC.
-
-**WARNING** Your posterior may look very shaky and slightly different to one in example. This is because you run chain with low number of steps. Meaning you don't have enough statistic to build posterior distribution. You can easily modify in `TutorialConfigs/FitterConfig.yaml`
+**WARNING** Your posterior may look very shaky and slightly different to the one in example. This is because you have run the chain with low number of steps, meaning you don't have enough statistic to build out the posterior distribution. It is good homework to increase the number of steps and see how much smoother the posterior becomes, but at the cost of having to wait more. You can easily test this by modifying `TutorialConfigs/FitterConfig.yaml` to change the number of MCMC steps:
 ```yaml
 General:
   MCMC:
     NSteps: 10000
 ```
-It is good homework to increase number of steps and see how much more smooth posterior becomes, but at the cost of having to wait more.
+and then re-running `MCMCTutorial`.
 
-**Warning**: If you modified files in main folder not build you will have to call make install!
+**Warning**: If you modified files in the main `MaCh3Tutorial` folder instead of `build`, you will have to call `make install` for the changes to propagate! Generally speaking, it is good practice to work from the `build` directory and make your config changes there so that local changes do not have to be tracked by git.
 
-Alternatively you can achieve same way of modifying configs by using command line
+Alternatively, you can dynamically override your configurations at the command line like this:
 ```bash
 ./bin/MCMCTutorial TutorialConfigs/FitterConfig.yaml General:MCMC:NSteps:100000
 ```
+You can add as many configuration overrides here as you like, as long as the format is `[executable] [config] ([option1] [option2] ...)`
 
-**ProcessMCMC** has much more plotting options, we recommend to see [here](https://github.com/mach3-software/MaCh3/wiki/09.-Bayesian-Analysis,-Plotting-and-MCMC-Processor) to get better idea what each plot mean.
-We especially recommend comparing 2D posteriors with correlation matrix and playing with triangle plots.
+### Processing MCMC Outputs
+Being able to visualise and analyse the output of the MCMC is standard procedure after a chain has finished. MaCh3 uses `ProcessMCMC` to transform the raw output from the MCMC into smaller outputs that are more easily digested by downstream plotting macros. You can run it using
+```bash
+./bin/ProcessMCMC bin/TutorialDiagConfig.yaml Test.root
+```
+where `Test.root` is the output of running `MCMCTutorial` as described [here](#how-to-run-mcmc). You can find some quickly-generated plots in `Test_drawCorr.pdf`. One of plots you will encounter is:
 
-You can then take the output of running ProcessMCMC which will be called something like <inputName>_Process.root, and make fancier error plots from it using the `GetPostfitParamPlots` app like:
+<img width="350" alt="Posterior example" src="https://github.com/user-attachments/assets/1073a76e-5d82-4321-8952-e098d1b0717f">
+
+This is the marginalised posterior of a single parameter. This is the main output of the MCMC.
+
+There are many options in `ProcessMCMC` that allow you to make many more analysis plots from the MCMC output; we recommend that you see [here](https://github.com/mach3-software/MaCh3/wiki/09.-Bayesian-Analysis,-Plotting-and-MCMC-Processor) to get better idea what each plot means. In particular, we recommend comparing 2D posteriors with the correlation matrix, and playing with triangle plots.
+
+### Plotting MCMC Posteriors
+Once you have the processed MCMC output from `ProcessMCMC`, which will be called something like `<inputName>_Process.root`, you can make fancier analysis plots from it using the `GetPostfitParamPlots` app like:
 
 ```bash
-GetPostfitParamPlots Test_drawCorr.root
+./bin/GetPostfitParamPlots Test_drawCorr.root
 ```
 
-Output should look like file below, and it convey same information as individual posteriors, it is more compact way of presenting same information useful for comparison especially if you have order of hundred parameters
+The output should look like plot below. This conveys same information as the individual posteriors from `Test_drawCorr.pdf`, but is more compact. This is useful especially if you have hundreds of parameters to compare.
 
 <img width="350" alt="Posterior example" src="https://github.com/user-attachments/assets/27e3e4c8-629e-4c05-ac64-f6a7bec85331">
 
-#### Correlation Matrix Plotting
-If you have run **ProcessMCMC** with option "PlotCorr" you will have in output correlation matrix.
-This is a handy tool for viewing how correlated parameters are. However mature analyses with hundreds of parameters may run into the problem of having too large plots.
-To plot only a subset of parameters we recommend using **MatrixPlotter**.
+### Plotting Correlation Matrix
+If you have run `ProcessMCMC` with option "PlotCorr" you will have a correlation matrix in the outputs. This is a handy tool for viewing how correlated different parameters are. However, mature analyses with hundreds of parameters may run into the problem of having too large of plots to be useful. To combat this, you can plot a subset of parameters using `MatrixPlotter`:
 ```bash
-bin/MatrixPlotter bin/TutorialDiagConfig.yaml Test_drawCorr.root
+./bin/MatrixPlotter bin/TutorialDiagConfig.yaml Test_drawCorr.root
 ```
-Within MatrixPlot.pdf you should see a plot like this.
+
+This macro will give you `MatrixPlot.pdf`, where you should see a plot like this:
 
 <img width="350" alt="Posterior example" src="https://github.com/user-attachments/assets/14471069-27e7-4ea3-9d75-232615aa246a">
 
-In this example, you can see only two parameters. Using TutorialDiagConfig.yaml you can easily modify it either by adding more Titles, or more parameters.
-
+In this particular example, you can see only two parameters. Using TutorialDiagConfig.yaml you can easily modify it either by adding more Titles, or more parameters. For example:
 ```yaml
 MatrixPlotter:
   Titles: [
@@ -127,8 +125,9 @@ MatrixPlotter:
   Norm: ["Norm_Param_0", "Norm_Param_1", "BinnedSplineParam1",
   ]
 ```
+
 ## Posterior Predictive Analysis
-Since MCMC produces a posterior distribution rather than a single best-fit value, one needs to use a Posterior Predictive Analysis (PPA) to produce spectra after the fit. The idea is to draw parameter sets from the MCMC chains and generate a toy spectrum for each set. The final distribution of spectra is then obtained from all these toy spectra, reflecting the full uncertainty encoded in the posterior.
+Since MCMC produces a full posterior distribution rather than a single best-fit value, one needs to use a Posterior Predictive Analysis (PPA) to produce spectra after the fit. The idea is to draw parameter sets from the MCMC chains and generate a toy spectrum for each set. The final distribution of spectra is then obtained from all these toy spectra, reflecting the full uncertainty encoded in the posterior.
 
 Once you run MCMC you can produce this distribution using following command.
 ```bash
