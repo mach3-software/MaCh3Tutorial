@@ -350,11 +350,52 @@ int main(int argc, char *argv[])
 ////////////// Now PCA with several undecomposed //////////////
   TestPCA("PCA_2",
           {TutorialPath + "/TutorialConfigs/CovObjs/SystematicModel.yaml",
-            TutorialPath + "/TutorialConfigs/CovObjs/PCATest.yaml"},
+           TutorialPath + "/TutorialConfigs/CovObjs/PCATest.yaml"},
           0.01,
           10, 19,
           Ntoys,
           outFile);
+////////////// Now PCA with two block //////////////
+  TestPCA("PCA_3",
+          {TutorialPath + "/TutorialConfigs/CovObjs/SystematicModel.yaml",
+           TutorialPath + "/TutorialConfigs/CovObjs/PCATest.yaml",
+           TutorialPath + "/TutorialConfigs/CovObjs/OscillationModel.yaml"
+          },
+          0.01,
+          10, 19,
+          Ntoys,
+          outFile);
+////////////// Now we PCA first block //////////////
+  TestPCA("PCA_4",
+          { TutorialPath + "/TutorialConfigs/CovObjs/PCATest.yaml",
+            TutorialPath + "/TutorialConfigs/CovObjs/SystematicModel.yaml",
+            TutorialPath + "/TutorialConfigs/CovObjs/OscillationModel.yaml"
+          },
+          0.01,
+          0, 10,
+          Ntoys,
+          outFile);
+////////////// Now we PCA last block //////////////
+  TestPCA("PCA_4",
+          { TutorialPath + "/TutorialConfigs/CovObjs/SystematicModel.yaml",
+            TutorialPath + "/TutorialConfigs/CovObjs/OscillationModel.yaml",
+            TutorialPath + "/TutorialConfigs/CovObjs/PCATest.yaml"
+          },
+          0.01,
+          20, 29,
+          Ntoys,
+          outFile);
+////////////// Now PCA with two block and threshold equal 0//////////////
+  TestPCA("PCA_5",
+          {TutorialPath + "/TutorialConfigs/CovObjs/SystematicModel.yaml",
+           TutorialPath + "/TutorialConfigs/CovObjs/PCATest.yaml",
+           TutorialPath + "/TutorialConfigs/CovObjs/OscillationModel.yaml"
+          },
+          0.0000000000001,
+          10, 19,
+          Ntoys,
+          outFile);
+
 ////////////// Now Osc //////////////
   std::vector<std::string> OscCovMatrixFile = {TutorialPath + "/TutorialConfigs/CovObjs/OscillationModel.yaml"};
   auto osc = std::make_unique<ParameterHandlerGeneric>(OscCovMatrixFile, "osc_cov");
