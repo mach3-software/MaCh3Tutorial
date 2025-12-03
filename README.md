@@ -31,9 +31,9 @@ MaCh3 is predominantly C++ software, although some functionality is available th
 6. [MCMC Diagnostic](#mcmc-diagnostic)
     1. [Running Multiple Chains](#running-multiple-chains)
 7. [Useful Settings](#useful-settings)
-8. [How to Plot?](#how-to-plot)
-    1. [How to run LLH scan](#how-to-run-llh-scan)
-    2. [How to run Sigma Variation](#how-to-run-sigma-variation)
+8. [Other Useful Plots](#other-useful-plots)
+    1. [LLH scans](#llh-scans)
+    2. [Sigma Variations](#sigma-variations)
 
 ## How to Start?
 To compile simply
@@ -396,23 +396,23 @@ Once you validated that your parallel chains have converged, you can merge them 
 This works very similarly to `hadd`, although this method has some advantages. The main one is that it checks if chains were run with the same settings (if chains have different settings, they are not the same MCMC, and therefore cannot be merged). If for example one chain was run with different systematic parameters, then this will be caught here.
 
 ## Useful Settings
-There are plenty of useful settings in
-**Fitting Algorithm**: Most likely you run MCMC but what if you want to use algorithm like Minuit2?
+There are plenty of useful settings in the configurations you can change.
+
+**Fitting Algorithm**: Most likely you run MCMC, but what if you want to use a different algorithm like Minuit2? You can do this by changing the following setting in `TutorialConfigs/FitterConfig.yaml` "Minuit2":
 ```yaml
 General:
   FittingAlgorithm: "MCMC"
 ```
-In `TutorialConfigs/FitterConfig.yaml` you should switch following setting to "Minuit2"
 
 **LLH Type**:
-By default we use Barlow-Beeston LLH, however several are implemented. For example by changing config you can use Poisson or maybe IceCube.
+By default we use Barlow-Beeston LLH, however several different LLH types are available in MaCh3. By changing `TutorialConfigs/FitterConfig.yaml`, you can alternatively use Poisson or even IceCube LLH:
 ```yaml
 LikelihoodOptions:
   TestStatistic: "Barlow-Beeston"
 ```
-Read more [here](https://mach3-software.github.io/MaCh3/Structs_8h.html#a960da89e33ac45a56f7bbfac3068dc67)
+Read more [here](https://mach3-software.github.io/MaCh3/Structs_8h.html#a960da89e33ac45a56f7bbfac3068dc67).
 
-## How to Plot?
+## Other Useful Plots
 
 There are a number of apps included to make plots from the results of your fits, llh scans etc. You can find more details on them and how they work in the main MaCh3 wiki [here](https://github.com/mach3-software/MaCh3/wiki). There you will also find some instructions on how you can write your own plotting scripts.
 
@@ -420,38 +420,39 @@ The plotting library is configured using yaml files. You can see some examples o
 
 Some examples on how to make some "standard" plots are given below.
 
-### How to run LLH scan
-LLH scan is a procedure where one changes value of single parameter, reweight MC and calculates likelihood.
-If running with Asimov setting at prior value LLH should be 0. Rate at which LLH is increasing with increase of value indiceate how sensitive your MC is to give parameter.
+### LLH Scans
+An LLH Scan is a procedure where one changes value of single parameter, reweights the MC, and calculates likelihood. This is useful for checking the impact of new parameters, seeing any problematic impacts on the likelihood, and even step size tuning.
 
-You can run LLH scan in very similar way as MCMC
+For this tutorial, we'll be running in an Asimov setting. In such a case, the LLH should be 0 at prior values (since then, the MC and "data" match perfectly). The rate at which LLH increases as a parameter moves away from the prior indicates how sensitive the MC is to a given parameter.
+
+You can run an LLH scan in a very similar way to how you would an MCMC:
 ```bash
 ./bin/LLHScanTutorial TutorialConfigs/FitterConfig.yaml
 ```
-You can plot the results of an LLH scan using the aptly named PlotLLH app like so
 
+You can plot the results of the LLH scan using the aptly named `PlotLLH` app like so:
 ```bash
-PlotLLH LLH_Test.root
+./bin/PlotLLH LLH_Test.root
 ```
-where LLH_Test.root is the result of running the LLH scan as described [here](#how-to-run-llh-scan).
+where `LLH_Test.root` is the output of the `LLHScanTutorial` app described above.
 
-It is possible to compare several files simply by:
-
+It is possible to compare several LLH scan files simply by adding more files as command line arguments:
 ```bash
-PlotLLH LLH_Test.root LLH_Test_2.root
+./bin/PlotLLH LLH_Test.root LLH_Test_2.root
 ```
 
-### How to run Sigma Variation
-Sigma Var is conceptually similar to LLH scan however here instead of looking how LLH changes one investigate actual sample spectra.
+### Sigma Variations
+Sigma Variations are conceptually similar to the LLH scan, where we vary individual parameters and reweight the MC correspondingly, however here instead of looking at how the LLH changes, the focus is actually on how the sample spectra themselves respond to the parameter movements.
 
+You can run a sigma variation using the same format as the LLH scan:
 ```bash
 ./bin/SigmaVarTutorial TutorialConfigs/FitterConfig.yaml
 ```
-
-Once it finished you can make plots using
+Once it has finished, you can make plots using
 ```bash
 ./bin/PlotSigmaVariation SigmaVar_Test.root bin/TutorialDiagConfig.yaml
 ```
+where `SigmaVar_Test.root` is the output file from `SigmaVarTutorial`.
 
 <details>
 <summary><strong>(Detailed) Plotting with Python</strong></summary>
@@ -468,11 +469,9 @@ For the examples here, we will use matplotlib and numpy. These can be installed 
 ```bash
 pip install -r requirements.txt
 ```
-
 but note that these are just what is used for an example for the purpose of this tutorial. When making your own plots you are totally free to use whatever plotting libraries you like!
 
-You can use the example script [MCMCPlotting-tutorial.py](plotting/MCMC-plotting-tutorial.py) to plot the raw MCMC chain values that were obtained in the [how to run MCMC](#how-to-run-mcmc) section above by doing
-
+You can use the example script [MCMCPlotting-tutorial.py](plotting/MCMC-plotting-tutorial.py) to plot the raw MCMC chain values that were obtained in the [Other Useful Plots](#other-useful-plots) section above by doing
 ```bash
 python plotting/MCMC-plotting-tutorial.py Test.root
 ```
@@ -481,7 +480,7 @@ This will give you some plots that look something like
 
 <img width="350" alt="MCMC example" src="https://github.com/user-attachments/assets/bdb1792f-3d52-4ea3-8eb8-0e6cf7b9119a">
 
-After you have run this chain through the MCMC processor as described in the [How To Plot?](#how-to-plot) section, you can pass the processed file to [1DPosterior-tutorial.py](plotting/1DPosterior-tutorial.py) like
+After you have run this chain through the MCMC processor as described in the [Other Useful Plots](#other-useful-plots) section, you can pass the processed file to [1DPosterior-tutorial.py](plotting/1DPosterior-tutorial.py) like
 
 ```bash
 python plotting/1DPosterior-tutorial.py Test_Process.root
@@ -492,7 +491,7 @@ which will plot the projected one dimensional posteriors which should look somet
 <img width="350" alt="1dPosterior example" src="https://github.com/user-attachments/assets/4ddf3abb-9794-4f21-ae9b-862718c2ff57">
 
 
-Similarly you can use [LLHScan-plotting-tutorial.py](plotting/LLHScan-plotting-tutorial.py) to plot the LLH scans you made in the [How to run LLH scan](#how-to-run-llh-scan) section like
+Similarly you can use [LLHScan-plotting-tutorial.py](plotting/LLHScan-plotting-tutorial.py) to plot the LLH scans you made in the [LLH Scans](#llh-scans) section like
 
 ```bash
 python plotting/LLHScan-plotting-tutorial.py LLH_Test.root
