@@ -69,7 +69,8 @@ You have just finished your first MCMC chain. You can view `Test.root` for examp
 
 A single entry in the tree represents a single MCMC step. Other than debug purposes, it is highly recommended to use MaCh3 processing tools for further visualisation.
 
-**WARNING** Your posterior may look very shaky and slightly different to the one in example. This is because you have run the chain with low number of steps, meaning you don't have enough statistic to build out the posterior distribution. It is good homework to increase the number of steps and see how much smoother the posterior becomes, but at the cost of having to wait more. You can easily test this by modifying `TutorialConfigs/FitterConfig.yaml` to change the number of MCMC steps:
+**WARNING** Your posterior may look very shaky and slightly different to the one in example. This is because you have run the chain with low number of steps, meaning you don't have enough statistic to build out the posterior distribution.
+It is good homework to increase the number of steps and see how much smoother the posterior becomes, but at the cost of having to wait more. You can easily test this by modifying `TutorialConfigs/FitterConfig.yaml` to change the number of MCMC steps:
 ```yaml
 General:
   MCMC:
@@ -86,7 +87,8 @@ Instead of changing the config file `TutorialConfigs/FitterConfig.yaml` above di
 ```
 In this way, you can add as many configuration overrides here as you like, as long as the format is `[executable] [config] ([option1] [option2] ...)`.
 
-**Warning** This overriding process is only possible for the "main config" (i.e., configs that respond directly to the `Manager` class in MaCh3 core). This main config is used with the apps in the `Tutorial` folder here; for the other apps (mainly plotting apps like `PredictivePlotting`) that read from `bin/TutorialDiagConfig.yaml`, this is not possible, as further command line arguments are interpreted as *input ROOT files*, not override directives.
+**Warning** This overriding process is only possible for the "main config" (i.e., configs that respond directly to the `Manager` class in MaCh3 core). This main config is used with the apps in the `Tutorial` folder here;
+for the other apps (mainly plotting apps like `PredictivePlotting`) that read from `bin/TutorialDiagConfig.yaml`, this is not possible, as further command line arguments are interpreted as *input ROOT files*, not override directives.
 
 ### Processing MCMC Outputs
 Being able to visualise and analyse the output of the MCMC is standard procedure after a chain has finished. MaCh3 uses `ProcessMCMC` to transform the raw output from the MCMC into smaller outputs that are more easily digested by downstream plotting macros. You can run it using
@@ -113,7 +115,8 @@ The output should look like plot below. This conveys same information as the ind
 <img width="350" alt="Posterior example" src="https://github.com/user-attachments/assets/27e3e4c8-629e-4c05-ac64-f6a7bec85331">
 
 ### Plotting Correlation Matrix
-If you have run `ProcessMCMC` with option "PlotCorr" you will have a correlation matrix in the outputs. This is a handy tool for viewing how correlated different parameters are. However, mature analyses with hundreds of parameters may run into the problem of having too large of plots to be useful. To combat this, you can plot a subset of parameters using `MatrixPlotter`:
+If you have run `ProcessMCMC` with option "PlotCorr" you will have a correlation matrix in the outputs. This is a handy tool for viewing how correlated different parameters are.
+However, mature analyses with hundreds of parameters may run into the problem of having too large of plots to be useful. To combat this, you can plot a subset of parameters using `MatrixPlotter`:
 ```bash
 ./bin/MatrixPlotter bin/TutorialDiagConfig.yaml Test_drawCorr.root
 ```
@@ -133,7 +136,8 @@ MatrixPlotter:
 ```
 
 ## Posterior Predictive Analysis
-Since MCMC produces a full posterior distribution rather than a single best-fit value, one needs to use a Posterior Predictive Analysis (PPA) to produce spectra after the fit. The idea is to draw parameter sets from the MCMC chains and generate a toy spectrum for each set. The final distribution of spectra is then obtained from all these toy spectra, reflecting the full uncertainty encoded in the posterior.
+Since MCMC produces a full posterior distribution rather than a single best-fit value, one needs to use a Posterior Predictive Analysis (PPA) to produce spectra after the fit. The idea is to draw parameter sets from the MCMC chains and generate a toy spectrum for each set.
+The final distribution of spectra is then obtained from all these toy spectra, reflecting the full uncertainty encoded in the posterior.
 
 Once you run MCMC you can produce these toy distributions using following command:
 ```bash
@@ -163,7 +167,8 @@ The output will look like:
 <img width="350" alt="PostPredPlot" src="https://github.com/user-attachments/assets/1f9bad86-4b53-453a-919f-4b837495b60c">
 
 ### Prior Predictive Distributions
-The above steps focused on Posterior Predictive distributions, whereby we see the uncertainty in the spectrum after the parameters are constrained by the MCMC. You can use a similar setup to run Prior Predictve Analysis, where we check the spectrum uncertainty coming from the parameter priors (i.e., with no constraint from the fit). The main difference here is that we throw from the parameter prior covariance matrix instead of the posterior chain.
+The above steps focused on Posterior Predictive distributions, whereby we see the uncertainty in the spectrum after the parameters are constrained by the MCMC. You can use a similar setup to run Prior Predictve Analysis, where we check the spectrum uncertainty coming from the parameter priors
+(i.e., with no constraint from the fit). The main difference here is that we throw from the parameter prior covariance matrix instead of the posterior chain.
 
 To do this, we need to change a single parmater in `TutorialConfigs/FitterConfig.yaml`:
 ```yaml
@@ -187,7 +192,9 @@ Finally, we can compare the prior and posterior predictive spectra with the prev
 Here, you can see that the prior distribution has much larger errors. This gives you some idea how well we constrain parameters during the fitting process.
 
 ## How to Develop a Model of Systematic Uncertainties
-The systematic uncertainties in the MCMC describe how we are modeling the underlying physics. For example, you might have a cross-section model that describes how neutrinos interact with nuclei. For such a model, you may have several parameters that help implement the model in code, such as the absolute cross-section normalization, or the relative normalization for neutrino and anti-neutrino interactions. In this step, we will modify the analysis setup for one of our systematic parameters and repeat the tutorial steps to see the impact.
+The systematic uncertainties in the MCMC describe how we are modeling the underlying physics. For example, you might have a cross-section model that describes how neutrinos interact with nuclei.
+For such a model, you may have several parameters that help implement the model in code, such as the absolute cross-section normalization, or the relative normalization for neutrino and anti-neutrino interactions.
+In this step, we will modify the analysis setup for one of our systematic parameters and repeat the tutorial steps to see the impact.
 
 First let's get a better understanding `TutorialConfigs/CovObjs/SystematicModel.yaml`. This is the main config that controls what systematic uncertainties will be used in the analysis. For example:
 ```yaml
@@ -215,7 +222,8 @@ If you want to read more about the specifics of implementating systematics in th
 
 As a first step let's modify `Error: 0.11` to `Error: 2.0`. This significantly changes the prior uncertainty on the `Norm_Param_0` parameter. Such a change should be very noticeable in the MCMC posterior.
 
-Let's also modify the output file name so we don't overwrite our previous outputs. This is governed by the manager class (read more [here](https://github.com/mach3-software/MaCh3/wiki/01.-Manager-and-config-handling)). You can modify this in the configs by for example changing `OutputFile: "Test.root"` in `TutorialConfigs/FitterConfig.yaml` to `OutputFile: "Test_Modified.root"` (or you could use a parameter override by adding `General:OutputFile:Test_Modified.root` as a command line argument).
+Let's also modify the output file name so we don't overwrite our previous outputs. This is governed by the manager class (read more [here](https://github.com/mach3-software/MaCh3/wiki/01.-Manager-and-config-handling)).
+You can modify this in the configs by for example changing `OutputFile: "Test.root"` in `TutorialConfigs/FitterConfig.yaml` to `OutputFile: "Test_Modified.root"` (or you could use a parameter override by adding `General:OutputFile:Test_Modified.root` as a command line argument).
 
 With the modifications, let's run MCMC again:
 ```bash
@@ -231,7 +239,8 @@ Now that you have two chains you can try comparing them using the following:
 This will produce a pdf with plots showing overlayed posteriors from both chains. Most should be similarly except modified parameter.
 
 ### Holding Parameters Fixed
-Sometimes you may want to fix a parameter to some nominal value to stop it from moving during the MCMC. For example, if a parameter is causing some problem to the fitter, or you want to compare what happens with and without some new parameter, this option would be very useful to you. To fix a parameter, just pass the parameter's name to the `TutorialConfigs/CovObjs/FitterConfig.yaml`:
+Sometimes you may want to fix a parameter to some nominal value to stop it from moving during the MCMC. For example, if a parameter is causing some problem to the fitter, or you want to compare what happens with and without some new parameter, this option would be very useful to you.
+To fix a parameter, just pass the parameter's name to the `TutorialConfigs/CovObjs/FitterConfig.yaml`:
 ```yaml
 General:
   Systematics:
@@ -240,7 +249,8 @@ General:
 If you were to run a new MCMC with this configuration, you should see that `Norm_Param_0` does not move from its nominal position during the chain.
 
 ## How to Develop New Samples
-Analysis samples are where we compare data and simulation to extract our physics results. For example, you might have an analysis sample that is enriched in neutral-current pi0 events to precisely study NC-pi0 cross sections. In this section, we will modify an existing analysis sample to explore how the inner workings of MaCh3 operate, and then see how to add a new one.
+Analysis samples are where we compare data and simulation to extract our physics results. For example, you might have an analysis sample that is enriched in neutral-current pi0 events to precisely study NC-pi0 cross sections.
+In this section, we will modify an existing analysis sample to explore how the inner workings of MaCh3 operate, and then see how to add a new one.
 
 ### Modifying Analysis Samples
 To begin, let's take a look at `TutorialConfigs/Samples/SampleHandler_Tutorial.yaml`. Each sample has a set of cuts that select events into the sample and reject others. Right now, let's focus on the cut on `TrueNeutrinoEnergy`:
@@ -270,7 +280,8 @@ You can run the MCMC again using this new configuration (after changing the outp
 ```
 
 ### Adding a New Sample
-Up to this point we have only modified an existing sample, but how would we add a new one? We can start by first making a copy of the sample config `TutorialConfigs/Samples/SampleHandler_Tutorial.yaml` and calling it `TutorialConfigs/Samples/SampleHandler_User.yaml`. For the moment feel free to change the sample name, binning, whatever you want. Go wild! Just be sure to keep `TutorialConfigs/CovObjs` the same, or things will break.
+Up to this point we have only modified an existing sample, but how would we add a new one? We can start by first making a copy of the sample config `TutorialConfigs/Samples/SampleHandler_Tutorial.yaml` and calling it `TutorialConfigs/Samples/SampleHandler_User.yaml`.
+For the moment feel free to change the sample name, binning, whatever you want. Go wild! Just be sure to keep `TutorialConfigs/CovObjs` the same, or things will break.
 
 Next, go to the main config (`TutorialConfigs/Samples/FitterConfig.yaml`) and add in your newly-implemented sample by expanding the `TutorialSamples` section:
 ```yaml
@@ -280,7 +291,8 @@ General:
 
 <details>
 <summary><strong>(Detailed) Samples using the same config</strong></summary>
-The above explained adding new samples via separate configs (resulting in the creation of a new sample object when the code runs). It is possible for you to instead add your new sample directly to the existing sample config. You can find an example of doing so here: `TutorialConfigs/Samples/SampleHandler_Tutorial_ND.yaml`.
+The above explained adding new samples via separate configs (resulting in the creation of a new sample object when the code runs). It is possible for you to instead add your new sample directly to the existing sample config.
+You can find an example of doing so here: `TutorialConfigs/Samples/SampleHandler_Tutorial_ND.yaml`.
 
 The general scheme for doing this is to specify a list of `Samples` in the config, and then flesh out the sample details within different `Sample` blocks in the yaml like this:
 ```yaml
@@ -310,7 +322,8 @@ By default, the oscillation engine we use is `NuFast`. However, you can change t
 NuOsc:
   NuOscConfigFile: "TutorialConfigs/NuOscillator/Prob3ppLinear.yaml"
 ```
-This changes the oscillation engine by specifying a new oscillation configuration file. In most cases this is enough, however you have to be aware that different oscillation engines may require a different number of parameters. In this example, NuFast requires one additional parameter compared with Prob3ppLinear (`Ye` in this case). You will have to remove the `Ye` parameter from `TutorialConfigs/CovObjs/OscillationModel.yaml` complete the switch to `Prob3++`.
+This changes the oscillation engine by specifying a new oscillation configuration file. In most cases this is enough, however you have to be aware that different oscillation engines may require a different number of parameters.
+In this example, NuFast requires one additional parameter compared with Prob3ppLinear (`Ye` in this case). You will have to remove the `Ye` parameter from `TutorialConfigs/CovObjs/OscillationModel.yaml` complete the switch to `Prob3++`.
 
 Another useful setting is whether you want binned or unbinned oscillations. If you want to change this, simply go to `TutorialConfigs/NuOscillator/Prob3ppLinear.yaml` and modify the following to `Unbinned`.
 ```yaml
@@ -332,19 +345,22 @@ You can plot kinematic distributions of your new sample using:
 ```bash
 ./bin/KinemDistributionTutorial TutorialConfigs/FitterConfig.yaml
 ```
-Notice that we are using the same config as the MCMC tutorial here. At the bottom of the config, you can specify any individual variables you would like to plot with this executable, along with any selection cuts for each plot in the `KinematicDistributionPlots` section. An example of what you might expect for output can be seen here:
+Notice that we are using the same config as the MCMC tutorial here. At the bottom of the config, you can specify any individual variables you would like to plot with this executable, along with any selection cuts for each plot in the `KinematicDistributionPlots` section.
+An example of what you might expect for output can be seen here:
 
 <img width="350" alt="Kinematic example" src="https://github.com/user-attachments/assets/534bcb17-f26c-4fc2-a77a-5d253b0ed241">
 
 ### More Advanced Development
-Not everything can be done by modifying config in sample implementation. The actual implementation of samples is in `Samples/SampleHandlerTutorial`, which inherits from `SampleHandlerFDBase`. The latter class deals with actual event reweighting and general heavy lifting. `SampleHandlerTutorial` deals with more specific information, like MC variable loading. This is because each experiment has slightly different MC format and different information available, and so it must be implemented in a custom manner.
+Not everything can be done by modifying config in sample implementation. The actual implementation of samples is in `Samples/SampleHandlerTutorial`, which inherits from `SampleHandlerFDBase`.
+The latter class deals with actual event reweighting and general heavy lifting. `SampleHandlerTutorial` deals with more specific information, like MC variable loading. This is because each experiment has slightly different MC format and different information available, and so it must be implemented in a custom manner.
 
 ## MCMC Diagnostic
 A crucial part of MCMC is diagnosing whether a chain has converged or not. You can produce chain diagnostics by running:
 ```bash
 ./bin/DiagMCMC Test.root bin/TutorialDiagConfig.yaml
 ```
-This will produce a plethora of diagnostic information. One of most important of these are the autocorrelations for each of the parameters. Autocorrelation indicates how correlated MCMC steps are when they are n-steps apart in the chain. Generally speaking, we want the autocorrelation to drop to 0 fast and stay around there (like in the plot below). You can read about other diagnostics [here](https://github.com/mach3-software/MaCh3/wiki/11.-Step-size-tuning), but it is sufficient for now to focus on autocorrelation.
+This will produce a plethora of diagnostic information. One of most important of these are the autocorrelations for each of the parameters. Autocorrelation indicates how correlated MCMC steps are when they are n-steps apart in the chain.
+Generally speaking, we want the autocorrelation to drop to 0 fast and stay around there (like in the plot below). You can read about other diagnostics [here](https://github.com/mach3-software/MaCh3/wiki/11.-Step-size-tuning), but it is sufficient for now to focus on autocorrelation.
 
 <img width="350" alt="Posterior example" src="https://github.com/user-attachments/assets/e146698c-713c-4daf-90df-adeb3051539b">
 
@@ -358,7 +374,8 @@ General:
 ```
 which applies to all `Xsec`-type parameters universally, and can be used to quickly increase or decrease the step sizes of all parameters simultaneously.
 
-**Individual** step sizes affect each parameter independently from one another. The tuning of these is highly parameter-dependent (for example, different parameters have different prior errors, data constraints, and boundary sensitivity). In general, these can be found in `TutorialConfigs/CovObjs/SystematicModel.yaml`, as `StepScale` parameters:
+**Individual** step sizes affect each parameter independently from one another. The tuning of these is highly parameter-dependent (for example, different parameters have different prior errors, data constraints, and boundary sensitivity).
+In general, these can be found in `TutorialConfigs/CovObjs/SystematicModel.yaml`, as `StepScale` parameters:
 ```yaml
 - Systematic:
     Names:
@@ -380,16 +397,22 @@ If you add a second/third arguemnt, the macro can compare several files:
 ```
 
 ### Running Multiple Chains
-At this point, you should be aware that to have a smooth posterior distribution, you may need a lot of steps, which can be time-consuming. A great property of MCMC is that once a chain reaches the stationary distribution (or, in other words, converges), it continues to sample from the same distribution. We can leverage this by running several chains in parallel. Computing clusters give us the ability to run thousands of MCMC chains in parallel, allowing us to accumulate steps very fast.
+At this point, you should be aware that to have a smooth posterior distribution, you may need a lot of steps, which can be time-consuming. A great property of MCMC is that once a chain reaches the stationary distribution (or, in other words, converges), it continues to sample from the same distribution.
+We can leverage this by running several chains in parallel. Computing clusters give us the ability to run thousands of MCMC chains in parallel, allowing us to accumulate steps very fast.
 
-The only caveat of this method is that the parallel chains have to converge to the *same* stationary distribution for it to work (it is possible for there to be one stationary distribution, but have chains get stuck in local minima or not converge due to poor step-size tunning). To validate if chains converged we can use the $\hat{R}$ metric, which compares the MCMC mixing of different parallel chains to determine if they have converged to the same stationary distribution. For details on what this metric is more specifically, see [here](https://mc-stan.org/docs/2_18/reference-manual/notation-for-samples-chains-and-draws.html).
+The only caveat of this method is that the parallel chains have to converge to the *same* stationary distribution for it to work (it is possible for there to be one stationary distribution, but have chains get stuck in local minima or not converge due to poor step-size tunning).
+To validate if chains converged we can use the $\widehat{R}$ metric, which compares the MCMC mixing of different parallel chains to determine if they have converged to the same stationary distribution.
+For details on what this metric is more specifically, see [here](https://mc-stan.org/docs/2_18/reference-manual/notation-for-samples-chains-and-draws.html).
 
-The following code will calculate the $\hat{R}$ metric across four different MCMC chains (which you should run yourself to test! Be sure to use identical configurations for all four chains). Here, 1000 indicates the number of steps we want to sample from the chains, while the other arguments indicate different MCMC output files. You can pass as many chains as you want.
+The following code will calculate the $\widehat{R}$ metric across four different MCMC chains (which you should run yourself to test! Be sure to use identical configurations for all four chains).
+Here, 1000 indicates the number of steps we want to sample from the chains, while the other arguments indicate different MCMC output files. You can pass as many chains as you want.
 ```bash
 ./bin/RHat 1000 MCMC_Test_1.root MCMC_Test_2.root MCMC_Test_3.root MCMC_Test_4.root
 ```
 
-$\hat{R}$ is essentially the ratio of the variance between different MCMC chains to the variance within a single chain. As such, we expect well-mixed chains to peak at 1, indicating that the two variances are the same. In the following plot, a single entry in the histogram refers to a single parameter from the MCMC. If your distribution has a tail reaching beyond 1.1 (according to Gellman) then this likely indicates some chains haven't converged to the same distribution. If this is the case, you MUST investigate, as it indicates something wrong with your MCMC (note: in this tutorial, the most-likely reason you may end up with $\hat{R}>1.1$ will be a lack of sufficient MCMC steps; run longer chains and see if it helps).
+$\widehat{R}$ is essentially the ratio of the variance between different MCMC chains to the variance within a single chain. As such, we expect well-mixed chains to peak at 1, indicating that the two variances are the same.
+In the following plot, a single entry in the histogram refers to a single parameter from the MCMC. If your distribution has a tail reaching beyond 1.1 (according to Gellman) then this likely indicates some chains haven't converged to the same distribution.
+If this is the case, you MUST investigate, as it indicates something wrong with your MCMC (note: in this tutorial, the most-likely reason you may end up with $\widehat{R}>1.1$ will be a lack of sufficient MCMC steps; run longer chains and see if it helps).
 
 <img width="350" alt="Posterior example" src="https://github.com/user-attachments/assets/eada5efd-ca8f-42a4-a710-4dced5c3e3da">
 
@@ -397,7 +420,8 @@ Once you validated that your parallel chains have converged, you can merge them 
 ```bash
 ./bin/CombineMaCh3Chains -o MergedChain.root MCMC_Test_1.root MCMC_Test_2.root MCMC_Test_3.root MCMC_Test_4.root
 ```
-This works very similarly to `hadd`, although this method has some advantages. The main one is that it checks if chains were run with the same settings (if chains have different settings, they are not the same MCMC, and therefore cannot be merged). If for example one chain was run with different systematic parameters, then this will be caught here.
+This works very similarly to `hadd`, although this method has some advantages. The main one is that it checks if chains were run with the same settings (if chains have different settings, they are not the same MCMC, and therefore cannot be merged).
+If for example one chain was run with different systematic parameters, then this will be caught here.
 
 ## Useful Settings
 There are plenty of useful settings in the configurations you can change.
