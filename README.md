@@ -294,47 +294,46 @@ This approach may give a performance boost, but is especially nice if you are sh
 </details>
 
 ### Changing Oscillation Engine
-MaCh3 has access to many oscillation engines via NuOscillator framework. First you can check features using following command
+MaCh3 has access to many oscillation engines via the `NuOscillator` framework. You can check the features of this using:
 ```bash
 bin/mach3-config --features
 MULTITHREAD MR2T2  PSO  Minuit2 Prob3ppLinear NuFast
 ```
-This way you can easily access information about MaCh3 features, fitter engines and most importantly oscillation engines.
+Thus, you can easily access information about MaCh3 features, most importantly the fitter engines (`MR2T2`, `PSO`, `Minuit2`) and neutrino oscillation engines (`Prob2ppLinear`, `NuFast`).
 
-By default we use **NuFast**, however to change to for example **Prob3++** one have to modify sample config `TutorialConfigs/Samples/SampleHandler_Tutorial.yaml`:
+By default, the oscillation engine we use is `NuFast`. However, you can change to another engine (`Prob3++` here) by modifying the sample config `TutorialConfigs/Samples/SampleHandler_Tutorial.yaml`:
 ```yaml
 NuOsc:
   NuOscConfigFile: "TutorialConfigs/NuOscillator/Prob3ppLinear.yaml"
 ```
-In most cases this is enough. However you have to be aware that some engines require different number of parameters. In this example NuFast requires one additional parameter compared with Prob3ppLinear which is **Ye**. You will have to remove **Ye** from `TutorialConfigs/CovObjs/OscillationModel.yaml`
+This changes the oscillation engine by specifying a new oscillation configuration file. In most cases this is enough, however you have to be aware that different oscillation engines may require a different number of parameters. In this example, NuFast requires one additional parameter compared with Prob3ppLinear (`Ye` in this case). You will have to remove the `Ye` parameter from `TutorialConfigs/CovObjs/OscillationModel.yaml` complete the switch to `Prob3++`.
 
-Another useful setting is whether you want binned or unbinned oscillations, if you want to do this simple got to `TutorialConfigs/NuOscillator/Prob3ppLinear.yaml` and modify following path to **Unbinned**.
+Another useful setting is whether you want binned or unbinned oscillations. If you want to change this, simply go to `TutorialConfigs/NuOscillator/Prob3ppLinear.yaml` and modify the following to `Unbinned`.
 ```yaml
 General:
   CalculationType: "Binned"
 ```
 
 ### Atmospheric Sample
-Up to this point Beam oscitation calculations have been discussed. In terms of MaCh3 to switch to atmospheric only a few things have to be changed.
+Up to this point, we have been working exclusively with Beam neutrino samples and oscillations. In terms of MaCh3, you can switch to atmospheric neutrino oscillations by only changing a few things:
 
-* **rw_truecz** have to be filled. This is Cosine Zenith angle which Atmospheric calculations depends on.
-* Switch oscillation calculations to engine which supports Atmospheric for example CUDAProb3 (not to be confused with CUDAProb3Linear which supports beam only).
-* Modify Oscillation systematic yaml, instead of density/baseline (and **Ye**) it requires production height.
+* `rw_truecz` has to be filled. This represents "Cosine Zenith angle", which Atmospheric calculations depends on for their propagation baseline.
+* Oscillation calculations must be switched to an engine which supports Atmospheric oscillations. For example, CUDAProb3 supports atmospheric oscillations, while CUDAProb3Linear supports beam only.
+* The oscillation systematic yaml must be modified: instead of `density`/`baseline`, (and `Ye`) it requires a neutrino production height.
 
-In tutorial you can try uncommenting `TutorialConfigs/Samples/SampleHandler_Tutorial_ATM.yaml`.
+In this tutorial, you can try poking around `TutorialConfigs/Samples/SampleHandler_Tutorial_ATM.yaml` to see more details.
 
 ### Plotting Kinematic Distribution
-You can plot kinematic distribution of your sample using
+You can plot kinematic distributions of your new sample using:
 ```bash
 ./bin/KinemDistributionTutorial TutorialConfigs/FitterConfig.yaml
 ```
-Notice same config being used. In other words you can add or disable sample, modify cuts in same way as was discussed. At the bottom of the config, you can specify any individual variables you would like to plot with this executable, along with any selection cuts for each plot.
-Example of plot you can see here:
+Notice that we are using the same config as the MCMC tutorial here. At the bottom of the config, you can specify any individual variables you would like to plot with this executable, along with any selection cuts for each plot in the `KinematicDistributionPlots` section. An example of what you might expect for output can be seen here:
 
 <img width="350" alt="Kinematic example" src="https://github.com/user-attachments/assets/534bcb17-f26c-4fc2-a77a-5d253b0ed241">
 
 ### More Advanced Development
-Not everything can be done by modifying config in sample implementation. Actual implementation is in`Samples/SampleHandlerTutorial` this class inherits from `SampleHandlerFDBase`. The latter class deals with actual reweighting and all heavy lifting. while SampleHandlerTutorial deals with MC loading etc. This is because each experiment has slightly different MC format and different information available.
+Not everything can be done by modifying config in sample implementation. The actual implementation of samples is in `Samples/SampleHandlerTutorial`, which inherits from `SampleHandlerFDBase`. The latter class deals with actual event reweighting and general heavy lifting. `SampleHandlerTutorial` deals with more specific information, like MC variable loading. This is because each experiment has slightly different MC format and different information available, and so it must be implemented in a custom manner.
 
 ## MCMC Diagnostic
 Crucial part of MCMC is diagnostic whether chain converged or not. You can produce diagnostic by running.
