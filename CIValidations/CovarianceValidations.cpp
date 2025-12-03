@@ -376,7 +376,7 @@ int main(int argc, char *argv[])
           Ntoys,
           outFile);
 ////////////// Now we PCA last block //////////////
-  TestPCA("PCA_4",
+  TestPCA("PCA_5",
           { TutorialPath + "/TutorialConfigs/CovObjs/SystematicModel.yaml",
             TutorialPath + "/TutorialConfigs/CovObjs/OscillationModel.yaml",
             TutorialPath + "/TutorialConfigs/CovObjs/PCATest.yaml"
@@ -386,7 +386,7 @@ int main(int argc, char *argv[])
           Ntoys,
           outFile);
 ////////////// Now PCA with two block and threshold equal 0//////////////
-  TestPCA("PCA_5",
+  TestPCA("PCA_6",
           {TutorialPath + "/TutorialConfigs/CovObjs/SystematicModel.yaml",
            TutorialPath + "/TutorialConfigs/CovObjs/PCATest.yaml",
            TutorialPath + "/TutorialConfigs/CovObjs/OscillationModel.yaml"
