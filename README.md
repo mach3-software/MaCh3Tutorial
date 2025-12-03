@@ -12,9 +12,10 @@ MaCh3 is predominantly C++ software, although some functionality is available th
 ## Table of contents
 1. [How to Start?](#how-to-start)
 2. [How to Run MCMC](#how-to-run-mcmc)
-    1. [Processing MCMC Outputs](#processing-mcmc-outputs)
-    2. [Plotting MCMC Posteriors](#plotting-mcmc-posteriors)
-    3. [Plotting Correlation Matrix](#plotting-correlation-matrix)
+    1. [Config Overrides](#config-overrides)
+    2. [Processing MCMC Outputs](#processing-mcmc-outputs)
+    3. [Plotting MCMC Posteriors](#plotting-mcmc-posteriors)
+    4. [Plotting Correlation Matrix](#plotting-correlation-matrix)
 3. [Posterior Predictive Analysis](#posterior-predictive-analysis)
     1. [Plotting Posterior Predictive Distributions](#plotting-posterior-predictive-distributions)
     2. [Prior Predictive Distributions](#prior-predictive-distributions)
@@ -78,11 +79,14 @@ and then re-running `MCMCTutorial`.
 
 **Warning**: If you modified files in the main `MaCh3Tutorial` folder instead of `build`, you will have to call `make install` for the changes to propagate! Generally speaking, it is good practice to work from the `build` directory and make your config changes there so that local changes do not have to be tracked by git.
 
-Alternatively, you can dynamically override your configurations at the command line like this:
+### Config Overrides
+Instead of changing the config file `TutorialConfigs/FitterConfig.yaml` above directly, you can instead dynamically override your configurations at the command line like this:
 ```bash
 ./bin/MCMCTutorial TutorialConfigs/FitterConfig.yaml General:MCMC:NSteps:100000
 ```
-You can add as many configuration overrides here as you like, as long as the format is `[executable] [config] ([option1] [option2] ...)`
+In this way, you can add as many configuration overrides here as you like, as long as the format is `[executable] [config] ([option1] [option2] ...)`.
+
+**Warning** This overriding process is only possible for the "main config" (i.e., configs that respond directly to the `Manager` class in MaCh3 core). This main config is used with the apps in the `Tutorial` folder here; for the other apps (mainly plotting apps like `PredictivePlotting`) that read from `bin/TutorialDiagConfig.yaml`, this is not possible, as further command line arguments are interpreted as *input ROOT files*, not override directives.
 
 ### Processing MCMC Outputs
 Being able to visualise and analyse the output of the MCMC is standard procedure after a chain has finished. MaCh3 uses `ProcessMCMC` to transform the raw output from the MCMC into smaller outputs that are more easily digested by downstream plotting macros. You can run it using
