@@ -129,33 +129,37 @@ MatrixPlotter:
 ## Posterior Predictive Analysis
 Since MCMC produces a full posterior distribution rather than a single best-fit value, one needs to use a Posterior Predictive Analysis (PPA) to produce spectra after the fit. The idea is to draw parameter sets from the MCMC chains and generate a toy spectrum for each set. The final distribution of spectra is then obtained from all these toy spectra, reflecting the full uncertainty encoded in the posterior.
 
-Once you run MCMC you can produce this distribution using following command.
+Once you run MCMC you can produce these toy distributions using following command:
 ```bash
 ./bin/PredictiveTutorial TutorialConfigs/FitterConfig.yaml General:OutputFile:PredictiveOutputTest.root
 ```
-There are several settings in yaml allowing to control, what is important to be aware that PosteriorFile should point to result of MCMC while OutputFile point to actual result of Posterior Predictive
+
+There are several settings in the configs you can control. Here, be aware that `PosteriorFile` points to the MCMC output, while `OutputFile` points to the output of `PredictiveTutorial` we are trying to generate. So in this case,
 ```yaml
 Predictive:
   PosteriorFile: "Test.root"
 ```
+refers to the specific output from `MCMCTutorial` above.
 
-Output will look something like:
+The ROOT output from this step will look something like:
 
 <img width="350" alt="PostPred" src="https://github.com/user-attachments/assets/d7b70e6d-0802-4816-89ee-6d11ee89047b">
 
 ### Plotting Posterior Predictive Distributions
-Once you generated distribution you can plot them using:
+Once you have generated the posterior predictive toy distributions with `PredictiveTutorial`, you can make fancy plots of them using:
 ```bash
 ./bin/PredictivePlotting ./bin/TutorialDiagConfig.yaml PredictiveOutputTest.root
 ```
-Output will look like:
+where `PredictiveOutputTest.root` is the output of `PredictiveTutorial` above.
+
+The output will look like:
 
 <img width="350" alt="PostPredPlot" src="https://github.com/user-attachments/assets/1f9bad86-4b53-453a-919f-4b837495b60c">
 
 ### Prior Predictive Distributions
-Above we discussed Posterior Predictive i.e. using posterior information after running a chain. One can use same setup to run Prior Predictve Analysis. Main difference being we throw from Prior covariance matrix isntead of posterior chain.
+The above steps focused on Posterior Predictive distributions, whereby we see the uncertainty in the spectrum after the parameters are constrained by the MCMC. You can use a similar setup to run Prior Predictve Analysis, where we check the spectrum uncertainty coming from the parameter priors (i.e., with no constraint from the fit). The main difference here is that we throw from the parameter prior covariance matrix instead of the posterior chain.
 
-To activate we need to change single parmater
+To do this, we need to change a single parmater in `TutorialConfigs/FitterConfig.yaml`:
 ```yaml
 # Prior/Posterior predictive settings
 Predictive:
@@ -163,18 +167,18 @@ Predictive:
   PriorPredictive: true
 ```
 
-We can run it with following command
+We can run it with following command:
 ```bash
 ./bin/PredictiveTutorial TutorialConfigs/FitterConfig.yaml General:OutputFile:PriorPredictiveOutputTest.root Predictive:PriorPredictive:True
 ```
 
-Finally we can compare files using already known executable:
+Finally, we can compare the prior and posterior predictive spectra with the previously used `PredictivePlotting` macro:
 ```bash
 ./bin/PredictivePlotting ./bin/TutorialDiagConfig.yaml PredictiveOutputTest.root PriorPredictiveOutputTest.root
 ```
 <img width="350" alt="PriorPredPlot" src="https://github.com/user-attachments/assets/5308f707-04aa-4c57-bf59-5d000d535463">
 
-One can see Prior distribution having much larger error, this give idea how well we constraints to parameters.
+Here, you can see that the prior distribution has much larger errors. This gives you some idea how well we constrain parameters during the fitting process.
 
 ## How to Develop Model of Systematic Uncertainties
 In the next step you gonna modify analysis setup and repeat steps.
