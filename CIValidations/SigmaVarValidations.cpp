@@ -94,6 +94,8 @@ class samplePDFSigmaVar : public SampleHandlerBase
     int GetNOscChannels(const int iSample) const override {return iSample;};
     void Reweight() override {return;};
 
+    void PrintRates(const bool DataOnly = false) override {return;};
+
     TH1* GetData(const int Selection) override   {return PolyHist[Selection];}
     TH1* GetPDF(const int Selection) override    {return PolyHist[Selection];}
     TH2Poly* GetW2(const int Selection) override {return PolyHist[Selection];}
