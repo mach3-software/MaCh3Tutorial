@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1764690165496,
+  "lastUpdate": 1764863310052,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -15086,6 +15086,58 @@ window.BENCHMARK_DATA = {
             "name": "ND Reweight",
             "value": 341.324,
             "range": "± 165.025",
+            "unit": "us",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "skwarczynskikamil@gmail.com",
+            "name": "Kamil Skwarczynski",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "skwarczynskikamil@gmail.com",
+            "name": "Kamil Skwarczynski",
+            "username": "KSkwarczynski"
+          },
+          "distinct": true,
+          "id": "47e9fbff4c14be3e79155a7718605e152cbcc4fd",
+          "message": "bugfox: Fix quirky memory managment casued by ROOT... Thanks to Charlotte for spoting issue",
+          "timestamp": "2025-12-04T15:42:41Z",
+          "tree_id": "48361a830eed2d2bda0794b6ad1c71e929a595eb",
+          "url": "https://github.com/mach3-software/MaCh3/commit/47e9fbff4c14be3e79155a7718605e152cbcc4fd"
+        },
+        "date": 1764863307748,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.78421,
+            "range": "± 178.179",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.68978,
+            "range": "± 110.12",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 392.6,
+            "range": "± 3.70485",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ND Reweight",
+            "value": 331.389,
+            "range": "± 79.0788",
             "unit": "us",
             "extra": "100 samples\n1 iterations"
           }
