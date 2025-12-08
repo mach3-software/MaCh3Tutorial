@@ -17,6 +17,7 @@ void PrepareConfig(const std::string& OriginalConfig) {
   config["General"]["TutorialSamples"] = YAML::Node(YAML::NodeType::Sequence);
   config["General"]["TutorialSamples"].push_back("TutorialConfigs/Samples/SampleHandler_Tutorial.yaml");
   config["General"]["TutorialSamples"].push_back("TutorialConfigs/Samples/SampleHandler_Tutorial_ATM.yaml");
+  config["General"]["TutorialSamples"].push_back("TutorialConfigs/Samples/SampleHandler_Tutorial_ND.yaml");
   config["Predictive"]["PosteriorFile"] = "CIValidations/TestOutputs/PredictiveToys.root";
 
   // Convert to string
@@ -67,8 +68,8 @@ int main(int argc, char *argv[])
     throw MaCh3Exception(__FILE__, __LINE__);
   }
 
-  std::vector<std::string> sampleNames = {"Tutorial", "Tutorial ATM"};
-  for (const auto& sampleName : sampleNames) {
+  std::vector<std::string> SampleNames1D = {"Tutorial", "Tutorial ATM", "ND_NC1pi0"};
+  for (const auto& sampleName : SampleNames1D) {
     TDirectory* sampleDir = static_cast<TDirectory*>(predictiveDir->Get(sampleName.c_str()));
     if (!sampleDir) {
       MACH3LOG_CRITICAL("Sample directory '{}' not found in 'Predictive'", sampleName);
@@ -100,10 +101,53 @@ int main(int argc, char *argv[])
     }
   }
 
+
+  std::vector<std::string> SampleNames2D = {"ND_CC0pi", "ND_CC1pip", "ND_CCPi0", "ND_NC0pi"};
+  for (const auto& sampleName : SampleNames2D) {
+    TDirectory* sampleDir = static_cast<TDirectory*>(predictiveDir->Get(sampleName.c_str()));
+    if (!sampleDir) {
+      MACH3LOG_CRITICAL("Sample directory '{}' not found in 'Predictive'", sampleName);
+      throw MaCh3Exception(__FILE__, __LINE__);
+    }
+
+    std::string histName = sampleName + "_mc_dim0";
+    TH2D* hist = dynamic_cast<TH2D*>(sampleDir->Get(histName.c_str()));
+    if (!hist) {
+      MACH3LOG_CRITICAL("Histogram '{}' not found in sample directory '{}'", histName, sampleName);
+      throw MaCh3Exception(__FILE__, __LINE__);
+    }
+    histName = sampleName + "_mc_PostPred";
+    TH2D* hist2D = dynamic_cast<TH2D*>(sampleDir->Get(histName.c_str()));
+    if (!hist2D) {
+      MACH3LOG_CRITICAL("Histogram '{}' not found in sample directory '{}'", histName, sampleName);
+      throw MaCh3Exception(__FILE__, __LINE__);
+    }
+
+    // Print the integral of the 2D histogram
+    outFile << "Integral for sample " << sampleName << " integral: " << hist2D->Integral() << std::endl;
+
+    // Get the number of bins in X and Y directions
+    int nBinsX = hist2D->GetNbinsX();
+    int nBinsY = hist2D->GetNbinsY();
+
+    // Loop over all bins in the 2D histogram
+    for (int i = 1; i <= nBinsX; ++i) {
+      for (int j = 1; j <= nBinsY; ++j) {
+        // Get the content and error for each bin
+        const double content = hist2D->GetBinContent(i, j);
+        const double error = hist2D->GetBinError(i, j);
+
+        // Print the bin content and error
+        outFile << "Sample " << sampleName << " bin (" << i << ", " << j << ") content: " << content << std::endl;
+        outFile << "Sample " << sampleName << " bin (" << i << ", " << j << ") error: " << error << std::endl;
+      }
+    }
+  }
+
   const char* MaCh3Env = std::getenv("MaCh3_ROOT");
   std::string MaCh3Path = std::string(MaCh3Env);
 
-  command = MaCh3Path + "/bin/PredictivePlotting " + tutorialPath + "/bin/TutorialDiagConfig.yaml PredictiveOutputTest.root PredictiveOutputTest.root";
+  command = MaCh3Path + "/bin/PredictivePlotting " + tutorialPath + "/bin/TutorialDiagConfig.yaml PredictiveOutputTest.root";
   ret = system(command.c_str());
   if (ret != 0) {
     MACH3LOG_CRITICAL("Error: system call failed with code {}", ret);
@@ -113,7 +157,7 @@ int main(int argc, char *argv[])
   bool TheSame = CompareTwoFiles("CIValidations/TestOutputs/Predictive.txt", "NewPredictiveOut.txt");
 
   if(!TheSame) {
-    MACH3LOG_CRITICAL("Different likelihood mate");
+    MACH3LOG_CRITICAL("Something is different mate");
     throw MaCh3Exception(__FILE__ , __LINE__ );
   } else {
     MACH3LOG_INFO("Everything is correct");
