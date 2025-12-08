@@ -159,7 +159,7 @@ class test_sample(samples.SampleHandlerBase):
     def clean_memory_before_fit(self) -> None:
         pass
     
-    def PrintRates(self) -> None:
+    def PrintRates(self, DataOnly: bool = False) -> None:
         pass
         
     def reweight(self) -> None:
