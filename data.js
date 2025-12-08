@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1765214825586,
+  "lastUpdate": 1765216067829,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -15398,6 +15398,58 @@ window.BENCHMARK_DATA = {
             "name": "ND Reweight",
             "value": 339.932,
             "range": "± 64.2956",
+            "unit": "us",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "eed10e526860b6eaafcb6eac119ce1e356cde69b",
+          "message": "Merge pull request #698 from mach3-software/kskwarczynski/tidy/FitterSanitizer\n\ntidy: Sanitizer to make sure we don't have params with duplicate names",
+          "timestamp": "2025-12-08T17:41:37Z",
+          "tree_id": "7ca2d2c35cd0e589016dd7b9fa525322bb66d75a",
+          "url": "https://github.com/mach3-software/MaCh3/commit/eed10e526860b6eaafcb6eac119ce1e356cde69b"
+        },
+        "date": 1765216065075,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.74459,
+            "range": "± 101.045",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.6721,
+            "range": "± 173.931",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 402.732,
+            "range": "± 3.93902",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ND Reweight",
+            "value": 331.112,
+            "range": "± 60.3085",
             "unit": "us",
             "extra": "100 samples\n1 iterations"
           }
