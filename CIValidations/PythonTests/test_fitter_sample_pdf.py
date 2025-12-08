@@ -158,7 +158,10 @@ class test_sample(samples.SampleHandlerBase):
 
     def clean_memory_before_fit(self) -> None:
         pass
-
+    
+    def PrintRates(self) -> None:
+        pass
+        
     def reweight(self) -> None:
         ''' Perform the event reweighting of our MC events. Currently this just does spline reweightign but normalisation should be added in future '''
 
