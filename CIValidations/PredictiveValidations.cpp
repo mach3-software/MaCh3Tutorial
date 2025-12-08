@@ -75,7 +75,7 @@ int main(int argc, char *argv[])
       throw MaCh3Exception(__FILE__, __LINE__);
     }
 
-    std::string histName = sampleName + "_mc";
+    std::string histName = sampleName + "_mc_dim0";
     TH2D* hist = dynamic_cast<TH2D*>(sampleDir->Get(histName.c_str()));
     if (!hist) {
       MACH3LOG_CRITICAL("Histogram '{}' not found in sample directory '{}'", histName, sampleName);
@@ -100,7 +100,10 @@ int main(int argc, char *argv[])
     }
   }
 
-  command = tutorialPath + "/bin/PredictivePlotting " + tutorialPath + "/bin/TutorialDiagConfig.yaml PredictiveOutputTest.root PredictiveOutputTest.root";
+  const char* MaCh3Env = std::getenv("MaCh3_ROOT");
+  std::string MaCh3Path = std::string(MaCh3Env);
+
+  command = MaCh3Path + "/bin/PredictivePlotting " + tutorialPath + "/bin/TutorialDiagConfig.yaml PredictiveOutputTest.root PredictiveOutputTest.root";
   ret = system(command.c_str());
   if (ret != 0) {
     MACH3LOG_CRITICAL("Error: system call failed with code {}", ret);
