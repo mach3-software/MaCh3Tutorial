@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1765201964100,
+  "lastUpdate": 1765209618556,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -15242,6 +15242,58 @@ window.BENCHMARK_DATA = {
             "name": "ND Reweight",
             "value": 340.281,
             "range": "± 55.7878",
+            "unit": "us",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "c79a655ac3c9ec8fd49611edde25d4a544e6fa9f",
+          "message": "Merge pull request #654 from mach3-software/feature/BenJarg/2DPosteriorPredictives\n\nfeat: Make Posterior Predictives Work With 2D Binnings",
+          "timestamp": "2025-12-08T15:54:09Z",
+          "tree_id": "e1c5987e53ca6126d1cbc08c8a52ee5042f79c9c",
+          "url": "https://github.com/mach3-software/MaCh3/commit/c79a655ac3c9ec8fd49611edde25d4a544e6fa9f"
+        },
+        "date": 1765209615636,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.75948,
+            "range": "± 100.504",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.68755,
+            "range": "± 103.517",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 393.939,
+            "range": "± 5.15696",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ND Reweight",
+            "value": 336.935,
+            "range": "± 35.1134",
             "unit": "us",
             "extra": "100 samples\n1 iterations"
           }
