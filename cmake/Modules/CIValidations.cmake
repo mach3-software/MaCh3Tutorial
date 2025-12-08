@@ -4,7 +4,7 @@ option(MaCh3Tutorial_Benchmark_ENABLED "Enable benchmarking" OFF)
 
 CPMAddPackage(
   NAME NuMCMCTools
-  GIT_TAG "tags/v1.0.0"
+  GIT_TAG "tags/v1.1.0"
   GIT_SHALLOW YES
   GITHUB_REPOSITORY NuMCMCTools/NuMCMCTools
   DOWNLOAD_ONLY YES
