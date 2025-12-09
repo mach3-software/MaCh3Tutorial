@@ -122,7 +122,7 @@ The output should look like plot below. This conveys same information as the ind
 
 <img width="350" alt="Ridge" src="https://github.com/user-attachments/assets/617f5929-b389-495e-ab7b-2ecd6c2d991e">
 
-**Violin Plot** - This also allow to see nicely non-Gaussian parameters but also is usefull in comparing two chains. 
+**Violin Plot** - This also allow to see nicely non-Gaussian parameters but also is usefull in comparing two chains.
 `ProcessMCMC` must be run with option "PlotCorr" to be able to produce violin plot.
 
 <img width="350" alt="Violin example" src="https://github.com/user-attachments/assets/4788ab29-f24a-4b09-8b0f-c9b36d069cfe">
