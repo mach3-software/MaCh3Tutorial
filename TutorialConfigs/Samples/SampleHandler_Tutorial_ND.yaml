@@ -4,9 +4,6 @@ SampleHandlerName: "ND2137"
 POT: 2.1428e+21
 MaCh3ModeConfig: "TutorialConfigs/MaCh3Modes.yaml"
 
-NuOsc:
-  NuOscConfigFile: "TutorialConfigs/NuOscillator/NuFASTLinear.yaml"
-  EqualBinningPerOscChannel: true
 
 LikelihoodOptions:
   #False means you calculate W2 histogram only during first reweight, advisable for Barlow-Beeston

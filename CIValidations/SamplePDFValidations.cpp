@@ -78,10 +78,16 @@ void SampleLLHValidation(std::ostream& outFile, const std::string& OriginalSampl
       << std::endl;
     }
 
-    Sample->PrintIntegral(iSample);
+    TString Name = "Rates_Debug_" + Sample->GetSampleTitle(iSample)+".txt";
+    Sample->PrintIntegral(iSample, Name);
+    std::ifstream RatesFile(Name.Data());
+    outFile << "Contents of " << Name << ":" << std::endl;
+    std::string line;
+    while (std::getline(RatesFile, line)) {
+      outFile << line << std::endl;
+    }
+    std::remove(Name.Data());
   }
-
-
   std::remove(tempConfigPath.c_str());
 }
 
