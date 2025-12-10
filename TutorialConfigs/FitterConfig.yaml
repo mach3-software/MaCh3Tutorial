@@ -133,4 +133,15 @@ AdaptionOptions:
 
   Covariance:
     xsec_cov: # Name of covariance matrix
-      DoAdaption: False  # [bool] Adapt this parameter
+      DoAdaption: True  # [bool] Adapt this parameter
+      MatrixBlocks: [["Norm_Param_0", "BinnedSplineParam1"],["BinnedSplineParam1", "EResLep"]] # [list of lists] Define which blocks of the covariance matrix to adapt
+      MatrixBlocksByName: True
+      ParametersToSkip:
+        - "sin2th_12"
+        - "sin2th_13"
+        - "sin2th_23"
+        - "delm2_12"
+        - "delm2_23"
+        - "delta_cp"
+        - "Norm_Param_2"
+        - "BinnedSplineParam3"
