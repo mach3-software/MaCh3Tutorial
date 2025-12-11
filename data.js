@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1765301804825,
+  "lastUpdate": 1765444757035,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -15554,6 +15554,58 @@ window.BENCHMARK_DATA = {
             "name": "ND Reweight",
             "value": 326.847,
             "range": "± 40.7146",
+            "unit": "us",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "75497e0049714af5b608539a49e4162d8181781b",
+          "message": "Merge pull request #707 from mach3-software/kskwarczynski/feature/predictiveplotting\n\nfeat: Improve predictive plotting",
+          "timestamp": "2025-12-11T09:13:21Z",
+          "tree_id": "b43358903e9ead92536a51ce29def98b7d947295",
+          "url": "https://github.com/mach3-software/MaCh3/commit/75497e0049714af5b608539a49e4162d8181781b"
+        },
+        "date": 1765444753720,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.97683,
+            "range": "± 192.417",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.85952,
+            "range": "± 95.3163",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 399.222,
+            "range": "± 3.72763",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ND Reweight",
+            "value": 333.906,
+            "range": "± 43.6707",
             "unit": "us",
             "extra": "100 samples\n1 iterations"
           }
