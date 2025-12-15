@@ -160,11 +160,10 @@ void TestPCA(const std::string& label,
   }
 }
 
-void TestAdaptive(std::ostream& outFile, const YAML::Node& AdaptSetting, const std::string& Name) {
-  std::string TutorialPath = std::getenv("MaCh3Tutorial_ROOT");
-  std::vector<std::string> AdaptiveCovMatrixFile = {TutorialPath + "/TutorialConfigs/CovObjs/SystematicModel.yaml",
-                                                    TutorialPath + "/TutorialConfigs/CovObjs/PCATest.yaml"};
-
+void TestAdaptive(std::ostream& outFile,
+                  const YAML::Node& AdaptSetting,
+                  const std::string& Name,
+                  const std::vector<std::string>& AdaptiveCovMatrixFile) {
   MACH3LOG_INFO("Creating adaptive covariance handler");
   auto Adapt = std::make_unique<ParameterHandlerGeneric>(AdaptiveCovMatrixFile, "xsec_cov");
   //KS: Let's make Doctor Wallace proud
@@ -172,6 +171,13 @@ void TestAdaptive(std::ostream& outFile, const YAML::Node& AdaptSetting, const s
   MACH3LOG_INFO("Adaption initialised");
 
   std::vector<double> ParAdapt = {1.05, 0.90, 1.10, 1.05, 1.05, 1.05, 1.05, 1.05, 0., 0.2, -0.1, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0};
+  // if not enough params just throw more params
+  if (Adapt->GetNumParams() > ParAdapt.size()) {
+    for (size_t i = ParAdapt.size(); i < Adapt->GetNumParams(); ++i) {
+      ParAdapt.push_back(Adapt->GetParInit(i));
+    }
+  }
+
   Adapt->SetParameters(ParAdapt);
   bool increase = true;
   for(int i = 0; i < 50000; ++i ) {
@@ -435,7 +441,12 @@ AdaptionOptions:
 
   // Convert the string to a YAML node
   YAML::Node AdaptSetting = STRINGtoYAML(yamlContent);
-  TestAdaptive(outFile, AdaptSetting, "normal");
+  TestAdaptive(outFile,
+               AdaptSetting,
+               "normal",
+               {TutorialPath + "/TutorialConfigs/CovObjs/SystematicModel.yaml",
+                TutorialPath + "/TutorialConfigs/CovObjs/PCATest.yaml"}
+  );
 
 // KS: To lazy to write yaml so let's make string and convert it'
 std::string yamlContent2 = R"(
@@ -472,8 +483,60 @@ AdaptionOptions:
 
   // Convert the string to a YAML node
   YAML::Node AdaptSetting2 = STRINGtoYAML(yamlContent);
-  TestAdaptive(outFile, AdaptSetting2, "Robins-Monroe");
+  TestAdaptive(outFile,
+               AdaptSetting2,
+               "Robins-Monroe",
+               {TutorialPath + "/TutorialConfigs/CovObjs/SystematicModel.yaml",
+                TutorialPath + "/TutorialConfigs/CovObjs/PCATest.yaml"}
+               );
 
+
+  // KS: To lazy to write yaml so let's make string and convert it'
+  std::string yamlContent3 = R"(
+AdaptionOptions:
+  Settings:
+    # When do we start throwing from our adaptive matrix?
+    StartThrow: 4000
+    # When do we start putting steps into our adaptive covariance?
+    StartUpdate: 1000
+    # When do we end updating our covariance?
+    EndUpdate: 50000
+    # How often do we change our matrix throws?
+    UpdateStep: 1000
+    # Where shall we write the adapted matrices to?
+    OutputFileName: "test_adaptive_output.root"
+  Covariance:
+    # So now we list individual matrices, let's just do xsec
+    xsec_cov:
+      # Do we want to adapt this matrix?
+      DoAdaption: true
+      # External Settings
+      UseExternalMatrix: false
+      ExternalMatrixFileName: ""
+      ExternalMatrixName: ""
+      ExternalMeansName: ""
+      MatrixBlocks: [[]]
+      MatrixBlocksByName: True
+      ParametersToSkip:
+      - "sin2th_12"
+      - "sin2th_13"
+      - "sin2th_23"
+      - "delm2_12"
+      - "delm2_23"
+      - "delta_cp"
+      - "Norm_Param_2"
+      - "BinnedSplineParam3"
+)";
+
+  // Convert the string to a YAML node
+  YAML::Node AdaptSetting3 = STRINGtoYAML(yamlContent3);
+  TestAdaptive(outFile,
+               AdaptSetting3,
+               "OscFixing",
+               {TutorialPath + "/TutorialConfigs/CovObjs/SystematicModel.yaml",
+                TutorialPath + "/TutorialConfigs/CovObjs/PCATest.yaml",
+                TutorialPath + "/TutorialConfigs/CovObjs/OscillationModel.yaml"}
+  );
 ////////////// Now Tune //////////////
   TuneValidations(outFile);
 ////////////// Other tests //////////////
