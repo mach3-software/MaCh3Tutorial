@@ -1,0 +1,18 @@
+[build-system]
+requires = ["scikit-build-core", "pybind11"]
+build-backend = "scikit_build_core.build"
+
+[project]
+name = "pyMaCh3Tutorial"
+version = "0.0.1"
+authors = [{ name = "The MaCh3 Collaboration" }]
+
+[tool.scikit-build.cmake]
+args = ["-DMaCh3_PYTHON_ENABLED=ON", 
+"-DMaCh3_Branch=hwallace/feature/save_mc_info",
+ "-DCMAKE_INSTALL_PREFIX=/scratch/henryi/venvs/.venv_sbi",
+  "-DCMAKE_INSTALL_INCLUDEDIR=/scratch/henryi/venvs/.venv_sbi/include",
+  "-DUse_External_MaCh3=ON"
+  ]
+[tool.scikit-build]
+build-dir = "build/{wheel_tag}"

@@ -128,6 +128,16 @@ else()
   SET(CMAKE_CXX_STANDARD ${MACH3_CXX_STANDARD})
 endif()
 cmessage(STATUS "CMAKE CXX Standard: ${CMAKE_CXX_STANDARD}")
+if( MaCh3_PYTHON_ENABLED )
+  set(PYBIND11_FINDPYTHON ON)
+  CPMFindPackage(
+      NAME pybind11
+      VERSION 2.13.5
+      GITHUB_REPOSITORY "pybind/pybind11"
+      GIT_SHALLOW YES
+      GIT_TAG v2.13.5
+    )
+endif()
 
 ################################# Build MaCh3 ##################################
 add_subdirectory(Utils)
@@ -135,6 +145,11 @@ add_subdirectory(CIValidations)
 add_subdirectory(Tutorial)
 add_subdirectory(SplinesTutorial)
 add_subdirectory(SamplesTutorial)
+if (MaCh3_PYTHON_ENABLED)
+  set(CMAKE_INSTALL_RPATH "$ORIGIN/../lib")
+  add_subdirectory(python)
+endif()
+
 
 configure_file(cmake/Templates/setup.MaCh3Tutorial.sh.in "${PROJECT_BINARY_DIR}${CMAKE_FILES_DIRECTORY}/setup.MaCh3Tutorial.sh" @ONLY)
 install(FILES "${PROJECT_BINARY_DIR}${CMAKE_FILES_DIRECTORY}/setup.MaCh3Tutorial.sh" DESTINATION ${CMAKE_INSTALL_PREFIX}/bin)
