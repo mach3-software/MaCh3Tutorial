@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1765979005582,
+  "lastUpdate": 1765991489874,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -15918,6 +15918,58 @@ window.BENCHMARK_DATA = {
             "name": "ND Reweight",
             "value": 336.63,
             "range": "± 41.4209",
+            "unit": "us",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "84314640+pfaffm@users.noreply.github.com",
+            "name": "Marvin Pfaff",
+            "username": "pfaffm"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "d39917c4b66e596f5b7ec12d027d5fbd0d170002",
+          "message": "Merge pull request #718 from mach3-software/feature_bugfix_floatingPointException\n\nbugfix: fixed floating point error that occured when Ntoys or chain length was too small (<10)",
+          "timestamp": "2025-12-17T17:05:36Z",
+          "tree_id": "ebf60398da5d7fed2b1d0a189c399995fd562196",
+          "url": "https://github.com/mach3-software/MaCh3/commit/d39917c4b66e596f5b7ec12d027d5fbd0d170002"
+        },
+        "date": 1765991486131,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.74011,
+            "range": "± 89.2021",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.65123,
+            "range": "± 110.137",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 394.769,
+            "range": "± 4.31074",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ND Reweight",
+            "value": 325.131,
+            "range": "± 43.0794",
             "unit": "us",
             "extra": "100 samples\n1 iterations"
           }
