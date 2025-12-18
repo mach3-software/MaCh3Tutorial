@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1766046336798,
+  "lastUpdate": 1766070418552,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -16022,6 +16022,58 @@ window.BENCHMARK_DATA = {
             "name": "ND Reweight",
             "value": 366.131,
             "range": "± 20.3792",
+            "unit": "us",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "43858329+Charlotte-Knight@users.noreply.github.com",
+            "name": "Charlotte Knight",
+            "username": "Charlotte-Knight"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "9969e2f1a1b154c76546615b6e0ae61cbc952dd8",
+          "message": "Merge pull request #719 from mach3-software/Charlotte-Knight/tidy/gcc15cpp23_compatibility\n\ntidy: compatability up to gcc15 and c++23",
+          "timestamp": "2025-12-18T15:01:13Z",
+          "tree_id": "ac4383d8c563c9801a87a40d5f13f03aabb5c845",
+          "url": "https://github.com/mach3-software/MaCh3/commit/9969e2f1a1b154c76546615b6e0ae61cbc952dd8"
+        },
+        "date": 1766070415873,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.734,
+            "range": "± 88.1992",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.65804,
+            "range": "± 80.2031",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 395.991,
+            "range": "± 5.01578",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ND Reweight",
+            "value": 327,
+            "range": "± 45.1034",
             "unit": "us",
             "extra": "100 samples\n1 iterations"
           }
