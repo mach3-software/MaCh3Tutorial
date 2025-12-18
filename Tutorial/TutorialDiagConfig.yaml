@@ -29,7 +29,7 @@ ProcessMCMC:
   PlotRelativeToPrior: false
   PrintToPDF: true
   #if false it will not plot error band for parameters with flat prior
-  PlotErrorForFlatPrior: true
+  PlotErrorForFlatPrior: false
   FancyNames: true
   PlotBinValue: false
 
