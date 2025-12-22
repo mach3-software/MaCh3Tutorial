@@ -37,7 +37,7 @@ MaCh3 is predominantly C++ software, although some functionality is available th
     2. [Sigma Variations](#sigma-variations)
 
 ## How to Start?
-To compile simply
+To compile try
 ```bash
 git clone https://github.com/mach3-software/MaCh3Tutorial.git
 mkdir build;
@@ -51,11 +51,65 @@ then
 source bin/setup.MaCh3.sh
 source bin/setup.MaCh3Tutorial.sh
 ```
-alternatively you can use containers by
+
+If this does not work, check out the [Requirements](https://github.com/mach3-software/MaCh3/tree/Charlotte-Knight/tidy/MaCh3-on-Mac?tab=readme-ov-file#system-requirements) for MaCh3 in case you are missing something.
+
+One of the suggestions in [Requirements](https://github.com/mach3-software/MaCh3/tree/Charlotte-Knight/tidy/MaCh3-on-Mac?tab=readme-ov-file#system-requirements) is to use a conda/micromamba environment. You can install everything you need and build the tutorial using these commands:
+
+<details>
+<summary>Click to see commands</summary>
+
+To install micromamba and the environment needed to build MaCh3:
+```
+mkdir MaCh3Things && cd MaCh3Things
+
+echo "" | BIN_FOLDER=".micromamba" INIT_YES="n" CONDA_FORGE_YES="y" "${SHELL}" <(curl -L micro.mamba.pm/install.sh)
+
+cat > env.sh <<'EOF'
+export MAMBA_ROOT_PREFIX="$(pwd)/.micromamba"
+command="$(${MAMBA_ROOT_PREFIX}/micromamba shell hook -s posix)"
+eval "$command"
+EOF
+
+source env.sh
+
+micromamba env create -n MaCh3 -c conda-forge root cmake -y
+micromamba activate MaCh3
+```
+and then to build MaCh3:
+```
+git clone https://github.com/mach3-software/MaCh3Tutorial.git
+cd MaCh3Tutorial
+
+mkdir build && cd build
+cmake ../
+make -j8
+make install 
+
+source bin/setup.MaCh3.sh
+source bin/setup.MaCh3Tutorial.sh
+```
+
+> [!NOTE]
+> To run the tutorial from a fresh terminal after this installation you must source and activate the relevant scripts and environments: 
+>```
+> cd MaCh3Things
+> source env.sh # source micromamba
+> micromamba activate MaCh3
+>
+> cd MaCh3Tutorial/build
+> source bin/setup.MaCh3.sh
+> source bin/setup.MaCh3Tutorial.sh
+>```
+</details>
+
+
+Alternatively you can use containers by
 ```bash
 docker pull ghcr.io/mach3-software/mach3tutorial:alma9latest
 ```
-To read more about how to use containers, check our wiki [here](https://github.com/mach3-software/MaCh3/wiki/12.-Containers)
+To read more about how to use containers, check our wiki [here](https://github.com/mach3-software/MaCh3/wiki/12.-Containers).
+ 
 
 ## How to run MCMC
 To run MCMC simply
