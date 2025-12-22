@@ -90,8 +90,7 @@ source bin/setup.MaCh3.sh
 source bin/setup.MaCh3Tutorial.sh
 ```
 
-> [!NOTE]
-> To run the tutorial from a fresh terminal after this installation you must source and activate the relevant scripts and environments: 
+> **Note:** To run the tutorial from a fresh terminal after this installation you must source and activate the relevant scripts and environments: 
 >```
 > cd MaCh3Things
 > source env.sh # source micromamba
