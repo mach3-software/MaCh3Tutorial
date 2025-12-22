@@ -60,7 +60,7 @@ One of the suggestions in [Requirements](https://github.com/mach3-software/MaCh3
 <summary>Click to see commands</summary>
 
 To install micromamba and the environment needed to build MaCh3:
-```
+```bash
 mkdir MaCh3Things && cd MaCh3Things
 
 echo "" | BIN_FOLDER=".micromamba" INIT_YES="n" CONDA_FORGE_YES="y" "${SHELL}" <(curl -L micro.mamba.pm/install.sh)
@@ -77,21 +77,21 @@ micromamba env create -n MaCh3 -c conda-forge root cmake -y
 micromamba activate MaCh3
 ```
 and then to build MaCh3:
-```
+```bash
 git clone https://github.com/mach3-software/MaCh3Tutorial.git
 cd MaCh3Tutorial
 
 mkdir build && cd build
 cmake ../
 make -j8
-make install 
+make install
 
 source bin/setup.MaCh3.sh
 source bin/setup.MaCh3Tutorial.sh
 ```
 
-> **Note:** To run the tutorial from a fresh terminal after this installation you must source and activate the relevant scripts and environments: 
->```
+> **Note:** To run the tutorial from a fresh terminal after this installation you must source and activate the relevant scripts and environments:
+>```bash
 > cd MaCh3Things
 > source env.sh # source micromamba
 > micromamba activate MaCh3
@@ -108,7 +108,6 @@ Alternatively you can use containers by
 docker pull ghcr.io/mach3-software/mach3tutorial:alma9latest
 ```
 To read more about how to use containers, check our wiki [here](https://github.com/mach3-software/MaCh3/wiki/12.-Containers).
- 
 
 ## How to run MCMC
 To run MCMC simply
