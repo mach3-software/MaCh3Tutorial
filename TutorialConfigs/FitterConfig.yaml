@@ -134,3 +134,9 @@ AdaptionOptions:
   Covariance:
     xsec_cov: # Name of covariance matrix
       DoAdaption: False  # [bool] Adapt this parameter
+
+NuDock:
+  Debug: false
+  #SchemaLocation: "../nudock/schemas"
+  Verbose: false
+  AddPriorLLH: false
