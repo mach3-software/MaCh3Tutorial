@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1767707521445,
+  "lastUpdate": 1767722468015,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -16282,6 +16282,58 @@ window.BENCHMARK_DATA = {
             "name": "ND Reweight",
             "value": 331.31,
             "range": "± 29.4079",
+            "unit": "us",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "ca9843c7c8f9fe1478024e00267a604033a492be",
+          "message": "Merge pull request #720 from mach3-software/tidy/kskwarczynski/RootWeird\n\ntidy: suppress annoying warnings from ROOT",
+          "timestamp": "2026-01-06T18:55:12+01:00",
+          "tree_id": "4fdaabece302f12d308412ea21b877c4c6929860",
+          "url": "https://github.com/mach3-software/MaCh3/commit/ca9843c7c8f9fe1478024e00267a604033a492be"
+        },
+        "date": 1767722465176,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.94036,
+            "range": "± 831.244",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.70092,
+            "range": "± 97.0085",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 399.405,
+            "range": "± 5.33244",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ND Reweight",
+            "value": 345.06,
+            "range": "± 54.9102",
             "unit": "us",
             "extra": "100 samples\n1 iterations"
           }
