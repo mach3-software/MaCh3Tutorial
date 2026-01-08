@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1767722468015,
+  "lastUpdate": 1767860090569,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -16334,6 +16334,58 @@ window.BENCHMARK_DATA = {
             "name": "ND Reweight",
             "value": 345.06,
             "range": "± 54.9102",
+            "unit": "us",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "4ddc24720067992b405cf3ad708b80f7fdb5176c",
+          "message": "Merge pull request #729 from mach3-software/kskwarczynski/feat/LLHAroundCentralValue\n\nfeat: LLH around central value",
+          "timestamp": "2026-01-08T09:08:52+01:00",
+          "tree_id": "53b8a46f157468f35be267a85497dff4a580229a",
+          "url": "https://github.com/mach3-software/MaCh3/commit/4ddc24720067992b405cf3ad708b80f7fdb5176c"
+        },
+        "date": 1767860086910,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.78979,
+            "range": "± 97.0919",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.71072,
+            "range": "± 99.6147",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 397.559,
+            "range": "± 6.16204",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ND Reweight",
+            "value": 335.791,
+            "range": "± 46.3101",
             "unit": "us",
             "extra": "100 samples\n1 iterations"
           }
