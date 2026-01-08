@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1767860090569,
+  "lastUpdate": 1767868268349,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -16386,6 +16386,58 @@ window.BENCHMARK_DATA = {
             "name": "ND Reweight",
             "value": 335.791,
             "range": "± 46.3101",
+            "unit": "us",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "b18ff2e10327cb35c73b11348a88cb2fdf6bffe0",
+          "message": "Merge pull request #731 from mach3-software/kskwarczynski/feat/piePlot\n\nfeat: Pie Plot",
+          "timestamp": "2026-01-08T11:25:26+01:00",
+          "tree_id": "1dc45c79397a0031dd780f73eff498dcfc01b819",
+          "url": "https://github.com/mach3-software/MaCh3/commit/b18ff2e10327cb35c73b11348a88cb2fdf6bffe0"
+        },
+        "date": 1767868265616,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.97755,
+            "range": "± 102.816",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.88931,
+            "range": "± 84.5568",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 395.643,
+            "range": "± 5.33934",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ND Reweight",
+            "value": 338.431,
+            "range": "± 51.157",
             "unit": "us",
             "extra": "100 samples\n1 iterations"
           }
