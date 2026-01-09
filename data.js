@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1767952161781,
+  "lastUpdate": 1767954190169,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -16542,6 +16542,58 @@ window.BENCHMARK_DATA = {
             "name": "ND Reweight",
             "value": 372.835,
             "range": "± 20.7389",
+            "unit": "us",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "9c601cbfffd40844aa9963a6c2826a4aff41d584",
+          "message": "Merge pull request #722 from mach3-software/feature/kskwarczynski/fasterCombineChain\n\nfeat: Fast MaCh3 Combine Chain",
+          "timestamp": "2026-01-09T11:17:22+01:00",
+          "tree_id": "12ec89816126f7c8bb58902ca40be513d56ab6fc",
+          "url": "https://github.com/mach3-software/MaCh3/commit/9c601cbfffd40844aa9963a6c2826a4aff41d584"
+        },
+        "date": 1767954187170,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.91198,
+            "range": "± 692.25",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.92248,
+            "range": "± 844.157",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 398.29,
+            "range": "± 6.60883",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ND Reweight",
+            "value": 343.624,
+            "range": "± 43.7465",
             "unit": "us",
             "extra": "100 samples\n1 iterations"
           }
