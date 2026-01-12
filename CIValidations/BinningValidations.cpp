@@ -33,7 +33,27 @@ XVarBins: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1]
     for (double xvar : XVars) {
       for (int nomXBin : NomXBins) {
         for (int nomYBin : NomYBins) {
-          const int GlobalBin = Binning->FindGlobalBin(sample, xvar, nomXBin, nomYBin);
+          std::vector<const double*> KinVar;
+          std::vector<int> NomBin;
+
+          if(sample == 0){
+          double yvar = 0;
+          switch(nomYBin){
+              case 0: yvar = 0.05; break;
+              case 1: yvar = 0.15; break;
+              case 2: yvar = 0.25; break;
+              case 3: yvar = 0.35; break;
+              default: yvar = 0; break;
+          }
+
+            KinVar = {&xvar, &yvar};
+            NomBin = {nomXBin, nomYBin};
+          } else if (sample == 1){
+            KinVar = {&xvar};
+            NomBin = {nomXBin};
+          }
+
+          const int GlobalBin = Binning->FindGlobalBin(sample, KinVar, NomBin);
           outFile << "Sample " << sample
                   << ", XVar: " << xvar
                   << ", NomXBin: " << nomXBin
@@ -60,12 +80,15 @@ int main(int argc, char *argv[])
   std::ofstream outFile("NewBinningOut.txt");
 
   auto Binning = std::make_unique<SampleBinningInfo>();
-  Binning->XBinEdges = {0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1};
-  Binning->YBinEdges = {0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1};
-  Binning->nXBins = Binning->XBinEdges.size() - 1;
-  Binning->nYBins = Binning->YBinEdges.size() - 1;
-  Binning->nBins = Binning->nXBins * Binning->nYBins;
-  Binning->InitialiseBinMigrationLookUp();
+  constexpr int dim = 2;
+  Binning->BinEdges.resize(dim);
+  Binning->BinEdges[0] = {0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1};
+  Binning->BinEdges[1] = {0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1};
+  Binning->AxisNBins.resize(dim);
+  Binning->AxisNBins[0] = Binning->BinEdges[0].size() - 1;
+  Binning->AxisNBins[1] = Binning->BinEdges[1].size() - 1;
+  Binning->nBins = Binning->AxisNBins[0] * Binning->AxisNBins[1];
+  Binning->InitialiseBinMigrationLookUp(dim);
 
   std::vector<std::pair<double, int>> testPairs = {
     {-1.0, -1},
@@ -101,12 +124,13 @@ int main(int argc, char *argv[])
   };
 
   for (const auto& [XVar, NomXBin] : testPairs) {
-    int binIndex = Binning->FindXBin(XVar, NomXBin);
+    constexpr int dim = 0; // XVar is dimension 0
+    int binIndex = Binning->FindBin(dim, XVar, NomXBin);
     outFile << "XVar: " << XVar << ", NomXBin: " << NomXBin << ", Bin: " << binIndex << std::endl;
   }
 
-  for (size_t yBin = 0; yBin < Binning->nYBins; ++yBin) {
-    for (size_t xBin = 0; xBin < Binning->nXBins; ++xBin) {
+  for (size_t yBin = 0; yBin < Binning->AxisNBins[1]; ++yBin) {
+    for (size_t xBin = 0; xBin < Binning->AxisNBins[0]; ++xBin) {
       const int binIndex = Binning->GetBinSafe(xBin, yBin);
       outFile << "yBin: " << yBin << ", xBin: " << xBin << ", Bin: " << binIndex << std::endl;
 
