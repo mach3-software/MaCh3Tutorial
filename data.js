@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1767954190169,
+  "lastUpdate": 1768381291789,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -16594,6 +16594,58 @@ window.BENCHMARK_DATA = {
             "name": "ND Reweight",
             "value": 343.624,
             "range": "± 43.7465",
+            "unit": "us",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "9a89180eb77de996056a73d7aece69c6dbcd07dc",
+          "message": "Merge pull request #733 from mach3-software/kskwarczynski/feat/squashBot\n\nfeat: Squash bot",
+          "timestamp": "2026-01-14T09:55:42+01:00",
+          "tree_id": "1a758297373fb964bd7d5d3dad7332106038a961",
+          "url": "https://github.com/mach3-software/MaCh3/commit/9a89180eb77de996056a73d7aece69c6dbcd07dc"
+        },
+        "date": 1768381287858,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 3.07969,
+            "range": "± 708.886",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 4.07139,
+            "range": "± 4.06507",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 459.705,
+            "range": "± 3.569",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ND Reweight",
+            "value": 367.105,
+            "range": "± 22.137",
             "unit": "us",
             "extra": "100 samples\n1 iterations"
           }
