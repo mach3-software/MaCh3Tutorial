@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1768478536518,
+  "lastUpdate": 1768482920429,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -16750,6 +16750,58 @@ window.BENCHMARK_DATA = {
             "name": "ND Reweight",
             "value": 334.943,
             "range": "± 36.8133",
+            "unit": "us",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "2111b63221e48e07aa18b875e2850982fddfdc92",
+          "message": "Merge pull request #739 from mach3-software/kskwarczynski/feat/MatrixPlotterFancyLabels\n\nfeat: PlottingUtils integration into Matrix Plotter",
+          "timestamp": "2026-01-15T14:09:30+01:00",
+          "tree_id": "7b87c380822909ae151ca4218c49d6928bdee653",
+          "url": "https://github.com/mach3-software/MaCh3/commit/2111b63221e48e07aa18b875e2850982fddfdc92"
+        },
+        "date": 1768482917359,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.78424,
+            "range": "± 70.5883",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.70369,
+            "range": "± 82.7254",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 394.841,
+            "range": "± 5.67846",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ND Reweight",
+            "value": 335.077,
+            "range": "± 39.2497",
             "unit": "us",
             "extra": "100 samples\n1 iterations"
           }
