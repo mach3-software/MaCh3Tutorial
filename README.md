@@ -1,7 +1,10 @@
 # Welcome to MaCh3 Tutorial
 After this tutorial you should know how to run MCMC, implement systematic uncertainties, new samples, and how to plot standard Bayesian diagnostics.
 
-The current setup includes a single sample with several cross-section and oscillation parameters.
+There are several standard parts of MaCh3 analysis like sample/systematic implementations, validations and plotting. 
+This tutorial will help you get used to different parts of MaCh3.
+
+<img width="700" alt="Workflow example" src="https://github.com/user-attachments/assets/f0197499-a0e4-483e-8e8f-c1deb6d880ea">
 
 MaCh3 is predominantly C++ software, although some functionality is available through python as well. See the table of contents for more.
 
