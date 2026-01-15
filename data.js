@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1768483587045,
+  "lastUpdate": 1768492759172,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -16854,6 +16854,58 @@ window.BENCHMARK_DATA = {
             "name": "ND Reweight",
             "value": 328.287,
             "range": "± 50.1658",
+            "unit": "us",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "15bf6e6d03de0e362e3a167f10d312626ccf673f",
+          "message": "Merge pull request #741 from mach3-software/picker24/feature/setsubthrowmatrix\n\nfeat: Add SetSubThrowMatrix to ParameterHandlerBase",
+          "timestamp": "2026-01-15T16:53:32+01:00",
+          "tree_id": "8d1651af3cdfbc97bf1805eb7226c1c4d075a7f4",
+          "url": "https://github.com/mach3-software/MaCh3/commit/15bf6e6d03de0e362e3a167f10d312626ccf673f"
+        },
+        "date": 1768492755958,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.93229,
+            "range": "± 68.5087",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.84423,
+            "range": "± 62.2121",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 453.653,
+            "range": "± 4.64584",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ND Reweight",
+            "value": 366.391,
+            "range": "± 17.0843",
             "unit": "us",
             "extra": "100 samples\n1 iterations"
           }
