@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1768560853291,
+  "lastUpdate": 1768577959505,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -17062,6 +17062,58 @@ window.BENCHMARK_DATA = {
             "name": "ND Reweight",
             "value": 711.747,
             "range": "± 54.2135",
+            "unit": "us",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "e6a747cea6acf7daf169ba2b0e4b145c376ea5ea",
+          "message": "Merge pull request #744 from mach3-software/kskwarczynski/tidy/SpeedFindBin\n\ntidy: Avoid memory allocation in FindBin",
+          "timestamp": "2026-01-16T16:33:35+01:00",
+          "tree_id": "3ce5a5eabbfc96a14b2696ea10141af886e7335c",
+          "url": "https://github.com/mach3-software/MaCh3/commit/e6a747cea6acf7daf169ba2b0e4b145c376ea5ea"
+        },
+        "date": 1768577956530,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 3.15823,
+            "range": "± 817.643",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 3.07038,
+            "range": "± 500.083",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 393.42,
+            "range": "± 8.70951",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ND Reweight",
+            "value": 396.683,
+            "range": "± 39.2345",
             "unit": "us",
             "extra": "100 samples\n1 iterations"
           }
