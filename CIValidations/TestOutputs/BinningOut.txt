@@ -140,54 +140,294 @@ Sample 0, XVar: -1, NomXBin: 3, NomYBin: 0, GlobalBin: -1
 Sample 0, XVar: -1, NomXBin: 3, NomYBin: 1, GlobalBin: -1
 Sample 0, XVar: -1, NomXBin: 3, NomYBin: 2, GlobalBin: -1
 Sample 0, XVar: -1, NomXBin: 3, NomYBin: 3, GlobalBin: -1
+Sample 0, XVar: -1, NomXBin: 0, NomYBin: 0, GlobalBin: -1
+Sample 0, XVar: -1, NomXBin: 0, NomYBin: 1, GlobalBin: -1
+Sample 0, XVar: -1, NomXBin: 0, NomYBin: 2, GlobalBin: -1
+Sample 0, XVar: -1, NomXBin: 0, NomYBin: 3, GlobalBin: -1
+Sample 0, XVar: -1, NomXBin: 1, NomYBin: 0, GlobalBin: -1
+Sample 0, XVar: -1, NomXBin: 1, NomYBin: 1, GlobalBin: -1
+Sample 0, XVar: -1, NomXBin: 1, NomYBin: 2, GlobalBin: -1
+Sample 0, XVar: -1, NomXBin: 1, NomYBin: 3, GlobalBin: -1
+Sample 0, XVar: -1, NomXBin: 2, NomYBin: 0, GlobalBin: -1
+Sample 0, XVar: -1, NomXBin: 2, NomYBin: 1, GlobalBin: -1
+Sample 0, XVar: -1, NomXBin: 2, NomYBin: 2, GlobalBin: -1
+Sample 0, XVar: -1, NomXBin: 2, NomYBin: 3, GlobalBin: -1
+Sample 0, XVar: -1, NomXBin: 3, NomYBin: 0, GlobalBin: -1
+Sample 0, XVar: -1, NomXBin: 3, NomYBin: 1, GlobalBin: -1
+Sample 0, XVar: -1, NomXBin: 3, NomYBin: 2, GlobalBin: -1
+Sample 0, XVar: -1, NomXBin: 3, NomYBin: 3, GlobalBin: -1
+Sample 0, XVar: -1, NomXBin: 0, NomYBin: 0, GlobalBin: -1
+Sample 0, XVar: -1, NomXBin: 0, NomYBin: 1, GlobalBin: -1
+Sample 0, XVar: -1, NomXBin: 0, NomYBin: 2, GlobalBin: -1
+Sample 0, XVar: -1, NomXBin: 0, NomYBin: 3, GlobalBin: -1
+Sample 0, XVar: -1, NomXBin: 1, NomYBin: 0, GlobalBin: -1
+Sample 0, XVar: -1, NomXBin: 1, NomYBin: 1, GlobalBin: -1
+Sample 0, XVar: -1, NomXBin: 1, NomYBin: 2, GlobalBin: -1
+Sample 0, XVar: -1, NomXBin: 1, NomYBin: 3, GlobalBin: -1
+Sample 0, XVar: -1, NomXBin: 2, NomYBin: 0, GlobalBin: -1
+Sample 0, XVar: -1, NomXBin: 2, NomYBin: 1, GlobalBin: -1
+Sample 0, XVar: -1, NomXBin: 2, NomYBin: 2, GlobalBin: -1
+Sample 0, XVar: -1, NomXBin: 2, NomYBin: 3, GlobalBin: -1
+Sample 0, XVar: -1, NomXBin: 3, NomYBin: 0, GlobalBin: -1
+Sample 0, XVar: -1, NomXBin: 3, NomYBin: 1, GlobalBin: -1
+Sample 0, XVar: -1, NomXBin: 3, NomYBin: 2, GlobalBin: -1
+Sample 0, XVar: -1, NomXBin: 3, NomYBin: 3, GlobalBin: -1
+Sample 0, XVar: -1, NomXBin: 0, NomYBin: 0, GlobalBin: -1
+Sample 0, XVar: -1, NomXBin: 0, NomYBin: 1, GlobalBin: -1
+Sample 0, XVar: -1, NomXBin: 0, NomYBin: 2, GlobalBin: -1
+Sample 0, XVar: -1, NomXBin: 0, NomYBin: 3, GlobalBin: -1
+Sample 0, XVar: -1, NomXBin: 1, NomYBin: 0, GlobalBin: -1
+Sample 0, XVar: -1, NomXBin: 1, NomYBin: 1, GlobalBin: -1
+Sample 0, XVar: -1, NomXBin: 1, NomYBin: 2, GlobalBin: -1
+Sample 0, XVar: -1, NomXBin: 1, NomYBin: 3, GlobalBin: -1
+Sample 0, XVar: -1, NomXBin: 2, NomYBin: 0, GlobalBin: -1
+Sample 0, XVar: -1, NomXBin: 2, NomYBin: 1, GlobalBin: -1
+Sample 0, XVar: -1, NomXBin: 2, NomYBin: 2, GlobalBin: -1
+Sample 0, XVar: -1, NomXBin: 2, NomYBin: 3, GlobalBin: -1
+Sample 0, XVar: -1, NomXBin: 3, NomYBin: 0, GlobalBin: -1
+Sample 0, XVar: -1, NomXBin: 3, NomYBin: 1, GlobalBin: -1
+Sample 0, XVar: -1, NomXBin: 3, NomYBin: 2, GlobalBin: -1
+Sample 0, XVar: -1, NomXBin: 3, NomYBin: 3, GlobalBin: -1
 Sample 0, XVar: 0, NomXBin: 0, NomYBin: 0, GlobalBin: 0
-Sample 0, XVar: 0, NomXBin: 0, NomYBin: 1, GlobalBin: 10
-Sample 0, XVar: 0, NomXBin: 0, NomYBin: 2, GlobalBin: 20
-Sample 0, XVar: 0, NomXBin: 0, NomYBin: 3, GlobalBin: 30
+Sample 0, XVar: 0, NomXBin: 0, NomYBin: 1, GlobalBin: 0
+Sample 0, XVar: 0, NomXBin: 0, NomYBin: 2, GlobalBin: 0
+Sample 0, XVar: 0, NomXBin: 0, NomYBin: 3, GlobalBin: 0
 Sample 0, XVar: 0, NomXBin: 1, NomYBin: 0, GlobalBin: 0
-Sample 0, XVar: 0, NomXBin: 1, NomYBin: 1, GlobalBin: 10
-Sample 0, XVar: 0, NomXBin: 1, NomYBin: 2, GlobalBin: 20
-Sample 0, XVar: 0, NomXBin: 1, NomYBin: 3, GlobalBin: 30
+Sample 0, XVar: 0, NomXBin: 1, NomYBin: 1, GlobalBin: 0
+Sample 0, XVar: 0, NomXBin: 1, NomYBin: 2, GlobalBin: 0
+Sample 0, XVar: 0, NomXBin: 1, NomYBin: 3, GlobalBin: 0
 Sample 0, XVar: 0, NomXBin: 2, NomYBin: 0, GlobalBin: 0
-Sample 0, XVar: 0, NomXBin: 2, NomYBin: 1, GlobalBin: 10
-Sample 0, XVar: 0, NomXBin: 2, NomYBin: 2, GlobalBin: 20
-Sample 0, XVar: 0, NomXBin: 2, NomYBin: 3, GlobalBin: 30
+Sample 0, XVar: 0, NomXBin: 2, NomYBin: 1, GlobalBin: 0
+Sample 0, XVar: 0, NomXBin: 2, NomYBin: 2, GlobalBin: 0
+Sample 0, XVar: 0, NomXBin: 2, NomYBin: 3, GlobalBin: 0
 Sample 0, XVar: 0, NomXBin: 3, NomYBin: 0, GlobalBin: 0
+Sample 0, XVar: 0, NomXBin: 3, NomYBin: 1, GlobalBin: 0
+Sample 0, XVar: 0, NomXBin: 3, NomYBin: 2, GlobalBin: 0
+Sample 0, XVar: 0, NomXBin: 3, NomYBin: 3, GlobalBin: 0
+Sample 0, XVar: 0, NomXBin: 0, NomYBin: 0, GlobalBin: 10
+Sample 0, XVar: 0, NomXBin: 0, NomYBin: 1, GlobalBin: 10
+Sample 0, XVar: 0, NomXBin: 0, NomYBin: 2, GlobalBin: 10
+Sample 0, XVar: 0, NomXBin: 0, NomYBin: 3, GlobalBin: 10
+Sample 0, XVar: 0, NomXBin: 1, NomYBin: 0, GlobalBin: 10
+Sample 0, XVar: 0, NomXBin: 1, NomYBin: 1, GlobalBin: 10
+Sample 0, XVar: 0, NomXBin: 1, NomYBin: 2, GlobalBin: 10
+Sample 0, XVar: 0, NomXBin: 1, NomYBin: 3, GlobalBin: 10
+Sample 0, XVar: 0, NomXBin: 2, NomYBin: 0, GlobalBin: 10
+Sample 0, XVar: 0, NomXBin: 2, NomYBin: 1, GlobalBin: 10
+Sample 0, XVar: 0, NomXBin: 2, NomYBin: 2, GlobalBin: 10
+Sample 0, XVar: 0, NomXBin: 2, NomYBin: 3, GlobalBin: 10
+Sample 0, XVar: 0, NomXBin: 3, NomYBin: 0, GlobalBin: 10
 Sample 0, XVar: 0, NomXBin: 3, NomYBin: 1, GlobalBin: 10
+Sample 0, XVar: 0, NomXBin: 3, NomYBin: 2, GlobalBin: 10
+Sample 0, XVar: 0, NomXBin: 3, NomYBin: 3, GlobalBin: 10
+Sample 0, XVar: 0, NomXBin: 0, NomYBin: 0, GlobalBin: 20
+Sample 0, XVar: 0, NomXBin: 0, NomYBin: 1, GlobalBin: 20
+Sample 0, XVar: 0, NomXBin: 0, NomYBin: 2, GlobalBin: 20
+Sample 0, XVar: 0, NomXBin: 0, NomYBin: 3, GlobalBin: 20
+Sample 0, XVar: 0, NomXBin: 1, NomYBin: 0, GlobalBin: 20
+Sample 0, XVar: 0, NomXBin: 1, NomYBin: 1, GlobalBin: 20
+Sample 0, XVar: 0, NomXBin: 1, NomYBin: 2, GlobalBin: 20
+Sample 0, XVar: 0, NomXBin: 1, NomYBin: 3, GlobalBin: 20
+Sample 0, XVar: 0, NomXBin: 2, NomYBin: 0, GlobalBin: 20
+Sample 0, XVar: 0, NomXBin: 2, NomYBin: 1, GlobalBin: 20
+Sample 0, XVar: 0, NomXBin: 2, NomYBin: 2, GlobalBin: 20
+Sample 0, XVar: 0, NomXBin: 2, NomYBin: 3, GlobalBin: 20
+Sample 0, XVar: 0, NomXBin: 3, NomYBin: 0, GlobalBin: 20
+Sample 0, XVar: 0, NomXBin: 3, NomYBin: 1, GlobalBin: 20
 Sample 0, XVar: 0, NomXBin: 3, NomYBin: 2, GlobalBin: 20
+Sample 0, XVar: 0, NomXBin: 3, NomYBin: 3, GlobalBin: 20
+Sample 0, XVar: 0, NomXBin: 0, NomYBin: 0, GlobalBin: 30
+Sample 0, XVar: 0, NomXBin: 0, NomYBin: 1, GlobalBin: 30
+Sample 0, XVar: 0, NomXBin: 0, NomYBin: 2, GlobalBin: 30
+Sample 0, XVar: 0, NomXBin: 0, NomYBin: 3, GlobalBin: 30
+Sample 0, XVar: 0, NomXBin: 1, NomYBin: 0, GlobalBin: 30
+Sample 0, XVar: 0, NomXBin: 1, NomYBin: 1, GlobalBin: 30
+Sample 0, XVar: 0, NomXBin: 1, NomYBin: 2, GlobalBin: 30
+Sample 0, XVar: 0, NomXBin: 1, NomYBin: 3, GlobalBin: 30
+Sample 0, XVar: 0, NomXBin: 2, NomYBin: 0, GlobalBin: 30
+Sample 0, XVar: 0, NomXBin: 2, NomYBin: 1, GlobalBin: 30
+Sample 0, XVar: 0, NomXBin: 2, NomYBin: 2, GlobalBin: 30
+Sample 0, XVar: 0, NomXBin: 2, NomYBin: 3, GlobalBin: 30
+Sample 0, XVar: 0, NomXBin: 3, NomYBin: 0, GlobalBin: 30
+Sample 0, XVar: 0, NomXBin: 3, NomYBin: 1, GlobalBin: 30
+Sample 0, XVar: 0, NomXBin: 3, NomYBin: 2, GlobalBin: 30
 Sample 0, XVar: 0, NomXBin: 3, NomYBin: 3, GlobalBin: 30
 Sample 0, XVar: 0.5, NomXBin: 0, NomYBin: 0, GlobalBin: 5
-Sample 0, XVar: 0.5, NomXBin: 0, NomYBin: 1, GlobalBin: 15
-Sample 0, XVar: 0.5, NomXBin: 0, NomYBin: 2, GlobalBin: 25
-Sample 0, XVar: 0.5, NomXBin: 0, NomYBin: 3, GlobalBin: 35
+Sample 0, XVar: 0.5, NomXBin: 0, NomYBin: 1, GlobalBin: 5
+Sample 0, XVar: 0.5, NomXBin: 0, NomYBin: 2, GlobalBin: 5
+Sample 0, XVar: 0.5, NomXBin: 0, NomYBin: 3, GlobalBin: 5
 Sample 0, XVar: 0.5, NomXBin: 1, NomYBin: 0, GlobalBin: 5
-Sample 0, XVar: 0.5, NomXBin: 1, NomYBin: 1, GlobalBin: 15
-Sample 0, XVar: 0.5, NomXBin: 1, NomYBin: 2, GlobalBin: 25
-Sample 0, XVar: 0.5, NomXBin: 1, NomYBin: 3, GlobalBin: 35
+Sample 0, XVar: 0.5, NomXBin: 1, NomYBin: 1, GlobalBin: 5
+Sample 0, XVar: 0.5, NomXBin: 1, NomYBin: 2, GlobalBin: 5
+Sample 0, XVar: 0.5, NomXBin: 1, NomYBin: 3, GlobalBin: 5
 Sample 0, XVar: 0.5, NomXBin: 2, NomYBin: 0, GlobalBin: 5
-Sample 0, XVar: 0.5, NomXBin: 2, NomYBin: 1, GlobalBin: 15
-Sample 0, XVar: 0.5, NomXBin: 2, NomYBin: 2, GlobalBin: 25
-Sample 0, XVar: 0.5, NomXBin: 2, NomYBin: 3, GlobalBin: 35
+Sample 0, XVar: 0.5, NomXBin: 2, NomYBin: 1, GlobalBin: 5
+Sample 0, XVar: 0.5, NomXBin: 2, NomYBin: 2, GlobalBin: 5
+Sample 0, XVar: 0.5, NomXBin: 2, NomYBin: 3, GlobalBin: 5
 Sample 0, XVar: 0.5, NomXBin: 3, NomYBin: 0, GlobalBin: 5
+Sample 0, XVar: 0.5, NomXBin: 3, NomYBin: 1, GlobalBin: 5
+Sample 0, XVar: 0.5, NomXBin: 3, NomYBin: 2, GlobalBin: 5
+Sample 0, XVar: 0.5, NomXBin: 3, NomYBin: 3, GlobalBin: 5
+Sample 0, XVar: 0.5, NomXBin: 0, NomYBin: 0, GlobalBin: 15
+Sample 0, XVar: 0.5, NomXBin: 0, NomYBin: 1, GlobalBin: 15
+Sample 0, XVar: 0.5, NomXBin: 0, NomYBin: 2, GlobalBin: 15
+Sample 0, XVar: 0.5, NomXBin: 0, NomYBin: 3, GlobalBin: 15
+Sample 0, XVar: 0.5, NomXBin: 1, NomYBin: 0, GlobalBin: 15
+Sample 0, XVar: 0.5, NomXBin: 1, NomYBin: 1, GlobalBin: 15
+Sample 0, XVar: 0.5, NomXBin: 1, NomYBin: 2, GlobalBin: 15
+Sample 0, XVar: 0.5, NomXBin: 1, NomYBin: 3, GlobalBin: 15
+Sample 0, XVar: 0.5, NomXBin: 2, NomYBin: 0, GlobalBin: 15
+Sample 0, XVar: 0.5, NomXBin: 2, NomYBin: 1, GlobalBin: 15
+Sample 0, XVar: 0.5, NomXBin: 2, NomYBin: 2, GlobalBin: 15
+Sample 0, XVar: 0.5, NomXBin: 2, NomYBin: 3, GlobalBin: 15
+Sample 0, XVar: 0.5, NomXBin: 3, NomYBin: 0, GlobalBin: 15
 Sample 0, XVar: 0.5, NomXBin: 3, NomYBin: 1, GlobalBin: 15
+Sample 0, XVar: 0.5, NomXBin: 3, NomYBin: 2, GlobalBin: 15
+Sample 0, XVar: 0.5, NomXBin: 3, NomYBin: 3, GlobalBin: 15
+Sample 0, XVar: 0.5, NomXBin: 0, NomYBin: 0, GlobalBin: 25
+Sample 0, XVar: 0.5, NomXBin: 0, NomYBin: 1, GlobalBin: 25
+Sample 0, XVar: 0.5, NomXBin: 0, NomYBin: 2, GlobalBin: 25
+Sample 0, XVar: 0.5, NomXBin: 0, NomYBin: 3, GlobalBin: 25
+Sample 0, XVar: 0.5, NomXBin: 1, NomYBin: 0, GlobalBin: 25
+Sample 0, XVar: 0.5, NomXBin: 1, NomYBin: 1, GlobalBin: 25
+Sample 0, XVar: 0.5, NomXBin: 1, NomYBin: 2, GlobalBin: 25
+Sample 0, XVar: 0.5, NomXBin: 1, NomYBin: 3, GlobalBin: 25
+Sample 0, XVar: 0.5, NomXBin: 2, NomYBin: 0, GlobalBin: 25
+Sample 0, XVar: 0.5, NomXBin: 2, NomYBin: 1, GlobalBin: 25
+Sample 0, XVar: 0.5, NomXBin: 2, NomYBin: 2, GlobalBin: 25
+Sample 0, XVar: 0.5, NomXBin: 2, NomYBin: 3, GlobalBin: 25
+Sample 0, XVar: 0.5, NomXBin: 3, NomYBin: 0, GlobalBin: 25
+Sample 0, XVar: 0.5, NomXBin: 3, NomYBin: 1, GlobalBin: 25
 Sample 0, XVar: 0.5, NomXBin: 3, NomYBin: 2, GlobalBin: 25
+Sample 0, XVar: 0.5, NomXBin: 3, NomYBin: 3, GlobalBin: 25
+Sample 0, XVar: 0.5, NomXBin: 0, NomYBin: 0, GlobalBin: 35
+Sample 0, XVar: 0.5, NomXBin: 0, NomYBin: 1, GlobalBin: 35
+Sample 0, XVar: 0.5, NomXBin: 0, NomYBin: 2, GlobalBin: 35
+Sample 0, XVar: 0.5, NomXBin: 0, NomYBin: 3, GlobalBin: 35
+Sample 0, XVar: 0.5, NomXBin: 1, NomYBin: 0, GlobalBin: 35
+Sample 0, XVar: 0.5, NomXBin: 1, NomYBin: 1, GlobalBin: 35
+Sample 0, XVar: 0.5, NomXBin: 1, NomYBin: 2, GlobalBin: 35
+Sample 0, XVar: 0.5, NomXBin: 1, NomYBin: 3, GlobalBin: 35
+Sample 0, XVar: 0.5, NomXBin: 2, NomYBin: 0, GlobalBin: 35
+Sample 0, XVar: 0.5, NomXBin: 2, NomYBin: 1, GlobalBin: 35
+Sample 0, XVar: 0.5, NomXBin: 2, NomYBin: 2, GlobalBin: 35
+Sample 0, XVar: 0.5, NomXBin: 2, NomYBin: 3, GlobalBin: 35
+Sample 0, XVar: 0.5, NomXBin: 3, NomYBin: 0, GlobalBin: 35
+Sample 0, XVar: 0.5, NomXBin: 3, NomYBin: 1, GlobalBin: 35
+Sample 0, XVar: 0.5, NomXBin: 3, NomYBin: 2, GlobalBin: 35
 Sample 0, XVar: 0.5, NomXBin: 3, NomYBin: 3, GlobalBin: 35
 Sample 0, XVar: 0.7, NomXBin: 0, NomYBin: 0, GlobalBin: 7
-Sample 0, XVar: 0.7, NomXBin: 0, NomYBin: 1, GlobalBin: 17
-Sample 0, XVar: 0.7, NomXBin: 0, NomYBin: 2, GlobalBin: 27
-Sample 0, XVar: 0.7, NomXBin: 0, NomYBin: 3, GlobalBin: 37
+Sample 0, XVar: 0.7, NomXBin: 0, NomYBin: 1, GlobalBin: 7
+Sample 0, XVar: 0.7, NomXBin: 0, NomYBin: 2, GlobalBin: 7
+Sample 0, XVar: 0.7, NomXBin: 0, NomYBin: 3, GlobalBin: 7
 Sample 0, XVar: 0.7, NomXBin: 1, NomYBin: 0, GlobalBin: 7
-Sample 0, XVar: 0.7, NomXBin: 1, NomYBin: 1, GlobalBin: 17
-Sample 0, XVar: 0.7, NomXBin: 1, NomYBin: 2, GlobalBin: 27
-Sample 0, XVar: 0.7, NomXBin: 1, NomYBin: 3, GlobalBin: 37
+Sample 0, XVar: 0.7, NomXBin: 1, NomYBin: 1, GlobalBin: 7
+Sample 0, XVar: 0.7, NomXBin: 1, NomYBin: 2, GlobalBin: 7
+Sample 0, XVar: 0.7, NomXBin: 1, NomYBin: 3, GlobalBin: 7
 Sample 0, XVar: 0.7, NomXBin: 2, NomYBin: 0, GlobalBin: 7
-Sample 0, XVar: 0.7, NomXBin: 2, NomYBin: 1, GlobalBin: 17
-Sample 0, XVar: 0.7, NomXBin: 2, NomYBin: 2, GlobalBin: 27
-Sample 0, XVar: 0.7, NomXBin: 2, NomYBin: 3, GlobalBin: 37
+Sample 0, XVar: 0.7, NomXBin: 2, NomYBin: 1, GlobalBin: 7
+Sample 0, XVar: 0.7, NomXBin: 2, NomYBin: 2, GlobalBin: 7
+Sample 0, XVar: 0.7, NomXBin: 2, NomYBin: 3, GlobalBin: 7
 Sample 0, XVar: 0.7, NomXBin: 3, NomYBin: 0, GlobalBin: 7
+Sample 0, XVar: 0.7, NomXBin: 3, NomYBin: 1, GlobalBin: 7
+Sample 0, XVar: 0.7, NomXBin: 3, NomYBin: 2, GlobalBin: 7
+Sample 0, XVar: 0.7, NomXBin: 3, NomYBin: 3, GlobalBin: 7
+Sample 0, XVar: 0.7, NomXBin: 0, NomYBin: 0, GlobalBin: 17
+Sample 0, XVar: 0.7, NomXBin: 0, NomYBin: 1, GlobalBin: 17
+Sample 0, XVar: 0.7, NomXBin: 0, NomYBin: 2, GlobalBin: 17
+Sample 0, XVar: 0.7, NomXBin: 0, NomYBin: 3, GlobalBin: 17
+Sample 0, XVar: 0.7, NomXBin: 1, NomYBin: 0, GlobalBin: 17
+Sample 0, XVar: 0.7, NomXBin: 1, NomYBin: 1, GlobalBin: 17
+Sample 0, XVar: 0.7, NomXBin: 1, NomYBin: 2, GlobalBin: 17
+Sample 0, XVar: 0.7, NomXBin: 1, NomYBin: 3, GlobalBin: 17
+Sample 0, XVar: 0.7, NomXBin: 2, NomYBin: 0, GlobalBin: 17
+Sample 0, XVar: 0.7, NomXBin: 2, NomYBin: 1, GlobalBin: 17
+Sample 0, XVar: 0.7, NomXBin: 2, NomYBin: 2, GlobalBin: 17
+Sample 0, XVar: 0.7, NomXBin: 2, NomYBin: 3, GlobalBin: 17
+Sample 0, XVar: 0.7, NomXBin: 3, NomYBin: 0, GlobalBin: 17
 Sample 0, XVar: 0.7, NomXBin: 3, NomYBin: 1, GlobalBin: 17
+Sample 0, XVar: 0.7, NomXBin: 3, NomYBin: 2, GlobalBin: 17
+Sample 0, XVar: 0.7, NomXBin: 3, NomYBin: 3, GlobalBin: 17
+Sample 0, XVar: 0.7, NomXBin: 0, NomYBin: 0, GlobalBin: 27
+Sample 0, XVar: 0.7, NomXBin: 0, NomYBin: 1, GlobalBin: 27
+Sample 0, XVar: 0.7, NomXBin: 0, NomYBin: 2, GlobalBin: 27
+Sample 0, XVar: 0.7, NomXBin: 0, NomYBin: 3, GlobalBin: 27
+Sample 0, XVar: 0.7, NomXBin: 1, NomYBin: 0, GlobalBin: 27
+Sample 0, XVar: 0.7, NomXBin: 1, NomYBin: 1, GlobalBin: 27
+Sample 0, XVar: 0.7, NomXBin: 1, NomYBin: 2, GlobalBin: 27
+Sample 0, XVar: 0.7, NomXBin: 1, NomYBin: 3, GlobalBin: 27
+Sample 0, XVar: 0.7, NomXBin: 2, NomYBin: 0, GlobalBin: 27
+Sample 0, XVar: 0.7, NomXBin: 2, NomYBin: 1, GlobalBin: 27
+Sample 0, XVar: 0.7, NomXBin: 2, NomYBin: 2, GlobalBin: 27
+Sample 0, XVar: 0.7, NomXBin: 2, NomYBin: 3, GlobalBin: 27
+Sample 0, XVar: 0.7, NomXBin: 3, NomYBin: 0, GlobalBin: 27
+Sample 0, XVar: 0.7, NomXBin: 3, NomYBin: 1, GlobalBin: 27
 Sample 0, XVar: 0.7, NomXBin: 3, NomYBin: 2, GlobalBin: 27
+Sample 0, XVar: 0.7, NomXBin: 3, NomYBin: 3, GlobalBin: 27
+Sample 0, XVar: 0.7, NomXBin: 0, NomYBin: 0, GlobalBin: 37
+Sample 0, XVar: 0.7, NomXBin: 0, NomYBin: 1, GlobalBin: 37
+Sample 0, XVar: 0.7, NomXBin: 0, NomYBin: 2, GlobalBin: 37
+Sample 0, XVar: 0.7, NomXBin: 0, NomYBin: 3, GlobalBin: 37
+Sample 0, XVar: 0.7, NomXBin: 1, NomYBin: 0, GlobalBin: 37
+Sample 0, XVar: 0.7, NomXBin: 1, NomYBin: 1, GlobalBin: 37
+Sample 0, XVar: 0.7, NomXBin: 1, NomYBin: 2, GlobalBin: 37
+Sample 0, XVar: 0.7, NomXBin: 1, NomYBin: 3, GlobalBin: 37
+Sample 0, XVar: 0.7, NomXBin: 2, NomYBin: 0, GlobalBin: 37
+Sample 0, XVar: 0.7, NomXBin: 2, NomYBin: 1, GlobalBin: 37
+Sample 0, XVar: 0.7, NomXBin: 2, NomYBin: 2, GlobalBin: 37
+Sample 0, XVar: 0.7, NomXBin: 2, NomYBin: 3, GlobalBin: 37
+Sample 0, XVar: 0.7, NomXBin: 3, NomYBin: 0, GlobalBin: 37
+Sample 0, XVar: 0.7, NomXBin: 3, NomYBin: 1, GlobalBin: 37
+Sample 0, XVar: 0.7, NomXBin: 3, NomYBin: 2, GlobalBin: 37
 Sample 0, XVar: 0.7, NomXBin: 3, NomYBin: 3, GlobalBin: 37
+Sample 0, XVar: 1, NomXBin: 0, NomYBin: 0, GlobalBin: -1
+Sample 0, XVar: 1, NomXBin: 0, NomYBin: 1, GlobalBin: -1
+Sample 0, XVar: 1, NomXBin: 0, NomYBin: 2, GlobalBin: -1
+Sample 0, XVar: 1, NomXBin: 0, NomYBin: 3, GlobalBin: -1
+Sample 0, XVar: 1, NomXBin: 1, NomYBin: 0, GlobalBin: -1
+Sample 0, XVar: 1, NomXBin: 1, NomYBin: 1, GlobalBin: -1
+Sample 0, XVar: 1, NomXBin: 1, NomYBin: 2, GlobalBin: -1
+Sample 0, XVar: 1, NomXBin: 1, NomYBin: 3, GlobalBin: -1
+Sample 0, XVar: 1, NomXBin: 2, NomYBin: 0, GlobalBin: -1
+Sample 0, XVar: 1, NomXBin: 2, NomYBin: 1, GlobalBin: -1
+Sample 0, XVar: 1, NomXBin: 2, NomYBin: 2, GlobalBin: -1
+Sample 0, XVar: 1, NomXBin: 2, NomYBin: 3, GlobalBin: -1
+Sample 0, XVar: 1, NomXBin: 3, NomYBin: 0, GlobalBin: -1
+Sample 0, XVar: 1, NomXBin: 3, NomYBin: 1, GlobalBin: -1
+Sample 0, XVar: 1, NomXBin: 3, NomYBin: 2, GlobalBin: -1
+Sample 0, XVar: 1, NomXBin: 3, NomYBin: 3, GlobalBin: -1
+Sample 0, XVar: 1, NomXBin: 0, NomYBin: 0, GlobalBin: -1
+Sample 0, XVar: 1, NomXBin: 0, NomYBin: 1, GlobalBin: -1
+Sample 0, XVar: 1, NomXBin: 0, NomYBin: 2, GlobalBin: -1
+Sample 0, XVar: 1, NomXBin: 0, NomYBin: 3, GlobalBin: -1
+Sample 0, XVar: 1, NomXBin: 1, NomYBin: 0, GlobalBin: -1
+Sample 0, XVar: 1, NomXBin: 1, NomYBin: 1, GlobalBin: -1
+Sample 0, XVar: 1, NomXBin: 1, NomYBin: 2, GlobalBin: -1
+Sample 0, XVar: 1, NomXBin: 1, NomYBin: 3, GlobalBin: -1
+Sample 0, XVar: 1, NomXBin: 2, NomYBin: 0, GlobalBin: -1
+Sample 0, XVar: 1, NomXBin: 2, NomYBin: 1, GlobalBin: -1
+Sample 0, XVar: 1, NomXBin: 2, NomYBin: 2, GlobalBin: -1
+Sample 0, XVar: 1, NomXBin: 2, NomYBin: 3, GlobalBin: -1
+Sample 0, XVar: 1, NomXBin: 3, NomYBin: 0, GlobalBin: -1
+Sample 0, XVar: 1, NomXBin: 3, NomYBin: 1, GlobalBin: -1
+Sample 0, XVar: 1, NomXBin: 3, NomYBin: 2, GlobalBin: -1
+Sample 0, XVar: 1, NomXBin: 3, NomYBin: 3, GlobalBin: -1
+Sample 0, XVar: 1, NomXBin: 0, NomYBin: 0, GlobalBin: -1
+Sample 0, XVar: 1, NomXBin: 0, NomYBin: 1, GlobalBin: -1
+Sample 0, XVar: 1, NomXBin: 0, NomYBin: 2, GlobalBin: -1
+Sample 0, XVar: 1, NomXBin: 0, NomYBin: 3, GlobalBin: -1
+Sample 0, XVar: 1, NomXBin: 1, NomYBin: 0, GlobalBin: -1
+Sample 0, XVar: 1, NomXBin: 1, NomYBin: 1, GlobalBin: -1
+Sample 0, XVar: 1, NomXBin: 1, NomYBin: 2, GlobalBin: -1
+Sample 0, XVar: 1, NomXBin: 1, NomYBin: 3, GlobalBin: -1
+Sample 0, XVar: 1, NomXBin: 2, NomYBin: 0, GlobalBin: -1
+Sample 0, XVar: 1, NomXBin: 2, NomYBin: 1, GlobalBin: -1
+Sample 0, XVar: 1, NomXBin: 2, NomYBin: 2, GlobalBin: -1
+Sample 0, XVar: 1, NomXBin: 2, NomYBin: 3, GlobalBin: -1
+Sample 0, XVar: 1, NomXBin: 3, NomYBin: 0, GlobalBin: -1
+Sample 0, XVar: 1, NomXBin: 3, NomYBin: 1, GlobalBin: -1
+Sample 0, XVar: 1, NomXBin: 3, NomYBin: 2, GlobalBin: -1
+Sample 0, XVar: 1, NomXBin: 3, NomYBin: 3, GlobalBin: -1
 Sample 0, XVar: 1, NomXBin: 0, NomYBin: 0, GlobalBin: -1
 Sample 0, XVar: 1, NomXBin: 0, NomYBin: 1, GlobalBin: -1
 Sample 0, XVar: 1, NomXBin: 0, NomYBin: 2, GlobalBin: -1
@@ -220,6 +460,102 @@ Sample 0, XVar: 10, NomXBin: 3, NomYBin: 0, GlobalBin: -1
 Sample 0, XVar: 10, NomXBin: 3, NomYBin: 1, GlobalBin: -1
 Sample 0, XVar: 10, NomXBin: 3, NomYBin: 2, GlobalBin: -1
 Sample 0, XVar: 10, NomXBin: 3, NomYBin: 3, GlobalBin: -1
+Sample 0, XVar: 10, NomXBin: 0, NomYBin: 0, GlobalBin: -1
+Sample 0, XVar: 10, NomXBin: 0, NomYBin: 1, GlobalBin: -1
+Sample 0, XVar: 10, NomXBin: 0, NomYBin: 2, GlobalBin: -1
+Sample 0, XVar: 10, NomXBin: 0, NomYBin: 3, GlobalBin: -1
+Sample 0, XVar: 10, NomXBin: 1, NomYBin: 0, GlobalBin: -1
+Sample 0, XVar: 10, NomXBin: 1, NomYBin: 1, GlobalBin: -1
+Sample 0, XVar: 10, NomXBin: 1, NomYBin: 2, GlobalBin: -1
+Sample 0, XVar: 10, NomXBin: 1, NomYBin: 3, GlobalBin: -1
+Sample 0, XVar: 10, NomXBin: 2, NomYBin: 0, GlobalBin: -1
+Sample 0, XVar: 10, NomXBin: 2, NomYBin: 1, GlobalBin: -1
+Sample 0, XVar: 10, NomXBin: 2, NomYBin: 2, GlobalBin: -1
+Sample 0, XVar: 10, NomXBin: 2, NomYBin: 3, GlobalBin: -1
+Sample 0, XVar: 10, NomXBin: 3, NomYBin: 0, GlobalBin: -1
+Sample 0, XVar: 10, NomXBin: 3, NomYBin: 1, GlobalBin: -1
+Sample 0, XVar: 10, NomXBin: 3, NomYBin: 2, GlobalBin: -1
+Sample 0, XVar: 10, NomXBin: 3, NomYBin: 3, GlobalBin: -1
+Sample 0, XVar: 10, NomXBin: 0, NomYBin: 0, GlobalBin: -1
+Sample 0, XVar: 10, NomXBin: 0, NomYBin: 1, GlobalBin: -1
+Sample 0, XVar: 10, NomXBin: 0, NomYBin: 2, GlobalBin: -1
+Sample 0, XVar: 10, NomXBin: 0, NomYBin: 3, GlobalBin: -1
+Sample 0, XVar: 10, NomXBin: 1, NomYBin: 0, GlobalBin: -1
+Sample 0, XVar: 10, NomXBin: 1, NomYBin: 1, GlobalBin: -1
+Sample 0, XVar: 10, NomXBin: 1, NomYBin: 2, GlobalBin: -1
+Sample 0, XVar: 10, NomXBin: 1, NomYBin: 3, GlobalBin: -1
+Sample 0, XVar: 10, NomXBin: 2, NomYBin: 0, GlobalBin: -1
+Sample 0, XVar: 10, NomXBin: 2, NomYBin: 1, GlobalBin: -1
+Sample 0, XVar: 10, NomXBin: 2, NomYBin: 2, GlobalBin: -1
+Sample 0, XVar: 10, NomXBin: 2, NomYBin: 3, GlobalBin: -1
+Sample 0, XVar: 10, NomXBin: 3, NomYBin: 0, GlobalBin: -1
+Sample 0, XVar: 10, NomXBin: 3, NomYBin: 1, GlobalBin: -1
+Sample 0, XVar: 10, NomXBin: 3, NomYBin: 2, GlobalBin: -1
+Sample 0, XVar: 10, NomXBin: 3, NomYBin: 3, GlobalBin: -1
+Sample 0, XVar: 10, NomXBin: 0, NomYBin: 0, GlobalBin: -1
+Sample 0, XVar: 10, NomXBin: 0, NomYBin: 1, GlobalBin: -1
+Sample 0, XVar: 10, NomXBin: 0, NomYBin: 2, GlobalBin: -1
+Sample 0, XVar: 10, NomXBin: 0, NomYBin: 3, GlobalBin: -1
+Sample 0, XVar: 10, NomXBin: 1, NomYBin: 0, GlobalBin: -1
+Sample 0, XVar: 10, NomXBin: 1, NomYBin: 1, GlobalBin: -1
+Sample 0, XVar: 10, NomXBin: 1, NomYBin: 2, GlobalBin: -1
+Sample 0, XVar: 10, NomXBin: 1, NomYBin: 3, GlobalBin: -1
+Sample 0, XVar: 10, NomXBin: 2, NomYBin: 0, GlobalBin: -1
+Sample 0, XVar: 10, NomXBin: 2, NomYBin: 1, GlobalBin: -1
+Sample 0, XVar: 10, NomXBin: 2, NomYBin: 2, GlobalBin: -1
+Sample 0, XVar: 10, NomXBin: 2, NomYBin: 3, GlobalBin: -1
+Sample 0, XVar: 10, NomXBin: 3, NomYBin: 0, GlobalBin: -1
+Sample 0, XVar: 10, NomXBin: 3, NomYBin: 1, GlobalBin: -1
+Sample 0, XVar: 10, NomXBin: 3, NomYBin: 2, GlobalBin: -1
+Sample 0, XVar: 10, NomXBin: 3, NomYBin: 3, GlobalBin: -1
+Sample 1, XVar: -1, NomXBin: 0, NomYBin: 0, GlobalBin: -1
+Sample 1, XVar: -1, NomXBin: 0, NomYBin: 1, GlobalBin: -1
+Sample 1, XVar: -1, NomXBin: 0, NomYBin: 2, GlobalBin: -1
+Sample 1, XVar: -1, NomXBin: 0, NomYBin: 3, GlobalBin: -1
+Sample 1, XVar: -1, NomXBin: 1, NomYBin: 0, GlobalBin: -1
+Sample 1, XVar: -1, NomXBin: 1, NomYBin: 1, GlobalBin: -1
+Sample 1, XVar: -1, NomXBin: 1, NomYBin: 2, GlobalBin: -1
+Sample 1, XVar: -1, NomXBin: 1, NomYBin: 3, GlobalBin: -1
+Sample 1, XVar: -1, NomXBin: 2, NomYBin: 0, GlobalBin: -1
+Sample 1, XVar: -1, NomXBin: 2, NomYBin: 1, GlobalBin: -1
+Sample 1, XVar: -1, NomXBin: 2, NomYBin: 2, GlobalBin: -1
+Sample 1, XVar: -1, NomXBin: 2, NomYBin: 3, GlobalBin: -1
+Sample 1, XVar: -1, NomXBin: 3, NomYBin: 0, GlobalBin: -1
+Sample 1, XVar: -1, NomXBin: 3, NomYBin: 1, GlobalBin: -1
+Sample 1, XVar: -1, NomXBin: 3, NomYBin: 2, GlobalBin: -1
+Sample 1, XVar: -1, NomXBin: 3, NomYBin: 3, GlobalBin: -1
+Sample 1, XVar: -1, NomXBin: 0, NomYBin: 0, GlobalBin: -1
+Sample 1, XVar: -1, NomXBin: 0, NomYBin: 1, GlobalBin: -1
+Sample 1, XVar: -1, NomXBin: 0, NomYBin: 2, GlobalBin: -1
+Sample 1, XVar: -1, NomXBin: 0, NomYBin: 3, GlobalBin: -1
+Sample 1, XVar: -1, NomXBin: 1, NomYBin: 0, GlobalBin: -1
+Sample 1, XVar: -1, NomXBin: 1, NomYBin: 1, GlobalBin: -1
+Sample 1, XVar: -1, NomXBin: 1, NomYBin: 2, GlobalBin: -1
+Sample 1, XVar: -1, NomXBin: 1, NomYBin: 3, GlobalBin: -1
+Sample 1, XVar: -1, NomXBin: 2, NomYBin: 0, GlobalBin: -1
+Sample 1, XVar: -1, NomXBin: 2, NomYBin: 1, GlobalBin: -1
+Sample 1, XVar: -1, NomXBin: 2, NomYBin: 2, GlobalBin: -1
+Sample 1, XVar: -1, NomXBin: 2, NomYBin: 3, GlobalBin: -1
+Sample 1, XVar: -1, NomXBin: 3, NomYBin: 0, GlobalBin: -1
+Sample 1, XVar: -1, NomXBin: 3, NomYBin: 1, GlobalBin: -1
+Sample 1, XVar: -1, NomXBin: 3, NomYBin: 2, GlobalBin: -1
+Sample 1, XVar: -1, NomXBin: 3, NomYBin: 3, GlobalBin: -1
+Sample 1, XVar: -1, NomXBin: 0, NomYBin: 0, GlobalBin: -1
+Sample 1, XVar: -1, NomXBin: 0, NomYBin: 1, GlobalBin: -1
+Sample 1, XVar: -1, NomXBin: 0, NomYBin: 2, GlobalBin: -1
+Sample 1, XVar: -1, NomXBin: 0, NomYBin: 3, GlobalBin: -1
+Sample 1, XVar: -1, NomXBin: 1, NomYBin: 0, GlobalBin: -1
+Sample 1, XVar: -1, NomXBin: 1, NomYBin: 1, GlobalBin: -1
+Sample 1, XVar: -1, NomXBin: 1, NomYBin: 2, GlobalBin: -1
+Sample 1, XVar: -1, NomXBin: 1, NomYBin: 3, GlobalBin: -1
+Sample 1, XVar: -1, NomXBin: 2, NomYBin: 0, GlobalBin: -1
+Sample 1, XVar: -1, NomXBin: 2, NomYBin: 1, GlobalBin: -1
+Sample 1, XVar: -1, NomXBin: 2, NomYBin: 2, GlobalBin: -1
+Sample 1, XVar: -1, NomXBin: 2, NomYBin: 3, GlobalBin: -1
+Sample 1, XVar: -1, NomXBin: 3, NomYBin: 0, GlobalBin: -1
+Sample 1, XVar: -1, NomXBin: 3, NomYBin: 1, GlobalBin: -1
+Sample 1, XVar: -1, NomXBin: 3, NomYBin: 2, GlobalBin: -1
+Sample 1, XVar: -1, NomXBin: 3, NomYBin: 3, GlobalBin: -1
 Sample 1, XVar: -1, NomXBin: 0, NomYBin: 0, GlobalBin: -1
 Sample 1, XVar: -1, NomXBin: 0, NomYBin: 1, GlobalBin: -1
 Sample 1, XVar: -1, NomXBin: 0, NomYBin: 2, GlobalBin: -1
@@ -252,6 +588,102 @@ Sample 1, XVar: 0, NomXBin: 3, NomYBin: 0, GlobalBin: 100
 Sample 1, XVar: 0, NomXBin: 3, NomYBin: 1, GlobalBin: 100
 Sample 1, XVar: 0, NomXBin: 3, NomYBin: 2, GlobalBin: 100
 Sample 1, XVar: 0, NomXBin: 3, NomYBin: 3, GlobalBin: 100
+Sample 1, XVar: 0, NomXBin: 0, NomYBin: 0, GlobalBin: 100
+Sample 1, XVar: 0, NomXBin: 0, NomYBin: 1, GlobalBin: 100
+Sample 1, XVar: 0, NomXBin: 0, NomYBin: 2, GlobalBin: 100
+Sample 1, XVar: 0, NomXBin: 0, NomYBin: 3, GlobalBin: 100
+Sample 1, XVar: 0, NomXBin: 1, NomYBin: 0, GlobalBin: 100
+Sample 1, XVar: 0, NomXBin: 1, NomYBin: 1, GlobalBin: 100
+Sample 1, XVar: 0, NomXBin: 1, NomYBin: 2, GlobalBin: 100
+Sample 1, XVar: 0, NomXBin: 1, NomYBin: 3, GlobalBin: 100
+Sample 1, XVar: 0, NomXBin: 2, NomYBin: 0, GlobalBin: 100
+Sample 1, XVar: 0, NomXBin: 2, NomYBin: 1, GlobalBin: 100
+Sample 1, XVar: 0, NomXBin: 2, NomYBin: 2, GlobalBin: 100
+Sample 1, XVar: 0, NomXBin: 2, NomYBin: 3, GlobalBin: 100
+Sample 1, XVar: 0, NomXBin: 3, NomYBin: 0, GlobalBin: 100
+Sample 1, XVar: 0, NomXBin: 3, NomYBin: 1, GlobalBin: 100
+Sample 1, XVar: 0, NomXBin: 3, NomYBin: 2, GlobalBin: 100
+Sample 1, XVar: 0, NomXBin: 3, NomYBin: 3, GlobalBin: 100
+Sample 1, XVar: 0, NomXBin: 0, NomYBin: 0, GlobalBin: 100
+Sample 1, XVar: 0, NomXBin: 0, NomYBin: 1, GlobalBin: 100
+Sample 1, XVar: 0, NomXBin: 0, NomYBin: 2, GlobalBin: 100
+Sample 1, XVar: 0, NomXBin: 0, NomYBin: 3, GlobalBin: 100
+Sample 1, XVar: 0, NomXBin: 1, NomYBin: 0, GlobalBin: 100
+Sample 1, XVar: 0, NomXBin: 1, NomYBin: 1, GlobalBin: 100
+Sample 1, XVar: 0, NomXBin: 1, NomYBin: 2, GlobalBin: 100
+Sample 1, XVar: 0, NomXBin: 1, NomYBin: 3, GlobalBin: 100
+Sample 1, XVar: 0, NomXBin: 2, NomYBin: 0, GlobalBin: 100
+Sample 1, XVar: 0, NomXBin: 2, NomYBin: 1, GlobalBin: 100
+Sample 1, XVar: 0, NomXBin: 2, NomYBin: 2, GlobalBin: 100
+Sample 1, XVar: 0, NomXBin: 2, NomYBin: 3, GlobalBin: 100
+Sample 1, XVar: 0, NomXBin: 3, NomYBin: 0, GlobalBin: 100
+Sample 1, XVar: 0, NomXBin: 3, NomYBin: 1, GlobalBin: 100
+Sample 1, XVar: 0, NomXBin: 3, NomYBin: 2, GlobalBin: 100
+Sample 1, XVar: 0, NomXBin: 3, NomYBin: 3, GlobalBin: 100
+Sample 1, XVar: 0, NomXBin: 0, NomYBin: 0, GlobalBin: 100
+Sample 1, XVar: 0, NomXBin: 0, NomYBin: 1, GlobalBin: 100
+Sample 1, XVar: 0, NomXBin: 0, NomYBin: 2, GlobalBin: 100
+Sample 1, XVar: 0, NomXBin: 0, NomYBin: 3, GlobalBin: 100
+Sample 1, XVar: 0, NomXBin: 1, NomYBin: 0, GlobalBin: 100
+Sample 1, XVar: 0, NomXBin: 1, NomYBin: 1, GlobalBin: 100
+Sample 1, XVar: 0, NomXBin: 1, NomYBin: 2, GlobalBin: 100
+Sample 1, XVar: 0, NomXBin: 1, NomYBin: 3, GlobalBin: 100
+Sample 1, XVar: 0, NomXBin: 2, NomYBin: 0, GlobalBin: 100
+Sample 1, XVar: 0, NomXBin: 2, NomYBin: 1, GlobalBin: 100
+Sample 1, XVar: 0, NomXBin: 2, NomYBin: 2, GlobalBin: 100
+Sample 1, XVar: 0, NomXBin: 2, NomYBin: 3, GlobalBin: 100
+Sample 1, XVar: 0, NomXBin: 3, NomYBin: 0, GlobalBin: 100
+Sample 1, XVar: 0, NomXBin: 3, NomYBin: 1, GlobalBin: 100
+Sample 1, XVar: 0, NomXBin: 3, NomYBin: 2, GlobalBin: 100
+Sample 1, XVar: 0, NomXBin: 3, NomYBin: 3, GlobalBin: 100
+Sample 1, XVar: 0.5, NomXBin: 0, NomYBin: 0, GlobalBin: 105
+Sample 1, XVar: 0.5, NomXBin: 0, NomYBin: 1, GlobalBin: 105
+Sample 1, XVar: 0.5, NomXBin: 0, NomYBin: 2, GlobalBin: 105
+Sample 1, XVar: 0.5, NomXBin: 0, NomYBin: 3, GlobalBin: 105
+Sample 1, XVar: 0.5, NomXBin: 1, NomYBin: 0, GlobalBin: 105
+Sample 1, XVar: 0.5, NomXBin: 1, NomYBin: 1, GlobalBin: 105
+Sample 1, XVar: 0.5, NomXBin: 1, NomYBin: 2, GlobalBin: 105
+Sample 1, XVar: 0.5, NomXBin: 1, NomYBin: 3, GlobalBin: 105
+Sample 1, XVar: 0.5, NomXBin: 2, NomYBin: 0, GlobalBin: 105
+Sample 1, XVar: 0.5, NomXBin: 2, NomYBin: 1, GlobalBin: 105
+Sample 1, XVar: 0.5, NomXBin: 2, NomYBin: 2, GlobalBin: 105
+Sample 1, XVar: 0.5, NomXBin: 2, NomYBin: 3, GlobalBin: 105
+Sample 1, XVar: 0.5, NomXBin: 3, NomYBin: 0, GlobalBin: 105
+Sample 1, XVar: 0.5, NomXBin: 3, NomYBin: 1, GlobalBin: 105
+Sample 1, XVar: 0.5, NomXBin: 3, NomYBin: 2, GlobalBin: 105
+Sample 1, XVar: 0.5, NomXBin: 3, NomYBin: 3, GlobalBin: 105
+Sample 1, XVar: 0.5, NomXBin: 0, NomYBin: 0, GlobalBin: 105
+Sample 1, XVar: 0.5, NomXBin: 0, NomYBin: 1, GlobalBin: 105
+Sample 1, XVar: 0.5, NomXBin: 0, NomYBin: 2, GlobalBin: 105
+Sample 1, XVar: 0.5, NomXBin: 0, NomYBin: 3, GlobalBin: 105
+Sample 1, XVar: 0.5, NomXBin: 1, NomYBin: 0, GlobalBin: 105
+Sample 1, XVar: 0.5, NomXBin: 1, NomYBin: 1, GlobalBin: 105
+Sample 1, XVar: 0.5, NomXBin: 1, NomYBin: 2, GlobalBin: 105
+Sample 1, XVar: 0.5, NomXBin: 1, NomYBin: 3, GlobalBin: 105
+Sample 1, XVar: 0.5, NomXBin: 2, NomYBin: 0, GlobalBin: 105
+Sample 1, XVar: 0.5, NomXBin: 2, NomYBin: 1, GlobalBin: 105
+Sample 1, XVar: 0.5, NomXBin: 2, NomYBin: 2, GlobalBin: 105
+Sample 1, XVar: 0.5, NomXBin: 2, NomYBin: 3, GlobalBin: 105
+Sample 1, XVar: 0.5, NomXBin: 3, NomYBin: 0, GlobalBin: 105
+Sample 1, XVar: 0.5, NomXBin: 3, NomYBin: 1, GlobalBin: 105
+Sample 1, XVar: 0.5, NomXBin: 3, NomYBin: 2, GlobalBin: 105
+Sample 1, XVar: 0.5, NomXBin: 3, NomYBin: 3, GlobalBin: 105
+Sample 1, XVar: 0.5, NomXBin: 0, NomYBin: 0, GlobalBin: 105
+Sample 1, XVar: 0.5, NomXBin: 0, NomYBin: 1, GlobalBin: 105
+Sample 1, XVar: 0.5, NomXBin: 0, NomYBin: 2, GlobalBin: 105
+Sample 1, XVar: 0.5, NomXBin: 0, NomYBin: 3, GlobalBin: 105
+Sample 1, XVar: 0.5, NomXBin: 1, NomYBin: 0, GlobalBin: 105
+Sample 1, XVar: 0.5, NomXBin: 1, NomYBin: 1, GlobalBin: 105
+Sample 1, XVar: 0.5, NomXBin: 1, NomYBin: 2, GlobalBin: 105
+Sample 1, XVar: 0.5, NomXBin: 1, NomYBin: 3, GlobalBin: 105
+Sample 1, XVar: 0.5, NomXBin: 2, NomYBin: 0, GlobalBin: 105
+Sample 1, XVar: 0.5, NomXBin: 2, NomYBin: 1, GlobalBin: 105
+Sample 1, XVar: 0.5, NomXBin: 2, NomYBin: 2, GlobalBin: 105
+Sample 1, XVar: 0.5, NomXBin: 2, NomYBin: 3, GlobalBin: 105
+Sample 1, XVar: 0.5, NomXBin: 3, NomYBin: 0, GlobalBin: 105
+Sample 1, XVar: 0.5, NomXBin: 3, NomYBin: 1, GlobalBin: 105
+Sample 1, XVar: 0.5, NomXBin: 3, NomYBin: 2, GlobalBin: 105
+Sample 1, XVar: 0.5, NomXBin: 3, NomYBin: 3, GlobalBin: 105
 Sample 1, XVar: 0.5, NomXBin: 0, NomYBin: 0, GlobalBin: 105
 Sample 1, XVar: 0.5, NomXBin: 0, NomYBin: 1, GlobalBin: 105
 Sample 1, XVar: 0.5, NomXBin: 0, NomYBin: 2, GlobalBin: 105
@@ -284,6 +716,102 @@ Sample 1, XVar: 0.7, NomXBin: 3, NomYBin: 0, GlobalBin: 107
 Sample 1, XVar: 0.7, NomXBin: 3, NomYBin: 1, GlobalBin: 107
 Sample 1, XVar: 0.7, NomXBin: 3, NomYBin: 2, GlobalBin: 107
 Sample 1, XVar: 0.7, NomXBin: 3, NomYBin: 3, GlobalBin: 107
+Sample 1, XVar: 0.7, NomXBin: 0, NomYBin: 0, GlobalBin: 107
+Sample 1, XVar: 0.7, NomXBin: 0, NomYBin: 1, GlobalBin: 107
+Sample 1, XVar: 0.7, NomXBin: 0, NomYBin: 2, GlobalBin: 107
+Sample 1, XVar: 0.7, NomXBin: 0, NomYBin: 3, GlobalBin: 107
+Sample 1, XVar: 0.7, NomXBin: 1, NomYBin: 0, GlobalBin: 107
+Sample 1, XVar: 0.7, NomXBin: 1, NomYBin: 1, GlobalBin: 107
+Sample 1, XVar: 0.7, NomXBin: 1, NomYBin: 2, GlobalBin: 107
+Sample 1, XVar: 0.7, NomXBin: 1, NomYBin: 3, GlobalBin: 107
+Sample 1, XVar: 0.7, NomXBin: 2, NomYBin: 0, GlobalBin: 107
+Sample 1, XVar: 0.7, NomXBin: 2, NomYBin: 1, GlobalBin: 107
+Sample 1, XVar: 0.7, NomXBin: 2, NomYBin: 2, GlobalBin: 107
+Sample 1, XVar: 0.7, NomXBin: 2, NomYBin: 3, GlobalBin: 107
+Sample 1, XVar: 0.7, NomXBin: 3, NomYBin: 0, GlobalBin: 107
+Sample 1, XVar: 0.7, NomXBin: 3, NomYBin: 1, GlobalBin: 107
+Sample 1, XVar: 0.7, NomXBin: 3, NomYBin: 2, GlobalBin: 107
+Sample 1, XVar: 0.7, NomXBin: 3, NomYBin: 3, GlobalBin: 107
+Sample 1, XVar: 0.7, NomXBin: 0, NomYBin: 0, GlobalBin: 107
+Sample 1, XVar: 0.7, NomXBin: 0, NomYBin: 1, GlobalBin: 107
+Sample 1, XVar: 0.7, NomXBin: 0, NomYBin: 2, GlobalBin: 107
+Sample 1, XVar: 0.7, NomXBin: 0, NomYBin: 3, GlobalBin: 107
+Sample 1, XVar: 0.7, NomXBin: 1, NomYBin: 0, GlobalBin: 107
+Sample 1, XVar: 0.7, NomXBin: 1, NomYBin: 1, GlobalBin: 107
+Sample 1, XVar: 0.7, NomXBin: 1, NomYBin: 2, GlobalBin: 107
+Sample 1, XVar: 0.7, NomXBin: 1, NomYBin: 3, GlobalBin: 107
+Sample 1, XVar: 0.7, NomXBin: 2, NomYBin: 0, GlobalBin: 107
+Sample 1, XVar: 0.7, NomXBin: 2, NomYBin: 1, GlobalBin: 107
+Sample 1, XVar: 0.7, NomXBin: 2, NomYBin: 2, GlobalBin: 107
+Sample 1, XVar: 0.7, NomXBin: 2, NomYBin: 3, GlobalBin: 107
+Sample 1, XVar: 0.7, NomXBin: 3, NomYBin: 0, GlobalBin: 107
+Sample 1, XVar: 0.7, NomXBin: 3, NomYBin: 1, GlobalBin: 107
+Sample 1, XVar: 0.7, NomXBin: 3, NomYBin: 2, GlobalBin: 107
+Sample 1, XVar: 0.7, NomXBin: 3, NomYBin: 3, GlobalBin: 107
+Sample 1, XVar: 0.7, NomXBin: 0, NomYBin: 0, GlobalBin: 107
+Sample 1, XVar: 0.7, NomXBin: 0, NomYBin: 1, GlobalBin: 107
+Sample 1, XVar: 0.7, NomXBin: 0, NomYBin: 2, GlobalBin: 107
+Sample 1, XVar: 0.7, NomXBin: 0, NomYBin: 3, GlobalBin: 107
+Sample 1, XVar: 0.7, NomXBin: 1, NomYBin: 0, GlobalBin: 107
+Sample 1, XVar: 0.7, NomXBin: 1, NomYBin: 1, GlobalBin: 107
+Sample 1, XVar: 0.7, NomXBin: 1, NomYBin: 2, GlobalBin: 107
+Sample 1, XVar: 0.7, NomXBin: 1, NomYBin: 3, GlobalBin: 107
+Sample 1, XVar: 0.7, NomXBin: 2, NomYBin: 0, GlobalBin: 107
+Sample 1, XVar: 0.7, NomXBin: 2, NomYBin: 1, GlobalBin: 107
+Sample 1, XVar: 0.7, NomXBin: 2, NomYBin: 2, GlobalBin: 107
+Sample 1, XVar: 0.7, NomXBin: 2, NomYBin: 3, GlobalBin: 107
+Sample 1, XVar: 0.7, NomXBin: 3, NomYBin: 0, GlobalBin: 107
+Sample 1, XVar: 0.7, NomXBin: 3, NomYBin: 1, GlobalBin: 107
+Sample 1, XVar: 0.7, NomXBin: 3, NomYBin: 2, GlobalBin: 107
+Sample 1, XVar: 0.7, NomXBin: 3, NomYBin: 3, GlobalBin: 107
+Sample 1, XVar: 1, NomXBin: 0, NomYBin: 0, GlobalBin: -1
+Sample 1, XVar: 1, NomXBin: 0, NomYBin: 1, GlobalBin: -1
+Sample 1, XVar: 1, NomXBin: 0, NomYBin: 2, GlobalBin: -1
+Sample 1, XVar: 1, NomXBin: 0, NomYBin: 3, GlobalBin: -1
+Sample 1, XVar: 1, NomXBin: 1, NomYBin: 0, GlobalBin: -1
+Sample 1, XVar: 1, NomXBin: 1, NomYBin: 1, GlobalBin: -1
+Sample 1, XVar: 1, NomXBin: 1, NomYBin: 2, GlobalBin: -1
+Sample 1, XVar: 1, NomXBin: 1, NomYBin: 3, GlobalBin: -1
+Sample 1, XVar: 1, NomXBin: 2, NomYBin: 0, GlobalBin: -1
+Sample 1, XVar: 1, NomXBin: 2, NomYBin: 1, GlobalBin: -1
+Sample 1, XVar: 1, NomXBin: 2, NomYBin: 2, GlobalBin: -1
+Sample 1, XVar: 1, NomXBin: 2, NomYBin: 3, GlobalBin: -1
+Sample 1, XVar: 1, NomXBin: 3, NomYBin: 0, GlobalBin: -1
+Sample 1, XVar: 1, NomXBin: 3, NomYBin: 1, GlobalBin: -1
+Sample 1, XVar: 1, NomXBin: 3, NomYBin: 2, GlobalBin: -1
+Sample 1, XVar: 1, NomXBin: 3, NomYBin: 3, GlobalBin: -1
+Sample 1, XVar: 1, NomXBin: 0, NomYBin: 0, GlobalBin: -1
+Sample 1, XVar: 1, NomXBin: 0, NomYBin: 1, GlobalBin: -1
+Sample 1, XVar: 1, NomXBin: 0, NomYBin: 2, GlobalBin: -1
+Sample 1, XVar: 1, NomXBin: 0, NomYBin: 3, GlobalBin: -1
+Sample 1, XVar: 1, NomXBin: 1, NomYBin: 0, GlobalBin: -1
+Sample 1, XVar: 1, NomXBin: 1, NomYBin: 1, GlobalBin: -1
+Sample 1, XVar: 1, NomXBin: 1, NomYBin: 2, GlobalBin: -1
+Sample 1, XVar: 1, NomXBin: 1, NomYBin: 3, GlobalBin: -1
+Sample 1, XVar: 1, NomXBin: 2, NomYBin: 0, GlobalBin: -1
+Sample 1, XVar: 1, NomXBin: 2, NomYBin: 1, GlobalBin: -1
+Sample 1, XVar: 1, NomXBin: 2, NomYBin: 2, GlobalBin: -1
+Sample 1, XVar: 1, NomXBin: 2, NomYBin: 3, GlobalBin: -1
+Sample 1, XVar: 1, NomXBin: 3, NomYBin: 0, GlobalBin: -1
+Sample 1, XVar: 1, NomXBin: 3, NomYBin: 1, GlobalBin: -1
+Sample 1, XVar: 1, NomXBin: 3, NomYBin: 2, GlobalBin: -1
+Sample 1, XVar: 1, NomXBin: 3, NomYBin: 3, GlobalBin: -1
+Sample 1, XVar: 1, NomXBin: 0, NomYBin: 0, GlobalBin: -1
+Sample 1, XVar: 1, NomXBin: 0, NomYBin: 1, GlobalBin: -1
+Sample 1, XVar: 1, NomXBin: 0, NomYBin: 2, GlobalBin: -1
+Sample 1, XVar: 1, NomXBin: 0, NomYBin: 3, GlobalBin: -1
+Sample 1, XVar: 1, NomXBin: 1, NomYBin: 0, GlobalBin: -1
+Sample 1, XVar: 1, NomXBin: 1, NomYBin: 1, GlobalBin: -1
+Sample 1, XVar: 1, NomXBin: 1, NomYBin: 2, GlobalBin: -1
+Sample 1, XVar: 1, NomXBin: 1, NomYBin: 3, GlobalBin: -1
+Sample 1, XVar: 1, NomXBin: 2, NomYBin: 0, GlobalBin: -1
+Sample 1, XVar: 1, NomXBin: 2, NomYBin: 1, GlobalBin: -1
+Sample 1, XVar: 1, NomXBin: 2, NomYBin: 2, GlobalBin: -1
+Sample 1, XVar: 1, NomXBin: 2, NomYBin: 3, GlobalBin: -1
+Sample 1, XVar: 1, NomXBin: 3, NomYBin: 0, GlobalBin: -1
+Sample 1, XVar: 1, NomXBin: 3, NomYBin: 1, GlobalBin: -1
+Sample 1, XVar: 1, NomXBin: 3, NomYBin: 2, GlobalBin: -1
+Sample 1, XVar: 1, NomXBin: 3, NomYBin: 3, GlobalBin: -1
 Sample 1, XVar: 1, NomXBin: 0, NomYBin: 0, GlobalBin: -1
 Sample 1, XVar: 1, NomXBin: 0, NomYBin: 1, GlobalBin: -1
 Sample 1, XVar: 1, NomXBin: 0, NomYBin: 2, GlobalBin: -1
@@ -316,3 +844,161 @@ Sample 1, XVar: 10, NomXBin: 3, NomYBin: 0, GlobalBin: -1
 Sample 1, XVar: 10, NomXBin: 3, NomYBin: 1, GlobalBin: -1
 Sample 1, XVar: 10, NomXBin: 3, NomYBin: 2, GlobalBin: -1
 Sample 1, XVar: 10, NomXBin: 3, NomYBin: 3, GlobalBin: -1
+Sample 1, XVar: 10, NomXBin: 0, NomYBin: 0, GlobalBin: -1
+Sample 1, XVar: 10, NomXBin: 0, NomYBin: 1, GlobalBin: -1
+Sample 1, XVar: 10, NomXBin: 0, NomYBin: 2, GlobalBin: -1
+Sample 1, XVar: 10, NomXBin: 0, NomYBin: 3, GlobalBin: -1
+Sample 1, XVar: 10, NomXBin: 1, NomYBin: 0, GlobalBin: -1
+Sample 1, XVar: 10, NomXBin: 1, NomYBin: 1, GlobalBin: -1
+Sample 1, XVar: 10, NomXBin: 1, NomYBin: 2, GlobalBin: -1
+Sample 1, XVar: 10, NomXBin: 1, NomYBin: 3, GlobalBin: -1
+Sample 1, XVar: 10, NomXBin: 2, NomYBin: 0, GlobalBin: -1
+Sample 1, XVar: 10, NomXBin: 2, NomYBin: 1, GlobalBin: -1
+Sample 1, XVar: 10, NomXBin: 2, NomYBin: 2, GlobalBin: -1
+Sample 1, XVar: 10, NomXBin: 2, NomYBin: 3, GlobalBin: -1
+Sample 1, XVar: 10, NomXBin: 3, NomYBin: 0, GlobalBin: -1
+Sample 1, XVar: 10, NomXBin: 3, NomYBin: 1, GlobalBin: -1
+Sample 1, XVar: 10, NomXBin: 3, NomYBin: 2, GlobalBin: -1
+Sample 1, XVar: 10, NomXBin: 3, NomYBin: 3, GlobalBin: -1
+Sample 1, XVar: 10, NomXBin: 0, NomYBin: 0, GlobalBin: -1
+Sample 1, XVar: 10, NomXBin: 0, NomYBin: 1, GlobalBin: -1
+Sample 1, XVar: 10, NomXBin: 0, NomYBin: 2, GlobalBin: -1
+Sample 1, XVar: 10, NomXBin: 0, NomYBin: 3, GlobalBin: -1
+Sample 1, XVar: 10, NomXBin: 1, NomYBin: 0, GlobalBin: -1
+Sample 1, XVar: 10, NomXBin: 1, NomYBin: 1, GlobalBin: -1
+Sample 1, XVar: 10, NomXBin: 1, NomYBin: 2, GlobalBin: -1
+Sample 1, XVar: 10, NomXBin: 1, NomYBin: 3, GlobalBin: -1
+Sample 1, XVar: 10, NomXBin: 2, NomYBin: 0, GlobalBin: -1
+Sample 1, XVar: 10, NomXBin: 2, NomYBin: 1, GlobalBin: -1
+Sample 1, XVar: 10, NomXBin: 2, NomYBin: 2, GlobalBin: -1
+Sample 1, XVar: 10, NomXBin: 2, NomYBin: 3, GlobalBin: -1
+Sample 1, XVar: 10, NomXBin: 3, NomYBin: 0, GlobalBin: -1
+Sample 1, XVar: 10, NomXBin: 3, NomYBin: 1, GlobalBin: -1
+Sample 1, XVar: 10, NomXBin: 3, NomYBin: 2, GlobalBin: -1
+Sample 1, XVar: 10, NomXBin: 3, NomYBin: 3, GlobalBin: -1
+Sample 1, XVar: 10, NomXBin: 0, NomYBin: 0, GlobalBin: -1
+Sample 1, XVar: 10, NomXBin: 0, NomYBin: 1, GlobalBin: -1
+Sample 1, XVar: 10, NomXBin: 0, NomYBin: 2, GlobalBin: -1
+Sample 1, XVar: 10, NomXBin: 0, NomYBin: 3, GlobalBin: -1
+Sample 1, XVar: 10, NomXBin: 1, NomYBin: 0, GlobalBin: -1
+Sample 1, XVar: 10, NomXBin: 1, NomYBin: 1, GlobalBin: -1
+Sample 1, XVar: 10, NomXBin: 1, NomYBin: 2, GlobalBin: -1
+Sample 1, XVar: 10, NomXBin: 1, NomYBin: 3, GlobalBin: -1
+Sample 1, XVar: 10, NomXBin: 2, NomYBin: 0, GlobalBin: -1
+Sample 1, XVar: 10, NomXBin: 2, NomYBin: 1, GlobalBin: -1
+Sample 1, XVar: 10, NomXBin: 2, NomYBin: 2, GlobalBin: -1
+Sample 1, XVar: 10, NomXBin: 2, NomYBin: 3, GlobalBin: -1
+Sample 1, XVar: 10, NomXBin: 3, NomYBin: 0, GlobalBin: -1
+Sample 1, XVar: 10, NomXBin: 3, NomYBin: 1, GlobalBin: -1
+Sample 1, XVar: 10, NomXBin: 3, NomYBin: 2, GlobalBin: -1
+Sample 1, XVar: 10, NomXBin: 3, NomYBin: 3, GlobalBin: -1
+Sample 0, bin: 0, name: Dim0 (0, 0.1), Dim1 (0, 0.1)
+Sample 0, bin: 1, name: Dim0 (0.1, 0.2), Dim1 (0, 0.1)
+Sample 0, bin: 2, name: Dim0 (0.2, 0.3), Dim1 (0, 0.1)
+Sample 0, bin: 3, name: Dim0 (0.3, 0.4), Dim1 (0, 0.1)
+Sample 0, bin: 4, name: Dim0 (0.4, 0.5), Dim1 (0, 0.1)
+Sample 0, bin: 5, name: Dim0 (0.5, 0.6), Dim1 (0, 0.1)
+Sample 0, bin: 6, name: Dim0 (0.6, 0.7), Dim1 (0, 0.1)
+Sample 0, bin: 7, name: Dim0 (0.7, 0.8), Dim1 (0, 0.1)
+Sample 0, bin: 8, name: Dim0 (0.8, 0.9), Dim1 (0, 0.1)
+Sample 0, bin: 9, name: Dim0 (0.9, 1), Dim1 (0, 0.1)
+Sample 0, bin: 10, name: Dim0 (0, 0.1), Dim1 (0.1, 0.2)
+Sample 0, bin: 11, name: Dim0 (0.1, 0.2), Dim1 (0.1, 0.2)
+Sample 0, bin: 12, name: Dim0 (0.2, 0.3), Dim1 (0.1, 0.2)
+Sample 0, bin: 13, name: Dim0 (0.3, 0.4), Dim1 (0.1, 0.2)
+Sample 0, bin: 14, name: Dim0 (0.4, 0.5), Dim1 (0.1, 0.2)
+Sample 0, bin: 15, name: Dim0 (0.5, 0.6), Dim1 (0.1, 0.2)
+Sample 0, bin: 16, name: Dim0 (0.6, 0.7), Dim1 (0.1, 0.2)
+Sample 0, bin: 17, name: Dim0 (0.7, 0.8), Dim1 (0.1, 0.2)
+Sample 0, bin: 18, name: Dim0 (0.8, 0.9), Dim1 (0.1, 0.2)
+Sample 0, bin: 19, name: Dim0 (0.9, 1), Dim1 (0.1, 0.2)
+Sample 0, bin: 20, name: Dim0 (0, 0.1), Dim1 (0.2, 0.3)
+Sample 0, bin: 21, name: Dim0 (0.1, 0.2), Dim1 (0.2, 0.3)
+Sample 0, bin: 22, name: Dim0 (0.2, 0.3), Dim1 (0.2, 0.3)
+Sample 0, bin: 23, name: Dim0 (0.3, 0.4), Dim1 (0.2, 0.3)
+Sample 0, bin: 24, name: Dim0 (0.4, 0.5), Dim1 (0.2, 0.3)
+Sample 0, bin: 25, name: Dim0 (0.5, 0.6), Dim1 (0.2, 0.3)
+Sample 0, bin: 26, name: Dim0 (0.6, 0.7), Dim1 (0.2, 0.3)
+Sample 0, bin: 27, name: Dim0 (0.7, 0.8), Dim1 (0.2, 0.3)
+Sample 0, bin: 28, name: Dim0 (0.8, 0.9), Dim1 (0.2, 0.3)
+Sample 0, bin: 29, name: Dim0 (0.9, 1), Dim1 (0.2, 0.3)
+Sample 0, bin: 30, name: Dim0 (0, 0.1), Dim1 (0.3, 0.4)
+Sample 0, bin: 31, name: Dim0 (0.1, 0.2), Dim1 (0.3, 0.4)
+Sample 0, bin: 32, name: Dim0 (0.2, 0.3), Dim1 (0.3, 0.4)
+Sample 0, bin: 33, name: Dim0 (0.3, 0.4), Dim1 (0.3, 0.4)
+Sample 0, bin: 34, name: Dim0 (0.4, 0.5), Dim1 (0.3, 0.4)
+Sample 0, bin: 35, name: Dim0 (0.5, 0.6), Dim1 (0.3, 0.4)
+Sample 0, bin: 36, name: Dim0 (0.6, 0.7), Dim1 (0.3, 0.4)
+Sample 0, bin: 37, name: Dim0 (0.7, 0.8), Dim1 (0.3, 0.4)
+Sample 0, bin: 38, name: Dim0 (0.8, 0.9), Dim1 (0.3, 0.4)
+Sample 0, bin: 39, name: Dim0 (0.9, 1), Dim1 (0.3, 0.4)
+Sample 0, bin: 40, name: Dim0 (0, 0.1), Dim1 (0.4, 0.5)
+Sample 0, bin: 41, name: Dim0 (0.1, 0.2), Dim1 (0.4, 0.5)
+Sample 0, bin: 42, name: Dim0 (0.2, 0.3), Dim1 (0.4, 0.5)
+Sample 0, bin: 43, name: Dim0 (0.3, 0.4), Dim1 (0.4, 0.5)
+Sample 0, bin: 44, name: Dim0 (0.4, 0.5), Dim1 (0.4, 0.5)
+Sample 0, bin: 45, name: Dim0 (0.5, 0.6), Dim1 (0.4, 0.5)
+Sample 0, bin: 46, name: Dim0 (0.6, 0.7), Dim1 (0.4, 0.5)
+Sample 0, bin: 47, name: Dim0 (0.7, 0.8), Dim1 (0.4, 0.5)
+Sample 0, bin: 48, name: Dim0 (0.8, 0.9), Dim1 (0.4, 0.5)
+Sample 0, bin: 49, name: Dim0 (0.9, 1), Dim1 (0.4, 0.5)
+Sample 0, bin: 50, name: Dim0 (0, 0.1), Dim1 (0.5, 0.6)
+Sample 0, bin: 51, name: Dim0 (0.1, 0.2), Dim1 (0.5, 0.6)
+Sample 0, bin: 52, name: Dim0 (0.2, 0.3), Dim1 (0.5, 0.6)
+Sample 0, bin: 53, name: Dim0 (0.3, 0.4), Dim1 (0.5, 0.6)
+Sample 0, bin: 54, name: Dim0 (0.4, 0.5), Dim1 (0.5, 0.6)
+Sample 0, bin: 55, name: Dim0 (0.5, 0.6), Dim1 (0.5, 0.6)
+Sample 0, bin: 56, name: Dim0 (0.6, 0.7), Dim1 (0.5, 0.6)
+Sample 0, bin: 57, name: Dim0 (0.7, 0.8), Dim1 (0.5, 0.6)
+Sample 0, bin: 58, name: Dim0 (0.8, 0.9), Dim1 (0.5, 0.6)
+Sample 0, bin: 59, name: Dim0 (0.9, 1), Dim1 (0.5, 0.6)
+Sample 0, bin: 60, name: Dim0 (0, 0.1), Dim1 (0.6, 0.7)
+Sample 0, bin: 61, name: Dim0 (0.1, 0.2), Dim1 (0.6, 0.7)
+Sample 0, bin: 62, name: Dim0 (0.2, 0.3), Dim1 (0.6, 0.7)
+Sample 0, bin: 63, name: Dim0 (0.3, 0.4), Dim1 (0.6, 0.7)
+Sample 0, bin: 64, name: Dim0 (0.4, 0.5), Dim1 (0.6, 0.7)
+Sample 0, bin: 65, name: Dim0 (0.5, 0.6), Dim1 (0.6, 0.7)
+Sample 0, bin: 66, name: Dim0 (0.6, 0.7), Dim1 (0.6, 0.7)
+Sample 0, bin: 67, name: Dim0 (0.7, 0.8), Dim1 (0.6, 0.7)
+Sample 0, bin: 68, name: Dim0 (0.8, 0.9), Dim1 (0.6, 0.7)
+Sample 0, bin: 69, name: Dim0 (0.9, 1), Dim1 (0.6, 0.7)
+Sample 0, bin: 70, name: Dim0 (0, 0.1), Dim1 (0.7, 0.8)
+Sample 0, bin: 71, name: Dim0 (0.1, 0.2), Dim1 (0.7, 0.8)
+Sample 0, bin: 72, name: Dim0 (0.2, 0.3), Dim1 (0.7, 0.8)
+Sample 0, bin: 73, name: Dim0 (0.3, 0.4), Dim1 (0.7, 0.8)
+Sample 0, bin: 74, name: Dim0 (0.4, 0.5), Dim1 (0.7, 0.8)
+Sample 0, bin: 75, name: Dim0 (0.5, 0.6), Dim1 (0.7, 0.8)
+Sample 0, bin: 76, name: Dim0 (0.6, 0.7), Dim1 (0.7, 0.8)
+Sample 0, bin: 77, name: Dim0 (0.7, 0.8), Dim1 (0.7, 0.8)
+Sample 0, bin: 78, name: Dim0 (0.8, 0.9), Dim1 (0.7, 0.8)
+Sample 0, bin: 79, name: Dim0 (0.9, 1), Dim1 (0.7, 0.8)
+Sample 0, bin: 80, name: Dim0 (0, 0.1), Dim1 (0.8, 0.9)
+Sample 0, bin: 81, name: Dim0 (0.1, 0.2), Dim1 (0.8, 0.9)
+Sample 0, bin: 82, name: Dim0 (0.2, 0.3), Dim1 (0.8, 0.9)
+Sample 0, bin: 83, name: Dim0 (0.3, 0.4), Dim1 (0.8, 0.9)
+Sample 0, bin: 84, name: Dim0 (0.4, 0.5), Dim1 (0.8, 0.9)
+Sample 0, bin: 85, name: Dim0 (0.5, 0.6), Dim1 (0.8, 0.9)
+Sample 0, bin: 86, name: Dim0 (0.6, 0.7), Dim1 (0.8, 0.9)
+Sample 0, bin: 87, name: Dim0 (0.7, 0.8), Dim1 (0.8, 0.9)
+Sample 0, bin: 88, name: Dim0 (0.8, 0.9), Dim1 (0.8, 0.9)
+Sample 0, bin: 89, name: Dim0 (0.9, 1), Dim1 (0.8, 0.9)
+Sample 0, bin: 90, name: Dim0 (0, 0.1), Dim1 (0.9, 1)
+Sample 0, bin: 91, name: Dim0 (0.1, 0.2), Dim1 (0.9, 1)
+Sample 0, bin: 92, name: Dim0 (0.2, 0.3), Dim1 (0.9, 1)
+Sample 0, bin: 93, name: Dim0 (0.3, 0.4), Dim1 (0.9, 1)
+Sample 0, bin: 94, name: Dim0 (0.4, 0.5), Dim1 (0.9, 1)
+Sample 0, bin: 95, name: Dim0 (0.5, 0.6), Dim1 (0.9, 1)
+Sample 0, bin: 96, name: Dim0 (0.6, 0.7), Dim1 (0.9, 1)
+Sample 0, bin: 97, name: Dim0 (0.7, 0.8), Dim1 (0.9, 1)
+Sample 0, bin: 98, name: Dim0 (0.8, 0.9), Dim1 (0.9, 1)
+Sample 0, bin: 99, name: Dim0 (0.9, 1), Dim1 (0.9, 1)
+Sample 1, bin: 0, name: Dim0 (0, 0.1)
+Sample 1, bin: 1, name: Dim0 (0.1, 0.2)
+Sample 1, bin: 2, name: Dim0 (0.2, 0.3)
+Sample 1, bin: 3, name: Dim0 (0.3, 0.4)
+Sample 1, bin: 4, name: Dim0 (0.4, 0.5)
+Sample 1, bin: 5, name: Dim0 (0.5, 0.6)
+Sample 1, bin: 6, name: Dim0 (0.6, 0.7)
+Sample 1, bin: 7, name: Dim0 (0.7, 0.8)
+Sample 1, bin: 8, name: Dim0 (0.8, 0.9)
+Sample 1, bin: 9, name: Dim0 (0.9, 1)

@@ -26,42 +26,44 @@ XVarBins: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1]
 
   std::vector<int> Samples = {0, 1};
   std::vector<double> XVars = {-1, 0, 0.5, 0.7, 1, 10};
+  std::vector<double> YVars = {0.05, 0.15, 0.25, 0.35};
   std::vector<int> NomXBins = {0, 1, 2, 3};
   std::vector<int> NomYBins = {0, 1, 2, 3};
   // Loop over all combinations
   for (int sample : Samples) {
     for (double xvar : XVars) {
-      for (int nomXBin : NomXBins) {
-        for (int nomYBin : NomYBins) {
-          std::vector<const double*> KinVar;
-          std::vector<int> NomBin;
+      for (double yvar : YVars) {
+        for (int nomXBin : NomXBins) {
+          for (int nomYBin : NomYBins) {
+            std::vector<const double*> KinVar;
+            std::vector<int> NomBin;
+            if(sample == 0) {
+              KinVar = {&xvar, &yvar};
+              NomBin = {nomXBin, nomYBin};
+            } else if (sample == 1){
+              KinVar = {&xvar};
+              NomBin = {nomXBin};
+            }
 
-          if(sample == 0){
-          double yvar = 0;
-          switch(nomYBin){
-              case 0: yvar = 0.05; break;
-              case 1: yvar = 0.15; break;
-              case 2: yvar = 0.25; break;
-              case 3: yvar = 0.35; break;
-              default: yvar = 0; break;
+            const int GlobalBin = Binning->FindGlobalBin(sample, KinVar, NomBin);
+            outFile << "Sample " << sample
+                    << ", XVar: " << xvar
+                    << ", NomXBin: " << nomXBin
+                    << ", NomYBin: " << nomYBin
+                    << ", GlobalBin: " << GlobalBin
+                    << std::endl;
           }
-
-            KinVar = {&xvar, &yvar};
-            NomBin = {nomXBin, nomYBin};
-          } else if (sample == 1){
-            KinVar = {&xvar};
-            NomBin = {nomXBin};
-          }
-
-          const int GlobalBin = Binning->FindGlobalBin(sample, KinVar, NomBin);
-          outFile << "Sample " << sample
-                  << ", XVar: " << xvar
-                  << ", NomXBin: " << nomXBin
-                  << ", NomYBin: " << nomYBin
-                  << ", GlobalBin: " << GlobalBin
-                  << std::endl;
         }
       }
+    }
+  }
+
+  for(int iSam = 0; iSam <  Samples.size(); iSam++) {
+    for (int iBin = 0; iBin < Binning->GetNBins(iSam); iBin++ ) {
+      outFile << "Sample " << iSam
+              << ", bin: " << iBin
+              << ", name: " << Binning->GetBinName(iSam, iBin)
+              << std::endl;
     }
   }
 }
