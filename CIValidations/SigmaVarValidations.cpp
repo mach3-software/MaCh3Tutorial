@@ -124,7 +124,7 @@ int main(int argc, char *argv[])
   auto SampleTutorial = std::make_unique<samplePDFSigmaVar>();
 
   std::string ManagerInput = TutorialPath + "/TutorialConfigs/FitterConfig.yaml";
-  auto FitManager = std::make_unique<manager>(ManagerInput);
+  auto FitManager = std::make_unique<Manager>(ManagerInput);
 
   // Create MCMC Class
   std::unique_ptr<FitterBase> MaCh3Fitter = MaCh3FitterFactory(FitManager.get());
