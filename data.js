@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1768501892393,
+  "lastUpdate": 1768560853291,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -17010,6 +17010,58 @@ window.BENCHMARK_DATA = {
             "name": "ND Reweight",
             "value": 800.779,
             "range": "± 55.4979",
+            "unit": "us",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "ce8322c01ba4fafa614a2f09773834e493b92e60",
+          "message": "Merge pull request #743 from mach3-software/kskwarczynski/feat/GetNominalBin\n\nfeat: Custom Nominal Bin Finding",
+          "timestamp": "2026-01-16T11:47:19+01:00",
+          "tree_id": "6457e4f98b26eee171f5f6823179925ff5f03e44",
+          "url": "https://github.com/mach3-software/MaCh3/commit/ce8322c01ba4fafa614a2f09773834e493b92e60"
+        },
+        "date": 1768560844448,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 4.54376,
+            "range": "± 557.49",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 4.41769,
+            "range": "± 92.0283",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 394.763,
+            "range": "± 6.05717",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ND Reweight",
+            "value": 711.747,
+            "range": "± 54.2135",
             "unit": "us",
             "extra": "100 samples\n1 iterations"
           }
