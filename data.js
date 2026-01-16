@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1768577959505,
+  "lastUpdate": 1768582335425,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -17114,6 +17114,58 @@ window.BENCHMARK_DATA = {
             "name": "ND Reweight",
             "value": 396.683,
             "range": "± 39.2345",
+            "unit": "us",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "67589487+henry-wallace-phys@users.noreply.github.com",
+            "name": "Henry Wallace",
+            "username": "henry-wallace-phys"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "6c10b53ebfd00c923cba9a478cc75a38ba65167f",
+          "message": "Merge pull request #711 from mach3-software/hwallace/feature/save_mc_info\n\nFeat: Add ability to save MC info to output ttree",
+          "timestamp": "2026-01-16T16:46:26Z",
+          "tree_id": "47e28f8e21ba40e9351faae32a44787f4898eb63",
+          "url": "https://github.com/mach3-software/MaCh3/commit/6c10b53ebfd00c923cba9a478cc75a38ba65167f"
+        },
+        "date": 1768582332449,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.9507,
+            "range": "± 68.7128",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.87011,
+            "range": "± 78.1297",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 397.723,
+            "range": "± 5.3702",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ND Reweight",
+            "value": 401.639,
+            "range": "± 44.2186",
             "unit": "us",
             "extra": "100 samples\n1 iterations"
           }
