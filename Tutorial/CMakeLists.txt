@@ -3,6 +3,7 @@ add_custom_target(TutorialApps)
 foreach(app
     MCMCTutorial
     LLHScanTutorial
+    LLHMapTutorial
     PredictiveTutorial
     SigmaVarTutorial
     KinemDistributionTutorial
