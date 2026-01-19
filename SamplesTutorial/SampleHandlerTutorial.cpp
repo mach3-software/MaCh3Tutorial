@@ -79,7 +79,7 @@ void SampleHandlerTutorial::RegisterFunctionalParameters() {
   #pragma GCC diagnostic pop
 }
 
-void SampleHandlerTutorial::resetShifts(int iEvent) {
+void SampleHandlerTutorial::ResetShifts(const int iEvent) {
   // Reset the shifts to the original values
   TutorialSamples[iEvent].RecoEnu_shifted = TutorialSamples[iEvent].RecoEnu;
 }

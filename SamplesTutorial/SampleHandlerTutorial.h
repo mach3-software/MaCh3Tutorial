@@ -86,7 +86,7 @@ class SampleHandlerTutorial : public SampleHandlerFD
   // === HH: Functional parameters ===
   enum FuncParEnum {kDebugNothing, kDebugShift, kEResLep, kEResTot};
   void RegisterFunctionalParameters() override;
-  void resetShifts(int iEvent) override;
+  void ResetShifts(const int iEvent) override;
 
   void DebugShift(const double* par, std::size_t iEvent);
   void EResLep(const double* par, std::size_t iEvent);
