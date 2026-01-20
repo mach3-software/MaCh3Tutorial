@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1768900383256,
+  "lastUpdate": 1768903009568,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -17218,6 +17218,58 @@ window.BENCHMARK_DATA = {
             "name": "ND Reweight",
             "value": 398.929,
             "range": "± 39.1452",
+            "unit": "us",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "8b9024eeb44f4fd16a49d5b7dfde9083301190ce",
+          "message": "Merge pull request #747 from mach3-software/kskwarczynski/FlexibleLabelBinning\n\nbreaking: Reduce hacking of X and Y Var",
+          "timestamp": "2026-01-20T10:50:48+01:00",
+          "tree_id": "457d434a2b963feedf945d53e8e92feab0720942",
+          "url": "https://github.com/mach3-software/MaCh3/commit/8b9024eeb44f4fd16a49d5b7dfde9083301190ce"
+        },
+        "date": 1768903006387,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 3.0087,
+            "range": "± 83.3063",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.93541,
+            "range": "± 128.738",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 397.584,
+            "range": "± 4.92684",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ND Reweight",
+            "value": 413.605,
+            "range": "± 49.2396",
             "unit": "us",
             "extra": "100 samples\n1 iterations"
           }
