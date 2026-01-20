@@ -8,7 +8,7 @@ void FitVal(const std::string& Algo, bool MoreTests)
 {
   std::string TutorialPath = std::getenv("MaCh3Tutorial_ROOT");
   std::string ManagerInput = TutorialPath + "/TutorialConfigs/FitterConfig.yaml";
-  auto FitManager = std::make_unique<manager>(ManagerInput);
+  auto FitManager = std::make_unique<Manager>(ManagerInput);
 
   MACH3LOG_INFO("Testing {}", Algo);
 
@@ -72,7 +72,7 @@ void StartFromPosteriorTest(const std::string& PreviousName)
 {
   std::string TutorialPath = std::getenv("MaCh3Tutorial_ROOT");
   std::string ManagerInput = TutorialPath + "/TutorialConfigs/FitterConfig.yaml";
-  auto FitManager = std::make_unique<manager>(ManagerInput);
+  auto FitManager = std::make_unique<Manager>(ManagerInput);
 
   FitManager->OverrideSettings("General", "OutputFile", "MCMC_Test_Start.root");
 
