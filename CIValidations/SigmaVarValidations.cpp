@@ -96,9 +96,9 @@ class samplePDFSigmaVar : public SampleHandlerBase
 
     void PrintRates(const bool DataOnly = false) override {return;};
 
-    TH1* GetData(const int Selection) override   {return PolyHist[Selection];}
-    TH1* GetPDF(const int Selection) override    {return PolyHist[Selection];}
-    TH2Poly* GetW2(const int Selection) override {return PolyHist[Selection];}
+    TH1* GetDataHist(const int Selection) override   {return PolyHist[Selection];}
+    TH1* GetMCHist(const int Selection) override    {return PolyHist[Selection];}
+    TH1* GetW2Hist(const int Selection) override {return PolyHist[Selection];}
     TH1* GetPDFMode(const int Selection, const int Mode) override {return PolyHist[Selection];}
 
     std::vector<std::string> SampleBlarbTitle;
