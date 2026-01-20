@@ -7,7 +7,7 @@
 
 TEST_CASE("Benchmark MaCh3") {
   // Initialise manger responsible for config handling
-  auto FitManager = std::make_unique<manager>("TutorialConfigs/FitterConfig.yaml");
+  auto FitManager = std::make_unique<Manager>("TutorialConfigs/FitterConfig.yaml");
 
   // Initialise covariance class reasonable for Systematics
   auto xsec = MaCh3CovarianceFactory<ParameterHandlerGeneric>(FitManager.get(), "Xsec");
