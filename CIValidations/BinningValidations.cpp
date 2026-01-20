@@ -131,9 +131,9 @@ int main(int argc, char *argv[])
     outFile << "XVar: " << XVar << ", NomXBin: " << NomXBin << ", Bin: " << binIndex << std::endl;
   }
 
-  for (size_t yBin = 0; yBin < Binning->AxisNBins[1]; ++yBin) {
-    for (size_t xBin = 0; xBin < Binning->AxisNBins[0]; ++xBin) {
-      const int binIndex = Binning->GetBinSafe(xBin, yBin);
+  for (int yBin = 0; yBin < Binning->AxisNBins[1]; ++yBin) {
+    for (int xBin = 0; xBin < Binning->AxisNBins[0]; ++xBin) {
+      const int binIndex = Binning->GetBinSafe({xBin, yBin});
       outFile << "yBin: " << yBin << ", xBin: " << xBin << ", Bin: " << binIndex << std::endl;
 
     }

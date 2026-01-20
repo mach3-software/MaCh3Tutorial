@@ -80,7 +80,7 @@ class samplePDFSigmaVar : public SampleHandlerBase
 
     inline M3::int_t GetNsamples() override { return 22; };
     std::string GetSampleTitle(int Sample) const override {return SampleBlarbTitle[Sample];};
-    inline std::string GetKinVarLabel(const int sample, const int Dimension) override {return KinemBlarbTitle[Dimension];}
+    std::string GetKinVarName(const int sample, const int Dimension) const override {return KinemBlarbTitle[Dimension];}
 
      inline void SetupBinning(const M3::int_t Selection, std::vector<double> &BinningX, std::vector<double> &BinningY) override{
       BinningX = {0., 350., 500., 600., 650., 700., 800., 900., 1000., 1150., 1250., 1500., 2000., 5000., 30000.};
