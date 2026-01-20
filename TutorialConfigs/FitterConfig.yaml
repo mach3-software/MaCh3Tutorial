@@ -5,6 +5,9 @@ General:
                     #"TutorialConfigs/Samples/SampleHandler_Tutorial_ATM.yaml",
                     #"TutorialConfigs/Samples/SampleHandler_Tutorial_ND.yaml"
                       ]
+  UseNuDock: true # Run as client
+  NuDockSamples:
+    - "TutorialConfigs/Samples/SampleHandler_NuDock.yaml"
   FittingAlgorithm: "MR2T2"
 
   RealData: false
@@ -135,8 +138,13 @@ AdaptionOptions:
     xsec_cov: # Name of covariance matrix
       DoAdaption: False  # [bool] Adapt this parameter
 
+# NuDock related configs for server
 NuDock:
   Debug: false
   #SchemaLocation: "../nudock/schemas"
   Verbose: false
   AddPriorLLH: false
+  NuDockVerbosity: INFO
+  CommunicationType: "UNIX_DOMAIN_SOCKET"
+  # CommunicationType: "LOCALHOST"
+  Port: 50051

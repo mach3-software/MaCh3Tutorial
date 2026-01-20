@@ -6,7 +6,6 @@ foreach(app
     PredictiveTutorial
     SigmaVarTutorial
     KinemDistributionTutorial
-    RunNuDockClient
     RunNuDockServer
     )
     add_executable(${app} ${app}.cpp)

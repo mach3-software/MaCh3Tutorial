@@ -1,0 +1,46 @@
+---
+NuDockClient:
+  Debug: true
+  # SchemaLocation: "../nudock/schemas"
+  Verbose: false
+  NuDockVerbosity: INFO
+  CommunicationType: "UNIX_DOMAIN_SOCKET"
+  # CommunicationType: "LOCALHOST"
+  Port: 50051
+
+#Global Sample Handler setting
+SampleHandlerName: "NuDock"
+POT: 2.1428e+21
+MaCh3ModeConfig: "TutorialConfigs/MaCh3Modes.yaml"
+
+NuOsc:
+  NuOscConfigFile: "TutorialConfigs/NuOscillator/NuFASTLinear.yaml"
+  EqualBinningPerOscChannel: true
+
+BinningFile: "TutorialConfigs/Samples/TutorialBinning.yaml"
+InputFiles:
+  PrepSplineFile: false
+
+#Settings for a single sample
+Samples: ["NuDockSample"]
+NuDockSample:
+  SampleTitle: "NuDockSample"
+
+  # All the values will be ignored
+  Binning:
+    XVarStr : "RecoNeutrinoEnergy"
+    XVarBins: [0., 10.]
+
+  InputFiles:
+    mtupleprefix: "TutorialConfigs/MC/NuWro_"
+    mtuplesuffix: "_FlatTree_Beam.root"
+    splineprefix: "TutorialConfigs/MC/BinnedSplinesTutorialInputs"
+    splinesuffix: "2D.root"
+
+  SubSamples:
+    - Name: "dummy"
+      LatexName: "dummy"
+      mtuplefile: ""
+      splinefile: ""
+      nutype: 14
+      oscnutype: 14
