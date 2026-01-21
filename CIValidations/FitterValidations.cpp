@@ -52,7 +52,7 @@ void FitVal(const std::string& Algo, bool MoreTests)
   for(int iSample = 0; iSample < Sample->GetNsamples(); iSample++){
     std::string name = Sample->GetSampleTitle(iSample);
     TString NameTString = TString(name.c_str());
-    TH1D *SampleHistogramPrior = (TH1D*)Sample->GetMCHist(iSample, 1)->Clone(NameTString+"_Prior");
+    TH1 *SampleHistogramPrior = static_cast<TH1*>(Sample->GetMCHist(iSample)->Clone(NameTString+"_Prior"));
     Sample->AddData(iSample, SampleHistogramPrior);
   }
   MaCh3Fitter->AddSystObj(xsec.get());

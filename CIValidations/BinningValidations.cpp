@@ -6,23 +6,37 @@ void BinningHandlerValidations(std::ostream& outFile) {
   auto Binning = std::make_unique<BinningHandler>();
 
 std::string yamlBinning1 = R"(
-XVarStr : "RecoNeutrinoEnergy"
-XVarBins: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1]
-YVarStr : "TrueQ2"
-YVarBins: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1]
+VarStr : ["RecoNeutrinoEnergy", "TrueQ2"]
+VarBins: [ [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1],
+           [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1] ]
+Uniform: true
 )";
 
   YAML::Node Binning1 = STRINGtoYAML(yamlBinning1);
   SampleInfo SingleSample;
   Binning->SetupSampleBinning(Binning1, SingleSample);
-
+///////
+  MACH3LOG_INFO("");
 std::string yamlContent = R"(
-XVarStr : "RecoNeutrinoEnergy"
-XVarBins: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1]
+VarStr : ["RecoNeutrinoEnergy"]
+VarBins: [[0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1]]
+Uniform: true
 )";
 
   YAML::Node Binning2 = STRINGtoYAML(yamlContent);
   Binning->SetupSampleBinning(Binning2, SingleSample);
+///////
+  MACH3LOG_INFO("");
+std::string yamlContent3 = R"(
+VarStr : ["RecoNeutrinoEnergy", "TrueQ2", "Wacky"]
+VarBins: [ [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1],
+           [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1],
+           [-1., 0, 1.] ]
+Uniform: true
+)";
+
+  YAML::Node Binning3 = STRINGtoYAML(yamlContent3);
+  Binning->SetupSampleBinning(Binning3, SingleSample);
 
   std::vector<int> Samples = {0, 1};
   std::vector<double> XVars = {-1, 0, 0.5, 0.7, 1, 10};

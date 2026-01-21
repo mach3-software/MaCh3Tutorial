@@ -20,10 +20,10 @@ ND_CC0pi:
   SampleTitle: "ND_CC0pi"
 
   Binning:
-    XVarStr : "RecoNeutrinoEnergy"
-    XVarBins: [0.,  0.5,  1.,  1.25, 1.5, 1.75, 2., 2.25, 2.5, 2.75, 3., 3.25, 3.5, 3.75, 4., 5., 6., 10.]
-    YVarStr : "TrueQ2"
-    YVarBins: [0.,  0.5,  1.,  1.25, 1.5, 1.75, 2., 5]
+    VarStr : ["RecoNeutrinoEnergy", "TrueQ2"]
+    VarBins: [ [0.,  0.5,  1.,  1.25, 1.5, 1.75, 2., 2.25, 2.5, 2.75, 3., 3.25, 3.5, 3.75, 4., 5., 6., 10.],
+               [0.,  0.5,  1.,  1.25, 1.5, 1.75, 2., 5] ]
+    Uniform: true
 
   InputFiles:
     mtupleprefix: "TutorialConfigs/MC/NuWro"
@@ -44,10 +44,10 @@ ND_CC1pip:
   SampleTitle: "ND_CC1pip"
 
   Binning:
-    XVarStr : "RecoNeutrinoEnergy"
-    XVarBins: [0.,  0.5,  1.,  1.25, 1.5, 1.75, 2., 2.25, 2.5, 2.75, 3., 3.25, 3.5, 3.75, 4., 5., 6., 10.]
-    YVarStr : "TrueQ2"
-    YVarBins: [0.,  0.5,  1.,  1.25, 1.5, 1.75, 2., 5]
+    VarStr : [ "RecoNeutrinoEnergy", "TrueQ2" ]
+    VarBins: [ [0.,  0.5,  1.,  1.25, 1.5, 1.75, 2., 2.25, 2.5, 2.75, 3., 3.25, 3.5, 3.75, 4., 5., 6., 10.],
+               [0.,  0.5,  1.,  1.25, 1.5, 1.75, 2., 5] ]
+    Uniform: true
 
   InputFiles:
     mtupleprefix: "TutorialConfigs/MC/NuWro"
@@ -68,10 +68,10 @@ ND_CCPi0:
   SampleTitle: "ND_CCPi0"
 
   Binning:
-    XVarStr : "RecoNeutrinoEnergy"
-    XVarBins: [0.,  0.5,  1.,  1.25, 1.5, 1.75, 2., 2.25, 2.5, 2.75, 3., 3.25, 3.5, 3.75, 4., 5., 6., 10.]
-    YVarStr : "TrueQ2"
-    YVarBins: [0.,  0.5,  1.,  1.25, 1.5, 1.75, 2., 5]
+    VarStr : [ "RecoNeutrinoEnergy", "TrueQ2" ]
+    VarBins: [ [0.,  0.5,  1.,  1.25, 1.5, 1.75, 2., 2.25, 2.5, 2.75, 3., 3.25, 3.5, 3.75, 4., 5., 6., 10.],
+               [0.,  0.5,  1.,  1.25, 1.5, 1.75, 2., 5] ]
+    Uniform: true
 
   InputFiles:
     mtupleprefix: "TutorialConfigs/MC/NuWro"
@@ -92,10 +92,10 @@ ND_NC0pi:
   SampleTitle: "ND_NC0pi"
 
   Binning:
-    XVarStr : "RecoNeutrinoEnergy"
-    XVarBins: [0.,  0.5,  1.,  1.25, 1.5, 1.75, 2., 2.25, 2.5, 2.75, 3., 3.25, 3.5, 3.75, 4.]
-    YVarStr : "TrueQ2"
-    YVarBins: [0.,  0.5,  1.,  1.25, 1.5, 1.75, 2.]
+    VarStr : [ "RecoNeutrinoEnergy", "TrueQ2" ]
+    VarBins: [ [0.,  0.5,  1.,  1.25, 1.5, 1.75, 2., 2.25, 2.5, 2.75, 3., 3.25, 3.5, 3.75, 4.],
+               [0.,  0.5,  1.,  1.25, 1.5, 1.75, 2.] ]
+    Uniform: true
 
   InputFiles:
     mtupleprefix: "TutorialConfigs/MC/NuWro"
@@ -116,8 +116,9 @@ ND_NC1pi0:
   SampleTitle: "ND_NC1pi0"
 
   Binning:
-    XVarStr : "RecoNeutrinoEnergy"
-    XVarBins: [0.,  0.5,  1.,  1.25, 1.5, 1.75, 2., 2.25, 2.5, 2.75, 3., 3.25, 3.5, 3.75, 4., 5., 6., 10.]
+    VarStr : [ "RecoNeutrinoEnergy" ]
+    VarBins: [ [0.,  0.5,  1.,  1.25, 1.5, 1.75, 2., 2.25, 2.5, 2.75, 3., 3.25, 3.5, 3.75, 4., 5., 6., 10.] ]
+    Uniform: true
 
   InputFiles:
     mtupleprefix: "TutorialConfigs/MC/NuWro"
