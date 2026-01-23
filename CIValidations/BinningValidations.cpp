@@ -96,16 +96,9 @@ int main(int argc, char *argv[])
   std::ofstream outFile("NewBinningOut.txt");
 
   auto Binning = std::make_unique<SampleBinningInfo>();
-  constexpr int dim = 2;
-  Binning->BinEdges.resize(dim);
-  Binning->BinEdges[0] = {0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1};
-  Binning->BinEdges[1] = {0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1};
-  Binning->AxisNBins.resize(dim);
-  Binning->AxisNBins[0] = Binning->BinEdges[0].size() - 1;
-  Binning->AxisNBins[1] = Binning->BinEdges[1].size() - 1;
-  Binning->nBins = Binning->AxisNBins[0] * Binning->AxisNBins[1];
-  Binning->InitialiseBinMigrationLookUp(dim);
-
+  std::vector<std::vector<double>> Edges = { {0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1},
+                                             {0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1} };
+  Binning->InitUniform(Edges);
   std::vector<std::pair<double, int>> testPairs = {
     {-1.0, -1},
     {-1.0, 0},
