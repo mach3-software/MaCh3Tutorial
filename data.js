@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1769171890413,
+  "lastUpdate": 1769242023068,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -17478,6 +17478,58 @@ window.BENCHMARK_DATA = {
             "name": "ND Reweight",
             "value": 455.33,
             "range": "± 33.3915",
+            "unit": "us",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "94356389+nosektom@users.noreply.github.com",
+            "name": "nosektom",
+            "username": "nosektom"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "3e158150f8bd99f58a8b5e33f612fd63fcc0e80b",
+          "message": "Merge pull request #756 from mach3-software/nosektom/feature/PolishTrianglePlot\n\nfeat: triangle plot polishing",
+          "timestamp": "2026-01-24T09:01:02+01:00",
+          "tree_id": "eb908881988ed768c111bd51343c9cd3aaa5e814",
+          "url": "https://github.com/mach3-software/MaCh3/commit/3e158150f8bd99f58a8b5e33f612fd63fcc0e80b"
+        },
+        "date": 1769242019507,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 3.04124,
+            "range": "± 60.3777",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.96812,
+            "range": "± 85.8253",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 401.163,
+            "range": "± 3.05768",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ND Reweight",
+            "value": 402.9,
+            "range": "± 43.2297",
             "unit": "us",
             "extra": "100 samples\n1 iterations"
           }
