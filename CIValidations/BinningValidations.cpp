@@ -2,6 +2,84 @@
 #include "Utils/Comparison.h"
 #include "Samples/BinningHandler.h"
 
+void BinningHandlerValidationsNonUniform(std::ostream& outFile) {
+  auto Binning = std::make_unique<BinningHandler>();
+  std::string yamlBinning = R"(
+VarStr : ["RecoNeutrinoEnergy", "TrueQ2"]
+Bins: [[[0.0, 0.1], [0.0, 0.1]], [[0.0, 0.1], [0.1, 0.2]], [[0.0, 0.1], [0.2, 0.3]],
+        [[0.0, 0.1], [0.3, 0.4]], [[0.0, 0.1], [0.4, 0.5]], [[0.0, 0.1], [0.5, 0.6]],
+        [[0.0, 0.1], [0.6, 0.7]], [[0.0, 0.1], [0.7, 0.8]], [[0.0, 0.1], [0.8, 0.9]],
+        [[0.0, 0.1], [0.9, 1.0]] ]
+Uniform: false
+)";
+  YAML::Node Config = STRINGtoYAML(yamlBinning);
+  SampleInfo SingleSample;
+  Binning->SetupSampleBinning(Config, SingleSample);
+
+
+    std::string yamlBinning3D = R"(
+VarStr : ["RecoNeutrinoEnergy", "TrueQ2", "CosTheta"]
+Bins: [
+    [[0.0, 0.5], [0.0, 0.5], [0.0, 0.5]],   # bin 0
+    [[0.0, 0.5], [0.5, 1.0], [0.0, 0.5]],   # bin 1
+    [[0.5, 1.0], [0.0, 0.5], [0.0, 0.5]],   # bin 2
+    [[0.5, 1.0], [0.5, 1.0], [0.0, 0.5]],   # bin 3
+    [[0.0, 0.5], [0.0, 0.5], [0.5, 1.0]],   # bin 4
+    [[0.0, 0.5], [0.5, 1.0], [0.5, 1.0]],   # bin 5
+    [[0.5, 1.0], [0.0, 0.5], [0.5, 1.0]],   # bin 6
+    [[0.5, 1.0], [0.5, 1.0], [0.5, 1.0]]    # bin 7
+]
+Uniform: false
+)";
+  YAML::Node Config3D = STRINGtoYAML(yamlBinning3D);
+  Binning->SetupSampleBinning(Config3D, SingleSample);
+
+  std::vector<int> Samples = {0,1};
+  std::vector<double> XVars = {-0.05, 0.0, 0.05, 0.1, 0.15};
+  std::vector<double> YVars = {-0.1, 0.0, 0.05, 0.1, 0.15, 0.95, 1.0, 1.05};
+  std::vector<int> NomXBins = {-1};
+  std::vector<int> NomYBins = {-1};
+  // Loop over all combinations
+  for (int sample : Samples) {
+    for (double xvar : XVars) {
+      for (double yvar : YVars) {
+        for (int nomXBin : NomXBins) {
+          for (int nomYBin : NomYBins) {
+            std::vector<const double*> KinVar;
+            std::vector<int> NomBin;
+
+            if(sample == 0) {
+              KinVar = {&xvar, &yvar};
+              NomBin = {nomXBin, nomYBin};
+            } else if (sample == 1) {
+
+              KinVar = {&xvar, &yvar, &xvar};
+              NomBin = {nomXBin, nomYBin, nomXBin};
+            }
+
+            const int GlobalBin = Binning->FindGlobalBin(sample, KinVar, NomBin);
+            outFile << "Sample " << sample
+            << ", XVar: " << xvar
+            << ", YVar: " << yvar
+            << ", NomXBin: " << nomXBin
+            << ", NomYBin: " << nomYBin
+            << ", GlobalBin: " << GlobalBin;
+
+            if (GlobalBin == M3::UnderOverFlowBin) {
+              outFile << " (Under/Overflow)";
+            } else {
+              outFile << ", Name: " << Binning->GetBinName(GlobalBin);
+            }
+
+            outFile << '\n';
+          }
+        }
+      }
+    }
+  }
+}
+
+
 void BinningHandlerValidations(std::ostream& outFile) {
   auto Binning = std::make_unique<BinningHandler>();
 
@@ -82,22 +160,11 @@ Uniform: true
   }
 }
 
-int main(int argc, char *argv[])
-{
-  SetMaCh3LoggerFormat();
 
-  if (argc != 1) {
-    MACH3LOG_CRITICAL("You specified arguments, but none are needed. (Program name: {})", argv[0]);
-    throw MaCh3Exception(__FILE__ , __LINE__ );
-  }
-  std::string TutorialPath = std::getenv("MaCh3Tutorial_ROOT");
-
-  // Open a file in write mode
-  std::ofstream outFile("NewBinningOut.txt");
-
+void UniformValidations(std::ostream& outFile) {
   auto Binning = std::make_unique<SampleBinningInfo>();
   std::vector<std::vector<double>> Edges = { {0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1},
-                                             {0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1} };
+  {0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1} };
   Binning->InitUniform(Edges);
   std::vector<std::pair<double, int>> testPairs = {
     {-1.0, -1},
@@ -145,9 +212,42 @@ int main(int argc, char *argv[])
 
     }
   }
-////////////// Additional Validations //////////////
-  BinningHandlerValidations(outFile);
+}
 
+void NonUniformValidations(std::ostream& outFile) {
+  auto Binning = std::make_unique<SampleBinningInfo>();
+  std::vector<std::vector<std::vector<double>>> Bins = {
+    {{0.0, 0.1}, {0.0, 0.1}},
+    {{0.0, 0.1}, {0.1, 0.2}},
+    {{0.0, 0.1}, {0.2, 0.3}},
+    {{0.0, 0.1}, {0.3, 0.4}},
+    {{0.0, 0.1}, {0.4, 0.5}},
+    {{0.0, 0.1}, {0.5, 0.6}},
+    {{0.0, 0.1}, {0.6, 0.7}},
+    {{0.0, 0.1}, {0.7, 0.8}},
+    {{0.0, 0.1}, {0.8, 0.9}},
+    {{0.0, 0.1}, {0.9, 1.0}},
+  };
+  Binning->InitNonUniform(Bins);
+}
+
+int main(int argc, char *argv[])
+{
+  SetMaCh3LoggerFormat();
+
+  if (argc != 1) {
+    MACH3LOG_CRITICAL("You specified arguments, but none are needed. (Program name: {})", argv[0]);
+    throw MaCh3Exception(__FILE__ , __LINE__ );
+  }
+  std::string TutorialPath = std::getenv("MaCh3Tutorial_ROOT");
+
+  // Open a file in write mode
+  std::ofstream outFile("NewBinningOut.txt");
+////////////////////////////
+  UniformValidations(outFile);
+  NonUniformValidations(outFile);
+  BinningHandlerValidations(outFile);
+  BinningHandlerValidationsNonUniform(outFile);
 ////////////// The End //////////////
   outFile.close();
   bool TheSame = CompareTwoFiles(TutorialPath + + "/CIValidations/TestOutputs/BinningOut.txt", "NewBinningOut.txt");
