@@ -28,8 +28,9 @@ Tutorial_ATM:
       Bounds: [ 0., 4 ]
 
   Binning:
-    XVarStr : "RecoNeutrinoEnergy"
-    XVarBins: [0.,  0.5,  1.,  1.25, 1.5, 1.75, 2., 2.25, 2.5, 2.75, 3., 3.25, 3.5, 3.75, 4., 5., 6., 10.]
+    VarStr : [ "RecoNeutrinoEnergy" ]
+    VarBins: [[0.,  0.5,  1.,  1.25, 1.5, 1.75, 2., 2.25, 2.5, 2.75, 3., 3.25, 3.5, 3.75, 4., 5., 6., 10.]]
+    Uniform: true
 
   InputFiles:
     mtupleprefix: "TutorialConfigs/MC/NuWro_"

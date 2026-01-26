@@ -8,7 +8,7 @@ void FitVal(const std::string& Algo, bool MoreTests)
 {
   std::string TutorialPath = std::getenv("MaCh3Tutorial_ROOT");
   std::string ManagerInput = TutorialPath + "/TutorialConfigs/FitterConfig.yaml";
-  auto FitManager = std::make_unique<manager>(ManagerInput);
+  auto FitManager = std::make_unique<Manager>(ManagerInput);
 
   MACH3LOG_INFO("Testing {}", Algo);
 
@@ -52,7 +52,7 @@ void FitVal(const std::string& Algo, bool MoreTests)
   for(int iSample = 0; iSample < Sample->GetNsamples(); iSample++){
     std::string name = Sample->GetSampleTitle(iSample);
     TString NameTString = TString(name.c_str());
-    TH1D *SampleHistogramPrior = (TH1D*)Sample->GetMCHist(iSample, 1)->Clone(NameTString+"_Prior");
+    TH1 *SampleHistogramPrior = static_cast<TH1*>(Sample->GetMCHist(iSample)->Clone(NameTString+"_Prior"));
     Sample->AddData(iSample, SampleHistogramPrior);
   }
   MaCh3Fitter->AddSystObj(xsec.get());
@@ -72,7 +72,7 @@ void StartFromPosteriorTest(const std::string& PreviousName)
 {
   std::string TutorialPath = std::getenv("MaCh3Tutorial_ROOT");
   std::string ManagerInput = TutorialPath + "/TutorialConfigs/FitterConfig.yaml";
-  auto FitManager = std::make_unique<manager>(ManagerInput);
+  auto FitManager = std::make_unique<Manager>(ManagerInput);
 
   FitManager->OverrideSettings("General", "OutputFile", "MCMC_Test_Start.root");
 

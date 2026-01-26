@@ -3,12 +3,11 @@
 #include "SamplesTutorial/SampleHandlerTutorial.h"
 #include "Fitters/SampleSummary.h"
 
-class samplePDFpValue : public SampleHandlerTutorial
+class samplePDFpValue : public SampleHandlerBase
 {
   public:
     samplePDFpValue(std::string mc_version, ParameterHandlerGeneric* xsec_cov)
-    : SampleHandlerTutorial(mc_version, xsec_cov),
-    SampleBlarbTitle({
+    : SampleBlarbTitle({
       "FGD1_numuCC_0pi_0_protons_no_photon",
       "FGD1_numuCC_0pi_N_protons_no_photon",
       "FGD1_numuCC_1pi_no_photon",
@@ -39,19 +38,32 @@ class samplePDFpValue : public SampleHandlerTutorial
     }),
     KinemBlarbTitle({"RecoLeptonMomentum", "RecoLeptonCosTheta"}) {}
 
-    void CleanMemoryBeforeFit() override {};
-
     inline M3::int_t GetNsamples() override { return 22; };
     std::string GetSampleTitle(const int Sample) const override {return SampleBlarbTitle[Sample];};
-    inline std::string GetKinVarLabel(const int sample, const int Dimension) override {return KinemBlarbTitle[Dimension];}
+    std::string GetKinVarName(const int sample, const int Dimension) const override {return KinemBlarbTitle[Dimension];}
 
      inline void SetupBinning(const M3::int_t Selection, std::vector<double> &BinningX, std::vector<double> &BinningY) override{
       BinningX = {0., 350., 500., 600., 650., 700., 800., 900., 1000., 1150., 1250., 1500., 2000., 5000., 30000.};
       BinningY = {-1.0, 0.6, 0.7, 0.8, 0.85, 0.88, 0.9, 0.92, 0.94, 0.96, 0.98, 1.0};
     }
 
+    void CleanMemoryBeforeFit() override {};
+    std::string GetName() const override {return "samplePDFSigmaVar";};
+    double GetLikelihood() const override {return 666;};
+    double GetSampleLikelihood(const int iSample) const override {return iSample;};
+    int GetNOscChannels(const int iSample) const override {return iSample;};
+    void Reweight() override {return;};
+
+    void PrintRates(const bool DataOnly = false) override {return;};
+
+    TH1* GetDataHist(const int Selection) override   {return PolyHist[Selection];}
+    TH1* GetMCHist(const int Selection) override    {return PolyHist[Selection];}
+    TH1* GetW2Hist(const int Selection) override {return PolyHist[Selection];}
+    TH1* GetPDFMode(const int Selection, const int Mode) override {return PolyHist[Selection];}
+
     std::vector<std::string> SampleBlarbTitle;
     std::vector<std::string> KinemBlarbTitle;
+    std::vector<TH2Poly*> PolyHist;
 };
 
 int main(int argc, char *argv[])
@@ -74,12 +86,6 @@ int main(int argc, char *argv[])
 
   // Reweight and process prior histogram
   SampleTutorial->Reweight();
-
-  std::string name = SampleTutorial->GetSampleTitle(0);
-  TString NameTString = TString(name.c_str());
-
-  TH1D *SampleHistogramPrior = (TH1D*)SampleTutorial->GetMCHist(0, 1)->Clone(NameTString + "_Prior");
-  SampleTutorial->AddData(0, SampleHistogramPrior);
 
   bool Posterior = true;
   bool FullLLH = false;
