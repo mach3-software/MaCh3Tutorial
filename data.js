@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1769445265016,
+  "lastUpdate": 1769506249531,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -17634,6 +17634,58 @@ window.BENCHMARK_DATA = {
             "name": "ND Reweight",
             "value": 413.303,
             "range": "± 51.6784",
+            "unit": "us",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "eaaad59339c4d718fbae10f54a02d51a1570b051",
+          "message": "Merge pull request #759 from mach3-software/bugfix/violin\n\nbugfix: Violin Plot",
+          "timestamp": "2026-01-27T10:24:56+01:00",
+          "tree_id": "e63aa6ad1d31bdc183d97e0b64b8c27fd9e7ba74",
+          "url": "https://github.com/mach3-software/MaCh3/commit/eaaad59339c4d718fbae10f54a02d51a1570b051"
+        },
+        "date": 1769506245842,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 4.25217,
+            "range": "± 6.92815",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 3.20809,
+            "range": "± 972.946",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 395.07,
+            "range": "± 3.89371",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ND Reweight",
+            "value": 398.255,
+            "range": "± 41.5016",
             "unit": "us",
             "extra": "100 samples\n1 iterations"
           }
