@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1769506249531,
+  "lastUpdate": 1769597863466,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -17686,6 +17686,58 @@ window.BENCHMARK_DATA = {
             "name": "ND Reweight",
             "value": 398.255,
             "range": "± 41.5016",
+            "unit": "us",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "d30fe00cfe80df388c5a8389d2c0dceafe33deac",
+          "message": "Merge pull request #760 from mach3-software/breaking/deatToXsec\n\nbreaking: xsec_ -> param_",
+          "timestamp": "2026-01-28T11:51:51+01:00",
+          "tree_id": "8461fd1ec2102ceb4840a24c7c89c6ee031f773a",
+          "url": "https://github.com/mach3-software/MaCh3/commit/d30fe00cfe80df388c5a8389d2c0dceafe33deac"
+        },
+        "date": 1769597859871,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 3.2262,
+            "range": "± 893.171",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.98133,
+            "range": "± 107.625",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 394.564,
+            "range": "± 3.23547",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ND Reweight",
+            "value": 406.407,
+            "range": "± 55.954",
             "unit": "us",
             "extra": "100 samples\n1 iterations"
           }
