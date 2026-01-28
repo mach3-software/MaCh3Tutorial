@@ -132,7 +132,7 @@ int main(int argc, char *argv[])
   MaCh3Fitter->AddSystObj(xsec.get());
   MaCh3Fitter->AddSampleHandler(SampleTutorial.get());
 
-  MaCh3Fitter->RunSigmaVar();
+  MaCh3Fitter->RunSigmaVarLegacy();
 
   return 0;
 }

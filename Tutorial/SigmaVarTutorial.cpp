@@ -22,7 +22,7 @@ int main(int argc, char *argv[]){
     MaCh3Fitter->AddSampleHandler(mySamples[i]);
   }
   // Run LLH scan
-  MaCh3Fitter->RunSigmaVarFD();
+  MaCh3Fitter->RunSigmaVar();
   for (size_t i = 0; i < SampleConfig.size(); ++i) {
     delete mySamples[i];
   }
