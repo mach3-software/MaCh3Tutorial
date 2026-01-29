@@ -98,5 +98,11 @@ PrettyNames:
         SAMPLE_2: "sample 2"
         SAMPLE_3: "sample 3"
 
-
+        #Tutorial_Beam: "Tutorial Beam"
+        #Tutorial_ATM: "Tutorial ATM"
+        #ND_CC0pi: "ND CC0#pi"
+        #ND_CC1pip: "ND CC#1pi^{+}"
+        #ND_CCPi0: "ND CC#pi^{0}"
+        #ND_NC0pi: "ND NC0#pi"
+        #ND_NC1pi0: "ND NC1#pi^{0}"
 
