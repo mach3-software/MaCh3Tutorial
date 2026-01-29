@@ -25,36 +25,40 @@ int main(int argc, char *argv[])
   auto file = std::unique_ptr<TFile>(TFile::Open("SigmaVar_Test.root", "UPDATE"));
   std::vector<std::string> Names = {"Norm_Param_0", "Norm_Param_1", "Norm_Param_2", "BinnedSplineParam1", "BinnedSplineParam2", "BinnedSplineParam3", "BinnedSplineParam4", "BinnedSplineParam5", "EResLep", "EResTot"};
   std::ofstream outFile("SigmaVar.txt");
+
+  std::vector<std::string> SampleNames = {"Tutorial_Beam"};
   for (size_t i = 0; i < Names.size(); ++i) {
-    std::string dirPath = "SigmaVar/" + Names[i] + "/Tutorial/";
-    TDirectory* dir = file->GetDirectory(dirPath.c_str());
+    for (size_t iSam = 0; iSam < SampleNames.size(); ++iSam) {
+      std::string dirPath = "SigmaVar/" + Names[i] + "/" + SampleNames[iSam] + "/";
+      TDirectory* dir = file->GetDirectory(dirPath.c_str());
 
-    if (!dir) {
-      std::cerr << "Missing directory: " << dirPath << std::endl;
-      return 1;
-    }
+      if (!dir) {
+        std::cerr << "Missing directory: " << dirPath << std::endl;
+        return 1;
+      }
 
-    TList* keys = dir->GetListOfKeys();
-    if (!keys) {
-      std::cerr << "No keys found in: " << dirPath << std::endl;
-      continue;
-    }
+      TList* keys = dir->GetListOfKeys();
+      if (!keys) {
+        std::cerr << "No keys found in: " << dirPath << std::endl;
+        continue;
+      }
 
-    for (int i = 0; i < keys->GetSize(); ++i) {
-      TKey* key = dynamic_cast<TKey*>(keys->At(i));
-      if (!key) continue;
+      for (int i = 0; i < keys->GetSize(); ++i) {
+        TKey* key = dynamic_cast<TKey*>(keys->At(i));
+        if (!key) continue;
 
-      TObject* obj = key->ReadObj();
-      TH1* hist = dynamic_cast<TH1*>(obj);
-      if (!hist) continue;
+        TObject* obj = key->ReadObj();
+        TH1* hist = dynamic_cast<TH1*>(obj);
+        if (!hist) continue;
 
-      for (int j = 1; j <= hist->GetNbinsX(); ++j) {
-        double binContent = hist->GetBinContent(j);
-        outFile << "Dial " << Names[i]
-        << " hist = " << hist->GetTitle()
-        << " bin = " << j
-        << " content = " << std::fixed << std::setprecision(6)
-        << std::fabs(binContent) << std::endl;
+        for (int j = 1; j <= hist->GetNbinsX(); ++j) {
+          double binContent = hist->GetBinContent(j);
+          outFile << "Dial " << Names[i]
+          << " hist = " << hist->GetTitle()
+          << " bin = " << j
+          << " content = " << std::fixed << std::setprecision(6)
+          << std::fabs(binContent) << std::endl;
+        }
       }
     }
   }
