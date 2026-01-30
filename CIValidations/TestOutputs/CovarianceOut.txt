@@ -1,19 +1,19 @@
 Likelihood Xsec=266.956
-Found 3 for Tutorial Beam Params of type Norm
-Found 5 for Tutorial Beam Params of type Spline
-Found 2 for Tutorial Beam Params of type Functional
-Found 0 for Tutorial Beam Params of type Oscillation
-Found 3 for Tutorial Beam From GetNormParsFromSampleName
-Found 3 for Tutorial ATM Params of type Norm
-Found 5 for Tutorial ATM Params of type Spline
-Found 2 for Tutorial ATM Params of type Functional
-Found 0 for Tutorial ATM Params of type Oscillation
-Found 3 for Tutorial ATM From GetNormParsFromSampleName
-Found 3 for tutorial beam Params of type Norm
-Found 5 for tutorial beam Params of type Spline
-Found 2 for tutorial beam Params of type Functional
-Found 0 for tutorial beam Params of type Oscillation
-Found 3 for tutorial beam From GetNormParsFromSampleName
+Found 3 for Tutorial_Beam Params of type Norm
+Found 5 for Tutorial_Beam Params of type Spline
+Found 2 for Tutorial_Beam Params of type Functional
+Found 0 for Tutorial_Beam Params of type Oscillation
+Found 3 for Tutorial_Beam From GetNormParsFromSampleName
+Found 3 for Tutorial_ATM Params of type Norm
+Found 5 for Tutorial_ATM Params of type Spline
+Found 2 for Tutorial_ATM Params of type Functional
+Found 0 for Tutorial_ATM Params of type Oscillation
+Found 3 for Tutorial_ATM From GetNormParsFromSampleName
+Found 3 for tutorial_beam Params of type Norm
+Found 5 for tutorial_beam Params of type Spline
+Found 2 for tutorial_beam Params of type Functional
+Found 0 for tutorial_beam Params of type Oscillation
+Found 3 for tutorial_beam From GetNormParsFromSampleName
 Found 0 for blarbATM Params of type Norm
 Found 0 for blarbATM Params of type Spline
 Found 0 for blarbATM Params of type Functional
