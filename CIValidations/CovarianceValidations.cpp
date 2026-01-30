@@ -264,7 +264,7 @@ int main(int argc, char *argv[])
   xsec->SetParameters(ParProp);
   xsec->AcceptStep();
   ///// Test Params from DetId /////
-  const std::vector<std::string> AffectedSamples = {"Tutorial Beam", "Tutorial ATM", "tutorial beam", "blarb" "ATM"};
+  const std::vector<std::string> AffectedSamples = {"Tutorial_Beam", "Tutorial_ATM", "tutorial_beam", "blarb" "ATM"};
   for (size_t id = 0; id < AffectedSamples.size(); ++id)
   {
     for (int s = 0; s < kSystTypes; ++s)

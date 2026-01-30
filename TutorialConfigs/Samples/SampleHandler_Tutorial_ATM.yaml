@@ -1,6 +1,6 @@
 ---
 #Global Sample Handler setting
-SampleHandlerName: "Tutorial ATM"
+SampleHandlerName: "Tutorial_ATM"
 
 POT: 2.1428e+21
 MaCh3ModeConfig: "TutorialConfigs/MaCh3Modes.yaml"
@@ -21,7 +21,7 @@ InputFiles:
 #Settings for a single sample
 Samples: ["Tutorial_ATM"]
 Tutorial_ATM:
-  SampleTitle: "Tutorial ATM"
+  SampleTitle: "Tutorial_ATM"
 
   SelectionCuts:
     - KinematicStr: "TrueNeutrinoEnergy"

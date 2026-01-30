@@ -1,6 +1,6 @@
 ---
 #Global Sample Handler setting
-SampleHandlerName: "Tutorial Beam"
+SampleHandlerName: "Tutorial_Beam"
 POT: 2.1428e+21
 MaCh3ModeConfig: "TutorialConfigs/MaCh3Modes.yaml"
 
@@ -18,12 +18,12 @@ InputFiles:
   PrepSplineFile: false
 
 #Settings for a single sample
-Samples: ["Tutorial"]
-Tutorial:
+Samples: ["Tutorial_Beam"]
+Tutorial_Beam:
   SelectionCuts:
     - KinematicStr: "TrueNeutrinoEnergy"
       Bounds: [ 0., 4 ]
-  SampleTitle: "Tutorial"
+  SampleTitle: "Tutorial_Beam"
 
   Binning:
     VarStr : [ "RecoNeutrinoEnergy" ]

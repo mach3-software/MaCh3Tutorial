@@ -65,7 +65,7 @@ void SplineBinnedValidations(std::ostream& outFile){
   std::vector<std::string> spline_filepaths = {"TutorialConfigs/MC/BinnedSplinesTutorialInputs2D.root"};
   std::vector<std::string> SplineVarNames = {"TrueNeutrinoEnergy", "TrueNeutrinoEnergy"};
   for(int i = 0; i < SampleTittles.size(); i++) {
-    SplineHandler->AddSample("Tutorial Blarb", SampleTittles[i], spline_filepaths, SplineVarNames);
+    SplineHandler->AddSample("Tutorial_Blarb", SampleTittles[i], spline_filepaths, SplineVarNames);
   }
   SplineHandler->CountNumberOfLoadedSplines(false, 1);
   SplineHandler->TransferToMonolith();
