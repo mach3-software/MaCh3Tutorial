@@ -43,9 +43,8 @@ class samplePDFSigmaVar : public SampleHandlerBase
       PolyHist.resize(GetNsamples());
       for(int iSam = 0; iSam < GetNsamples(); iSam++)
       {
-        std::vector<double> BinArray_x;
-        std::vector<double> BinArray_y;
-        SetupBinning(0, BinArray_x, BinArray_y);
+        auto BinArray_x = ReturnKinematicParameterBinning(0, GetKinVarName(0, 0));
+        auto BinArray_y = ReturnKinematicParameterBinning(0, GetKinVarName(0, 1));
 
         PolyHist[iSam] = new TH2Poly();
         PolyHist[iSam]->SetName(SampleBlarbTitle[iSam].c_str());
@@ -82,9 +81,12 @@ class samplePDFSigmaVar : public SampleHandlerBase
     std::string GetSampleTitle(int Sample) const override {return SampleBlarbTitle[Sample];};
     std::string GetKinVarName(const int sample, const int Dimension) const override {return KinemBlarbTitle[Dimension];}
 
-     inline void SetupBinning(const M3::int_t Selection, std::vector<double> &BinningX, std::vector<double> &BinningY) override{
-      BinningX = {0., 350., 500., 600., 650., 700., 800., 900., 1000., 1150., 1250., 1500., 2000., 5000., 30000.};
-      BinningY = {-1.0, 0.6, 0.7, 0.8, 0.85, 0.88, 0.9, 0.92, 0.94, 0.96, 0.98, 1.0};
+    std::vector<double> ReturnKinematicParameterBinning(const int Sample, const std::string &KinematicParameter) const override {
+      if(KinematicParameter == "RecoLeptonMomentum") {
+        return {0., 350., 500., 600., 650., 700., 800., 900., 1000., 1150., 1250., 1500., 2000., 5000., 30000.};
+      } else if(KinematicParameter == "RecoLeptonCosTheta") {
+        return {-1.0, 0.6, 0.7, 0.8, 0.85, 0.88, 0.9, 0.92, 0.94, 0.96, 0.98, 1.0};
+      }
     }
 
     void CleanMemoryBeforeFit() override {};
