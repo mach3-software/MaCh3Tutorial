@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1770028758273,
+  "lastUpdate": 1770048833439,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -18258,6 +18258,58 @@ window.BENCHMARK_DATA = {
             "name": "ND Reweight",
             "value": 406.487,
             "range": "± 41.0314",
+            "unit": "us",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "60fb0d9628cf62f96bcc3cfc7ea6684bf0c9fcab",
+          "message": "Merge pull request #772 from mach3-software/kskwarczynski/tidy/BuildSelection\n\ntidy: Less CopyPasting for Get1DVarHistByModeAndChannel",
+          "timestamp": "2026-02-02T17:07:39+01:00",
+          "tree_id": "1a492546695a4182f6a4cc38fd21c8e8d6bf0b9c",
+          "url": "https://github.com/mach3-software/MaCh3/commit/60fb0d9628cf62f96bcc3cfc7ea6684bf0c9fcab"
+        },
+        "date": 1770048827923,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 3.01074,
+            "range": "± 64.8751",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.93423,
+            "range": "± 101.656",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 394.883,
+            "range": "± 3.42183",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ND Reweight",
+            "value": 403.272,
+            "range": "± 60.6479",
             "unit": "us",
             "extra": "100 samples\n1 iterations"
           }
