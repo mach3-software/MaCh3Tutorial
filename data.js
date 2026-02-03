@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1770128581271,
+  "lastUpdate": 1770135038631,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -18414,6 +18414,58 @@ window.BENCHMARK_DATA = {
             "name": "ND Reweight",
             "value": 410.475,
             "range": "± 41.4843",
+            "unit": "us",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "b041d52cd81e88f6a3eccb480ae0a3cbc53c6702",
+          "message": "Merge pull request #775 from mach3-software/kskwarczynski/tidy/LessCopyPasting\n\ntidy: Avoid Copy Paste in CalcNormBins",
+          "timestamp": "2026-02-03T16:58:56+01:00",
+          "tree_id": "2369300344a3f850dcb3700b44f788350b52b9ad",
+          "url": "https://github.com/mach3-software/MaCh3/commit/b041d52cd81e88f6a3eccb480ae0a3cbc53c6702"
+        },
+        "date": 1770135034409,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 3.11186,
+            "range": "± 477.331",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.94672,
+            "range": "± 98.8696",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 388.777,
+            "range": "± 3.38763",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ND Reweight",
+            "value": 402.032,
+            "range": "± 36.7926",
             "unit": "us",
             "extra": "100 samples\n1 iterations"
           }
