@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1770048833439,
+  "lastUpdate": 1770125795044,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -18310,6 +18310,58 @@ window.BENCHMARK_DATA = {
             "name": "ND Reweight",
             "value": 403.272,
             "range": "± 60.6479",
+            "unit": "us",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "5260d2bbb175ea6ce9970a1d5a81750c27838da6",
+          "message": "Merge pull request #776 from mach3-software/mfel3/feature/fileopenfunction\n\ntidy: Modified function for file Opening in ParameterHandlerBase Init",
+          "timestamp": "2026-02-03T14:30:31+01:00",
+          "tree_id": "ca940317d180e1db9050d7f07376e35968bd9045",
+          "url": "https://github.com/mach3-software/MaCh3/commit/5260d2bbb175ea6ce9970a1d5a81750c27838da6"
+        },
+        "date": 1770125791194,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 3.05017,
+            "range": "± 377.191",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.94138,
+            "range": "± 119.545",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 405.762,
+            "range": "± 3.37005",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ND Reweight",
+            "value": 424.878,
+            "range": "± 59.1268",
             "unit": "us",
             "extra": "100 samples\n1 iterations"
           }
