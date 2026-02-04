@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1770135038631,
+  "lastUpdate": 1770202303467,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -18466,6 +18466,58 @@ window.BENCHMARK_DATA = {
             "name": "ND Reweight",
             "value": 402.032,
             "range": "± 36.7926",
+            "unit": "us",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "6999047d261b7c5550785746ec3ee8541d6561d2",
+          "message": "Merge pull request #777 from mach3-software/nosektom/feature/LLHMap\n\nfeat: LLHMap, n-dimensional likelihood scan",
+          "timestamp": "2026-02-04T11:45:40+01:00",
+          "tree_id": "7d75d91c9ca1a06e52b73b5e02a7f9b17e37fd21",
+          "url": "https://github.com/mach3-software/MaCh3/commit/6999047d261b7c5550785746ec3ee8541d6561d2"
+        },
+        "date": 1770202299766,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 3.16749,
+            "range": "± 66.346",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 3.07375,
+            "range": "± 65.5709",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 465.517,
+            "range": "± 4.4253",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ND Reweight",
+            "value": 452.178,
+            "range": "± 43.6637",
             "unit": "us",
             "extra": "100 samples\n1 iterations"
           }
