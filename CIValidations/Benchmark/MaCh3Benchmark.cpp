@@ -38,6 +38,42 @@ void CreateChungusYaml(const std::string& filename = "ChungusSystematics.yaml",
   }
 }
 
+std::string FormatMB(double value, int precision)
+{
+  std::ostringstream ss;
+  ss << std::fixed << std::setprecision(precision) << value << " MB";
+  return ss.str();
+}
+
+/// @brief This is super hacky but Catch2 doesn't support RAM printing only time...
+void PrintRAMBenchmark(const std::string& name)
+{
+  double ram = MaCh3Utils::getValue("VmRSS") / 1024.0;
+
+  std::cout << "\n";
+
+  // Main row
+  std::cout << std::left  << std::setw(40) << name
+            << std::right << std::setw(10) << 100
+            << std::right << std::setw(14) << 1
+            << std::right << std::setw(11) << std::fixed << std::setprecision(3)
+            << ram << " MB\n";
+
+  // Mean row
+  std::cout << std::left << std::setw(40) << " "
+            << std::right << std::setw(10) << FormatMB(ram, 3)
+            << std::right << std::setw(14) << FormatMB(ram, 3)
+            << std::right << std::setw(11) << std::fixed << std::setprecision(3)
+            << ram << " MB\n";
+
+  // Std dev row
+  std::cout << std::left << std::setw(40) << " "
+            << std::right << std::setw(10) << FormatMB(0.0, 5)
+            << std::right << std::setw(14) << FormatMB(0.0, 5)
+            << std::right << std::setw(11) << std::fixed << std::setprecision(5)
+            << 0.00000 << " MB\n";
+}
+
 TEST_CASE("Benchmark MaCh3") {
   // Initialise manger responsible for config handling
   auto FitManager = std::make_unique<Manager>("TutorialConfigs/FitterConfig.yaml");
@@ -96,6 +132,8 @@ TEST_CASE("Benchmark MaCh3") {
     }
   };
 
+  // Get RAM table BEFORE starting chungus
+  PrintRAMBenchmark("RAM tracker");
 
   CreateChungusYaml("ChungusSystematics.yaml", 2000);
   auto Chungus = std::make_unique<ParameterHandlerGeneric>(std::vector<std::string>{"ChungusSystematics.yaml"}, "xsec_cov");
