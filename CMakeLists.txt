@@ -43,6 +43,8 @@ include(CIValidations)
 option(MaCh3_CPM "Whether MaCh3 was obtained using CPM or find_package" OFF)
 option(MaCh3Tutorial_PROFILING_ENABLED "Will run with gperftools" OFF)
 option(Use_External_MaCh3 "Use an externally installed MaCh3 instead of CPM" OFF)
+option(MaCh3Tutorial_DEBUG_ENABLED "Use debug options" OFF)
+option(MaCh3Tutorial_LOW_MEMORY_STRUCTS_ENABLED "Use floats" OFF)
 
 # KS: Here we try to find tag matching tutorial version. If we can't find one then use develop
 # This will allow to grab tutorial for tagged MaCh3 version without a need of manually changing version
@@ -91,6 +93,14 @@ if(NOT MaCh3_FOUND)
 
   if (MaCh3Tutorial_NATIVE_ENABLED)
     list(APPEND MaCh3_OPTIONS "MaCh3_NATIVE_ENABLED ON")
+  endif()
+
+  if (MaCh3Tutorial_DEBUG_ENABLED)
+    list(APPEND MaCh3_OPTIONS "MaCh3_DEBUG_ENABLED ON")
+  endif()
+
+  if (MaCh3Tutorial_LOW_MEMORY_STRUCTS_ENABLED)
+    list(APPEND MaCh3_OPTIONS "MaCh3_LOW_MEMORY_STRUCTS_ENABLED ON")
   endif()
 
   CPMAddPackage(
