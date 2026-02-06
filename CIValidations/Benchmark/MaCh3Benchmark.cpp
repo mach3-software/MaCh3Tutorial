@@ -5,6 +5,39 @@
 #include "catch2/catch_test_macros.hpp"
 #include "catch2/benchmark/catch_benchmark.hpp"
 
+void CreateChungusYaml(const std::string& filename = "ChungusSystematics.yaml",
+                       size_t nParams = 5000)
+{
+  std::ofstream out(filename);
+  if (!out.is_open()) {
+    throw std::runtime_error("Failed to open YAML file for writing");
+  }
+  out << "Systematics:\n\n";
+
+  for (size_t i = 0; i < nParams; ++i) {
+    double error   = 0.10;
+    double step_scale = 0.2;
+    out << "- Systematic:\n";
+    out << "    Names:\n";
+    out << "      FancyName: Norm_Param_" << i << "\n";
+    out << "    Error: " << error << "\n";
+    out << "    FlatPrior: false\n";
+    out << "    FixParam: false\n";
+    out << "    Mode: [ 1 ]\n";
+    out << "    ParameterBounds: [0, 999.]\n";
+    out << "    ParameterGroup: Xsec\n";
+    out << "    TargetNuclei: [12, 16]\n";
+    out << "    KinematicCuts:\n";
+    out << "    ParameterValues:\n";
+    out << "      Generated: 1.\n";
+    out << "      PreFitValue: 1.\n";
+    out << "    SampleNames: [\"Tutorial_*\", \"ND2137\"]\n";
+    out << "    StepScale:\n";
+    out << "      MCMC: "<< step_scale <<"\n";
+    out << "    Type: Norm\n\n";
+  }
+}
+
 TEST_CASE("Benchmark MaCh3") {
   // Initialise manger responsible for config handling
   auto FitManager = std::make_unique<Manager>("TutorialConfigs/FitterConfig.yaml");
@@ -61,6 +94,16 @@ TEST_CASE("Benchmark MaCh3") {
       NDSamples[ivs]->Reweight();
       NDSamples[ivs]->GetLikelihood();
     }
+  };
+
+
+  CreateChungusYaml("ChungusSystematics.yaml", 2000);
+  auto Chungus = std::make_unique<ParameterHandlerGeneric>(std::vector<std::string>{"ChungusSystematics.yaml"}, "xsec_cov");
+
+  BENCHMARK("ParameterHandler Operations") {
+    Chungus->ProposeStep();
+    Chungus->GetLikelihood();
+    Chungus->AcceptStep();
   };
 
   for (size_t i = 0; i < NDSamples.size(); ++i) {
