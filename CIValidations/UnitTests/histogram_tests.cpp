@@ -143,3 +143,16 @@ TEST_CASE("ConvertTH2DToTH2Poly", "[HistogramUtils]") {
   delete Hist;
 }
 
+
+TEST_CASE("TH2Poly integral", "[HistogramUtils]") {
+  TH2Poly* Poly = GetPolyHist();
+  Poly->Fill(10, -10);
+  double IntegralROOT = Poly->Integral();
+  double IntegralMaCh3 = NoOverflowIntegral(Poly);
+  double OverflowMaCh3 = OverflowIntegral(Poly);
+
+  REQUIRE_THAT(IntegralROOT, Catch::Matchers::WithinAbs(IntegralMaCh3, 1e-6));
+  REQUIRE(IntegralMaCh3 != OverflowMaCh3);
+
+  delete Poly;
+}
