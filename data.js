@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1770442188460,
+  "lastUpdate": 1770603942120,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -18733,6 +18733,65 @@ window.BENCHMARK_DATA = {
             "name": "ParameterHandler Operations",
             "value": 2.18195,
             "range": "± 760.561",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "22528cab291415d9c7b8a3536f044c462774ac5a",
+          "message": "Merge pull request #784 from mach3-software/kskwarczynski/tidy/sanizersSamplePDF\n\ntidy: More SampleHandler Sanitizers",
+          "timestamp": "2026-02-09T03:19:34+01:00",
+          "tree_id": "ab64279adef7b3e7f6765e7ae26d03f733435ab5",
+          "url": "https://github.com/mach3-software/MaCh3/commit/22528cab291415d9c7b8a3536f044c462774ac5a"
+        },
+        "date": 1770603939311,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 3.06485,
+            "range": "± 531.698",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.90825,
+            "range": "± 77.2828",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 397.503,
+            "range": "± 4.48392",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ND Reweight",
+            "value": 395.739,
+            "range": "± 46.1916",
+            "unit": "us",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ParameterHandler Operations",
+            "value": 2.57833,
+            "range": "± 227.978",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
