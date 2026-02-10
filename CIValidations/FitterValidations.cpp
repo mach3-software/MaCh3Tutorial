@@ -62,6 +62,7 @@ void FitVal(const std::string& Algo, bool MoreTests)
     MaCh3Fitter->DragRace();
     MaCh3Fitter->RunLLHScan();
     MaCh3Fitter->Run2DLLHScan();
+    MaCh3Fitter->RunLLHMap();
     MaCh3Fitter->RunSigmaVar();
     MaCh3Fitter->GetStepScaleBasedOnLLHScan();
   }
