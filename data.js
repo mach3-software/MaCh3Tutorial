@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1770698656609,
+  "lastUpdate": 1770701341867,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -18910,6 +18910,65 @@ window.BENCHMARK_DATA = {
             "name": "ParameterHandler Operations",
             "value": 2.2386,
             "range": "± 659.926",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "ab584e387c8e94eb80999d8504f55191a7346b97",
+          "message": "Merge pull request #781 from mach3-software/kskwarczynski/tidy/FlatPlot\n\nbugfix: Do not plot error for flat prior",
+          "timestamp": "2026-02-10T06:22:48+01:00",
+          "tree_id": "332e0d6d0651f72745d9b2f568329ad073539594",
+          "url": "https://github.com/mach3-software/MaCh3/commit/ab584e387c8e94eb80999d8504f55191a7346b97"
+        },
+        "date": 1770701337905,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.88403,
+            "range": "± 62.1314",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.79961,
+            "range": "± 62.3254",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 391.233,
+            "range": "± 3.93568",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ND Reweight",
+            "value": 378.341,
+            "range": "± 28.99",
+            "unit": "us",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ParameterHandler Operations",
+            "value": 2.16271,
+            "range": "± 726.744",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
