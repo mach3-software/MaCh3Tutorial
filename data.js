@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1770701341867,
+  "lastUpdate": 1770722501128,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -18969,6 +18969,65 @@ window.BENCHMARK_DATA = {
             "name": "ParameterHandler Operations",
             "value": 2.16271,
             "range": "± 726.744",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "a167de34d22f2542503b256ea2f41996e28d3f5b",
+          "message": "Merge pull request #786 from mach3-software/kskwarczynski/tidy/Cmake\n\ntidy: Add GLoBESN and tidy cmake",
+          "timestamp": "2026-02-10T12:15:33+01:00",
+          "tree_id": "9f5803b6163f49664bf6db0c70f14dfdddfe2a5f",
+          "url": "https://github.com/mach3-software/MaCh3/commit/a167de34d22f2542503b256ea2f41996e28d3f5b"
+        },
+        "date": 1770722498217,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.87951,
+            "range": "± 71.1428",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.80366,
+            "range": "± 79.5428",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 390.315,
+            "range": "± 5.09104",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ND Reweight",
+            "value": 376.334,
+            "range": "± 31.0247",
+            "unit": "us",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ParameterHandler Operations",
+            "value": 2.51392,
+            "range": "± 446.629",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
