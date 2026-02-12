@@ -67,7 +67,6 @@ run_covariance_validations() {
   ./CIValidations/MaCh3ModeValidations
   ./CIValidations/pValueValidations
   ./CIValidations/SigmaVarValidation
-  ./CIValidations/SigmaVarLegacyValidations
   if [ "$HAVE_UNITTEST_SUPPORT" -eq 0 ]; then
     ./CIValidations/UnitTests/manager_tests
     ./CIValidations/UnitTests/histogram_tests

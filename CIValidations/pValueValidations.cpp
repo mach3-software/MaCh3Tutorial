@@ -61,7 +61,29 @@ class samplePDFpValue : public SampleHandlerBase
     TH1* GetDataHist(const int Selection) override   {return PolyHist[Selection];}
     TH1* GetMCHist(const int Selection) override    {return PolyHist[Selection];}
     TH1* GetW2Hist(const int Selection) override {return PolyHist[Selection];}
-    TH1* GetPDFMode(const int Selection, const int Mode) override {return PolyHist[Selection];}
+
+
+    std::string GetFlavourName(const int iSample, const int iChannel) const override {
+      return "null"; (void) iSample; (void) iChannel;
+    };
+    int GetNDim(const int Sample) const override { return 2; }
+
+    TH1 *Get1DVarHist(const int iSample, const std::string &ProjectionVar,
+                      const std::vector<KinematicCut> &EventSelectionVec = {}, int WeightStyle = 0,
+                      TAxis *Axis = nullptr, const std::vector<KinematicCut> &SubEventSelectionVec = {}) override {return PolyHist[iSample];}
+    TH2* Get2DVarHist(const int iSample, const std::string& ProjectionVarX, const std::string& ProjectionVarY,
+                      const std::vector< KinematicCut >& EventSelectionVec = {},
+                      int WeightStyle = 0, TAxis* AxisX = nullptr, TAxis* AxisY = nullptr,
+                      const std::vector< KinematicCut >& SubEventSelectionVec = {}) override {return PolyHist[iSample];}
+
+
+    TH1* Get1DVarHistByModeAndChannel(const int iSample, const std::string& ProjectionVar_Str,
+                                      int kModeToFill = -1, int kChannelToFill = -1,
+                                      int WeightStyle = 0, TAxis* Axis = nullptr) override {return PolyHist[iSample];}
+    TH2* Get2DVarHistByModeAndChannel(const int iSample, const std::string& ProjectionVar_StrX,
+                                      const std::string& ProjectionVar_StrY, int kModeToFill = -1,
+                                      int kChannelToFill = -1, int WeightStyle = 0,
+                                      TAxis* AxisX = nullptr, TAxis* AxisY = nullptr) override {return PolyHist[iSample];}
 
     std::vector<std::string> SampleBlarbTitle;
     std::vector<std::string> KinemBlarbTitle;
