@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1770956715998,
+  "lastUpdate": 1770957166035,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -19264,6 +19264,65 @@ window.BENCHMARK_DATA = {
             "name": "ParameterHandler Operations",
             "value": 2.64962,
             "range": "± 80.6943",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "f1f89738fb0c7be4e476cc3b7c06dfd56c380dfd",
+          "message": "Bump project version to 2.4.2",
+          "timestamp": "2026-02-13T04:26:50Z",
+          "tree_id": "0dbfcc258fbe830dfe12a3e92112cd8d9df4ad14",
+          "url": "https://github.com/mach3-software/MaCh3/commit/f1f89738fb0c7be4e476cc3b7c06dfd56c380dfd"
+        },
+        "date": 1770957163006,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.92772,
+            "range": "± 110.592",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.83195,
+            "range": "± 98.678",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 395.327,
+            "range": "± 6.48079",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ND Reweight",
+            "value": 348.856,
+            "range": "± 50.1956",
+            "unit": "us",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ParameterHandler Operations",
+            "value": 2.15393,
+            "range": "± 792.112",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
