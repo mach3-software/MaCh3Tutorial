@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1770957166035,
+  "lastUpdate": 1770974680685,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -19323,6 +19323,65 @@ window.BENCHMARK_DATA = {
             "name": "ParameterHandler Operations",
             "value": 2.15393,
             "range": "± 792.112",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "7f92d776aa2e1e6f4e16cbece03493a3b01c14fb",
+          "message": "Merge pull request #790 from mach3-software/kskwarczynski/feat/compositejobs\n\nfeat: CI Composite Jobs",
+          "timestamp": "2026-02-13T10:18:46+01:00",
+          "tree_id": "1240797882874b18c6bd79a540692ee38d61e062",
+          "url": "https://github.com/mach3-software/MaCh3/commit/7f92d776aa2e1e6f4e16cbece03493a3b01c14fb"
+        },
+        "date": 1770974677703,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.88652,
+            "range": "± 63.8609",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.79925,
+            "range": "± 59.2196",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 393.14,
+            "range": "± 7.53691",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ND Reweight",
+            "value": 341.433,
+            "range": "± 31.9261",
+            "unit": "us",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ParameterHandler Operations",
+            "value": 2.69256,
+            "range": "± 83.0583",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
