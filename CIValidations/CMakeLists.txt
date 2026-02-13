@@ -9,7 +9,6 @@ foreach(app
     NuMCMCconversion
     NuOscillatorInterfaceValidations
     pValueValidations
-    SigmaVarLegacyValidations
     SigmaVarValidation
     LLHValidation
     PredictiveValidations
