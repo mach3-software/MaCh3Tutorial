@@ -122,6 +122,14 @@ void ValidateTestStatistic(std::ostream& outFile, const std::string& OriginalSam
   } // end loop over test stat
 }
 
+/// @brief Helper function to write YAML config to a file
+void WriteConfigToFile(const YAML::Node& config, const std::string& path) {
+  std::ofstream outFile(path);
+  outFile << YAMLtoSTRING(config);
+  outFile.close();
+}
+
+
 void LoadSplineValidation(std::ostream& outFile, const std::string& OriginalSample, ParameterHandlerGeneric* xsec, bool LoadFile, bool MakeSFile) {
   std::string NameTString = OriginalSample;
   xsec->SetParameters();
@@ -144,10 +152,8 @@ void LoadSplineValidation(std::ostream& outFile, const std::string& OriginalSamp
 
   std::string tempConfigPath = std::string(rootEnv) + "/mach3_temp_config.yaml";
 
-  // Write config string to file
-  std::ofstream configOut(tempConfigPath);
-  configOut << configStr;
-  configOut.close();
+  // Write config string to file using helper function
+  WriteConfigToFile(config, tempConfigPath);
 
   // Use modified config
   auto Sample = std::make_unique<SampleHandlerTutorial>(tempConfigPath, xsec);
@@ -168,6 +174,53 @@ void LoadSplineValidation(std::ostream& outFile, const std::string& OriginalSamp
   }
 
   std::remove(tempConfigPath.c_str());
+}
+
+/// @brief Simply test whether MaCh3 can reproduce oscillation using even by event osc weight
+void UnbinnedOsc(std::ostream& outFile, ParameterHandlerGeneric* xsec) {
+  // Get MaCh3Tutorial_ROOT environment variable
+  const char* rootEnv = std::getenv("MaCh3Tutorial_ROOT");
+  if (!rootEnv) {
+    throw std::runtime_error("Environment variable MaCh3Tutorial_ROOT is not set.");
+  }
+
+  std::string SampleConfig = std::string(rootEnv) + "/TutorialConfigs/Samples/SampleHandler_Tutorial.yaml";
+  std::string NuOscConfig = std::string(rootEnv) + "/TutorialConfigs/NuOscillator/NuFASTLinear.yaml";
+  xsec->SetParameters();
+
+  // Load and modify NuOsc config
+  YAML::Node NuConfig = M3OpenConfig(NuOscConfig);
+  NuConfig["General"]["CalculationType"] = "Unbinned";
+  std::string NuConfigPath = std::string(rootEnv) + "/mach3_temp_nu_config.yaml";
+  WriteConfigToFile(NuConfig, NuConfigPath);
+
+  // Load and modify Sample config
+  YAML::Node SamConfig = M3OpenConfig(SampleConfig);
+  SamConfig["NuOsc"]["NuOscConfigFile"] = NuConfigPath;
+  std::string SampleConfigPath = std::string(rootEnv) + "/mach3_temp_sam_config.yaml";
+  WriteConfigToFile(SamConfig, SampleConfigPath);
+
+  // Use modified config
+  auto Sample = std::make_unique<SampleHandlerTutorial>(SampleConfigPath, xsec);
+  Sample->Reweight();
+
+  for(int iSample = 0; iSample < Sample->GetNsamples(); iSample++) {
+    TH1* SampleHistogramPrior = static_cast<TH1*>(Sample->GetMCHist(iSample)->Clone("blarb_Prior"));
+    Sample->AddData(iSample, SampleHistogramPrior);
+
+    // Set oscillation parameters and reweight for posterior
+    std::vector<double> OscParProp = {0.3, 0.5, 0.020, 7.53e-5, 2.494e-3, 0.0, 295, 2.6, 0.5, 15};
+    xsec->SetGroupOnlyParameters("Osc", OscParProp);
+    Sample->Reweight();
+
+    for (int iEntry = 0; iEntry < 1000; ++iEntry) {
+      double weight = Sample->GetEventWeight(iEntry);
+      outFile << "EventByEventOsc Event: " << iEntry << " weight: " << weight << std::endl;
+    }
+  }
+
+  std::remove(NuConfigPath.c_str());
+  std::remove(SampleConfigPath.c_str());
 }
 
 int main(int argc, char *argv[])
@@ -232,6 +285,8 @@ int main(int argc, char *argv[])
     delete Sample;
   }
   ValidateTestStatistic(outFile, SampleConfig[0], xsec);
+  UnbinnedOsc(outFile, xsec);
+
   bool TheSame = CompareTwoFiles("CIValidations/TestOutputs/SampleOut.txt", "NewSampleOut.txt");
 
   if(!TheSame) {
