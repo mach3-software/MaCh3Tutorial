@@ -126,7 +126,8 @@ GetPenaltyTerm:
 
 #########################################
 PlotSigmaVariation:
-
+  ParamNames: ["BinnedSplineParam1", "BinnedSplineParam2"]
+  Coulour: [632, 416]
 #########################################
 PredictivePlotting:
   FileTitle: ["Posterior Predictive", "Prior Predictive"]
