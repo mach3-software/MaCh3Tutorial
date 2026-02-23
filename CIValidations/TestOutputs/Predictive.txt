@@ -1,69 +1,69 @@
-Integral for sample Tutorial_Beam integral166039
-Sample Tutorial_Beam bin 1 content 8834.35
-Sample Tutorial_Beam bin 1 error 88.0951
-Sample Tutorial_Beam bin 2 content 23829
-Sample Tutorial_Beam bin 2 error 93.1349
-Sample Tutorial_Beam bin 3 content 15654.9
-Sample Tutorial_Beam bin 3 error 72.2898
-Sample Tutorial_Beam bin 4 content 14787.9
-Sample Tutorial_Beam bin 4 error 61.6415
-Sample Tutorial_Beam bin 5 content 14046
-Sample Tutorial_Beam bin 5 error 53.3977
-Sample Tutorial_Beam bin 6 content 13479.5
-Sample Tutorial_Beam bin 6 error 46.8488
-Sample Tutorial_Beam bin 7 content 9165.38
-Sample Tutorial_Beam bin 7 error 32.8301
-Sample Tutorial_Beam bin 8 content 8375.93
-Sample Tutorial_Beam bin 8 error 29.754
-Sample Tutorial_Beam bin 9 content 7940.24
-Sample Tutorial_Beam bin 9 error 23.6773
-Sample Tutorial_Beam bin 10 content 7359.76
-Sample Tutorial_Beam bin 10 error 51.7237
-Sample Tutorial_Beam bin 11 content 12130.9
-Sample Tutorial_Beam bin 11 error 41.1406
-Sample Tutorial_Beam bin 12 content 11256.6
-Sample Tutorial_Beam bin 12 error 44.6859
-Sample Tutorial_Beam bin 13 content 10095.5
-Sample Tutorial_Beam bin 13 error 37.6263
-Sample Tutorial_Beam bin 14 content 9082.59
-Sample Tutorial_Beam bin 14 error 59.0127
-Sample Tutorial_Beam bin 15 content 0.0252752
-Sample Tutorial_Beam bin 15 error 0.292431
+Integral for sample Tutorial_Beam integral165589
+Sample Tutorial_Beam bin 1 content 8792.8
+Sample Tutorial_Beam bin 1 error 58.9761
+Sample Tutorial_Beam bin 2 content 23828.4
+Sample Tutorial_Beam bin 2 error 102.741
+Sample Tutorial_Beam bin 3 content 15604.9
+Sample Tutorial_Beam bin 3 error 56.9333
+Sample Tutorial_Beam bin 4 content 14743.1
+Sample Tutorial_Beam bin 4 error 41.2305
+Sample Tutorial_Beam bin 5 content 13988.1
+Sample Tutorial_Beam bin 5 error 38.2558
+Sample Tutorial_Beam bin 6 content 13427.9
+Sample Tutorial_Beam bin 6 error 33.6435
+Sample Tutorial_Beam bin 7 content 9156.03
+Sample Tutorial_Beam bin 7 error 31.5179
+Sample Tutorial_Beam bin 8 content 8367.63
+Sample Tutorial_Beam bin 8 error 27.562
+Sample Tutorial_Beam bin 9 content 7937.5
+Sample Tutorial_Beam bin 9 error 32.9221
+Sample Tutorial_Beam bin 10 content 7362.42
+Sample Tutorial_Beam bin 10 error 38.2174
+Sample Tutorial_Beam bin 11 content 12085.6
+Sample Tutorial_Beam bin 11 error 41.0282
+Sample Tutorial_Beam bin 12 content 11204.5
+Sample Tutorial_Beam bin 12 error 39.6872
+Sample Tutorial_Beam bin 13 content 10047.4
+Sample Tutorial_Beam bin 13 error 34.6719
+Sample Tutorial_Beam bin 14 content 9043.06
+Sample Tutorial_Beam bin 14 error 39.7837
+Sample Tutorial_Beam bin 15 content 0.0468713
+Sample Tutorial_Beam bin 15 error 0.313247
 Sample Tutorial_Beam bin 16 content 0
 Sample Tutorial_Beam bin 16 error 0
 Sample Tutorial_Beam bin 17 content 0
 Sample Tutorial_Beam bin 17 error 0
-Integral for sample Tutorial_ATM integral52876.6
-Sample Tutorial_ATM bin 1 content 81.9275
-Sample Tutorial_ATM bin 1 error 1.29541
-Sample Tutorial_ATM bin 2 content 783.42
-Sample Tutorial_ATM bin 2 error 4.66065
-Sample Tutorial_ATM bin 3 content 1606.71
-Sample Tutorial_ATM bin 3 error 6.4239
-Sample Tutorial_ATM bin 4 content 1801.64
-Sample Tutorial_ATM bin 4 error 6.9786
-Sample Tutorial_ATM bin 5 content 2814.12
-Sample Tutorial_ATM bin 5 error 8.57703
-Sample Tutorial_ATM bin 6 content 2980.62
-Sample Tutorial_ATM bin 6 error 12.3105
-Sample Tutorial_ATM bin 7 content 2747.25
-Sample Tutorial_ATM bin 7 error 16.9395
-Sample Tutorial_ATM bin 8 content 3053.46
-Sample Tutorial_ATM bin 8 error 13.2249
-Sample Tutorial_ATM bin 9 content 3415.13
-Sample Tutorial_ATM bin 9 error 20.4361
-Sample Tutorial_ATM bin 10 content 3763.81
-Sample Tutorial_ATM bin 10 error 29.3923
-Sample Tutorial_ATM bin 11 content 7294.67
-Sample Tutorial_ATM bin 11 error 61.9135
-Sample Tutorial_ATM bin 12 content 7859.08
-Sample Tutorial_ATM bin 12 error 33.5608
-Sample Tutorial_ATM bin 13 content 7158.03
-Sample Tutorial_ATM bin 13 error 36.9643
-Sample Tutorial_ATM bin 14 content 7516.65
-Sample Tutorial_ATM bin 14 error 70.5038
-Sample Tutorial_ATM bin 15 content 0.0711442
-Sample Tutorial_ATM bin 15 error 0.624609
+Integral for sample Tutorial_ATM integral52728.5
+Sample Tutorial_ATM bin 1 content 82.709
+Sample Tutorial_ATM bin 1 error 0.919318
+Sample Tutorial_ATM bin 2 content 786.367
+Sample Tutorial_ATM bin 2 error 4.50134
+Sample Tutorial_ATM bin 3 content 1600
+Sample Tutorial_ATM bin 3 error 5.20507
+Sample Tutorial_ATM bin 4 content 1797.38
+Sample Tutorial_ATM bin 4 error 10.0992
+Sample Tutorial_ATM bin 5 content 2800.58
+Sample Tutorial_ATM bin 5 error 10.5791
+Sample Tutorial_ATM bin 6 content 2969.06
+Sample Tutorial_ATM bin 6 error 11.5539
+Sample Tutorial_ATM bin 7 content 2744.62
+Sample Tutorial_ATM bin 7 error 12.6344
+Sample Tutorial_ATM bin 8 content 3048.45
+Sample Tutorial_ATM bin 8 error 10.6925
+Sample Tutorial_ATM bin 9 content 3412.68
+Sample Tutorial_ATM bin 9 error 14.6522
+Sample Tutorial_ATM bin 10 content 3770.09
+Sample Tutorial_ATM bin 10 error 30.9957
+Sample Tutorial_ATM bin 11 content 7258.92
+Sample Tutorial_ATM bin 11 error 88.3529
+Sample Tutorial_ATM bin 12 content 7821.45
+Sample Tutorial_ATM bin 12 error 47.1436
+Sample Tutorial_ATM bin 13 content 7142.5
+Sample Tutorial_ATM bin 13 error 67.9598
+Sample Tutorial_ATM bin 14 content 7493.58
+Sample Tutorial_ATM bin 14 error 80.6334
+Sample Tutorial_ATM bin 15 content 0.128336
+Sample Tutorial_ATM bin 15 error 0.599394
 Sample Tutorial_ATM bin 16 content 0
 Sample Tutorial_ATM bin 16 error 0
 Sample Tutorial_ATM bin 17 content 0
@@ -103,11 +103,11 @@ Sample ND_NC1pi0 bin 16 content 58
 Sample ND_NC1pi0 bin 16 error 0
 Sample ND_NC1pi0 bin 17 content 63
 Sample ND_NC1pi0 bin 17 error 0
-Integral for sample ND_CC0pi integral: 20082.8
-Sample ND_CC0pi bin (1, 1) content: 2796.75
-Sample ND_CC0pi bin (1, 1) error: 20.171
-Sample ND_CC0pi bin (1, 2) content: 11.3375
-Sample ND_CC0pi bin (1, 2) error: 0.0819773
+Integral for sample ND_CC0pi integral: 20109.7
+Sample ND_CC0pi bin (1, 1) content: 2807.62
+Sample ND_CC0pi bin (1, 1) error: 19.8602
+Sample ND_CC0pi bin (1, 2) content: 11.3803
+Sample ND_CC0pi bin (1, 2) error: 0.0814249
 Sample ND_CC0pi bin (1, 3) content: 0
 Sample ND_CC0pi bin (1, 3) error: 0
 Sample ND_CC0pi bin (1, 4) content: 0
@@ -118,206 +118,206 @@ Sample ND_CC0pi bin (1, 6) content: 0
 Sample ND_CC0pi bin (1, 6) error: 0
 Sample ND_CC0pi bin (1, 7) content: 0
 Sample ND_CC0pi bin (1, 7) error: 0
-Sample ND_CC0pi bin (2, 1) content: 8758.24
-Sample ND_CC0pi bin (2, 1) error: 59.9289
-Sample ND_CC0pi bin (2, 2) content: 2072.18
-Sample ND_CC0pi bin (2, 2) error: 14.8383
-Sample ND_CC0pi bin (2, 3) content: 77.0143
-Sample ND_CC0pi bin (2, 3) error: 0.560557
-Sample ND_CC0pi bin (2, 4) content: 6.79427
-Sample ND_CC0pi bin (2, 4) error: 0.0495878
+Sample ND_CC0pi bin (2, 1) content: 8792.03
+Sample ND_CC0pi bin (2, 1) error: 59.2586
+Sample ND_CC0pi bin (2, 2) content: 2080.08
+Sample ND_CC0pi bin (2, 2) error: 14.582
+Sample ND_CC0pi bin (2, 3) content: 77.3133
+Sample ND_CC0pi bin (2, 3) error: 0.547519
+Sample ND_CC0pi bin (2, 4) content: 6.8205
+Sample ND_CC0pi bin (2, 4) error: 0.048273
 Sample ND_CC0pi bin (2, 5) content: 0
 Sample ND_CC0pi bin (2, 5) error: 0
 Sample ND_CC0pi bin (2, 6) content: 0
 Sample ND_CC0pi bin (2, 6) error: 0
 Sample ND_CC0pi bin (2, 7) content: 0
 Sample ND_CC0pi bin (2, 7) error: 0
-Sample ND_CC0pi bin (3, 1) content: 1358.46
-Sample ND_CC0pi bin (3, 1) error: 7.22733
-Sample ND_CC0pi bin (3, 2) content: 582.81
-Sample ND_CC0pi bin (3, 2) error: 2.53769
-Sample ND_CC0pi bin (3, 3) content: 103.962
-Sample ND_CC0pi bin (3, 3) error: 0.543609
-Sample ND_CC0pi bin (3, 4) content: 36.617
-Sample ND_CC0pi bin (3, 4) error: 0.167053
-Sample ND_CC0pi bin (3, 5) content: 12.8159
-Sample ND_CC0pi bin (3, 5) error: 0.0584685
+Sample ND_CC0pi bin (3, 1) content: 1353.85
+Sample ND_CC0pi bin (3, 1) error: 7.07761
+Sample ND_CC0pi bin (3, 2) content: 577.619
+Sample ND_CC0pi bin (3, 2) error: 2.57548
+Sample ND_CC0pi bin (3, 3) content: 104.372
+Sample ND_CC0pi bin (3, 3) error: 0.532476
+Sample ND_CC0pi bin (3, 4) content: 36.7049
+Sample ND_CC0pi bin (3, 4) error: 0.160932
+Sample ND_CC0pi bin (3, 5) content: 12.8467
+Sample ND_CC0pi bin (3, 5) error: 0.0563262
 Sample ND_CC0pi bin (3, 6) content: 0
 Sample ND_CC0pi bin (3, 6) error: 0
 Sample ND_CC0pi bin (3, 7) content: 0
 Sample ND_CC0pi bin (3, 7) error: 0
-Sample ND_CC0pi bin (4, 1) content: 744.583
-Sample ND_CC0pi bin (4, 1) error: 4.1413
-Sample ND_CC0pi bin (4, 2) content: 298.865
-Sample ND_CC0pi bin (4, 2) error: 1.33692
-Sample ND_CC0pi bin (4, 3) content: 45.9148
-Sample ND_CC0pi bin (4, 3) error: 0.191115
-Sample ND_CC0pi bin (4, 4) content: 29.2936
-Sample ND_CC0pi bin (4, 4) error: 0.133642
-Sample ND_CC0pi bin (4, 5) content: 23.801
-Sample ND_CC0pi bin (4, 5) error: 0.108584
-Sample ND_CC0pi bin (4, 6) content: 9.15424
-Sample ND_CC0pi bin (4, 6) error: 0.0417632
-Sample ND_CC0pi bin (4, 7) content: 5.49254
-Sample ND_CC0pi bin (4, 7) error: 0.0250579
-Sample ND_CC0pi bin (5, 1) content: 378.409
-Sample ND_CC0pi bin (5, 1) error: 2.05182
-Sample ND_CC0pi bin (5, 2) content: 151.7
-Sample ND_CC0pi bin (5, 2) error: 0.62563
-Sample ND_CC0pi bin (5, 3) content: 35.0844
-Sample ND_CC0pi bin (5, 3) error: 0.243265
-Sample ND_CC0pi bin (5, 4) content: 29.3654
-Sample ND_CC0pi bin (5, 4) error: 0.124746
-Sample ND_CC0pi bin (5, 5) content: 21.9702
-Sample ND_CC0pi bin (5, 5) error: 0.100232
-Sample ND_CC0pi bin (5, 6) content: 5.49254
-Sample ND_CC0pi bin (5, 6) error: 0.0250579
-Sample ND_CC0pi bin (5, 7) content: 10.9851
-Sample ND_CC0pi bin (5, 7) error: 0.0501159
-Sample ND_CC0pi bin (6, 1) content: 316.115
-Sample ND_CC0pi bin (6, 1) error: 1.70705
-Sample ND_CC0pi bin (6, 2) content: 152.159
-Sample ND_CC0pi bin (6, 2) error: 0.650145
-Sample ND_CC0pi bin (6, 3) content: 34.7187
-Sample ND_CC0pi bin (6, 3) error: 0.207078
-Sample ND_CC0pi bin (6, 4) content: 25.8473
-Sample ND_CC0pi bin (6, 4) error: 0.0916426
-Sample ND_CC0pi bin (6, 5) content: 9.22604
-Sample ND_CC0pi bin (6, 5) error: 0.0332804
-Sample ND_CC0pi bin (6, 6) content: 9.15424
-Sample ND_CC0pi bin (6, 6) error: 0.0417632
-Sample ND_CC0pi bin (6, 7) content: 18.3085
-Sample ND_CC0pi bin (6, 7) error: 0.0835264
-Sample ND_CC0pi bin (7, 1) content: 89.9768
-Sample ND_CC0pi bin (7, 1) error: 1.49868
-Sample ND_CC0pi bin (7, 2) content: 29.1881
-Sample ND_CC0pi bin (7, 2) error: 0.462486
-Sample ND_CC0pi bin (7, 3) content: 11.4388
-Sample ND_CC0pi bin (7, 3) error: 0.0426442
-Sample ND_CC0pi bin (7, 4) content: 3.59456
-Sample ND_CC0pi bin (7, 4) error: 0.0165736
-Sample ND_CC0pi bin (7, 5) content: 1.02702
-Sample ND_CC0pi bin (7, 5) error: 0.0047353
-Sample ND_CC0pi bin (7, 6) content: 2.1956
-Sample ND_CC0pi bin (7, 6) error: 0.00318858
-Sample ND_CC0pi bin (7, 7) content: 2.05403
-Sample ND_CC0pi bin (7, 7) error: 0.0094706
-Sample ND_CC0pi bin (8, 1) content: 89.6357
-Sample ND_CC0pi bin (8, 1) error: 0.855147
-Sample ND_CC0pi bin (8, 2) content: 29.743
-Sample ND_CC0pi bin (8, 2) error: 0.187897
-Sample ND_CC0pi bin (8, 3) content: 2.56754
-Sample ND_CC0pi bin (8, 3) error: 0.0118383
-Sample ND_CC0pi bin (8, 4) content: 4.24964
-Sample ND_CC0pi bin (8, 4) error: 0.00990466
-Sample ND_CC0pi bin (8, 5) content: 3.08105
-Sample ND_CC0pi bin (8, 5) error: 0.0142059
-Sample ND_CC0pi bin (8, 6) content: 1.54052
-Sample ND_CC0pi bin (8, 6) error: 0.00710295
-Sample ND_CC0pi bin (8, 7) content: 7.47225
-Sample ND_CC0pi bin (8, 7) error: 0.0154015
-Sample ND_CC0pi bin (9, 1) content: 62.0651
-Sample ND_CC0pi bin (9, 1) error: 0.895111
-Sample ND_CC0pi bin (9, 2) content: 22.4473
-Sample ND_CC0pi bin (9, 2) error: 0.370337
-Sample ND_CC0pi bin (9, 3) content: 5.27665
-Sample ND_CC0pi bin (9, 3) error: 0.0144686
-Sample ND_CC0pi bin (9, 4) content: 2.56754
-Sample ND_CC0pi bin (9, 4) error: 0.0118383
-Sample ND_CC0pi bin (9, 5) content: 3.73613
-Sample ND_CC0pi bin (9, 5) error: 0.00770073
-Sample ND_CC0pi bin (9, 6) content: 1.54052
-Sample ND_CC0pi bin (9, 6) error: 0.00710295
-Sample ND_CC0pi bin (9, 7) content: 5.27832
-Sample ND_CC0pi bin (9, 7) error: 0.0152186
-Sample ND_CC0pi bin (10, 1) content: 57.3594
-Sample ND_CC0pi bin (10, 1) error: 0.899236
-Sample ND_CC0pi bin (10, 2) content: 17.856
-Sample ND_CC0pi bin (10, 2) error: 0.273052
-Sample ND_CC0pi bin (10, 3) content: 4.76482
-Sample ND_CC0pi bin (10, 3) error: 0.0131478
-Sample ND_CC0pi bin (10, 4) content: 1.5422
-Sample ND_CC0pi bin (10, 4) error: 0.00882285
-Sample ND_CC0pi bin (10, 5) content: 1.02702
-Sample ND_CC0pi bin (10, 5) error: 0.0047353
-Sample ND_CC0pi bin (10, 6) content: 4.24964
-Sample ND_CC0pi bin (10, 6) error: 0.00990466
-Sample ND_CC0pi bin (10, 7) content: 8.49927
-Sample ND_CC0pi bin (10, 7) error: 0.0198093
-Sample ND_CC0pi bin (11, 1) content: 136.208
-Sample ND_CC0pi bin (11, 1) error: 1.35278
-Sample ND_CC0pi bin (11, 2) content: 51.04
-Sample ND_CC0pi bin (11, 2) error: 0.467641
-Sample ND_CC0pi bin (11, 3) content: 14.3515
-Sample ND_CC0pi bin (11, 3) error: 0.0220774
-Sample ND_CC0pi bin (11, 4) content: 6.97897
-Sample ND_CC0pi bin (11, 4) error: 0.0274523
-Sample ND_CC0pi bin (11, 5) content: 2.36206
-Sample ND_CC0pi bin (11, 5) error: 0.00239056
-Sample ND_CC0pi bin (11, 6) content: 6.61515
-Sample ND_CC0pi bin (11, 6) error: 0.028504
-Sample ND_CC0pi bin (11, 7) content: 10.9754
-Sample ND_CC0pi bin (11, 7) error: 0.0300103
-Sample ND_CC0pi bin (12, 1) content: 127.598
-Sample ND_CC0pi bin (12, 1) error: 1.05837
-Sample ND_CC0pi bin (12, 2) content: 46.4615
-Sample ND_CC0pi bin (12, 2) error: 0.0848118
-Sample ND_CC0pi bin (12, 3) content: 18.7117
-Sample ND_CC0pi bin (12, 3) error: 0.0262642
-Sample ND_CC0pi bin (12, 4) content: 4.36029
-Sample ND_CC0pi bin (12, 4) error: 0.00455082
-Sample ND_CC0pi bin (12, 5) content: 6.35852
-Sample ND_CC0pi bin (12, 5) error: 0.00786259
-Sample ND_CC0pi bin (12, 6) content: 3.99647
-Sample ND_CC0pi bin (12, 6) error: 0.00722705
-Sample ND_CC0pi bin (12, 7) content: 8.72058
-Sample ND_CC0pi bin (12, 7) error: 0.00910164
-Sample ND_CC0pi bin (13, 1) content: 135.262
-Sample ND_CC0pi bin (13, 1) error: 1.01667
-Sample ND_CC0pi bin (13, 2) content: 52.6817
-Sample ND_CC0pi bin (13, 2) error: 0.0873901
-Sample ND_CC0pi bin (13, 3) content: 16.9701
-Sample ND_CC0pi bin (13, 3) error: 0.03629
-Sample ND_CC0pi bin (13, 4) content: 6.61515
-Sample ND_CC0pi bin (13, 4) error: 0.028504
-Sample ND_CC0pi bin (13, 5) content: 5.9947
-Sample ND_CC0pi bin (13, 5) error: 0.0108406
-Sample ND_CC0pi bin (13, 6) content: 7.99293
-Sample ND_CC0pi bin (13, 6) error: 0.0144541
-Sample ND_CC0pi bin (13, 7) content: 12.9737
-Sample ND_CC0pi bin (13, 7) error: 0.0318321
-Sample ND_CC0pi bin (14, 1) content: 107.804
-Sample ND_CC0pi bin (14, 1) error: 0.514374
-Sample ND_CC0pi bin (14, 2) content: 67.1208
-Sample ND_CC0pi bin (14, 2) error: 0.279801
-Sample ND_CC0pi bin (14, 3) content: 7.99293
-Sample ND_CC0pi bin (14, 3) error: 0.0144541
-Sample ND_CC0pi bin (14, 4) content: 5.9947
-Sample ND_CC0pi bin (14, 4) error: 0.0108406
-Sample ND_CC0pi bin (14, 5) content: 10.6116
-Sample ND_CC0pi bin (14, 5) error: 0.0317462
-Sample ND_CC0pi bin (14, 6) content: 3.99647
-Sample ND_CC0pi bin (14, 6) error: 0.00722705
-Sample ND_CC0pi bin (14, 7) content: 8.35676
-Sample ND_CC0pi bin (14, 7) error: 0.0113598
-Sample ND_CC0pi bin (15, 1) content: 97.8138
-Sample ND_CC0pi bin (15, 1) error: 2.33177
-Sample ND_CC0pi bin (15, 2) content: 44.8023
-Sample ND_CC0pi bin (15, 2) error: 0.618694
-Sample ND_CC0pi bin (15, 3) content: 8.64932
-Sample ND_CC0pi bin (15, 3) error: 0.0905872
-Sample ND_CC0pi bin (15, 4) content: 10.704
-Sample ND_CC0pi bin (15, 4) error: 0.0737414
-Sample ND_CC0pi bin (15, 5) content: 3.76325
-Sample ND_CC0pi bin (15, 5) error: 0.026153
-Sample ND_CC0pi bin (15, 6) content: 2.09165
-Sample ND_CC0pi bin (15, 6) error: 0.0117902
-Sample ND_CC0pi bin (15, 7) content: 12.6685
-Sample ND_CC0pi bin (15, 7) error: 0.0988618
-Sample ND_CC0pi bin (16, 1) content: 88.3314
-Sample ND_CC0pi bin (16, 1) error: 0.192122
-Sample ND_CC0pi bin (16, 2) content: 42.0863
-Sample ND_CC0pi bin (16, 2) error: 0.121997
+Sample ND_CC0pi bin (4, 1) content: 741.596
+Sample ND_CC0pi bin (4, 1) error: 3.93578
+Sample ND_CC0pi bin (4, 2) content: 296.026
+Sample ND_CC0pi bin (4, 2) error: 1.34618
+Sample ND_CC0pi bin (4, 3) content: 46.0184
+Sample ND_CC0pi bin (4, 3) error: 0.182691
+Sample ND_CC0pi bin (4, 4) content: 29.3639
+Sample ND_CC0pi bin (4, 4) error: 0.128746
+Sample ND_CC0pi bin (4, 5) content: 23.8582
+Sample ND_CC0pi bin (4, 5) error: 0.104606
+Sample ND_CC0pi bin (4, 6) content: 9.17622
+Sample ND_CC0pi bin (4, 6) error: 0.040233
+Sample ND_CC0pi bin (4, 7) content: 5.50573
+Sample ND_CC0pi bin (4, 7) error: 0.0241398
+Sample ND_CC0pi bin (5, 1) content: 377.214
+Sample ND_CC0pi bin (5, 1) error: 2.03023
+Sample ND_CC0pi bin (5, 2) content: 150.573
+Sample ND_CC0pi bin (5, 2) error: 0.604902
+Sample ND_CC0pi bin (5, 3) content: 35.278
+Sample ND_CC0pi bin (5, 3) error: 0.249072
+Sample ND_CC0pi bin (5, 4) content: 29.4325
+Sample ND_CC0pi bin (5, 4) error: 0.119455
+Sample ND_CC0pi bin (5, 5) content: 22.0229
+Sample ND_CC0pi bin (5, 5) error: 0.0965592
+Sample ND_CC0pi bin (5, 6) content: 5.50573
+Sample ND_CC0pi bin (5, 6) error: 0.0241398
+Sample ND_CC0pi bin (5, 7) content: 11.0115
+Sample ND_CC0pi bin (5, 7) error: 0.0482796
+Sample ND_CC0pi bin (6, 1) content: 315.347
+Sample ND_CC0pi bin (6, 1) error: 1.72228
+Sample ND_CC0pi bin (6, 2) content: 151.332
+Sample ND_CC0pi bin (6, 2) error: 0.602943
+Sample ND_CC0pi bin (6, 3) content: 34.7945
+Sample ND_CC0pi bin (6, 3) error: 0.182526
+Sample ND_CC0pi bin (6, 4) content: 25.8994
+Sample ND_CC0pi bin (6, 4) error: 0.0864265
+Sample ND_CC0pi bin (6, 5) content: 9.24487
+Sample ND_CC0pi bin (6, 5) error: 0.0314297
+Sample ND_CC0pi bin (6, 6) content: 9.17622
+Sample ND_CC0pi bin (6, 6) error: 0.040233
+Sample ND_CC0pi bin (6, 7) content: 18.3524
+Sample ND_CC0pi bin (6, 7) error: 0.080466
+Sample ND_CC0pi bin (7, 1) content: 89.4878
+Sample ND_CC0pi bin (7, 1) error: 1.12396
+Sample ND_CC0pi bin (7, 2) content: 28.9635
+Sample ND_CC0pi bin (7, 2) error: 0.331042
+Sample ND_CC0pi bin (7, 3) content: 11.4617
+Sample ND_CC0pi bin (7, 3) error: 0.041646
+Sample ND_CC0pi bin (7, 4) content: 3.60336
+Sample ND_CC0pi bin (7, 4) error: 0.0162775
+Sample ND_CC0pi bin (7, 5) content: 1.02953
+Sample ND_CC0pi bin (7, 5) error: 0.00465071
+Sample ND_CC0pi bin (7, 6) content: 2.19591
+Sample ND_CC0pi bin (7, 6) error: 0.00354384
+Sample ND_CC0pi bin (7, 7) content: 2.05906
+Sample ND_CC0pi bin (7, 7) error: 0.00930142
+Sample ND_CC0pi bin (8, 1) content: 89.3549
+Sample ND_CC0pi bin (8, 1) error: 0.625837
+Sample ND_CC0pi bin (8, 2) content: 29.7179
+Sample ND_CC0pi bin (8, 2) error: 0.172469
+Sample ND_CC0pi bin (8, 3) content: 2.57383
+Sample ND_CC0pi bin (8, 3) error: 0.0116268
+Sample ND_CC0pi bin (8, 4) content: 4.25498
+Sample ND_CC0pi bin (8, 4) error: 0.00961149
+Sample ND_CC0pi bin (8, 5) content: 3.0886
+Sample ND_CC0pi bin (8, 5) error: 0.0139521
+Sample ND_CC0pi bin (8, 6) content: 1.5443
+Sample ND_CC0pi bin (8, 6) error: 0.00697606
+Sample ND_CC0pi bin (8, 7) content: 7.48042
+Sample ND_CC0pi bin (8, 7) error: 0.0149938
+Sample ND_CC0pi bin (9, 1) content: 61.7755
+Sample ND_CC0pi bin (9, 1) error: 0.664001
+Sample ND_CC0pi bin (9, 2) content: 22.2572
+Sample ND_CC0pi bin (9, 2) error: 0.262427
+Sample ND_CC0pi bin (9, 3) content: 5.28451
+Sample ND_CC0pi bin (9, 3) error: 0.014042
+Sample ND_CC0pi bin (9, 4) content: 2.57383
+Sample ND_CC0pi bin (9, 4) error: 0.0116268
+Sample ND_CC0pi bin (9, 5) content: 3.74021
+Sample ND_CC0pi bin (9, 5) error: 0.00749689
+Sample ND_CC0pi bin (9, 6) content: 1.5443
+Sample ND_CC0pi bin (9, 6) error: 0.00697606
+Sample ND_CC0pi bin (9, 7) content: 5.29486
+Sample ND_CC0pi bin (9, 7) error: 0.0248025
+Sample ND_CC0pi bin (10, 1) content: 57.0461
+Sample ND_CC0pi bin (10, 1) error: 0.659913
+Sample ND_CC0pi bin (10, 2) content: 17.7557
+Sample ND_CC0pi bin (10, 2) error: 0.214708
+Sample ND_CC0pi bin (10, 3) content: 4.78009
+Sample ND_CC0pi bin (10, 3) error: 0.0234228
+Sample ND_CC0pi bin (10, 4) content: 1.55465
+Sample ND_CC0pi bin (10, 4) error: 0.0210611
+Sample ND_CC0pi bin (10, 5) content: 1.02953
+Sample ND_CC0pi bin (10, 5) error: 0.00465071
+Sample ND_CC0pi bin (10, 6) content: 4.25498
+Sample ND_CC0pi bin (10, 6) error: 0.00961149
+Sample ND_CC0pi bin (10, 7) content: 8.50995
+Sample ND_CC0pi bin (10, 7) error: 0.019223
+Sample ND_CC0pi bin (11, 1) content: 135.223
+Sample ND_CC0pi bin (11, 1) error: 1.42087
+Sample ND_CC0pi bin (11, 2) content: 49.4116
+Sample ND_CC0pi bin (11, 2) error: 0.617332
+Sample ND_CC0pi bin (11, 3) content: 14.3624
+Sample ND_CC0pi bin (11, 3) error: 0.0212734
+Sample ND_CC0pi bin (11, 4) content: 6.9596
+Sample ND_CC0pi bin (11, 4) error: 0.0357068
+Sample ND_CC0pi bin (11, 5) content: 2.36166
+Sample ND_CC0pi bin (11, 5) error: 0.00234611
+Sample ND_CC0pi bin (11, 6) content: 6.59806
+Sample ND_CC0pi bin (11, 6) error: 0.0359979
+Sample ND_CC0pi bin (11, 7) content: 10.9598
+Sample ND_CC0pi bin (11, 7) error: 0.036818
+Sample ND_CC0pi bin (12, 1) content: 126.804
+Sample ND_CC0pi bin (12, 1) error: 1.12281
+Sample ND_CC0pi bin (12, 2) content: 46.2782
+Sample ND_CC0pi bin (12, 2) error: 0.082475
+Sample ND_CC0pi bin (12, 3) content: 18.7242
+Sample ND_CC0pi bin (12, 3) error: 0.025465
+Sample ND_CC0pi bin (12, 4) content: 4.36179
+Sample ND_CC0pi bin (12, 4) error: 0.00452642
+Sample ND_CC0pi bin (12, 5) content: 6.36191
+Sample ND_CC0pi bin (12, 5) error: 0.00769951
+Sample ND_CC0pi bin (12, 6) content: 4.00025
+Sample ND_CC0pi bin (12, 6) error: 0.00690069
+Sample ND_CC0pi bin (12, 7) content: 8.72357
+Sample ND_CC0pi bin (12, 7) error: 0.00905283
+Sample ND_CC0pi bin (13, 1) content: 134.472
+Sample ND_CC0pi bin (13, 1) error: 1.05072
+Sample ND_CC0pi bin (13, 2) content: 52.7263
+Sample ND_CC0pi bin (13, 2) error: 0.0838274
+Sample ND_CC0pi bin (13, 3) content: 16.9602
+Sample ND_CC0pi bin (13, 3) error: 0.0406819
+Sample ND_CC0pi bin (13, 4) content: 6.59806
+Sample ND_CC0pi bin (13, 4) error: 0.0359979
+Sample ND_CC0pi bin (13, 5) content: 6.00038
+Sample ND_CC0pi bin (13, 5) error: 0.010351
+Sample ND_CC0pi bin (13, 6) content: 8.0005
+Sample ND_CC0pi bin (13, 6) error: 0.0138014
+Sample ND_CC0pi bin (13, 7) content: 12.96
+Sample ND_CC0pi bin (13, 7) error: 0.0378361
+Sample ND_CC0pi bin (14, 1) content: 107.533
+Sample ND_CC0pi bin (14, 1) error: 0.575239
+Sample ND_CC0pi bin (14, 2) content: 66.4774
+Sample ND_CC0pi bin (14, 2) error: 0.269929
+Sample ND_CC0pi bin (14, 3) content: 8.0005
+Sample ND_CC0pi bin (14, 3) error: 0.0138014
+Sample ND_CC0pi bin (14, 4) content: 6.00038
+Sample ND_CC0pi bin (14, 4) error: 0.010351
+Sample ND_CC0pi bin (14, 5) content: 10.5983
+Sample ND_CC0pi bin (14, 5) error: 0.037655
+Sample ND_CC0pi bin (14, 6) content: 4.00025
+Sample ND_CC0pi bin (14, 6) error: 0.00690069
+Sample ND_CC0pi bin (14, 7) content: 8.36204
+Sample ND_CC0pi bin (14, 7) error: 0.0110402
+Sample ND_CC0pi bin (15, 1) content: 99.0874
+Sample ND_CC0pi bin (15, 1) error: 2.70244
+Sample ND_CC0pi bin (15, 2) content: 45.1099
+Sample ND_CC0pi bin (15, 2) error: 0.617125
+Sample ND_CC0pi bin (15, 3) content: 8.70812
+Sample ND_CC0pi bin (15, 3) error: 0.0935713
+Sample ND_CC0pi bin (15, 4) content: 10.7519
+Sample ND_CC0pi bin (15, 4) error: 0.0751959
+Sample ND_CC0pi bin (15, 5) content: 3.78546
+Sample ND_CC0pi bin (15, 5) error: 0.0293142
+Sample ND_CC0pi bin (15, 6) content: 2.10081
+Sample ND_CC0pi bin (15, 6) error: 0.0156355
+Sample ND_CC0pi bin (15, 7) content: 12.7388
+Sample ND_CC0pi bin (15, 7) error: 0.10297
+Sample ND_CC0pi bin (16, 1) content: 87.6353
+Sample ND_CC0pi bin (16, 1) error: 0.366734
+Sample ND_CC0pi bin (16, 2) content: 41.3277
+Sample ND_CC0pi bin (16, 2) error: 0.0980261
 Sample ND_CC0pi bin (16, 3) content: 8
 Sample ND_CC0pi bin (16, 3) error: 0
 Sample ND_CC0pi bin (16, 4) content: 5
@@ -328,10 +328,10 @@ Sample ND_CC0pi bin (16, 6) content: 1
 Sample ND_CC0pi bin (16, 6) error: 0
 Sample ND_CC0pi bin (16, 7) content: 15
 Sample ND_CC0pi bin (16, 7) error: 0
-Sample ND_CC0pi bin (17, 1) content: 109.127
-Sample ND_CC0pi bin (17, 1) error: 0.0738931
-Sample ND_CC0pi bin (17, 2) content: 47.1007
-Sample ND_CC0pi bin (17, 2) error: 0.14233
+Sample ND_CC0pi bin (17, 1) content: 108.86
+Sample ND_CC0pi bin (17, 1) error: 0.141052
+Sample ND_CC0pi bin (17, 2) content: 46.2156
+Sample ND_CC0pi bin (17, 2) error: 0.114364
 Sample ND_CC0pi bin (17, 3) content: 11
 Sample ND_CC0pi bin (17, 3) error: 0
 Sample ND_CC0pi bin (17, 4) content: 5
@@ -342,9 +342,9 @@ Sample ND_CC0pi bin (17, 6) content: 8
 Sample ND_CC0pi bin (17, 6) error: 0
 Sample ND_CC0pi bin (17, 7) content: 12
 Sample ND_CC0pi bin (17, 7) error: 0
-Integral for sample ND_CC1pip integral: 7101.52
-Sample ND_CC1pip bin (1, 1) content: 41.7982
-Sample ND_CC1pip bin (1, 1) error: 0.495497
+Integral for sample ND_CC1pip integral: 7106.14
+Sample ND_CC1pip bin (1, 1) content: 41.8965
+Sample ND_CC1pip bin (1, 1) error: 0.497332
 Sample ND_CC1pip bin (1, 2) content: 0
 Sample ND_CC1pip bin (1, 2) error: 0
 Sample ND_CC1pip bin (1, 3) content: 0
@@ -357,12 +357,12 @@ Sample ND_CC1pip bin (1, 6) content: 0
 Sample ND_CC1pip bin (1, 6) error: 0
 Sample ND_CC1pip bin (1, 7) content: 0
 Sample ND_CC1pip bin (1, 7) error: 0
-Sample ND_CC1pip bin (2, 1) content: 1487.11
-Sample ND_CC1pip bin (2, 1) error: 18.9904
-Sample ND_CC1pip bin (2, 2) content: 106.918
-Sample ND_CC1pip bin (2, 2) error: 1.04113
-Sample ND_CC1pip bin (2, 3) content: 3.39713
-Sample ND_CC1pip bin (2, 3) error: 0.0247939
+Sample ND_CC1pip bin (2, 1) content: 1490.92
+Sample ND_CC1pip bin (2, 1) error: 19.0831
+Sample ND_CC1pip bin (2, 2) content: 107.252
+Sample ND_CC1pip bin (2, 2) error: 1.02902
+Sample ND_CC1pip bin (2, 3) content: 3.41025
+Sample ND_CC1pip bin (2, 3) error: 0.0241365
 Sample ND_CC1pip bin (2, 4) content: 0
 Sample ND_CC1pip bin (2, 4) error: 0
 Sample ND_CC1pip bin (2, 5) content: 0
@@ -371,188 +371,188 @@ Sample ND_CC1pip bin (2, 6) content: 0
 Sample ND_CC1pip bin (2, 6) error: 0
 Sample ND_CC1pip bin (2, 7) content: 0
 Sample ND_CC1pip bin (2, 7) error: 0
-Sample ND_CC1pip bin (3, 1) content: 651.031
-Sample ND_CC1pip bin (3, 1) error: 2.02958
-Sample ND_CC1pip bin (3, 2) content: 206.887
-Sample ND_CC1pip bin (3, 2) error: 0.621555
-Sample ND_CC1pip bin (3, 3) content: 22.76
-Sample ND_CC1pip bin (3, 3) error: 0.0670216
-Sample ND_CC1pip bin (3, 4) content: 7.53881
-Sample ND_CC1pip bin (3, 4) error: 0.0193247
+Sample ND_CC1pip bin (3, 1) content: 651.306
+Sample ND_CC1pip bin (3, 1) error: 2.17874
+Sample ND_CC1pip bin (3, 2) content: 207.044
+Sample ND_CC1pip bin (3, 2) error: 0.658616
+Sample ND_CC1pip bin (3, 3) content: 22.7781
+Sample ND_CC1pip bin (3, 3) error: 0.0707907
+Sample ND_CC1pip bin (3, 4) content: 7.54694
+Sample ND_CC1pip bin (3, 4) error: 0.0195701
 Sample ND_CC1pip bin (3, 5) content: 0
 Sample ND_CC1pip bin (3, 5) error: 0
 Sample ND_CC1pip bin (3, 6) content: 0
 Sample ND_CC1pip bin (3, 6) error: 0
 Sample ND_CC1pip bin (3, 7) content: 0
 Sample ND_CC1pip bin (3, 7) error: 0
-Sample ND_CC1pip bin (4, 1) content: 375.837
-Sample ND_CC1pip bin (4, 1) error: 1.18768
-Sample ND_CC1pip bin (4, 2) content: 198.764
-Sample ND_CC1pip bin (4, 2) error: 0.611324
-Sample ND_CC1pip bin (4, 3) content: 30.3706
-Sample ND_CC1pip bin (4, 3) error: 0.0914103
-Sample ND_CC1pip bin (4, 4) content: 22.8318
-Sample ND_CC1pip bin (4, 4) error: 0.0735809
-Sample ND_CC1pip bin (4, 5) content: 3.80531
-Sample ND_CC1pip bin (4, 5) error: 0.0122635
-Sample ND_CC1pip bin (4, 6) content: 5.56435
-Sample ND_CC1pip bin (4, 6) error: 0.0171326
+Sample ND_CC1pip bin (4, 1) content: 375.777
+Sample ND_CC1pip bin (4, 1) error: 1.29056
+Sample ND_CC1pip bin (4, 2) content: 198.75
+Sample ND_CC1pip bin (4, 2) error: 0.649966
+Sample ND_CC1pip bin (4, 3) content: 30.3937
+Sample ND_CC1pip bin (4, 3) error: 0.0968872
+Sample ND_CC1pip bin (4, 4) content: 22.8468
+Sample ND_CC1pip bin (4, 4) error: 0.0786444
+Sample ND_CC1pip bin (4, 5) content: 3.8078
+Sample ND_CC1pip bin (4, 5) error: 0.0131074
+Sample ND_CC1pip bin (4, 6) content: 5.57438
+Sample ND_CC1pip bin (4, 6) error: 0.0160124
 Sample ND_CC1pip bin (4, 7) content: 0
 Sample ND_CC1pip bin (4, 7) error: 0
-Sample ND_CC1pip bin (5, 1) content: 251.16
-Sample ND_CC1pip bin (5, 1) error: 0.793004
-Sample ND_CC1pip bin (5, 2) content: 140.653
-Sample ND_CC1pip bin (5, 2) error: 0.439912
-Sample ND_CC1pip bin (5, 3) content: 47.3509
-Sample ND_CC1pip bin (5, 3) error: 0.134395
-Sample ND_CC1pip bin (5, 4) content: 20.2196
-Sample ND_CC1pip bin (5, 4) error: 0.0659688
-Sample ND_CC1pip bin (5, 5) content: 12.6808
-Sample ND_CC1pip bin (5, 5) error: 0.0513988
-Sample ND_CC1pip bin (5, 6) content: 7.61061
-Sample ND_CC1pip bin (5, 6) error: 0.024527
+Sample ND_CC1pip bin (5, 1) content: 251.191
+Sample ND_CC1pip bin (5, 1) error: 0.852005
+Sample ND_CC1pip bin (5, 2) content: 140.751
+Sample ND_CC1pip bin (5, 2) error: 0.468655
+Sample ND_CC1pip bin (5, 3) content: 47.3915
+Sample ND_CC1pip bin (5, 3) error: 0.140954
+Sample ND_CC1pip bin (5, 4) content: 20.2071
+Sample ND_CC1pip bin (5, 4) error: 0.0755521
+Sample ND_CC1pip bin (5, 5) content: 12.6602
+Sample ND_CC1pip bin (5, 5) error: 0.0625483
+Sample ND_CC1pip bin (5, 6) content: 7.61559
+Sample ND_CC1pip bin (5, 6) error: 0.0262148
 Sample ND_CC1pip bin (5, 7) content: 0
 Sample ND_CC1pip bin (5, 7) error: 0
-Sample ND_CC1pip bin (6, 1) content: 177.416
-Sample ND_CC1pip bin (6, 1) error: 0.549954
-Sample ND_CC1pip bin (6, 2) content: 106.942
-Sample ND_CC1pip bin (6, 2) error: 0.328734
-Sample ND_CC1pip bin (6, 3) content: 36.1504
-Sample ND_CC1pip bin (6, 3) error: 0.116503
-Sample ND_CC1pip bin (6, 4) content: 17.1239
-Sample ND_CC1pip bin (6, 4) error: 0.0551857
-Sample ND_CC1pip bin (6, 5) content: 19.0265
-Sample ND_CC1pip bin (6, 5) error: 0.0613175
-Sample ND_CC1pip bin (6, 6) content: 11.3441
-Sample ND_CC1pip bin (6, 6) error: 0.0308525
-Sample ND_CC1pip bin (6, 7) content: 3.80531
-Sample ND_CC1pip bin (6, 7) error: 0.0122635
-Sample ND_CC1pip bin (7, 1) content: 154.119
-Sample ND_CC1pip bin (7, 1) error: 0.221747
-Sample ND_CC1pip bin (7, 2) content: 106.419
-Sample ND_CC1pip bin (7, 2) error: 0.154135
-Sample ND_CC1pip bin (7, 3) content: 21.9577
-Sample ND_CC1pip bin (7, 3) error: 0.0327837
-Sample ND_CC1pip bin (7, 4) content: 21.956
-Sample ND_CC1pip bin (7, 4) error: 0.0318858
-Sample ND_CC1pip bin (7, 5) content: 13.1736
-Sample ND_CC1pip bin (7, 5) error: 0.0191315
-Sample ND_CC1pip bin (7, 6) content: 7.10032
-Sample ND_CC1pip bin (7, 6) error: 0.0097873
-Sample ND_CC1pip bin (7, 7) content: 15.3692
-Sample ND_CC1pip bin (7, 7) error: 0.02232
-Sample ND_CC1pip bin (8, 1) content: 110.693
-Sample ND_CC1pip bin (8, 1) error: 0.161146
-Sample ND_CC1pip bin (8, 2) content: 93.2457
-Sample ND_CC1pip bin (8, 2) error: 0.135073
-Sample ND_CC1pip bin (8, 3) content: 21.9577
-Sample ND_CC1pip bin (8, 3) error: 0.0327837
-Sample ND_CC1pip bin (8, 4) content: 17.5648
-Sample ND_CC1pip bin (8, 4) error: 0.0255086
-Sample ND_CC1pip bin (8, 5) content: 15.3692
-Sample ND_CC1pip bin (8, 5) error: 0.02232
-Sample ND_CC1pip bin (8, 6) content: 2.1956
-Sample ND_CC1pip bin (8, 6) error: 0.00318858
-Sample ND_CC1pip bin (8, 7) content: 11.4915
-Sample ND_CC1pip bin (8, 7) error: 0.0160495
-Sample ND_CC1pip bin (9, 1) content: 137.037
-Sample ND_CC1pip bin (9, 1) error: 0.196634
-Sample ND_CC1pip bin (9, 2) content: 63.6758
-Sample ND_CC1pip bin (9, 2) error: 0.0939392
-Sample ND_CC1pip bin (9, 3) content: 30.7401
-Sample ND_CC1pip bin (9, 3) error: 0.0453883
-Sample ND_CC1pip bin (9, 4) content: 16.3962
-Sample ND_CC1pip bin (9, 4) error: 0.0226817
-Sample ND_CC1pip bin (9, 5) content: 13.1736
-Sample ND_CC1pip bin (9, 5) error: 0.0191315
-Sample ND_CC1pip bin (9, 6) content: 6.58681
-Sample ND_CC1pip bin (9, 6) error: 0.00956573
-Sample ND_CC1pip bin (9, 7) content: 9.80943
-Sample ND_CC1pip bin (9, 7) error: 0.0134752
-Sample ND_CC1pip bin (10, 1) content: 98.6099
-Sample ND_CC1pip bin (10, 1) error: 0.141517
-Sample ND_CC1pip bin (10, 2) content: 52.6945
-Sample ND_CC1pip bin (10, 2) error: 0.0765258
-Sample ND_CC1pip bin (10, 3) content: 13.1736
-Sample ND_CC1pip bin (10, 3) error: 0.0191315
-Sample ND_CC1pip bin (10, 4) content: 18.0783
-Sample ND_CC1pip bin (10, 4) error: 0.0255496
-Sample ND_CC1pip bin (10, 5) content: 10.978
-Sample ND_CC1pip bin (10, 5) error: 0.0159429
-Sample ND_CC1pip bin (10, 6) content: 11.4915
-Sample ND_CC1pip bin (10, 6) error: 0.0160495
-Sample ND_CC1pip bin (10, 7) content: 15.3692
-Sample ND_CC1pip bin (10, 7) error: 0.02232
-Sample ND_CC1pip bin (11, 1) content: 107.187
-Sample ND_CC1pip bin (11, 1) error: 0.104614
-Sample ND_CC1pip bin (11, 2) content: 82.8214
-Sample ND_CC1pip bin (11, 2) error: 0.0913235
-Sample ND_CC1pip bin (11, 3) content: 28.3447
-Sample ND_CC1pip bin (11, 3) error: 0.0286867
-Sample ND_CC1pip bin (11, 4) content: 16.5344
-Sample ND_CC1pip bin (11, 4) error: 0.0167339
-Sample ND_CC1pip bin (11, 5) content: 14.429
-Sample ND_CC1pip bin (11, 5) error: 0.0287134
-Sample ND_CC1pip bin (11, 6) content: 9.44823
-Sample ND_CC1pip bin (11, 6) error: 0.00956223
-Sample ND_CC1pip bin (11, 7) content: 30.7067
-Sample ND_CC1pip bin (11, 7) error: 0.0310772
-Sample ND_CC1pip bin (12, 1) content: 68.0322
-Sample ND_CC1pip bin (12, 1) error: 0.0661571
-Sample ND_CC1pip bin (12, 2) content: 68.1358
-Sample ND_CC1pip bin (12, 2) error: 0.0674365
-Sample ND_CC1pip bin (12, 3) content: 32.9616
-Sample ND_CC1pip bin (12, 3) error: 0.0387834
-Sample ND_CC1pip bin (12, 4) content: 13.8085
-Sample ND_CC1pip bin (12, 4) error: 0.0128691
-Sample ND_CC1pip bin (12, 5) content: 7.3428
-Sample ND_CC1pip bin (12, 5) error: 0.0269899
-Sample ND_CC1pip bin (12, 6) content: 16.5344
-Sample ND_CC1pip bin (12, 6) error: 0.0167339
-Sample ND_CC1pip bin (12, 7) content: 37.7929
-Sample ND_CC1pip bin (12, 7) error: 0.0382489
-Sample ND_CC1pip bin (13, 1) content: 104.338
-Sample ND_CC1pip bin (13, 1) error: 0.121153
-Sample ND_CC1pip bin (13, 2) content: 44.8791
-Sample ND_CC1pip bin (13, 2) error: 0.0454206
-Sample ND_CC1pip bin (13, 3) content: 16.0634
-Sample ND_CC1pip bin (13, 3) error: 0.0297895
-Sample ND_CC1pip bin (13, 4) content: 14.1723
-Sample ND_CC1pip bin (13, 4) error: 0.0143433
-Sample ND_CC1pip bin (13, 5) content: 4.72411
-Sample ND_CC1pip bin (13, 5) error: 0.00478111
-Sample ND_CC1pip bin (13, 6) content: 9.44823
-Sample ND_CC1pip bin (13, 6) error: 0.00956223
-Sample ND_CC1pip bin (13, 7) content: 45.1357
-Sample ND_CC1pip bin (13, 7) error: 0.0492866
-Sample ND_CC1pip bin (14, 1) content: 84.3099
-Sample ND_CC1pip bin (14, 1) error: 0.0812789
-Sample ND_CC1pip bin (14, 2) content: 71.3749
-Sample ND_CC1pip bin (14, 2) error: 0.0831789
-Sample ND_CC1pip bin (14, 3) content: 19.1531
-Sample ND_CC1pip bin (14, 3) error: 0.0307509
-Sample ND_CC1pip bin (14, 4) content: 4.72411
-Sample ND_CC1pip bin (14, 4) error: 0.00478111
-Sample ND_CC1pip bin (14, 5) content: 7.08617
-Sample ND_CC1pip bin (14, 5) error: 0.00717167
-Sample ND_CC1pip bin (14, 6) content: 23.6206
-Sample ND_CC1pip bin (14, 6) error: 0.0239056
-Sample ND_CC1pip bin (14, 7) content: 35.6875
-Sample ND_CC1pip bin (14, 7) error: 0.0415895
-Sample ND_CC1pip bin (15, 1) content: 220.225
-Sample ND_CC1pip bin (15, 1) error: 0.168053
-Sample ND_CC1pip bin (15, 2) content: 126.914
-Sample ND_CC1pip bin (15, 2) error: 0.0682794
-Sample ND_CC1pip bin (15, 3) content: 36.2684
-Sample ND_CC1pip bin (15, 3) error: 0.0220811
-Sample ND_CC1pip bin (15, 4) content: 22.6997
-Sample ND_CC1pip bin (15, 4) error: 0.0212493
-Sample ND_CC1pip bin (15, 5) content: 20.8323
-Sample ND_CC1pip bin (15, 5) error: 0.0123025
-Sample ND_CC1pip bin (15, 6) content: 19.7865
-Sample ND_CC1pip bin (15, 6) error: 0.0107296
-Sample ND_CC1pip bin (15, 7) content: 98.4725
-Sample ND_CC1pip bin (15, 7) error: 0.0548334
+Sample ND_CC1pip bin (6, 1) content: 177.448
+Sample ND_CC1pip bin (6, 1) error: 0.591863
+Sample ND_CC1pip bin (6, 2) content: 106.833
+Sample ND_CC1pip bin (6, 2) error: 0.349195
+Sample ND_CC1pip bin (6, 3) content: 36.1741
+Sample ND_CC1pip bin (6, 3) error: 0.12452
+Sample ND_CC1pip bin (6, 4) content: 17.1351
+Sample ND_CC1pip bin (6, 4) error: 0.0589833
+Sample ND_CC1pip bin (6, 5) content: 19.039
+Sample ND_CC1pip bin (6, 5) error: 0.065537
+Sample ND_CC1pip bin (6, 6) content: 11.3547
+Sample ND_CC1pip bin (6, 6) error: 0.0320103
+Sample ND_CC1pip bin (6, 7) content: 3.8078
+Sample ND_CC1pip bin (6, 7) error: 0.0131074
+Sample ND_CC1pip bin (7, 1) content: 154.136
+Sample ND_CC1pip bin (7, 1) error: 0.247925
+Sample ND_CC1pip bin (7, 2) content: 106.454
+Sample ND_CC1pip bin (7, 2) error: 0.173225
+Sample ND_CC1pip bin (7, 3) content: 21.9695
+Sample ND_CC1pip bin (7, 3) error: 0.0399173
+Sample ND_CC1pip bin (7, 4) content: 21.9591
+Sample ND_CC1pip bin (7, 4) error: 0.0354384
+Sample ND_CC1pip bin (7, 5) content: 13.1755
+Sample ND_CC1pip bin (7, 5) error: 0.021263
+Sample ND_CC1pip bin (7, 6) content: 7.1025
+Sample ND_CC1pip bin (7, 6) error: 0.0106497
+Sample ND_CC1pip bin (7, 7) content: 15.3714
+Sample ND_CC1pip bin (7, 7) error: 0.0248069
+Sample ND_CC1pip bin (8, 1) content: 110.726
+Sample ND_CC1pip bin (8, 1) error: 0.190549
+Sample ND_CC1pip bin (8, 2) content: 93.2786
+Sample ND_CC1pip bin (8, 2) error: 0.152586
+Sample ND_CC1pip bin (8, 3) content: 21.9695
+Sample ND_CC1pip bin (8, 3) error: 0.0399173
+Sample ND_CC1pip bin (8, 4) content: 17.5673
+Sample ND_CC1pip bin (8, 4) error: 0.0283507
+Sample ND_CC1pip bin (8, 5) content: 15.3714
+Sample ND_CC1pip bin (8, 5) error: 0.0248069
+Sample ND_CC1pip bin (8, 6) content: 2.19591
+Sample ND_CC1pip bin (8, 6) error: 0.00354384
+Sample ND_CC1pip bin (8, 7) content: 11.4943
+Sample ND_CC1pip bin (8, 7) error: 0.0176354
+Sample ND_CC1pip bin (9, 1) content: 137.033
+Sample ND_CC1pip bin (9, 1) error: 0.217782
+Sample ND_CC1pip bin (9, 2) content: 63.7022
+Sample ND_CC1pip bin (9, 2) error: 0.108885
+Sample ND_CC1pip bin (9, 3) content: 30.7531
+Sample ND_CC1pip bin (9, 3) error: 0.0527879
+Sample ND_CC1pip bin (9, 4) content: 16.4009
+Sample ND_CC1pip bin (9, 4) error: 0.0247705
+Sample ND_CC1pip bin (9, 5) content: 13.1755
+Sample ND_CC1pip bin (9, 5) error: 0.021263
+Sample ND_CC1pip bin (9, 6) content: 6.58774
+Sample ND_CC1pip bin (9, 6) error: 0.0106315
+Sample ND_CC1pip bin (9, 7) content: 9.81318
+Sample ND_CC1pip bin (9, 7) error: 0.0144631
+Sample ND_CC1pip bin (10, 1) content: 98.6409
+Sample ND_CC1pip bin (10, 1) error: 0.159732
+Sample ND_CC1pip bin (10, 2) content: 52.7019
+Sample ND_CC1pip bin (10, 2) error: 0.0850521
+Sample ND_CC1pip bin (10, 3) content: 13.1755
+Sample ND_CC1pip bin (10, 3) error: 0.021263
+Sample ND_CC1pip bin (10, 4) content: 18.0821
+Sample ND_CC1pip bin (10, 4) error: 0.0282096
+Sample ND_CC1pip bin (10, 5) content: 10.9796
+Sample ND_CC1pip bin (10, 5) error: 0.0177192
+Sample ND_CC1pip bin (10, 6) content: 11.4943
+Sample ND_CC1pip bin (10, 6) error: 0.0176354
+Sample ND_CC1pip bin (10, 7) content: 15.3714
+Sample ND_CC1pip bin (10, 7) error: 0.0248069
+Sample ND_CC1pip bin (11, 1) content: 107.149
+Sample ND_CC1pip bin (11, 1) error: 0.10615
+Sample ND_CC1pip bin (11, 2) content: 82.7689
+Sample ND_CC1pip bin (11, 2) error: 0.102647
+Sample ND_CC1pip bin (11, 3) content: 28.3399
+Sample ND_CC1pip bin (11, 3) error: 0.0281533
+Sample ND_CC1pip bin (11, 4) content: 16.5316
+Sample ND_CC1pip bin (11, 4) error: 0.0164228
+Sample ND_CC1pip bin (11, 5) content: 14.4061
+Sample ND_CC1pip bin (11, 5) error: 0.0372276
+Sample ND_CC1pip bin (11, 6) content: 9.44664
+Sample ND_CC1pip bin (11, 6) error: 0.00938444
+Sample ND_CC1pip bin (11, 7) content: 30.7016
+Sample ND_CC1pip bin (11, 7) error: 0.0304994
+Sample ND_CC1pip bin (12, 1) content: 68.001
+Sample ND_CC1pip bin (12, 1) error: 0.0698711
+Sample ND_CC1pip bin (12, 2) content: 68.1266
+Sample ND_CC1pip bin (12, 2) error: 0.0664337
+Sample ND_CC1pip bin (12, 3) content: 32.9379
+Sample ND_CC1pip bin (12, 3) error: 0.0452801
+Sample ND_CC1pip bin (12, 4) content: 13.8084
+Sample ND_CC1pip bin (12, 4) error: 0.0128416
+Sample ND_CC1pip bin (12, 5) content: 7.32113
+Sample ND_CC1pip bin (12, 5) error: 0.0358156
+Sample ND_CC1pip bin (12, 6) content: 16.5316
+Sample ND_CC1pip bin (12, 6) error: 0.0164228
+Sample ND_CC1pip bin (12, 7) content: 37.7866
+Sample ND_CC1pip bin (12, 7) error: 0.0375378
+Sample ND_CC1pip bin (13, 1) content: 104.26
+Sample ND_CC1pip bin (13, 1) error: 0.140464
+Sample ND_CC1pip bin (13, 2) content: 44.8716
+Sample ND_CC1pip bin (13, 2) error: 0.0445761
+Sample ND_CC1pip bin (13, 3) content: 16.0447
+Sample ND_CC1pip bin (13, 3) error: 0.0373088
+Sample ND_CC1pip bin (13, 4) content: 14.17
+Sample ND_CC1pip bin (13, 4) error: 0.0140767
+Sample ND_CC1pip bin (13, 5) content: 4.72332
+Sample ND_CC1pip bin (13, 5) error: 0.00469222
+Sample ND_CC1pip bin (13, 6) content: 9.44664
+Sample ND_CC1pip bin (13, 6) error: 0.00938444
+Sample ND_CC1pip bin (13, 7) content: 45.1077
+Sample ND_CC1pip bin (13, 7) error: 0.0545683
+Sample ND_CC1pip bin (14, 1) content: 84.2965
+Sample ND_CC1pip bin (14, 1) error: 0.0797677
+Sample ND_CC1pip bin (14, 2) content: 71.3221
+Sample ND_CC1pip bin (14, 2) error: 0.0957028
+Sample ND_CC1pip bin (14, 3) content: 19.1294
+Sample ND_CC1pip bin (14, 3) error: 0.0388547
+Sample ND_CC1pip bin (14, 4) content: 4.72332
+Sample ND_CC1pip bin (14, 4) error: 0.00469222
+Sample ND_CC1pip bin (14, 5) content: 7.08498
+Sample ND_CC1pip bin (14, 5) error: 0.00703833
+Sample ND_CC1pip bin (14, 6) content: 23.6166
+Sample ND_CC1pip bin (14, 6) error: 0.0234611
+Sample ND_CC1pip bin (14, 7) content: 35.6611
+Sample ND_CC1pip bin (14, 7) error: 0.0478514
+Sample ND_CC1pip bin (15, 1) content: 220.258
+Sample ND_CC1pip bin (15, 1) error: 0.19397
+Sample ND_CC1pip bin (15, 2) content: 126.9
+Sample ND_CC1pip bin (15, 2) error: 0.0712653
+Sample ND_CC1pip bin (15, 3) content: 36.2738
+Sample ND_CC1pip bin (15, 3) error: 0.0251319
+Sample ND_CC1pip bin (15, 4) content: 22.706
+Sample ND_CC1pip bin (15, 4) error: 0.0222252
+Sample ND_CC1pip bin (15, 5) content: 20.8348
+Sample ND_CC1pip bin (15, 5) error: 0.0137944
+Sample ND_CC1pip bin (15, 6) content: 19.7844
+Sample ND_CC1pip bin (15, 6) error: 0.0111988
+Sample ND_CC1pip bin (15, 7) content: 98.4758
+Sample ND_CC1pip bin (15, 7) error: 0.0592942
 Sample ND_CC1pip bin (16, 1) content: 60
 Sample ND_CC1pip bin (16, 1) error: 0
 Sample ND_CC1pip bin (16, 2) content: 25
@@ -581,9 +581,9 @@ Sample ND_CC1pip bin (17, 6) content: 11
 Sample ND_CC1pip bin (17, 6) error: 0
 Sample ND_CC1pip bin (17, 7) content: 53
 Sample ND_CC1pip bin (17, 7) error: 0
-Integral for sample ND_CCPi0 integral: 2393.95
-Sample ND_CCPi0 bin (1, 1) content: 6.66652
-Sample ND_CCPi0 bin (1, 1) error: 0.0902581
+Integral for sample ND_CCPi0 integral: 2395.12
+Sample ND_CCPi0 bin (1, 1) content: 6.68359
+Sample ND_CCPi0 bin (1, 1) error: 0.0907222
 Sample ND_CCPi0 bin (1, 2) content: 0
 Sample ND_CCPi0 bin (1, 2) error: 0
 Sample ND_CCPi0 bin (1, 3) content: 0
@@ -596,12 +596,12 @@ Sample ND_CCPi0 bin (1, 6) content: 0
 Sample ND_CCPi0 bin (1, 6) error: 0
 Sample ND_CCPi0 bin (1, 7) content: 0
 Sample ND_CCPi0 bin (1, 7) error: 0
-Sample ND_CCPi0 bin (2, 1) content: 354.273
-Sample ND_CCPi0 bin (2, 1) error: 4.50891
-Sample ND_CCPi0 bin (2, 2) content: 38.1908
-Sample ND_CCPi0 bin (2, 2) error: 0.377464
-Sample ND_CCPi0 bin (2, 3) content: 1.13238
-Sample ND_CCPi0 bin (2, 3) error: 0.00826463
+Sample ND_CCPi0 bin (2, 1) content: 355.359
+Sample ND_CCPi0 bin (2, 1) error: 4.53248
+Sample ND_CCPi0 bin (2, 2) content: 38.3018
+Sample ND_CCPi0 bin (2, 2) error: 0.372493
+Sample ND_CCPi0 bin (2, 3) content: 1.13675
+Sample ND_CCPi0 bin (2, 3) error: 0.0080455
 Sample ND_CCPi0 bin (2, 4) content: 0
 Sample ND_CCPi0 bin (2, 4) error: 0
 Sample ND_CCPi0 bin (2, 5) content: 0
@@ -610,12 +610,12 @@ Sample ND_CCPi0 bin (2, 6) content: 0
 Sample ND_CCPi0 bin (2, 6) error: 0
 Sample ND_CCPi0 bin (2, 7) content: 0
 Sample ND_CCPi0 bin (2, 7) error: 0
-Sample ND_CCPi0 bin (3, 1) content: 226.163
-Sample ND_CCPi0 bin (3, 1) error: 0.741826
-Sample ND_CCPi0 bin (3, 2) content: 85.404
-Sample ND_CCPi0 bin (3, 2) error: 0.255917
-Sample ND_CCPi0 bin (3, 3) content: 5.70796
-Sample ND_CCPi0 bin (3, 3) error: 0.0183952
+Sample ND_CCPi0 bin (3, 1) content: 226.012
+Sample ND_CCPi0 bin (3, 1) error: 0.817063
+Sample ND_CCPi0 bin (3, 2) content: 85.4694
+Sample ND_CCPi0 bin (3, 2) error: 0.27107
+Sample ND_CCPi0 bin (3, 3) content: 5.71169
+Sample ND_CCPi0 bin (3, 3) error: 0.0196611
 Sample ND_CCPi0 bin (3, 4) content: 0
 Sample ND_CCPi0 bin (3, 4) error: 0
 Sample ND_CCPi0 bin (3, 5) content: 0
@@ -624,174 +624,174 @@ Sample ND_CCPi0 bin (3, 6) content: 0
 Sample ND_CCPi0 bin (3, 6) error: 0
 Sample ND_CCPi0 bin (3, 7) content: 0
 Sample ND_CCPi0 bin (3, 7) error: 0
-Sample ND_CCPi0 bin (4, 1) content: 96.3975
-Sample ND_CCPi0 bin (4, 1) error: 0.308489
-Sample ND_CCPi0 bin (4, 2) content: 78.564
-Sample ND_CCPi0 bin (4, 2) error: 0.248866
-Sample ND_CCPi0 bin (4, 3) content: 11.4159
-Sample ND_CCPi0 bin (4, 3) error: 0.0367905
-Sample ND_CCPi0 bin (4, 4) content: 3.80531
-Sample ND_CCPi0 bin (4, 4) error: 0.0122635
-Sample ND_CCPi0 bin (4, 5) content: 5.56435
-Sample ND_CCPi0 bin (4, 5) error: 0.0171326
+Sample ND_CCPi0 bin (4, 1) content: 96.4317
+Sample ND_CCPi0 bin (4, 1) error: 0.332071
+Sample ND_CCPi0 bin (4, 2) content: 78.5608
+Sample ND_CCPi0 bin (4, 2) error: 0.273041
+Sample ND_CCPi0 bin (4, 3) content: 11.4234
+Sample ND_CCPi0 bin (4, 3) error: 0.0393222
+Sample ND_CCPi0 bin (4, 4) content: 3.8078
+Sample ND_CCPi0 bin (4, 4) error: 0.0131074
+Sample ND_CCPi0 bin (4, 5) content: 5.57438
+Sample ND_CCPi0 bin (4, 5) error: 0.0160124
 Sample ND_CCPi0 bin (4, 6) content: 0
 Sample ND_CCPi0 bin (4, 6) error: 0
-Sample ND_CCPi0 bin (4, 7) content: 1.83085
-Sample ND_CCPi0 bin (4, 7) error: 0.00835264
-Sample ND_CCPi0 bin (5, 1) content: 100.086
-Sample ND_CCPi0 bin (5, 1) error: 0.326645
-Sample ND_CCPi0 bin (5, 2) content: 43.0514
-Sample ND_CCPi0 bin (5, 2) error: 0.133102
-Sample ND_CCPi0 bin (5, 3) content: 13.9456
-Sample ND_CCPi0 bin (5, 3) error: 0.0808643
-Sample ND_CCPi0 bin (5, 4) content: 11.3441
-Sample ND_CCPi0 bin (5, 4) error: 0.0308525
-Sample ND_CCPi0 bin (5, 5) content: 3.7335
-Sample ND_CCPi0 bin (5, 5) error: 0.00978752
+Sample ND_CCPi0 bin (4, 7) content: 1.83524
+Sample ND_CCPi0 bin (4, 7) error: 0.0080466
+Sample ND_CCPi0 bin (5, 1) content: 100.053
+Sample ND_CCPi0 bin (5, 1) error: 0.359219
+Sample ND_CCPi0 bin (5, 2) content: 43.0539
+Sample ND_CCPi0 bin (5, 2) error: 0.145056
+Sample ND_CCPi0 bin (5, 3) content: 13.897
+Sample ND_CCPi0 bin (5, 3) error: 0.104243
+Sample ND_CCPi0 bin (5, 4) content: 11.3547
+Sample ND_CCPi0 bin (5, 4) error: 0.0320103
+Sample ND_CCPi0 bin (5, 5) content: 3.73914
+Sample ND_CCPi0 bin (5, 5) error: 0.00921553
 Sample ND_CCPi0 bin (5, 6) content: 0
 Sample ND_CCPi0 bin (5, 6) error: 0
 Sample ND_CCPi0 bin (5, 7) content: 0
 Sample ND_CCPi0 bin (5, 7) error: 0
-Sample ND_CCPi0 bin (6, 1) content: 51.9987
-Sample ND_CCPi0 bin (6, 1) error: 0.174626
-Sample ND_CCPi0 bin (6, 2) content: 36.1504
-Sample ND_CCPi0 bin (6, 2) error: 0.116503
-Sample ND_CCPi0 bin (6, 3) content: 19.0265
-Sample ND_CCPi0 bin (6, 3) error: 0.0613175
-Sample ND_CCPi0 bin (6, 4) content: 5.70796
-Sample ND_CCPi0 bin (6, 4) error: 0.0183952
-Sample ND_CCPi0 bin (6, 5) content: 3.7335
-Sample ND_CCPi0 bin (6, 5) error: 0.00978752
+Sample ND_CCPi0 bin (6, 1) content: 51.9749
+Sample ND_CCPi0 bin (6, 1) error: 0.197066
+Sample ND_CCPi0 bin (6, 2) content: 36.1741
+Sample ND_CCPi0 bin (6, 2) error: 0.12452
+Sample ND_CCPi0 bin (6, 3) content: 19.039
+Sample ND_CCPi0 bin (6, 3) error: 0.065537
+Sample ND_CCPi0 bin (6, 4) content: 5.71169
+Sample ND_CCPi0 bin (6, 4) error: 0.0196611
+Sample ND_CCPi0 bin (6, 5) content: 3.73914
+Sample ND_CCPi0 bin (6, 5) error: 0.00921553
 Sample ND_CCPi0 bin (6, 6) content: 0
 Sample ND_CCPi0 bin (6, 6) error: 0
-Sample ND_CCPi0 bin (6, 7) content: 5.07016
-Sample ND_CCPi0 bin (6, 7) error: 0.0380717
-Sample ND_CCPi0 bin (7, 1) content: 43.9204
-Sample ND_CCPi0 bin (7, 1) error: 0.0719033
-Sample ND_CCPi0 bin (7, 2) content: 42.23
-Sample ND_CCPi0 bin (7, 2) error: 0.0605603
-Sample ND_CCPi0 bin (7, 3) content: 7.10032
-Sample ND_CCPi0 bin (7, 3) error: 0.0097873
-Sample ND_CCPi0 bin (7, 4) content: 13.6871
-Sample ND_CCPi0 bin (7, 4) error: 0.0192089
-Sample ND_CCPi0 bin (7, 5) content: 2.1956
-Sample ND_CCPi0 bin (7, 5) error: 0.00318858
-Sample ND_CCPi0 bin (7, 6) content: 2.1956
-Sample ND_CCPi0 bin (7, 6) error: 0.00318858
-Sample ND_CCPi0 bin (7, 7) content: 7.10032
-Sample ND_CCPi0 bin (7, 7) error: 0.0097873
-Sample ND_CCPi0 bin (8, 1) content: 35.133
-Sample ND_CCPi0 bin (8, 1) error: 0.0530703
-Sample ND_CCPi0 bin (8, 2) content: 28.5462
-Sample ND_CCPi0 bin (8, 2) error: 0.0437948
-Sample ND_CCPi0 bin (8, 3) content: 7.10199
-Sample ND_CCPi0 bin (8, 3) error: 0.011624
-Sample ND_CCPi0 bin (8, 4) content: 8.78241
-Sample ND_CCPi0 bin (8, 4) error: 0.0127543
-Sample ND_CCPi0 bin (8, 5) content: 4.39121
-Sample ND_CCPi0 bin (8, 5) error: 0.00637715
-Sample ND_CCPi0 bin (8, 6) content: 2.1956
-Sample ND_CCPi0 bin (8, 6) error: 0.00318858
-Sample ND_CCPi0 bin (8, 7) content: 4.39121
-Sample ND_CCPi0 bin (8, 7) error: 0.00637715
-Sample ND_CCPi0 bin (9, 1) content: 48.3049
-Sample ND_CCPi0 bin (9, 1) error: 0.0707587
-Sample ND_CCPi0 bin (9, 2) content: 26.3472
-Sample ND_CCPi0 bin (9, 2) error: 0.0382629
-Sample ND_CCPi0 bin (9, 3) content: 6.58681
-Sample ND_CCPi0 bin (9, 3) error: 0.00956573
-Sample ND_CCPi0 bin (9, 4) content: 8.78241
-Sample ND_CCPi0 bin (9, 4) error: 0.0127543
-Sample ND_CCPi0 bin (9, 5) content: 4.90471
-Sample ND_CCPi0 bin (9, 5) error: 0.00673761
-Sample ND_CCPi0 bin (9, 6) content: 2.1956
-Sample ND_CCPi0 bin (9, 6) error: 0.00318858
-Sample ND_CCPi0 bin (9, 7) content: 4.39288
-Sample ND_CCPi0 bin (9, 7) error: 0.00895279
-Sample ND_CCPi0 bin (10, 1) content: 39.5225
-Sample ND_CCPi0 bin (10, 1) error: 0.0580583
-Sample ND_CCPi0 bin (10, 2) content: 24.6668
-Sample ND_CCPi0 bin (10, 2) error: 0.0359012
-Sample ND_CCPi0 bin (10, 3) content: 2.1956
-Sample ND_CCPi0 bin (10, 3) error: 0.00318858
-Sample ND_CCPi0 bin (10, 4) content: 2.1956
-Sample ND_CCPi0 bin (10, 4) error: 0.00318858
-Sample ND_CCPi0 bin (10, 5) content: 8.78241
-Sample ND_CCPi0 bin (10, 5) error: 0.0127543
-Sample ND_CCPi0 bin (10, 6) content: 2.1956
-Sample ND_CCPi0 bin (10, 6) error: 0.00318858
-Sample ND_CCPi0 bin (10, 7) content: 6.58681
-Sample ND_CCPi0 bin (10, 7) error: 0.00956573
-Sample ND_CCPi0 bin (11, 1) content: 25.9826
-Sample ND_CCPi0 bin (11, 1) error: 0.0262961
-Sample ND_CCPi0 bin (11, 2) content: 19.1531
-Sample ND_CCPi0 bin (11, 2) error: 0.0307509
-Sample ND_CCPi0 bin (11, 3) content: 11.8103
-Sample ND_CCPi0 bin (11, 3) error: 0.0119528
-Sample ND_CCPi0 bin (11, 4) content: 14.1723
-Sample ND_CCPi0 bin (11, 4) error: 0.0143433
-Sample ND_CCPi0 bin (11, 5) content: 4.72411
-Sample ND_CCPi0 bin (11, 5) error: 0.00478111
-Sample ND_CCPi0 bin (11, 6) content: 2.36206
-Sample ND_CCPi0 bin (11, 6) error: 0.00239056
-Sample ND_CCPi0 bin (11, 7) content: 11.4465
-Sample ND_CCPi0 bin (11, 7) error: 0.0105945
-Sample ND_CCPi0 bin (12, 1) content: 28.3447
-Sample ND_CCPi0 bin (12, 1) error: 0.0286867
-Sample ND_CCPi0 bin (12, 2) content: 11.8103
-Sample ND_CCPi0 bin (12, 2) error: 0.0119528
-Sample ND_CCPi0 bin (12, 3) content: 9.44823
-Sample ND_CCPi0 bin (12, 3) error: 0.00956223
-Sample ND_CCPi0 bin (12, 4) content: 7.08617
-Sample ND_CCPi0 bin (12, 4) error: 0.00717167
-Sample ND_CCPi0 bin (12, 5) content: 4.72411
-Sample ND_CCPi0 bin (12, 5) error: 0.00478111
-Sample ND_CCPi0 bin (12, 6) content: 14.1723
-Sample ND_CCPi0 bin (12, 6) error: 0.0143433
-Sample ND_CCPi0 bin (12, 7) content: 18.8965
-Sample ND_CCPi0 bin (12, 7) error: 0.0191245
-Sample ND_CCPi0 bin (13, 1) content: 37.7929
-Sample ND_CCPi0 bin (13, 1) error: 0.0382489
-Sample ND_CCPi0 bin (13, 2) content: 30.5995
-Sample ND_CCPi0 bin (13, 2) error: 0.0371319
-Sample ND_CCPi0 bin (13, 3) content: 4.72411
-Sample ND_CCPi0 bin (13, 3) error: 0.00478111
-Sample ND_CCPi0 bin (13, 4) content: 9.44823
-Sample ND_CCPi0 bin (13, 4) error: 0.00956223
-Sample ND_CCPi0 bin (13, 5) content: 9.96148
-Sample ND_CCPi0 bin (13, 5) error: 0.0536399
-Sample ND_CCPi0 bin (13, 6) content: 2.36206
-Sample ND_CCPi0 bin (13, 6) error: 0.00239056
-Sample ND_CCPi0 bin (13, 7) content: 18.5326
-Sample ND_CCPi0 bin (13, 7) error: 0.0175113
-Sample ND_CCPi0 bin (14, 1) content: 18.8965
-Sample ND_CCPi0 bin (14, 1) error: 0.0191245
-Sample ND_CCPi0 bin (14, 2) content: 23.6206
-Sample ND_CCPi0 bin (14, 2) error: 0.0239056
-Sample ND_CCPi0 bin (14, 3) content: 7.08617
-Sample ND_CCPi0 bin (14, 3) error: 0.00717167
-Sample ND_CCPi0 bin (14, 4) content: 7.08617
-Sample ND_CCPi0 bin (14, 4) error: 0.00717167
-Sample ND_CCPi0 bin (14, 5) content: 2.36206
-Sample ND_CCPi0 bin (14, 5) error: 0.00239056
-Sample ND_CCPi0 bin (14, 6) content: 7.08617
-Sample ND_CCPi0 bin (14, 6) error: 0.00717167
-Sample ND_CCPi0 bin (14, 7) content: 16.5344
-Sample ND_CCPi0 bin (14, 7) error: 0.0167339
-Sample ND_CCPi0 bin (15, 1) content: 44.2164
-Sample ND_CCPi0 bin (15, 1) error: 0.0242075
-Sample ND_CCPi0 bin (15, 2) content: 47.3539
-Sample ND_CCPi0 bin (15, 2) error: 0.0334207
-Sample ND_CCPi0 bin (15, 3) content: 17.9877
-Sample ND_CCPi0 bin (15, 3) error: 0.00975421
-Sample ND_CCPi0 bin (15, 4) content: 19.0336
-Sample ND_CCPi0 bin (15, 4) error: 0.0114559
-Sample ND_CCPi0 bin (15, 5) content: 14.3902
-Sample ND_CCPi0 bin (15, 5) error: 0.00780337
-Sample ND_CCPi0 bin (15, 6) content: 12.5914
-Sample ND_CCPi0 bin (15, 6) error: 0.00682794
-Sample ND_CCPi0 bin (15, 7) content: 66.5547
-Sample ND_CCPi0 bin (15, 7) error: 0.0360906
+Sample ND_CCPi0 bin (6, 7) content: 5.04458
+Sample ND_CCPi0 bin (6, 7) error: 0.0498987
+Sample ND_CCPi0 bin (7, 1) content: 43.97
+Sample ND_CCPi0 bin (7, 1) error: 0.118022
+Sample ND_CCPi0 bin (7, 2) content: 42.2371
+Sample ND_CCPi0 bin (7, 2) error: 0.0671367
+Sample ND_CCPi0 bin (7, 3) content: 7.1025
+Sample ND_CCPi0 bin (7, 3) error: 0.0106497
+Sample ND_CCPi0 bin (7, 4) content: 13.6902
+Sample ND_CCPi0 bin (7, 4) error: 0.0211538
+Sample ND_CCPi0 bin (7, 5) content: 2.19591
+Sample ND_CCPi0 bin (7, 5) error: 0.00354384
+Sample ND_CCPi0 bin (7, 6) content: 2.19591
+Sample ND_CCPi0 bin (7, 6) error: 0.00354384
+Sample ND_CCPi0 bin (7, 7) content: 7.1025
+Sample ND_CCPi0 bin (7, 7) error: 0.0106497
+Sample ND_CCPi0 bin (8, 1) content: 35.1553
+Sample ND_CCPi0 bin (8, 1) error: 0.06775
+Sample ND_CCPi0 bin (8, 2) content: 28.5676
+Sample ND_CCPi0 bin (8, 2) error: 0.0592972
+Sample ND_CCPi0 bin (8, 3) content: 7.11286
+Sample ND_CCPi0 bin (8, 3) error: 0.021943
+Sample ND_CCPi0 bin (8, 4) content: 8.78365
+Sample ND_CCPi0 bin (8, 4) error: 0.0141754
+Sample ND_CCPi0 bin (8, 5) content: 4.39183
+Sample ND_CCPi0 bin (8, 5) error: 0.00708768
+Sample ND_CCPi0 bin (8, 6) content: 2.19591
+Sample ND_CCPi0 bin (8, 6) error: 0.00354384
+Sample ND_CCPi0 bin (8, 7) content: 4.39183
+Sample ND_CCPi0 bin (8, 7) error: 0.00708768
+Sample ND_CCPi0 bin (9, 1) content: 48.3204
+Sample ND_CCPi0 bin (9, 1) error: 0.0798658
+Sample ND_CCPi0 bin (9, 2) content: 26.351
+Sample ND_CCPi0 bin (9, 2) error: 0.0425261
+Sample ND_CCPi0 bin (9, 3) content: 6.58774
+Sample ND_CCPi0 bin (9, 3) error: 0.0106315
+Sample ND_CCPi0 bin (9, 4) content: 8.78365
+Sample ND_CCPi0 bin (9, 4) error: 0.0141754
+Sample ND_CCPi0 bin (9, 5) content: 4.90659
+Sample ND_CCPi0 bin (9, 5) error: 0.00723154
+Sample ND_CCPi0 bin (9, 6) content: 2.19591
+Sample ND_CCPi0 bin (9, 6) error: 0.00354384
+Sample ND_CCPi0 bin (9, 7) content: 4.40218
+Sample ND_CCPi0 bin (9, 7) error: 0.020315
+Sample ND_CCPi0 bin (10, 1) content: 39.5368
+Sample ND_CCPi0 bin (10, 1) error: 0.0661937
+Sample ND_CCPi0 bin (10, 2) content: 24.6802
+Sample ND_CCPi0 bin (10, 2) error: 0.0430086
+Sample ND_CCPi0 bin (10, 3) content: 2.19591
+Sample ND_CCPi0 bin (10, 3) error: 0.00354384
+Sample ND_CCPi0 bin (10, 4) content: 2.19591
+Sample ND_CCPi0 bin (10, 4) error: 0.00354384
+Sample ND_CCPi0 bin (10, 5) content: 8.78365
+Sample ND_CCPi0 bin (10, 5) error: 0.0141754
+Sample ND_CCPi0 bin (10, 6) content: 2.19591
+Sample ND_CCPi0 bin (10, 6) error: 0.00354384
+Sample ND_CCPi0 bin (10, 7) content: 6.58774
+Sample ND_CCPi0 bin (10, 7) error: 0.0106315
+Sample ND_CCPi0 bin (11, 1) content: 25.9783
+Sample ND_CCPi0 bin (11, 1) error: 0.0258072
+Sample ND_CCPi0 bin (11, 2) content: 19.1294
+Sample ND_CCPi0 bin (11, 2) error: 0.0388547
+Sample ND_CCPi0 bin (11, 3) content: 11.8083
+Sample ND_CCPi0 bin (11, 3) error: 0.0117305
+Sample ND_CCPi0 bin (11, 4) content: 14.17
+Sample ND_CCPi0 bin (11, 4) error: 0.0140767
+Sample ND_CCPi0 bin (11, 5) content: 4.72332
+Sample ND_CCPi0 bin (11, 5) error: 0.00469222
+Sample ND_CCPi0 bin (11, 6) content: 2.36166
+Sample ND_CCPi0 bin (11, 6) error: 0.00234611
+Sample ND_CCPi0 bin (11, 7) content: 11.4468
+Sample ND_CCPi0 bin (11, 7) error: 0.0105967
+Sample ND_CCPi0 bin (12, 1) content: 28.3399
+Sample ND_CCPi0 bin (12, 1) error: 0.0281533
+Sample ND_CCPi0 bin (12, 2) content: 11.8083
+Sample ND_CCPi0 bin (12, 2) error: 0.0117305
+Sample ND_CCPi0 bin (12, 3) content: 9.44664
+Sample ND_CCPi0 bin (12, 3) error: 0.00938444
+Sample ND_CCPi0 bin (12, 4) content: 7.08498
+Sample ND_CCPi0 bin (12, 4) error: 0.00703833
+Sample ND_CCPi0 bin (12, 5) content: 4.72332
+Sample ND_CCPi0 bin (12, 5) error: 0.00469222
+Sample ND_CCPi0 bin (12, 6) content: 14.17
+Sample ND_CCPi0 bin (12, 6) error: 0.0140767
+Sample ND_CCPi0 bin (12, 7) content: 18.8933
+Sample ND_CCPi0 bin (12, 7) error: 0.0187689
+Sample ND_CCPi0 bin (13, 1) content: 37.7866
+Sample ND_CCPi0 bin (13, 1) error: 0.0375378
+Sample ND_CCPi0 bin (13, 2) content: 30.5762
+Sample ND_CCPi0 bin (13, 2) error: 0.0438721
+Sample ND_CCPi0 bin (13, 3) content: 4.72332
+Sample ND_CCPi0 bin (13, 3) error: 0.00469222
+Sample ND_CCPi0 bin (13, 4) content: 9.44664
+Sample ND_CCPi0 bin (13, 4) error: 0.00938444
+Sample ND_CCPi0 bin (13, 5) content: 9.91894
+Sample ND_CCPi0 bin (13, 5) error: 0.0712851
+Sample ND_CCPi0 bin (13, 6) content: 2.36166
+Sample ND_CCPi0 bin (13, 6) error: 0.00234611
+Sample ND_CCPi0 bin (13, 7) content: 18.5318
+Sample ND_CCPi0 bin (13, 7) error: 0.0174117
+Sample ND_CCPi0 bin (14, 1) content: 18.8933
+Sample ND_CCPi0 bin (14, 1) error: 0.0187689
+Sample ND_CCPi0 bin (14, 2) content: 23.6166
+Sample ND_CCPi0 bin (14, 2) error: 0.0234611
+Sample ND_CCPi0 bin (14, 3) content: 7.08498
+Sample ND_CCPi0 bin (14, 3) error: 0.00703833
+Sample ND_CCPi0 bin (14, 4) content: 7.08498
+Sample ND_CCPi0 bin (14, 4) error: 0.00703833
+Sample ND_CCPi0 bin (14, 5) content: 2.36166
+Sample ND_CCPi0 bin (14, 5) error: 0.00234611
+Sample ND_CCPi0 bin (14, 6) content: 7.08498
+Sample ND_CCPi0 bin (14, 6) error: 0.00703833
+Sample ND_CCPi0 bin (14, 7) content: 16.5316
+Sample ND_CCPi0 bin (14, 7) error: 0.0164228
+Sample ND_CCPi0 bin (15, 1) content: 44.2163
+Sample ND_CCPi0 bin (15, 1) error: 0.0258132
+Sample ND_CCPi0 bin (15, 2) content: 47.3675
+Sample ND_CCPi0 bin (15, 2) error: 0.0400956
+Sample ND_CCPi0 bin (15, 3) content: 17.9858
+Sample ND_CCPi0 bin (15, 3) error: 0.0101808
+Sample ND_CCPi0 bin (15, 4) content: 19.0362
+Sample ND_CCPi0 bin (15, 4) error: 0.0129684
+Sample ND_CCPi0 bin (15, 5) content: 14.3886
+Sample ND_CCPi0 bin (15, 5) error: 0.00814461
+Sample ND_CCPi0 bin (15, 6) content: 12.59
+Sample ND_CCPi0 bin (15, 6) error: 0.00712653
+Sample ND_CCPi0 bin (15, 7) content: 66.5474
+Sample ND_CCPi0 bin (15, 7) error: 0.0376688
 Sample ND_CCPi0 bin (16, 1) content: 24
 Sample ND_CCPi0 bin (16, 1) error: 0
 Sample ND_CCPi0 bin (16, 2) content: 18

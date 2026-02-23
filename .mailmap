@@ -1,7 +1,21 @@
 # Type to see number of commits per user: git shortlog -n -s
+# KS: Type to see number of commits per user with email: git shortlog -n -s --email
 
 # Kamil Skwarczynski
 Kamil Skwarczynski <skwarczynskikamil@gmail.com> Kamil <45295406+KSkwarczynski@users.noreply.github.com>
 
 # Ewan Miller
 Ewan Miller <ewan.miller@kcl.ac.uk> Ewan <ewan.miller@kcl.ac.uk>
+
+# Daniel Barrow
+Daniel Barrow <daniel.barrow@physics.ox.ac.uk> dbarrow257 <31003009+dbarrow257@users.noreply.github.com>
+
+# Tomas Nosek
+Tomas Nosek <tomas.nosek@matfyz.cuni.cz> TN <tomas.nosek@matfyz.cuni.cz>
+Tomas Nosek <tomas.nosek@matfyz.cuni.cz> nosektom <94356389+nosektom@users.noreply.github.com>
+
+# David Riley
+David Riley <davidriley12345@gmail.com> driley <davidriley12345@gmail.com>
+
+# Michael Reh
+Michael Reh <michael.reh@colorado.edu> mreh528 <michael.reh@colorado.edu>
