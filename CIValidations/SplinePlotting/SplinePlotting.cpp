@@ -33,16 +33,28 @@ TSpline3* MakeSpline(double x[], double y[], int N,
 void MakeSplinePlot(double x[], double y[], int N, TCanvas* c) {
   constexpr int nInterpolations = 5;
   constexpr SplineInterpolation interpolationTypes[nInterpolations] = {kTSpline3, kMonotonic, kLinear, kAkima, kKochanekBartels};
-  constexpr Color_t colors[nInterpolations] = {kBlue, kRed, kGreen, kViolet, kCyan};
+  constexpr Color_t colors[nInterpolations] = {kBlue, kRed, kGreen, kViolet, kAzure};
   constexpr Style_t lineStyles[nInterpolations] = {kSolid, kDotted, kDashed, kDashDotted, kDotted};
 
   std::vector<TSpline3*> splines;
 
   // Create and draw TGraph to show original points (knots)
-  TGraph* knotsGraph = new TGraph(N, x, y);
+  auto knotsGraph = std::make_unique<TGraph>(N, x, y);
   knotsGraph->SetMarkerStyle(kFullCircle);
   knotsGraph->SetMarkerSize(1.2);
   knotsGraph->SetMarkerColor(kBlack);
+  // Set titles for the axes
+  knotsGraph->GetXaxis()->SetTitle("Value");
+  knotsGraph->GetYaxis()->SetTitle("Weight");
+
+  // Find the minimum and maximum y-values in the data
+  double y_min = *std::min_element(y, y + N);
+  double y_max = *std::max_element(y, y + N);
+
+  // Add 10% padding to the y-axis range
+  double padding = 0.20 * (y_max - y_min);
+  knotsGraph->GetYaxis()->SetRangeUser(y_min - padding, y_max + padding);
+
   knotsGraph->Draw("AP");  // "A" creates new axis, "P" draws points
 
   // Draw each spline
@@ -57,8 +69,8 @@ void MakeSplinePlot(double x[], double y[], int N, TCanvas* c) {
   auto legend = std::make_unique<TLegend>(0.15, 0.75, 0.45, 0.88);
   legend->SetFillStyle(0);
   legend->SetBorderSize(0);
-  legend->SetTextSize(0.03);
-  legend->AddEntry(knotsGraph, "Knots", "p");
+  legend->SetTextSize(0.04);
+  legend->AddEntry(knotsGraph.get(), "Knots", "p");
 
   for (int i = 0; i < nInterpolations; ++i) {
     legend->AddEntry(splines[i], SplineInterpolation_ToString(interpolationTypes[i]).c_str(), "l");
@@ -70,7 +82,6 @@ void MakeSplinePlot(double x[], double y[], int N, TCanvas* c) {
   for (int i = 0; i < nInterpolations; ++i) {
     delete splines[i];
   }
-  delete knotsGraph;
 }
 
 
@@ -124,10 +135,13 @@ void MakeTF1Plot(double x[], double y[], int N, TCanvas* c) {
   std::vector<TF1*> splines;
 
   // Create and draw TGraph to show original points (knots)
-  TGraph* knotsGraph = new TGraph(N, x, y);
+  auto knotsGraph = std::make_unique<TGraph>(N, x, y);
   knotsGraph->SetMarkerStyle(kFullCircle);
   knotsGraph->SetMarkerSize(1.2);
   knotsGraph->SetMarkerColor(kBlack);
+  // Set titles for the axes
+  knotsGraph->GetXaxis()->SetTitle("Value");
+  knotsGraph->GetYaxis()->SetTitle("Weight");
   knotsGraph->Draw("AP");  // "A" creates new axis, "P" draws points
 
   // Draw each spline
@@ -140,10 +154,10 @@ void MakeTF1Plot(double x[], double y[], int N, TCanvas* c) {
 
   // Add legend
   auto legend = std::make_unique<TLegend>(0.15, 0.75, 0.45, 0.88);
-  legend->SetTextSize(0.03);
+  legend->SetTextSize(0.04);
   legend->SetFillStyle(0);
   legend->SetBorderSize(0);
-  legend->AddEntry(knotsGraph, "Knots", "p");
+  legend->AddEntry(knotsGraph.get(), "Knots", "p");
 
   for (int i = 0; i < nInterpolations; ++i) {
     legend->AddEntry(splines[i],
@@ -156,7 +170,6 @@ void MakeTF1Plot(double x[], double y[], int N, TCanvas* c) {
   for (int i = 0; i < nInterpolations; ++i) {
     delete splines[i];
   }
-  delete knotsGraph;
 }
 
 void TF1_Plot(TCanvas* c) {
