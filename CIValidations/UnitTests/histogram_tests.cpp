@@ -156,3 +156,42 @@ TEST_CASE("TH2Poly integral", "[HistogramUtils]") {
 
   delete Poly;
 }
+
+// KS: I have trust issues with respect to TH2Poly
+TEST_CASE("TH2Poly Bin Geometry", "[HistogramUtils]") {
+  TH2Poly* Poly = GetPolyHist();
+
+  // Check bin 10 (ROOT bins are 1-based, TH2Poly internal bins are 0-based)
+  const int bin = 10;
+
+  // ROOT quirk: GetBinContent(10) corresponds to GetBins(9)
+  TH2PolyBin* Bin = static_cast<TH2PolyBin*>(Poly->GetBins()->At(bin - 1));
+
+  // Content must match
+  REQUIRE_THAT(Poly->GetBinContent(bin),
+               Catch::Matchers::WithinAbs(Bin->GetContent(), 1e-12));
+
+  // Extract geometry
+  const double xmin = Bin->GetXMin();
+  const double xmax = Bin->GetXMax();
+  const double ymin = Bin->GetYMin();
+  const double ymax = Bin->GetYMax();
+
+  // Get the original binning definition
+  std::vector<double> BinningX;
+  std::vector<double> BinningY;
+  GetBinning(BinningX, BinningY);
+
+  // Bin numbering in GetPolyHist():
+  // loops are iy (outer) then ix (inner), so:
+  // globalBin = iy*(Nx-1) + ix + 1
+  const int ix = (bin - 1) % (BinningX.size() - 1);
+  const int iy = (bin - 1) / (BinningX.size() - 1);
+
+  REQUIRE_THAT(xmin, Catch::Matchers::WithinAbs(BinningX[ix],     1e-12));
+  REQUIRE_THAT(xmax, Catch::Matchers::WithinAbs(BinningX[ix + 1], 1e-12));
+  REQUIRE_THAT(ymin, Catch::Matchers::WithinAbs(BinningY[iy],     1e-12));
+  REQUIRE_THAT(ymax, Catch::Matchers::WithinAbs(BinningY[iy + 1], 1e-12));
+
+  delete Poly;
+}
