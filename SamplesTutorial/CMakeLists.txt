@@ -1,6 +1,6 @@
 set(HEADERS
-    SampleHandlerTutorial.h
-    StructsTutorial.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/SampleHandlerTutorial.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/StructsTutorial.h
 )
 
 add_library(SamplesTutorial SHARED
