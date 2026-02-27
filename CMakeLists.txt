@@ -57,7 +57,7 @@ if(NOT DEFINED MaCh3_Branch)
       OUTPUT_STRIP_TRAILING_WHITESPACE
   )
   # Check if the tag exists in the response
-  string(FIND "${curl_output}" ""name": "v${MaCh3Tutorial_VERSION}"" tag_found_index)
+  string(FIND "${curl_output}" "\"name\": \"v${MaCh3Tutorial_VERSION}\"" tag_found_index)
 
   if(tag_found_index GREATER -1)
       SET(MaCh3_Branch "tags/v${MaCh3Tutorial_VERSION}")
