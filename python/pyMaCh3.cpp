@@ -1,23 +1,49 @@
-#include <pybind11/pybind11.h>
-#include <pybind11/stl.h>
+#include "python/pyMaCh3.h"
 
-/// @file pyMaCh3.cpp
-/// @author Ewan Miller
+#include "SamplesTutorial/SampleHandlerTutorial.h"
+#include <memory>
 
 namespace py = pybind11;
 
-void initPlotting(py::module &); // <- defined in python/plotting.cpp
-void initFitters(py::module &); // <- defined in python/fitters.cpp
-void initSamples(py::module &); // <- defined in python/samples.cpp
-void initManager(py::module &); // <- defined in python/manager.cpp
-void initParameters(py::module &); // <- defined in python/parameters.cpp
-void initSplines(py::module &);  // <- defined in python/splines.cpp
+class MaCh3TutorialPyBinder : public MaCh3PyBinder {
 
-PYBIND11_MODULE( _pyMaCh3, m ) {
-    initPlotting(m);
-    initFitters(m);
-    initSamples(m);
-    initManager(m);
-    initParameters(m);
-    initSplines(m);
-}
+  public:
+
+    void initSamplesExperiment(py::module &m){
+
+        std::cout << "Initializing SampleHandlerTutorial bindings... " << std::endl;
+
+        // Create the samples submodule
+        auto m_samples = m.def_submodule("tutorial_samples");
+        m_samples.doc() = "This is a Python binding of MaCh3s C++ based samples library.";
+        
+        // Now add SampleHandlerTutorial to the same submodule
+        py::class_<SampleHandlerTutorial, SampleHandlerFD, SampleHandlerBase>(m_samples, "SampleHandlerTutorial")
+            // Constructor with 2 arguments (no oscillation handler)
+            .def(py::init([](const std::string& mc_version, ParameterHandlerGeneric* xsec_cov) {
+                return new SampleHandlerTutorial(mc_version, xsec_cov, nullptr);
+            }),
+                "Create SampleHandlerTutorial without oscillation handler",
+                py::arg("mc_version"),
+                py::arg("xsec_cov")
+            )
+            // Constructor with 3 arguments (with oscillation handler)
+            .def(py::init([](const std::string& mc_version, 
+                            ParameterHandlerGeneric* xsec_cov,
+                            OscillationHandler* osc_cov) {
+                std::shared_ptr<OscillationHandler> osc_ptr;
+                if (osc_cov != nullptr) {
+                    osc_ptr = std::shared_ptr<OscillationHandler>(osc_cov, [](OscillationHandler*){});
+                }
+                return new SampleHandlerTutorial(mc_version, xsec_cov, osc_ptr);
+            }),
+                "Create SampleHandlerTutorial with oscillation handler",
+                py::arg("mc_version"),
+                py::arg("xsec_cov"),
+                py::arg("osc_cov") = nullptr
+            )
+            ;
+    }
+};
+
+MAKE_PYMACH3_MDULE( MaCh3TutorialPyBinder )
