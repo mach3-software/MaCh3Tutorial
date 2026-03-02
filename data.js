@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1772441522656,
+  "lastUpdate": 1772441529253,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -20385,6 +20385,65 @@ window.BENCHMARK_DATA = {
             "name": "ParameterHandler Operations",
             "value": 2.58826,
             "range": "± 340.736",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "9bec0cea48efb6b45a944692a4db82b12fa9995b",
+          "message": "Merge pull request #807 from mach3-software/kswkarczynski/bugfix/doxygen\n\nbugfix: Removed weird diplsay issue in bibligoraphy",
+          "timestamp": "2026-03-02T09:45:51+01:00",
+          "tree_id": "a6d01cf4b62663a1c7818959e698305791050e9d",
+          "url": "https://github.com/mach3-software/MaCh3/commit/9bec0cea48efb6b45a944692a4db82b12fa9995b"
+        },
+        "date": 1772441525591,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.89848,
+            "range": "± 113.497",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.80601,
+            "range": "± 73.7918",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 379.725,
+            "range": "± 5.60498",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ND Reweight",
+            "value": 347.249,
+            "range": "± 40.5417",
+            "unit": "us",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ParameterHandler Operations",
+            "value": 2.68186,
+            "range": "± 189.223",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
