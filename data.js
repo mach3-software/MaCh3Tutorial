@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1772441529253,
+  "lastUpdate": 1772479113904,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -20444,6 +20444,65 @@ window.BENCHMARK_DATA = {
             "name": "ParameterHandler Operations",
             "value": 2.68186,
             "range": "± 189.223",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "2605b5a1182cc338fbd1f62a87e5ac6c831672f6",
+          "message": "Merge pull request #806 from mach3-software/kskwarczynski/bugfix/GetLLH\n\nbugfix: Fix LLH for PostPred pvalue for non 1D hists",
+          "timestamp": "2026-03-02T20:12:15+01:00",
+          "tree_id": "660a9074f41c1e5fa949c9eadde006ddfab9fef2",
+          "url": "https://github.com/mach3-software/MaCh3/commit/2605b5a1182cc338fbd1f62a87e5ac6c831672f6"
+        },
+        "date": 1772479110416,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.89337,
+            "range": "± 114.884",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.79696,
+            "range": "± 90.8483",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 376.203,
+            "range": "± 6.36669",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ND Reweight",
+            "value": 345.907,
+            "range": "± 39.3919",
+            "unit": "us",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ParameterHandler Operations",
+            "value": 2.33915,
+            "range": "± 644.612",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
