@@ -316,6 +316,44 @@ General:
 ```
 If you were to run a new MCMC with this configuration, you should see that `Norm_Param_0` does not move from its nominal position during the chain.
 
+<details>
+<summary><strong>(Detailed) Eigen Decomposition ‐ PCA </strong></summary>
+
+PCA or Eigen Decomposition is turned off by default. PCA is being enabled based on the constructor. This is the default no PCA constructor.
+
+```cpp
+xsec = new ParameterHandlerGeneric({matrix.yaml}, "cov_name");
+```
+
+To enable it, code should look like it
+
+```cpp
+std::vector<std::string> xsecCovMatrixFile = FitManager->raw()["General"]["Systematics"]["XsecCovFile"].as<std::vector<std::string>>();
+double PCAthreshold = 0.00001;
+xsec = new ParameterHandlerGeneric({matrix.yaml}, "cov_name", PCAthreshold);
+```
+
+This threshold indicates which Eigen value to remove and reduce fit dimensionality. If you set the threshold very low, you may not remove anything just to run with the decomposed matrix.
+
+<img width="350" src="https://github.com/mach3-software/MaCh3/assets/45295406/ae078a7a-724b-4297-9b3d-e941d1dedfb1">
+
+It is also possible to decompose only part of the matrix
+
+```cpp
+std::vector<std::string> xsecCovMatrixFile = FitManager->raw()["General"]["Systematics"]["XsecCovFile"].as<std::vector<std::string>>();
+double PCAthreshold = 0.00001;
+int FirstPCAdpar = 8;
+int LastPCAdpar = 108
+xsec = new ParameterHandlerGeneric({matrix.yaml}, "cov_name", PCAthreshold, FirstPCAdpar, LastPCAdpar)  ;
+```
+
+This way parameters through 8-108 will be decomposed while 0-8 will be in undecomposed base. 
+You can see the transition matrix between normal and Eigen base below:
+
+<img width="350" src="https://github.com/mach3-software/MaCh3/assets/45295406/404646cc-98d1-4488-b1df-372e5ce13a26">
+
+</details>
+
 ## How to Develop New Samples
 Analysis samples are where we compare data and simulation to extract our physics results. For example, you might have an analysis sample that is enriched in neutral-current pi0 events to precisely study NC-pi0 cross sections.
 In this section, we will modify an existing analysis sample to explore how the inner workings of MaCh3 operate, and then see how to add a new one.
