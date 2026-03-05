@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1772558825695,
+  "lastUpdate": 1772750546128,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -20680,6 +20680,65 @@ window.BENCHMARK_DATA = {
             "name": "ParameterHandler Operations",
             "value": 2.40277,
             "range": "± 657.61",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "7ad4e42b777df9be89c1ad2b63bf01dbd5caa12c",
+          "message": "Merge pull request #819 from mach3-software/feature/FinaliseShifts\n\nfeat: Add FinaliseShifts hook",
+          "timestamp": "2026-03-05T23:36:14+01:00",
+          "tree_id": "33069733a1e9153ff8a3bd6253dbcb0118c1aca7",
+          "url": "https://github.com/mach3-software/MaCh3/commit/7ad4e42b777df9be89c1ad2b63bf01dbd5caa12c"
+        },
+        "date": 1772750542494,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.99075,
+            "range": "± 115.585",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.89443,
+            "range": "± 149.463",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 336.833,
+            "range": "± 5.15185",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ND Reweight",
+            "value": 345.527,
+            "range": "± 39.9143",
+            "unit": "us",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ParameterHandler Operations",
+            "value": 3.11818,
+            "range": "± 332.33",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
