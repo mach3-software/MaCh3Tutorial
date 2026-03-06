@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1772750546128,
+  "lastUpdate": 1772790513852,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -20739,6 +20739,65 @@ window.BENCHMARK_DATA = {
             "name": "ParameterHandler Operations",
             "value": 3.11818,
             "range": "± 332.33",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "ec3d071deb91316ebde6f23b5d6681cacf368904",
+          "message": "Merge pull request #811 from mach3-software/kskwarczynski/tidy/spline\n\ntidy: Rename modify weights",
+          "timestamp": "2026-03-06T10:42:25+01:00",
+          "tree_id": "122baada1a81be035896d34cbf0aeedb4527cc3e",
+          "url": "https://github.com/mach3-software/MaCh3/commit/ec3d071deb91316ebde6f23b5d6681cacf368904"
+        },
+        "date": 1772790510446,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.96592,
+            "range": "± 74.3702",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.86318,
+            "range": "± 97.4797",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 371.689,
+            "range": "± 4.11841",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ND Reweight",
+            "value": 344.449,
+            "range": "± 41.372",
+            "unit": "us",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ParameterHandler Operations",
+            "value": 2.15899,
+            "range": "± 780.848",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
