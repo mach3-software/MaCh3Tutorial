@@ -359,6 +359,7 @@ Analysis samples are where we compare data and simulation to extract our physics
 In this section, we will modify an existing analysis sample to explore how the inner workings of MaCh3 operate, and then see how to add a new one.
 
 ### Modifying Analysis Samples
+
 To begin, let's take a look at `TutorialConfigs/Samples/SampleHandler_Tutorial.yaml`. Each sample has a set of cuts that select events into the sample and reject others. Right now, let's focus on the cut on `TrueNeutrinoEnergy`:
 ```yaml
 SelectionCuts:
@@ -377,8 +378,8 @@ SelectionCuts:
 You can also easily change what variable the sample is binned in to get slightly different fit results. For example, we could change `RecoNeutrinoEnergy` to `TrueNeutrinoEnergy` in `TutorialConfigs/Samples/SampleHandler_Tutorial.yaml`:
 ```yaml
   Binning:
-    VarStr : [ "RecoNeutrinoEnergy" ]
-    VarBins: [[0.,  0.5,  1.,  1.25, 1.5, 1.75, 2., 2.25, 2.5, 2.75, 3., 3.25, 3.5, 3.75, 4., 5., 6., 10.]]
+    VarStr : RecoNeutrinoEnergy
+    BinEdges: [0.,  0.5,  1.,  1.25, 1.5, 1.75, 2., 2.25, 2.5, 2.75, 3., 3.25, 3.5, 3.75, 4., 5., 6., 10.]
     Uniform: true
 ```
 You can run the MCMC again using this new configuration (after changing the output file name again!), and then compare all 3 chains using:
@@ -388,28 +389,110 @@ You can run the MCMC again using this new configuration (after changing the outp
 
 <details>
 <summary><strong>(Detailed) Uniform vs NonUniform binning</strong></summary>
-Uniform binning, discussed above creating kind of uniform grid, can be easily scaled like this
+
+Uniform binning is created from the product of N independent one-dimensional binnings:
 ```yaml
   Binning:
-    VarStr : ["RecoNeutrinoEnergy", "TrueQ2"]
-    VarBins: [ [0.,  0.5,  1.,  1.25, 1.5, 1.75, 2., 2.25, 2.5, 2.75, 3., 3.25, 3.5, 3.75, 4., 5., 6., 10.],
-               [0.,  0.5,  1.,  1.25, 1.5, 1.75, 2., 5] ]
+    VarStr : [ "RecoNeutrinoEnergy", "TrueQ2" ]
+    BinEdges: [ [0.,  0.5,  1.,  1.25, 1.5, 1.75, 2., 2.25, 2.5, 2.75, 3., 3.25, 3.5, 3.75, 4., 5., 6., 10.],
+                [0.,  0.5,  1.,  1.25, 1.5, 1.75, 2., 5] ]
     Uniform: true
 ```
 
-However there is option to use non-unform binning which characterises by having bin sizes vary,
-but all bins are axis-aligned hyper-rectangles.
+MaCh3 also supports arbitrary hyperrectangular binning in N-dimensional space.
+To specify such a binning is more verbose, as the bin extent in each dimension
+must be specified for each bin.
 We recommend to read more [here](https://mach3-software.github.io/MaCh3/classBinningHandler.html).
 
-Example of such binning is given below:
+Example of a 2D binning is given below:
 ```yaml
   Binning:
     VarStr : ["RecoNeutrinoEnergy", "TrueQ2"]
-    Bins: [[[0.0, 0.1], [0.0, 0.1]], [[0.0, 0.1], [0.1, 0.2]], [[0.0, 0.1], [0.2, 0.3]],
-            [[0.0, 0.1], [0.3, 0.4]], [[0.0, 0.1], [0.4, 0.5]], [[0.0, 0.1], [0.5, 0.6]],
-            [[0.0, 0.1], [0.6, 0.7]], [[0.0, 0.1], [0.7, 0.8]], [[0.0, 0.1], [0.8, 0.9]],
-            [[0.0, 0.1], [0.9, 1.0]] ]
+    Bins: [ [[0.0, 0.1], [0.0, 0.1]],
+            [[0.0, 0.1], [0.1, 0.2]],
+            [[0.0, 0.1], [0.2, 0.3]],
+            [[0.0, 0.1], [0.3, 0.4]],  #bin 3
+            [[0.0, 0.1], [0.4, 0.5]],
+            [[0.1, 0.3], [0.0, 0.5]],
+            [[0.3, 0.5], [0.0, 0.5]],
+            [[0.5, 0.7], [0.0, 0.5]] ]
     Uniform: false
+```
+
+Here, each row corresponds to a bin, the first list element gives low and up edges
+of the bin extent in the first dimension, `RecoNeutrinoEnergy` in the example. The
+second element gives the extent in the second dimension. So bin 3 from the above
+specification, defined by: `[[0.0, 0.1], [0.3, 0.4]]`, corresponds to the intervals
+`[0, 0.1)` in `RecoNeutrinoEnergy` and `[0.3, 0.4)` in `TrueQ2`.
+
+For realistic binnings, the number of bins can grow very large and make modifying
+a configuration file unwieldy. You can specify the binning list in another file
+and reference it like below:
+```yaml
+# mybins.yml
+erecq2bins: [ [[0.0, 0.1], [0.0, 0.1]],
+              [[0.0, 0.1], [0.1, 0.2]],
+              [[0.0, 0.1], [0.2, 0.3]],
+              [[0.0, 0.1], [0.3, 0.4]],
+              [[0.0, 0.1], [0.4, 0.5]],
+              [[0.1, 0.3], [0.0, 0.5]],
+              [[0.3, 0.5], [0.0, 0.5]],
+              [[0.5, 0.7], [0.0, 0.5]] ]
+
+---
+# mysample.yml
+# ...
+  Binning:
+    VarStr : ["RecoNeutrinoEnergy", "TrueQ2"]
+    Bins: { File: mybins.yml, Key: erecq2bins }
+    Uniform: false
+```
+
+</details>
+
+<details>
+<summary><strong>(Detailed) Range-based Binning</strong></summary>
+
+For binnings with many edges, there is an alternate syntax for specifying and concatenating
+ranges of binnings. For example, to specify a binning with 10 bins of equal width between
+the limits of 0 and 100, you might use the configuration:
+```yaml
+  Binning:
+    VarStr : RecoNeutrinoEnergy
+    BinEdges: { linspace: { nb: 10, low: 0, up: 100 } }
+    Uniform: true
+```
+
+For 5 logarithmically-spaced bins between 100 and 10000, you might use the configuration:
+```yaml
+  Binning:
+    VarStr : RecoNeutrinoEnergy
+    BinEdges: { logspace: { nb: 5, low: 100, up: 10000 } }
+    Uniform: true
+```
+
+This syntax can also be mixed with scalar bin edges to define a binnings with
+multiple regions of linearly or logarithmically spaced bins in a succinct way:
+```yaml
+  Binning:
+    VarStr : RecoNeutrinoEnergy
+    BinEdges: [ -1,
+                { linspace: { nb: 10, low: 0, up: 100 } },
+                { logspace: { nb: 5, low: 100, up: 10000 } }
+              ]
+    Uniform: true
+```
+
+Which will create a binning with 16 bins between -1 and 10000.
+
+This syntax can also be used when making multi-dimensional binnings:
+```yaml
+  Binning:
+    VarStr : [ RecoNeutrinoEnergy, TrueQ2 ]
+    BinEdges: [ [ { linspace: { nb: 10, low: 0, up: 10 } } ],
+                [ { logspace: { nb: 10, low: 0.001, up: 10 } } ]
+              ]
+    Uniform: true
 ```
 </details>
 

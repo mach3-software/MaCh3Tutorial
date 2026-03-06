@@ -1002,6 +1002,12 @@ Sample 1, bin: 6, name: Dim0 (0.6, 0.7)
 Sample 1, bin: 7, name: Dim0 (0.7, 0.8)
 Sample 1, bin: 8, name: Dim0 (0.8, 0.9)
 Sample 1, bin: 9, name: Dim0 (0.9, 1)
+[Binning_implicit1D]: BinEdges: [0, 1, 2, 3]
+[Binning_implicit1DRange]: BinEdges: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+[Binning_1DRangeRange]: BinEdges: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, 10, 10, 11, 11, 11, 11, 11]
+[Binning_1DRangeRangeScalar]: BinEdges: [-1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, 10, 10, 11, 11, 11, 11, 11, 1e+02]
+[Binning_2DRangeRange]: BinEdges[0]: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+[Binning_2DRangeRange]: BinEdges[1]: [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 1e+02]
 Sample 0, XVar: -0.05, YVar: -0.1, NomXBin: -1, NomYBin: -1, GlobalBin: -1 (Under/Overflow)
 Sample 0, XVar: -0.05, YVar: 0, NomXBin: -1, NomYBin: -1, GlobalBin: -1 (Under/Overflow)
 Sample 0, XVar: -0.05, YVar: 0.05, NomXBin: -1, NomYBin: -1, GlobalBin: -1 (Under/Overflow)
