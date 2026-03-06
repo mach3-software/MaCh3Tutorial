@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1772799981282,
+  "lastUpdate": 1772802956410,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -20975,6 +20975,65 @@ window.BENCHMARK_DATA = {
             "name": "ParameterHandler Operations",
             "value": 2.6413,
             "range": "± 239.336",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "8cacc4a953627e1719af6f1c773c7f03521c5270",
+          "message": "Merge pull request #821 from mach3-software/kskwarczynski/feat/NDbinnedSplines\n\nfeat: Make binned splines work with ND like intputs",
+          "timestamp": "2026-03-06T14:09:49+01:00",
+          "tree_id": "bfcbfc7d6c434c2d61edc7f54f50488c10027e45",
+          "url": "https://github.com/mach3-software/MaCh3/commit/8cacc4a953627e1719af6f1c773c7f03521c5270"
+        },
+        "date": 1772802952919,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.99665,
+            "range": "± 81.7439",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.99801,
+            "range": "± 508.628",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 370.329,
+            "range": "± 4.89024",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ND Reweight",
+            "value": 345.979,
+            "range": "± 38.4738",
+            "unit": "us",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ParameterHandler Operations",
+            "value": 2.6671,
+            "range": "± 175.775",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
