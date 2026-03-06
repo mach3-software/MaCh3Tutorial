@@ -444,7 +444,7 @@ erecq2bins: [ [[0.0, 0.1], [0.0, 0.1]],
 # ...
   Binning:
     VarStr : ["RecoNeutrinoEnergy", "TrueQ2"]
-    Bins: { BinFile: mybins.yml, Key: erecq2bins }
+    Bins: { File: mybins.yml, Key: erecq2bins }
     Uniform: false
 ```
 
