@@ -2,7 +2,9 @@
 #include "Utils/Comparison.h"
 #include "Samples/BinningHandler.h"
 
+_MaCh3_Safe_Include_Start_ //{
 #include "spdlog/fmt/ranges.h"
+_MaCh3_Safe_Include_End_ //}
 
 void BinningHandlerValidationsNonUniform(std::ostream& outFile) {
   auto Binning = std::make_unique<BinningHandler>();
