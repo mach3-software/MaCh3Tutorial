@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1772797888054,
+  "lastUpdate": 1772799981282,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -20916,6 +20916,65 @@ window.BENCHMARK_DATA = {
             "name": "ParameterHandler Operations",
             "value": 3.41473,
             "range": "± 103.547",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "9e15ef38480d439d510832880817eb568a5803f0",
+          "message": "Merge pull request #817 from mach3-software/kswkarczynski/feat/predictivellh\n\nfeat: Predictive LLH",
+          "timestamp": "2026-03-06T13:20:05+01:00",
+          "tree_id": "e95b7ab9c0d8c9d8a3c429e5f552e0551b95d43b",
+          "url": "https://github.com/mach3-software/MaCh3/commit/9e15ef38480d439d510832880817eb568a5803f0"
+        },
+        "date": 1772799977715,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 3.02422,
+            "range": "± 93.0576",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.92606,
+            "range": "± 126.427",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 371.948,
+            "range": "± 5.24053",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ND Reweight",
+            "value": 345.466,
+            "range": "± 34.1033",
+            "unit": "us",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ParameterHandler Operations",
+            "value": 2.6413,
+            "range": "± 239.336",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
