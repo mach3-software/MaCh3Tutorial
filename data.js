@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1772790513852,
+  "lastUpdate": 1772797143117,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -20798,6 +20798,65 @@ window.BENCHMARK_DATA = {
             "name": "ParameterHandler Operations",
             "value": 2.15899,
             "range": "± 780.848",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "fe9ef426958a75200a034fe1c398fc3fcb650274",
+          "message": "Merge pull request #812 from mach3-software/kskwarczynski/tidy/moveLegacyCodeAwayFromParamHandler\n\ntidy: outsource msot of DumpMatrixToFile to utils",
+          "timestamp": "2026-03-06T12:32:44+01:00",
+          "tree_id": "b2f2d5323ae775fa0ff20fd917629221316bd95a",
+          "url": "https://github.com/mach3-software/MaCh3/commit/fe9ef426958a75200a034fe1c398fc3fcb650274"
+        },
+        "date": 1772797139547,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 3.07598,
+            "range": "± 85.0185",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 3.0479,
+            "range": "± 272.373",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 376.174,
+            "range": "± 6.81021",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ND Reweight",
+            "value": 345.267,
+            "range": "± 44.4113",
+            "unit": "us",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ParameterHandler Operations",
+            "value": 1.74477,
+            "range": "± 799.443",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
