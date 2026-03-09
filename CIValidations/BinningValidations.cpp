@@ -158,6 +158,84 @@ Uniform: true
               << std::endl;
     }
   }
+
+  MACH3LOG_INFO("");
+  std::string yamlContent_implicit1D = R"(
+  VarStr : [ "x" ]
+  BinEdges: [ 0,1,2,3 ]
+  Uniform: true
+  )";
+
+  YAML::Node Binning_implicit1D = STRINGtoYAML(yamlContent_implicit1D);
+  Binning->SetupSampleBinning(Binning_implicit1D, SingleSample);
+
+  auto fmtvector = [](std::vector<double> const &v) {
+      std::stringstream ss;
+      ss << "[";
+      for (size_t i = 0; i < v.size(); ++i) {
+          ss << fmt::format("{:.3g}", v[i]);
+          if (i != v.size() - 1) {
+              ss << ", ";
+          }
+      }
+      ss << "]";
+      return ss.str();
+  };
+
+  outFile << "[Binning_implicit1D]: BinEdges: " << fmtvector(Binning->GetBinEdges(3,0)) << std::endl;
+
+  MACH3LOG_INFO("");
+  std::string yamlContent_implicit1DRange = R"(
+  VarStr : [ "x" ]
+  BinEdges: { linspace: { nb: 10, low: 0, up: 10 } }
+  Uniform: true
+  )";
+
+  YAML::Node Binning_implicit1DRange = STRINGtoYAML(yamlContent_implicit1DRange);
+  Binning->SetupSampleBinning(Binning_implicit1DRange, SingleSample);
+
+  outFile << "[Binning_implicit1DRange]: BinEdges: " << fmtvector(Binning->GetBinEdges(4,0)) << std::endl;
+
+  MACH3LOG_INFO("");
+  std::string yamlContent_1DRangeRange = R"(
+  VarStr : [ "x" ]
+  BinEdges: [ { linspace: { nb: 10, low: 0, up: 10 } },
+              { linspace: { nb: 10, low: 10, up: 11 } } ]
+  Uniform: true
+  )";
+
+  YAML::Node Binning_1DRangeRange = STRINGtoYAML(yamlContent_1DRangeRange);
+  Binning->SetupSampleBinning(Binning_1DRangeRange, SingleSample);
+
+  outFile << "[Binning_1DRangeRange]: BinEdges: " << fmtvector(Binning->GetBinEdges(5,0)) << std::endl;
+
+  MACH3LOG_INFO("");
+  std::string yamlContent_1DRangeRangeScalar = R"(
+  VarStr : [ "x" ]
+  BinEdges: [ -1, { linspace: { nb: 10, low: 0, up: 10 } },
+              { linspace: { nb: 10, low: 10, up: 11 } }, 100 ]
+  Uniform: true
+  )";
+
+  YAML::Node Binning_1DRangeRangeScalar = STRINGtoYAML(yamlContent_1DRangeRangeScalar);
+  Binning->SetupSampleBinning(Binning_1DRangeRangeScalar, SingleSample);
+
+  outFile << "[Binning_1DRangeRangeScalar]: BinEdges: " << fmtvector(Binning->GetBinEdges(6,0)) << std::endl;
+
+  MACH3LOG_INFO("");
+  std::string yamlContent_2DRangeRange = R"(
+  VarStr : [ "x", "y" ]
+  BinEdges: [ [ { linspace: { nb: 10, low: 0, up: 10 } } ],
+              [ { linspace: { nb: 10, low: 0, up: 100 } }  ] ]
+  Uniform: true
+  )";
+
+  YAML::Node Binning_2DRangeRange = STRINGtoYAML(yamlContent_2DRangeRange);
+  Binning->SetupSampleBinning(Binning_2DRangeRange, SingleSample);
+
+  outFile << "[Binning_2DRangeRange]: BinEdges[0]: " << fmtvector(Binning->GetBinEdges(7,0)) << std::endl;
+  outFile << "[Binning_2DRangeRange]: BinEdges[1]: " << fmtvector(Binning->GetBinEdges(7,1)) << std::endl;
+
 }
 
 

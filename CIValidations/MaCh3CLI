@@ -71,6 +71,7 @@ run_covariance_validations() {
     ./CIValidations/UnitTests/manager_tests
     ./CIValidations/UnitTests/histogram_tests
     ./CIValidations/UnitTests/statistical_tests
+    ./CIValidations/UnitTests/binning_parser_tests
   fi
   ${MaCh3Tutorial_ROOT}/bin/LLHScanTutorial TutorialConfigs/FitterConfig.yaml
   ${MaCh3_ROOT}/bin/PlotLLH LLH_Test.root -s -g -l "blarb.root"
