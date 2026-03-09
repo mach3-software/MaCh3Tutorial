@@ -173,7 +173,7 @@ Uniform: true
     std::stringstream ss;
     ss << "[ ";
     for (auto const &e : v) {
-      ss << fmt::format("{:g.3} ", e);
+      ss << fmt::format("{:.3g} ", e);
     }
     ss << "]";
     return ss.str();
