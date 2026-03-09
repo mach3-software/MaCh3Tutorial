@@ -170,13 +170,16 @@ Uniform: true
   Binning->SetupSampleBinning(Binning_implicit1D, SingleSample);
 
   auto fmtvector = [](std::vector<double> const &v) {
-    std::stringstream ss;
-    ss << "[ ";
-    for (auto const &e : v) {
-      ss << fmt::format("{:.3g} ", e);
-    }
-    ss << "]";
-    return ss.str();
+      std::stringstream ss;
+      ss << "[";
+      for (size_t i = 0; i < v.size(); ++i) {
+          ss << fmt::format("{:.3g}", v[i]);
+          if (i != v.size() - 1) {
+              ss << ", ";
+          }
+      }
+      ss << "]";
+      return ss.str();
   };
 
   outFile << "[Binning_implicit1D]: BinEdges: " << fmtvector(Binning->GetBinEdges(3,0)) << std::endl;
