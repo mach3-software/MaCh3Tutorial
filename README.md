@@ -297,7 +297,7 @@ With the modifications, let's run MCMC again:
 ```bash
 ./bin/MCMCTutorial TutorialConfigs/FitterConfig.yaml
 ```
-Congratulations, you have sucessfully modified the MCMC! 🎉
+Congratulations, you have successfully modified the MCMC! 🎉
 
 ### How to Compare Chains
 Now that you have two chains you can try comparing them using the following:
@@ -315,6 +315,33 @@ General:
     XsecFix: [ "Norm_Param_0" ]
 ```
 If you were to run a new MCMC with this configuration, you should see that `Norm_Param_0` does not move from its nominal position during the chain.
+
+
+<details>
+<summary><strong>(Detailed) Discrete Normalisation Parameters</strong></summary>
+For the most part you will be defining continuous norm parameters.
+However some variables like SampleID or number of hadrons are discrete.
+
+**MaCh3** supports setting normalisation parameters on discrete variables, as shown in the example below:
+
+```yaml
+- Systematic:
+    Names:
+      FancyName: Norm_Param_Discrete
+    KinematicCuts:
+      - SampleId: [[1]]
+```
+
+For more complex selections, you can specify multiple discrete values:
+
+```yaml
+- Systematic:
+    Names:
+      FancyName: Norm_Param_Discrete
+    KinematicCuts:
+      - SampleId: [[1], [10]]
+```
+</details>
 
 <details>
 <summary><strong>(Detailed) Eigen Decomposition ‐ PCA </strong></summary>
