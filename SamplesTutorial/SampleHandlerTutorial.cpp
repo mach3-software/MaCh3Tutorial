@@ -88,8 +88,9 @@ void SampleHandlerTutorial::ResetShifts(const int iEvent) {
 // ************************************************
 void SampleHandlerTutorial::SetupSplines() {
 // ************************************************
-  SplineHandler = nullptr;
+  if(ParHandler == nullptr) return;
 
+  SplineHandler = nullptr;
   if(ParHandler->GetNumParamsFromSampleName(GetName(), SystType::kSpline) > 0){
     SplineHandler = std::make_unique<BinnedSplineTutorial>(ParHandler, Modes.get());
     InitialiseSplineObject();

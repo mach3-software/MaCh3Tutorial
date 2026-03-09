@@ -6,7 +6,7 @@ _MaCh3_Safe_Include_Start_ //{
 #include "Oscillator/OscillatorFactory.h"
 _MaCh3_Safe_Include_End_ //}
 
-void SharedNuOscTest(const std::string& config, ParameterHandlerGeneric* xsec){
+void SharedNuOscTest(const std::string& config, ParameterHandlerGeneric* xsec) {
   MACH3LOG_INFO("Utilising a shared NuOscillator object between all atmospheric samples");
 
   std::string OscillatorConfig = std::string(std::getenv("MaCh3Tutorial_ROOT")) + "/TutorialConfigs/NuOscillator/CUDAProb3.yaml";
@@ -23,6 +23,11 @@ void NoSplinesNoOscTest(const std::string& config){
   std::vector<std::string> ParameterMatrixFile = {TutorialPath + "/TutorialConfigs/CovObjs/PCATest.yaml"};
   auto xsec = std::make_unique<ParameterHandlerGeneric>(ParameterMatrixFile, "xsec_cov");
   auto Sample = std::make_unique<SampleHandlerTutorial>(config, xsec.get());
+}
+
+void NoParamHandlerTest(const std::string& config) {
+  MACH3LOG_INFO("Starting {}", __func__);
+  auto Sample = std::make_unique<SampleHandlerTutorial>(config, nullptr);
 }
 
 void SampleLLHValidation(std::ostream& outFile, const std::string& OriginalSample, ParameterHandlerGeneric* xsec, const bool W2) {
@@ -298,6 +303,7 @@ int main(int argc, char *argv[])
 
   SharedNuOscTest(SampleConfig.back(), xsec);
   NoSplinesNoOscTest(SampleConfig.back());
+  NoParamHandlerTest(SampleConfig.back());
 
   delete xsec;
 
