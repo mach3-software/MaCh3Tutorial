@@ -7,6 +7,5 @@ setup_pyMaCh3(
   BINDING_FILES pyMaCh3.cpp
   LINK_TARGETS 
     BinnedSplinesTutorial
-    SamplesTutorial 
-  EXTRA_MODULES "tutorial_samples"
+    SamplesTutorial
 )

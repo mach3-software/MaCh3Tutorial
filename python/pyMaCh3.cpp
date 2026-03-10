@@ -9,13 +9,9 @@ class MaCh3TutorialPyBinder : public MaCh3PyBinder {
 
   public:
 
-    void initSamplesExperiment(py::module &m){
+    void initSamplesExperiment(py::module &m_samples){
 
         std::cout << "Initializing SampleHandlerTutorial bindings... " << std::endl;
-
-        // Create the samples submodule
-        auto m_samples = m.def_submodule("tutorial_samples");
-        m_samples.doc() = "This is a Python binding of MaCh3s C++ based samples library.";
         
         // Now add SampleHandlerTutorial to the same submodule
         py::class_<SampleHandlerTutorial, SampleHandlerFD, SampleHandlerBase>(m_samples, "SampleHandlerTutorial")
