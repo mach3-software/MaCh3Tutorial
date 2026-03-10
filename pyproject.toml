@@ -1,0 +1,20 @@
+[build-system]
+requires = ["scikit-build-core", "pybind11"]
+build-backend = "scikit_build_core.build"
+
+[project]
+name = "pyMaCh3_tutorial"
+version = "0.0.1"
+authors = [{ name = "The MaCh3 Collaboration" }]
+dependencies = [
+  "numpy",
+  "matplotlib",
+  "pandas",
+  "pyMC",
+]
+
+[tool.scikit-build]
+wheel.install-dir = "pyMaCh3_tutorial"
+
+[tool.scikit-build.cmake]
+args = []
