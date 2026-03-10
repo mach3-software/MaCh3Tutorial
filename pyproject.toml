@@ -17,4 +17,4 @@ dependencies = [
 wheel.install-dir = "pyMaCh3_tutorial"
 
 [tool.scikit-build.cmake]
-args = []
+args = ["-DPYTHON_ENABLED=ON"]
