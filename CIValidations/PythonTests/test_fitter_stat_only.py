@@ -45,7 +45,7 @@ def test_mcmc(pytestconfig):
     mcmc_fitter.run_LLH_scan()
 
     # get some good ish step scales
-    mcmc_fitter.get_step_scale_from_LLH_scan()
+    mcmc_fitter.get_step_scale_from_LLH_scan("")
 
     # RUUUUUN!!!
     mcmc_fitter.set_chain_length(10000)
