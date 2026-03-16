@@ -168,7 +168,7 @@ TEST_CASE("Benchmark MaCh3") {
     }
   };
 
-  BENCHMARK("Non-Uniform BinningHandler 100k events") {
+  BENCHMARK("Non-Uniform BinningHandler") {
     for(const auto& ev : Events) {
       std::vector<const double*> KinVars = { &ev.first, &ev.second };
       std::vector<int> NomBins = { -1, -1 };
