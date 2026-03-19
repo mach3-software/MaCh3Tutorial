@@ -3,6 +3,21 @@
 #include "Utils/Comparison.h"
 #include "SplinesTutorial/BinnedSplinesTutorial.h"
 
+void CleanSpline(std::vector< std::vector<TResponseFunction_red*> >& MasterSpline ) {
+  // Delete all the TSpline3 memory allocated since this now lives on the GPU and is no longer needed on the GPU
+  for(unsigned int i = 0; i < MasterSpline.size(); ++i)
+  {
+    for(unsigned int j = 0; j < MasterSpline[i].size(); ++j)
+    {
+      if(MasterSpline[i][j] != nullptr) delete MasterSpline[i][j];
+    }
+    MasterSpline[i].clear();
+    MasterSpline[i].shrink_to_fit();
+  }
+  MasterSpline.clear();
+  MasterSpline.shrink_to_fit();
+}
+
 void SplineMonolithValidations(std::ostream& outFile) {
   MACH3LOG_INFO("Testing Spline Monolith");
   std::string TutorialPath = std::getenv("MaCh3Tutorial_ROOT");
@@ -15,7 +30,7 @@ void SplineMonolithValidations(std::ostream& outFile) {
   std::vector<RespFuncType> SplineType = {kTSpline3_red, kTSpline3_red, kTSpline3_red, kTSpline3_red};
   const unsigned int Nevents = MasterSpline.size();
   auto Splines = std::make_unique<SMonolith>(MasterSpline, SplineType, true);
-
+  CleanSpline(MasterSpline);
   std::vector< const double* > splineParsPointer(Dials.size());
   for (unsigned int i = 0; i < Dials.size(); ++i) {
     splineParsPointer[i] = &Dial_Values[i];
@@ -28,7 +43,8 @@ void SplineMonolithValidations(std::ostream& outFile) {
   Splines->SynchroniseMemTransfer();
 
   for(unsigned int i = 0; i < Nevents; i++) {
-    outFile << "Event " << i << " weight = " << Splines->cpu_total_weights[i] << std::endl;
+    const auto* weightPtr = Splines->retPointer(i);
+    outFile << "Event " << i << " weight = " << *weightPtr << std::endl;
   }
 
 ////// Testing Pre Computed Spline
@@ -45,7 +61,8 @@ void SplineMonolithValidations(std::ostream& outFile) {
   //KS: If using CPU this does nothing, if on GPU need to make sure we finished copying memory from
   SplinesFlat->SynchroniseMemTransfer();
   for(unsigned int i = 0; i < Nevents; i++) {
-    outFile << "(Flat) Event " << i << " weight = " << SplinesFlat->cpu_total_weights[i] << std::endl;
+    const auto* weightPtr = SplinesFlat->retPointer(i);
+    outFile << "(Flat) Event " << i << " weight = " << *weightPtr << std::endl;
   }
 }
 
