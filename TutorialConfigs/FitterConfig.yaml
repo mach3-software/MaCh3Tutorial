@@ -77,7 +77,10 @@ Predictive:
   StandardFluctuation: true
   # Whether to print distribution of number of events in every bin, useful only for debug
   DebugHistograms: true
-
+  # Apply additional bounds allowing to do post pred only in normal ordering etc
+  ParameterBounds: []
+  # Example with normal ordering and upper octant
+  #ParameterBounds: [ ["delm2_23", [0, 999]], ["sin2th_23", [0.5, 1] ] ]
 # LLH Scan settings  
 LLHScan:
   # don't make LLH for certain systematic groups
