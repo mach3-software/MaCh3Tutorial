@@ -305,11 +305,6 @@ double SampleHandlerTutorial::ReturnKinematicParameter(int KinematicVariable, in
   return ReturnKinematicParameter(KinPar, iEvent);
 }
 
-double SampleHandlerTutorial::ReturnKinematicParameter(std::string KinematicParameter, int iEvent) {
-  KinematicTypes KinPar = static_cast<KinematicTypes>(ReturnKinematicParameterFromString(KinematicParameter));
-  return ReturnKinematicParameter(KinPar, iEvent);
-}
-
 // === JM Define ReturnKinematicVector functions === 
 std::vector<double> SampleHandlerTutorial::ReturnKinematicVector(KinematicParticleVecs KinVec, int iEvent) {
   switch (KinVec) {
@@ -330,10 +325,6 @@ std::vector<double> SampleHandlerTutorial::ReturnKinematicVector(int KinematicVe
   return ReturnKinematicVector(KinVec, iEvent);
 }
 
-std::vector<double> SampleHandlerTutorial::ReturnKinematicVector(std::string KinematicVector, int iEvent) {
-  KinematicParticleVecs KinVec = static_cast<KinematicParticleVecs>(ReturnKinematicVectorFromString(KinematicVector));
-  return ReturnKinematicVector(KinVec, iEvent);
-}
 // =================================================
 
 const double* SampleHandlerTutorial::GetPointerToKinematicParameter(KinematicTypes KinPar, int iEvent) {
@@ -360,12 +351,7 @@ const double* SampleHandlerTutorial::GetPointerToKinematicParameter(double Kinem
   return GetPointerToKinematicParameter(KinPar, iEvent);
 }
 
-const double* SampleHandlerTutorial::GetPointerToKinematicParameter(std::string KinematicParameter, int iEvent) {
-  KinematicTypes KinPar = static_cast<KinematicTypes>(ReturnKinematicParameterFromString(KinematicParameter));
-  return GetPointerToKinematicParameter(KinPar, iEvent);
-}
-
-void SampleHandlerTutorial::SetupFDMC() {
+void SampleHandlerTutorial::SetupMC() {
   for(unsigned int iEvent = 0 ;iEvent < GetNEvents(); ++iEvent) {
     MCSamples[iEvent].rw_etru = &(TutorialSamples[iEvent].TrueEnu);
     MCSamples[iEvent].mode = &(TutorialSamples[iEvent].Mode);

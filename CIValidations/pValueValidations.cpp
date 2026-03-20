@@ -38,7 +38,7 @@ class samplePDFpValue : public SampleHandlerBase
     }),
     KinemBlarbTitle({"RecoLeptonMomentum", "RecoLeptonCosTheta"}) {}
 
-    inline M3::int_t GetNsamples() override { return 22; };
+    inline M3::int_t GetNSamples() override { return 22; };
     std::string GetSampleTitle(const int Sample) const override {return SampleBlarbTitle[Sample];};
     std::string GetKinVarName(const int sample, const int Dimension) const override {return KinemBlarbTitle[Dimension];}
 
@@ -48,7 +48,8 @@ class samplePDFpValue : public SampleHandlerBase
       } else if(KinematicParameter == "RecoLeptonCosTheta") {
         return {-1.0, 0.6, 0.7, 0.8, 0.85, 0.88, 0.9, 0.92, 0.94, 0.96, 0.98, 1.0};
       }
-    }
+      return {};
+    };
     void CleanMemoryBeforeFit() override {};
     std::string GetName() const override {return "samplePDFSigmaVar";};
     double GetLikelihood() const override {return 666;};
@@ -133,9 +134,9 @@ int main(int argc, char *argv[])
   timer.Start();
 
   // Know that these guys are going to be exist for every psyche sample, sometimes just NULL though
-  NominalVector.resize(SampleTutorial->GetNsamples());
-  DataVector.resize(SampleTutorial->GetNsamples());
-  W2NomVector.resize(SampleTutorial->GetNsamples());
+  NominalVector.resize(SampleTutorial->GetNSamples());
+  DataVector.resize(SampleTutorial->GetNSamples());
+  W2NomVector.resize(SampleTutorial->GetNSamples());
 
   // Finally get the TTree branch with the penalty vectors for each of the toy throws
   TTree *PenaltyTree = (TTree*)Outfile->Get("ToySummary");
@@ -190,7 +191,7 @@ int main(int argc, char *argv[])
   //KS: Based on this thread https://root-forum.cern.ch/t/memory-leak-when-reading-th2poly-from-a-tree/50116/4
   Outfile->SetBufferSize(10 * 1024 * 1024);
   //First grab Data and nominal
-  for (M3::int_t i = 0; i < SampleTutorial->GetNsamples(); ++i)
+  for (M3::int_t i = 0; i < SampleTutorial->GetNSamples(); ++i)
   {
     std::string Title = SampleTutorial->GetSampleTitle(i);
     // Replace the spaces with underscores
@@ -238,9 +239,9 @@ int main(int argc, char *argv[])
     std::vector<TH2Poly*> SampleVector;
     std::vector<TH2Poly*> W2Vector;
     std::vector< std::vector<TH2Poly*> > SampleVector_ByMode;
-    SampleVector.resize(SampleTutorial->GetNsamples());
-    W2Vector.resize(SampleTutorial->GetNsamples());
-    for (M3::int_t j = 0; j < SampleTutorial->GetNsamples(); ++j)
+    SampleVector.resize(SampleTutorial->GetNSamples());
+    W2Vector.resize(SampleTutorial->GetNSamples());
+    for (M3::int_t j = 0; j < SampleTutorial->GetNSamples(); ++j)
     {
       if(DataVector[j] != NULL)
       {
@@ -285,8 +286,8 @@ int main(int argc, char *argv[])
 ///////////////////////////////////////
   std::unique_ptr<SampleSummary> SamplesSumm;
 
-  if (Posterior) SamplesSumm = std::make_unique<SampleSummary>(SampleTutorial->GetNsamples(), PredictiveName, SampleTutorial.get(), nEntries);
-  else           SamplesSumm = std::make_unique<SampleSummary>(SampleTutorial->GetNsamples(), PredictiveName, SampleTutorial.get(), 0);
+  if (Posterior) SamplesSumm = std::make_unique<SampleSummary>(SampleTutorial->GetNSamples(), PredictiveName, SampleTutorial.get(), nEntries);
+  else           SamplesSumm = std::make_unique<SampleSummary>(SampleTutorial->GetNSamples(), PredictiveName, SampleTutorial.get(), 0);
   SamplesSumm->SetLikelihood(kBarlowBeeston);
   SamplesSumm->SetNModelParams(NModelParams);
 

@@ -99,8 +99,8 @@ int main(int argc, char **argv) {
     TString ParamDirName = vecParams[iParam];
 
     for (size_t iPDF=0; iPDF < mySamples.size(); iPDF++) {
-      MACH3LOG_INFO("Number of samples: {}", mySamples[iPDF]->GetNsamples());
-       for(int iSample = 0; iSample < mySamples[iPDF]->GetNsamples(); iSample++){
+      MACH3LOG_INFO("Number of samples: {}", mySamples[iPDF]->GetNSamples());
+       for(int iSample = 0; iSample < mySamples[iPDF]->GetNSamples(); iSample++){
         THStack* Stack = new THStack(*mySamples[iPDF]->ReturnStackedHistBySelection1D(iSample, vecParams[iParam], Selection));
         TLegend* Legend = new TLegend(*mySamples[iPDF]->ReturnStackHistLegend());
 
@@ -134,7 +134,7 @@ int main(int argc, char **argv) {
     if (histdim == 2) AxisY = TAxis(PlotsToDraw[iHist].BinEdges[1].size()-1,PlotsToDraw[iHist].BinEdges[1].data());
 
     for (size_t iPDF = 0;iPDF < mySamples.size(); iPDF++) {
-      for(int iSample = 0; iSample < mySamples[iPDF]->GetNsamples(); iSample++){
+      for(int iSample = 0; iSample < mySamples[iPDF]->GetNSamples(); iSample++){
         std::vector<KinematicCut> EventSelectionVector = {};
         std::vector<KinematicCut> SubEventSelectionVector = {};
 

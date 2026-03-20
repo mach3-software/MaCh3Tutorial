@@ -60,7 +60,7 @@ void SampleLLHValidation(std::ostream& outFile, const std::string& OriginalSampl
   auto Sample = std::make_unique<SampleHandlerTutorial>(tempConfigPath, xsec);
   Sample->Reweight();
 
-  for(int iSample = 0; iSample < Sample->GetNsamples(); iSample++) {
+  for(int iSample = 0; iSample < Sample->GetNSamples(); iSample++) {
     TH1* SampleHistogramPrior = static_cast<TH1*>(Sample->GetMCHist(iSample)->Clone((NameTString + "_Prior").c_str()));
     Sample->AddData(iSample, SampleHistogramPrior);
 
@@ -96,7 +96,7 @@ void ValidateTestStatistic(std::ostream& outFile, const std::string& OriginalSam
   // Use modified config
   auto Sample = std::make_unique<SampleHandlerTutorial>(OriginalSample, xsec);
   Sample->Reweight();
-  for(int iSample = 0; iSample < Sample->GetNsamples(); iSample++){
+  for(int iSample = 0; iSample < Sample->GetNSamples(); iSample++){
     Sample->AddData(iSample, Sample->GetMCArray(iSample));
   }
 
@@ -164,7 +164,7 @@ void LoadSplineValidation(std::ostream& outFile, const std::string& OriginalSamp
   auto Sample = std::make_unique<SampleHandlerTutorial>(tempConfigPath, xsec);
   Sample->Reweight();
 
-  for(int iSample = 0; iSample < Sample->GetNsamples(); iSample++){
+  for(int iSample = 0; iSample < Sample->GetNSamples(); iSample++){
     TH1* SampleHistogramPrior = static_cast<TH1*>(Sample->GetMCHist(iSample)->Clone((NameTString + "_Prior").c_str()));
     Sample->AddData(iSample, SampleHistogramPrior);
 
@@ -209,7 +209,7 @@ void UnbinnedOsc(std::ostream& outFile, ParameterHandlerGeneric* xsec) {
   auto Sample = std::make_unique<SampleHandlerTutorial>(SampleConfigPath, xsec);
   Sample->Reweight();
 
-  for(int iSample = 0; iSample < Sample->GetNsamples(); iSample++) {
+  for(int iSample = 0; iSample < Sample->GetNSamples(); iSample++) {
     TH1* SampleHistogramPrior = static_cast<TH1*>(Sample->GetMCHist(iSample)->Clone("blarb_Prior"));
     Sample->AddData(iSample, SampleHistogramPrior);
 
@@ -249,7 +249,7 @@ int main(int argc, char *argv[])
   for (const auto& configPath : SampleConfig) {
     SampleHandlerTutorial *Sample = new SampleHandlerTutorial({configPath}, xsec);
 
-    for(int iSample = 0; iSample < Sample->GetNsamples(); iSample++){
+    for(int iSample = 0; iSample < Sample->GetNSamples(); iSample++){
       std::string name = Sample->GetSampleTitle(iSample);
       TString NameTString = TString(name.c_str());
 
