@@ -353,13 +353,13 @@ const double* SampleHandlerTutorial::GetPointerToKinematicParameter(double Kinem
 
 void SampleHandlerTutorial::SetupMC() {
   for(unsigned int iEvent = 0 ;iEvent < GetNEvents(); ++iEvent) {
-    MCSamples[iEvent].rw_etru = &(TutorialSamples[iEvent].TrueEnu);
-    MCSamples[iEvent].mode = &(TutorialSamples[iEvent].Mode);
-    MCSamples[iEvent].Target = &(TutorialSamples[iEvent].Target);
-    MCSamples[iEvent].isNC = TutorialSamples[iEvent].isNC;
-    MCSamples[iEvent].nupdgUnosc = &(TutorialSamples[iEvent].nutype);
-    MCSamples[iEvent].nupdg = &(TutorialSamples[iEvent].oscnutype);
-    MCSamples[iEvent].NominalSample = TutorialSamples[iEvent].Sample;
-    if(isATM) MCSamples[iEvent].rw_truecz = &(TutorialSamples[iEvent].TrueCosZenith);
+    MCEvents[iEvent].rw_etru = &(TutorialSamples[iEvent].TrueEnu);
+    MCEvents[iEvent].mode = &(TutorialSamples[iEvent].Mode);
+    MCEvents[iEvent].Target = &(TutorialSamples[iEvent].Target);
+    MCEvents[iEvent].isNC = TutorialSamples[iEvent].isNC;
+    MCEvents[iEvent].nupdgUnosc = &(TutorialSamples[iEvent].nutype);
+    MCEvents[iEvent].nupdg = &(TutorialSamples[iEvent].oscnutype);
+    MCEvents[iEvent].NominalSample = TutorialSamples[iEvent].Sample;
+    if(isATM) MCEvents[iEvent].rw_truecz = &(TutorialSamples[iEvent].TrueCosZenith);
   }
 }
