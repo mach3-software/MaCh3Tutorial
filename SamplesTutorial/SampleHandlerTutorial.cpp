@@ -353,13 +353,13 @@ const double* SampleHandlerTutorial::GetPointerToKinematicParameter(double Kinem
 
 void SampleHandlerTutorial::SetupMC() {
   for(unsigned int iEvent = 0 ;iEvent < GetNEvents(); ++iEvent) {
-    MCEvents[iEvent].rw_etru = &(TutorialSamples[iEvent].TrueEnu);
-    MCEvents[iEvent].mode = &(TutorialSamples[iEvent].Mode);
-    MCEvents[iEvent].Target = &(TutorialSamples[iEvent].Target);
+    MCEvents[iEvent].enu_true = TutorialSamples[iEvent].TrueEnu;
+    MCEvents[iEvent].mode = TutorialSamples[iEvent].Mode;
+    MCEvents[iEvent].Target = TutorialSamples[iEvent].Target;
     MCEvents[iEvent].isNC = TutorialSamples[iEvent].isNC;
-    MCEvents[iEvent].nupdgUnosc = &(TutorialSamples[iEvent].nutype);
-    MCEvents[iEvent].nupdg = &(TutorialSamples[iEvent].oscnutype);
+    MCEvents[iEvent].nupdgUnosc = TutorialSamples[iEvent].nutype;
+    MCEvents[iEvent].nupdg = TutorialSamples[iEvent].oscnutype;
     MCEvents[iEvent].NominalSample = TutorialSamples[iEvent].Sample;
-    if(isATM) MCEvents[iEvent].rw_truecz = &(TutorialSamples[iEvent].TrueCosZenith);
+    if(isATM) MCEvents[iEvent].coszenith_true = TutorialSamples[iEvent].TrueCosZenith;
   }
 }
