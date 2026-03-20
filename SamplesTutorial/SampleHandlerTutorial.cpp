@@ -354,7 +354,7 @@ const double* SampleHandlerTutorial::GetPointerToKinematicParameter(double Kinem
 void SampleHandlerTutorial::SetupMC() {
   for(unsigned int iEvent = 0 ;iEvent < GetNEvents(); ++iEvent) {
     MCEvents[iEvent].enu_true = TutorialSamples[iEvent].TrueEnu;
-    MCEvents[iEvent].mode = TutorialSamples[iEvent].Mode;
+    MCEvents[iEvent].mode = static_cast<int>(TutorialSamples[iEvent].Mode);
     MCEvents[iEvent].Target = TutorialSamples[iEvent].Target;
     MCEvents[iEvent].isNC = TutorialSamples[iEvent].isNC;
     MCEvents[iEvent].nupdgUnosc = TutorialSamples[iEvent].nutype;
