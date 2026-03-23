@@ -234,7 +234,7 @@ int main(int argc, char *argv[])
   MasterW2Vector.resize(Ntoys);
   for (int i = 0; i < Ntoys; ++i)
   {
-    if (i % 100 == 0) MaCh3Utils::PrintProgressBar(i, Ntoys);
+    if (i % 100 == 0) M3::Utils::PrintProgressBar(i, Ntoys);
 
     std::vector<TH2Poly*> SampleVector;
     std::vector<TH2Poly*> W2Vector;
