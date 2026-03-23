@@ -22,27 +22,27 @@ class SampleHandlerTutorial : public SampleHandlerFD
   void Init() override;
 
   ///@brief Setup our spline file, this calls InitialseSplineObject() under the hood
-  void SetupSplines() override;
+  void SetupSplines() override final;
 
-  void AddAdditionalWeightPointers() override;
+  void AddAdditionalWeightPointers() override final;
 
-  int SetupExperimentMC() override;
+  int SetupExperimentMC() override final;
 
-  void CleanMemoryBeforeFit() override;
+  void CleanMemoryBeforeFit() override final;
 
   double ReturnKinematicParameter(KinematicTypes KinPar, int iEvent);
-  double ReturnKinematicParameter(int KinematicVariable, int iEvent) override;
+  double ReturnKinematicParameter(int KinematicVariable, int iEvent) override final;
   
   // === JM ReturnKinematicVector declarations for particle-level parameters ===
   std::vector<double> ReturnKinematicVector(KinematicParticleVecs KinVec, int iEvent);
-  std::vector<double> ReturnKinematicVector(int KinematicVector, int iEvent) override;
+  std::vector<double> ReturnKinematicVector(int KinematicVector, int iEvent) override final;
   // ===========================================================================
 
   const double* GetPointerToKinematicParameter(KinematicTypes KinPar, int iEvent);
-  const double* GetPointerToKinematicParameter(double KinematicVariable, int iEvent) override;
+  const double* GetPointerToKinematicParameter(double KinematicVariable, int iEvent) override final;
 
-  void SetupMC() override;
-  void CalcWeightFunc(int iEvent) override {return; (void)iEvent;}
+  void SetupMC() override final;
+  void CalcWeightFunc(int iEvent) override final {return; (void)iEvent;}
 
   std::vector<TutorialMCInfo> TutorialSamples;
   std::vector<TutorialMCPlottingInfo> TutorialPlottingSamples;
@@ -82,8 +82,8 @@ class SampleHandlerTutorial : public SampleHandlerFD
 
   // === HH: Functional parameters ===
   enum FuncParEnum {kDebugNothing, kDebugShift, kEResLep, kEResTot};
-  void RegisterFunctionalParameters() override;
-  void ResetShifts(const int iEvent) override;
+  void RegisterFunctionalParameters() override final;
+  void ResetShifts(const int iEvent) override final;
 
   void DebugShift(const double* par, std::size_t iEvent);
   void EResLep(const double* par, std::size_t iEvent);
