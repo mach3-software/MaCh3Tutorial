@@ -10,5 +10,5 @@ class BinnedSplineTutorial : public BinnedSplineHandler
   BinnedSplineTutorial(ParameterHandlerGeneric *parameter_handler, MaCh3Modes *Modes);
   virtual ~BinnedSplineTutorial();
   
-  std::vector<std::string> GetTokensFromSplineName(std::string FullSplineName) override;
+  std::vector<std::string> GetTokensFromSplineName(const std::string& FullSplineName) override final;
 };

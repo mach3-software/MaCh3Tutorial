@@ -43,7 +43,7 @@ void SplineMonolithValidations(std::ostream& outFile) {
   Splines->SynchroniseMemTransfer();
 
   for(unsigned int i = 0; i < Nevents; i++) {
-    const auto* weightPtr = Splines->retPointer(i);
+    const auto* weightPtr = Splines->RetPointer(i);
     outFile << "Event " << i << " weight = " << *weightPtr << std::endl;
   }
 
@@ -61,7 +61,7 @@ void SplineMonolithValidations(std::ostream& outFile) {
   //KS: If using CPU this does nothing, if on GPU need to make sure we finished copying memory from
   SplinesFlat->SynchroniseMemTransfer();
   for(unsigned int i = 0; i < Nevents; i++) {
-    const auto* weightPtr = SplinesFlat->retPointer(i);
+    const auto* weightPtr = SplinesFlat->RetPointer(i);
     outFile << "(Flat) Event " << i << " weight = " << *weightPtr << std::endl;
   }
 }
@@ -97,7 +97,7 @@ void SplineBinnedValidations(std::ostream& outFile){
   xsec_spline_pointers.resize(EventSplines.size());
   for(size_t spline = 0; spline < xsec_spline_pointers.size(); spline++) {
     //Event Splines indexed as: sample name, oscillation channel, syst, mode, etrue, var1, var2 (var2 is a dummy 0 for 1D splines)
-    xsec_spline_pointers[spline] = SplineHandler->retPointer(EventSplines[spline][0], EventSplines[spline][1],
+    xsec_spline_pointers[spline] = SplineHandler->RetPointer(EventSplines[spline][0], EventSplines[spline][1],
                                                              EventSplines[spline][2], EventSplines[spline][3],
                                                              EventSplines[spline][4], EventSplines[spline][5],
                                                              EventSplines[spline][6]);
