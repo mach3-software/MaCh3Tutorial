@@ -147,7 +147,7 @@ void TestPCA(const std::string& label,
   MACH3LOG_INFO("Testing throwing from covariance for {}", label);
   for (int i = 0; i < Ntoys; i++) {
     if (i % (Ntoys / 10) == 0) {
-      MaCh3Utils::PrintProgressBar(i, Ntoys);
+      M3::Utils::PrintProgressBar(i, Ntoys);
     }
     PCA->ThrowParameters();
   }
@@ -257,7 +257,7 @@ int main(int argc, char *argv[])
 
   for (int i = 0; i < Ntoys; i++) {
     if (i % (Ntoys/10) == 0) {
-      MaCh3Utils::PrintProgressBar(i, Ntoys);
+      M3::Utils::PrintProgressBar(i, Ntoys);
     }
     xsec->ThrowParameters();
   }
