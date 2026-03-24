@@ -31,7 +31,7 @@ void SplineMonolithValidations(std::ostream& outFile) {
   const unsigned int Nevents = MasterSpline.size();
   auto Splines = std::make_unique<SMonolith>(MasterSpline, SplineType, true);
   CleanSpline(MasterSpline);
-  std::vector< const double* > splineParsPointer(Dials.size());
+  std::vector< const M3::float_t* > splineParsPointer(Dials.size());
   for (unsigned int i = 0; i < Dials.size(); ++i) {
     splineParsPointer[i] = &Dial_Values[i];
   }
