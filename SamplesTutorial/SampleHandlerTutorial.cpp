@@ -35,19 +35,19 @@ void SampleHandlerTutorial::Init() {
   MACH3LOG_INFO("-------------------------------------------------------------------");
 }
 
-void SampleHandlerTutorial::DebugShift(const double * par, std::size_t iEvent) {
+void SampleHandlerTutorial::DebugShift(const M3::float_t* par, std::size_t iEvent) {
   // HH: This is a debug function to shift the reco energy to 4 GeV if the reco energy is less than 2 GeV
   if (TutorialSamples[iEvent].RecoEnu < 2.0 && *par != 0) {
     TutorialSamples[iEvent].RecoEnu_shifted = 4;
   }
 }
 
-void SampleHandlerTutorial::EResLep(const double * par, std::size_t iEvent) {
+void SampleHandlerTutorial::EResLep(const M3::float_t* par, std::size_t iEvent) {
   // HH: Lepton energy resolution contribution to reco energy
   TutorialSamples[iEvent].RecoEnu_shifted += (*par) * TutorialSamples[iEvent].ELep;
 }
 
-void SampleHandlerTutorial::EResTot(const double * par, std::size_t iEvent) {
+void SampleHandlerTutorial::EResTot(const M3::float_t* par, std::size_t iEvent) {
   // HH: Total energy resolution contribution to reco energy
   TutorialSamples[iEvent].RecoEnu_shifted += (*par) * TutorialSamples[iEvent].RecoEnu;
 }

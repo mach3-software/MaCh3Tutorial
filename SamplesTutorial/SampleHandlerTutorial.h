@@ -85,8 +85,8 @@ class SampleHandlerTutorial : public SampleHandlerFD
   void RegisterFunctionalParameters() override final;
   void ResetShifts(const int iEvent) override final;
 
-  void DebugShift(const double* par, std::size_t iEvent);
-  void EResLep(const double* par, std::size_t iEvent);
-  void EResTot(const double* par, std::size_t iEvent);
+  void DebugShift(const M3::float_t* par, std::size_t iEvent);
+  void EResLep(const M3::float_t* par, std::size_t iEvent);
+  void EResTot(const M3::float_t* par, std::size_t iEvent);
   // =================================
 };
