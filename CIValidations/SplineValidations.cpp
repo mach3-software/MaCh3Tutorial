@@ -29,7 +29,7 @@ void SplineMonolithValidations(std::ostream& outFile) {
 
   std::vector<RespFuncType> SplineType = {kTSpline3_red, kTSpline3_red, kTSpline3_red, kTSpline3_red};
   const unsigned int Nevents = MasterSpline.size();
-  auto Splines = std::make_unique<SMonolith>(MasterSpline, SplineType, true);
+  auto Splines = std::make_unique<UnbinnedSplineHandler>(MasterSpline, SplineType, true);
   CleanSpline(MasterSpline);
   std::vector< const M3::float_t* > splineParsPointer(Dials.size());
   for (unsigned int i = 0; i < Dials.size(); ++i) {
@@ -50,7 +50,7 @@ void SplineMonolithValidations(std::ostream& outFile) {
 ////// Testing Pre Computed Spline
   MACH3LOG_INFO("Testing Spline Monolith with Flattened ROOT inputs");
 
-  auto SplinesFlat = std::make_unique<SMonolith>("SplineFile.root");
+  auto SplinesFlat = std::make_unique<UnbinnedSplineHandler>("SplineFile.root");
   for (unsigned int i = 0; i < Dials.size(); ++i) {
     splineParsPointer[i] = &Dial_Values[i];
   }
