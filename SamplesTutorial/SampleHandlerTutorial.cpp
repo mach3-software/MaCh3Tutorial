@@ -67,7 +67,7 @@ void SampleHandlerTutorial::RegisterFunctionalParameters() {
 
   RegisterIndividualFunctionalParameter("DebugShift",
                             kDebugShift, 
-                            [this](const M3::float_t** par, std::size_t iEvent) { this->DebugShift(par, iEvent); });
+                            [this](const M3::float_t* par, std::size_t iEvent) { this->DebugShift(par, iEvent); });
 
   RegisterIndividualFunctionalParameter("EResLep",
                             kEResLep, 
