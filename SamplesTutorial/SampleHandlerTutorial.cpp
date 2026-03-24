@@ -63,19 +63,19 @@ void SampleHandlerTutorial::RegisterFunctionalParameters() {
   #pragma GCC diagnostic ignored "-Wunused-parameter"
   RegisterIndividualFunctionalParameter("DebugNothing", 
                             kDebugNothing, 
-                            [this](const double * par, std::size_t iEvent) {});
+                            [this](const M3::float_t* par, std::size_t iEvent) {});
 
   RegisterIndividualFunctionalParameter("DebugShift",
                             kDebugShift, 
-                            [this](const double * par, std::size_t iEvent) { this->DebugShift(par, iEvent); });
+                            [this](const M3::float_t** par, std::size_t iEvent) { this->DebugShift(par, iEvent); });
 
   RegisterIndividualFunctionalParameter("EResLep",
                             kEResLep, 
-                            [this](const double * par, std::size_t iEvent) { this->EResLep(par, iEvent); });
+                            [this](const M3::float_t* par, std::size_t iEvent) { this->EResLep(par, iEvent); });
 
   RegisterIndividualFunctionalParameter("EResTot",
                             kEResTot, 
-                            [this](const double * par, std::size_t iEvent) { this->EResTot(par, iEvent); });
+                            [this](const M3::float_t* par, std::size_t iEvent) { this->EResTot(par, iEvent); });
   #pragma GCC diagnostic pop
 }
 
