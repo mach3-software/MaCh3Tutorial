@@ -10,7 +10,7 @@ void SharedNuOscTest(const std::string& config, ParameterHandlerGeneric* xsec) {
   MACH3LOG_INFO("Utilising a shared NuOscillator object between all atmospheric samples");
 
   std::string OscillatorConfig = std::string(std::getenv("MaCh3Tutorial_ROOT")) + "/TutorialConfigs/NuOscillator/CUDAProb3.yaml";
-  std::vector<const double*> OscParams = xsec->GetOscParsFromSampleName("Tutorial ATM");
+  auto OscParams = xsec->GetOscParsFromSampleName("Tutorial ATM");
   auto OscillatorObj = std::make_shared<OscillationHandler>(OscillatorConfig, true, OscParams, 6);
 
   auto Sample1 = std::make_unique<SampleHandlerTutorial>(config, xsec, OscillatorObj);

@@ -24,7 +24,7 @@ void SplineMonolithValidations(std::ostream& outFile) {
 
   std::string Input = TutorialPath + "/TutorialConfigs/MC/SplineFile.root";
   std::vector<std::string> Dials = {"Spline_0", "Spline_1", "Spline_2", "Spline_3"};
-  std::vector<double> Dial_Values = {1.21, 1, 1, 1};
+  std::vector<M3::float_t> Dial_Values = {1.21, 1, 1, 1};
   std::vector< std::vector<TResponseFunction_red*> > MasterSpline = GetMasterSpline(Input, Dials);
 
   std::vector<RespFuncType> SplineType = {kTSpline3_red, kTSpline3_red, kTSpline3_red, kTSpline3_red};
