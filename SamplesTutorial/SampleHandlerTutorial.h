@@ -1,11 +1,10 @@
 #pragma once
 
-#include "Samples/SampleHandlerFD.h"
+#include "Samples/SampleHandlerBase.h"
 #include "StructsTutorial.h"
 #include "SplinesTutorial/BinnedSplinesTutorial.h"
-#include <random>
 
-class SampleHandlerTutorial : public SampleHandlerFD
+class SampleHandlerTutorial : public SampleHandlerBase
 {
  public:
   SampleHandlerTutorial(const std::string& config_name, ParameterHandlerGeneric* parameter_handler,
