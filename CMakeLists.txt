@@ -47,6 +47,7 @@ option(MaCh3Tutorial_DEBUG_ENABLED "Use debug options" OFF)
 option(MaCh3Tutorial_LOW_MEMORY_STRUCTS_ENABLED "Use floats" OFF)
 option(PYTHON_ENABLED "Build python package" OFF)
 
+set(MaCh3_Branch feature_python_bindings)
 # KS: Here we try to find tag matching tutorial version. If we can't find one then use develop
 # This will allow to grab tutorial for tagged MaCh3 version without a need of manually changing version
 if(NOT DEFINED MaCh3_Branch)
@@ -75,10 +76,6 @@ endif()
 if(NOT MaCh3_FOUND)
   message(STATUS "MaCh3 is not found locally!")
   set(MaCh3_OPTIONS "")
-
-  if(PYTHON_ENABLED)
-      list(APPEND MaCh3_OPTIONS "MaCh3_PYTHON_ENABLED ${PYTHON_ENABLED}")
-  endif()
 
   # KS: For benchmark we turn off logger to not interfere with output messages.
   # Also to have code compile let's turn off Werror
@@ -114,7 +111,6 @@ if(NOT MaCh3_FOUND)
       "Prob3ppLinear_ENABLED ON"
       "NuFastLinear_ENABLED ON"
       "CUDAProb3_ENABLED ON"
-      "MaCh3_PYTHON_ENABLED ${PYTHON_ENABLED}"
   )
   # MaCh3 sets up cmessage for us, so can't cmessage until we've set up MaCh3
   cmessage(STATUS "Didn't find MaCh3, will checkout the ${MaCh3_Branch} branch from mach3-software/MaCh3")
