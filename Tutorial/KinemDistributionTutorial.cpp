@@ -76,21 +76,20 @@ int main(int argc, char **argv) {
     for (size_t iPDF=0; iPDF < mySamples.size(); iPDF++) {
       MACH3LOG_INFO("Number of samples: {}", mySamples[iPDF]->GetNSamples());
        for(int iSample = 0; iSample < mySamples[iPDF]->GetNSamples(); iSample++){
-        THStack* Stack = new THStack(*mySamples[iPDF]->ReturnStackedHistBySelection1D(iSample, vecParams[iParam], Selection));
-        TLegend* Legend = new TLegend(*mySamples[iPDF]->ReturnStackHistLegend());
+        auto Stack = mySamples[iPDF]->ReturnStackedHistBySelection1D(iSample, vecParams[iParam], Selection);
+        TLegend* Legend = mySamples[iPDF]->ReturnStackHistLegend();
 
         Canv->cd(1);
         Stack->Draw("HIST");
         //Due to crappy TStack design, you need to draw THStack first then assign axis titles
-        Stack->SetTitle(mySamples[iPDF]->GetSampleTitle(iSample).c_str());
+        std::string title = mySamples[iPDF]->GetSampleTitle(iSample);
+        Stack->SetTitle(title.c_str());
         Stack->GetXaxis()->SetTitle((vecParams[iParam]).c_str());
         Canv->cd(2);
         Legend->Draw();
 
         Canv->Update();
         Canv->Print(OutputName);
-        delete Stack; Stack = nullptr;
-        delete Legend; Legend = nullptr;
       }
     }
   }
