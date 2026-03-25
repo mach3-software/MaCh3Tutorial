@@ -16,9 +16,9 @@ import typing
 import pytest
 import sys
 
-class test_sample(samples.SampleHandlerBase):
+class test_sample(samples.SampleHandlerInterface):
 
-    def __init__(self, xsec_cov: parameters.ParameterHandlerBase):
+    def __init__(self, xsec_cov: parameters.SampleHandlerInterface):
 
         super(test_sample, self).__init__()
 
@@ -32,7 +32,7 @@ class test_sample(samples.SampleHandlerBase):
         self.event_weights: np.array = None ## Keep track of the individual weights of our mc events
         
         #self.set_xsec_cov(xsec_cov)
-        self.xsec_cov: parameters.ParameterHandlerBase = xsec_cov
+        self.xsec_cov: parameters.SampleHandlerInterface = xsec_cov
 
         self.proposed_param_array = np.asarray(xsec_cov.get_proposal_array())
 
@@ -189,7 +189,7 @@ def test_sample_pdf(pytestconfig):
     cov_names: typing.List[str] = ["CIValidations/PythonTests/SystematicModel_EventByEvent.yaml"]
 
     # make the covariance objects
-    covariance: parameters.ParameterHandlerBase = parameters.ParameterHandlerGeneric(cov_names)
+    covariance: parameters.SampleHandlerInterface = parameters.ParameterHandlerGeneric(cov_names)
 
     sample: test_sample = test_sample(covariance)
     print("\nParameter values befores throw: ", sample.proposed_param_array)
