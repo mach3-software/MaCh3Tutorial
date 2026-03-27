@@ -14,7 +14,7 @@ class MaCh3TutorialPyBinder : public MaCh3PyBinder {
         std::cout << "Initializing SampleHandlerTutorial bindings... " << std::endl;
         
         // Now add SampleHandlerTutorial to the same submodule
-        py::class_<SampleHandlerTutorial, SampleHandlerFD, SampleHandlerBase>(m_samples, "SampleHandlerTutorial")
+        py::class_<SampleHandlerTutorial, SampleHandlerBase, SampleHandlerInterface>(m_samples, "SampleHandlerTutorial")
             // Constructor with 2 arguments (no oscillation handler)
             .def(py::init([](const std::string& mc_version, ParameterHandlerGeneric* xsec_cov) {
                 return new SampleHandlerTutorial(mc_version, xsec_cov, nullptr);
