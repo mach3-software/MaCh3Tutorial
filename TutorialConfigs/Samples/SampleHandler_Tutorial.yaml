@@ -36,40 +36,40 @@ Tutorial_Beam:
     splineprefix: "TutorialConfigs/MC/BinnedSplinesTutorialInputs"
     splinesuffix: "2D.root"
 
-  SubSamples:
+  OscChannels:
     - Name: "numu-x-numu"
       LatexName: "#nu_{#mu} #rightarrow #nu_{#mu}"
-      mtuplefile: "numu_x_numu"
+      mtuplefile: ["numu_x_numu"]
       splinefile: ""
       nutype: 14
       oscnutype: 14
     - Name: "nue-x-nue"
       LatexName: "#nu_{e} #rightarrow #nu_{e}"
-      mtuplefile: "nue_x_nue"
+      mtuplefile: ["nue_x_nue"]
       splinefile: ""
       nutype: 12
       oscnutype: 12
     - Name: "numubar-x-numubar"
       LatexName: "#bar{#nu}_{#mu} #rightarrow #bar{#nu}_{#mu}"
-      mtuplefile: "numubar_x_numubar"
+      mtuplefile: ["numubar_x_numubar"]
       splinefile: ""
       nutype: -14
       oscnutype: -14
     - Name: "nuebar-x-nuebar"
       LatexName: "#bar{#nu}_{e} #rightarrow #bar{#nu}_{e}"
-      mtuplefile: "nuebar_x_nuebar"
+      mtuplefile: ["nuebar_x_nuebar"]
       splinefile: ""
       nutype: -12
       oscnutype: -12
     - Name: "numu-x-nue"
       LatexName: "#nu_{#mu} #rightarrow #nu_{e}"
-      mtuplefile: "numu_x_nue"
+      mtuplefile: ["numu_x_nue"]
       splinefile: ""
       nutype: 14
       oscnutype: 12
     - Name: "numubar-x-nuebar"
       LatexName: "#bar{#nu}_{#mu} #rightarrow #bar{#nu}_{e}"
-      mtuplefile: "numubar_x_nuebar"
+      mtuplefile: ["numubar_x_nuebar"]
       splinefile: ""
       nutype: -14
       oscnutype: -12
