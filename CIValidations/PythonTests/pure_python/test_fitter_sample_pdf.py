@@ -62,7 +62,7 @@ class test_sample(samples.SampleHandlerInterface):
 
         ## Open up the file and get the sample_sum tree from it
         spline_file: TFile = TFile(file_name)
-        sample_sum: TTree = spline_file.sample_sum
+        sample_sum: TTree = spline_file["sample_sum"]
 
         print(sample_sum.Print())
 
@@ -119,7 +119,7 @@ class test_sample(samples.SampleHandlerInterface):
         # Open up the input file and read in the event information from them
         # (currently this means just the number of events as input has no kinematic parameters) 
         spline_file: TFile = TFile(file_name)
-        sample_sum: TTree = spline_file.sample_sum
+        sample_sum: TTree = spline_file["sample_sum"]
 
         self.n_mc_events = sample_sum.GetEntries()
         self.event_weights = np.ones((self.n_mc_events))
