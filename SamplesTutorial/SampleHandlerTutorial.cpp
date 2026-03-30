@@ -355,7 +355,7 @@ const double* SampleHandlerTutorial::GetPointerToKinematicParameter(const int Ki
       return &TutorialSamples[iEvent].Mode;
     case kOscChannel:
       return GetPointerToOscChannel(iEvent);
-    case kTarget:
+    case kTargetNucleus:
       return &TutorialSamples[iEvent].Target;
     default:
       MACH3LOG_ERROR("Unrecognized Kinematic Parameter type: {}", KinPar);

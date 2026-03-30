@@ -51,7 +51,7 @@ class SampleHandlerTutorial : public SampleHandlerBase
     {"TrueNeutrinoEnergy", kTrueNeutrinoEnergy},
     {"TrueQ2", kTrueQ2},
     {"Mode", kM3Mode},
-    {"Target", kTarget},
+    {"TargetNucleus", kTargetNucleus},
     {"RecoNeutrinoEnergy", kRecoNeutrinoEnergy},
     {"OscillationChannel", kOscChannel},
   };
@@ -60,7 +60,7 @@ class SampleHandlerTutorial : public SampleHandlerBase
     {kTrueNeutrinoEnergy, "TrueNeutrinoEnergy"},
     {kTrueQ2, "TrueQ2"},
     {kM3Mode, "Mode"},
-    {kTarget, "Target"},
+    {kTargetNucleus, "TargetNucleus"},
     {kRecoNeutrinoEnergy, "RecoNeutrinoEnergy"},
     {kOscChannel, "OscillationChannel"},
   };
