@@ -47,7 +47,6 @@ option(MaCh3Tutorial_DEBUG_ENABLED "Use debug options" OFF)
 option(MaCh3Tutorial_LOW_MEMORY_STRUCTS_ENABLED "Use floats" OFF)
 option(PYTHON_ENABLED "Build python package" OFF)
 
-set(MaCh3_Branch feature_python_bindings)
 # KS: Here we try to find tag matching tutorial version. If we can't find one then use develop
 # This will allow to grab tutorial for tagged MaCh3 version without a need of manually changing version
 if(NOT DEFINED MaCh3_Branch)
