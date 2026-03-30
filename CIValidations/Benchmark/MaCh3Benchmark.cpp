@@ -85,9 +85,9 @@ TEST_CASE("Benchmark MaCh3") {
   Covs.push_back(xsec.get());
 
   // Initialise samplePDF
-  auto BeamSamples = MaCh3SampleHandlerFactory<SampleHandlerTutorial>({"TutorialConfigs/Samples/SampleHandler_Tutorial.yaml"}, xsec.get());
-  auto ATMSamples = MaCh3SampleHandlerFactory<SampleHandlerTutorial>({"TutorialConfigs/Samples/SampleHandler_Tutorial_ATM.yaml"}, xsec.get());
-  auto NDSamples = MaCh3SampleHandlerFactory<SampleHandlerTutorial>({"TutorialConfigs/Samples/SampleHandler_Tutorial_ND.yaml"}, xsec.get());
+  auto BeamSamples = std::make_unique<SampleHandlerTutorial>({"TutorialConfigs/Samples/SampleHandler_Tutorial.yaml"}, xsec.get());
+  auto ATMSamples = std::make_unique<SampleHandlerTutorial>({"TutorialConfigs/Samples/SampleHandler_Tutorial_ATM.yaml"}, xsec.get());
+  auto NDSamples = std::make_unique<SampleHandlerTutorial>({"TutorialConfigs/Samples/SampleHandler_Tutorial_ND.yaml"}, xsec.get());
 
   BENCHMARK("Beam Reweight") {
     for (size_t s = 0; s < Covs.size(); ++s) {
@@ -95,17 +95,13 @@ TEST_CASE("Benchmark MaCh3") {
       Covs[s]->AcceptStep();
       Covs[s]->GetLikelihood();
     }
-    for(unsigned int ivs = 0; ivs < BeamSamples.size(); ivs++ ) {
-      BeamSamples[ivs]->Reweight();
-      BeamSamples[ivs]->GetLikelihood();
-    }
+    BeamSamples->Reweight();
+    BeamSamples->GetLikelihood();
   };
 
   BENCHMARK("Beam Reweight w/o Osc") {
-    for(unsigned int ivs = 0; ivs < BeamSamples.size(); ivs++ ) {
-      BeamSamples[ivs]->Reweight();
-      BeamSamples[ivs]->GetLikelihood();
-    }
+    BeamSamples->Reweight();
+    BeamSamples->GetLikelihood();
   };
 
   BENCHMARK("ATM Reweight") {
@@ -114,10 +110,9 @@ TEST_CASE("Benchmark MaCh3") {
       Covs[s]->AcceptStep();
       Covs[s]->GetLikelihood();
     }
-    for(unsigned int ivs = 0; ivs < ATMSamples.size(); ivs++ ) {
-      ATMSamples[ivs]->Reweight();
-      ATMSamples[ivs]->GetLikelihood();
-    }
+
+    ATMSamples->Reweight();
+    ATMSamples->GetLikelihood();
   };
 
   BENCHMARK("ND Reweight") {
@@ -126,10 +121,9 @@ TEST_CASE("Benchmark MaCh3") {
       Covs[s]->AcceptStep();
       Covs[s]->GetLikelihood();
     }
-    for(unsigned int ivs = 0; ivs < NDSamples.size(); ivs++ ) {
-      NDSamples[ivs]->Reweight();
-      NDSamples[ivs]->GetLikelihood();
-    }
+
+    NDSamples->Reweight();
+    NDSamples->GetLikelihood();
   };
 
   CreateChungusYaml("ChungusSystematics.yaml", 2000);
@@ -175,14 +169,4 @@ TEST_CASE("Benchmark MaCh3") {
       NonUniformBinning->FindGlobalBin(0, KinVars, NomBins);
     }
   };
-
-  for (size_t i = 0; i < NDSamples.size(); ++i) {
-    delete NDSamples[i];
-  }
-  for (size_t i = 0; i < BeamSamples.size(); ++i) {
-    delete BeamSamples[i];
-  }
-  for (size_t i = 0; i < ATMSamples.size(); ++i) {
-    delete ATMSamples[i];
-  }
 }

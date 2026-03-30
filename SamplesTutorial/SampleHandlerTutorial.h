@@ -38,8 +38,10 @@ class SampleHandlerTutorial : public SampleHandlerBase
   // ===========================================================================
 
   const double* GetPointerToKinematicParameter(const int KinematicVariable, const int iEvent) const final;
-
+  /// @brief Function which translates experiment struct into core struct
   void SetupMC() final;
+  /// @brief Function responsible for loading data from file or loading from file
+  void InititialiseData() final;
   void CalcWeightFunc(const int iEvent) final {return; (void)iEvent;}
 
   std::vector<TutorialMCInfo> TutorialSamples;

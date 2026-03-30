@@ -308,6 +308,18 @@ void SampleHandlerTutorial::FillParticles(int eventIndex, int nParticles, int PD
   }
 }
 
+
+// ************************************************
+void SampleHandlerTutorial::InititialiseData() {
+// ************************************************
+  // Reweight MC to match
+  Reweight();
+  // set asimov data
+  for(int iSample = 0; iSample < GetNSamples(); iSample++) {
+    AddData(iSample, GetMCArray(iSample));
+  }
+}
+
 double SampleHandlerTutorial::ReturnKinematicParameter(const int KinematicVariable, const int iEvent) const {
   const double* paramPointer = GetPointerToKinematicParameter(KinematicVariable, iEvent);
   return *paramPointer;
