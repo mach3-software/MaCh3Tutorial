@@ -91,18 +91,17 @@ void SplineBinnedValidations(std::ostream& outFile){
 
   constexpr int OscIndex = 0;
   constexpr int ModeIndex = 0;
-  constexpr int TrueEnu = 0.6;
-  auto EventSplines = SplineHandler->GetEventSplines("FHC_1Re", OscIndex, ModeIndex, TrueEnu, TrueEnu, 0.);
+  std::vector<double> TrueEnu = {0.2, 0.4, 0.6, 0.8, 1.0};
+  for (size_t iEnu = 0; iEnu < TrueEnu.size(); ++iEnu) {
+    auto EventSplines = SplineHandler->GetEventSplines("FHC_1Re", OscIndex, ModeIndex, TrueEnu[iEnu], TrueEnu[iEnu], 0.);
 
-  xsec_spline_pointers.resize(EventSplines.size());
-  for(size_t spline = 0; spline < xsec_spline_pointers.size(); spline++) {
-    //Event Splines indexed as: sample name, oscillation channel, syst, mode, etrue, var1, var2 (var2 is a dummy 0 for 1D splines)
-    xsec_spline_pointers[spline] = SplineHandler->RetPointer(EventSplines[spline][0], EventSplines[spline][1],
-                                                             EventSplines[spline][2], EventSplines[spline][3],
-                                                             EventSplines[spline][4], EventSplines[spline][5],
-                                                             EventSplines[spline][6]);
-
-    outFile << "Binned Spline " << spline << " sample = " << EventSplines[spline][0] << std::endl;
+    for(size_t spline = 0; spline < EventSplines.size(); spline++) {
+      //Event Splines indexed as: sample name, oscillation channel, syst, mode, etrue, var1, var2 (var2 is a dummy 0 for 1D splines)
+      xsec_spline_pointers.push_back(SplineHandler->RetPointer(EventSplines[spline][0], EventSplines[spline][1],
+                                                               EventSplines[spline][2], EventSplines[spline][3],
+                                                               EventSplines[spline][4], EventSplines[spline][5],
+                                                               EventSplines[spline][6]));
+    }
   }
   SplineHandler->cleanUpMemory();
   SplineHandler->Evaluate();
