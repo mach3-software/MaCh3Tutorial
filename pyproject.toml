@@ -4,7 +4,9 @@ build-backend = "scikit_build_core.build"
 
 [project]
 name = "pyMaCh3_tutorial"
-version = "0.0.1"
+
+dynamic = ["version"]
+
 authors = [{ name = "The MaCh3 Collaboration" }]
 dependencies = [
   "numpy",
