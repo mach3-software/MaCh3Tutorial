@@ -6,10 +6,9 @@ basic xsec and osc covariances.
 """
 
 # MaCh3 includes
-import pyMaCh3
-from pyMaCh3 import fitters
-from pyMaCh3 import manager
-from pyMaCh3 import parameters
+from pyMaCh3_tutorial import fitters
+from pyMaCh3_tutorial import manager
+from pyMaCh3_tutorial import parameters
 # other python includes
 import sys
 import pytest
