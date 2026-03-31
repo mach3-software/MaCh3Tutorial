@@ -12,7 +12,7 @@ class SampleHandlerTutorial : public SampleHandlerBase
                         const std::shared_ptr<OscillationHandler>& Oscillator_ = nullptr);
   virtual ~SampleHandlerTutorial();
 
-  enum KinematicTypes {kTrueNeutrinoEnergy, kTrueQ2, kM3Mode, kTarget, kRecoNeutrinoEnergy, kOscChannel};
+  enum KinematicTypes {kTrueNeutrinoEnergy, kTrueQ2, kM3Mode, kTarget, kRecoNeutrinoEnergy, kOscChannel, kTargetNucleus};
   
   // === JM enum for particle-level parameters ===
   enum KinematicParticleVecs {kParticleEnergy, kParticlePDG, kParticleBeamAngle};
