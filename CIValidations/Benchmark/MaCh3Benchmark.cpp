@@ -85,9 +85,9 @@ TEST_CASE("Benchmark MaCh3") {
   Covs.push_back(xsec.get());
 
   // Initialise samplePDF
-  auto BeamSamples = std::make_unique<SampleHandlerTutorial>({"TutorialConfigs/Samples/SampleHandler_Tutorial.yaml"}, xsec.get());
-  auto ATMSamples = std::make_unique<SampleHandlerTutorial>({"TutorialConfigs/Samples/SampleHandler_Tutorial_ATM.yaml"}, xsec.get());
-  auto NDSamples = std::make_unique<SampleHandlerTutorial>({"TutorialConfigs/Samples/SampleHandler_Tutorial_ND.yaml"}, xsec.get());
+  auto BeamSamples = std::make_unique<SampleHandlerTutorial>("TutorialConfigs/Samples/SampleHandler_Tutorial.yaml", xsec.get());
+  auto ATMSamples = std::make_unique<SampleHandlerTutorial>("TutorialConfigs/Samples/SampleHandler_Tutorial_ATM.yaml", xsec.get());
+  auto NDSamples = std::make_unique<SampleHandlerTutorial>("TutorialConfigs/Samples/SampleHandler_Tutorial_ND.yaml", xsec.get());
 
   BENCHMARK("Beam Reweight") {
     for (size_t s = 0; s < Covs.size(); ++s) {
