@@ -10,7 +10,7 @@ void SharedNuOscTest(const std::string& config, ParameterHandlerGeneric* xsec) {
   MACH3LOG_INFO("Utilising a shared NuOscillator object between all atmospheric samples");
 
   std::string OscillatorConfig = std::string(std::getenv("MaCh3Tutorial_ROOT")) + "/TutorialConfigs/NuOscillator/CUDAProb3.yaml";
-  auto OscParams = xsec->GetOscParsFromSampleName("Tutorial ATM");
+  auto OscParams = xsec->GetOscParsFromSampleName("Tutorial_ATM");
   auto OscillatorObj = std::make_shared<OscillationHandler>(OscillatorConfig, true, OscParams, 6);
 
   auto Sample1 = std::make_unique<SampleHandlerTutorial>(config, xsec, OscillatorObj);
@@ -58,7 +58,6 @@ void SampleLLHValidation(std::ostream& outFile, const std::string& OriginalSampl
 
   // Use modified config
   auto Sample = std::make_unique<SampleHandlerTutorial>(tempConfigPath, xsec);
-  Sample->Reweight();
 
   for(int iSample = 0; iSample < Sample->GetNSamples(); iSample++) {
     TH1* SampleHistogramPrior = static_cast<TH1*>(Sample->GetMCHist(iSample)->Clone((NameTString + "_Prior").c_str()));
@@ -95,10 +94,6 @@ void SampleLLHValidation(std::ostream& outFile, const std::string& OriginalSampl
 void ValidateTestStatistic(std::ostream& outFile, const std::string& OriginalSample, ParameterHandlerGeneric* xsec) {
   // Use modified config
   auto Sample = std::make_unique<SampleHandlerTutorial>(OriginalSample, xsec);
-  Sample->Reweight();
-  for(int iSample = 0; iSample < Sample->GetNSamples(); iSample++){
-    Sample->AddData(iSample, Sample->GetMCArray(iSample));
-  }
 
   // Define test vectors, feel free to expand it
   std::vector<double> data_values = {0.0, M3::_LOW_MC_BOUND_, 0.5, 1.0, 100000};
@@ -162,9 +157,8 @@ void LoadSplineValidation(std::ostream& outFile, const std::string& OriginalSamp
 
   // Use modified config
   auto Sample = std::make_unique<SampleHandlerTutorial>(tempConfigPath, xsec);
-  Sample->Reweight();
 
-  for(int iSample = 0; iSample < Sample->GetNSamples(); iSample++){
+  for(int iSample = 0; iSample < Sample->GetNSamples(); iSample++) {
     TH1* SampleHistogramPrior = static_cast<TH1*>(Sample->GetMCHist(iSample)->Clone((NameTString + "_Prior").c_str()));
     Sample->AddData(iSample, SampleHistogramPrior);
 
@@ -207,7 +201,6 @@ void UnbinnedOsc(std::ostream& outFile, ParameterHandlerGeneric* xsec) {
 
   // Use modified config
   auto Sample = std::make_unique<SampleHandlerTutorial>(SampleConfigPath, xsec);
-  Sample->Reweight();
 
   for(int iSample = 0; iSample < Sample->GetNSamples(); iSample++) {
     TH1* SampleHistogramPrior = static_cast<TH1*>(Sample->GetMCHist(iSample)->Clone("blarb_Prior"));
