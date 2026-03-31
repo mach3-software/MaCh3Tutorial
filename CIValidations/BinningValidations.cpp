@@ -1,6 +1,30 @@
 // MaCh3 spline includes
 #include "Utils/Comparison.h"
 #include "Samples/BinningHandler.h"
+#include "Samples/HistogramUtils.h"
+
+std::unique_ptr<TH2Poly> MakeDummyTH2Poly() {
+  auto poly = std::make_unique<TH2Poly>();
+
+  std::vector<double> BinArray_x = {0., 300., 400., 500., 600., 650., 700., 750., 800., 900., 1000.};
+  std::vector<double> BinArray_y = {-1.0, 0.6, 0.7, 0.8, 0.9, 0.95, 1.0};
+
+  for(size_t iy = 0; iy < BinArray_y.size()-1; iy++)
+  {
+    double ymax = BinArray_y[iy+1];
+    double ymin = BinArray_y[iy];
+    for(size_t ix = 0; ix < BinArray_x.size()-1; ix++)
+    {
+      double xmax = BinArray_x[ix+1];
+      double xmin = BinArray_x[ix];
+      double binofx[] = {xmin, xmax, xmax, xmin};
+      double binofy[] = {ymin, ymin, ymax, ymax};
+      poly->AddBin(4,binofx,binofy);
+    }
+  }
+
+  return poly;
+}
 
 void BinningHandlerValidationsNonUniform(std::ostream& outFile) {
   auto Binning = std::make_unique<BinningHandler>();
@@ -77,6 +101,24 @@ Uniform: false
       }
     }
   }
+
+/////////////Check Loading From External///////////////
+  auto Poly = MakeDummyTH2Poly();
+  auto BinningYaml = M3::PolyToYaml(Poly.get(), "Sample", __FILE__, __LINE__);
+  auto String = YAMLtoSTRING(BinningYaml);
+  std::ofstream out("binningTest.yaml");
+  out << String;
+  out.close();
+
+  std::string yamlBinningExternal = R"(
+VarStr : ["RecoNeutrinoEnergy", "TrueQ2"]
+Bins:
+  File: binningTest.yaml
+  Key: Sample
+Uniform: false
+)";
+  YAML::Node ConfigExternal = STRINGtoYAML(yamlBinningExternal);
+  Binning->SetupSampleBinning(ConfigExternal, SingleSample);
 }
 
 
@@ -235,7 +277,6 @@ Uniform: true
 
   outFile << "[Binning_2DRangeRange]: BinEdges[0]: " << fmtvector(Binning->GetBinEdges(7,0)) << std::endl;
   outFile << "[Binning_2DRangeRange]: BinEdges[1]: " << fmtvector(Binning->GetBinEdges(7,1)) << std::endl;
-
 }
 
 
