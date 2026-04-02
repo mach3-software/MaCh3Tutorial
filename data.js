@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1775033795150,
+  "lastUpdate": 1775117501835,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -22935,6 +22935,79 @@ window.BENCHMARK_DATA = {
             "name": "Non-Uniform BinningHandler",
             "value": 8.21212,
             "range": "± 29.2599",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "2b7ac7f4f603ec14b804c6b3d803111306f77e10",
+          "message": "Merge pull request #852 from mach3-software/kswkarczynski/tidy/CUDAcmake\n\ntidy: Remove deprecated Cmake Settings",
+          "timestamp": "2026-04-02T10:05:39+02:00",
+          "tree_id": "d48c0e80dbbf76dff003702bfa3e76b6db468896",
+          "url": "https://github.com/mach3-software/MaCh3/commit/2b7ac7f4f603ec14b804c6b3d803111306f77e10"
+        },
+        "date": 1775117497784,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 3.08729,
+            "range": "± 87.5727",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 3.1996,
+            "range": "± 884.022",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 384.914,
+            "range": "± 7.29558",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ND Reweight",
+            "value": 321.096,
+            "range": "± 36.7937",
+            "unit": "us",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ParameterHandler Operations",
+            "value": 2.64821,
+            "range": "± 190.201",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Uniform BinningHandler 100k events",
+            "value": 7.99344,
+            "range": "± 22.1905",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Non-Uniform BinningHandler",
+            "value": 8.38821,
+            "range": "± 201.357",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
