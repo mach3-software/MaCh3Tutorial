@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1775138681505,
+  "lastUpdate": 1775809499755,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -23154,6 +23154,79 @@ window.BENCHMARK_DATA = {
             "name": "Non-Uniform BinningHandler",
             "value": 9.10064,
             "range": "± 31.0311",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "67589487+henry-wallace-phys@users.noreply.github.com",
+            "name": "Henry Wallace",
+            "username": "henry-wallace-phys"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "97587e30f5f43704bd540c64023c61bc106e1509",
+          "message": "Merge pull request #858 from mach3-software/hwallace/bugfix/less_verbose_adaptive\n\nbugfix: Remove individual step scale printing from set indiv scale",
+          "timestamp": "2026-04-10T09:18:48+01:00",
+          "tree_id": "73e5671a202865442afdabe805634644d29fd46c",
+          "url": "https://github.com/mach3-software/MaCh3/commit/97587e30f5f43704bd540c64023c61bc106e1509"
+        },
+        "date": 1775809495692,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 3.20679,
+            "range": "± 200.028",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 3.11091,
+            "range": "± 89.4502",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 380.643,
+            "range": "± 7.02417",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ND Reweight",
+            "value": 341.01,
+            "range": "± 71.2069",
+            "unit": "us",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ParameterHandler Operations",
+            "value": 2.64326,
+            "range": "± 785.054",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Uniform BinningHandler 100k events",
+            "value": 8.05172,
+            "range": "± 47.2109",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Non-Uniform BinningHandler",
+            "value": 8.53353,
+            "range": "± 36.1732",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
