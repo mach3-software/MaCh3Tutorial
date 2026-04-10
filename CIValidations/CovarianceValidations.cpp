@@ -243,7 +243,7 @@ int main(int argc, char *argv[])
 
   std::vector<double> ParProp = {1.05, 0.90, 1.10, 1.05, 1.05, 1.05, 1.05, 1.05, 0., 0.2};
   xsec->SetParameters(ParProp);
-  xsec->PrintNominalCurrProp();
+  xsec->PrintPrefitCurrPropValues();
 
   xsec->DumpMatrixToFile("xsec_2024a_flux_21bv2.root");
 
@@ -407,7 +407,7 @@ int main(int argc, char *argv[])
   auto osc = std::make_unique<ParameterHandlerGeneric>(OscCovMatrixFile, "osc_cov");
   std::vector<double> OscParProp = {0.3, 0.5, 0.020, 7.53e-5, 2.494e-3, 0.0, 295, 2.6, 0.5, 15};
   osc->SetParameters(OscParProp);
-  osc->PrintNominalCurrProp();
+  osc->PrintPrefitCurrPropValues();
   outFile << "Likelihood Osc=" << osc->GetLikelihood() << std::endl;
 
 ////////////// Now Adaptive //////////////
