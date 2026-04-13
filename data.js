@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1776082081661,
+  "lastUpdate": 1776083255715,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -23446,6 +23446,79 @@ window.BENCHMARK_DATA = {
             "name": "Non-Uniform BinningHandler",
             "value": 8.33367,
             "range": "± 37.9852",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "01f17622ddc41354901ad95ca8fea00bd9fc4594",
+          "message": "Merge pull request #856 from mach3-software/kskwarczynski/breaking/FDCoreInfoEnd\n\nbreaking: Break down FarDetectorCoreInfoStruct.h",
+          "timestamp": "2026-04-13T14:21:22+02:00",
+          "tree_id": "87276ec56bddcfb03add6bce3e66acc341f53b2b",
+          "url": "https://github.com/mach3-software/MaCh3/commit/01f17622ddc41354901ad95ca8fea00bd9fc4594"
+        },
+        "date": 1776083250720,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 3.21722,
+            "range": "± 71.0936",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 4.71059,
+            "range": "± 4.48975",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 344.463,
+            "range": "± 5.23168",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ND Reweight",
+            "value": 323.059,
+            "range": "± 18.7309",
+            "unit": "us",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ParameterHandler Operations",
+            "value": 3.14951,
+            "range": "± 89.0233",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Uniform BinningHandler 100k events",
+            "value": 8.70854,
+            "range": "± 25.9249",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Non-Uniform BinningHandler",
+            "value": 9.13206,
+            "range": "± 32.2478",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
