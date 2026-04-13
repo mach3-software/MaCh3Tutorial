@@ -22,29 +22,21 @@ jobs:
 
     steps:
     - uses: actions/checkout@v6
-    
-    - name: Install pyMaCh3
-      run: |
-        cd /opt/
-        mkdir /python-test-modules
-        git clone --branch "develop" https://github.com/mach3-software/MaCh3.git MaCh3Core
-        pip install MaCh3Core/ -t /python-test-modules/
 
     - name: Get MaCh3 Validations
       run: |
         cd /opt/
         git clone --branch "${{ github.head_ref }}" https://github.com/mach3-software/MaCh3Tutorial.git MaCh3Validations
 
-    - name: Install pytest
+    - name: pip Install
       working-directory: /opt/MaCh3Validations
       run: |
-        pip install -r ./CIValidations/PythonTests/requirements.txt -t /python-test-modules/
+        pip install -v .[testing]
 
     - name: Validations
       working-directory: /opt/MaCh3Validations
       run: |
         source /opt/root/v6-26-10/bin/thisroot.sh
-        export PYTHONPATH=$PYTHONPATH:/python-test-modules/
         export MACH3=$PWD
         
         python3 -m pytest --config TutorialConfigs/FitterConfig.yaml CIValidations/PythonTests
