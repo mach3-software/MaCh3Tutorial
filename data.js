@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1776083255715,
+  "lastUpdate": 1776084640828,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -23519,6 +23519,79 @@ window.BENCHMARK_DATA = {
             "name": "Non-Uniform BinningHandler",
             "value": 9.13206,
             "range": "± 32.2478",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "5cb62d2d033ac9a8b071960d513b7e36c2fa4732",
+          "message": "Merge pull request #862 from mach3-software/kskwarczynski/tidy/PCADebug\n\ntidy: Move PCA debug to utils",
+          "timestamp": "2026-04-13T14:44:40+02:00",
+          "tree_id": "f5070de7f884f2dedad877535e34a73244921347",
+          "url": "https://github.com/mach3-software/MaCh3/commit/5cb62d2d033ac9a8b071960d513b7e36c2fa4732"
+        },
+        "date": 1776084637015,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 3.2611,
+            "range": "± 796.932",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 3.22438,
+            "range": "± 909.958",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 376.157,
+            "range": "± 3.87812",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ND Reweight",
+            "value": 327.756,
+            "range": "± 35.6994",
+            "unit": "us",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ParameterHandler Operations",
+            "value": 2.57526,
+            "range": "± 234.346",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Uniform BinningHandler 100k events",
+            "value": 7.94824,
+            "range": "± 30.7735",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Non-Uniform BinningHandler",
+            "value": 8.2948,
+            "range": "± 27.2621",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
