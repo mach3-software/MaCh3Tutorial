@@ -108,3 +108,8 @@ PrettyNames:
     kinematics:
         RecoNeutrinoEnergy: "E_{#nu}^{reco}"
         TrueQ2: "Q^{2}_{true}"
+
+#########################################
+BinWidthScaleFactor:
+    RecoNeutrinoEnergy: 10
+    TrueQ2: 100

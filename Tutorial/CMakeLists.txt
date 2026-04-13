@@ -6,6 +6,7 @@ foreach(app
     PredictiveTutorial
     SigmaVarTutorial
     KinemDistributionTutorial
+    TutorialEventRates
     )
     add_executable(${app} ${app}.cpp)
     target_link_libraries(${app} MaCh3Tutorial::ValidationsUtils MaCh3Tutorial::SamplesTutorial)
