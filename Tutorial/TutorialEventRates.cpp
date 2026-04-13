@@ -18,11 +18,11 @@ int main(int argc, char *argv[]) {
   MACH3LOG_INFO("-------------------------------------------------------------------");
   MACH3LOG_INFO("Grouping oscillation channels\n");
 
-  std::vector<M3::float_t> oscpars_un(myParams->GetNumParFromGroup("Osc"));
+  std::vector<double> oscpars_un(myParams->GetNumParFromGroup("Osc"));
   int idx = 0;
   for (int i = 0; i < myParams->GetNParameters(); ++i) {
     if (myParams->IsParFromGroup(i, "Osc")) {
-      oscpars_un[idx] = myParams->GetParProp(i);
+      oscpars_un[idx] = static_cast<double>(myParams->GetParProp(i));
       ++idx;
     }
   }
