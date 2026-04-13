@@ -1,6 +1,5 @@
 # Mach3 inputs
-import pyMaCh3
-from pyMaCh3 import splines
+from pyMaCh3_tutorial import splines
 # Other python includes
 import numpy as np
 

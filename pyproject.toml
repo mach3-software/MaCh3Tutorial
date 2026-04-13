@@ -1,0 +1,27 @@
+[build-system]
+requires = ["scikit-build-core", "pybind11"]
+build-backend = "scikit_build_core.build"
+
+[project]
+name = "pyMaCh3_tutorial"
+
+dynamic = ["version", "dependencies"]
+
+authors = [{ name = "The MaCh3 Collaboration" }]
+
+[tool.setuptools.dynamic]
+dependencies = {file = ["requirements.txt"]}
+
+[project.optional-dependencies]
+testing = [
+  "pytest"
+]
+
+[tool.scikit-build]
+wheel.install-dir = "pyMaCh3_tutorial"
+
+[tool.scikit-build.cmake]
+args = ["-DPYTHON_ENABLED=ON"]
+
+[tool.scikit-build.metadata.version]
+provider = "scikit_build_core.metadata.setuptools_scm"

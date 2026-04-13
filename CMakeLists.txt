@@ -45,6 +45,7 @@ option(MaCh3Tutorial_PROFILING_ENABLED "Will run with gperftools" OFF)
 option(Use_External_MaCh3 "Use an externally installed MaCh3 instead of CPM" OFF)
 option(MaCh3Tutorial_DEBUG_ENABLED "Use debug options" OFF)
 option(MaCh3Tutorial_LOW_MEMORY_STRUCTS_ENABLED "Use floats" OFF)
+option(PYTHON_ENABLED "Build python package" OFF)
 
 # KS: Here we try to find tag matching tutorial version. If we can't find one then use develop
 # This will allow to grab tutorial for tagged MaCh3 version without a need of manually changing version
@@ -74,10 +75,6 @@ endif()
 if(NOT MaCh3_FOUND)
   message(STATUS "MaCh3 is not found locally!")
   set(MaCh3_OPTIONS "")
-
-  if(PYTHON_ENABLED)
-      list(APPEND MaCh3_OPTIONS "MaCh3_PYTHON_ENABLED ${PYTHON_ENABLED}")
-  endif()
 
   # KS: For benchmark we turn off logger to not interfere with output messages.
   # Also to have code compile let's turn off Werror
@@ -145,6 +142,51 @@ add_subdirectory(CIValidations)
 add_subdirectory(Tutorial)
 add_subdirectory(SplinesTutorial)
 add_subdirectory(SamplesTutorial)
+
+# MOVE THIS BLOCK HERE - BEFORE add_subdirectory(python)
+# After MaCh3 is added/found, determine MaCh3_PREFIX
+if(NOT DEFINED MaCh3_PREFIX OR MaCh3_PREFIX STREQUAL "")
+    # Try to detect if MaCh3 was fetched by CPM
+    if(EXISTS "${CMAKE_BINARY_DIR}/_deps/mach3-src")
+        set(MaCh3_PREFIX "${CMAKE_BINARY_DIR}/_deps/mach3-src")
+        cmessage(STATUS "Detected CPM-fetched MaCh3: ${MaCh3_PREFIX}")
+    # Try to get from MaCh3 package config
+    elseif(DEFINED MaCh3_DIR)
+        get_filename_component(MaCh3_PREFIX "${MaCh3_DIR}" DIRECTORY)
+        get_filename_component(MaCh3_PREFIX "${MaCh3_PREFIX}" DIRECTORY)
+        cmessage(STATUS "Detected installed MaCh3 from MaCh3_DIR: ${MaCh3_PREFIX}")
+    # Try to get from target properties
+    elseif(TARGET MaCh3::All)
+        get_target_property(MACH3_INCLUDE_DIRS MaCh3::All INTERFACE_INCLUDE_DIRECTORIES)
+        if(MACH3_INCLUDE_DIRS)
+            list(GET MACH3_INCLUDE_DIRS 0 FIRST_INCLUDE_DIR)
+            get_filename_component(MaCh3_PREFIX "${FIRST_INCLUDE_DIR}" DIRECTORY)
+            cmessage(STATUS "Detected MaCh3 from target include dirs: ${MaCh3_PREFIX}")
+        endif()
+    endif()
+    
+    # Final validation
+    if(NOT DEFINED MaCh3_PREFIX OR MaCh3_PREFIX STREQUAL "")
+        cmessage(FATAL_ERROR "Could not determine MaCh3_PREFIX. Please set it manually with -DMaCh3_PREFIX=<path>")
+    endif()
+    
+    if(NOT EXISTS "${MaCh3_PREFIX}")
+        cmessage(FATAL_ERROR "MaCh3_PREFIX does not exist: ${MaCh3_PREFIX}")
+    endif()
+    
+    # Cache it for use in subdirectories
+    set(MaCh3_PREFIX "${MaCh3_PREFIX}" CACHE PATH "MaCh3 installation or source directory" FORCE)
+    cmessage(STATUS "Set MaCh3_PREFIX: ${MaCh3_PREFIX}")
+endif()
+
+# NOW add the python subdirectory - MaCh3_PREFIX is already set
+if(PYTHON_ENABLED)
+  cmessage(STATUS "PYTHON IS ENABLED!!")
+  set(CMAKE_INSTALL_RPATH "$ORIGIN/../lib")
+  cmessage(STATUS "CMAKE_INSTALL_RPATH is ${CMAKE_INSTALL_RPATH}")
+  set(PYMACH3_PATH ${CMAKE_BINARY_DIR}/python/pyMaCh3)
+  add_subdirectory(python)
+endif()
 
 configure_file(cmake/Templates/setup.MaCh3Tutorial.sh.in "${PROJECT_BINARY_DIR}${CMAKE_FILES_DIRECTORY}/setup.MaCh3Tutorial.sh" @ONLY)
 install(FILES "${PROJECT_BINARY_DIR}${CMAKE_FILES_DIRECTORY}/setup.MaCh3Tutorial.sh" DESTINATION ${CMAKE_INSTALL_PREFIX}/bin)
