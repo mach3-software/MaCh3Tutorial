@@ -1,5 +1,9 @@
 #include "SamplesTutorial/SampleHandlerTutorial.h"
 
+#include <ROOT/RNTupleModel.hxx>
+#include <ROOT/RNTupleReader.hxx>
+#include <ROOT/RDataFrame.hxx>
+
 // ************************************************
 SampleHandlerTutorial::SampleHandlerTutorial(const std::string& config_name, ParameterHandlerGeneric* parameter_handler,
                                              const std::shared_ptr<OscillationHandler>&  Oscillator_)
@@ -114,18 +118,16 @@ void SampleHandlerTutorial::CleanMemoryBeforeFit() {
 // ************************************************
 int SampleHandlerTutorial::SetupExperimentMC() {
 // ************************************************
-  TChain* _Chain = new TChain("FlatTree_VARS");
+  std::vector<std::string> all_filenames;
   for(size_t iSample = 0; iSample < SampleDetails.size(); iSample++) {
     for (const std::vector<std::string>& files : SampleDetails[iSample].mc_files) {
       for (const std::string& filename : files) {
-        _Chain->Add(filename.c_str());
+        all_filenames.push_back(filename);
       }
     }
   }
-
-  // To loop over all events:
-  int nEntries = static_cast<int>(_Chain->GetEntries());
-  delete _Chain;
+  ROOT::RDataFrame df("Events", all_filenames);
+  int nEntries = static_cast<int>(df.Count().GetValue() );
 
   TutorialSamples.resize(nEntries);
   TutorialPlottingSamples.resize(nEntries);
@@ -147,67 +149,31 @@ int SampleHandlerTutorial::SetupExperimentMC() {
         MACH3LOG_INFO("-------------------------------------------------------------------");
         MACH3LOG_INFO("input file: {}", FileName);
 
-        TFile * _sampleFile = new TFile(FileName.c_str(), "READ");
-        TTree* _data = static_cast<TTree*>(_sampleFile->Get("FlatTree_VARS"));
-
-        if(_data){
-          MACH3LOG_INFO("Found \"FlatTree_VARS\" tree in {}", FileName);
-          MACH3LOG_INFO("With number of entries: {}", _data->GetEntries());
-        } else{
-          MACH3LOG_ERROR("Could not find \"FlatTree_VARS\" tree in {}", FileName);
-          throw MaCh3Exception(__FILE__, __LINE__);
-        }
-
-        //Truth Variables
-        float Enu_true, Q2, trueCZ, ELep;
-        int tgt, Mode, PDGLep;
-
-        /*
-        double ELep;
-        double CosLep;
-        bool flagCC0pi;
-        bool flagCC1pip;
-        bool flagCC1pim;
-        */
-        _data->SetBranchStatus("*", false);
-        _data->SetBranchStatus("Enu_true", true);
-        _data->SetBranchAddress("Enu_true", &Enu_true);
-        _data->SetBranchStatus("Q2", true);
-        _data->SetBranchAddress("Q2", &Q2);
-        _data->SetBranchStatus("tgt", true);
-        _data->SetBranchAddress("tgt", &tgt);
-        _data->SetBranchStatus("Mode", true);
-        _data->SetBranchAddress("Mode", &Mode);
-        _data->SetBranchStatus("PDGLep", true);
-        _data->SetBranchAddress("PDGLep", &PDGLep);
-        _data->SetBranchStatus("ELep", true);
-        _data->SetBranchAddress("ELep", &ELep);
-        // KS: If we have CosineZenith branch this must mean Atmospheric sample
-        if (_data->GetBranch("CosineZenith")) {
-          if(iChannel == 0) {
+        if (iChannel == 0) {
+          auto test_reader = ROOT::RNTupleReader::Open("Events", FileName);
+          if (test_reader->GetDescriptor().FindFieldId("CosineZenith") != ROOT::kInvalidDescriptorId) {
             MACH3LOG_INFO("Enabling Atmospheric");
             isATM = true;
           }
-          _data->SetBranchStatus("CosineZenith", true);
-          _data->SetBranchAddress("CosineZenith", &trueCZ);
         }
 
-        /*
-        _data->SetBranchStatus("CosLep", true);
-        _data->SetBranchAddress("CosLep", &CosLep);
-        _data->SetBranchStatus("flagCC0pi", true);
-        _data->SetBranchAddress("flagCC0pi", &flagCC0pi);
-        _data->SetBranchStatus("flagCC1pip", true);
-        _data->SetBranchAddress("flagCC1pip", &flagCC1pip);
-        _data->SetBranchStatus("flagCC1pim", true);
-        _data->SetBranchAddress("flagCC1pim", &flagCC1pim);
-        */
+        auto model = ROOT::RNTupleModel::Create();
+        auto Enu_true = model->MakeField<float>("Enu_true");
+        auto Q2 = model->MakeField<float>("Q2");
+        auto trueCZ = isATM ? model->MakeField<float>("CosineZenith") : nullptr;
+        auto ELep = model->MakeField<float>("ELep");
+        auto tgt = model->MakeField<int>("tgt");
+        auto Mode = model->MakeField<int>("Mode");
+        auto PDGLep = model->MakeField<int>("PDGLep");
 
-        _data->GetEntry(0);
+        auto reader = ROOT::RNTupleReader::Open(std::move(model), "Events", FileName);
+        MACH3LOG_INFO("Found \"Events\" RNTuple in {}", FileName);
+        MACH3LOG_INFO("With number of entries: {}", reader->GetNEntries());
+
         std::random_device rd;
         std::mt19937 gen(rd());
-        for (int i = 0; i < _data->GetEntries(); ++i) { // Loop through tree
-          _data->GetEntry(i);
+        for (auto entryId: *reader) {
+          reader->LoadEntry(entryId);
 
           // === JM resize particle-level vectors ===
           // JM: We don't have particle-level info in the tutorial sample, so will fake it
@@ -217,35 +183,33 @@ int SampleHandlerTutorial::SetupExperimentMC() {
           TutorialPlottingSamples[TotalEventCounter].particle_beamangle.resize(nParticles);
           // ========================================
 
-          TutorialSamples[TotalEventCounter].TrueEnu = Enu_true;
+          TutorialSamples[TotalEventCounter].TrueEnu = *Enu_true;
           // HH: We don't have Erec in the tutorial sample, so we set it to the true energy
-          TutorialSamples[TotalEventCounter].RecoEnu = Enu_true;
-          TutorialSamples[TotalEventCounter].RecoEnu_shifted = Enu_true;
-          TutorialSamples[TotalEventCounter].ELep = ELep;
-          TutorialSamples[TotalEventCounter].Q2     = Q2;
+          TutorialSamples[TotalEventCounter].RecoEnu = *Enu_true;
+          TutorialSamples[TotalEventCounter].RecoEnu_shifted = *Enu_true;
+          TutorialSamples[TotalEventCounter].ELep = *ELep;
+          TutorialSamples[TotalEventCounter].Q2     = *Q2;
           // KS: Currently we store target as 1000060120, therefore we hardcode it to 12
           TutorialSamples[TotalEventCounter].Target = 12;
-          TutorialSamples[TotalEventCounter].Mode   = Modes->GetModeFromGenerator(std::abs(Mode));
+          TutorialSamples[TotalEventCounter].Mode   = Modes->GetModeFromGenerator(std::abs(*Mode));
           TutorialSamples[TotalEventCounter].nutype = nutype_;
           TutorialSamples[TotalEventCounter].oscnutype = oscnutype_;
           TutorialSamples[TotalEventCounter].Sample = static_cast<int>(iSample);
 
-          if (std::abs(PDGLep) == 12 || std::abs(PDGLep) == 14 || std::abs(PDGLep) == 16) {
+          if (std::abs(*PDGLep) == 12 || std::abs(*PDGLep) == 14 || std::abs(*PDGLep) == 16) {
             TutorialSamples[TotalEventCounter].isNC = true;
           } else {
             TutorialSamples[TotalEventCounter].isNC = false;
           }
 
           if(isATM) {
-            TutorialSamples[TotalEventCounter].TrueCosZenith = trueCZ;
+            TutorialSamples[TotalEventCounter].TrueCosZenith = *trueCZ;
           }
 
-          FillParticles(TotalEventCounter, nParticles, PDGLep, ELep, gen);
+          FillParticles(TotalEventCounter, nParticles, *PDGLep, *ELep, gen);
           // ==========================================
           TotalEventCounter++;
         }
-        _sampleFile->Close();
-        delete _sampleFile;
       }
       MACH3LOG_INFO("Initialised channel: {}/{}", iChannel, GetNOscChannels(static_cast<int>(iSample)));
     }
