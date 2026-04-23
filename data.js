@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1776949479723,
+  "lastUpdate": 1776949484890,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -24322,6 +24322,79 @@ window.BENCHMARK_DATA = {
             "name": "Non-Uniform BinningHandler",
             "value": 8.28852,
             "range": "± 33.4143",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "f860f40136bdecf78f2388d286e28c6a6e30b4a9",
+          "message": "Merge pull request #875 from mach3-software/feat/kskwarczynski/NuDockDoxy\n\nfeat: Add NuDock to doxyfile",
+          "timestamp": "2026-04-23T14:58:40+02:00",
+          "tree_id": "da321aee212c006cb337d606eebce33d37f47cc9",
+          "url": "https://github.com/mach3-software/MaCh3/commit/f860f40136bdecf78f2388d286e28c6a6e30b4a9"
+        },
+        "date": 1776949476122,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 3.1847,
+            "range": "± 58.5025",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 3.10609,
+            "range": "± 55.0886",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 337.224,
+            "range": "± 6.88785",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ND Reweight",
+            "value": 320.733,
+            "range": "± 15.0696",
+            "unit": "us",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ParameterHandler Operations",
+            "value": 1.99782,
+            "range": "± 914.614",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Uniform BinningHandler 100k events",
+            "value": 8.71393,
+            "range": "± 22.4458",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Non-Uniform BinningHandler",
+            "value": 9.11709,
+            "range": "± 24.3269",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
