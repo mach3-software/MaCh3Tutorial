@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1776815214673,
+  "lastUpdate": 1776949479723,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -24249,6 +24249,79 @@ window.BENCHMARK_DATA = {
             "name": "Non-Uniform BinningHandler",
             "value": 7.06322,
             "range": "± 22.652",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "808b546760ff2f77bcbb349dfb845f296a0984f7",
+          "message": "Merge pull request #876 from mach3-software/jmartin/feature/add_pdgs_2.4.2\n\nfeat: add PDGs to GetMassFromPDG",
+          "timestamp": "2026-04-23T14:58:25+02:00",
+          "tree_id": "ca00bcf8b6ee0ab02f2108651acae42baae42de4",
+          "url": "https://github.com/mach3-software/MaCh3/commit/808b546760ff2f77bcbb349dfb845f296a0984f7"
+        },
+        "date": 1776949476078,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 3.07669,
+            "range": "± 67.71",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 3.0552,
+            "range": "± 89.5367",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 380.719,
+            "range": "± 6.53262",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ND Reweight",
+            "value": 329.186,
+            "range": "± 29.3204",
+            "unit": "us",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ParameterHandler Operations",
+            "value": 1.50338,
+            "range": "± 763.57",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Uniform BinningHandler 100k events",
+            "value": 7.98905,
+            "range": "± 32.7939",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Non-Uniform BinningHandler",
+            "value": 8.28852,
+            "range": "± 33.4143",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
