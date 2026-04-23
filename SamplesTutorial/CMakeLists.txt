@@ -15,7 +15,7 @@ if(MaCh3_GPU_ENABLED)
   set_target_properties(SamplesTutorial PROPERTIES CUDA_SEPARABLE_COMPILATION ON)
 endif()
 
-find_package(ROOT)
+find_package(ROOT 6.36 REQUIRED)
 
 target_link_libraries(SamplesTutorial PUBLIC MaCh3::All BinnedSplinesTutorial ROOT::ROOTNTuple ROOT::ROOTDataFrame)
 if(MaCh3_CPM)
