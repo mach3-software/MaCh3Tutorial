@@ -34,7 +34,7 @@ Tutorial_ATM:
 
   InputFiles:
     mtupleprefix: "TutorialConfigs/MC/NuWro_"
-    mtuplesuffix: "_FlatTree_ATM.root"
+    mtuplesuffix: "_FlatRNTuple_ATM.root"
     splineprefix: "TutorialConfigs/MC/BinnedSplinesTutorialInputs"
     splinesuffix: "2D.root"
 

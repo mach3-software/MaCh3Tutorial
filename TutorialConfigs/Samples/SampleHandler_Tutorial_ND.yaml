@@ -27,7 +27,7 @@ ND_CC0pi:
 
   InputFiles:
     mtupleprefix: "TutorialConfigs/MC/NuWro"
-    mtuplesuffix: "_FlatTree_ND_CC0pi.root"
+    mtuplesuffix: "_FlatRNTuple_ND_CC0pi.root"
     # No Splines
     splineprefix: "TutorialConfigs/MC/BinnedSplinesTutorialInputs"
     splinesuffix: "2D.root"
@@ -49,7 +49,7 @@ ND_CC1pip:
 
   InputFiles:
     mtupleprefix: "TutorialConfigs/MC/NuWro"
-    mtuplesuffix: "_FlatTree_ND_CC1pip.root"
+    mtuplesuffix: "_FlatRNTuple_ND_CC1pip.root"
     # No Splines
     splineprefix: "TutorialConfigs/MC/BinnedSplinesTutorialInputs"
     splinesuffix: "2D.root"
@@ -71,7 +71,7 @@ ND_CCPi0:
 
   InputFiles:
     mtupleprefix: "TutorialConfigs/MC/NuWro"
-    mtuplesuffix: "_FlatTree_ND_CCPi0.root"
+    mtuplesuffix: "_FlatRNTuple_ND_CCPi0.root"
     # No Splines
     splineprefix: "TutorialConfigs/MC/BinnedSplinesTutorialInputs"
     splinesuffix: "2D.root"
@@ -93,7 +93,7 @@ ND_NC0pi:
 
   InputFiles:
     mtupleprefix: "TutorialConfigs/MC/NuWro"
-    mtuplesuffix: "_FlatTree_ND_NC0pi.root"
+    mtuplesuffix: "_FlatRNTuple_ND_NC0pi.root"
     # No Splines
     splineprefix: "TutorialConfigs/MC/BinnedSplinesTutorialInputs"
     splinesuffix: "2D.root"
@@ -114,7 +114,7 @@ ND_NC1pi0:
 
   InputFiles:
     mtupleprefix: "TutorialConfigs/MC/NuWro"
-    mtuplesuffix: "_FlatTree_ND_NC1pi0.root"
+    mtuplesuffix: "_FlatRNTuple_ND_NC1pi0.root"
     # No Splines
     splineprefix: "TutorialConfigs/MC/BinnedSplinesTutorialInputs"
     splinesuffix: "2D.root"

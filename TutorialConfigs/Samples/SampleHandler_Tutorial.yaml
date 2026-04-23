@@ -32,7 +32,7 @@ Tutorial_Beam:
 
   InputFiles:
     mtupleprefix: "TutorialConfigs/MC/NuWro_"
-    mtuplesuffix: "_FlatTree_Beam.root"
+    mtuplesuffix: "_FlatRNTuple_Beam.root"
     splineprefix: "TutorialConfigs/MC/BinnedSplinesTutorialInputs"
     splinesuffix: "2D.root"
 
