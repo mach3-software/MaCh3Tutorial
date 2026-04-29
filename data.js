@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1777481531734,
+  "lastUpdate": 1777483879170,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -24468,6 +24468,79 @@ window.BENCHMARK_DATA = {
             "name": "Non-Uniform BinningHandler",
             "value": 8.40478,
             "range": "± 486",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "83b241d700758e05bfbdab5f75d3df4fb18e0dcc",
+          "message": "Merge pull request #881 from mach3-software/kskwarczynski/bugfix/StepScale\n\nbugfix: When selecting step scale based on LLH scan now accout for gloabal scale",
+          "timestamp": "2026-04-29T19:25:11+02:00",
+          "tree_id": "e989469ed9eb244192d4a49e95994a258f243d10",
+          "url": "https://github.com/mach3-software/MaCh3/commit/83b241d700758e05bfbdab5f75d3df4fb18e0dcc"
+        },
+        "date": 1777483874817,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 3.20487,
+            "range": "± 75.2795",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 3.10589,
+            "range": "± 78.9898",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 341.159,
+            "range": "± 8.11749",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ND Reweight",
+            "value": 319.129,
+            "range": "± 14.8406",
+            "unit": "us",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ParameterHandler Operations",
+            "value": 3.23072,
+            "range": "± 1.1786",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Uniform BinningHandler 100k events",
+            "value": 8.81259,
+            "range": "± 28.0094",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Non-Uniform BinningHandler",
+            "value": 9.1569,
+            "range": "± 33.8484",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
