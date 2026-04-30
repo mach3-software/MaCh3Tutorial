@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1777553446346,
+  "lastUpdate": 1777567958005,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -24614,6 +24614,79 @@ window.BENCHMARK_DATA = {
             "name": "Non-Uniform BinningHandler",
             "value": 7.06562,
             "range": "± 20.6191",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "21ebb65c82d28f5ea15c5d1d93312e6a5be59b19",
+          "message": "Merge pull request #885 from mach3-software/hwallace/licence_typo_fix\n\ntidy: Fix typo in license",
+          "timestamp": "2026-04-30T18:46:34+02:00",
+          "tree_id": "0265a50697ff5136c1532e92abe7cf7acfaec7ef",
+          "url": "https://github.com/mach3-software/MaCh3/commit/21ebb65c82d28f5ea15c5d1d93312e6a5be59b19"
+        },
+        "date": 1777567954369,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 3.21673,
+            "range": "± 75.5159",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 3.11659,
+            "range": "± 61.6511",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 345.171,
+            "range": "± 4.3549",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ND Reweight",
+            "value": 316.26,
+            "range": "± 16.2598",
+            "unit": "us",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ParameterHandler Operations",
+            "value": 2.64507,
+            "range": "± 808.644",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Uniform BinningHandler 100k events",
+            "value": 8.79804,
+            "range": "± 67.402",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Non-Uniform BinningHandler",
+            "value": 9.13409,
+            "range": "± 26.2005",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
