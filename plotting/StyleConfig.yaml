@@ -55,7 +55,6 @@ ColorPallettes:
 #########################################
 TH1Styles:
 ## define custom styles for TH1 type hists
-
     redHatchedError:
         MarkerColor: 632   ## marker colour (EM: there must be a way of getting root colours from strings, that would be a nice feature here)
         MarkerStyle: 7     ## marker style
@@ -69,7 +68,6 @@ TH1Styles:
 ## define prettier names for parameters and samples to use in plots
 ## can include TLatex for extra fanciness
 PrettyNames:
-
     ## first nice names for parameters
     parameters:
         Norm_Param_0: "#pi FSI"
@@ -98,5 +96,20 @@ PrettyNames:
         SAMPLE_2: "sample 2"
         SAMPLE_3: "sample 3"
 
+        Tutorial_Beam: "FD Beam"
+        Tutorial_ATM: "FD ATM"
+        ND_CC0pi: "ND CC0#pi"
+        ND_CC1pip: "ND CC1#pi^{+}"
+        ND_CCPi0: "ND CC#pi^{0}"
+        ND_NC0pi: "ND NC0#pi"
+        ND_NC1pi0: "ND NC1#pi^{0}"
 
+    ## now same for kinematics
+    kinematics:
+        RecoNeutrinoEnergy: "E_{#nu}^{reco}"
+        TrueQ2: "Q^{2}_{true}"
 
+#########################################
+BinWidthScaleFactor:
+    RecoNeutrinoEnergy: 10
+    TrueQ2: 100

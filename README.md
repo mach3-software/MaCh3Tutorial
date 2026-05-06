@@ -1,13 +1,15 @@
 # Welcome to MaCh3 Tutorial
 After this tutorial you should know how to run MCMC, implement systematic uncertainties, new samples, and how to plot standard Bayesian diagnostics.
 
-The current setup includes a single sample with several cross-section and oscillation parameters.
+There are several standard parts of MaCh3 analysis like sample/systematic implementations, validations and plotting.
+This tutorial will help you get used to different parts of MaCh3.
+
+<img width="700" alt="Workflow example" src="https://github.com/user-attachments/assets/f0197499-a0e4-483e-8e8f-c1deb6d880ea">
 
 MaCh3 is predominantly C++ software, although some functionality is available through python as well. See the table of contents for more.
 
-[![Code - Documented](https://img.shields.io/badge/Code-Documented-2ea44f)](https://github.com/mach3-software/MaCh3/wiki)
+[![Code - Documented](https://img.shields.io/badge/Code-Documented-2ea44f)](https://mach3-software.github.io/MaCh3/index.html)
 [![Container Image](https://img.shields.io/badge/Container-Image-brightgreen)](https://github.com/mach3-software/MaCh3Tutorial/pkgs/container/mach3tutorial)
-[![Code - Doxygen](https://img.shields.io/badge/Code-Doxygen-2ea44f)](https://mach3-software.github.io/MaCh3/index.html)
 
 ## Table of contents
 1. [How to Start?](#how-to-start)
@@ -28,7 +30,6 @@ MaCh3 is predominantly C++ software, although some functionality is available th
     3. [Changing Oscillation Engine](#changing-oscillation-engine)
     4. [Atmospheric Sample](#atmospheric-sample)
     5. [Plotting Kinematic Distribution](#plotting-kinematic-distribution)
-    6. [More Advanced Development](#more-advanced-development)
 6. [MCMC Diagnostic](#mcmc-diagnostic)
     1. [Running Multiple Chains](#running-multiple-chains)
 7. [Useful Settings](#useful-settings)
@@ -37,7 +38,7 @@ MaCh3 is predominantly C++ software, although some functionality is available th
     2. [Sigma Variations](#sigma-variations)
 
 ## How to Start?
-To compile simply
+To compile try
 ```bash
 git clone https://github.com/mach3-software/MaCh3Tutorial.git
 mkdir build;
@@ -51,11 +52,78 @@ then
 source bin/setup.MaCh3.sh
 source bin/setup.MaCh3Tutorial.sh
 ```
-alternatively you can use containers by
+
+If this does not work, check out the [Requirements](https://github.com/mach3-software/MaCh3?tab=readme-ov-file#system-requirements) for MaCh3 in case you are missing something.
+
+One of the suggestions in [Requirements](https://github.com/mach3-software/MaCh3?tab=readme-ov-file#system-requirements) is to use a conda/micromamba environment. You can install everything you need and build the tutorial using these commands:
+
+<details>
+<summary>Click to see commands</summary>
+
+To install micromamba and the environment needed to build MaCh3:
+```bash
+mkdir MaCh3Things && cd MaCh3Things
+
+echo "" | BIN_FOLDER=".micromamba" INIT_YES="n" CONDA_FORGE_YES="y" "${SHELL}" <(curl -L micro.mamba.pm/install.sh)
+
+cat > env.sh <<'EOF'
+export MAMBA_ROOT_PREFIX="$(pwd)/.micromamba"
+command="$(${MAMBA_ROOT_PREFIX}/micromamba shell hook -s posix)"
+eval "$command"
+EOF
+
+source env.sh
+
+micromamba env create -n MaCh3 -c conda-forge root cmake -y
+micromamba activate MaCh3
+```
+and then to build MaCh3:
+```bash
+git clone https://github.com/mach3-software/MaCh3Tutorial.git
+cd MaCh3Tutorial
+
+mkdir build && cd build
+cmake ../
+make -j8
+make install
+
+source bin/setup.MaCh3.sh
+source bin/setup.MaCh3Tutorial.sh
+```
+
+> **Note:** To run the tutorial from a fresh terminal after this installation you must source and activate the relevant scripts and environments:
+>```bash
+> cd MaCh3Things
+> source env.sh # source micromamba
+> micromamba activate MaCh3
+>
+> cd MaCh3Tutorial/build
+> source bin/setup.MaCh3.sh
+> source bin/setup.MaCh3Tutorial.sh
+>```
+</details>
+
+
+Alternatively you can use containers by
 ```bash
 docker pull ghcr.io/mach3-software/mach3tutorial:alma9latest
 ```
-To read more about how to use containers, check our wiki [here](https://github.com/mach3-software/MaCh3/wiki/12.-Containers)
+To read more about how to use containers, check our doxygen [here](https://mach3-software.github.io/MaCh3/Containers.html).
+
+## Event Rates
+Before running fits or starting more robust check we recommend running simple event rate check like:
+```bash
+./bin/TutorialEventRates TutorialConfigs/FitterConfig.yaml
+```
+And get some reference values from other users, this can look something like:
+```bash
+[TutorialEventRates.cpp][info] ┌─────────────────────────┬────────────────────┬────────────────────┐
+[TutorialEventRates.cpp][info] │Sample                   │Oscillated          │UnOscillated        │
+[TutorialEventRates.cpp][info] ├─────────────────────────┼────────────────────┼────────────────────┤
+[TutorialEventRates.cpp][info] │Tutorial_Beam            │165774.5813         │204759.1671         │
+[TutorialEventRates.cpp][info] └─────────────────────────┴────────────────────┴────────────────────┘
+```
+By comparing rates for each sample much what other users observe you can very simply ensure you correctly setup MaCh3.
 
 ## How to run MCMC
 To run MCMC simply
@@ -101,7 +169,7 @@ where `Test.root` is the output of running `MCMCTutorial` as described [here](#h
 
 This is the marginalised posterior of a single parameter. This is the main output of the MCMC.
 
-There are many options in `ProcessMCMC` that allow you to make many more analysis plots from the MCMC output; we recommend that you see [here](https://github.com/mach3-software/MaCh3/wiki/09.-Bayesian-Analysis,-Plotting-and-MCMC-Processor) to get better idea what each plot means. In particular, we recommend comparing 2D posteriors with the correlation matrix, and playing with triangle plots.
+There are many options in `ProcessMCMC` that allow you to make many more analysis plots from the MCMC output; we recommend that you see [here](https://mach3-software.github.io/MaCh3/BayesianAnalysis.html) to get better idea what each plot means. In particular, we recommend comparing 2D posteriors with the correlation matrix, and playing with triangle plots.
 
 ### Plotting MCMC Posteriors
 Once you have the processed MCMC output from `ProcessMCMC`, which will be called something like `<inputName>_Process.root`, you can make fancier analysis plots from it using the `GetPostfitParamPlots` app like:
@@ -122,7 +190,7 @@ The output should look like plot below. This conveys same information as the ind
 
 <img width="350" alt="Ridge" src="https://github.com/user-attachments/assets/617f5929-b389-495e-ab7b-2ecd6c2d991e">
 
-**Violin Plot** - This also allow to see nicely non-Gaussian parameters but also is usefull in comparing two chains.
+**Violin Plot** - This also allow to see nicely non-Gaussian parameters but also is useful in comparing two chains.
 `ProcessMCMC` must be run with option "PlotCorr" to be able to produce violin plot.
 
 <img width="350" alt="Violin example" src="https://github.com/user-attachments/assets/4788ab29-f24a-4b09-8b0f-c9b36d069cfe">
@@ -233,18 +301,18 @@ First let's get a better understanding `TutorialConfigs/CovObjs/SystematicModel.
       MCMC: 0.2
     Type: Norm
 ```
-If you want to read more about the specifics of implementating systematics in the configs, please see [here](https://github.com/mach3-software/MaCh3/wiki/02.-Implementation-of-Systematic)
+If you want to read more about the specifics of implementing systematics in the configs, please see [here](https://mach3-software.github.io/MaCh3/group__SamplesAndParameters.html)
 
 As a first step let's modify `Error: 0.11` to `Error: 2.0`. This significantly changes the prior uncertainty on the `Norm_Param_0` parameter. Such a change should be very noticeable in the MCMC posterior.
 
-Let's also modify the output file name so we don't overwrite our previous outputs. This is governed by the manager class (read more [here](https://github.com/mach3-software/MaCh3/wiki/01.-Manager-and-config-handling)).
+Let's also modify the output file name so we don't overwrite our previous outputs. This is governed by the manager class.
 You can modify this in the configs by for example changing `OutputFile: "Test.root"` in `TutorialConfigs/FitterConfig.yaml` to `OutputFile: "Test_Modified.root"` (or you could use a parameter override by adding `General:OutputFile:Test_Modified.root` as a command line argument).
 
 With the modifications, let's run MCMC again:
 ```bash
 ./bin/MCMCTutorial TutorialConfigs/FitterConfig.yaml
 ```
-Congratulations, you have sucessfully modified the MCMC! 🎉
+Congratulations, you have successfully modified the MCMC! 🎉
 
 ### How to Compare Chains
 Now that you have two chains you can try comparing them using the following:
@@ -263,11 +331,77 @@ General:
 ```
 If you were to run a new MCMC with this configuration, you should see that `Norm_Param_0` does not move from its nominal position during the chain.
 
+
+<details>
+<summary><strong>(Detailed) Discrete Normalisation Parameters</strong></summary>
+For the most part you will be defining continuous norm parameters.
+However some variables like SampleID or number of hadrons are discrete.
+
+**MaCh3** supports setting normalisation parameters on discrete variables, as shown in the example below:
+
+```yaml
+- Systematic:
+    Names:
+      FancyName: Norm_Param_Discrete
+    KinematicCuts:
+      - SampleId: [[1]]
+```
+
+For more complex selections, you can specify multiple discrete values:
+
+```yaml
+- Systematic:
+    Names:
+      FancyName: Norm_Param_Discrete
+    KinematicCuts:
+      - SampleId: [[1], [10]]
+```
+</details>
+
+<details>
+<summary><strong>(Detailed) Eigen Decomposition ‐ PCA </strong></summary>
+
+PCA or Eigen Decomposition is turned off by default. PCA is being enabled based on the constructor. This is the default no PCA constructor.
+
+```cpp
+xsec = new ParameterHandlerGeneric({matrix.yaml}, "cov_name");
+```
+
+To enable it, code should look like it
+
+```cpp
+std::vector<std::string> xsecCovMatrixFile = FitManager->raw()["General"]["Systematics"]["XsecCovFile"].as<std::vector<std::string>>();
+double PCAthreshold = 0.00001;
+xsec = new ParameterHandlerGeneric({matrix.yaml}, "cov_name", PCAthreshold);
+```
+
+This threshold indicates which Eigen value to remove and reduce fit dimensionality. If you set the threshold very low, you may not remove anything just to run with the decomposed matrix.
+
+<img width="350" alt="EigenValue" src="https://github.com/mach3-software/MaCh3/assets/45295406/ae078a7a-724b-4297-9b3d-e941d1dedfb1">
+
+It is also possible to decompose only part of the matrix
+
+```cpp
+std::vector<std::string> xsecCovMatrixFile = FitManager->raw()["General"]["Systematics"]["XsecCovFile"].as<std::vector<std::string>>();
+double PCAthreshold = 0.00001;
+int FirstPCAdpar = 8;
+int LastPCAdpar = 108
+xsec = new ParameterHandlerGeneric({matrix.yaml}, "cov_name", PCAthreshold, FirstPCAdpar, LastPCAdpar)  ;
+```
+
+This way parameters through 8-108 will be decomposed while 0-8 will be in undecomposed base.
+You can see the transition matrix between normal and Eigen base below:
+
+<img width="350" alt="TransferMatrix" src="https://github.com/mach3-software/MaCh3/assets/45295406/404646cc-98d1-4488-b1df-372e5ce13a26">
+
+</details>
+
 ## How to Develop New Samples
 Analysis samples are where we compare data and simulation to extract our physics results. For example, you might have an analysis sample that is enriched in neutral-current pi0 events to precisely study NC-pi0 cross sections.
 In this section, we will modify an existing analysis sample to explore how the inner workings of MaCh3 operate, and then see how to add a new one.
 
 ### Modifying Analysis Samples
+
 To begin, let's take a look at `TutorialConfigs/Samples/SampleHandler_Tutorial.yaml`. Each sample has a set of cuts that select events into the sample and reject others. Right now, let's focus on the cut on `TrueNeutrinoEnergy`:
 ```yaml
 SelectionCuts:
@@ -285,14 +419,124 @@ SelectionCuts:
 
 You can also easily change what variable the sample is binned in to get slightly different fit results. For example, we could change `RecoNeutrinoEnergy` to `TrueNeutrinoEnergy` in `TutorialConfigs/Samples/SampleHandler_Tutorial.yaml`:
 ```yaml
-Binning:
-  XVarStr : "TrueNeutrinoEnergy"
-  XVarBins: [0.,  0.5,  1.,  1.25, 1.5, 1.75, 2., 2.25, 2.5, 2.75, 3., 3.25, 3.5, 3.75, 4., 5., 6., 10.]
+  Binning:
+    VarStr : RecoNeutrinoEnergy
+    BinEdges: [0.,  0.5,  1.,  1.25, 1.5, 1.75, 2., 2.25, 2.5, 2.75, 3., 3.25, 3.5, 3.75, 4., 5., 6., 10.]
+    Uniform: true
 ```
 You can run the MCMC again using this new configuration (after changing the output file name again!), and then compare all 3 chains using:
 ```bash
 ./bin/ProcessMCMC bin/TutorialDiagConfig.yaml Test.root Default_Chain Test_Modified.root Modified_Chain Test_Modified_Sample.root ModifiedSameple_Chain
 ```
+
+<details>
+<summary><strong>(Detailed) Uniform vs NonUniform binning</strong></summary>
+
+Uniform binning is created from the product of N independent one-dimensional binnings:
+```yaml
+  Binning:
+    VarStr : [ "RecoNeutrinoEnergy", "TrueQ2" ]
+    BinEdges: [ [0.,  0.5,  1.,  1.25, 1.5, 1.75, 2., 2.25, 2.5, 2.75, 3., 3.25, 3.5, 3.75, 4., 5., 6., 10.],
+                [0.,  0.5,  1.,  1.25, 1.5, 1.75, 2., 5] ]
+    Uniform: true
+```
+
+MaCh3 also supports arbitrary hyperrectangular binning in N-dimensional space.
+To specify such a binning is more verbose, as the bin extent in each dimension
+must be specified for each bin.
+We recommend to read more [here](https://mach3-software.github.io/MaCh3/classBinningHandler.html).
+
+Example of a 2D binning is given below:
+```yaml
+  Binning:
+    VarStr : ["RecoNeutrinoEnergy", "TrueQ2"]
+    Bins: [ [[0.0, 0.1], [0.0, 0.1]],
+            [[0.0, 0.1], [0.1, 0.2]],
+            [[0.0, 0.1], [0.2, 0.3]],
+            [[0.0, 0.1], [0.3, 0.4]],  #bin 3
+            [[0.0, 0.1], [0.4, 0.5]],
+            [[0.1, 0.3], [0.0, 0.5]],
+            [[0.3, 0.5], [0.0, 0.5]],
+            [[0.5, 0.7], [0.0, 0.5]] ]
+    Uniform: false
+```
+
+Here, each row corresponds to a bin, the first list element gives low and up edges
+of the bin extent in the first dimension, `RecoNeutrinoEnergy` in the example. The
+second element gives the extent in the second dimension. So bin 3 from the above
+specification, defined by: `[[0.0, 0.1], [0.3, 0.4]]`, corresponds to the intervals
+`[0, 0.1)` in `RecoNeutrinoEnergy` and `[0.3, 0.4)` in `TrueQ2`.
+
+For realistic binnings, the number of bins can grow very large and make modifying
+a configuration file unwieldy. You can specify the binning list in another file
+and reference it like below:
+```yaml
+# mybins.yml
+erecq2bins: [ [[0.0, 0.1], [0.0, 0.1]],
+              [[0.0, 0.1], [0.1, 0.2]],
+              [[0.0, 0.1], [0.2, 0.3]],
+              [[0.0, 0.1], [0.3, 0.4]],
+              [[0.0, 0.1], [0.4, 0.5]],
+              [[0.1, 0.3], [0.0, 0.5]],
+              [[0.3, 0.5], [0.0, 0.5]],
+              [[0.5, 0.7], [0.0, 0.5]] ]
+
+---
+# mysample.yml
+# ...
+  Binning:
+    VarStr : ["RecoNeutrinoEnergy", "TrueQ2"]
+    Bins: { File: mybins.yml, Key: erecq2bins }
+    Uniform: false
+```
+
+</details>
+
+<details>
+<summary><strong>(Detailed) Range-based Binning</strong></summary>
+
+For binnings with many edges, there is an alternate syntax for specifying and concatenating
+ranges of binnings. For example, to specify a binning with 10 bins of equal width between
+the limits of 0 and 100, you might use the configuration:
+```yaml
+  Binning:
+    VarStr : RecoNeutrinoEnergy
+    BinEdges: { linspace: { nb: 10, low: 0, up: 100 } }
+    Uniform: true
+```
+
+For 5 logarithmically-spaced bins between 100 and 10000, you might use the configuration:
+```yaml
+  Binning:
+    VarStr : RecoNeutrinoEnergy
+    BinEdges: { logspace: { nb: 5, low: 100, up: 10000 } }
+    Uniform: true
+```
+
+This syntax can also be mixed with scalar bin edges to define a binnings with
+multiple regions of linearly or logarithmically spaced bins in a succinct way:
+```yaml
+  Binning:
+    VarStr : RecoNeutrinoEnergy
+    BinEdges: [ -1,
+                { linspace: { nb: 10, low: 0, up: 100 } },
+                { logspace: { nb: 5, low: 100, up: 10000 } }
+              ]
+    Uniform: true
+```
+
+Which will create a binning with 16 bins between -1 and 10000.
+
+This syntax can also be used when making multi-dimensional binnings:
+```yaml
+  Binning:
+    VarStr : [ RecoNeutrinoEnergy, TrueQ2 ]
+    BinEdges: [ [ { linspace: { nb: 10, low: 0, up: 10 } } ],
+                [ { logspace: { nb: 10, low: 0.001, up: 10 } } ]
+              ]
+    Uniform: true
+```
+</details>
 
 ### Adding a New Sample
 Up to this point we have only modified an existing sample, but how would we add a new one? We can start by first making a copy of the sample config `TutorialConfigs/Samples/SampleHandler_Tutorial.yaml` and calling it `TutorialConfigs/Samples/SampleHandler_User.yaml`.
@@ -327,10 +571,13 @@ This approach may give a performance boost, but is especially nice if you are sh
 ### Changing Oscillation Engine
 MaCh3 has access to many oscillation engines via the `NuOscillator` framework. You can check the features of this using:
 ```bash
-bin/mach3-config --features
+mach3-config --features
 MULTITHREAD MR2T2  PSO  Minuit2 Prob3ppLinear NuFast
 ```
-Thus, you can easily access information about MaCh3 features, most importantly the fitter engines (`MR2T2`, `PSO`, `Minuit2`) and neutrino oscillation engines (`Prob2ppLinear`, `NuFast`).
+Thus, you can easily access information about MaCh3 features, most importantly the fitter engines (`MR2T2`, `PSO`, `Minuit2`) and neutrino oscillation engines (`Prob3ppLinear`, `NuFast`).
+
+> [!NOTE]
+> To see all available engines that MaCh3 can access can be found [here](https://github.com/mach3-software/MaCh3/tree/develop?tab=readme-ov-file#oscillator)
 
 By default, the oscillation engine we use is `NuFast`. However, you can change to another engine (`Prob3++` here) by modifying the sample config `TutorialConfigs/Samples/SampleHandler_Tutorial.yaml`:
 ```yaml
@@ -365,9 +612,11 @@ An example of what you might expect for output can be seen here:
 
 <img width="350" alt="Kinematic example" src="https://github.com/user-attachments/assets/534bcb17-f26c-4fc2-a77a-5d253b0ed241">
 
-### More Advanced Development
+<details>
+<summary><strong>(Detailed) More Advanced Development</strong></summary>
 Not everything can be done by modifying config in sample implementation. The actual implementation of samples is in `Samples/SampleHandlerTutorial`, which inherits from `SampleHandlerFDBase`.
 The latter class deals with actual event reweighting and general heavy lifting. `SampleHandlerTutorial` deals with more specific information, like MC variable loading. This is because each experiment has slightly different MC format and different information available, and so it must be implemented in a custom manner.
+</details>
 
 ## MCMC Diagnostic
 A crucial part of MCMC is diagnosing whether a chain has converged or not. You can produce chain diagnostics by running:
@@ -375,7 +624,7 @@ A crucial part of MCMC is diagnosing whether a chain has converged or not. You c
 ./bin/DiagMCMC Test.root bin/TutorialDiagConfig.yaml
 ```
 This will produce a plethora of diagnostic information. One of most important of these are the autocorrelations for each of the parameters. Autocorrelation indicates how correlated MCMC steps are when they are n-steps apart in the chain.
-Generally speaking, we want the autocorrelation to drop to 0 fast and stay around there (like in the plot below). You can read about other diagnostics [here](https://github.com/mach3-software/MaCh3/wiki/11.-Step-size-tuning), but it is sufficient for now to focus on autocorrelation.
+Generally speaking, we want the autocorrelation to drop to 0 fast and stay around there (like in the plot below). You can read about other diagnostics [here](https://mach3-software.github.io/MaCh3/MCMCconvergance.html), but it is sufficient for now to focus on autocorrelation.
 
 <img width="350" alt="Posterior example" src="https://github.com/user-attachments/assets/e146698c-713c-4daf-90df-adeb3051539b">
 
@@ -406,7 +655,7 @@ You can make plots from the diagnostic output using:
 ```bash
 ./bin/PlotMCMCDiag Test_MCMC_Diag.root "mcmc_diagnostics"
 ```
-If you add a second/third arguemnt, the macro can compare several files:
+If you add a second/third argument, the macro can compare several files:
 ```bash
 ./bin/PlotMCMCDiag Test_MCMC_Diag.root "first file label" SecondFile_MCMC_Diag.root "second file label"
 ```
@@ -457,9 +706,9 @@ Read more [here](https://mach3-software.github.io/MaCh3/Structs_8h.html#a960da89
 
 ## Other Useful Plots
 
-There are a number of apps included to make plots from the results of your fits, llh scans etc. You can find more details on them and how they work in the main MaCh3 wiki [here](https://github.com/mach3-software/MaCh3/wiki). There you will also find some instructions on how you can write your own plotting scripts.
+There are a number of apps included to make plots from the results of your fits, llh scans etc. You can find more details on them and how they work in the main MaCh3 doxygen page [here](https://mach3-software.github.io/MaCh3/index.html). There you will also find some instructions on how you can write your own plotting scripts.
 
-The plotting library is configured using yaml files. You can see some examples of such config files in the plotting directory, and a detailed explanation of them is given in [the wiki](https://github.com/mach3-software/MaCh3/wiki).
+The plotting library is configured using yaml files. You can see some examples of such config files in the plotting directory, and a detailed explanation of them is given in [here](https://mach3-software.github.io/MaCh3/group__MaCh3Plotting.html).
 
 Some examples on how to make some "standard" plots are given below.
 
@@ -504,7 +753,7 @@ If you have installed the python interface for MaCh3 as described
 [here](https://github.com/mach3-software/MaCh3?tab=readme-ov-file#python)
 then you can also use the provided python plotting module. The details on how
 to write custom python scripts using this plotting module are detailed in
-[the wiki](https://github.com/mach3-software/MaCh3/wiki/15.-Plotting#custom-plotting-scripts).
+[here](https://mach3-software.github.io/MaCh3/group__MaCh3Plotting.html).
 Here we will walk you through some example scripts.
 
 For the examples here, we will use matplotlib and numpy. These can be installed using the provided [requirements.txt](requirements.txt) by doing

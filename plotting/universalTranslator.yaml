@@ -117,7 +117,8 @@ FitterSpec:
 ## Now we define what samples are available for this particular experiment
 Samples:
     ## Here we define the master list of all the available samples
-    Samples: ["Tutorial",
+    Samples: ["Tutorial_Beam",
+              "Tutorial_ATM",
               "ND_CC0pi",
               "ND_CC1pip",
               "ND_CCPi0",

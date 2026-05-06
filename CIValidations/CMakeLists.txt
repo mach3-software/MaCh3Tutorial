@@ -9,8 +9,7 @@ foreach(app
     NuMCMCconversion
     NuOscillatorInterfaceValidations
     pValueValidations
-    SigmaVarValidations
-    SigmaVarFDValidation
+    SigmaVarValidation
     LLHValidation
     PredictiveValidations
     BinningValidations
@@ -44,6 +43,10 @@ endif()
 
 if(MaCh3Tutorial_Benchmark_ENABLED)
   add_subdirectory(Benchmark)
+endif()
+
+if(MaCh3Tutorial_NUDOCK_ENABLED)
+  add_subdirectory(NuDock)
 endif()
 
 add_subdirectory(SplinePlotting)

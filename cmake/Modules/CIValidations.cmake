@@ -18,7 +18,11 @@ install(DIRECTORY
 if(MaCh3Tutorial_UNITTESTS_ENABLED OR MaCh3Tutorial_Benchmark_ENABLED)
   find_package(Catch2 QUIET)
   if(NOT Catch2_FOUND)
-    CPMAddPackage("gh:catchorg/Catch2@3.5.2")
+    CPMAddPackage(
+      NAME Catch2
+      GITHUB_REPOSITORY catchorg/Catch2
+      VERSION 3.7.1
+    )
     LIST(APPEND CMAKE_MODULE_PATH ${Catch2_SOURCE_DIR}/extras)
   endif()
 

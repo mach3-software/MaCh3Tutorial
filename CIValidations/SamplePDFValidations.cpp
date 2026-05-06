@@ -6,11 +6,11 @@ _MaCh3_Safe_Include_Start_ //{
 #include "Oscillator/OscillatorFactory.h"
 _MaCh3_Safe_Include_End_ //}
 
-void SharedNuOscTest(const std::string& config, ParameterHandlerGeneric* xsec){
+void SharedNuOscTest(const std::string& config, ParameterHandlerGeneric* xsec) {
   MACH3LOG_INFO("Utilising a shared NuOscillator object between all atmospheric samples");
 
   std::string OscillatorConfig = std::string(std::getenv("MaCh3Tutorial_ROOT")) + "/TutorialConfigs/NuOscillator/CUDAProb3.yaml";
-  std::vector<const double*> OscParams = xsec->GetOscParsFromSampleName("Tutorial ATM");
+  auto OscParams = xsec->GetOscParsFromSampleName("Tutorial_ATM");
   auto OscillatorObj = std::make_shared<OscillationHandler>(OscillatorConfig, true, OscParams, 6);
 
   auto Sample1 = std::make_unique<SampleHandlerTutorial>(config, xsec, OscillatorObj);
@@ -23,6 +23,11 @@ void NoSplinesNoOscTest(const std::string& config){
   std::vector<std::string> ParameterMatrixFile = {TutorialPath + "/TutorialConfigs/CovObjs/PCATest.yaml"};
   auto xsec = std::make_unique<ParameterHandlerGeneric>(ParameterMatrixFile, "xsec_cov");
   auto Sample = std::make_unique<SampleHandlerTutorial>(config, xsec.get());
+}
+
+void NoParamHandlerTest(const std::string& config) {
+  MACH3LOG_INFO("Starting {}", __func__);
+  auto Sample = std::make_unique<SampleHandlerTutorial>(config, nullptr);
 }
 
 void SampleLLHValidation(std::ostream& outFile, const std::string& OriginalSample, ParameterHandlerGeneric* xsec, const bool W2) {
@@ -53,16 +58,11 @@ void SampleLLHValidation(std::ostream& outFile, const std::string& OriginalSampl
 
   // Use modified config
   auto Sample = std::make_unique<SampleHandlerTutorial>(tempConfigPath, xsec);
-  Sample->Reweight();
 
-  for(int iSample = 0; iSample < Sample->GetNsamples(); iSample++){
-    if (Sample->GetNDim(iSample) == 1) {
-      TH1D* SampleHistogramPrior = static_cast<TH1D*>(Sample->GetMCHist(iSample, 1)->Clone((NameTString + "_Prior").c_str()));
-      Sample->AddData(iSample, SampleHistogramPrior);
-    } else {
-      TH2D* SampleHistogramPrior = static_cast<TH2D*>(Sample->GetMCHist(iSample, 2)->Clone((NameTString + "_Prior").c_str()));
-      Sample->AddData(iSample, SampleHistogramPrior);
-    }
+  for(int iSample = 0; iSample < Sample->GetNSamples(); iSample++) {
+    TH1* SampleHistogramPrior = static_cast<TH1*>(Sample->GetMCHist(iSample)->Clone((NameTString + "_Prior").c_str()));
+    Sample->AddData(iSample, SampleHistogramPrior);
+
     // Set oscillation parameters and reweight for posterior
     std::vector<double> OscParProp = {0.3, 0.5, 0.020, 7.53e-5, 2.494e-3, 0.0, 295, 2.6, 0.5, 15};
     xsec->SetGroupOnlyParameters("Osc", OscParProp);
@@ -94,16 +94,6 @@ void SampleLLHValidation(std::ostream& outFile, const std::string& OriginalSampl
 void ValidateTestStatistic(std::ostream& outFile, const std::string& OriginalSample, ParameterHandlerGeneric* xsec) {
   // Use modified config
   auto Sample = std::make_unique<SampleHandlerTutorial>(OriginalSample, xsec);
-  Sample->Reweight();
-  for(int iSample = 0; iSample < Sample->GetNsamples(); iSample++){
-    if (Sample->GetNDim(iSample) == 1) {
-      TH1D* SampleHistogramPrior = static_cast<TH1D*>(Sample->GetMCHist(iSample, 1)->Clone("Blarb_Prior"));
-      Sample->AddData(iSample, SampleHistogramPrior);
-    } else {
-      TH2D* SampleHistogramPrior = static_cast<TH2D*>(Sample->GetMCHist(iSample, 2)->Clone("Blarb_Prior"));
-      Sample->AddData(iSample, SampleHistogramPrior);
-    }
-  }
 
   // Define test vectors, feel free to expand it
   std::vector<double> data_values = {0.0, M3::_LOW_MC_BOUND_, 0.5, 1.0, 100000};
@@ -132,6 +122,14 @@ void ValidateTestStatistic(std::ostream& outFile, const std::string& OriginalSam
   } // end loop over test stat
 }
 
+/// @brief Helper function to write YAML config to a file
+void WriteConfigToFile(const YAML::Node& config, const std::string& path) {
+  std::ofstream outFile(path);
+  outFile << YAMLtoSTRING(config);
+  outFile.close();
+}
+
+
 void LoadSplineValidation(std::ostream& outFile, const std::string& OriginalSample, ParameterHandlerGeneric* xsec, bool LoadFile, bool MakeSFile) {
   std::string NameTString = OriginalSample;
   xsec->SetParameters();
@@ -154,24 +152,16 @@ void LoadSplineValidation(std::ostream& outFile, const std::string& OriginalSamp
 
   std::string tempConfigPath = std::string(rootEnv) + "/mach3_temp_config.yaml";
 
-  // Write config string to file
-  std::ofstream configOut(tempConfigPath);
-  configOut << configStr;
-  configOut.close();
+  // Write config string to file using helper function
+  WriteConfigToFile(config, tempConfigPath);
 
   // Use modified config
   auto Sample = std::make_unique<SampleHandlerTutorial>(tempConfigPath, xsec);
-  Sample->Reweight();
 
-  for(int iSample = 0; iSample < Sample->GetNsamples(); iSample++){
-    TH1* SampleHistogramPrior = nullptr;
-    if (Sample->GetNDim(iSample) == 1) {
-      SampleHistogramPrior = static_cast<TH1D*>(Sample->GetMCHist(iSample, 1)->Clone((NameTString + "_Prior").c_str()));
-      Sample->AddData(iSample, static_cast<TH1D*>(SampleHistogramPrior));
-    } else {
-      SampleHistogramPrior = static_cast<TH2D*>(Sample->GetMCHist(iSample, 2)->Clone((NameTString + "_Prior").c_str()));
-      Sample->AddData(iSample, static_cast<TH2D*>(SampleHistogramPrior));
-    }
+  for(int iSample = 0; iSample < Sample->GetNSamples(); iSample++) {
+    TH1* SampleHistogramPrior = static_cast<TH1*>(Sample->GetMCHist(iSample)->Clone((NameTString + "_Prior").c_str()));
+    Sample->AddData(iSample, SampleHistogramPrior);
+
     // Set oscillation parameters and reweight for posterior
     std::vector<double> OscParProp = {0.3, 0.5, 0.020, 7.53e-5, 2.494e-3, 0.0, 295, 2.6, 0.5, 15};
     xsec->SetGroupOnlyParameters("Osc", OscParProp);
@@ -183,6 +173,52 @@ void LoadSplineValidation(std::ostream& outFile, const std::string& OriginalSamp
   }
 
   std::remove(tempConfigPath.c_str());
+}
+
+/// @brief Simply test whether MaCh3 can reproduce oscillation using even by event osc weight
+void UnbinnedOsc(std::ostream& outFile, ParameterHandlerGeneric* xsec) {
+  // Get MaCh3Tutorial_ROOT environment variable
+  const char* rootEnv = std::getenv("MaCh3Tutorial_ROOT");
+  if (!rootEnv) {
+    throw std::runtime_error("Environment variable MaCh3Tutorial_ROOT is not set.");
+  }
+
+  std::string SampleConfig = std::string(rootEnv) + "/TutorialConfigs/Samples/SampleHandler_Tutorial.yaml";
+  std::string NuOscConfig = std::string(rootEnv) + "/TutorialConfigs/NuOscillator/NuFASTLinear.yaml";
+  xsec->SetParameters();
+
+  // Load and modify NuOsc config
+  YAML::Node NuConfig = M3OpenConfig(NuOscConfig);
+  NuConfig["General"]["CalculationType"] = "Unbinned";
+  std::string NuConfigPath = std::string(rootEnv) + "/mach3_temp_nu_config.yaml";
+  WriteConfigToFile(NuConfig, NuConfigPath);
+
+  // Load and modify Sample config
+  YAML::Node SamConfig = M3OpenConfig(SampleConfig);
+  SamConfig["NuOsc"]["NuOscConfigFile"] = NuConfigPath;
+  std::string SampleConfigPath = std::string(rootEnv) + "/mach3_temp_sam_config.yaml";
+  WriteConfigToFile(SamConfig, SampleConfigPath);
+
+  // Use modified config
+  auto Sample = std::make_unique<SampleHandlerTutorial>(SampleConfigPath, xsec);
+
+  for(int iSample = 0; iSample < Sample->GetNSamples(); iSample++) {
+    TH1* SampleHistogramPrior = static_cast<TH1*>(Sample->GetMCHist(iSample)->Clone("blarb_Prior"));
+    Sample->AddData(iSample, SampleHistogramPrior);
+
+    // Set oscillation parameters and reweight for posterior
+    std::vector<double> OscParProp = {0.3, 0.5, 0.020, 7.53e-5, 2.494e-3, 0.0, 295, 2.6, 0.5, 15};
+    xsec->SetGroupOnlyParameters("Osc", OscParProp);
+    Sample->Reweight();
+
+    for (int iEntry = 0; iEntry < 1000; ++iEntry) {
+      double weight = Sample->GetEventWeight(iEntry);
+      outFile << "EventByEventOsc Event: " << iEntry << " weight: " << weight << std::endl;
+    }
+  }
+
+  std::remove(NuConfigPath.c_str());
+  std::remove(SampleConfigPath.c_str());
 }
 
 int main(int argc, char *argv[])
@@ -206,20 +242,15 @@ int main(int argc, char *argv[])
   for (const auto& configPath : SampleConfig) {
     SampleHandlerTutorial *Sample = new SampleHandlerTutorial({configPath}, xsec);
 
-    for(int iSample = 0; iSample < Sample->GetNsamples(); iSample++){
+    for(int iSample = 0; iSample < Sample->GetNSamples(); iSample++){
       std::string name = Sample->GetSampleTitle(iSample);
       TString NameTString = TString(name.c_str());
 
       // Reweight and process prior histogram
       Sample->Reweight();
-      TH1* SampleHistogramPrior = nullptr;
-      if (Sample->GetNDim(iSample) == 1) {
-        SampleHistogramPrior = static_cast<TH1D*>(Sample->GetMCHist(iSample, 1)->Clone((NameTString + "_Prior").Data()));
-        Sample->AddData(iSample, static_cast<TH1D*>(SampleHistogramPrior));
-      } else {
-        SampleHistogramPrior = static_cast<TH2D*>(Sample->GetMCHist(iSample, 2)->Clone((NameTString + "_Prior").Data()));
-        Sample->AddData(iSample, static_cast<TH2D*>(SampleHistogramPrior));
-      }
+      TH1* SampleHistogramPrior = static_cast<TH1*>(Sample->GetMCHist(iSample)->Clone((NameTString + "_Prior").Data()));
+      Sample->AddData(iSample, SampleHistogramPrior);
+
       // Write initial info to file
       outFile << "Info for sample: " << NameTString << std::endl;
       outFile << "Rates Prior: " << SampleHistogramPrior->Integral() << std::endl;
@@ -231,9 +262,10 @@ int main(int argc, char *argv[])
       Sample->Reweight();
 
       // Process posterior histogram
-      TH1D *SampleHistogramPost = (TH1D*)Sample->GetMCHist(iSample, 1)->Clone(NameTString + "_Post");
+      TH1 *SampleHistogramPost = static_cast<TH1*>(Sample->GetMCHist(iSample)->Clone(NameTString + "_Post"));
       outFile << "Rates Post:" << SampleHistogramPrior->Integral() << std::endl;
       outFile << "Likelihood:" << std::fabs(Sample->GetLikelihood()) << std::endl;
+
       delete SampleHistogramPost;
     }
     MACH3LOG_INFO("Now trying to compare each weight individually");
@@ -251,6 +283,8 @@ int main(int argc, char *argv[])
     delete Sample;
   }
   ValidateTestStatistic(outFile, SampleConfig[0], xsec);
+  UnbinnedOsc(outFile, xsec);
+
   bool TheSame = CompareTwoFiles("CIValidations/TestOutputs/SampleOut.txt", "NewSampleOut.txt");
 
   if(!TheSame) {
@@ -262,6 +296,7 @@ int main(int argc, char *argv[])
 
   SharedNuOscTest(SampleConfig.back(), xsec);
   NoSplinesNoOscTest(SampleConfig.back());
+  NoParamHandlerTest(SampleConfig.back());
 
   delete xsec;
 

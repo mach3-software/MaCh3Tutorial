@@ -25,6 +25,7 @@ show_help() {
   echo -e "\t  --ReweightValidations     : Checking if reweighting works"
   echo -e "\t  --CovarianceValidations   : Checking if covariances works"
   echo -e "\t  --NuMCMCToolsValidations  : Checking if interface to NuMCMC Tools works"
+  echo -e "\t  --NuDockValidations  : Checking if interface to NuDock works"
   echo -e "\t  --all                     : Run all checks"
 }
 
@@ -66,12 +67,12 @@ run_covariance_validations() {
   ./CIValidations/CovarianceValidations
   ./CIValidations/MaCh3ModeValidations
   ./CIValidations/pValueValidations
-  ./CIValidations/SigmaVarValidations
-  ./CIValidations/SigmaVarFDValidation
+  ./CIValidations/SigmaVarValidation
   if [ "$HAVE_UNITTEST_SUPPORT" -eq 0 ]; then
     ./CIValidations/UnitTests/manager_tests
     ./CIValidations/UnitTests/histogram_tests
     ./CIValidations/UnitTests/statistical_tests
+    ./CIValidations/UnitTests/binning_parser_tests
   fi
   ${MaCh3Tutorial_ROOT}/bin/LLHScanTutorial TutorialConfigs/FitterConfig.yaml
   ${MaCh3_ROOT}/bin/PlotLLH LLH_Test.root -s -g -l "blarb.root"
@@ -84,6 +85,15 @@ run_nu_mcmc_tools_validations() {
   export PYTHONPATH="$PYTHONPATH:${MaCh3Tutorial_ROOT}/NuMCMCTools"
   cp NewChain.root CIValidations/NewChain.root
   python3 CIValidations/TestNuMCMC.py
+}
+
+run_nudock_validations() {
+  if [[ -x "${MaCh3Tutorial_ROOT}/CIValidations/NuDock/RunNuDockServer" ]]; then
+    "${MaCh3Tutorial_ROOT}/CIValidations/NuDock/RunNuDockServer" \
+      "${MaCh3Tutorial_ROOT}/TutorialConfigs/FitterConfig.yaml"
+  else
+    echo "RunNuDockServer not found or not executable, skipping."
+  fi
 }
 
 # Parse command-line arguments
@@ -104,6 +114,9 @@ while [[ $# -gt 0 ]]; do
       ;;
     --NuMCMCToolsValidations)
       RUN_NU_MCMC=true
+      ;;
+    --NuDockValidations)
+      RUN_NU_DOCK=true
       ;;
     --all)
       RUN_ALL=true
@@ -128,11 +141,13 @@ if [ "$RUN_ALL" = true ]; then
   run_fitter_validations
   run_covariance_validations
   run_nu_mcmc_tools_validations
+  run_nudock_validations
 else
   [ "$RUN_REWEIGHT" = true ] && run_reweight_validations
   [ "$RUN_FITTER" = true ] && run_fitter_validations
   [ "$RUN_COVARIANCE" = true ] && run_covariance_validations
   [ "$RUN_NU_MCMC" = true ] && run_nu_mcmc_tools_validations
+  [ "$RUN_NU_DOCK" = true ] && run_nudock_validations
 fi
 
 echo "Validation process completed!"

@@ -22,7 +22,6 @@ std::vector< std::vector<TResponseFunction_red*> > GetMasterSpline(
   for(unsigned int i = 0; i < DialNames.size(); ++i) {
     std::string str = DialNames[i];
     const char *cstr = str.c_str();
-    //std::cout<< "cstr = "<< cstr <<std::endl;
     chain->SetBranchStatus(cstr, true);
     chain->SetBranchAddress(cstr, &(grapharrays[i]));
   }// End the for loop over the unique spline parameters

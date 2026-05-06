@@ -5,24 +5,14 @@ General:
                     #"TutorialConfigs/Samples/SampleHandler_Tutorial_ATM.yaml",
                     #"TutorialConfigs/Samples/SampleHandler_Tutorial_ND.yaml"
                       ]
-  UseNuDock: true # Run as client
-  NuDockSamples:
-    - "TutorialConfigs/Samples/SampleHandler_NuDock.yaml"
   FittingAlgorithm: "MR2T2"
-
-  RealData: false
-  Asimov: true
-  CustomReWeight: false
-  FakeData: false
   ProcessMCMC: No
   Debug: No
-  
-  RandomStart: false
   Seed: 0
-  MaCh3Modes: "TutorialConfigs/MaCh3Modes.yaml"
   Fitter:
     FitTestLikelihood: false
   Minuit2:
+    # Maximal allowed number of iterations for Minuit2
     NSteps: 100000
   PSO:
     Constriction: 1
@@ -35,6 +25,7 @@ General:
     TestLikelihoodDim: 9
 
   MCMC:
+    # Number of MCMC steps that will be performed
     NSteps: 10000
     #KS: Sets how frequent (number of steps) you want to autosave your chain, if you autosave rarely chain will be slightly faster, if you job wall is small you might want more frequent autosave to reduce number of lost steps
     AutoSave: 10000
@@ -68,6 +59,7 @@ General:
 
 # Prior/Posterior predictive settings
 Predictive:
+  # Number of throws from MCMC you want to perform (aim for something like 2k/5k)
   Ntoy: 1000
   #Use Full LLH or only sample contribution based on discussion with Asher we almost always only want the sample likelihood
   FullLLH: false
@@ -77,11 +69,18 @@ Predictive:
   BurnInSteps: 1000
   # Name of file from which we are sampling
   PosteriorFile: "Test.root"
-  # Allow to specify to throw/vary only params coming from single group like Xsec. Allow to evalauete errors coming from this group. Can't be mixed with throw single param
+  # Allow to specify to throw/vary only params coming from single group like Xsec. Allow to evaluate errors coming from this group. Can't be mixed with throw single param
   ThrowParamGroupOnly: []
+  # Allow to specify to throw/vary only params coming with specified names. Cannot be connected with ThrowParamGroupOnly
   ThrowSinlgeParams: []
+  # When calculating pvalue there are two ways of applying Poissonian fluctuations, both are conceptually identical however standard scales with number of bins while non-standard scales with number of events (making it slow)
+  StandardFluctuation: true
+  # Whether to print distribution of number of events in every bin, useful only for debug
   DebugHistograms: true
-
+  # Apply additional bounds allowing to do post pred only in normal ordering etc
+  ParameterBounds: []
+  # Example with normal ordering and upper octant
+  #ParameterBounds: [ ["delm2_23", [0, 999]], ["sin2th_23", [0.5, 1] ] ]
 # LLH Scan settings  
 LLHScan:
   # don't make LLH for certain systematic groups
@@ -92,32 +91,22 @@ LLHScan:
   #LLHScanPoints: 50
   # Number of points for 2D scan in each direction
   #2DLLHScanPoints: 20
+  # Add parameters to scan over in LLHMap
+  LLHParameters: ['delta_cp','sin2th_23','sin2th_13']
   # Add physical ranges for special params whose priors/errors may not be well well-defined
   ScanRanges:
-    #delta_cp: [-3.14,3.14]
+    delta_cp: [-3.14,3.14]
+    sin2th_23: [0.35,0.65]
 
 SigmaVar:
+  # Values of sigma you want to perform, it must contain 0!
   SigmaArray: [-3, -1, 0, 1, 3]
+  # name of params you want to skip
   SkipVector: []
 
+  # Allows to overwrite default 1,3 sigma range, useful for cross-fitter comparison
   CustomRange:
-    Norm_Param_0:
-      "-3": 0.25
-      "-1": 0.5
-      "1": 1.25
-      "3": 1.5
-
-#KinemDistribution extra plots to draw
-KinematicDistributionPlots:
-- Name: "True Neutrino Energy (0.5 GeV < Enu < 3 GeV)"
-  VarStrings: ["TrueNeutrinoEnergy"]
-  VarBins: [[40,0,4]]
-  KinematicCuts:
-  - VarString: "TrueNeutrinoEnergy"
-    Range: [0.5,3]
-- Name: "Q2 vs True Enu"
-  VarStrings: ["TrueNeutrinoEnergy", "TrueQ2"]
-  VarBins: [[50,0,4],[50,0,6]]
+    Norm_Param_0: { "-3": 0.25, "-1": 0.5, "1": 1.25, "3": 1.5 }
 
 AdaptionOptions:
   Settings:
@@ -138,13 +127,12 @@ AdaptionOptions:
     xsec_cov: # Name of covariance matrix
       DoAdaption: False  # [bool] Adapt this parameter
 
-# NuDock related configs for server
-NuDock:
-  Debug: false
-  #SchemaLocation: "../nudock/schemas"
-  Verbose: false
-  AddPriorLLH: false
-  NuDockVerbosity: INFO
-  CommunicationType: "UNIX_DOMAIN_SOCKET"
-  # CommunicationType: "LOCALHOST"
-  Port: 50051
+#KinemDistribution extra plots to draw
+KinematicDistributionPlots:
+- Name: "True Neutrino Energy (0.5 GeV < Enu < 3 GeV)"
+  VarStrings: ["TrueNeutrinoEnergy"]
+  KinematicCuts:
+  - VarString: "TrueNeutrinoEnergy"
+    Range: [0.5,3]
+- Name: "Q2 vs True Enu"
+  VarStrings: ["TrueNeutrinoEnergy", "TrueQ2"]

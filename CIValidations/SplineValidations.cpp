@@ -3,20 +3,35 @@
 #include "Utils/Comparison.h"
 #include "SplinesTutorial/BinnedSplinesTutorial.h"
 
+void CleanSpline(std::vector< std::vector<TResponseFunction_red*> >& MasterSpline ) {
+  // Delete all the TSpline3 memory allocated since this now lives on the GPU and is no longer needed on the GPU
+  for(unsigned int i = 0; i < MasterSpline.size(); ++i)
+  {
+    for(unsigned int j = 0; j < MasterSpline[i].size(); ++j)
+    {
+      if(MasterSpline[i][j] != nullptr) delete MasterSpline[i][j];
+    }
+    MasterSpline[i].clear();
+    MasterSpline[i].shrink_to_fit();
+  }
+  MasterSpline.clear();
+  MasterSpline.shrink_to_fit();
+}
+
 void SplineMonolithValidations(std::ostream& outFile) {
   MACH3LOG_INFO("Testing Spline Monolith");
   std::string TutorialPath = std::getenv("MaCh3Tutorial_ROOT");
 
   std::string Input = TutorialPath + "/TutorialConfigs/MC/SplineFile.root";
   std::vector<std::string> Dials = {"Spline_0", "Spline_1", "Spline_2", "Spline_3"};
-  std::vector<double> Dial_Values = {1.21, 1, 1, 1};
+  std::vector<M3::float_t> Dial_Values = {1.21, 1, 1, 1};
   std::vector< std::vector<TResponseFunction_red*> > MasterSpline = GetMasterSpline(Input, Dials);
 
   std::vector<RespFuncType> SplineType = {kTSpline3_red, kTSpline3_red, kTSpline3_red, kTSpline3_red};
   const unsigned int Nevents = MasterSpline.size();
-  auto Splines = std::make_unique<SMonolith>(MasterSpline, SplineType, true);
-
-  std::vector< const double* > splineParsPointer(Dials.size());
+  auto Splines = std::make_unique<UnbinnedSplineHandler>(MasterSpline, SplineType, true);
+  CleanSpline(MasterSpline);
+  std::vector< const M3::float_t* > splineParsPointer(Dials.size());
   for (unsigned int i = 0; i < Dials.size(); ++i) {
     splineParsPointer[i] = &Dial_Values[i];
   }
@@ -28,13 +43,14 @@ void SplineMonolithValidations(std::ostream& outFile) {
   Splines->SynchroniseMemTransfer();
 
   for(unsigned int i = 0; i < Nevents; i++) {
-    outFile << "Event " << i << " weight = " << Splines->cpu_total_weights[i] << std::endl;
+    const auto* weightPtr = Splines->RetPointer(i);
+    outFile << "Event " << i << " weight = " << *weightPtr << std::endl;
   }
 
 ////// Testing Pre Computed Spline
   MACH3LOG_INFO("Testing Spline Monolith with Flattened ROOT inputs");
 
-  auto SplinesFlat = std::make_unique<SMonolith>("SplineFile.root");
+  auto SplinesFlat = std::make_unique<UnbinnedSplineHandler>("SplineFile.root");
   for (unsigned int i = 0; i < Dials.size(); ++i) {
     splineParsPointer[i] = &Dial_Values[i];
   }
@@ -45,7 +61,8 @@ void SplineMonolithValidations(std::ostream& outFile) {
   //KS: If using CPU this does nothing, if on GPU need to make sure we finished copying memory from
   SplinesFlat->SynchroniseMemTransfer();
   for(unsigned int i = 0; i < Nevents; i++) {
-    outFile << "(Flat) Event " << i << " weight = " << SplinesFlat->cpu_total_weights[i] << std::endl;
+    const auto* weightPtr = SplinesFlat->RetPointer(i);
+    outFile << "(Flat) Event " << i << " weight = " << *weightPtr << std::endl;
   }
 }
 
@@ -65,7 +82,7 @@ void SplineBinnedValidations(std::ostream& outFile){
   std::vector<std::string> spline_filepaths = {"TutorialConfigs/MC/BinnedSplinesTutorialInputs2D.root"};
   std::vector<std::string> SplineVarNames = {"TrueNeutrinoEnergy", "TrueNeutrinoEnergy"};
   for(int i = 0; i < SampleTittles.size(); i++) {
-    SplineHandler->AddSample("Tutorial Blarb", SampleTittles[i], spline_filepaths, SplineVarNames);
+    SplineHandler->AddSample("Tutorial_Blarb", SampleTittles[i], spline_filepaths, SplineVarNames);
   }
   SplineHandler->CountNumberOfLoadedSplines(false, 1);
   SplineHandler->TransferToMonolith();
@@ -74,18 +91,17 @@ void SplineBinnedValidations(std::ostream& outFile){
 
   constexpr int OscIndex = 0;
   constexpr int ModeIndex = 0;
-  constexpr int TrueEnu = 0.6;
-  auto EventSplines = SplineHandler->GetEventSplines("FHC_1Re", OscIndex, ModeIndex, TrueEnu, TrueEnu, 0.);
+  std::vector<double> TrueEnu = {0.2, 0.4, 0.6, 0.8, 1.0};
+  for (size_t iEnu = 0; iEnu < TrueEnu.size(); ++iEnu) {
+    auto EventSplines = SplineHandler->GetEventSplines("FHC_1Re", OscIndex, ModeIndex, TrueEnu[iEnu], TrueEnu[iEnu], 0.);
 
-  xsec_spline_pointers.resize(EventSplines.size());
-  for(size_t spline = 0; spline < xsec_spline_pointers.size(); spline++) {
-    //Event Splines indexed as: sample name, oscillation channel, syst, mode, etrue, var1, var2 (var2 is a dummy 0 for 1D splines)
-    xsec_spline_pointers[spline] = SplineHandler->retPointer(EventSplines[spline][0], EventSplines[spline][1],
-                                                             EventSplines[spline][2], EventSplines[spline][3],
-                                                             EventSplines[spline][4], EventSplines[spline][5],
-                                                             EventSplines[spline][6]);
-
-    outFile << "Binned Spline " << spline << " sample = " << EventSplines[spline][0] << std::endl;
+    for(size_t spline = 0; spline < EventSplines.size(); spline++) {
+      //Event Splines indexed as: sample name, oscillation channel, syst, mode, etrue, var1, var2 (var2 is a dummy 0 for 1D splines)
+      xsec_spline_pointers.push_back(SplineHandler->RetPointer(EventSplines[spline][0], EventSplines[spline][1],
+                                                               EventSplines[spline][2], EventSplines[spline][3],
+                                                               EventSplines[spline][4], EventSplines[spline][5],
+                                                               EventSplines[spline][6]));
+    }
   }
   SplineHandler->cleanUpMemory();
   SplineHandler->Evaluate();

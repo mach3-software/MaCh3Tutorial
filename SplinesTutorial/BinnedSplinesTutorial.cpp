@@ -8,7 +8,7 @@ BinnedSplineTutorial::BinnedSplineTutorial(ParameterHandlerGeneric *parameter_ha
 BinnedSplineTutorial::~BinnedSplineTutorial() {
 }
 
-std::vector<std::string> BinnedSplineTutorial::GetTokensFromSplineName(std::string FullSplineName) {
+std::vector<std::string> BinnedSplineTutorial::GetTokensFromSplineName(const std::string& FullSplineName) {
   std::vector<std::string> ReturnVec(TokenOrdering::kNTokens);
 
   TObjArray *tokens = TString(FullSplineName).Tokenize(".");

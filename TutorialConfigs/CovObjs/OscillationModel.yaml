@@ -7,7 +7,7 @@ Systematics:
       FancyName: sin2th_12
       ParameterName: sin2th_12
 
-    SampleNames: ["Tutorial *"]
+    SampleNames: ["Tutorial_*"]
     Error: 0.0129961532770277840
     FlatPrior: false
     ParameterBounds: [0, 1]
@@ -25,7 +25,7 @@ Systematics:
       FancyName: sin2th_23
       ParameterName: sin2th_23
 
-    SampleNames: ["Tutorial *"]
+    SampleNames: ["Tutorial_*"]
     Error: 0.021
     FlatPrior: true
     ParameterBounds: [0, 1]
@@ -47,7 +47,7 @@ Systematics:
       FancyName: sin2th_13
       ParameterName: sin2th_13
 
-    SampleNames: ["Tutorial *"]
+    SampleNames: ["Tutorial_*"]
     Error: 0.0007
     FlatPrior: true
     ParameterBounds: [0, 1]
@@ -65,7 +65,7 @@ Systematics:
       FancyName: delm2_12
       ParameterName: delm2_12
 
-    SampleNames: ["Tutorial *"]
+    SampleNames: ["Tutorial_*"]
     Error: 0.0000018
     FlatPrior: false
     ParameterBounds: [-999, 999]
@@ -83,7 +83,7 @@ Systematics:
       FancyName: delm2_23
       ParameterName: delm2_23
 
-    SampleNames: ["Tutorial *"]
+    SampleNames: ["Tutorial_*"]
     Error: 0.000034
     FlatPrior: true
     SpecialProposal:
@@ -103,7 +103,7 @@ Systematics:
       FancyName: delta_cp
       ParameterName: delta_cp
 
-    SampleNames: ["Tutorial *"]
+    SampleNames: ["Tutorial_*"]
     Error: 6.28331122896200340
     SpecialProposal:
         CircularBounds: [-3.141592, 3.141592]
@@ -124,7 +124,7 @@ Systematics:
       FancyName: baseline
       ParameterName: baseline
 
-    SampleNames: ["Tutorial Beam"]
+    SampleNames: ["Tutorial_Beam"]
     Error: 1.0
     FlatPrior: true
     ParameterBounds: [0, 9999]
@@ -142,7 +142,7 @@ Systematics:
       FancyName: density
       ParameterName: density
 
-    SampleNames: ["Tutorial Beam"]
+    SampleNames: ["Tutorial_Beam"]
     Error: 0.01
     FlatPrior: true
     ParameterBounds: [0, 999]
@@ -160,7 +160,7 @@ Systematics:
       FancyName: Ye
       ParameterName: Ye
 
-    SampleNames: ["Tutorial Beam"]
+    SampleNames: ["Tutorial_Beam"]
     Error: 0.001
     FlatPrior: true
     ParameterBounds: [0, 999]
@@ -178,7 +178,7 @@ Systematics:
       FancyName: prod_height
       ParameterName: prod_height
 
-    SampleNames: ["Tutorial ATM"]
+    SampleNames: ["Tutorial_ATM"]
     Error: 25
     FlatPrior: true
     ParameterBounds: [0, 999]

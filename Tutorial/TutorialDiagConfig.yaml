@@ -29,7 +29,7 @@ ProcessMCMC:
   PlotRelativeToPrior: false
   PrintToPDF: true
   #if false it will not plot error band for parameters with flat prior
-  PlotErrorForFlatPrior: true
+  PlotErrorForFlatPrior: false
   FancyNames: true
   PlotBinValue: false
 
@@ -126,7 +126,8 @@ GetPenaltyTerm:
 
 #########################################
 PlotSigmaVariation:
-
+  ParamNames: ["BinnedSplineParam1", "BinnedSplineParam2"]
+  Coulour: [632, 416]
 #########################################
 PredictivePlotting:
   FileTitle: ["Posterior Predictive", "Prior Predictive"]

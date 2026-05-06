@@ -1,6 +1,6 @@
 ---
 #Global Sample Handler setting
-SampleHandlerName: "Tutorial ATM"
+SampleHandlerName: "Tutorial_ATM"
 
 POT: 2.1428e+21
 MaCh3ModeConfig: "TutorialConfigs/MaCh3Modes.yaml"
@@ -21,15 +21,16 @@ InputFiles:
 #Settings for a single sample
 Samples: ["Tutorial_ATM"]
 Tutorial_ATM:
-  SampleTitle: "Tutorial ATM"
+  SampleTitle: "Tutorial_ATM"
 
   SelectionCuts:
     - KinematicStr: "TrueNeutrinoEnergy"
       Bounds: [ 0., 4 ]
 
   Binning:
-    XVarStr : "RecoNeutrinoEnergy"
-    XVarBins: [0.,  0.5,  1.,  1.25, 1.5, 1.75, 2., 2.25, 2.5, 2.75, 3., 3.25, 3.5, 3.75, 4., 5., 6., 10.]
+    VarStr : [ "RecoNeutrinoEnergy" ]
+    VarBins: [[0.,  0.5,  1.,  1.25, 1.5, 1.75, 2., 2.25, 2.5, 2.75, 3., 3.25, 3.5, 3.75, 4., 5., 6., 10.]]
+    Uniform: true
 
   InputFiles:
     mtupleprefix: "TutorialConfigs/MC/NuWro_"
@@ -37,52 +38,52 @@ Tutorial_ATM:
     splineprefix: "TutorialConfigs/MC/BinnedSplinesTutorialInputs"
     splinesuffix: "2D.root"
 
-  SubSamples:
+  OscChannels:
     - Name: "numu-x-numu"
       LatexName: "#nu_{#mu} #rightarrow #nu_{#mu}"
-      mtuplefile: "numu_x_numu"
+      mtuplefile: ["numu_x_numu"]
       splinefile: ""
       nutype: 14
       oscnutype: 14
     - Name: "nue-x-nue"
       LatexName: "#nu_{e} #rightarrow #nu_{e}"
-      mtuplefile: "nue_x_nue"
+      mtuplefile: ["nue_x_nue"]
       splinefile: ""
       nutype: 12
       oscnutype: 12
     - Name: "numub-x-numub"
       LatexName: "#bar{#nu}_{#mu} #rightarrow #bar{#nu}_{#mu}"
-      mtuplefile: "numubar_x_numubar"
+      mtuplefile: ["numubar_x_numubar"]
       splinefile: ""
       nutype: -14
       oscnutype: -14
     - Name: "nueb-x-nueb"
       LatexName: "#bar{#nu}_{e} #rightarrow #bar{#nu}_{e}"
-      mtuplefile: "nuebar_x_nuebar"
+      mtuplefile: ["nuebar_x_nuebar"]
       splinefile: ""
       nutype: -12
       oscnutype: -12
     - Name: "numu-x-nue"
       LatexName: "#nu_{#mu} #rightarrow #nu_{e}"
-      mtuplefile: "numu_x_nue"
+      mtuplefile: ["numu_x_nue"]
       splinefile: ""
       nutype: 14
       oscnutype: 12
     - Name: "numub-x-nueb"
       LatexName: "#bar{#nu}_{#mu} #rightarrow #bar{#nu}_{e}"
-      mtuplefile: "numubar_x_nuebar"
+      mtuplefile: ["numubar_x_nuebar"]
       splinefile: ""
       nutype: -14
       oscnutype: -12
     - Name: "nue-x-numu"
       LatexName: "#nu_{e} #rightarrow #nu_{#mu}"
-      mtuplefile: "nue_x_numu"
+      mtuplefile: ["nue_x_numu"]
       splinefile: ""
       nutype: 12
       oscnutype: 14
     - Name: "nueb-x-numub"
       LatexName: "#bar{#nu}_{e} #rightarrow #bar{#nu}_{#mu}"
-      mtuplefile: "nuebar_x_numubar"
+      mtuplefile: ["nuebar_x_numubar"]
       splinefile: ""
       nutype: -12
       oscnutype: -14

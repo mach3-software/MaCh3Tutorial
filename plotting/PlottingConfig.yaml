@@ -59,9 +59,8 @@ GetPostfitParamPlots:
         "Cross_Section", 
         "Detector_Systematic",
         "Osc_Mixing_Angles",
-        "Osc_Mass_Splitting",
-        "Experiment_Setup"
-    ]
+        "Osc_Mass_Splitting"
+        ]
 
     ## define the groups of parameters, should go <block name>: [<plot title>, [<ylim low>, <ylim up>], ["ParamName1", "ParamName2" ...]
     Cross_Section: ["Cross Section", [-1.5, 2.0],   
@@ -88,16 +87,9 @@ GetPostfitParamPlots:
         ]
     ]
     
-    Osc_Mass_Splitting: ["Oscillations - Mass Splitting", [0.0, 1.0],   
+    Osc_Mass_Splitting: ["Oscillations - Mass Splitting", [-0.02, 0.02],
         [
-            "delm2_12", 
-            "delm2_23", 
-        ]
-    ]
-    
-    Experiment_Setup: ["Experimental Setup", [0.0, 1.0],   
-        [
-            "baseline", 
-            "density", 
+            "delm2_12",
+            "delm2_23",
         ]
     ]

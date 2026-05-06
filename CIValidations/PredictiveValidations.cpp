@@ -68,7 +68,7 @@ int main(int argc, char *argv[])
     throw MaCh3Exception(__FILE__, __LINE__);
   }
 
-  std::vector<std::string> SampleNames1D = {"Tutorial", "Tutorial ATM", "ND_NC1pi0"};
+  std::vector<std::string> SampleNames1D = {"Tutorial_Beam", "Tutorial_ATM", "ND_NC1pi0"};
   for (const auto& sampleName : SampleNames1D) {
     TDirectory* sampleDir = static_cast<TDirectory*>(predictiveDir->Get(sampleName.c_str()));
     if (!sampleDir) {

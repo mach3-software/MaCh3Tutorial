@@ -6,10 +6,10 @@ foreach(app
     PredictiveTutorial
     SigmaVarTutorial
     KinemDistributionTutorial
-    RunNuDockServer
+    TutorialEventRates
     )
     add_executable(${app} ${app}.cpp)
-    target_link_libraries(${app} MaCh3Tutorial::ValidationsUtils MaCh3Tutorial::SamplesTutorial MaCh3::MaCh3NuDock)
+    target_link_libraries(${app} MaCh3Tutorial::ValidationsUtils MaCh3Tutorial::SamplesTutorial)
     if(MaCh3Tutorial_PROFILING_ENABLED)
         target_link_libraries(${app}
             profiler  # Add this line to link gperftools

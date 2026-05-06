@@ -16,7 +16,7 @@ Systematics:
       Generated: 1.
       PreFitValue: 1.
       PostND: 1.5
-    SampleNames: ["Tutorial *", "ND2137"]
+    SampleNames: ["Tutorial_*", "ND2137"]
     StepScale:
       MCMC: 0.2
     Type: Norm
@@ -37,7 +37,7 @@ Systematics:
       Generated: 1.
       PreFitValue: 1.
       PostND: 1.2
-    SampleNames: ["Tutorial *", "ND2137"]
+    SampleNames: ["Tutorial_*", "ND2137"]
     StepScale:
       MCMC: 0.2
     Type: Norm
@@ -59,7 +59,7 @@ Systematics:
       Generated: 1.
       PreFitValue: 1.
       PostND: 0.9
-    SampleNames: ["Tutorial *", "ND2137"]
+    SampleNames: ["Tutorial_*", "ND2137"]
     StepScale:
       MCMC: 0.2
     Type: Norm
@@ -83,7 +83,7 @@ Systematics:
       SplineName: mysyst1
       SplineKnotUpBound: 2
       SplineKnotLowBound: 0.5
-    SampleNames: ["Tutorial *", "ND2137"]
+    SampleNames: ["Tutorial_*", "ND2137"]
     StepScale:
       MCMC: 0.2
     Type: Spline
@@ -105,7 +105,7 @@ Systematics:
       Mode: [2]
       InterpolationType: Linear
       SplineName: mysyst2
-    SampleNames: ["Tutorial *", "ND2137"]
+    SampleNames: ["Tutorial_*", "ND2137"]
     StepScale:
       MCMC: 0.2
     Type: Spline
@@ -127,7 +127,7 @@ Systematics:
       Mode: [1]
       InterpolationType: Monotonic
       SplineName: mysyst3
-    SampleNames: ["Tutorial *", "ND2137"]
+    SampleNames: ["Tutorial_*", "ND2137"]
     StepScale:
       MCMC: 0.2
     Type: Spline
@@ -149,7 +149,7 @@ Systematics:
       Mode: [3]
       InterpolationType: Akima
       SplineName: mysyst4
-    SampleNames: ["Tutorial *", "ND2137"]
+    SampleNames: ["Tutorial_*", "ND2137"]
     StepScale:
       MCMC: 0.2
     Type: Spline
@@ -171,7 +171,7 @@ Systematics:
       Mode: [4]
       InterpolationType: Linear
       SplineName: mysyst5
-    SampleNames: ["Tutorial *", "ND2137"]
+    SampleNames: ["Tutorial_*", "ND2137"]
     StepScale:
       MCMC: 0.2
     Type: Spline
@@ -190,7 +190,7 @@ Systematics:
       PostND: 0.2
     StepScale:
       MCMC: 0.2
-    SampleNames: ["Tutorial *"]
+    SampleNames: ["Tutorial_*"]
     Type: Functional
     Correlations:
     - EResTot: 0.50
@@ -209,7 +209,7 @@ Systematics:
       PostND: -0.1
     StepScale:
       MCMC: 0.2
-    SampleNames: ["Tutorial *"]
+    SampleNames: ["Tutorial_*"]
     Type: Functional
     Correlations:
     - EResLep: 0.50
