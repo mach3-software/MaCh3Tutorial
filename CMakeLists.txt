@@ -43,6 +43,7 @@ include(CIValidations)
 option(MaCh3_CPM "Whether MaCh3 was obtained using CPM or find_package" OFF)
 option(MaCh3Tutorial_PROFILING_ENABLED "Will run with gperftools" OFF)
 option(Use_External_MaCh3 "Use an externally installed MaCh3 instead of CPM" OFF)
+option(MaCh3Tutorial_NUDOCK_ENABLED "Whether to enable NuDock support" OFF)
 
 # KS: Here we try to find tag matching tutorial version. If we can't find one then use develop
 # This will allow to grab tutorial for tagged MaCh3 version without a need of manually changing version
@@ -87,6 +88,10 @@ if(NOT MaCh3_FOUND)
   # Add LOG_LEVEL if defined
   if (DEFINED LOG_LEVEL)
     list(APPEND MaCh3_OPTIONS "LOG_LEVEL ${LOG_LEVEL}")
+  endif()
+
+  if (DEFINED MaCh3Tutorial_NUDOCK_ENABLED)
+    list(APPEND MaCh3_OPTIONS "MaCh3_NUDOCK_ENABLED  ON")
   endif()
 
   if (MaCh3Tutorial_NATIVE_ENABLED)
