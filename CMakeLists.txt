@@ -89,7 +89,7 @@ if(NOT MaCh3_FOUND)
     list(APPEND MaCh3_OPTIONS "LOG_LEVEL ${LOG_LEVEL}")
   endif()
 
-  if (DEFINED MaCh3Tutorial_NUDOCK_ENABLED)
+  if (MaCh3Tutorial_NUDOCK_ENABLED)
     list(APPEND MaCh3_OPTIONS "MaCh3_NUDOCK_ENABLED  ON")
   endif()
 
