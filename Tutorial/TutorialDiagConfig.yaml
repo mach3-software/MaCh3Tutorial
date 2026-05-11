@@ -132,6 +132,9 @@ PlotSigmaVariation:
 PredictivePlotting:
   FileTitle: ["Posterior Predictive", "Prior Predictive"]
   PosteriorColor: [632, 600] # kRed, kBlue
+  RelevantModesName: ["CCQE", "CC2p2h","CC1pipm"]
+  # kRed, kMagenta+2, kGreen+1
+  RelevantModesColors: [632, 618, 417]
 
 #########################################
 MatrixPlotter:
