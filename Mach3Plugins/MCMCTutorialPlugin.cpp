@@ -1,12 +1,18 @@
 // MaCh3 includes
+#include "api/plugin.hpp"
 #include "Fitters/MaCh3Factory.h"
 #include "SamplesTutorial/SampleHandlerTutorial.h"
-#include "MaCh3Plugins/MCMCTutorialPlugin.hpp"
+// #include "Mach3Plugins/MCMCTutorialPlugin.hpp"
 
-MACH3_REGISTER_PLUGIN(mach3::MCMCTutorialPlugin)
+namespace M3{
 
-namespace mach3{
-      MaCh3ArgumentParser* MCMCTutorialPlugin::get_parser(){
+  class MCMCTutorialPlugin: public IPlugin{
+
+    public:
+      virtual ~MCMCTutorialPlugin(){
+        if (m_parser) { delete m_parser; } 
+      }
+      MaCh3ArgumentParser* get_parser(){
         m_parser = new MaCh3ArgumentParser("tutorial", "1.0", argparse::default_arguments::help);
         m_parser->add_argument("config")
         .help("Config file.")
@@ -19,7 +25,8 @@ namespace mach3{
 
         return m_parser;
       }
-      int MCMCTutorialPlugin::run(){
+
+      int run(){
         std::string config = m_parser->get<std::string>("config");
         // std::string inputFile = m_parser->get<std::string>("root-file");
 
@@ -58,5 +65,10 @@ namespace mach3{
       }
 
 
+    private:
+      MaCh3ArgumentParser* m_parser;
+  };
 
 };
+
+MACH3_REGISTER_PLUGIN(M3::MCMCTutorialPlugin)
