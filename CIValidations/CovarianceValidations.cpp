@@ -174,7 +174,7 @@ void TestAdaptive(std::ostream& outFile,
   // if not enough params just throw more params
   if (Adapt->GetNumParams() > ParAdapt.size()) {
     for (size_t i = ParAdapt.size(); i < Adapt->GetNumParams(); ++i) {
-      ParAdapt.push_back(Adapt->GetParInit(i));
+      ParAdapt.push_back(Adapt->GetParPreFit(i));
     }
   }
 
@@ -197,7 +197,7 @@ void TestAdaptive(std::ostream& outFile,
   for(size_t i = 0; i < ParMeans.size(); i++) {
     outFile << "Adapt " << Name << ", Param means: " << i << " = " << ParMeans[i] << std::endl;
   }
-  TMatrixDSym* Matrix = Adapt->GetAdaptiveHandler()->GetAdaptiveCovariance();
+  auto Matrix = Adapt->GetAdaptiveHandler()->GetAdaptiveCovariance();
   double adapt_scale = Adapt->GetAdaptiveHandler()->GetAdaptionScale();
   outFile << "Adapt "<< Name <<" scale: " << adapt_scale << std::endl;
   int dim = Matrix->GetNrows();
@@ -219,7 +219,7 @@ void TestAdaptive(std::ostream& outFile,
   for (int i = 0; i < Adapt->GetNumParams(); i++) {
     auto Value = Adapt->GetParCurr(i);
     if(Value > Adapt->GetUpperBound(i) || Value < Adapt->GetLowerBound(i)) {
-      Adapt->SetParCurrProp(i, Adapt->GetParInit(i));
+      Adapt->SetParCurrProp(i, Adapt->GetParPreFit(i));
     }
   }
   Adapt->ToggleFixAllParameters();

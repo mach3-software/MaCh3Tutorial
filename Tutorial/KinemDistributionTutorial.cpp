@@ -16,7 +16,7 @@ struct Plot {
 
 int main(int argc, char **argv) {
   //JM OscillationChannel kinematic variable does not exist, so only supports looping modes
-  int Selection = 0; //0 to loop modes, 1 to loop osc channels
+  constexpr SamplePlotType PlotType = kModePlot; //0 to loop modes, 1 to loop osc channels
 
   // Initialise manger responsible for config handling
   auto FitManager = MaCh3ManagerFactory(argc, argv);
@@ -76,7 +76,7 @@ int main(int argc, char **argv) {
     for (size_t iPDF=0; iPDF < mySamples.size(); iPDF++) {
       MACH3LOG_INFO("Number of samples: {}", mySamples[iPDF]->GetNSamples());
        for(int iSample = 0; iSample < mySamples[iPDF]->GetNSamples(); iSample++){
-        auto Stack = mySamples[iPDF]->ReturnStackedHistBySelection1D(iSample, vecParams[iParam], Selection);
+        auto Stack = mySamples[iPDF]->ReturnStackedHistBySelection1D(iSample, vecParams[iParam], PlotType);
         std::unique_ptr<TLegend> Legend(new TLegend(*mySamples[iPDF]->ReturnStackHistLegend()));
         Canv->cd(1);
         Stack->Draw("HIST");
