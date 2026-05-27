@@ -154,7 +154,7 @@ void TestPCA(const std::string& label,
 
   PCA->AcceptStep();
 
-  PCA->ToggleFixAllParameters();
+  PCA->SetFixAllParameters();
   for (int i = 0; i < PCA->GetPCAHandler()->GetNumberPCAedParameters(); i++) {
     outFile << "Param in " << label << " is Fixed: " << i << " = " << PCA->GetPCAHandler()->IsParameterFixedPCA(i) << std::endl;
   }
@@ -222,7 +222,7 @@ void TestAdaptive(std::ostream& outFile,
       Adapt->SetParCurrProp(i, Adapt->GetParInit(i));
     }
   }
-  Adapt->ToggleFixAllParameters();
+  Adapt->SetFixAllParameters();
   for (int i = 0; i < Adapt->GetNumParams(); i++) {
     outFile << "Adapt " << Name <<" is param " << i  << " fixed=" << Adapt->IsParameterFixed(i) << std::endl;
   }
@@ -341,7 +341,7 @@ int main(int argc, char *argv[])
   for (int i = 0; i < xsec->GetNumParams(); i++) {
     outFile << "Is param " << i  << " fixed=" << xsec->IsParameterFixed(i) << std::endl;
   }
-  xsec->ToggleFixAllParameters();
+  xsec->SetFixAllParameters();
   for (int i = 0; i < xsec->GetNumParams(); i++) {
     outFile << "Is param " << i  << " fixed=" << xsec->IsParameterFixed(i) << std::endl;
   }
