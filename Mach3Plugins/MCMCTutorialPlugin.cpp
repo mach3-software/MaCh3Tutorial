@@ -18,19 +18,28 @@ namespace M3{
         .help("Config file.")
         .metavar("CONFIG")
         .required();
-        // m_parser->add_argument("root-file")
-        // .help("Root file.")
-        // .metavar("ROOT_FILE")
-        // .required();
-
+        m_parser->add_argument("--nsteps")
+        .scan<'d', int>()
+        .help("specify the number of steps.");
+        m_parser->add_argument("--override")
+          .append()
+          .help("specify any config overrides.");
         return m_parser;
       }
 
       int run(){
         std::string config = m_parser->get<std::string>("config");
-        // std::string inputFile = m_parser->get<std::string>("root-file");
 
-        std::vector<std::string> args = { m_parser->name(), config };//, inputFile };
+        std::vector<std::string> args = { m_parser->name(), config };
+        
+        if (auto fn = m_parser->present<int>("--nsteps")) {
+            args.push_back("General:MCMC:NSteps:" + std::to_string(*fn));
+        }
+        
+        std::vector<std::string> overrides = m_parser->get<std::vector<std::string>>("--override");
+        for (const std::string& override_str : overrides) {
+            args.push_back(override_str);
+        }
 
         // Convert to char* array
         std::vector<char*> argv;
