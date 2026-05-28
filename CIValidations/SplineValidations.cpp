@@ -77,7 +77,6 @@ void SplineBinnedValidations(std::ostream& outFile){
 
   auto SplineHandler = std::make_unique<BinnedSplineTutorial>(ParHandler.get(), Modes.get());
 
-
   std::vector<std::string> SampleTittles = {"FHC_1Rmu", "FHC_1Re", "RHC_1Rmu", "RHC_1Re"};
   std::vector<std::string> spline_filepaths = {"TutorialConfigs/MC/BinnedSplinesTutorialInputs2D.root"};
   std::vector<std::string> SplineVarNames = {"TrueNeutrinoEnergy", "TrueNeutrinoEnergy"};
@@ -97,10 +96,7 @@ void SplineBinnedValidations(std::ostream& outFile){
 
     for(size_t spline = 0; spline < EventSplines.size(); spline++) {
       //Event Splines indexed as: sample name, oscillation channel, syst, mode, etrue, var1, var2 (var2 is a dummy 0 for 1D splines)
-      xsec_spline_pointers.push_back(SplineHandler->RetPointer(EventSplines[spline][0], EventSplines[spline][1],
-                                                               EventSplines[spline][2], EventSplines[spline][3],
-                                                               EventSplines[spline][4], EventSplines[spline][5],
-                                                               EventSplines[spline][6]));
+      xsec_spline_pointers.push_back(SplineHandler->RetPointer(EventSplines[spline]));
     }
   }
   SplineHandler->cleanUpMemory();
