@@ -81,6 +81,8 @@ Predictive:
   ParameterBounds: []
   # Example with normal ordering and upper octant
   #ParameterBounds: [ ["delm2_23", [0, 999]], ["sin2th_23", [0.5, 1] ] ]
+  # Will produce posterior predictive distributions with by mode breakdown, can be heavy on RAM
+  ByMode: false
 # LLH Scan settings  
 LLHScan:
   # don't make LLH for certain systematic groups

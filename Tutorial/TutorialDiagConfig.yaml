@@ -90,14 +90,14 @@ ProcessMCMC:
   BipolarPlot:
     - ["BinnedSplineParam1", [0, 1]]
 
-    #KS: Feel free to pass whatever combination you like
+  #KS: Feel free to pass whatever combination you like
   TrianglePlot:
     - ["Test", ["Norm_Param_0", "Norm_Param_1", "BinnedSplineParam1", "BinnedSplineParam2"]]
 
-  #First is paramter name and second number of intervals
+  #First is parameter name and second number of intervals
   ParameterEvolution:
     - ["Norm_Param_0", 20]
-
+  # Technique to reduce size of chains by saving only every N-th step. Help reduce size while having good autocorrelations.
   Thinning: [false, 100]
 
   #First param name, then new prior and new prior error
@@ -109,6 +109,14 @@ ProcessMCMC:
   # This allows to specify custom bin edges for usual 1D plotting
   CustomBinEdges:
     delta_cp: [-3.141592, 3.141592]
+  # Calculate Jarlskog invariant and make plots
+  JarlskogAnalysis: true
+  # Calculate PMNS elements and save based on posterior distribution
+  ProducePMNSElements: true
+  # Calculate and write Unitarity Triangles
+  ProduceUnitarityTriangles: true
+  # Produce fancy looking Pie or Clock Plot for Delta CP
+  MakePiePlot: true
 #########################################
 GetPenaltyTerm:
   PenaltySets: ["Norm", "Spline"]
