@@ -35,7 +35,7 @@ void SplineMonolithValidations(std::ostream& outFile) {
   for (unsigned int i = 0; i < Dials.size(); ++i) {
     splineParsPointer[i] = &Dial_Values[i];
   }
-  Splines->setSplinePointers(splineParsPointer);
+  Splines->SetSplinePointers(splineParsPointer);
 
   Splines->Evaluate();
 
@@ -54,7 +54,7 @@ void SplineMonolithValidations(std::ostream& outFile) {
   for (unsigned int i = 0; i < Dials.size(); ++i) {
     splineParsPointer[i] = &Dial_Values[i];
   }
-  SplinesFlat->setSplinePointers(splineParsPointer);
+  SplinesFlat->SetSplinePointers(splineParsPointer);
 
   SplinesFlat->Evaluate();
 
@@ -103,7 +103,7 @@ void SplineBinnedValidations(std::ostream& outFile){
                                                                EventSplines[spline][6]));
     }
   }
-  SplineHandler->cleanUpMemory();
+  SplineHandler->CleanUpMemory();
   SplineHandler->Evaluate();
 
   for(size_t iSpline = 0; iSpline < xsec_spline_pointers.size(); iSpline++) {
