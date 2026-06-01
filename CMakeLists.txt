@@ -142,7 +142,7 @@ add_subdirectory(CIValidations)
 add_subdirectory(Tutorial)
 add_subdirectory(SplinesTutorial)
 add_subdirectory(SamplesTutorial)
-add_subdirectory(Mach3Plugins)
+add_subdirectory(MaCh3Plugins)
 
 # MOVE THIS BLOCK HERE - BEFORE add_subdirectory(python)
 # After MaCh3 is added/found, determine MaCh3_PREFIX

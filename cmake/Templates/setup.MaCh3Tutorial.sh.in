@@ -107,4 +107,6 @@ else
   fi
 fi
 
+export MACH3_PLUGINS=${SETUPDIR}/MaCh3Plugins/libMCMCTutorialPlugin.so
+
 unset SETUPDIR

@@ -18,7 +18,7 @@ namespace M3{
         .help("Config file.")
         .metavar("CONFIG")
         .required();
-        m_parser->add_argument("--nsteps")
+        m_parser->add_argument("--MCMCSteps")
         .scan<'d', int>()
         .help("specify the number of steps.");
         m_parser->add_argument("--override")
@@ -32,7 +32,7 @@ namespace M3{
 
         std::vector<std::string> args = { m_parser->name(), config };
         
-        if (auto fn = m_parser->present<int>("--nsteps")) {
+        if (auto fn = m_parser->present<int>("--MCMCSteps")) {
             args.push_back("General:MCMC:NSteps:" + std::to_string(*fn));
         }
         
