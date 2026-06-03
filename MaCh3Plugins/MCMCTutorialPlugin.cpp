@@ -1,5 +1,5 @@
 // MaCh3 includes
-#include "api/plugin.hpp"
+#include "cli/api/plugin.hpp"
 #include "Fitters/MaCh3Factory.h"
 #include "SamplesTutorial/SampleHandlerTutorial.h"
 // #include "Mach3Plugins/MCMCTutorialPlugin.hpp"
