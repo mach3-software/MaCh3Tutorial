@@ -13,7 +13,7 @@ class SampleHandlerTutorial : public SampleHandlerBase
   virtual ~SampleHandlerTutorial();
 
   enum KinematicTypes {kTrueNeutrinoEnergy, kTrueQ2, kM3Mode, kTarget, kRecoNeutrinoEnergy, kOscChannel, kTargetNucleus};
-  
+
   // === JM enum for particle-level parameters ===
   enum KinematicParticleVecs {kParticleEnergy, kParticlePDG, kParticleBeamAngle};
   // =============================================
@@ -31,7 +31,7 @@ class SampleHandlerTutorial : public SampleHandlerBase
   void CleanMemoryBeforeFit() final;
 
   double ReturnKinematicParameter(const int KinematicVariable, const int iEvent) const final;
-  
+
   // === JM ReturnKinematicVector declarations for particle-level parameters ===
   void FillParticles(int eventIndex, int nParticles, int PDGLep, double ELep, std::mt19937& gen);
   std::vector<double> ReturnKinematicVector(const int KinematicVector, const int iEvent) const final;
@@ -64,7 +64,7 @@ class SampleHandlerTutorial : public SampleHandlerBase
     {kRecoNeutrinoEnergy, "RecoNeutrinoEnergy"},
     {kOscChannel, "OscillationChannel"},
   };
-  
+
   // === JM maps for particle-level parameters ===
   const std::unordered_map<std::string, int> KinematicVectorsTutorial = {
     {"ParticleEnergy", kParticleEnergy},
@@ -86,9 +86,5 @@ class SampleHandlerTutorial : public SampleHandlerBase
   enum FuncParEnum {kDebugNothing, kDebugShift, kEResLep, kEResTot};
   void RegisterFunctionalParameters() final;
   void ResetShifts(const int iEvent) final;
-
-  void DebugShift(const M3::float_t* par, std::size_t iEvent);
-  void EResLep(const M3::float_t* par, std::size_t iEvent);
-  void EResTot(const M3::float_t* par, std::size_t iEvent);
   // =================================
 };
