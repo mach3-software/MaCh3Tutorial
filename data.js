@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780661488688,
+  "lastUpdate": 1781079247928,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -27023,6 +27023,79 @@ window.BENCHMARK_DATA = {
             "name": "Non-Uniform BinningHandler",
             "value": 8.24518,
             "range": "± 22.3514",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "43858329+Charlotte-Knight@users.noreply.github.com",
+            "name": "Charlotte Knight",
+            "username": "Charlotte-Knight"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "4bac4a37669caacec11fda127c626a8d305f9442",
+          "message": "Merge pull request #928 from mach3-software/charlotte-knight/feat/splineindex-speedup\n\nfeat: implement map for spline index to speed up spline processing",
+          "timestamp": "2026-06-10T09:07:55+01:00",
+          "tree_id": "79cd079365b256b297733a77e3917823e99e891e",
+          "url": "https://github.com/mach3-software/MaCh3/commit/4bac4a37669caacec11fda127c626a8d305f9442"
+        },
+        "date": 1781079244117,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 3.39452,
+            "range": "± 231.988",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 3.24145,
+            "range": "± 105.469",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 347.26,
+            "range": "± 7.28545",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ND Reweight",
+            "value": 319.712,
+            "range": "± 18.8257",
+            "unit": "us",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ParameterHandler Operations",
+            "value": 3.14712,
+            "range": "± 31.3676",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Uniform BinningHandler 100k events",
+            "value": 8.69999,
+            "range": "± 28.9796",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Non-Uniform BinningHandler",
+            "value": 9.03185,
+            "range": "± 47.5174",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
