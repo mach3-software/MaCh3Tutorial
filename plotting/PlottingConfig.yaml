@@ -9,7 +9,6 @@ ManagerOptions:
 
 #########################################
 PlotLLH:
-
     defaultOutputName: "LLHScan"
     
     colorPalette: "OkabeItoReduced"
@@ -25,11 +24,7 @@ PlotLLH:
 
 #########################################
 GetPostfitParamPlots:
-
     defaultOutputName: "PostFitParamPlots"
-
-    ## makes param names muuuuch easier to read if param plots are vertical, (not implemented yet tho hehe)
-    plotVertical: false
 
     ## Some stylistic choices
     colorPalette: "BlackBlueGreen"
