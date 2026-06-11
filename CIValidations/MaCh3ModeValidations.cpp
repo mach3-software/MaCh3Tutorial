@@ -47,6 +47,11 @@ int main(int argc, char *argv[])
   }
   MACH3LOG_INFO("Testing MaCh3 Mode");
 
+  if(!std::getenv("MaCh3Tutorial_ROOT")){
+    MACH3LOG_CRITICAL("${MaCh3Tutorial_ROOT} is not defined in the environment,"
+      " have you sourced setup.MaCh3Tutorial.sh? ");
+    throw MaCh3Exception(__FILE__ , __LINE__ );
+  }
   std::string TutorialPath = std::getenv("MaCh3Tutorial_ROOT");
   std::string ModeInput = TutorialPath + "/TutorialConfigs/MaCh3Modes.yaml";
   auto Modes = std::make_unique<MaCh3Modes>(ModeInput);

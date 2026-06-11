@@ -35,48 +35,32 @@ void SampleHandlerTutorial::Init() {
   MACH3LOG_INFO("-------------------------------------------------------------------");
 }
 
-void SampleHandlerTutorial::DebugShift(const M3::float_t* par, std::size_t iEvent) {
-  // HH: This is a debug function to shift the reco energy to 4 GeV if the reco energy is less than 2 GeV
-  if (TutorialSamples[iEvent].RecoEnu < 2.0 && *par != 0) {
-    TutorialSamples[iEvent].RecoEnu_shifted = 4;
+void DebugShift(double const &pval, TutorialMCInfo &ev) {
+  if (ev.RecoEnu < 2.0 && pval != 0) {
+    ev.RecoEnu_shifted = 4;
   }
-}
+};
 
-void SampleHandlerTutorial::EResLep(const M3::float_t* par, std::size_t iEvent) {
-  // HH: Lepton energy resolution contribution to reco energy
-  TutorialSamples[iEvent].RecoEnu_shifted += (*par) * TutorialSamples[iEvent].ELep;
-}
-
-void SampleHandlerTutorial::EResTot(const M3::float_t* par, std::size_t iEvent) {
-  // HH: Total energy resolution contribution to reco energy
-  TutorialSamples[iEvent].RecoEnu_shifted += (*par) * TutorialSamples[iEvent].RecoEnu;
-}
-
+// example using a non-capturing lambda
 void SampleHandlerTutorial::RegisterFunctionalParameters() {
   MACH3LOG_INFO("Registering functional parameters");
-  // This function manually populates the map of functional parameters
-  // Maps the name of the functional parameter to the pointer of the function
-  
-  // This is the part where we manually enter things
-  // A lambda function has to be used so we can refer to a non-static member function
-  #pragma GCC diagnostic push
-  #pragma GCC diagnostic ignored "-Wunused-parameter"
-  RegisterIndividualFunctionalParameter("DebugNothing", 
-                            kDebugNothing, 
-                            [this](const M3::float_t* par, std::size_t iEvent) {});
+  RegisterIndividualFunctionalParameter(
+      TutorialSamples, "DebugNothing",
+      [](double const &pval, TutorialMCInfo &ev) {});
 
-  RegisterIndividualFunctionalParameter("DebugShift",
-                            kDebugShift, 
-                            [this](const M3::float_t* par, std::size_t iEvent) { this->DebugShift(par, iEvent); });
+  // example using a free function
+  RegisterIndividualFunctionalParameter(TutorialSamples, "DebugShift",
+                                        DebugShift);
 
-  RegisterIndividualFunctionalParameter("EResLep",
-                            kEResLep, 
-                            [this](const M3::float_t* par, std::size_t iEvent) { this->EResLep(par, iEvent); });
+  RegisterIndividualFunctionalParameter(
+      TutorialSamples, "EResLep", [](double const &pval, TutorialMCInfo &ev) {
+        ev.RecoEnu_shifted += pval * ev.ELep;
+      });
 
-  RegisterIndividualFunctionalParameter("EResTot",
-                            kEResTot, 
-                            [this](const M3::float_t* par, std::size_t iEvent) { this->EResTot(par, iEvent); });
-  #pragma GCC diagnostic pop
+  RegisterIndividualFunctionalParameter(
+      TutorialSamples, "EResTot", [](double const &pval, TutorialMCInfo &ev) {
+        ev.RecoEnu_shifted += pval * ev.RecoEnu;
+      });
 }
 
 void SampleHandlerTutorial::ResetShifts(const int iEvent) {
@@ -325,7 +309,7 @@ double SampleHandlerTutorial::ReturnKinematicParameter(const int KinematicVariab
   return *paramPointer;
 }
 
-// === JM Define ReturnKinematicVector functions === 
+// === JM Define ReturnKinematicVector functions ===
 std::vector<double> SampleHandlerTutorial::ReturnKinematicVector(const int KinematicVector, const int iEvent) const {
   switch (KinematicVector) {
     case kParticleEnergy:

@@ -98,6 +98,11 @@ int main(int argc, char *argv[])
     MACH3LOG_CRITICAL("You specified arguments, but none are needed. (Program name: {})", argv[0]);
     throw MaCh3Exception(__FILE__ , __LINE__ );
   }
+  if(!std::getenv("MaCh3Tutorial_ROOT")){
+    MACH3LOG_CRITICAL("${MaCh3Tutorial_ROOT} is not defined in the environment,"
+      " have you sourced setup.MaCh3Tutorial.sh? ");
+    throw MaCh3Exception(__FILE__ , __LINE__ );
+  }
   std::string TutorialPath = std::getenv("MaCh3Tutorial_ROOT");
 
   std::vector<std::string> xsecCovMatrixFile = {TutorialPath + "/TutorialConfigs/CovObjs/SystematicModel.yaml",
