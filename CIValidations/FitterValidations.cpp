@@ -6,6 +6,11 @@
 
 void FitVal(const std::string& Algo, bool MoreTests)
 {
+  if(!std::getenv("MaCh3Tutorial_ROOT")){
+    MACH3LOG_CRITICAL("${MaCh3Tutorial_ROOT} is not defined in the environment,"
+      " have you sourced setup.MaCh3Tutorial.sh? ");
+    throw MaCh3Exception(__FILE__ , __LINE__ );
+  }
   std::string TutorialPath = std::getenv("MaCh3Tutorial_ROOT");
   std::string ManagerInput = TutorialPath + "/TutorialConfigs/FitterConfig.yaml";
   auto FitManager = std::make_unique<Manager>(ManagerInput);
@@ -71,6 +76,11 @@ void FitVal(const std::string& Algo, bool MoreTests)
 
 void StartFromPosteriorTest(const std::string& PreviousName)
 {
+  if(!std::getenv("MaCh3Tutorial_ROOT")){
+    MACH3LOG_CRITICAL("${MaCh3Tutorial_ROOT} is not defined in the environment,"
+      " have you sourced setup.MaCh3Tutorial.sh? ");
+    throw MaCh3Exception(__FILE__ , __LINE__ );
+  }
   std::string TutorialPath = std::getenv("MaCh3Tutorial_ROOT");
   std::string ManagerInput = TutorialPath + "/TutorialConfigs/FitterConfig.yaml";
   auto FitManager = std::make_unique<Manager>(ManagerInput);
