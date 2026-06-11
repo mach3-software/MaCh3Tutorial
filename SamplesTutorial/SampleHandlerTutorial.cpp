@@ -43,6 +43,7 @@ void DebugShift(double const &pval, TutorialMCInfo &ev) {
 
 // example using a non-capturing lambda
 void SampleHandlerTutorial::RegisterFunctionalParameters() {
+  if(ParHandler == nullptr) return;
   MACH3LOG_INFO("Registering functional parameters");
   RegisterIndividualFunctionalParameter(
       TutorialSamples, "DebugNothing",
