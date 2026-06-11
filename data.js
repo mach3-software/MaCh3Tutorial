@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781190527690,
+  "lastUpdate": 1781202092485,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -27461,6 +27461,79 @@ window.BENCHMARK_DATA = {
             "name": "Non-Uniform BinningHandler",
             "value": 8.24113,
             "range": "± 29.4487",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "luketpickering@googlemail.com",
+            "name": "Luke Pickering",
+            "username": "luketpickering"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "6d6dc4295bda99fc079dcb1604ba9ffa68a03937",
+          "message": "Merge pull request #932 from mach3-software/kskwarczynksi/feat/txx\n\ntidy: Add support for .txx file extension in Doxyfile",
+          "timestamp": "2026-06-11T19:15:28+01:00",
+          "tree_id": "e031eff4e35d9abf8ea15bd4aaae28afaf4a9777",
+          "url": "https://github.com/mach3-software/MaCh3/commit/6d6dc4295bda99fc079dcb1604ba9ffa68a03937"
+        },
+        "date": 1781202088743,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 3.13555,
+            "range": "± 449.994",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 3.04004,
+            "range": "± 224.107",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 334.191,
+            "range": "± 6.30719",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ND Reweight",
+            "value": 296.473,
+            "range": "± 55.8924",
+            "unit": "us",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ParameterHandler Operations",
+            "value": 2.7355,
+            "range": "± 760.767",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Uniform BinningHandler 100k events",
+            "value": 8.6346,
+            "range": "± 38.0004",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Non-Uniform BinningHandler",
+            "value": 9.00979,
+            "range": "± 24.0854",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
