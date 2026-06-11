@@ -46,11 +46,10 @@ void SampleHandlerTutorial::RegisterFunctionalParameters() {
   MACH3LOG_INFO("Registering functional parameters");
   RegisterIndividualFunctionalParameter(
       TutorialSamples, "DebugNothing",
-      [](double const &pval, TutorialMCInfo &ev) {});
+      []([[maybe_unused]] double const &pval, [[maybe_unused]] TutorialMCInfo &ev) {});
 
   // example using a free function
-  RegisterIndividualFunctionalParameter(TutorialSamples, "DebugShift",
-                                        DebugShift);
+  RegisterIndividualFunctionalParameter(TutorialSamples, "DebugShift", DebugShift);
 
   RegisterIndividualFunctionalParameter(
       TutorialSamples, "EResLep", [](double const &pval, TutorialMCInfo &ev) {
