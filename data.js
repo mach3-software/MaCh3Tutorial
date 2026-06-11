@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781168800624,
+  "lastUpdate": 1781171156013,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -27242,6 +27242,79 @@ window.BENCHMARK_DATA = {
             "name": "Non-Uniform BinningHandler",
             "value": 7.49222,
             "range": "± 32.4448",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "4f97b7a08b40441531ac77d14c6b2d219310d5a9",
+          "message": "Merge pull request #926 from mach3-software/tidy/sanitizer\n\ntidy: Robbins-Monore Delayed sanitzer",
+          "timestamp": "2026-06-11T10:39:31+01:00",
+          "tree_id": "e11c253823b3f1af14966213b5c3c1c9e6d5cc21",
+          "url": "https://github.com/mach3-software/MaCh3/commit/4f97b7a08b40441531ac77d14c6b2d219310d5a9"
+        },
+        "date": 1781171151398,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 3.14948,
+            "range": "± 95.4229",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 3.04754,
+            "range": "± 73.5131",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 379.457,
+            "range": "± 8.88573",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ND Reweight",
+            "value": 326.873,
+            "range": "± 38.7588",
+            "unit": "us",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ParameterHandler Operations",
+            "value": 2.21273,
+            "range": "± 791.399",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Uniform BinningHandler 100k events",
+            "value": 7.87374,
+            "range": "± 27.626",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Non-Uniform BinningHandler",
+            "value": 8.23863,
+            "range": "± 36.4134",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
