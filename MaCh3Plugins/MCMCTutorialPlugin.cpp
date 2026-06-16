@@ -21,7 +21,7 @@ namespace M3{
         m_parser->add_argument("--MCMCSteps")
         .scan<'d', int>()
         .help("specify the number of steps.");
-        m_parser->add_argument("--override")
+        m_parser->add_argument("-o", "--override")
           .append()
           .help("specify any config overrides.");
         return m_parser;
