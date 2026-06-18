@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781771431594,
+  "lastUpdate": 1781774628492,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -27753,6 +27753,79 @@ window.BENCHMARK_DATA = {
             "name": "Non-Uniform BinningHandler",
             "value": 8.21814,
             "range": "± 41.9577",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "c8b6b7a924d7f9fdc6d630972e8e151a0cde48f2",
+          "message": "Merge pull request #935 from mach3-software/kskwarczynski/tidy/todo\n\ntidy: Remove a few todo by using c++17 features",
+          "timestamp": "2026-06-18T10:17:42+01:00",
+          "tree_id": "f6afa47713196ed1e66ce69764f1436d3342441f",
+          "url": "https://github.com/mach3-software/MaCh3/commit/c8b6b7a924d7f9fdc6d630972e8e151a0cde48f2"
+        },
+        "date": 1781774624789,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 3.32162,
+            "range": "± 1.71512",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 3.05553,
+            "range": "± 1.11787",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 372.939,
+            "range": "± 2.75416",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ND Reweight",
+            "value": 302.339,
+            "range": "± 29.8903",
+            "unit": "us",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ParameterHandler Operations",
+            "value": 1.25734,
+            "range": "± 612.025",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Uniform BinningHandler 100k events",
+            "value": 7.91657,
+            "range": "± 31.7925",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Non-Uniform BinningHandler",
+            "value": 8.2517,
+            "range": "± 28.1929",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
