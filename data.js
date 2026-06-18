@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1781774628492,
+  "lastUpdate": 1781800265153,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -27826,6 +27826,79 @@ window.BENCHMARK_DATA = {
             "name": "Non-Uniform BinningHandler",
             "value": 8.2517,
             "range": "± 28.1929",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "822ee9890bb11049845f7986d1b632a67c6f3081",
+          "message": "Merge pull request #929 from mach3-software/kskwarczynski/feat/lessRigidPlotting\n\nfeat: Allow Plotting Lib to try figure out on it's own param names",
+          "timestamp": "2026-06-18T17:24:32+01:00",
+          "tree_id": "7594d8f158cfce5e1e9e9d15cf3a323c0ed78d8e",
+          "url": "https://github.com/mach3-software/MaCh3/commit/822ee9890bb11049845f7986d1b632a67c6f3081"
+        },
+        "date": 1781800260110,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 3.02897,
+            "range": "± 90.0444",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.95657,
+            "range": "± 84.7695",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 380.4,
+            "range": "± 5.2612",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ND Reweight",
+            "value": 315.782,
+            "range": "± 53.5513",
+            "unit": "us",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ParameterHandler Operations",
+            "value": 2.43647,
+            "range": "± 543.134",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Uniform BinningHandler 100k events",
+            "value": 7.86901,
+            "range": "± 38.3898",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Non-Uniform BinningHandler",
+            "value": 8.24814,
+            "range": "± 28.2898",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
