@@ -85,7 +85,7 @@ Predictive:
   ByMode: false
 # LLH Scan settings  
 LLHScan:
-  # don't make LLH for certain systematic groups
+  # Don't make LLH for certain parameters, based on name, supports wildcards
   #LLHScanSkipVector: []
   # Save individual sample contributions to the LLH
   LLHScanBySample: true
@@ -128,6 +128,9 @@ AdaptionOptions:
   Covariance:
     xsec_cov: # Name of covariance matrix
       DoAdaption: False  # [bool] Adapt this parameter
+      # Allow to specify which parameters to skip during adaption,
+      # Parameters with flipping generally don't work with adaption
+      #ParametersToSkip: ["delm2_*", "sin2th_*", "delta_cp"]
 
 #KinemDistribution extra plots to draw
 KinematicDistributionPlots:
