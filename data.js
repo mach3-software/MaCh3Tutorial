@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1782122200912,
+  "lastUpdate": 1782201567617,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -27972,6 +27972,79 @@ window.BENCHMARK_DATA = {
             "name": "Non-Uniform BinningHandler",
             "value": 6.98341,
             "range": "± 27.2247",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "974b0da9906d1873cbda4d9e0c7bbc0b06940e44",
+          "message": "Merge pull request #942 from mach3-software/dependabot/github_actions/dot-github/workflows/actions/checkout-7.0.0\n\ntidy: bump actions/checkout from 6.0.2 to 7.0.0 in /.github/workflows",
+          "timestamp": "2026-06-23T08:53:23+01:00",
+          "tree_id": "5b094a2a9323385425e0d8fb3510cb94441122f8",
+          "url": "https://github.com/mach3-software/MaCh3/commit/974b0da9906d1873cbda4d9e0c7bbc0b06940e44"
+        },
+        "date": 1782201564198,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 3.15517,
+            "range": "± 785.044",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 3.05656,
+            "range": "± 715.775",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 374.609,
+            "range": "± 6.85213",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ND Reweight",
+            "value": 298.953,
+            "range": "± 32.4833",
+            "unit": "us",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ParameterHandler Operations",
+            "value": 2.71821,
+            "range": "± 333.409",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Uniform BinningHandler 100k events",
+            "value": 7.89283,
+            "range": "± 98.1287",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Non-Uniform BinningHandler",
+            "value": 8.29119,
+            "range": "± 60.1221",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
