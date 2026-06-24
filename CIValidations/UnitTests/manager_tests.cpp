@@ -385,3 +385,35 @@ TEST_CASE("Check M3OpenConfig", "[Yamlhelper]") {
     std::remove("unicode.yaml");
   }
 }
+
+
+TEST_CASE("RegexMatch works as expected", "[Utils]") {
+  // Exact match
+  REQUIRE(M3::RegexMatch("mach3", "mach3") == true);
+
+  // Case insensitive
+  REQUIRE(M3::RegexMatch("Mach3", "mach3") == true);
+  REQUIRE(M3::RegexMatch("MACH3", "mach3") == true);
+
+  // Wildcard at end
+  REQUIRE(M3::RegexMatch("mach3_sample", "mach3*") == true);
+
+  // Wildcard at beginning
+  REQUIRE(M3::RegexMatch("mach3_sample", "*sample") == true);
+
+  // Wildcard in middle
+  REQUIRE(M3::RegexMatch("mach3_sample", "mach*_sample") == true);
+
+  // Match everything
+  REQUIRE(M3::RegexMatch("anything", "*") == true);
+
+  // No match
+  REQUIRE(M3::RegexMatch("mach3", "numu*") == false);
+
+  // Empty strings
+  REQUIRE(M3::RegexMatch("", "") == true);
+  REQUIRE(M3::RegexMatch("", "*") == true);
+
+  // Full-string matching
+  REQUIRE(M3::RegexMatch("mach3_sample", "sample") == false);
+}
