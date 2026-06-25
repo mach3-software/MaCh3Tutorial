@@ -2,6 +2,7 @@
 #include "catch2/matchers/catch_matchers_floating_point.hpp"
 
 #include "Manager/YamlHelper.h"
+#include "Samples/SampleStructs.h"
 #include "Parameters/ParameterHandlerUtils.h"
 
 TEST_CASE("OverrideConfig modifies YAML nodes", "[Yamlhelper]") {
