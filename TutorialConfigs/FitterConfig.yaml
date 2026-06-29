@@ -29,6 +29,34 @@ General:
     NSteps: 10000
     #KS: Sets how frequent (number of steps) you want to autosave your chain, if you autosave rarely chain will be slightly faster, if you job wall is small you might want more frequent autosave to reduce number of lost steps
     AutoSave: 10000
+    
+    # This section configures Multicanonnical MCMC, using biases to change how chains sample specific regions of the parameter space
+    Multicanonical:
+      Enabled: true
+      Beta: 1.0 # bias strength parameter, 1.0 is full strength, 0.0 is no bias
+      Spline:
+      # Choose a spline for a given parameter to bias your chain. Can be used to flatten out the sampling of a particular parameter, with the bias divides out later.
+        SplineMode: False
+        # Spline should be provided as a TGraph in a ROOT file, of x,y = parameter of interest, bias weight. 
+        SplineFile: "/home/ppe/d/driley/Projects/umbrella/utils_mcm/output/dcp_spline_NOIO.root"
+      Umbrella:
+      # This section configures the setup for Umbrella Sampling. This applies a bias to a given parameter to allow sampling of a chosen region of the parameter space
+      # set the parameters for the bias function here, and use the processing scripts in MaCh3 Core to reconstruct the full posterior from the biased chains.
+        UmbrellaBiasFunction: "generalisedGaussian" # current options are "gaussian","generalisedGaussian","vonMises"
+        # here set the parameters of the bias function, Mean sets the centre and the width sets the corresponding width parameter for the chosen function.
+        UmbrellaMean: 0.6
+        UmbrellaWidth: 0.25
+        
+        UmbrellaAdjustStepScale: True # If true, we will determine the step scale as a ratio of the normal size of the parameter space to the size of the umbrella
+                                      # currently assumes you are applying the bias on delta_cp and thus the step scale is calculated as 2pi/width of umbrella, planned update for general parameter choice.
+        UmbrellaStepScaleFactor: 1.0  # Additional scale factor applied to the step scale, useful for fine tuning the step size.
+      
+        AutoOverlapMode: False # Determine width of biases by calculating to a desired sigma overlap 
+                               # current recommendation is to choose them manually until this feature is fully tested.
+        UmbrellaNumber: 5 # total number of umbrellas (can be used to calculate width of Gaussians Automatically, assuming equal spacing.)
+        SigmaOverlap: 2 # The sigma level at which two adjacent windows should overlap
+
+        FlipWindow: False # untested feature to mirror proposed step around the centre of the umbrella bias. Recommended to leave false.
 
     # Example Delayed Rejection settings [use FittingAlgorithm=DelayedMR2T2]
     PrintSummary: False
