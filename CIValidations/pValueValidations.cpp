@@ -3,7 +3,7 @@
 #include "SamplesTutorial/SampleHandlerTutorial.h"
 #include "Fitters/SampleSummary.h"
 
-class samplePDFpValue : public SampleHandlerBase
+class samplePDFpValue : public SampleHandlerInterface
 {
   public:
     samplePDFpValue(std::string mc_version, ParameterHandlerGeneric* xsec_cov)
@@ -38,7 +38,7 @@ class samplePDFpValue : public SampleHandlerBase
     }),
     KinemBlarbTitle({"RecoLeptonMomentum", "RecoLeptonCosTheta"}) {}
 
-    inline M3::int_t GetNsamples() override { return 22; };
+    inline M3::int_t GetNSamples() override { return 22; };
     std::string GetSampleTitle(const int Sample) const override {return SampleBlarbTitle[Sample];};
     std::string GetKinVarName(const int sample, const int Dimension) const override {return KinemBlarbTitle[Dimension];}
 
@@ -48,7 +48,8 @@ class samplePDFpValue : public SampleHandlerBase
       } else if(KinematicParameter == "RecoLeptonCosTheta") {
         return {-1.0, 0.6, 0.7, 0.8, 0.85, 0.88, 0.9, 0.92, 0.94, 0.96, 0.98, 1.0};
       }
-    }
+      return {};
+    };
     void CleanMemoryBeforeFit() override {};
     std::string GetName() const override {return "samplePDFSigmaVar";};
     double GetLikelihood() const override {return 666;};
@@ -58,9 +59,9 @@ class samplePDFpValue : public SampleHandlerBase
 
     void PrintRates(const bool DataOnly = false) override {return;};
 
-    TH1* GetDataHist(const int Selection) override   {return PolyHist[Selection];}
-    TH1* GetMCHist(const int Selection) override    {return PolyHist[Selection];}
-    TH1* GetW2Hist(const int Selection) override {return PolyHist[Selection];}
+    const TH1* GetDataHist(const int Selection) override   {return PolyHist[Selection];}
+    const TH1* GetMCHist(const int Selection) override    {return PolyHist[Selection];}
+    const TH1* GetW2Hist(const int Selection) override {return PolyHist[Selection];}
 
 
     std::string GetFlavourName(const int iSample, const int iChannel) const override {
@@ -68,22 +69,21 @@ class samplePDFpValue : public SampleHandlerBase
     };
     int GetNDim(const int Sample) const override { return 2; }
 
-    TH1 *Get1DVarHist(const int iSample, const std::string &ProjectionVar,
+    std::unique_ptr<TH1> Get1DVarHist(const int iSample, const std::string &ProjectionVar,
                       const std::vector<KinematicCut> &EventSelectionVec = {}, int WeightStyle = 0,
-                      TAxis *Axis = nullptr, const std::vector<KinematicCut> &SubEventSelectionVec = {}) override {return PolyHist[iSample];}
-    TH2* Get2DVarHist(const int iSample, const std::string& ProjectionVarX, const std::string& ProjectionVarY,
+                      const std::vector<KinematicCut> &SubEventSelectionVec = {}) override {return M3::Clone(PolyHist[iSample]);}
+    std::unique_ptr<TH2> Get2DVarHist(const int iSample, const std::string& ProjectionVarX, const std::string& ProjectionVarY,
                       const std::vector< KinematicCut >& EventSelectionVec = {},
-                      int WeightStyle = 0, TAxis* AxisX = nullptr, TAxis* AxisY = nullptr,
-                      const std::vector< KinematicCut >& SubEventSelectionVec = {}) override {return PolyHist[iSample];}
+                      int WeightStyle = 0,
+                      const std::vector< KinematicCut >& SubEventSelectionVec = {}) override {return M3::Clone(PolyHist[iSample]);}
 
 
-    TH1* Get1DVarHistByModeAndChannel(const int iSample, const std::string& ProjectionVar_Str,
+    std::unique_ptr<TH1> Get1DVarHistByModeAndChannel(const int iSample, const std::string& ProjectionVar_Str,
                                       int kModeToFill = -1, int kChannelToFill = -1,
-                                      int WeightStyle = 0, TAxis* Axis = nullptr) override {return PolyHist[iSample];}
-    TH2* Get2DVarHistByModeAndChannel(const int iSample, const std::string& ProjectionVar_StrX,
+                                      int WeightStyle = 0) override {return M3::Clone(PolyHist[iSample]);}
+    std::unique_ptr<TH2> Get2DVarHistByModeAndChannel(const int iSample, const std::string& ProjectionVar_StrX,
                                       const std::string& ProjectionVar_StrY, int kModeToFill = -1,
-                                      int kChannelToFill = -1, int WeightStyle = 0,
-                                      TAxis* AxisX = nullptr, TAxis* AxisY = nullptr) override {return PolyHist[iSample];}
+                                      int kChannelToFill = -1, int WeightStyle = 0) override {return M3::Clone(PolyHist[iSample]);}
 
     std::vector<std::string> SampleBlarbTitle;
     std::vector<std::string> KinemBlarbTitle;
@@ -96,6 +96,11 @@ int main(int argc, char *argv[])
 
   if (argc != 1) {
     MACH3LOG_CRITICAL("You specified arguments, but none are needed. (Program name: {})", argv[0]);
+    throw MaCh3Exception(__FILE__ , __LINE__ );
+  }
+  if(!std::getenv("MaCh3Tutorial_ROOT")){
+    MACH3LOG_CRITICAL("${MaCh3Tutorial_ROOT} is not defined in the environment,"
+      " have you sourced setup.MaCh3Tutorial.sh? ");
     throw MaCh3Exception(__FILE__ , __LINE__ );
   }
   std::string TutorialPath = std::getenv("MaCh3Tutorial_ROOT");
@@ -133,9 +138,9 @@ int main(int argc, char *argv[])
   timer.Start();
 
   // Know that these guys are going to be exist for every psyche sample, sometimes just NULL though
-  NominalVector.resize(SampleTutorial->GetNsamples());
-  DataVector.resize(SampleTutorial->GetNsamples());
-  W2NomVector.resize(SampleTutorial->GetNsamples());
+  NominalVector.resize(SampleTutorial->GetNSamples());
+  DataVector.resize(SampleTutorial->GetNSamples());
+  W2NomVector.resize(SampleTutorial->GetNSamples());
 
   // Finally get the TTree branch with the penalty vectors for each of the toy throws
   TTree *PenaltyTree = (TTree*)Outfile->Get("ToySummary");
@@ -190,7 +195,7 @@ int main(int argc, char *argv[])
   //KS: Based on this thread https://root-forum.cern.ch/t/memory-leak-when-reading-th2poly-from-a-tree/50116/4
   Outfile->SetBufferSize(10 * 1024 * 1024);
   //First grab Data and nominal
-  for (M3::int_t i = 0; i < SampleTutorial->GetNsamples(); ++i)
+  for (M3::int_t i = 0; i < SampleTutorial->GetNSamples(); ++i)
   {
     std::string Title = SampleTutorial->GetSampleTitle(i);
     // Replace the spaces with underscores
@@ -233,14 +238,14 @@ int main(int argc, char *argv[])
   MasterW2Vector.resize(Ntoys);
   for (int i = 0; i < Ntoys; ++i)
   {
-    if (i % 100 == 0) MaCh3Utils::PrintProgressBar(i, Ntoys);
+    if (i % 100 == 0) M3::Utils::PrintProgressBar(i, Ntoys);
 
     std::vector<TH2Poly*> SampleVector;
     std::vector<TH2Poly*> W2Vector;
     std::vector< std::vector<TH2Poly*> > SampleVector_ByMode;
-    SampleVector.resize(SampleTutorial->GetNsamples());
-    W2Vector.resize(SampleTutorial->GetNsamples());
-    for (M3::int_t j = 0; j < SampleTutorial->GetNsamples(); ++j)
+    SampleVector.resize(SampleTutorial->GetNSamples());
+    W2Vector.resize(SampleTutorial->GetNSamples());
+    for (M3::int_t j = 0; j < SampleTutorial->GetNSamples(); ++j)
     {
       if(DataVector[j] != NULL)
       {
@@ -285,8 +290,8 @@ int main(int argc, char *argv[])
 ///////////////////////////////////////
   std::unique_ptr<SampleSummary> SamplesSumm;
 
-  if (Posterior) SamplesSumm = std::make_unique<SampleSummary>(SampleTutorial->GetNsamples(), PredictiveName, SampleTutorial.get(), nEntries);
-  else           SamplesSumm = std::make_unique<SampleSummary>(SampleTutorial->GetNsamples(), PredictiveName, SampleTutorial.get(), 0);
+  if (Posterior) SamplesSumm = std::make_unique<SampleSummary>(SampleTutorial->GetNSamples(), PredictiveName, SampleTutorial.get(), nEntries);
+  else           SamplesSumm = std::make_unique<SampleSummary>(SampleTutorial->GetNSamples(), PredictiveName, SampleTutorial.get(), 0);
   SamplesSumm->SetLikelihood(kBarlowBeeston);
   SamplesSumm->SetNModelParams(NModelParams);
 

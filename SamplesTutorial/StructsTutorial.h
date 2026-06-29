@@ -13,9 +13,9 @@ struct TutorialMCInfo {
   /// type of neutrino
   int oscnutype = M3::_BAD_INT_;
   /// target material
-  int Target = M3::_BAD_INT_;
-  /// target material
   int Sample = M3::_BAD_INT_;
+  /// target material
+  double Target = M3::_BAD_INT_;
   /// interaction mode
   double Mode = M3::_BAD_DOUBLE_;
   /// is Neutral Current or not

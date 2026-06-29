@@ -26,6 +26,11 @@ void ValidateCholeskyDecomposition(std::ostream& outFile) {
 /// @brief This simply updates YAML file
 void TuneValidations(std::ostream& outFile)
 {
+  if(!std::getenv("MaCh3Tutorial_ROOT")){
+    MACH3LOG_CRITICAL("${MaCh3Tutorial_ROOT} is not defined in the environment,"
+      " have you sourced setup.MaCh3Tutorial.sh? ");
+    throw MaCh3Exception(__FILE__ , __LINE__ );
+  }
   std::string TutorialPath = std::getenv("MaCh3Tutorial_ROOT");
   YAML::Node Node = M3OpenConfig(TutorialPath + "/TutorialConfigs/CovObjs/SystematicModel.yaml");
   std::vector<double> TuneValues = {1.05, 0.90, 1.10, 1.05, 1.05, 1.05, 1.05, 1.05, 0., 10};
@@ -147,14 +152,14 @@ void TestPCA(const std::string& label,
   MACH3LOG_INFO("Testing throwing from covariance for {}", label);
   for (int i = 0; i < Ntoys; i++) {
     if (i % (Ntoys / 10) == 0) {
-      MaCh3Utils::PrintProgressBar(i, Ntoys);
+      M3::Utils::PrintProgressBar(i, Ntoys);
     }
     PCA->ThrowParameters();
   }
 
   PCA->AcceptStep();
 
-  PCA->ToggleFixAllParameters();
+  PCA->SetFixAllParameters();
   for (int i = 0; i < PCA->GetPCAHandler()->GetNumberPCAedParameters(); i++) {
     outFile << "Param in " << label << " is Fixed: " << i << " = " << PCA->GetPCAHandler()->IsParameterFixedPCA(i) << std::endl;
   }
@@ -174,7 +179,7 @@ void TestAdaptive(std::ostream& outFile,
   // if not enough params just throw more params
   if (Adapt->GetNumParams() > ParAdapt.size()) {
     for (size_t i = ParAdapt.size(); i < Adapt->GetNumParams(); ++i) {
-      ParAdapt.push_back(Adapt->GetParInit(i));
+      ParAdapt.push_back(Adapt->GetParPreFit(i));
     }
   }
 
@@ -197,7 +202,7 @@ void TestAdaptive(std::ostream& outFile,
   for(size_t i = 0; i < ParMeans.size(); i++) {
     outFile << "Adapt " << Name << ", Param means: " << i << " = " << ParMeans[i] << std::endl;
   }
-  TMatrixDSym* Matrix = Adapt->GetAdaptiveHandler()->GetAdaptiveCovariance();
+  auto Matrix = Adapt->GetAdaptiveHandler()->GetAdaptiveCovariance();
   double adapt_scale = Adapt->GetAdaptiveHandler()->GetAdaptionScale();
   outFile << "Adapt "<< Name <<" scale: " << adapt_scale << std::endl;
   int dim = Matrix->GetNrows();
@@ -219,10 +224,10 @@ void TestAdaptive(std::ostream& outFile,
   for (int i = 0; i < Adapt->GetNumParams(); i++) {
     auto Value = Adapt->GetParCurr(i);
     if(Value > Adapt->GetUpperBound(i) || Value < Adapt->GetLowerBound(i)) {
-      Adapt->SetParCurrProp(i, Adapt->GetParInit(i));
+      Adapt->SetParCurrProp(i, Adapt->GetParPreFit(i));
     }
   }
-  Adapt->ToggleFixAllParameters();
+  Adapt->SetFixAllParameters();
   for (int i = 0; i < Adapt->GetNumParams(); i++) {
     outFile << "Adapt " << Name <<" is param " << i  << " fixed=" << Adapt->IsParameterFixed(i) << std::endl;
   }
@@ -243,7 +248,7 @@ int main(int argc, char *argv[])
 
   std::vector<double> ParProp = {1.05, 0.90, 1.10, 1.05, 1.05, 1.05, 1.05, 1.05, 0., 0.2};
   xsec->SetParameters(ParProp);
-  xsec->PrintNominalCurrProp();
+  xsec->PrintPreFitCurrPropValues();
 
   xsec->DumpMatrixToFile("xsec_2024a_flux_21bv2.root");
 
@@ -257,7 +262,7 @@ int main(int argc, char *argv[])
 
   for (int i = 0; i < Ntoys; i++) {
     if (i % (Ntoys/10) == 0) {
-      MaCh3Utils::PrintProgressBar(i, Ntoys);
+      M3::Utils::PrintProgressBar(i, Ntoys);
     }
     xsec->ThrowParameters();
   }
@@ -341,7 +346,7 @@ int main(int argc, char *argv[])
   for (int i = 0; i < xsec->GetNumParams(); i++) {
     outFile << "Is param " << i  << " fixed=" << xsec->IsParameterFixed(i) << std::endl;
   }
-  xsec->ToggleFixAllParameters();
+  xsec->SetFixAllParameters();
   for (int i = 0; i < xsec->GetNumParams(); i++) {
     outFile << "Is param " << i  << " fixed=" << xsec->IsParameterFixed(i) << std::endl;
   }
@@ -407,7 +412,7 @@ int main(int argc, char *argv[])
   auto osc = std::make_unique<ParameterHandlerGeneric>(OscCovMatrixFile, "osc_cov");
   std::vector<double> OscParProp = {0.3, 0.5, 0.020, 7.53e-5, 2.494e-3, 0.0, 295, 2.6, 0.5, 15};
   osc->SetParameters(OscParProp);
-  osc->PrintNominalCurrProp();
+  osc->PrintPreFitCurrPropValues();
   outFile << "Likelihood Osc=" << osc->GetLikelihood() << std::endl;
 
 ////////////// Now Adaptive //////////////

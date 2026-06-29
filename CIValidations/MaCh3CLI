@@ -25,6 +25,7 @@ show_help() {
   echo -e "\t  --ReweightValidations     : Checking if reweighting works"
   echo -e "\t  --CovarianceValidations   : Checking if covariances works"
   echo -e "\t  --NuMCMCToolsValidations  : Checking if interface to NuMCMC Tools works"
+  echo -e "\t  --NuDockValidations  : Checking if interface to NuDock works"
   echo -e "\t  --all                     : Run all checks"
 }
 
@@ -43,23 +44,30 @@ run_reweight_validations() {
 run_fitter_validations() {
   ${MaCh3Tutorial_ROOT}/CIValidations/FitterValidations
   ${MaCh3_ROOT}/bin/ProcessMCMC ${MaCh3Tutorial_ROOT}/bin/TutorialDiagConfig.yaml MCMC_Test.root
+  # Chain diagnostic
   ${MaCh3_ROOT}/bin/DiagMCMC MCMC_Test.root ${MaCh3Tutorial_ROOT}/bin/TutorialDiagConfig.yaml
   ${MaCh3_ROOT}/bin/RHat 10 MCMC_Test.root MCMC_Test.root MCMC_Test.root MCMC_Test.root
+  ${MaCh3_ROOT}/bin/PlotMCMCDiag MCMC_Test_MCMC_Diag.root "test_plot_1" MCMC_Test_MCMC_Diag.root "test_plot_2"
   ${MaCh3_ROOT}/bin/CombineMaCh3Chains -o MergedChain.root MCMC_Test.root MCMC_Test.root MCMC_Test.root MCMC_Test.root
   ${MaCh3_ROOT}/bin/GetPenaltyTerm MCMC_Test.root ${MaCh3Tutorial_ROOT}/bin/TutorialDiagConfig.yaml
+  # Fancy plotting
   ${MaCh3_ROOT}/bin/MatrixPlotter ${MaCh3Tutorial_ROOT}/bin/TutorialDiagConfig.yaml MCMC_Test_drawCorr.root
   ${MaCh3_ROOT}/bin/GetPostfitParamPlots MCMC_Test_drawCorr.root
   ${MaCh3_ROOT}/bin/GetPostfitParamPlots MCMC_Test_drawCorr.root MCMC_Test_drawCorr.root # Compare two file
   ${MaCh3_ROOT}/bin/GetPostfitParamPlots MCMC_Test_drawCorr.root MCMC_Test_drawCorr.root MCMC_Test_drawCorr.root -l "Chain1;Chain2;Chain3"
+  # Bunch LLH scan/ Sigma Var  plotting
   ${MaCh3_ROOT}/bin/PlotLLH MCMC_Test.root
   ${MaCh3_ROOT}/bin/PlotLLH MCMC_Test.root -s # Test with sample split
   ${MaCh3_ROOT}/bin/PlotLLH MCMC_Test.root MCMC_Test.root MCMC_Test.root MCMC_Test.root MCMC_Test.root # Compare multiple files
   ${MaCh3_ROOT}/bin/PlotLLH MCMC_Test.root MCMC_Test.root -r -g -l "Plot1;Plot2"
-  ${MaCh3_ROOT}/bin/PlotMCMCDiag MCMC_Test_MCMC_Diag.root "test_plot_1" MCMC_Test_MCMC_Diag.root "test_plot_2"
+  ${MaCh3_ROOT}/bin/PlotSigmaVariation MCMC_Test.root ${MaCh3Tutorial_ROOT}/bin/TutorialDiagConfig.yaml
+  # Testing of Chain Smearing
   ${MaCh3_ROOT}/bin/SmearChain MCMC_Test.root ${MaCh3Tutorial_ROOT}/bin/TutorialDiagConfig.yaml
   ${MaCh3_ROOT}/bin/ProcessMCMC ${MaCh3Tutorial_ROOT}/bin/TutorialDiagConfig.yaml MCMC_Test.root Default MCMC_Test_smeared.root Smeared
+  # Testing of ReweightMCMC
   ${MaCh3_ROOT}/bin/ReweightMCMC ${MaCh3Tutorial_ROOT}/TutorialConfigs/ReweightingConfigs/PDG_2023_1D.yaml MCMC_Test.root
-  ${MaCh3_ROOT}/bin/PlotSigmaVariation MCMC_Test.root ${MaCh3Tutorial_ROOT}/bin/TutorialDiagConfig.yaml
+  ${MaCh3_ROOT}/bin/ProcessMCMC ${MaCh3Tutorial_ROOT}/bin/TutorialDiagConfig.yaml MCMC_Test_reweighted_PDG_2023_1D.root
+  ${MaCh3_ROOT}/bin/ProcessMCMC ${MaCh3Tutorial_ROOT}/bin/TutorialDiagConfig.yaml MCMC_Test.root Default MCMC_Test_reweighted_PDG_2023_1D.root Reweighted
 }
 
 run_covariance_validations() {
@@ -86,6 +94,15 @@ run_nu_mcmc_tools_validations() {
   python3 CIValidations/TestNuMCMC.py
 }
 
+run_nudock_validations() {
+  if [[ -x "${MaCh3Tutorial_ROOT}/CIValidations/NuDock/RunNuDockServer" ]]; then
+    "${MaCh3Tutorial_ROOT}/CIValidations/NuDock/RunNuDockServer" \
+      "${MaCh3Tutorial_ROOT}/TutorialConfigs/FitterConfig.yaml"
+  else
+    echo "RunNuDockServer not found or not executable, skipping."
+  fi
+}
+
 # Parse command-line arguments
 while [[ $# -gt 0 ]]; do
   case $1 in
@@ -104,6 +121,9 @@ while [[ $# -gt 0 ]]; do
       ;;
     --NuMCMCToolsValidations)
       RUN_NU_MCMC=true
+      ;;
+    --NuDockValidations)
+      RUN_NU_DOCK=true
       ;;
     --all)
       RUN_ALL=true
@@ -128,11 +148,13 @@ if [ "$RUN_ALL" = true ]; then
   run_fitter_validations
   run_covariance_validations
   run_nu_mcmc_tools_validations
+  run_nudock_validations
 else
   [ "$RUN_REWEIGHT" = true ] && run_reweight_validations
   [ "$RUN_FITTER" = true ] && run_fitter_validations
   [ "$RUN_COVARIANCE" = true ] && run_covariance_validations
   [ "$RUN_NU_MCMC" = true ] && run_nu_mcmc_tools_validations
+  [ "$RUN_NU_DOCK" = true ] && run_nudock_validations
 fi
 
 echo "Validation process completed!"

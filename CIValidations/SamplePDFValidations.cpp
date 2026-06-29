@@ -9,8 +9,13 @@ _MaCh3_Safe_Include_End_ //}
 void SharedNuOscTest(const std::string& config, ParameterHandlerGeneric* xsec) {
   MACH3LOG_INFO("Utilising a shared NuOscillator object between all atmospheric samples");
 
+  if(!std::getenv("MaCh3Tutorial_ROOT")){
+    MACH3LOG_CRITICAL("${MaCh3Tutorial_ROOT} is not defined in the environment,"
+      " have you sourced setup.MaCh3Tutorial.sh? ");
+    throw MaCh3Exception(__FILE__ , __LINE__ );
+  }
   std::string OscillatorConfig = std::string(std::getenv("MaCh3Tutorial_ROOT")) + "/TutorialConfigs/NuOscillator/CUDAProb3.yaml";
-  std::vector<const double*> OscParams = xsec->GetOscParsFromSampleName("Tutorial ATM");
+  auto OscParams = xsec->GetOscParsFromSampleName("Tutorial_ATM");
   auto OscillatorObj = std::make_shared<OscillationHandler>(OscillatorConfig, true, OscParams, 6);
 
   auto Sample1 = std::make_unique<SampleHandlerTutorial>(config, xsec, OscillatorObj);
@@ -19,6 +24,11 @@ void SharedNuOscTest(const std::string& config, ParameterHandlerGeneric* xsec) {
 
 void NoSplinesNoOscTest(const std::string& config){
   MACH3LOG_INFO("Utilising a shared NuOscillator object between all atmospheric samples");
+  if(!std::getenv("MaCh3Tutorial_ROOT")){
+    MACH3LOG_CRITICAL("${MaCh3Tutorial_ROOT} is not defined in the environment,"
+      " have you sourced setup.MaCh3Tutorial.sh? ");
+    throw MaCh3Exception(__FILE__ , __LINE__ );
+  }
   std::string TutorialPath = std::getenv("MaCh3Tutorial_ROOT");
   std::vector<std::string> ParameterMatrixFile = {TutorialPath + "/TutorialConfigs/CovObjs/PCATest.yaml"};
   auto xsec = std::make_unique<ParameterHandlerGeneric>(ParameterMatrixFile, "xsec_cov");
@@ -58,9 +68,8 @@ void SampleLLHValidation(std::ostream& outFile, const std::string& OriginalSampl
 
   // Use modified config
   auto Sample = std::make_unique<SampleHandlerTutorial>(tempConfigPath, xsec);
-  Sample->Reweight();
 
-  for(int iSample = 0; iSample < Sample->GetNsamples(); iSample++) {
+  for(int iSample = 0; iSample < Sample->GetNSamples(); iSample++) {
     TH1* SampleHistogramPrior = static_cast<TH1*>(Sample->GetMCHist(iSample)->Clone((NameTString + "_Prior").c_str()));
     Sample->AddData(iSample, SampleHistogramPrior);
 
@@ -95,10 +104,6 @@ void SampleLLHValidation(std::ostream& outFile, const std::string& OriginalSampl
 void ValidateTestStatistic(std::ostream& outFile, const std::string& OriginalSample, ParameterHandlerGeneric* xsec) {
   // Use modified config
   auto Sample = std::make_unique<SampleHandlerTutorial>(OriginalSample, xsec);
-  Sample->Reweight();
-  for(int iSample = 0; iSample < Sample->GetNsamples(); iSample++){
-    Sample->AddData(iSample, Sample->GetMCArray(iSample));
-  }
 
   // Define test vectors, feel free to expand it
   std::vector<double> data_values = {0.0, M3::_LOW_MC_BOUND_, 0.5, 1.0, 100000};
@@ -162,9 +167,8 @@ void LoadSplineValidation(std::ostream& outFile, const std::string& OriginalSamp
 
   // Use modified config
   auto Sample = std::make_unique<SampleHandlerTutorial>(tempConfigPath, xsec);
-  Sample->Reweight();
 
-  for(int iSample = 0; iSample < Sample->GetNsamples(); iSample++){
+  for(int iSample = 0; iSample < Sample->GetNSamples(); iSample++) {
     TH1* SampleHistogramPrior = static_cast<TH1*>(Sample->GetMCHist(iSample)->Clone((NameTString + "_Prior").c_str()));
     Sample->AddData(iSample, SampleHistogramPrior);
 
@@ -207,9 +211,8 @@ void UnbinnedOsc(std::ostream& outFile, ParameterHandlerGeneric* xsec) {
 
   // Use modified config
   auto Sample = std::make_unique<SampleHandlerTutorial>(SampleConfigPath, xsec);
-  Sample->Reweight();
 
-  for(int iSample = 0; iSample < Sample->GetNsamples(); iSample++) {
+  for(int iSample = 0; iSample < Sample->GetNSamples(); iSample++) {
     TH1* SampleHistogramPrior = static_cast<TH1*>(Sample->GetMCHist(iSample)->Clone("blarb_Prior"));
     Sample->AddData(iSample, SampleHistogramPrior);
 
@@ -249,7 +252,7 @@ int main(int argc, char *argv[])
   for (const auto& configPath : SampleConfig) {
     SampleHandlerTutorial *Sample = new SampleHandlerTutorial({configPath}, xsec);
 
-    for(int iSample = 0; iSample < Sample->GetNsamples(); iSample++){
+    for(int iSample = 0; iSample < Sample->GetNSamples(); iSample++){
       std::string name = Sample->GetSampleTitle(iSample);
       TString NameTString = TString(name.c_str());
 

@@ -70,7 +70,7 @@ int main(int argc, char *argv[])
 
   for (int i = 0; i < myChain->GetEntries(); ++i)
   {
-    if (i % 10000 == 0) MaCh3Utils::PrintProgressBar(i, myChain->GetEntries());
+    if (i % 10000 == 0) M3::Utils::PrintProgressBar(i, myChain->GetEntries());
 
     myChain->GetEntry(i);
 
