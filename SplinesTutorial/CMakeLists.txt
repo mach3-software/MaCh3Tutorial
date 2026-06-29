@@ -1,4 +1,4 @@
-set(HEADERS BinnedSplinesTutorial.h
+set(HEADERS ${CMAKE_CURRENT_SOURCE_DIR}/BinnedSplinesTutorial.h
 )
 
 add_library(BinnedSplinesTutorial SHARED

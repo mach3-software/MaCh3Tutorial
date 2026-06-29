@@ -110,6 +110,21 @@ docker pull ghcr.io/mach3-software/mach3tutorial:alma9latest
 ```
 To read more about how to use containers, check our doxygen [here](https://mach3-software.github.io/MaCh3/Containers.html).
 
+## Event Rates
+Before running fits or starting more robust check we recommend running simple event rate check like:
+```bash
+./bin/TutorialEventRates TutorialConfigs/FitterConfig.yaml
+```
+And get some reference values from other users, this can look something like:
+```bash
+[TutorialEventRates.cpp][info] ┌─────────────────────────┬────────────────────┬────────────────────┐
+[TutorialEventRates.cpp][info] │Sample                   │Oscillated          │UnOscillated        │
+[TutorialEventRates.cpp][info] ├─────────────────────────┼────────────────────┼────────────────────┤
+[TutorialEventRates.cpp][info] │Tutorial_Beam            │165774.5813         │204759.1671         │
+[TutorialEventRates.cpp][info] └─────────────────────────┴────────────────────┴────────────────────┘
+```
+By comparing rates for each sample much what other users observe you can very simply ensure you correctly setup MaCh3.
+
 ## How to run MCMC
 To run MCMC simply
 ```bash

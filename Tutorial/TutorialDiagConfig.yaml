@@ -9,14 +9,14 @@ DiagMCMC:
 
 #########################################
 ProcessMCMC:
-  #Select which parameter names to remove, for example all flux, look for starting string
+  #Select which parameter names to remove using name, it accepts wildcards
   ExcludedNames: []
-  #ExcludedNames: ["Norm_"]
-  #Select which parameter to remove based on to whcih group they belong, like Xsec, Flux or Osc
+  #ExcludedNames: ["Norm_*"]
+  #Select which parameter to remove based on to which group they belong, like Xsec, Flux or Osc
   ExcludedGroups: []
   #ExcludedNames: ["Osc"]
   #Select which parameters blocks to reject for example ND and FD detector, look for starting string
-  # WARNING this is used only for Legacy pramtaers i.e. one which do not use parameterHandlerGeneric
+  # WARNING this is used only for Legacy parameters i.e. one which do not use parameterHandlerGeneric
   ExcludedTypes: []
   # Allow to decrease number of entries if chain is HUUGE
   #MaxEntries = 10000
@@ -90,14 +90,14 @@ ProcessMCMC:
   BipolarPlot:
     - ["BinnedSplineParam1", [0, 1]]
 
-    #KS: Feel free to pass whatever combination you like
+  #KS: Feel free to pass whatever combination you like
   TrianglePlot:
     - ["Test", ["Norm_Param_0", "Norm_Param_1", "BinnedSplineParam1", "BinnedSplineParam2"]]
 
-  #First is paramter name and second number of intervals
+  #First is parameter name and second number of intervals
   ParameterEvolution:
     - ["Norm_Param_0", 20]
-
+  # Technique to reduce size of chains by saving only every N-th step. Help reduce size while having good autocorrelations.
   Thinning: [false, 100]
 
   #First param name, then new prior and new prior error
@@ -109,6 +109,14 @@ ProcessMCMC:
   # This allows to specify custom bin edges for usual 1D plotting
   CustomBinEdges:
     delta_cp: [-3.141592, 3.141592]
+  # Calculate Jarlskog invariant and make plots
+  JarlskogAnalysis: true
+  # Calculate PMNS elements and save based on posterior distribution
+  ProducePMNSElements: true
+  # Calculate and write Unitarity Triangles
+  ProduceUnitarityTriangles: true
+  # Produce fancy looking Pie or Clock Plot for Delta CP
+  MakePiePlot: true
 #########################################
 GetPenaltyTerm:
   PenaltySets: ["Norm", "Spline"]
@@ -132,6 +140,9 @@ PlotSigmaVariation:
 PredictivePlotting:
   FileTitle: ["Posterior Predictive", "Prior Predictive"]
   PosteriorColor: [632, 600] # kRed, kBlue
+  RelevantModesName: ["CCQE", "CC2p2h","CC1pipm"]
+  # kRed, kMagenta+2, kGreen+1
+  RelevantModesColors: [632, 618, 417]
 
 #########################################
 MatrixPlotter:

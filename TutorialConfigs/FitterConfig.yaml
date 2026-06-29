@@ -109,9 +109,11 @@ Predictive:
   ParameterBounds: []
   # Example with normal ordering and upper octant
   #ParameterBounds: [ ["delm2_23", [0, 999]], ["sin2th_23", [0.5, 1] ] ]
+  # Will produce posterior predictive distributions with by mode breakdown, can be heavy on RAM
+  ByMode: false
 # LLH Scan settings  
 LLHScan:
-  # don't make LLH for certain systematic groups
+  # Don't make LLH for certain parameters, based on name, supports wildcards
   #LLHScanSkipVector: []
   # Save individual sample contributions to the LLH
   LLHScanBySample: true
@@ -154,15 +156,16 @@ AdaptionOptions:
   Covariance:
     xsec_cov: # Name of covariance matrix
       DoAdaption: False  # [bool] Adapt this parameter
+      # Allow to specify which parameters to skip during adaption,
+      # Parameters with flipping generally don't work with adaption
+      #ParametersToSkip: ["delm2_*", "sin2th_*", "delta_cp"]
 
 #KinemDistribution extra plots to draw
 KinematicDistributionPlots:
 - Name: "True Neutrino Energy (0.5 GeV < Enu < 3 GeV)"
   VarStrings: ["TrueNeutrinoEnergy"]
-  VarBins: [[40,0,4]]
   KinematicCuts:
   - VarString: "TrueNeutrinoEnergy"
     Range: [0.5,3]
 - Name: "Q2 vs True Enu"
   VarStrings: ["TrueNeutrinoEnergy", "TrueQ2"]
-  VarBins: [[50,0,4],[50,0,6]]

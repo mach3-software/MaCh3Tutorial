@@ -6,6 +6,11 @@
 
 void FitVal(const std::string& Algo, bool MoreTests)
 {
+  if(!std::getenv("MaCh3Tutorial_ROOT")){
+    MACH3LOG_CRITICAL("${MaCh3Tutorial_ROOT} is not defined in the environment,"
+      " have you sourced setup.MaCh3Tutorial.sh? ");
+    throw MaCh3Exception(__FILE__ , __LINE__ );
+  }
   std::string TutorialPath = std::getenv("MaCh3Tutorial_ROOT");
   std::string ManagerInput = TutorialPath + "/TutorialConfigs/FitterConfig.yaml";
   auto FitManager = std::make_unique<Manager>(ManagerInput);
@@ -49,7 +54,7 @@ void FitVal(const std::string& Algo, bool MoreTests)
   std::string SampleConfig = {TutorialPath + "/TutorialConfigs/Samples/SampleHandler_Tutorial.yaml"};
   auto Sample = std::make_unique<SampleHandlerTutorial>(SampleConfig, xsec.get());
   Sample->Reweight();
-  for(int iSample = 0; iSample < Sample->GetNsamples(); iSample++){
+  for(int iSample = 0; iSample < Sample->GetNSamples(); iSample++){
     std::string name = Sample->GetSampleTitle(iSample);
     TString NameTString = TString(name.c_str());
     TH1 *SampleHistogramPrior = static_cast<TH1*>(Sample->GetMCHist(iSample)->Clone(NameTString+"_Prior"));
@@ -71,6 +76,11 @@ void FitVal(const std::string& Algo, bool MoreTests)
 
 void StartFromPosteriorTest(const std::string& PreviousName)
 {
+  if(!std::getenv("MaCh3Tutorial_ROOT")){
+    MACH3LOG_CRITICAL("${MaCh3Tutorial_ROOT} is not defined in the environment,"
+      " have you sourced setup.MaCh3Tutorial.sh? ");
+    throw MaCh3Exception(__FILE__ , __LINE__ );
+  }
   std::string TutorialPath = std::getenv("MaCh3Tutorial_ROOT");
   std::string ManagerInput = TutorialPath + "/TutorialConfigs/FitterConfig.yaml";
   auto FitManager = std::make_unique<Manager>(ManagerInput);

@@ -2,6 +2,8 @@
 #include "catch2/matchers/catch_matchers_floating_point.hpp"
 
 #include "Manager/YamlHelper.h"
+#include "Samples/SampleStructs.h"
+#include "Parameters/ParameterHandlerUtils.h"
 
 TEST_CASE("OverrideConfig modifies YAML nodes", "[Yamlhelper]") {
   YAML::Node lineup = YAML::Load("{1B: Prince Fielder, 2B: Rickie Weeks, LF: Ryan Braun}");
@@ -384,4 +386,36 @@ TEST_CASE("Check M3OpenConfig", "[Yamlhelper]") {
 
     std::remove("unicode.yaml");
   }
+}
+
+
+TEST_CASE("CaseInsentiveMatch works as expected", "[Utils]") {
+  // Exact match
+  REQUIRE(M3::CaseInsentiveMatch("mach3", "mach3") == true);
+
+  // Case insensitive
+  REQUIRE(M3::CaseInsentiveMatch("Mach3", "mach3") == true);
+  REQUIRE(M3::CaseInsentiveMatch("MACH3", "mach3") == true);
+
+  // Wildcard at end
+  REQUIRE(M3::CaseInsentiveMatch("mach3_sample", "mach3*") == true);
+
+  // Wildcard at beginning
+  REQUIRE(M3::CaseInsentiveMatch("mach3_sample", "*sample") == true);
+
+  // Wildcard in middle
+  REQUIRE(M3::CaseInsentiveMatch("mach3_sample", "mach*_sample") == true);
+
+  // Match everything
+  REQUIRE(M3::CaseInsentiveMatch("anything", "*") == true);
+
+  // No match
+  REQUIRE(M3::CaseInsentiveMatch("mach3", "numu*") == false);
+
+  // Empty strings
+  REQUIRE(M3::CaseInsentiveMatch("", "") == true);
+  REQUIRE(M3::CaseInsentiveMatch("", "*") == true);
+
+  // Full-string matching
+  REQUIRE(M3::CaseInsentiveMatch("mach3_sample", "sample") == false);
 }

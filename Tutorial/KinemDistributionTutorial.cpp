@@ -11,13 +11,12 @@ struct PlotKinematicCut {
 struct Plot {
   std::string Name;
   std::vector<std::string> VarStrings;
-  std::vector<std::vector<double>> BinEdges;
   std::vector<PlotKinematicCut> SelectionCuts = {};
 };
 
 int main(int argc, char **argv) {
   //JM OscillationChannel kinematic variable does not exist, so only supports looping modes
-  int Selection = 0; //0 to loop modes, 1 to loop osc channels
+  constexpr SamplePlotType PlotType = kModePlot; //0 to loop modes, 1 to loop osc channels
 
   // Initialise manger responsible for config handling
   auto FitManager = MaCh3ManagerFactory(argc, argv);
@@ -41,7 +40,7 @@ int main(int argc, char **argv) {
   //JM Read in kinematic distribution plots from config
   std::vector<Plot> PlotsToDraw = {};
   auto ConfigPlots = FitManager->raw()["KinematicDistributionPlots"];
-  
+
   for (const auto& ConfigPlot : ConfigPlots) {
     Plot PlotToDraw;
     PlotToDraw.Name = Get<std::string>(ConfigPlot["Name"],  __FILE__, __LINE__);
@@ -50,36 +49,12 @@ int main(int argc, char **argv) {
       MACH3LOG_ERROR("Error in yaml file: In KinemDistribtuion Plot {}, VarStrings is of size {}. VarString should be of size 1 or 2 (higher dimensional histogram plotting is not yet supported)");
       throw MaCh3Exception(__FILE__,__LINE__);
     }
-    PlotToDraw.BinEdges = Get<std::vector<std::vector<double>>>(ConfigPlot["VarBins"], __FILE__,__LINE__);
-    if (PlotToDraw.BinEdges.size() != 1 && PlotToDraw.BinEdges.size() != 2) {
-      MACH3LOG_ERROR("Error in yaml file: In KinemDistribtuion Plot {}, BinEdges is of size {}. VarString should be of size 1 or 2 (higher dimensional histogram plotting is not yet supported)");
-      throw MaCh3Exception(__FILE__,__LINE__);
-    }
-    
-    //If binning vector is of size 3, treat as [nbins, xmin, xmax] (otherwise treat as bin edges)
-    for (unsigned int iBinning=0; iBinning<PlotToDraw.BinEdges.size(); iBinning++) {
-      if (PlotToDraw.BinEdges[iBinning].size() == 3) {
-        double nbins = PlotToDraw.BinEdges[iBinning][0];
-        double xmin = PlotToDraw.BinEdges[iBinning][1];
-        double xmax = PlotToDraw.BinEdges[iBinning][2];
-        double step = (xmax-xmin)/nbins;
-        PlotToDraw.BinEdges[iBinning] = {};
-        for (double iBinEdge=xmin; iBinEdge<=xmax; iBinEdge+=step) {
-          PlotToDraw.BinEdges[iBinning].push_back(iBinEdge);
-        }
-        if (PlotToDraw.BinEdges[iBinning].size() == nbins+1) {
-          PlotToDraw.BinEdges[iBinning].back() = xmax;
-        } else {
-          PlotToDraw.BinEdges[iBinning].push_back(xmax);
-        }
-      }
-    }
-    
+
     for (const auto& Cut : ConfigPlot["KinematicCuts"]) {
       PlotKinematicCut SelectionCut;
       SelectionCut.ParamToCutOn = Cut["VarString"].as<std::string>();
       std::vector<double> range = Cut["Range"].as<std::vector<double>>();
-      
+
       if (range.size() != 2) {
         MACH3LOG_ERROR("Error in yaml file: In KinemDistribution Plot {}, KinematicCut {} has range of size {}. Range should be of size 2.", PlotToDraw.Name, SelectionCut.ParamToCutOn, range.size());
         throw MaCh3Exception(__FILE__,__LINE__);
@@ -99,42 +74,36 @@ int main(int argc, char **argv) {
     TString ParamDirName = vecParams[iParam];
 
     for (size_t iPDF=0; iPDF < mySamples.size(); iPDF++) {
-      MACH3LOG_INFO("Number of samples: {}", mySamples[iPDF]->GetNsamples());
-       for(int iSample = 0; iSample < mySamples[iPDF]->GetNsamples(); iSample++){
-        THStack* Stack = new THStack(*mySamples[iPDF]->ReturnStackedHistBySelection1D(iSample, vecParams[iParam], Selection));
-        TLegend* Legend = new TLegend(*mySamples[iPDF]->ReturnStackHistLegend());
-
+      MACH3LOG_INFO("Number of samples: {}", mySamples[iPDF]->GetNSamples());
+       for(int iSample = 0; iSample < mySamples[iPDF]->GetNSamples(); iSample++){
+        auto Stack = mySamples[iPDF]->ReturnStackedHistBySelection1D(iSample, vecParams[iParam], PlotType);
+        std::unique_ptr<TLegend> Legend(new TLegend(*mySamples[iPDF]->ReturnStackHistLegend()));
         Canv->cd(1);
         Stack->Draw("HIST");
         //Due to crappy TStack design, you need to draw THStack first then assign axis titles
-        Stack->SetTitle(mySamples[iPDF]->GetSampleTitle(iSample).c_str());
+        std::string title = mySamples[iPDF]->GetSampleTitle(iSample);
+        Stack->SetTitle(title.c_str());
         Stack->GetXaxis()->SetTitle((vecParams[iParam]).c_str());
         Canv->cd(2);
         Legend->Draw();
 
         Canv->Update();
         Canv->Print(OutputName);
-        delete Stack; Stack = nullptr;
-        delete Legend; Legend = nullptr;
       }
     }
   }
 
   delete Canv;
   Canv = new TCanvas("Canv","");
-  TH1* Hist;
   int WeightStyle = 1;
   for (size_t iHist=0; iHist<PlotsToDraw.size(); iHist++) {
     MACH3LOG_INFO("Plotting kinematic distributions in config: {} / {}", iHist+1, PlotsToDraw.size());  
 
     std::vector<std::string> PlotVar_Str = PlotsToDraw[iHist].VarStrings;
     int histdim = PlotVar_Str.size();
-    TAxis AxisX = TAxis(PlotsToDraw[iHist].BinEdges[0].size()-1,PlotsToDraw[iHist].BinEdges[0].data());
-    TAxis AxisY;
-    if (histdim == 2) AxisY = TAxis(PlotsToDraw[iHist].BinEdges[1].size()-1,PlotsToDraw[iHist].BinEdges[1].data());
 
     for (size_t iPDF = 0;iPDF < mySamples.size(); iPDF++) {
-      for(int iSample = 0; iSample < mySamples[iPDF]->GetNsamples(); iSample++){
+      for(int iSample = 0; iSample < mySamples[iPDF]->GetNSamples(); iSample++){
         std::vector<KinematicCut> EventSelectionVector = {};
         std::vector<KinematicCut> SubEventSelectionVector = {};
 
@@ -152,13 +121,13 @@ int main(int argc, char **argv) {
             EventSelectionVector.push_back(Selection);
           }
         }
-
+        std::unique_ptr<TH1> Hist;
         if (histdim == 1) {
-          Hist = (TH1*)mySamples[iPDF]->Get1DVarHist(iSample, PlotVar_Str[0], EventSelectionVector, WeightStyle, &AxisX, SubEventSelectionVector);
+          Hist = mySamples[iPDF]->Get1DVarHist(iSample, PlotVar_Str[0], EventSelectionVector, WeightStyle, SubEventSelectionVector);
           Hist->GetYaxis()->SetTitle("Events");
         }
         else {
-          Hist = (TH1*)mySamples[iPDF]->Get2DVarHist(iSample, PlotVar_Str[0], PlotVar_Str[1], EventSelectionVector, WeightStyle, &AxisX, &AxisY, SubEventSelectionVector);
+          Hist = mySamples[iPDF]->Get2DVarHist(iSample, PlotVar_Str[0], PlotVar_Str[1], EventSelectionVector, WeightStyle, SubEventSelectionVector);
           Hist->GetYaxis()->SetTitle(PlotVar_Str[1].c_str());
         }
         Canv->cd(1);
@@ -167,7 +136,6 @@ int main(int argc, char **argv) {
         Hist->SetStats(false);
         Hist->Draw("COLZ");
         Canv->Print(OutputName);
-        delete Hist;
       }
     }
   }
