@@ -29,6 +29,24 @@ General:
     NSteps: 10000
     #KS: Sets how frequent (number of steps) you want to autosave your chain, if you autosave rarely chain will be slightly faster, if you job wall is small you might want more frequent autosave to reduce number of lost steps
     AutoSave: 10000
+    
+    Multicanonical:
+      Enabled: true
+      Beta: 1.0
+      Spline:
+        SplineMode: False
+        SplineFile: "/home/ppe/d/driley/Projects/umbrella/utils_mcm/output/dcp_spline_NOIO.root"
+      Umbrella:
+        UmbrellaBiasFunction: "generalisedGaussian" # "gaussian","generalisedGaussian","vonMises"
+        UmbrellaMean: 0.6
+        UmbrellaWidth: 0.25
+        UmbrellaNumber: 5 # total number of umbrellas
+        AutoOverlapMode: False # Determine width of biases by calculating to a desired sigma overlap
+        SigmaOverlap: 2
+        FlipWindow: False
+        # If true, we will determine the step scale as a ratio of the normal size of the parameter space to the size of the umbrella
+        UmbrellaAdjustStepScale: True
+        UmbrellaStepScaleFactor: 1.0
 
     # Example Delayed Rejection settings [use FittingAlgorithm=DelayedMR2T2]
     PrintSummary: False
