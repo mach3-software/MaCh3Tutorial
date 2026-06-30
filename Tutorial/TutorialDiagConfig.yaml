@@ -163,3 +163,38 @@ MatrixPlotter:
 SmearChain:
   Smear: [ ["delm2_23", "delta_cp"], [2.70e-5, 0.01]]
   SaveUnsmearedBranch: false
+
+
+#########################################
+# Umbrella Sampling Configuration
+# Convergence parameters
+UmbrellaSolve:
+  max_iterations: 200000
+  tolerance: 1e-10
+  print_frequency: 500
+  # Performance options
+  use_openmp: true
+
+  dynamic_files: true
+  dynamic_pattern: "path/to/individual/umbrella/files"
+  dynamic_n_windows: 60
+
+  # Output file
+  output_file: "umbrella_output.root"
+
+  # Variable of interest (branch name)
+  variable_of_interest: "delta_cp"
+
+  # Manual window configuration (if dynamic_files is false)
+  windows:
+    - name: "window_0"
+      center: 0.0
+      width: 0.04
+      
+    - name: "window_1" 
+      center: 0.17453292519943295
+      width: 0.04
+
+  input_files:
+    - "path/to/umbrella_window_0.root"
+    - "path/to/umbrella_window_1.root"
