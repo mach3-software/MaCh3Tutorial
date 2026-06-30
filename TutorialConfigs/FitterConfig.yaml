@@ -32,7 +32,7 @@ General:
     
     # This section configures Multicanonnical MCMC, using biases to change how chains sample specific regions of the parameter space
     Multicanonical:
-      Enabled: true
+      Enabled: false 
       Beta: 1.0 # bias strength parameter, 1.0 is full strength, 0.0 is no bias
       Spline:
       # Choose a spline for a given parameter to bias your chain. Can be used to flatten out the sampling of a particular parameter, with the bias divides out later.
