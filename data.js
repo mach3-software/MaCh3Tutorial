@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1782843097387,
+  "lastUpdate": 1782981488795,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -29067,6 +29067,79 @@ window.BENCHMARK_DATA = {
             "name": "Non-Uniform BinningHandler",
             "value": 8.25325,
             "range": "± 37.3251",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "db6d4fc92625f6f6907963e7aad8014daed1b56c",
+          "message": "Merge pull request #959 from mach3-software/kskwarczynski/bugix/StopDoubleSetStep\n\nbugfix: Stop double load of stepStart in start from previous fit",
+          "timestamp": "2026-07-02T09:32:01+01:00",
+          "tree_id": "26916a3e49283bcd4445a69d1ced484bd0c81444",
+          "url": "https://github.com/mach3-software/MaCh3/commit/db6d4fc92625f6f6907963e7aad8014daed1b56c"
+        },
+        "date": 1782981484408,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 3.13166,
+            "range": "± 80.4515",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 3.03745,
+            "range": "± 67.1343",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 343.1,
+            "range": "± 5.54598",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ND Reweight",
+            "value": 294.067,
+            "range": "± 22.3782",
+            "unit": "us",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ParameterHandler Operations",
+            "value": 3.05883,
+            "range": "± 460.599",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Uniform BinningHandler 100k events",
+            "value": 8.75002,
+            "range": "± 34.6488",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Non-Uniform BinningHandler",
+            "value": 9.02249,
+            "range": "± 26.4224",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
