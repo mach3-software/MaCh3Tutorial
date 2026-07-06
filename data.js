@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1783091865379,
+  "lastUpdate": 1783326978088,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -29213,6 +29213,79 @@ window.BENCHMARK_DATA = {
             "name": "Non-Uniform BinningHandler",
             "value": 8.24142,
             "range": "± 40.8829",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "94356389+nosektom@users.noreply.github.com",
+            "name": "nosektom",
+            "username": "nosektom"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "a8b208b3d42a1f83abfe2db90ad48b30b592d48c",
+          "message": "Merge pull request #964 from mach3-software/nosektom/feature/LLHMapImprovements\n\nfeat: LLHMap improvements",
+          "timestamp": "2026-07-06T10:29:55+02:00",
+          "tree_id": "aeceb8f85a4cf56d753087cb61c00cb2bfe0bca1",
+          "url": "https://github.com/mach3-software/MaCh3/commit/a8b208b3d42a1f83abfe2db90ad48b30b592d48c"
+        },
+        "date": 1783326974063,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 3.0431,
+            "range": "± 73.3997",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.95493,
+            "range": "± 93.6683",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 374.019,
+            "range": "± 6.4122",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ND Reweight",
+            "value": 301.473,
+            "range": "± 41.1652",
+            "unit": "us",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ParameterHandler Operations",
+            "value": 2.2723,
+            "range": "± 732.506",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Uniform BinningHandler 100k events",
+            "value": 7.89357,
+            "range": "± 102.844",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Non-Uniform BinningHandler",
+            "value": 8.24296,
+            "range": "± 35.1406",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
