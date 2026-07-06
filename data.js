@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1783329284444,
+  "lastUpdate": 1783331868454,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -29432,6 +29432,79 @@ window.BENCHMARK_DATA = {
             "name": "Non-Uniform BinningHandler",
             "value": 8.43876,
             "range": "± 95.1598",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "c5a410ba9a5f893c4bd56c179997d338fd3f440f",
+          "message": "Merge pull request #953 from mach3-software/kskwarczynski/tidy/lessHacksInSplines\n\ntidy: Reduce hardcoding in binned splines",
+          "timestamp": "2026-07-06T10:51:37+01:00",
+          "tree_id": "f3c81fd84b82e74a46b8b2bd44a1d94ea806f020",
+          "url": "https://github.com/mach3-software/MaCh3/commit/c5a410ba9a5f893c4bd56c179997d338fd3f440f"
+        },
+        "date": 1783331865055,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 3.06027,
+            "range": "± 71.13",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 3.00182,
+            "range": "± 262.153",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 377.242,
+            "range": "± 7.22228",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ND Reweight",
+            "value": 346.217,
+            "range": "± 35.066",
+            "unit": "us",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ParameterHandler Operations",
+            "value": 1.43968,
+            "range": "± 751.199",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Uniform BinningHandler 100k events",
+            "value": 7.88367,
+            "range": "± 39.7745",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Non-Uniform BinningHandler",
+            "value": 8.24206,
+            "range": "± 26.8817",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
