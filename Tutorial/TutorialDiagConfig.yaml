@@ -168,7 +168,7 @@ SmearChain:
 #########################################
 # Umbrella Sampling Configuration
 # Convergence parameters
-UmbrellaSolve:
+UmbrellaSolver:
   max_iterations: 200000
   tolerance: 1e-10
   print_frequency: 500
@@ -176,7 +176,7 @@ UmbrellaSolve:
   use_openmp: true
 
   dynamic_files: true
-  dynamic_pattern: "path/to/individual/umbrella/files"
+  dynamic_pattern: "umbrella/"
   dynamic_n_windows: 60
 
   # Output file

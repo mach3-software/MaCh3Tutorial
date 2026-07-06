@@ -21,12 +21,13 @@ set -e  # Exit on error
 # Display help message
 show_help() {
   echo "Arguments:"
-  echo -e "\t  --FitterValidations       : Integration testing of running MCMC and all plotting scripts"
-  echo -e "\t  --ReweightValidations     : Checking if reweighting works"
-  echo -e "\t  --CovarianceValidations   : Checking if covariances works"
-  echo -e "\t  --NuMCMCToolsValidations  : Checking if interface to NuMCMC Tools works"
-  echo -e "\t  --NuDockValidations  : Checking if interface to NuDock works"
-  echo -e "\t  --all                     : Run all checks"
+  echo -e "\t  --FitterValidations         : Integration testing of running MCMC and all plotting scripts"
+  echo -e "\t  --ReweightValidations       : Checking if reweighting works"
+  echo -e "\t  --CovarianceValidations     : Checking if covariances works"
+  echo -e "\t  --NuMCMCToolsValidations    : Checking if interface to NuMCMC Tools works"
+  echo -e "\t  --NuDockValidations         : Checking if interface to NuDock works"
+  echo -e "\t  --MultiCanonicalValidations : Checking if Multi Canonical works"
+  echo -e "\t  --all                       : Run all checks"
 }
 
 # Run validation functions
@@ -103,6 +104,23 @@ run_nudock_validations() {
   fi
 }
 
+run_multicanoical_validations() {
+  mkdir ${MaCh3Tutorial_ROOT}/umbrella/
+  mkdir ${MaCh3Tutorial_ROOT}/outputs/
+  mkdir ${MaCh3Tutorial_ROOT}/outputs/plotting/
+
+  ${MaCh3Tutorial_ROOT}/bin/MCMCTutorial TutorialConfigs/FitterConfig.yaml General:MCMC:Multicanonical:Enabled:True General:OutputFile:umbrella/umbrellafile0.root
+
+  # Create umbrellafile1.root ... umbrellafile59.root
+  for i in $(seq 1 59); do
+    cp "${MaCh3Tutorial_ROOT}/umbrella/umbrellafile0.root" \
+       "${MaCh3Tutorial_ROOT}/umbrella/umbrellafile${i}.root"
+  done
+
+  ${MaCh3Tutorial_ROOT}/bin/UmbrellaSolver ${MaCh3Tutorial_ROOT}/bin/TutorialDiagConfig.yaml
+  ${MaCh3Tutorial_ROOT}/bin/UmbrellaPlotting ${MaCh3Tutorial_ROOT}/umbrella_output.root ${MaCh3Tutorial_ROOT}/outputs/plotting/
+}
+
 # Parse command-line arguments
 while [[ $# -gt 0 ]]; do
   case $1 in
@@ -124,6 +142,9 @@ while [[ $# -gt 0 ]]; do
       ;;
     --NuDockValidations)
       RUN_NU_DOCK=true
+      ;;
+    --MultiCanonicalValidations)
+      RUN_MULTI_CANONICAL=true
       ;;
     --all)
       RUN_ALL=true
@@ -149,12 +170,14 @@ if [ "$RUN_ALL" = true ]; then
   run_covariance_validations
   run_nu_mcmc_tools_validations
   run_nudock_validations
+  run_multicanoical_validations
 else
   [ "$RUN_REWEIGHT" = true ] && run_reweight_validations
   [ "$RUN_FITTER" = true ] && run_fitter_validations
   [ "$RUN_COVARIANCE" = true ] && run_covariance_validations
   [ "$RUN_NU_MCMC" = true ] && run_nu_mcmc_tools_validations
   [ "$RUN_NU_DOCK" = true ] && run_nudock_validations
+  [ "$RUN_MULTI_CANONICAL" = true ] && run_multicanoical_validations
 fi
 
 echo "Validation process completed!"

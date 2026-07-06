@@ -37,6 +37,10 @@ jobs:
             test: MaCh3CLI --NuMCMCToolsValidations
             compilation_flags:
 
+          - name: Multi Canonical Validations
+            test: MaCh3CLI --MultiCanonicalValidations
+            compilation_flags:
+
           - name: Fitter Validations Low Memory
             test: MaCh3CLI --FitterValidations
             compilation_flags: -DMaCh3Tutorial_LOW_MEMORY_STRUCTS_ENABLED=ON
