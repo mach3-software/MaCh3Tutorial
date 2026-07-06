@@ -6,7 +6,7 @@
 
 namespace M3{
 
-  class MCMCTutorialPlugin: public IPlugin{
+  class MCMCTutorialPlugin: public IPluginBase{
 
     public:
       virtual ~MCMCTutorialPlugin(){
@@ -27,7 +27,7 @@ namespace M3{
         return m_parser;
       }
 
-      int run(){
+      int Run(){
         std::string config = m_parser->get<std::string>("config");
 
         std::vector<std::string> args = { m_parser->name(), config };
@@ -74,8 +74,8 @@ namespace M3{
       }
 
 
-    private:
-      MaCh3ArgumentParser* m_parser;
+    // private:
+    //   MaCh3ArgumentParser* m_parser;
   };
 
 };
