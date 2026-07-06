@@ -144,7 +144,7 @@ while [[ $# -gt 0 ]]; do
       RUN_NU_DOCK=true
       ;;
     --MultiCanonicalValidations)
-      $RUN_MULTI_CANONICAL=true
+      RUN_MULTI_CANONICAL=true
       ;;
     --all)
       RUN_ALL=true
