@@ -1,19 +1,18 @@
 // MaCh3 includes
-#include "cli/api/plugin.hpp"
+#include "CLI/API/plugin.hpp"
 #include "Fitters/MaCh3Factory.h"
 #include "SamplesTutorial/SampleHandlerTutorial.h"
 // #include "Mach3Plugins/MCMCTutorialPlugin.hpp"
 
 namespace M3{
 
-  class MCMCTutorialPlugin: public IPluginBase{
+  class MCMCTutorialPlugin: public PluginBase{
 
     public:
-      virtual ~MCMCTutorialPlugin(){
-        if (m_parser) { delete m_parser; } 
-      }
+      virtual ~MCMCTutorialPlugin() = default;
+
       MaCh3ArgumentParser* get_parser(){
-        m_parser = new MaCh3ArgumentParser("tutorial", "1.0", argparse::default_arguments::help);
+        m_parser = std::make_unique<MaCh3ArgumentParser>("tutorial", "1.0", argparse::default_arguments::help);
         m_parser->add_argument("config")
         .help("Config file.")
         .metavar("CONFIG")
@@ -24,7 +23,7 @@ namespace M3{
         m_parser->add_argument("-o", "--override")
           .append()
           .help("specify any config overrides.");
-        return m_parser;
+        return m_parser.get();
       }
 
       int Run(){
