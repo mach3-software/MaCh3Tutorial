@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1783416876063,
+  "lastUpdate": 1783507618699,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -29797,6 +29797,79 @@ window.BENCHMARK_DATA = {
             "name": "Non-Uniform BinningHandler",
             "value": 8.32499,
             "range": "± 37.9016",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "31aec3b21cddbc33adc11081e8cc8d5d6cde8e95",
+          "message": "Merge pull request #972 from mach3-software/hwallace/feature/acceptance_sanitiser\n\nFeat: Acceptance Rate sanitizer",
+          "timestamp": "2026-07-08T11:40:31+01:00",
+          "tree_id": "ec95a5afafdd022b63e05e54f1aa3f2d8f93f01f",
+          "url": "https://github.com/mach3-software/MaCh3/commit/31aec3b21cddbc33adc11081e8cc8d5d6cde8e95"
+        },
+        "date": 1783507614998,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 5.07835,
+            "range": "± 9.6584",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.97635,
+            "range": "± 121.166",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 381.352,
+            "range": "± 4.54851",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ND Reweight",
+            "value": 313.835,
+            "range": "± 45.6632",
+            "unit": "us",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ParameterHandler Operations",
+            "value": 2.11033,
+            "range": "± 825.207",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Uniform BinningHandler 100k events",
+            "value": 7.87568,
+            "range": "± 33.935",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Non-Uniform BinningHandler",
+            "value": 8.23443,
+            "range": "± 43.6931",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
