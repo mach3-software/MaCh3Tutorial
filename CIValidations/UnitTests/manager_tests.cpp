@@ -38,8 +38,8 @@ TEST_CASE("GetFromManager retrieves values with defaults", "[Yamlhelper]") {
   std::string Text = "{1B: I like blarb, 2B: whatever, LF: mach3}";
   YAML::Node TextNode = STRINGtoYAML(Text);
 
-  REQUIRE(GetFromManager<std::string>(TextNode["1B"], "London") == "I like blarb");
-  REQUIRE(GetFromManager<std::string>(TextNode["10B"], "London") == "London");
+  REQUIRE(GetFromManager<std::string>(TextNode["1B"], "London", __FILE__, __LINE__) == "I like blarb");
+  REQUIRE(GetFromManager<std::string>(TextNode["10B"], "London", __FILE__, __LINE__) == "London");
 }
 
 
