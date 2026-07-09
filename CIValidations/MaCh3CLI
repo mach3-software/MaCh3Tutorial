@@ -27,6 +27,7 @@ show_help() {
   echo -e "\t  --NuMCMCToolsValidations    : Checking if interface to NuMCMC Tools works"
   echo -e "\t  --NuDockValidations         : Checking if interface to NuDock works"
   echo -e "\t  --MultiCanonicalValidations : Checking if Multi Canonical works"
+  echo -e "\t  --CLIValidations            : Start testing new unified CLI"
   echo -e "\t  --all                       : Run all checks"
 }
 
@@ -121,6 +122,14 @@ run_multicanoical_validations() {
   ${MaCh3Tutorial_ROOT}/bin/UmbrellaPlotting ${MaCh3Tutorial_ROOT}/umbrella_output.root ${MaCh3Tutorial_ROOT}/outputs/plotting/
 }
 
+run_CLI_validations() {
+  mach3 tutorial TutorialConfigs/FitterConfig.yaml --MCMCSteps 10000
+  mach3 process ${MaCh3Tutorial_ROOT}/bin/TutorialDiagConfig.yaml Test.root --corr --MakeCredibleIntervals
+  mach3 diag Test.root ${MaCh3Tutorial_ROOT}/bin/TutorialDiagConfig.yaml
+  mach3 penterm Test.root ${MaCh3Tutorial_ROOT}/bin/TutorialDiagConfig.yaml
+}
+
+
 # Parse command-line arguments
 while [[ $# -gt 0 ]]; do
   case $1 in
@@ -142,6 +151,9 @@ while [[ $# -gt 0 ]]; do
       ;;
     --NuDockValidations)
       RUN_NU_DOCK=true
+      ;;
+    --CLIValidations)
+      RUN_CLI=true
       ;;
     --MultiCanonicalValidations)
       RUN_MULTI_CANONICAL=true
@@ -170,14 +182,16 @@ if [ "$RUN_ALL" = true ]; then
   run_covariance_validations
   run_nu_mcmc_tools_validations
   run_nudock_validations
+  run_CLI_validations
   run_multicanoical_validations
 else
-  [ "$RUN_REWEIGHT" = true ] && run_reweight_validations
-  [ "$RUN_FITTER" = true ] && run_fitter_validations
-  [ "$RUN_COVARIANCE" = true ] && run_covariance_validations
-  [ "$RUN_NU_MCMC" = true ] && run_nu_mcmc_tools_validations
-  [ "$RUN_NU_DOCK" = true ] && run_nudock_validations
+  [ "$RUN_REWEIGHT" = true ]        && run_reweight_validations
+  [ "$RUN_FITTER" = true ]          && run_fitter_validations
+  [ "$RUN_COVARIANCE" = true ]      && run_covariance_validations
+  [ "$RUN_NU_MCMC" = true ]         && run_nu_mcmc_tools_validations
+  [ "$RUN_NU_DOCK" = true ]         && run_nudock_validations
   [ "$RUN_MULTI_CANONICAL" = true ] && run_multicanoical_validations
+  [ "$RUN_CLI" = true ]             && run_CLI_validations
 fi
 
 echo "Validation process completed!"

@@ -37,6 +37,10 @@ jobs:
             test: MaCh3CLI --NuMCMCToolsValidations
             compilation_flags:
 
+          - name: MaCh3 CLI Validations
+            test: MaCh3CLI --CLIValidations
+            compilation_flags:
+
           - name: Multi Canonical Validations
             test: MaCh3CLI --MultiCanonicalValidations
             compilation_flags:
