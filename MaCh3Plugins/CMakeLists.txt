@@ -9,6 +9,7 @@ foreach(app
     target_link_libraries(${app} PRIVATE MaCh3Tutorial::SamplesTutorial MaCh3::All)
     target_include_directories(${app} PUBLIC $<BUILD_INTERFACE:${CMAKE_BINARY_DIR}/include>)
 
+    add_library(MaCh3Tutorial::${app} ALIAS ${app})
 
 #    add_executable(${app} ${app}.cpp)
 #    target_link_libraries(${app} MaCh3Tutorial::ValidationsUtils MaCh3Tutorial::SamplesTutorial)
