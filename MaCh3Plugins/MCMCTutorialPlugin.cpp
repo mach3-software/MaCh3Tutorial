@@ -2,7 +2,7 @@
 #include "Manager/MaCh3Logger.h"
 #include "Fitters/MaCh3Factory.h"
 #include "SamplesTutorial/SampleHandlerTutorial.h"
-#include "Mach3Plugins/MCMCTutorialPlugin.hpp"
+#include "MaCh3Plugins/MCMCTutorialPlugin.hpp"
 
 namespace M3{
 

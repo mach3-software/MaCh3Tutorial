@@ -1,6 +1,6 @@
 // MaCh3 includes
 #include "Manager/MaCh3Logger.h"
-#include "Mach3Plugins/MCMCTutorialPlugin.hpp"
+#include "MaCh3Plugins/MCMCTutorialPlugin.hpp"
 
 int main(int argc, char const* argv[]) {
     MACH3LOG_WARN("Deprecation Warning: Use of the standalone executable will be deprecated in future releases.");
