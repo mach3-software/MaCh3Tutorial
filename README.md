@@ -166,7 +166,7 @@ You can also use the short form `-o` instead of `--override`. You can add as man
 > [!WARNING]
 > The format required for overriding is different for the executables described later on in this tutorial which have not been integrated into the `mach3` CLI. For those executables, the `--override` option is not needed, simply write the settings you want to override as arguments at the end of the command. For example `./bin/PredictiveTutorial TutorialConfigs/FitterConfig.yaml General:OutputFile:PriorPredictiveOutputTest.root`.
 
-If you're lucky, the setting you plan to override may have an explicit option in `mach3 tutrorial`. To find out run `mach3 tutorial --help`:
+If you're lucky, the setting you plan to override may have an explicit option in `mach3 tutorial`. To find out run `mach3 tutorial --help`:
 ```
 Usage: mach3 tutorial [--help] [--MCMCSteps VAR] [--override VAR]... CONFIG
 
@@ -219,14 +219,14 @@ The output should look like plot below. This conveys same information as the ind
 <img width="350" alt="Ridge" src="https://github.com/user-attachments/assets/617f5929-b389-495e-ab7b-2ecd6c2d991e">
 
 **Violin Plot** - This also allow to see nicely non-Gaussian parameters but also is useful in comparing two chains.
-`mach3 process` must be run with option "PlotCorr" to be able to produce violin plot.
+`mach3 process` must be run with option "--corr" to be able to produce violin plot.
 
 <img width="350" alt="Violin example" src="https://github.com/user-attachments/assets/4788ab29-f24a-4b09-8b0f-c9b36d069cfe">
 
 </details>
 
 ### Plotting Correlation Matrix
-If you have run `mach3 process` with option "PlotCorr" you will have a correlation matrix in the outputs. This is a handy tool for viewing how correlated different parameters are.
+If you have run `mach3 process` with option "-corr" you will have a correlation matrix in the outputs. This is a handy tool for viewing how correlated different parameters are.
 However, mature analyses with hundreds of parameters may run into the problem of having too large of plots to be useful. To combat this, you can plot a subset of parameters using `MatrixPlotter`:
 ```bash
 ./bin/MatrixPlotter bin/TutorialDiagConfig.yaml Test_drawCorr.root
