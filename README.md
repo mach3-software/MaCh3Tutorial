@@ -126,10 +126,14 @@ And get some reference values from other users, this can look something like:
 By comparing rates for each sample much what other users observe you can very simply ensure you correctly setup MaCh3.
 
 ## How to run MCMC
-To run MCMC simply
+To run MCMC simply:
 ```bash
-./bin/MCMCTutorial TutorialConfigs/FitterConfig.yaml
+mach3 tutorial TutorialConfigs/FitterConfig.yaml
 ```
+
+> [!NOTE]
+> The `mach3` CLI is new, and not every executable in this tutorial has been integrated into it yet. If you have any issues or feedback, please contact the developers or raise issues on this GitHub repository or the MaCh3 GitHub repository.
+
 Congratulations! 🎉
 You have just finished your first MCMC chain. You can view `Test.root` for example in TBrowser like in plot below.
 
@@ -146,33 +150,57 @@ General:
 ```
 and then re-running `MCMCTutorial`.
 
-**Warning**: If you modified files in the main `MaCh3Tutorial` folder instead of `build`, you will have to call `make install` for the changes to propagate! Generally speaking, it is good practice to work from the `build` directory and make your config changes there so that local changes do not have to be tracked by git.
+> [!WARNING] 
+> If you modified files in the main `MaCh3Tutorial` folder instead of `build`, you will have to call `make install` for the changes to propagate! Generally speaking, it is good practice to work from the `build` directory and make your config changes there so that local changes do not have to be tracked by git.
 
 ### Config Overrides
 Instead of changing the config file `TutorialConfigs/FitterConfig.yaml` above directly, you can instead dynamically override your configurations at the command line like this:
 ```bash
-./bin/MCMCTutorial TutorialConfigs/FitterConfig.yaml General:MCMC:NSteps:100000
+mach3 tutorial TutorialConfigs/FitterConfig.yaml --override General:MCMC:NSteps:100000
 ```
-In this way, you can add as many configuration overrides here as you like, as long as the format is `[executable] [config] ([option1] [option2] ...)`.
+You can also use the short form `-o` instead of `--override`. You can add as many configuration overrides here as you like: `[executable] [config] (-o [option1] -o [option2] ...)`.
 
-**Warning** This overriding process is only possible for the "main config" (i.e., configs that respond directly to the `Manager` class in MaCh3 core). This main config is used with the apps in the `Tutorial` folder here;
-for the other apps (mainly plotting apps like `PredictivePlotting`) that read from `bin/TutorialDiagConfig.yaml`, this is not possible, as further command line arguments are interpreted as *input ROOT files*, not override directives.
+> [!WARNING]
+> This overriding process is only possible for the "main config" (i.e., configs that respond directly to the `Manager` class in MaCh3 core). This main config is used with the apps in the `Tutorial` folder here; for the other apps (mainly plotting apps like `PredictivePlotting`) that read from `bin/TutorialDiagConfig.yaml`, this is not possible, as further command line arguments are interpreted as *input ROOT files*, not override directives.
+
+> [!WARNING]
+> The format required for overriding is different for the executables described later on in this tutorial which have not been integrated into the `mach3` CLI. For those executables, the `--override` option is not needed, simply write the settings you want to override as arguments at the end of the command. For example `./bin/PredictiveTutorial TutorialConfigs/FitterConfig.yaml General:OutputFile:PriorPredictiveOutputTest.root`.
+
+If you're lucky, the setting you plan to override may have an explicit option in `mach3 tutrorial`. To find out run `mach3 tutorial --help`:
+```
+Usage: mach3 tutorial [--help] [--MCMCSteps VAR] [--override VAR]... CONFIG
+
+Positional arguments:
+  CONFIG          Config file. [required]
+
+Optional arguments:
+  -h, --help      shows help message and exits 
+  --MCMCSteps     specify the number of steps. 
+  -o, --override  specify any config overrides. [may be repeated]
+```
+You can see the `--MCMCSteps` option, so earlier we could have instead written:
+```
+mach3 tutorial TutorialConfigs/FitterConfig.yaml --MCMCSteps 100000
+```
 
 ### Processing MCMC Outputs
-Being able to visualise and analyse the output of the MCMC is standard procedure after a chain has finished. MaCh3 uses `ProcessMCMC` to transform the raw output from the MCMC into smaller outputs that are more easily digested by downstream plotting macros. You can run it using
+Being able to visualise and analyse the output of the MCMC is standard procedure after a chain has finished. MaCh3 uses `mach3 process` (previously `ProcessMCMC`) to transform the raw output from the MCMC into smaller outputs that are more easily digested by downstream plotting macros. You can run it using
 ```bash
-./bin/ProcessMCMC bin/TutorialDiagConfig.yaml Test.root
+mach3 process bin/TutorialDiagConfig.yaml Test.root
 ```
-where `Test.root` is the output of running `MCMCTutorial` as described [here](#how-to-run-mcmc). You can find some quickly-generated plots in `Test_drawCorr.pdf`. One of plots you will encounter is:
+where `Test.root` is the output of running `mach3 tutorial` as described [here](#how-to-run-mcmc). You can find some quickly-generated plots in `Test_drawCorr.pdf`. One of plots you will encounter is:
 
 <img width="350" alt="Posterior example" src="https://github.com/user-attachments/assets/1073a76e-5d82-4321-8952-e098d1b0717f">
 
 This is the marginalised posterior of a single parameter. This is the main output of the MCMC.
 
-There are many options in `ProcessMCMC` that allow you to make many more analysis plots from the MCMC output; we recommend that you see [here](https://mach3-software.github.io/MaCh3/BayesianAnalysis.html) to get better idea what each plot means. In particular, we recommend comparing 2D posteriors with the correlation matrix, and playing with triangle plots.
+There are many options in `mach3 process` that allow you to make many more analysis plots from the MCMC output; we recommend that you see [here](https://mach3-software.github.io/MaCh3/BayesianAnalysis.html) to get better idea what each plot means. In particular, we recommend comparing 2D posteriors with the correlation matrix, and playing with triangle plots.
+
+> [!TIP]
+> Some of those option are immediately available in the command line, find out which ones with `mach3 process --help`.
 
 ### Plotting MCMC Posteriors
-Once you have the processed MCMC output from `ProcessMCMC`, which will be called something like `<inputName>_Process.root`, you can make fancier analysis plots from it using the `GetPostfitParamPlots` app like:
+Once you have the processed MCMC output from `mach3 process`, which will be called something like `<inputName>_Process.root`, you can make fancier analysis plots from it using the `GetPostfitParamPlots` app like:
 
 ```bash
 ./bin/GetPostfitParamPlots Test_drawCorr.root
@@ -191,14 +219,14 @@ The output should look like plot below. This conveys same information as the ind
 <img width="350" alt="Ridge" src="https://github.com/user-attachments/assets/617f5929-b389-495e-ab7b-2ecd6c2d991e">
 
 **Violin Plot** - This also allow to see nicely non-Gaussian parameters but also is useful in comparing two chains.
-`ProcessMCMC` must be run with option "PlotCorr" to be able to produce violin plot.
+`mach3 process` must be run with option "PlotCorr" to be able to produce violin plot.
 
 <img width="350" alt="Violin example" src="https://github.com/user-attachments/assets/4788ab29-f24a-4b09-8b0f-c9b36d069cfe">
 
 </details>
 
 ### Plotting Correlation Matrix
-If you have run `ProcessMCMC` with option "PlotCorr" you will have a correlation matrix in the outputs. This is a handy tool for viewing how correlated different parameters are.
+If you have run `mach3 process` with option "PlotCorr" you will have a correlation matrix in the outputs. This is a handy tool for viewing how correlated different parameters are.
 However, mature analyses with hundreds of parameters may run into the problem of having too large of plots to be useful. To combat this, you can plot a subset of parameters using `MatrixPlotter`:
 ```bash
 ./bin/MatrixPlotter bin/TutorialDiagConfig.yaml Test_drawCorr.root
@@ -317,7 +345,7 @@ Congratulations, you have successfully modified the MCMC! 🎉
 ### How to Compare Chains
 Now that you have two chains you can try comparing them using the following:
 ```bash
-./bin/ProcessMCMC bin/TutorialDiagConfig.yaml Test.root Default_Chain Test_Modified.root Modified_Chain
+mach3 process bin/TutorialDiagConfig.yaml Test.root Default_Chain Test_Modified.root Modified_Chain
 ```
 This will produce a pdf with plots showing overlayed posteriors from both chains. Most should be similarly except modified parameter.
 
@@ -426,7 +454,7 @@ You can also easily change what variable the sample is binned in to get slightly
 ```
 You can run the MCMC again using this new configuration (after changing the output file name again!), and then compare all 3 chains using:
 ```bash
-./bin/ProcessMCMC bin/TutorialDiagConfig.yaml Test.root Default_Chain Test_Modified.root Modified_Chain Test_Modified_Sample.root ModifiedSameple_Chain
+mach3 process bin/TutorialDiagConfig.yaml Test.root Default_Chain Test_Modified.root Modified_Chain Test_Modified_Sample.root ModifiedSameple_Chain
 ```
 
 <details>
@@ -621,7 +649,7 @@ The latter class deals with actual event reweighting and general heavy lifting. 
 ## MCMC Diagnostic
 A crucial part of MCMC is diagnosing whether a chain has converged or not. You can produce chain diagnostics by running:
 ```bash
-./bin/DiagMCMC Test.root bin/TutorialDiagConfig.yaml
+mach3 diag Test.root bin/TutorialDiagConfig.yaml
 ```
 This will produce a plethora of diagnostic information. One of most important of these are the autocorrelations for each of the parameters. Autocorrelation indicates how correlated MCMC steps are when they are n-steps apart in the chain.
 Generally speaking, we want the autocorrelation to drop to 0 fast and stay around there (like in the plot below). You can read about other diagnostics [here](https://mach3-software.github.io/MaCh3/MCMCconvergance.html), but it is sufficient for now to focus on autocorrelation.
