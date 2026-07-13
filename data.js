@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1783599265691,
+  "lastUpdate": 1783932605909,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -30162,6 +30162,79 @@ window.BENCHMARK_DATA = {
             "name": "Non-Uniform BinningHandler",
             "value": 8.24327,
             "range": "± 118.242",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "f4ddf57d8b12609079b523cad3869f5a38e0a0aa",
+          "message": "Improve Manager factory to better work with CLI",
+          "timestamp": "2026-07-13T09:44:18+01:00",
+          "tree_id": "3912fb5de4c074a518fcbdf69ac5b92b008912c0",
+          "url": "https://github.com/mach3-software/MaCh3/commit/f4ddf57d8b12609079b523cad3869f5a38e0a0aa"
+        },
+        "date": 1783932602182,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.64508,
+            "range": "± 787.176",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.53415,
+            "range": "± 520.584",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 280.078,
+            "range": "± 7.46695",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ND Reweight",
+            "value": 241.342,
+            "range": "± 81.9062",
+            "unit": "us",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ParameterHandler Operations",
+            "value": 2.22695,
+            "range": "± 677.907",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Uniform BinningHandler 100k events",
+            "value": 6.67837,
+            "range": "± 19.8595",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Non-Uniform BinningHandler",
+            "value": 6.98347,
+            "range": "± 61.0265",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
