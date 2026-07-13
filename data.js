@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1783937376013,
+  "lastUpdate": 1783937423514,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -30308,6 +30308,79 @@ window.BENCHMARK_DATA = {
             "name": "Non-Uniform BinningHandler",
             "value": 7.70154,
             "range": "± 42.5709",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "a747c24d9e8c1e93395e12f3f48579548c26da3b",
+          "message": "Merge pull request #974 from mach3-software/kskwarczynski/tidy/doxygen\n\ntidy: Update Doxygen after recent CLI updates",
+          "timestamp": "2026-07-13T11:03:34+01:00",
+          "tree_id": "28dad4d7d608b3cb98302e06ab2b5026b7949138",
+          "url": "https://github.com/mach3-software/MaCh3/commit/a747c24d9e8c1e93395e12f3f48579548c26da3b"
+        },
+        "date": 1783937419447,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 3.14356,
+            "range": "± 90.4879",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 3.08806,
+            "range": "± 209.302",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 449.61,
+            "range": "± 3.85568",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ND Reweight",
+            "value": 338.42,
+            "range": "± 36.1118",
+            "unit": "us",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ParameterHandler Operations",
+            "value": 3.44724,
+            "range": "± 109.852",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Uniform BinningHandler 100k events",
+            "value": 7.29767,
+            "range": "± 22.1508",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Non-Uniform BinningHandler",
+            "value": 7.4865,
+            "range": "± 27.5472",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
