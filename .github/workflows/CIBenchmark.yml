@@ -103,7 +103,7 @@ jobs:
           source bin/setup.MaCh3.sh
           source bin/setup.MaCh3Tutorial.sh
 
-          pprof ./bin/MCMCTutorial ${{ matrix.outpath }}/MaCh3Tutorial --focus="RunMCMC" --pdf > ${{ matrix.outpath }}/${{ matrix.title }}.pdf
+          pprof ./bin/${{ matrix.app }} ${{ matrix.outpath }}/MaCh3Tutorial --focus="RunMCMC" --pdf > ${{ matrix.outpath }}/${{ matrix.title }}.pdf
 
       - name: Push Plot to gh-benchmarks Branch
         run: |
