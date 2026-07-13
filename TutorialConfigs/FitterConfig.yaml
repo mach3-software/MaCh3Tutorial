@@ -100,7 +100,7 @@ Predictive:
   # Allow to specify to throw/vary only params coming from single group like Xsec. Allow to evaluate errors coming from this group. Can't be mixed with throw single param
   ThrowParamGroupOnly: []
   # Allow to specify to throw/vary only params coming with specified names. Cannot be connected with ThrowParamGroupOnly
-  ThrowSinlgeParams: []
+  ThrowSingleParams: []
   # When calculating pvalue there are two ways of applying Poissonian fluctuations, both are conceptually identical however standard scales with number of bins while non-standard scales with number of events (making it slow)
   StandardFluctuation: true
   # Whether to print distribution of number of events in every bin, useful only for debug
