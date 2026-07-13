@@ -150,7 +150,7 @@ General:
 ```
 and then re-running `MCMCTutorial`.
 
-> [!WARNING] 
+> [!WARNING]
 > If you modified files in the main `MaCh3Tutorial` folder instead of `build`, you will have to call `make install` for the changes to propagate! Generally speaking, it is good practice to work from the `build` directory and make your config changes there so that local changes do not have to be tracked by git.
 
 ### Config Overrides
@@ -161,13 +161,18 @@ mach3 tutorial TutorialConfigs/FitterConfig.yaml --override General:MCMC:NSteps:
 You can also use the short form `-o` instead of `--override`. You can add as many configuration overrides here as you like: `[executable] [config] (-o [option1] -o [option2] ...)`.
 
 > [!WARNING]
-> This overriding process is only possible for the "main config" (i.e., configs that respond directly to the `Manager` class in MaCh3 core). This main config is used with the apps in the `Tutorial` folder here; for the other apps (mainly plotting apps like `PredictivePlotting`) that read from `bin/TutorialDiagConfig.yaml`, this is not possible, as further command line arguments are interpreted as *input ROOT files*, not override directives.
-
+> This overriding process is only possible for the "main config" (i.e., configs that respond directly to the `Manager` class in MaCh3 core).
+> This main config is used with the apps in the `Tutorial` folder here; for the other apps (mainly plotting apps like `PredictivePlotting`)
+> that read from `bin/TutorialDiagConfig.yaml`, this is not possible,
+> as further command line arguments are interpreted as *input ROOT files*, not override directives.
+>
 > [!WARNING]
-> The format required for overriding is different for the executables described later on in this tutorial which have not been integrated into the `mach3` CLI. For those executables, the `--override` option is not needed, simply write the settings you want to override as arguments at the end of the command. For example `./bin/PredictiveTutorial TutorialConfigs/FitterConfig.yaml General:OutputFile:PriorPredictiveOutputTest.root`.
+> The format required for overriding is different for the executables described later on in this tutorial which have not been integrated into the `mach3` CLI.
+> For those executables, the `--override` option is not needed, simply write the settings you want to override as arguments at the end of the command.
+> For example `./bin/PredictiveTutorial TutorialConfigs/FitterConfig.yaml General:OutputFile:PriorPredictiveOutputTest.root`.
 
 If you're lucky, the setting you plan to override may have an explicit option in `mach3 tutorial`. To find out run `mach3 tutorial --help`:
-```
+```console
 Usage: mach3 tutorial [--help] [--MCMCSteps VAR] [--override VAR]... CONFIG
 
 Positional arguments:
@@ -179,7 +184,7 @@ Optional arguments:
   -o, --override  specify any config overrides. [may be repeated]
 ```
 You can see the `--MCMCSteps` option, so earlier we could have instead written:
-```
+```bash
 mach3 tutorial TutorialConfigs/FitterConfig.yaml --MCMCSteps 100000
 ```
 
