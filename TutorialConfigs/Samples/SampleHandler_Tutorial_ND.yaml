@@ -32,11 +32,7 @@ ND_CC0pi:
     splineprefix: "TutorialConfigs/MC/BinnedSplinesTutorialInputs"
     splinesuffix: "2D.root"
 
-  OscChannels:
-    - Name: "FHC_numu_x_numu"
-      LatexName: "#nu_{#mu} #rightarrow #nu_{#mu}"
-      mtuplefile: [""]
-      splinefile: ""
+  OscChannels: "NDChannels"
 
 ND_CC1pip:
   SampleTitle: "ND_CC1pip"
@@ -54,11 +50,7 @@ ND_CC1pip:
     splineprefix: "TutorialConfigs/MC/BinnedSplinesTutorialInputs"
     splinesuffix: "2D.root"
 
-  OscChannels:
-    - Name: "FHC_numu_x_numu"
-      LatexName: "#nu_{#mu} #rightarrow #nu_{#mu}"
-      mtuplefile: [""]
-      splinefile: ""
+  OscChannels: "NDChannels"
 
 ND_CCPi0:
   SampleTitle: "ND_CCPi0"
@@ -76,11 +68,7 @@ ND_CCPi0:
     splineprefix: "TutorialConfigs/MC/BinnedSplinesTutorialInputs"
     splinesuffix: "2D.root"
 
-  OscChannels:
-    - Name: "FHC_numu_x_numu"
-      LatexName: "#nu_{#mu} #rightarrow #nu_{#mu}"
-      mtuplefile: [""]
-      splinefile: ""
+  OscChannels: "NDChannels"
 
 ND_NC0pi:
   SampleTitle: "ND_NC0pi"
@@ -98,11 +86,7 @@ ND_NC0pi:
     splineprefix: "TutorialConfigs/MC/BinnedSplinesTutorialInputs"
     splinesuffix: "2D.root"
 
-  OscChannels:
-    - Name: "FHC_numu_x_numu"
-      LatexName: "#nu_{#mu} #rightarrow #nu_{#mu}"
-      mtuplefile: [""]
-      splinefile: ""
+  OscChannels: "NDChannels"
 
 ND_NC1pi0:
   SampleTitle: "ND_NC1pi0"
@@ -119,8 +103,12 @@ ND_NC1pi0:
     splineprefix: "TutorialConfigs/MC/BinnedSplinesTutorialInputs"
     splinesuffix: "2D.root"
 
-  OscChannels:
-    - Name: "numu_x_numu"
+  OscChannels: "NDChannels"
+
+# KS: This is global definition which can be reused by other samples
+OscChannels:
+  NDChannels:
+    - Name: "FHC_numu_x_numu"
       LatexName: "#nu_{#mu} #rightarrow #nu_{#mu}"
       mtuplefile: [""]
       splinefile: ""
