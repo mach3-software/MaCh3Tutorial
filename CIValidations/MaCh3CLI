@@ -106,9 +106,9 @@ run_nudock_validations() {
 }
 
 run_multicanoical_validations() {
-  mkdir ${MaCh3Tutorial_ROOT}/umbrella/
-  mkdir ${MaCh3Tutorial_ROOT}/outputs/
-  mkdir ${MaCh3Tutorial_ROOT}/outputs/plotting/
+  mkdir -p ${MaCh3Tutorial_ROOT}/umbrella/
+  mkdir -p ${MaCh3Tutorial_ROOT}/outputs/
+  mkdir -p ${MaCh3Tutorial_ROOT}/outputs/plotting/
 
   ${MaCh3Tutorial_ROOT}/bin/MCMCTutorial TutorialConfigs/FitterConfig.yaml -o General:MCMC:Multicanonical:Enabled:True -o General:OutputFile:umbrella/umbrellafile0.root
 
