@@ -28,6 +28,6 @@ jobs:
         uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0  # v7.0.0
 
       - name: Squash commits
-        uses: mach3-software/MaCh3/.github/actions/squash@v2.5.1
+        uses: mach3-software/MaCh3/.github/actions/squash@v2.6.0
         with:
           branch: ${{ matrix.branch_name }}
