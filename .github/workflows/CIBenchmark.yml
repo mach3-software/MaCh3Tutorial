@@ -4,7 +4,7 @@ name: Weekly Profiler
 # The events that trigger the workflow
 on:
   schedule:
-    - cron: '0 0 * * 1' # KS: Every Monday at midnight
+    - cron: '0 11 1 * *'  # Monthly on the 1st at 11:00 UK time
 
 permissions:
   contents: write
