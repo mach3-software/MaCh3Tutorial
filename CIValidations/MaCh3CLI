@@ -123,6 +123,12 @@ run_multicanoical_validations() {
 
   ${MaCh3Tutorial_ROOT}/bin/UmbrellaSolver ${MaCh3Tutorial_ROOT}/bin/TutorialDiagConfig.yaml
   ${MaCh3Tutorial_ROOT}/bin/UmbrellaPlotting ${MaCh3Tutorial_ROOT}/umbrella_output.root ${MaCh3Tutorial_ROOT}/outputs/plotting/
+  # Basic MCMC processor test
+  ${MaCh3_ROOT}/bin/ProcessMCMC ${MaCh3Tutorial_ROOT}/bin/TutorialDiagConfig.yaml ${MaCh3Tutorial_ROOT}/umbrella/umbrellafile0.root NoUmbrellaWeight ${MaCh3Tutorial_ROOT}/umbrella_output.root UmbrellaWeight
+
+  # Testing of ReweightMCMC
+  ${MaCh3_ROOT}/bin/ReweightMCMC ${MaCh3Tutorial_ROOT}/TutorialConfigs/ReweightingConfigs/PDG_2023_1D.yaml ${MaCh3Tutorial_ROOT}/umbrella_output.root
+  ${MaCh3_ROOT}/bin/ProcessMCMC ${MaCh3Tutorial_ROOT}/bin/TutorialDiagConfig.yaml umbrella_output_reweighted_PDG_2023_1D.root
 }
 
 run_CLI_validations() {
