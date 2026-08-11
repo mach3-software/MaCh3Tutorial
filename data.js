@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1786432938011,
+  "lastUpdate": 1786435896219,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -32790,6 +32790,79 @@ window.BENCHMARK_DATA = {
             "name": "Non-Uniform BinningHandler",
             "value": 9.18653,
             "range": "± 500.524",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "0b756f4b0cd0bd2e9a43327bbe206dfaf54d98e8",
+          "message": "Merge pull request #1012 from mach3-software/kskwarczynski/bugfix/preidctive\n\nbugfix: Calculate integral before scaling to get correct values",
+          "timestamp": "2026-08-11T09:05:05+01:00",
+          "tree_id": "dec16b8c94a8e2dd9eb47e0ae53d0c8b57b3a551",
+          "url": "https://github.com/mach3-software/MaCh3/commit/0b756f4b0cd0bd2e9a43327bbe206dfaf54d98e8"
+        },
+        "date": 1786435892246,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 3.12157,
+            "range": "± 68.0693",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 3.00576,
+            "range": "± 60.4059",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 341.875,
+            "range": "± 6.02265",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ND Reweight",
+            "value": 308.889,
+            "range": "± 51.7646",
+            "unit": "us",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ParameterHandler Operations",
+            "value": 3.02962,
+            "range": "± 280.091",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Uniform BinningHandler 100k events",
+            "value": 8.65869,
+            "range": "± 31.3655",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Non-Uniform BinningHandler",
+            "value": 9.0083,
+            "range": "± 31.2479",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
