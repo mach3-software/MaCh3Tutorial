@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1786447878559,
+  "lastUpdate": 1786459937831,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -32936,6 +32936,79 @@ window.BENCHMARK_DATA = {
             "name": "Non-Uniform BinningHandler",
             "value": 9.02036,
             "range": "± 92.2638",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "3dc2c7d15be15dc59f436a2d88ba1edb220ec1e0",
+          "message": "Merge pull request #1009 from mach3-software/kskwarczynski/tidy/rhat\n\ntidy: Rhat calculator now uses MCMC processor",
+          "timestamp": "2026-08-11T15:45:50+01:00",
+          "tree_id": "8cbde0aa0d999aa83f57810e92b8ef7069c939c3",
+          "url": "https://github.com/mach3-software/MaCh3/commit/3dc2c7d15be15dc59f436a2d88ba1edb220ec1e0"
+        },
+        "date": 1786459934084,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 3.11748,
+            "range": "± 61.3931",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 3.07328,
+            "range": "± 411.686",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 338.381,
+            "range": "± 6.23371",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ND Reweight",
+            "value": 297.166,
+            "range": "± 24.331",
+            "unit": "us",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ParameterHandler Operations",
+            "value": 1.84145,
+            "range": "± 986.288",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Uniform BinningHandler 100k events",
+            "value": 8.66421,
+            "range": "± 21.7243",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Non-Uniform BinningHandler",
+            "value": 9.00959,
+            "range": "± 31.311",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
