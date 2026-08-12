@@ -8,7 +8,6 @@ foreach(app
     SamplePDFValidations
     NuMCMCconversion
     NuOscillatorInterfaceValidations
-    pValueValidations
     SigmaVarValidation
     LLHValidation
     PredictiveValidations
