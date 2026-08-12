@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1786527943126,
+  "lastUpdate": 1786546892844,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -33082,6 +33082,79 @@ window.BENCHMARK_DATA = {
             "name": "Non-Uniform BinningHandler",
             "value": 9.02288,
             "range": "± 30.4169",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "0311f5942c6a327588d6c3faf8e56da6ab2f0b53",
+          "message": "Add id-token permission to TagDoxygen workflow",
+          "timestamp": "2026-08-12T15:54:50+01:00",
+          "tree_id": "bb9a1be92645cbc1d800535bb3ada2149bdb3494",
+          "url": "https://github.com/mach3-software/MaCh3/commit/0311f5942c6a327588d6c3faf8e56da6ab2f0b53"
+        },
+        "date": 1786546887290,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.50848,
+            "range": "± 109.864",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.4174,
+            "range": "± 91.5649",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 320.121,
+            "range": "± 7.2806",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ND Reweight",
+            "value": 233.586,
+            "range": "± 22.278",
+            "unit": "us",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ParameterHandler Operations",
+            "value": 2.32509,
+            "range": "± 134.096",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Uniform BinningHandler 100k events",
+            "value": 8.03514,
+            "range": "± 180.446",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Non-Uniform BinningHandler",
+            "value": 8.43404,
+            "range": "± 195.348",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
