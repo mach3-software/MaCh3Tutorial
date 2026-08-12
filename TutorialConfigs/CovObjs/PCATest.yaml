@@ -29,8 +29,7 @@ Systematics:
       Generated: 1
       PreFitValue: 1
       PostND: 1.05
-    StepScale:
-      MCMC: 7.5
+    StepScale: 7.5
     Type: Norm
 
 - Systematic:
@@ -60,8 +59,7 @@ Systematics:
       Generated: 1
       PreFitValue: 1
       PostND: 1.05
-    StepScale:
-      MCMC: 7.5
+    StepScale: 7.5
     Type: Norm
 
 - Systematic:
@@ -91,8 +89,7 @@ Systematics:
       Generated: 1
       PreFitValue: 1
       PostND: 1.05
-    StepScale:
-      MCMC: 7.5
+    StepScale: 7.5
     Type: Norm
 
 - Systematic:
@@ -122,8 +119,7 @@ Systematics:
       Generated: 1
       PreFitValue: 1
       PostND: 1.05
-    StepScale:
-      MCMC: 7.5
+    StepScale: 7.5
     Type: Norm
 
 - Systematic:
@@ -153,8 +149,7 @@ Systematics:
       Generated: 1
       PreFitValue: 1
       PostND: 1.05
-    StepScale:
-      MCMC: 7.5
+    StepScale: 7.5
     Type: Norm
 
 - Systematic:
@@ -184,8 +179,7 @@ Systematics:
       Generated: 1
       PreFitValue: 1
       PostND: 1.05
-    StepScale:
-      MCMC: 7.5
+    StepScale: 7.5
     Type: Norm
 
 - Systematic:
@@ -215,8 +209,7 @@ Systematics:
       Generated: 1
       PreFitValue: 1
       PostND: 1.05
-    StepScale:
-      MCMC: 7.5
+    StepScale: 7.5
     Type: Norm
 
 - Systematic:
@@ -245,8 +238,7 @@ Systematics:
       Generated: 1
       PreFitValue: 1
       PostND: 1.05
-    StepScale:
-      MCMC: 7.5
+    StepScale: 7.5
     Type: Norm
 
 - Systematic:
@@ -275,8 +267,7 @@ Systematics:
       Generated: 1
       PreFitValue: 1
       PostND: 1.05
-    StepScale:
-      MCMC: 7.5
+    StepScale: 7.5
     Type: Norm
 
 - Systematic:
@@ -306,6 +297,5 @@ Systematics:
       Generated: 1
       PreFitValue: 1
       PostND: 1.05
-    StepScale:
-      MCMC: 7.5
+    StepScale: 7.5
     Type: Norm
