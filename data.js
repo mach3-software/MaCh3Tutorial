@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1786546892844,
+  "lastUpdate": 1786631839122,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -33155,6 +33155,79 @@ window.BENCHMARK_DATA = {
             "name": "Non-Uniform BinningHandler",
             "value": 8.43404,
             "range": "± 195.348",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "43858329+Charlotte-Knight@users.noreply.github.com",
+            "name": "Charlotte Knight",
+            "username": "Charlotte-Knight"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "ee0c551e9f73d3ad9eff9e38f9be5844cf504901",
+          "message": "feat: add parameter flip groups (#1023)\n\n* add flip parameter groups\n\n* remove commented-out code\n\n---------\n\nCo-authored-by: Charlotte Knight <mdk16@ic.ac.uk>",
+          "timestamp": "2026-08-13T15:30:03+01:00",
+          "tree_id": "7beee29fb106ba2dbc694aab0c65b2a066de5359",
+          "url": "https://github.com/mach3-software/MaCh3/commit/ee0c551e9f73d3ad9eff9e38f9be5844cf504901"
+        },
+        "date": 1786631823328,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 3.88995,
+            "range": "± 4.03507",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.95869,
+            "range": "± 264.057",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 378.631,
+            "range": "± 5.14636",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ND Reweight",
+            "value": 307.507,
+            "range": "± 33.0608",
+            "unit": "us",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ParameterHandler Operations",
+            "value": 2.00002,
+            "range": "± 799.508",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Uniform BinningHandler 100k events",
+            "value": 7.89365,
+            "range": "± 33.4337",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Non-Uniform BinningHandler",
+            "value": 8.23604,
+            "range": "± 37.5598",
             "unit": "ms",
             "extra": "100 samples\n1 iterations"
           }
