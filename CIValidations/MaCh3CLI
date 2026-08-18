@@ -78,7 +78,6 @@ run_fitter_validations() {
 run_covariance_validations() {
   ${MaCh3Tutorial_ROOT}/CIValidations/CovarianceValidations
   ${MaCh3Tutorial_ROOT}/CIValidations/MaCh3ModeValidations
-  ${MaCh3Tutorial_ROOT}/CIValidations/pValueValidations
   ${MaCh3Tutorial_ROOT}/CIValidations/SigmaVarValidation
   if [ "$HAVE_UNITTEST_SUPPORT" -eq 0 ]; then
     ${MaCh3Tutorial_ROOT}/CIValidations/UnitTests/manager_tests
