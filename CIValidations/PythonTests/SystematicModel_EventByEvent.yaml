@@ -16,9 +16,8 @@ Systematics:
       Mode: [0]
       InterpolationType: TSpline3
       SplineName: Spline_0
-    DetID: 985
-    StepScale:
-      MCMC: 0.4
+    SampleNames: ["*"]
+    StepScale: 0.4
     Type: Spline
 
 - Systematic:
@@ -37,7 +36,6 @@ Systematics:
       Mode: [9]
       InterpolationType: Linear
       SplineName: Spline_1
-    DetID: 985
-    StepScale:
-      MCMC: 0.2
+    SampleNames: ["*"]
+    StepScale: 0.2
     Type: Spline
