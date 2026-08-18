@@ -9,13 +9,12 @@ BinnedSplineTutorial::~BinnedSplineTutorial() {
 }
 
 std::vector<std::string> BinnedSplineTutorial::GetTokensFromSplineName(const std::string& FullSplineName) {
-  std::vector<std::string> ReturnVec(TokenOrdering::kNTokens);
+  std::vector<std::string> ReturnVec(5);
 
   TObjArray *tokens = TString(FullSplineName).Tokenize(".");
-  /*
-    A little hacky but lets us grab both old + new splines
-  */
-  if(tokens->GetEntries()!=7){
+
+  /// A little hacky but lets us grab both old + new splines
+  if(tokens->GetEntries() != 7){
     delete tokens;
     tokens = TString(FullSplineName).Tokenize("_");
   }
@@ -23,12 +22,12 @@ std::vector<std::string> BinnedSplineTutorial::GetTokensFromSplineName(const std
   ReturnVec[TokenOrdering::kSystToken] = (static_cast<TObjString*>(tokens->At(1)))->GetString();
   ReturnVec[TokenOrdering::kModeToken] = (static_cast<TObjString*>(tokens->At(2)))->GetString();
   // Skip 3 because it's "sp"
-  ReturnVec[TokenOrdering::kVar1BinToken] = (static_cast<TObjString*>(tokens->At(4)))->GetString();
-  ReturnVec[TokenOrdering::kVar2BinToken] = (static_cast<TObjString*>(tokens->At(5)))->GetString();
-  ReturnVec[TokenOrdering::kVar3BinToken] = "0";
+  ReturnVec[TokenOrdering::kVarBinToken + 0] = (static_cast<TObjString*>(tokens->At(4)))->GetString();
+  ReturnVec[TokenOrdering::kVarBinToken + 1] = (static_cast<TObjString*>(tokens->At(5)))->GetString();
+  ReturnVec[TokenOrdering::kVarBinToken + 2] = "0";
   
   if (tokens->GetEntries() == 7) {
-    ReturnVec[TokenOrdering::kVar3BinToken] = (static_cast<TObjString*>(tokens->At(6)))->GetString();
+    ReturnVec[TokenOrdering::kVarBinToken + 2] = (static_cast<TObjString*>(tokens->At(6)))->GetString();
   }
   tokens->Delete();
   delete tokens;

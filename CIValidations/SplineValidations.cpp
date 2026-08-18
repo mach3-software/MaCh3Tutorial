@@ -92,7 +92,7 @@ void SplineBinnedValidations(std::ostream& outFile){
   constexpr int ModeIndex = 0;
   std::vector<double> TrueEnu = {0.2, 0.4, 0.6, 0.8, 1.0};
   for (size_t iEnu = 0; iEnu < TrueEnu.size(); ++iEnu) {
-    auto EventSplines = SplineHandler->GetEventSplines("FHC_1Re", OscIndex, ModeIndex, TrueEnu[iEnu], TrueEnu[iEnu], 0.);
+    auto EventSplines = SplineHandler->GetEventSplines("FHC_1Re", OscIndex, ModeIndex, {TrueEnu[iEnu], TrueEnu[iEnu], 0.});
 
     for(size_t spline = 0; spline < EventSplines.size(); spline++) {
       //Event Splines indexed as: sample name, oscillation channel, syst, mode, etrue, var1, var2 (var2 is a dummy 0 for 1D splines)
