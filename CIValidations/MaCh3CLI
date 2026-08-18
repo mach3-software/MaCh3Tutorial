@@ -72,30 +72,30 @@ run_fitter_validations() {
   ${MaCh3_ROOT}/bin/ProcessMCMC ${MaCh3Tutorial_ROOT}/bin/TutorialDiagConfig.yaml MCMC_Test_reweighted_PDG_2023_1D.root
   ${MaCh3_ROOT}/bin/ProcessMCMC ${MaCh3Tutorial_ROOT}/bin/TutorialDiagConfig.yaml MCMC_Test.root Default MCMC_Test_reweighted_PDG_2023_1D.root Reweighted
   # Testing prior predictive
-  ./bin/PredictiveTutorial TutorialConfigs/FitterConfig.yaml General:OutputFile:PriorPredictiveOutputTest.root Predictive:PriorPredictive:True
+  ${MaCh3_ROOT}/bin/PredictiveTutorial TutorialConfigs/FitterConfig.yaml General:OutputFile:PriorPredictiveOutputTest.root Predictive:PriorPredictive:True
 }
 
 run_covariance_validations() {
-  ./CIValidations/CovarianceValidations
-  ./CIValidations/MaCh3ModeValidations
-  ./CIValidations/SigmaVarValidation
+  ${MaCh3Tutorial_ROOT}/CIValidations/CovarianceValidations
+  ${MaCh3Tutorial_ROOT}/CIValidations/MaCh3ModeValidations
+  ${MaCh3Tutorial_ROOT}/CIValidations/SigmaVarValidation
   if [ "$HAVE_UNITTEST_SUPPORT" -eq 0 ]; then
-    ./CIValidations/UnitTests/manager_tests
-    ./CIValidations/UnitTests/histogram_tests
-    ./CIValidations/UnitTests/statistical_tests
-    ./CIValidations/UnitTests/binning_parser_tests
+    ${MaCh3Tutorial_ROOT}/CIValidations/UnitTests/manager_tests
+    ${MaCh3Tutorial_ROOT}/CIValidations/UnitTests/histogram_tests
+    ${MaCh3Tutorial_ROOT}/CIValidations/UnitTests/statistical_tests
+    ${MaCh3Tutorial_ROOT}/CIValidations/UnitTests/binning_parser_tests
   fi
   ${MaCh3Tutorial_ROOT}/bin/LLHScanTutorial TutorialConfigs/FitterConfig.yaml
   ${MaCh3_ROOT}/bin/PlotLLH LLH_Test.root -s -g -l "blarb.root"
 }
 
 run_nu_mcmc_tools_validations() {
-  ./bin/MCMCTutorial TutorialConfigs/FitterConfig.yaml
-  ./CIValidations/NuMCMCconversion Test.root NewChain.root
+  ${MaCh3Tutorial_ROOT}/bin/MCMCTutorial TutorialConfigs/FitterConfig.yaml
+  ${MaCh3Tutorial_ROOT}/CIValidations/NuMCMCconversion Test.root NewChain.root
   pip install -r NuMCMCTools/requirements.txt
   export PYTHONPATH="$PYTHONPATH:${MaCh3Tutorial_ROOT}/NuMCMCTools"
   cp NewChain.root CIValidations/NewChain.root
-  python3 CIValidations/TestNuMCMC.py
+  python3 ${MaCh3Tutorial_ROOT}/CIValidations/TestNuMCMC.py
 }
 
 run_nudock_validations() {
@@ -122,6 +122,12 @@ run_multicanoical_validations() {
 
   ${MaCh3Tutorial_ROOT}/bin/UmbrellaSolver ${MaCh3Tutorial_ROOT}/bin/TutorialDiagConfig.yaml
   ${MaCh3Tutorial_ROOT}/bin/UmbrellaPlotting ${MaCh3Tutorial_ROOT}/umbrella_output.root ${MaCh3Tutorial_ROOT}/outputs/plotting/
+  # Basic MCMC processor test
+  ${MaCh3_ROOT}/bin/ProcessMCMC ${MaCh3Tutorial_ROOT}/bin/TutorialDiagConfig.yaml ${MaCh3Tutorial_ROOT}/umbrella/umbrellafile0.root NoUmbrellaWeight ${MaCh3Tutorial_ROOT}/umbrella_output.root UmbrellaWeight
+
+  # Testing of ReweightMCMC
+  ${MaCh3_ROOT}/bin/ReweightMCMC ${MaCh3Tutorial_ROOT}/TutorialConfigs/ReweightingConfigs/PDG_2023_1D.yaml ${MaCh3Tutorial_ROOT}/umbrella_output.root
+  ${MaCh3_ROOT}/bin/ProcessMCMC ${MaCh3Tutorial_ROOT}/bin/TutorialDiagConfig.yaml umbrella_output_reweighted_PDG_2023_1D.root
 }
 
 run_CLI_validations() {
