@@ -113,3 +113,7 @@ PrettyNames:
 BinWidthScaleFactor:
     RecoNeutrinoEnergy: 10
     TrueQ2: 100
+
+#########################################
+HistogramRange:
+    RecoNeutrinoEnergy: [0, 6]
