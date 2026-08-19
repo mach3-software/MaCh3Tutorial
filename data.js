@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1787161599005,
+  "lastUpdate": 1787162127264,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -33613,6 +33613,58 @@ window.BENCHMARK_DATA = {
             "name": "ND Reweight",
             "value": 293.344,
             "range": "± 25.2064",
+            "unit": "us",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "1c1c29c70bcf0bcc13b98b6ad850c6ec0b922f56",
+          "message": "Merge pull request #1030 from mach3-software/kskwarczynski/feat/histRange\n\nfeat: Add ability to set histogram range via style config",
+          "timestamp": "2026-08-19T19:48:33+02:00",
+          "tree_id": "7d1b44f7599274d7dc700e4c7138a7a09cbf22fd",
+          "url": "https://github.com/mach3-software/MaCh3/commit/1c1c29c70bcf0bcc13b98b6ad850c6ec0b922f56"
+        },
+        "date": 1787162095420,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 3.06551,
+            "range": "± 80.6795",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.98702,
+            "range": "± 86.9607",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 444.637,
+            "range": "± 3.20499",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ND Reweight",
+            "value": 338.221,
+            "range": "± 43.2469",
             "unit": "us",
             "extra": "100 samples\n1 iterations"
           }
