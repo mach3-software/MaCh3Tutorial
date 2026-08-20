@@ -43,7 +43,7 @@ int main() {
                                           "dm2_12", "dm2_23", "delta_cp", "path_length",
                                           "matter_density", "electron_density"};
   for (size_t i = 0; i < OscParNames.size(); ++i) {
-    Oscillator->DefineParameter(OscParNames[i], &OscParProp[i]);
+    osc->DefineParameter(OscParNames[i], &OscParProp[i]);
   }
 
   osc->CalculateProbabilities();
