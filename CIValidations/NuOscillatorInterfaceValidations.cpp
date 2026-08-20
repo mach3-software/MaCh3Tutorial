@@ -25,6 +25,15 @@ int main() {
   auto osc = OscillatorFactory().CreateOscillator(
       "NuOscillatorInterfaceValidations.yml");
 
+  std::vector<FLOAT_T> OscParProp = {0.3, 0.5, 0.020, 7.53e-5,
+                                     2.494e-3, 0.0, 1300,  2.6, 0.5};
+  std::vector<std::string> OscParNames = {"sin2_th12", "sin2_th23", "sin2_th13",
+                                          "dm2_12", "dm2_23", "delta_cp", "path_length",
+                                          "matter_density", "electron_density"};
+  for (size_t i = 0; i < OscParNames.size(); ++i) {
+    osc->DefineParameter(OscParNames[i], &OscParProp[i]);
+  }
+
   std::vector<FLOAT_T> Energies;
   double start = -3;
   double end = 3;
@@ -34,18 +43,9 @@ int main() {
     double epower = start + i * lbw;
     Energies.push_back(std::pow(10.0, epower));
   }
+
   osc->SetEnergyArrayInCalcer(Energies);
   osc->Setup();
-
-  std::vector<FLOAT_T> OscParProp = {0.3, 0.5, 0.020, 7.53e-5,
-                                    2.494e-3, 0.0, 1300,  2.6, 0.5};
-  std::vector<std::string> OscParNames = {"sin2_th12", "sin2_th23", "sin2_th13",
-                                          "dm2_12", "dm2_23", "delta_cp", "path_length",
-                                          "matter_density", "electron_density"};
-  for (size_t i = 0; i < OscParNames.size(); ++i) {
-    osc->DefineParameter(OscParNames[i], &OscParProp[i]);
-  }
-
   osc->CalculateProbabilities();
   std::ofstream outFile("NewNuOscOut.txt");
 
