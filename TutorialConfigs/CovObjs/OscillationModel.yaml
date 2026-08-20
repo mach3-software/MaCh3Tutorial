@@ -1,7 +1,4 @@
 Systematics:
-
-#WARNING !!!
-#osc covariance require particular order of osc parameters, do not change order of dials here
 - Systematic:
     Names:
       FancyName: sin2th_12
@@ -18,6 +15,7 @@ Systematics:
       PostND: 0.307
     StepScale: 0.9
     Type: Oscillation
+    NuOscName: "sin2_th12"
 
 - Systematic:
     Names:
@@ -39,6 +37,7 @@ Systematics:
       PostND: 0.546
     StepScale: 0.9
     Type: Oscillation
+    NuOscName: "sin2_th23"
 
 - Systematic:
     Names:
@@ -56,6 +55,7 @@ Systematics:
       PostND: 0.0220
     StepScale: 5.0
     Type: Oscillation
+    NuOscName: "sin2_th13"
 
 - Systematic:
     Names:
@@ -73,6 +73,7 @@ Systematics:
       PostND: 0.0000753
     StepScale: 0.9
     Type: Oscillation
+    NuOscName: "dm2_12"
 
 - Systematic:
     Names:
@@ -92,6 +93,7 @@ Systematics:
       PostND: 0.002536
     StepScale: 0.9
     Type: Oscillation
+    NuOscName: "dm2_23"
 
 - Systematic:
     Names:
@@ -112,6 +114,7 @@ Systematics:
       PostND: -1.601
     StepScale: 0.9
     Type: Oscillation
+    NuOscName: "delta_cp"
 
 - Systematic:
     Names:
@@ -129,6 +132,7 @@ Systematics:
       PostND: 295
     StepScale: 0.9
     Type: Oscillation
+    NuOscName: "path_length"
 
 - Systematic:
     Names:
@@ -146,6 +150,7 @@ Systematics:
       PostND: 2.6
     StepScale: 0.9
     Type: Oscillation
+    NuOscName: "matter_density"
 
 - Systematic:
     Names:
@@ -163,6 +168,7 @@ Systematics:
       PostND: 0.5
     StepScale: 0.9
     Type: Oscillation
+    NuOscName: "electron_density"
 
 - Systematic:
     Names:
@@ -180,3 +186,4 @@ Systematics:
       PostND: 15
     StepScale: 0.9
     Type: Oscillation
+    NuOscName: "production_height"

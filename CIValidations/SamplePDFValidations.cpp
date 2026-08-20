@@ -15,8 +15,18 @@ void SharedNuOscTest(const std::string& config, ParameterHandlerGeneric* xsec) {
     throw MaCh3Exception(__FILE__ , __LINE__ );
   }
   std::string OscillatorConfig = std::string(std::getenv("MaCh3Tutorial_ROOT")) + "/TutorialConfigs/NuOscillator/CUDAProb3.yaml";
+
+  // get osc params for sample 0, later we check all have same number
   auto OscParams = xsec->GetOscParsFromSampleName("Tutorial_ATM");
-  auto OscillatorObj = std::make_shared<OscillationHandler>(OscillatorConfig, true, OscParams, 6);
+
+  std::vector<const M3::float_t*> OscParamsValues(OscParams.size());
+  std::vector<std::string> NuOscName(OscParams.size());
+  for(size_t ij = 0; ij < OscParams.size(); ij++){
+    OscParamsValues[ij] = xsec->RetPointer(OscParams[ij].index);
+    NuOscName[ij] = OscParams[ij].NuOscName;
+  }
+
+  auto OscillatorObj = std::make_shared<OscillationHandler>(OscillatorConfig, true, OscParamsValues, NuOscName, 6);
 
   auto Sample1 = std::make_unique<SampleHandlerTutorial>(config, xsec, OscillatorObj);
   auto Sample2 = std::make_unique<SampleHandlerTutorial>(config, xsec, OscillatorObj);
