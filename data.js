@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1787326490805,
+  "lastUpdate": 1787328385982,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -33821,6 +33821,58 @@ window.BENCHMARK_DATA = {
             "name": "ND Reweight",
             "value": 312.19,
             "range": "± 62.2785",
+            "unit": "us",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "25d2b6cb35a929d34ef63b49f0569e8c13e5741b",
+          "message": "Merge pull request #1032 from mach3-software/kskwarczynski/tidy/splineinheritance\n\ntidy: Use TH1 inheritance when grabbing TAxis in Spline Code",
+          "timestamp": "2026-08-21T17:59:50+02:00",
+          "tree_id": "ea3d387479189a62e887f3477fc3eec90f1433f6",
+          "url": "https://github.com/mach3-software/MaCh3/commit/25d2b6cb35a929d34ef63b49f0569e8c13e5741b"
+        },
+        "date": 1787328382228,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 3.40454,
+            "range": "± 54.9326",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 3.31343,
+            "range": "± 99.6936",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 338.916,
+            "range": "± 6.71598",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ND Reweight",
+            "value": 322.038,
+            "range": "± 99.2402",
             "unit": "us",
             "extra": "100 samples\n1 iterations"
           }
