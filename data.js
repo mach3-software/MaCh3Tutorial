@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1787226954871,
+  "lastUpdate": 1787326490805,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -33769,6 +33769,58 @@ window.BENCHMARK_DATA = {
             "name": "ND Reweight",
             "value": 207.446,
             "range": "± 34.7971",
+            "unit": "us",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "f07dab933349b1c270c09078df68fc038ccf8afd",
+          "message": "Merge pull request #1035 from mach3-software/hhua/feature/nudock_bump_v002\n\nFeat: Update NuDock GIT_TAG to v0.0.2-mach3",
+          "timestamp": "2026-08-21T17:28:00+02:00",
+          "tree_id": "f94e3b4c6122e8becdc1c9965f161297bf2ce753",
+          "url": "https://github.com/mach3-software/MaCh3/commit/f07dab933349b1c270c09078df68fc038ccf8afd"
+        },
+        "date": 1787326485704,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 3.05471,
+            "range": "± 102.37",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.99036,
+            "range": "± 96.73",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 382.888,
+            "range": "± 6.81217",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ND Reweight",
+            "value": 312.19,
+            "range": "± 62.2785",
             "unit": "us",
             "extra": "100 samples\n1 iterations"
           }
