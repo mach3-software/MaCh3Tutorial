@@ -1,12 +1,14 @@
 #include <iostream>
 
+#include "Fitters/Algorithms/MaCh3Factory.h"
+_MaCh3_Safe_Include_Start_ //{
+// ROOT includes
 #include "TChain.h"
 #include "TFile.h"
 #include "TTree.h"
 #include "TNamed.h"
 #include "TObjString.h"
-
-#include "Fitters/MaCh3Factory.h"
+_MaCh3_Safe_Include_End_ //}
 
 int main(int argc, char *argv[])
 {

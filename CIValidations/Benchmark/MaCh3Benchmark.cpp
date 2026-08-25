@@ -1,10 +1,10 @@
 // MaCh3 spline includes
-#include "Fitters/MaCh3Factory.h"
+#include "Fitters/Algorithms/MaCh3Factory.h"
 #include "SamplesTutorial/SampleHandlerTutorial.h"
-
+_MaCh3_Safe_Include_Start_ //{
 #include "catch2/catch_test_macros.hpp"
 #include "catch2/benchmark/catch_benchmark.hpp"
-
+_MaCh3_Safe_Include_End_ //}
 void CreateChungusYaml(const std::string& filename = "ChungusSystematics.yaml",
                        size_t nParams = 5000)
 {

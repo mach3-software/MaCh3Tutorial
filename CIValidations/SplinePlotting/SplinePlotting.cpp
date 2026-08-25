@@ -1,10 +1,11 @@
 #include "Samples/SampleHandlerBase.h"
 #include "Splines/BinnedSplineHandler.h"
+_MaCh3_Safe_Include_Start_ //{
 #include "TSpline.h"
 #include "TCanvas.h"
 #include "TLegend.h"
 #include "TColor.h"
-
+_MaCh3_Safe_Include_End_ //}
 struct KnotSet {
   std::vector<double> x;
   std::vector<double> y;

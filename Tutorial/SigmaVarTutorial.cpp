@@ -1,5 +1,5 @@
 // MaCh3 spline includes
-#include "Fitters/MaCh3Factory.h"
+#include "Fitters/Algorithms/MaCh3Factory.h"
 #include "SamplesTutorial/SampleHandlerTutorial.h"
 
 int main(int argc, char *argv[]){
