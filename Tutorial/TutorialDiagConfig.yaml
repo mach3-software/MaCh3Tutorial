@@ -161,7 +161,7 @@ MatrixPlotter:
 
 #########################################
 SmearChain:
-  Smear: [ ["delm2_23", "delta_cp"], [2.70e-5, 0.01]]
+  Smear: [ ["delm2_23", "sin2th_23"], [2.70e-5, 0.001]]
   SaveUnsmearedBranch: false
 
 
