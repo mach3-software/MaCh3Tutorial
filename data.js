@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1787840142932,
+  "lastUpdate": 1788339675624,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -34289,6 +34289,58 @@ window.BENCHMARK_DATA = {
             "name": "ND Reweight",
             "value": 231.136,
             "range": "± 18.7795",
+            "unit": "us",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "55c94c2a50849b5f5f10e99cdbbb6acde9040025",
+          "message": "Merge pull request #1045 from mach3-software/kskwarczynski/feat/smaer\n\nfeat: Smearing sanitizer for circualr prior",
+          "timestamp": "2026-09-02T10:54:50+02:00",
+          "tree_id": "be3b86ed8ab423e9350e944bd6fc2e2290022810",
+          "url": "https://github.com/mach3-software/MaCh3/commit/55c94c2a50849b5f5f10e99cdbbb6acde9040025"
+        },
+        "date": 1788339672110,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 3.04734,
+            "range": "± 99.9097",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.96402,
+            "range": "± 119.71",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 381.745,
+            "range": "± 4.61075",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ND Reweight",
+            "value": 301.849,
+            "range": "± 31.2765",
             "unit": "us",
             "extra": "100 samples\n1 iterations"
           }
