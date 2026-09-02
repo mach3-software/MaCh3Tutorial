@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1788344319961,
+  "lastUpdate": 1788346523768,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -34549,6 +34549,58 @@ window.BENCHMARK_DATA = {
             "name": "ND Reweight",
             "value": 291.506,
             "range": "± 20.7807",
+            "unit": "us",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "7b4a3fee24c2e5a59ab4f17a76e6a0a8277cd7e0",
+          "message": "Merge pull request #1034 from mach3-software/kskwarczynski/feat/GPUbinnedSplines\n\nfeat: GPU Binned spline calclaution",
+          "timestamp": "2026-09-02T12:48:52+02:00",
+          "tree_id": "278791a9f72802bb6585c166d51639e6595fd478",
+          "url": "https://github.com/mach3-software/MaCh3/commit/7b4a3fee24c2e5a59ab4f17a76e6a0a8277cd7e0"
+        },
+        "date": 1788346520203,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 3.09981,
+            "range": "± 125.121",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 3.027,
+            "range": "± 154.41",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 391.329,
+            "range": "± 7.29344",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ND Reweight",
+            "value": 321.952,
+            "range": "± 61.889",
             "unit": "us",
             "extra": "100 samples\n1 iterations"
           }
