@@ -1,6 +1,6 @@
 // MaCh3 includes
 #include "Manager/Manager.h"
-#include "Fitters/MaCh3Factory.h"
+#include "Fitters/Algorithms/MaCh3Factory.h"
 
 #include "NuDock/NuDockFactory.h"
 #include "NuDock/NuDockServerBase.h"
