@@ -1,5 +1,5 @@
 // MaCh3 spline includes
-#include "Fitters/Algorithms/MaCh3Factory.h"
+#include "Algorithms/MaCh3Factory.h"
 #include "SamplesTutorial/SampleHandlerTutorial.h"
 _MaCh3_Safe_Include_Start_ //{
 #include "catch2/catch_test_macros.hpp"

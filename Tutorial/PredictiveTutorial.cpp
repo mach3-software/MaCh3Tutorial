@@ -1,6 +1,6 @@
 // MaCh3 includes
-#include "Fitters/Algorithms/MaCh3Factory.h"
-#include "Fitters/Algorithms/PredictiveThrower.h"
+#include "Algorithms/MaCh3Factory.h"
+#include "Algorithms/PredictiveThrower.h"
 #include "SamplesTutorial/SampleHandlerTutorial.h"
 
 int main(int argc, char *argv[]) {

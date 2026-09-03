@@ -1,5 +1,5 @@
 // MaCh3 includes
-#include "Fitters/Algorithms/MaCh3Factory.h"
+#include "Algorithms/MaCh3Factory.h"
 #include "SamplesTutorial/SampleHandlerTutorial.h"
 
 struct PlotKinematicCut {
