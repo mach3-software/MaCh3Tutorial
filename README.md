@@ -766,6 +766,15 @@ It is possible to compare several LLH scan files simply by adding more files as 
 ./bin/PlotLLH LLH_Test.root LLH_Test_2.root
 ```
 
+An estimate of the optimal step scale for each parameter can be made using the LLH scan. If many parameters step scale need to be updated, this is a good initial step.
+
+To return an updated covariance matrix with the new step scales, you can run as:
+```bash
+./bin/GetStepScaleLLHScanTutorial TutorialConfigs/FitterConfig.yaml
+```
+Optionally if you have an existing file with the LLH scans, you can avoid re-running this step by including the file as an additional argument.
+
+
 ### Sigma Variations
 Sigma Variations are conceptually similar to the LLH scan, where we vary individual parameters and reweight the MC correspondingly, however here instead of looking at how the LLH changes, the focus is actually on how the sample spectra themselves respond to the parameter movements.
 
