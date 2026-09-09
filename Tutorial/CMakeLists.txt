@@ -2,6 +2,7 @@ add_custom_target(TutorialApps)
 
 foreach(app
     LLHScanTutorial
+    GetStepScaleLLHScanTutorial
     PredictiveTutorial
     SigmaVarTutorial
     KinemDistributionTutorial
