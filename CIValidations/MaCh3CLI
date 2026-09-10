@@ -112,7 +112,7 @@ run_multicanoical_validations() {
   mkdir -p ${MaCh3Tutorial_ROOT}/outputs/
   mkdir -p ${MaCh3Tutorial_ROOT}/outputs/plotting/
 
-  ${MaCh3Tutorial_ROOT}/bin/MCMCTutorial TutorialConfigs/FitterConfig.yaml -o General:MCMC:Multicanonical:Enabled:True -o General:OutputFile:umbrella/umbrellafile0.root
+  ${MaCh3Tutorial_ROOT}/bin/MCMCTutorial TutorialConfigs/FitterConfig.yaml -o General:MCMC:Multicanonical:Enabled:True -o General:OutputFile:umbrella/umbrellafile0.root -o General:Seed:10
 
   # Create umbrellafile1.root ... umbrellafile59.root
   for i in $(seq 1 59); do
