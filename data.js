@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1789052847316,
+  "lastUpdate": 1789056247429,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -34913,6 +34913,58 @@ window.BENCHMARK_DATA = {
             "name": "ND Reweight",
             "value": 309.875,
             "range": "± 51.6827",
+            "unit": "us",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "d.riley.1@research.gla.ac.uk",
+            "name": "daveriley",
+            "username": "DavidRiley12345"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "e7658c089ef12af57d5519853ad577e546155044",
+          "message": "Merge pull request #1060 from mach3-software/feature/functional-flip\n\nfeat: functional flip",
+          "timestamp": "2026-09-10T16:56:54+01:00",
+          "tree_id": "26a17efa17b415ac58ce4a04c43677b75a4cf308",
+          "url": "https://github.com/mach3-software/MaCh3/commit/e7658c089ef12af57d5519853ad577e546155044"
+        },
+        "date": 1789056243029,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 3.23142,
+            "range": "± 195.09",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 3.14751,
+            "range": "± 171.996",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 389.155,
+            "range": "± 7.29161",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ND Reweight",
+            "value": 323.705,
+            "range": "± 80.7303",
             "unit": "us",
             "extra": "100 samples\n1 iterations"
           }
