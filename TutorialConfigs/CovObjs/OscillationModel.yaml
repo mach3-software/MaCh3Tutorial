@@ -84,7 +84,12 @@ Systematics:
     Error: 0.000034
     FlatPrior: true
     SpecialProposal:
-        FlipParameter: 0.
+      #FlipParameter: 0. #standard delm23 flip
+      FunctionalFlip:
+        Enabled: true
+        Probability: 0.5
+        Parameters: ["delm2_12", "sin2th_12", "delta_cp", "sin2th_13", "sin2th_23"]
+        Formula: "-x - [0] * ([1] + cos([2]) * sqrt([3]) * tan(asin(sqrt([4]))) * sin(2 * asin(sqrt([1]))))"    
     ParameterBounds: [-999, 999]
     ParameterGroup: Osc
     ParameterValues:
