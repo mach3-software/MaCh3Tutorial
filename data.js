@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1789061950368,
+  "lastUpdate": 1789128836225,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -35121,6 +35121,58 @@ window.BENCHMARK_DATA = {
             "name": "ND Reweight",
             "value": 305.814,
             "range": "± 46.7655",
+            "unit": "us",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "2a7b58ce7929387447a6499f271916f61ec13fb9",
+          "message": "Merge pull request #1062 from mach3-software/kskwarczynski/tidy/xsec\n\ntidy: Further reduce legacy use of xsec keyword",
+          "timestamp": "2026-09-11T14:08:09+02:00",
+          "tree_id": "95c64d35ef08dab3c7a3e1541f3543839e48e7f3",
+          "url": "https://github.com/mach3-software/MaCh3/commit/2a7b58ce7929387447a6499f271916f61ec13fb9"
+        },
+        "date": 1789128831055,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.12414,
+            "range": "± 65.2335",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.05687,
+            "range": "± 70.0241",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 280.011,
+            "range": "± 3.93413",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ND Reweight",
+            "value": 208.624,
+            "range": "± 20.904",
             "unit": "us",
             "extra": "100 samples\n1 iterations"
           }
