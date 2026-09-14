@@ -153,6 +153,10 @@ and then re-running `MCMCTutorial`.
 > [!WARNING]
 > If you modified files in the main `MaCh3Tutorial` folder instead of `build`, you will have to call `make install` for the changes to propagate! Generally speaking, it is good practice to work from the `build` directory and make your config changes there so that local changes do not have to be tracked by git.
 
+To better understand how MCMC works:
+
+https://github.com/user-attachments/assets/49e6f7b1-eebc-41f1-ac5c-1c585c8b9b84
+
 ### Config Overrides
 Instead of changing the config file `TutorialConfigs/FitterConfig.yaml` above directly, you can instead dynamically override your configurations at the command line like this:
 ```bash
