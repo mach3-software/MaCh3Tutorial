@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1789128836225,
+  "lastUpdate": 1789488334053,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -35173,6 +35173,58 @@ window.BENCHMARK_DATA = {
             "name": "ND Reweight",
             "value": 208.624,
             "range": "± 20.904",
+            "unit": "us",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "bda18360efc1a33c1a05fd64367efc88ba153624",
+          "message": "Merge pull request #1063 from mach3-software/kskwarczynski/tidy/fancyAnimation\n\ntidy: add fancy animation to visualise MCMC",
+          "timestamp": "2026-09-15T17:58:42+02:00",
+          "tree_id": "2794d3ed661c2869120be25d9b1f0aa4b1847274",
+          "url": "https://github.com/mach3-software/MaCh3/commit/bda18360efc1a33c1a05fd64367efc88ba153624"
+        },
+        "date": 1789488330466,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 3.14252,
+            "range": "± 248.202",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 4.86329,
+            "range": "± 5.62015",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 388.559,
+            "range": "± 3.51992",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ND Reweight",
+            "value": 322.792,
+            "range": "± 60.9617",
             "unit": "us",
             "extra": "100 samples\n1 iterations"
           }
