@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1789488334053,
+  "lastUpdate": 1789489186073,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -35225,6 +35225,58 @@ window.BENCHMARK_DATA = {
             "name": "ND Reweight",
             "value": 322.792,
             "range": "± 60.9617",
+            "unit": "us",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "4983fcd1ade91de220cf216a42c209f700a0e43f",
+          "message": "forgot version bump",
+          "timestamp": "2026-09-15T17:15:02+01:00",
+          "tree_id": "ae18316177f9a839318fdc12aac55a3dba08304b",
+          "url": "https://github.com/mach3-software/MaCh3/commit/4983fcd1ade91de220cf216a42c209f700a0e43f"
+        },
+        "date": 1789489182831,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 1.81579,
+            "range": "± 66.6091",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 1.73563,
+            "range": "± 237.39",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 194.58,
+            "range": "± 7.25201",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ND Reweight",
+            "value": 186.227,
+            "range": "± 21.9042",
             "unit": "us",
             "extra": "100 samples\n1 iterations"
           }
