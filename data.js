@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1789489186073,
+  "lastUpdate": 1789987466577,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -35277,6 +35277,58 @@ window.BENCHMARK_DATA = {
             "name": "ND Reweight",
             "value": 186.227,
             "range": "± 21.9042",
+            "unit": "us",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "67589487+henry-wallace-phys@users.noreply.github.com",
+            "name": "Henry Wallace",
+            "username": "henry-wallace-phys"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "c4088581b4cf6ae74b3e19b3831556fa282c206d",
+          "message": "Merge pull request #1065 from mach3-software/kskwarczynski/bugfix/splines\n\nbugfix: Bined Spline indexing",
+          "timestamp": "2026-09-21T11:37:51+01:00",
+          "tree_id": "711ddd4db6d93f6dadacf47fca21d826bb580bfa",
+          "url": "https://github.com/mach3-software/MaCh3/commit/c4088581b4cf6ae74b3e19b3831556fa282c206d"
+        },
+        "date": 1789987463063,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 3.04396,
+            "range": "± 80.6155",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.95411,
+            "range": "± 73.2468",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 383.692,
+            "range": "± 6.73288",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ND Reweight",
+            "value": 311.367,
+            "range": "± 46.3486",
             "unit": "us",
             "extra": "100 samples\n1 iterations"
           }
