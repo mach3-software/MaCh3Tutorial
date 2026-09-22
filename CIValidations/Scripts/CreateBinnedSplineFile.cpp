@@ -32,7 +32,7 @@ void CreateBinnedSplineFile(){
     throw;
   }
 
-  TRandom3 Random = TRandom3(0);
+  TRandom3 Random = TRandom3(10);
 
   auto OutputFile = std::unique_ptr<TFile>(TFile::Open("BinnedSplinesTutorialInputs.root", "RECREATE"));
 
@@ -41,31 +41,35 @@ void CreateBinnedSplineFile(){
 
   for(auto iSyst = 0 ; iSyst < SystematicNames.size() ; ++iSyst){
     for(auto SystematicModeName : SystematicModeNames[iSyst]){
-      for(auto SystematicKnotNumber : SystematicKnots) {
-        for(auto TrueEnergyBin_i = 0 ; TrueEnergyBin_i < nTrueEnergyBins ; ++TrueEnergyBin_i){
-          for(auto XBin_i = 0 ; XBin_i < nXBins ; ++XBin_i){
-            for(auto YBin_i = 0 ; YBin_i < nYBins ; ++YBin_i){
-              double knot_w = 1;
-              TGraph *graph = new TGraph(SystematicKnotNumber);
+      for(auto TrueEnergyBin_i = 0 ; TrueEnergyBin_i < nTrueEnergyBins ; ++TrueEnergyBin_i){
+        for(auto XBin_i = 0 ; XBin_i < nXBins ; ++XBin_i){
+          for(auto YBin_i = 0 ; YBin_i < nYBins ; ++YBin_i){
+            auto SystematicKnotNumber = SystematicKnots[iSyst];
 
-              for(auto iKnot = 0 ; iKnot < SystematicKnotNumber ; ++iKnot) { 
-                //Check on if you are the nominal knot
-                if(iKnot != SystematicNominalKnot[iSyst]) {
-                  //Do a random throw from a gaussian 
-                  knot_w = Random.Gaus(SystematicMeanResponse[iSyst], 1.0);
-                  knot_w = std::max(0., knot_w);
-                  // std::cout << "Knot_w is " << knot_w << std::endl;
-                  //point number, x-val, y-val
-                }
-                graph->SetPoint(iKnot, iKnot, knot_w);
+            double knot_w = 1;
+            TGraph *graph = new TGraph(SystematicKnotNumber);
+
+            bool flatSpline = false;
+            if(TrueEnergyBins[TrueEnergyBin_i] > 2.1 && SystematicModeName == std::string("2p2h")) flatSpline = true;
+            for(auto iKnot = 0 ; iKnot < SystematicKnotNumber ; ++iKnot) {
+              //Check on if you are the nominal knot
+              if(iKnot != SystematicNominalKnot[iSyst]) {
+                //Do a random throw from a gaussian
+                knot_w = Random.Gaus(SystematicMeanResponse[iSyst], 1.0);
+                knot_w = std::max(0., knot_w);
+                if(flatSpline) knot_w = 1.;
+                // std::cout << "Knot_w is " << knot_w << std::endl;
+                //point number, x-val, y-val
               }
-              TSpline3 *Spline = new TSpline3(Form("dev.%s.%s.sp.%i.%i.%i", SystematicNames[iSyst].c_str(), SystematicModeName.c_str(), TrueEnergyBin_i, XBin_i, YBin_i),graph);
-              Spline->SetName(Form("dev.%s.%s.sp.%i.%i.%i", SystematicNames[iSyst].c_str(), SystematicModeName.c_str(), TrueEnergyBin_i, XBin_i, YBin_i));
-              //This makes things slow but removes many backup-cycles being saved to the file
-              Spline->Write(Spline->GetName(), TDirectoryFile::kOverwrite);
-              delete graph;
-              delete Spline;
+              graph->SetPoint(iKnot, iKnot, knot_w);
             }
+            TSpline3 *Spline = new TSpline3(Form("dev.%s.%s.sp.%i.%i.%i", SystematicNames[iSyst].c_str(), SystematicModeName.c_str(), TrueEnergyBin_i, XBin_i, YBin_i),graph);
+            Spline->SetName(Form("dev.%s.%s.sp.%i.%i.%i", SystematicNames[iSyst].c_str(), SystematicModeName.c_str(), TrueEnergyBin_i, XBin_i, YBin_i));
+            //This makes things slow but removes many backup-cycles being saved to the file
+            Spline->Write(Spline->GetName(), TDirectoryFile::kOverwrite);
+
+            delete graph;
+            delete Spline;
           }
         }
       }
