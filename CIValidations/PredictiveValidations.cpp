@@ -37,9 +37,27 @@ void PrepareConfig(const std::string& OriginalConfig) {
   configOut.close();
 }
 
+
+void pValueCheck(std::ostream& outFile, TDirectory* predictiveDir) {
+  std::vector<std::string> SampleNames = {"Tutorial_Beam", "Tutorial_ATM", "ND_CC0pi", "ND_CC1pip", "ND_CCPi0", "ND_NC0pi", "ND_NC1pi0", "Total"};
+
+  for (const auto& sampleName : SampleNames) {
+    TDirectory* sampleDir = static_cast<TDirectory*>(predictiveDir->Get(sampleName.c_str()));
+    if (!sampleDir) {
+      MACH3LOG_CRITICAL("Sample directory '{}' not found in 'Predictive'", sampleName);
+      throw MaCh3Exception(__FILE__, __LINE__);
+    }
+    auto histName = sampleName + "_predfluc_draw";
+    TH2D* hist_pvalue = dynamic_cast<TH2D*>(sampleDir->Get(histName.c_str()));
+    outFile << "Sample "<< sampleName<< " pvale " << hist_pvalue->GetTitle() << std::endl;
+  }
+}
+
+
 int main(int argc, char *argv[])
 {
   SetMaCh3LoggerFormat();
+  M3::rand::SetSeed(2137);
 
   if (argc != 1) {
     MACH3LOG_CRITICAL("You specified arguments, but none are needed. (Program name: {})", argv[0]);
@@ -52,7 +70,8 @@ int main(int argc, char *argv[])
   std::string tutorialPath = std::string(rootEnv);
 
   std::string command = tutorialPath + "/bin/PredictiveTutorial " +
-                        tutorialPath + "/mach3_temp_config.yaml";
+                        tutorialPath + "/mach3_temp_config.yaml General:Seed:2137";
+
   int ret = system(command.c_str());
   if (ret != 0) {
     MACH3LOG_WARN("Error: system call failed with code {}", ret);
@@ -143,6 +162,8 @@ int main(int argc, char *argv[])
       }
     }
   }
+
+  pValueCheck(outFile, predictiveDir);
 
   const char* MaCh3Env = std::getenv("MaCh3_ROOT");
   std::string MaCh3Path = std::string(MaCh3Env);

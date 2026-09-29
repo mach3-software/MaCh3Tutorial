@@ -236,6 +236,7 @@ void TestAdaptive(std::ostream& outFile,
 int main(int argc, char *argv[])
 {
   SetMaCh3LoggerFormat();
+  M3::rand::SetSeed(2137);
 
   if (argc != 1) {
     MACH3LOG_CRITICAL("You specified arguments, but none are needed. (Program name: {})", argv[0]);
@@ -265,6 +266,9 @@ int main(int argc, char *argv[])
       M3::Utils::PrintProgressBar(i, Ntoys);
     }
     xsec->ThrowParameters();
+  }
+  for (int i = 0; i < xsec->GetNumParams(); ++i) {
+    outFile << "Thrown param " << i << " is equal to "<< xsec->GetParCurr(i) << std::endl;
   }
   xsec->SetParameters(ParProp);
   xsec->AcceptStep();

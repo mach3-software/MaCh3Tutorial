@@ -39,6 +39,7 @@
 
 ## PredictiveValidations
 * Checking if Predictive Thrower produces same format and posterior predictive value and errors are identical using stored toys
+* Checking if pValue is always the same
 
 ## SplineValidations
 * Initialisation of SplineMonolith
