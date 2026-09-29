@@ -1,4 +1,4 @@
-# Welcome to MaCh3 Tutorial
+# Welcome to MaCh3 Tutorial <img src="https://github.com/user-attachments/assets/8a7f1536-73da-4a06-9050-47b70988e49d" alt="mach3_tutorial_logo" align="center" width="100"/>
 After this tutorial you should know how to run MCMC, implement systematic uncertainties, new samples, and how to plot standard Bayesian diagnostics.
 
 There are several standard parts of MaCh3 analysis like sample/systematic implementations, validations and plotting.
