@@ -236,6 +236,11 @@ void TestAdaptive(std::ostream& outFile,
 int main(int argc, char *argv[])
 {
   SetMaCh3LoggerFormat();
+  M3::rand::SetSeed(2137);
+  #ifdef MULTITHREAD
+  int oldThreads = omp_get_num_threads();
+  omp_set_num_threads(4);
+  #endif
 
   if (argc != 1) {
     MACH3LOG_CRITICAL("You specified arguments, but none are needed. (Program name: {})", argv[0]);
@@ -266,8 +271,13 @@ int main(int argc, char *argv[])
     }
     xsec->ThrowParameters();
   }
+
+  for (int i = 0; i < xsec->GetNumParams(); ++i) {
+    outFile << "Thrown param " << i << " is equal to "<< xsec->GetParCurr(i) << std::endl;
+  }
   xsec->SetParameters(ParProp);
   xsec->AcceptStep();
+
   ///// Test Params from DetId /////
   const std::vector<std::string> AffectedSamples = {"Tutorial_Beam", "Tutorial_ATM", "tutorial_beam", "blarb" "ATM"};
   for (size_t id = 0; id < AffectedSamples.size(); ++id)

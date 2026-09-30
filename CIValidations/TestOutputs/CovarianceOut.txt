@@ -1,4 +1,14 @@
 Likelihood Xsec=266.956
+Thrown param 0 is equal to 0.955297
+Thrown param 1 is equal to 0.934278
+Thrown param 2 is equal to 0.847934
+Thrown param 3 is equal to 1.3331
+Thrown param 4 is equal to 1.61124
+Thrown param 5 is equal to 1.33056
+Thrown param 6 is equal to 1.09364
+Thrown param 7 is equal to 1.54087
+Thrown param 8 is equal to -0.000381615
+Thrown param 9 is equal to 0.00454828
 Found 3 for Tutorial_Beam Params of type Norm
 Found 5 for Tutorial_Beam Params of type Spline
 Found 2 for Tutorial_Beam Params of type Functional

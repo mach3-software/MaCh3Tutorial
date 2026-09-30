@@ -989,3 +989,11 @@ Sample ND_NC0pi bin (14, 5) content: 0
 Sample ND_NC0pi bin (14, 5) error: 0
 Sample ND_NC0pi bin (14, 6) content: 0
 Sample ND_NC0pi bin (14, 6) error: 0
+Sample Tutorial_Beam pvale Tutorial_Beam_predfluc_draw_990/999=0.990991
+Sample Tutorial_ATM pvale Tutorial_ATM_predfluc_draw_937/999=0.937938
+Sample ND_CC0pi pvale ND_CC0pi_predfluc_draw_999/999=1
+Sample ND_CC1pip pvale ND_CC1pip_predfluc_draw_999/999=1
+Sample ND_CCPi0 pvale ND_CCPi0_predfluc_draw_999/999=1
+Sample ND_NC0pi pvale ND_NC0pi_predfluc_draw_999/999=1
+Sample ND_NC1pi0 pvale ND_NC1pi0_predfluc_draw_999/999=1
+Sample Total pvale Total_predfluc_draw_999/999=1
