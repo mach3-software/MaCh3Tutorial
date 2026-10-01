@@ -112,7 +112,7 @@ if(NOT MaCh3_FOUND)
     GITHUB_REPOSITORY mach3-software/MaCh3
     OPTIONS
       ${MaCh3_OPTIONS}
-      "Prob3ppLinear_ENABLED ON"
+      "Prob3pp_ENABLED ON"
       "NuFastLinear_ENABLED ON"
       "CUDAProb3_ENABLED ON"
   )
