@@ -9,7 +9,7 @@ Binned:
   CosineZAxisHistName: "CosineZAxisBinning"
 
 OscProbCalcerSetup:
-  ImplementationName: "Prob3ppLinear"
+  ImplementationName: "Prob3pp"
   OscChannelMapping:
     - Entry: "Electron:Electron"
     - Entry: "Electron:Muon"
