@@ -172,26 +172,21 @@ UmbrellaSolver:
   max_iterations: 200000
   tolerance: 1e-10
   print_frequency: 500
-  # Performance options
-  use_openmp: true
 
   dynamic_files: true
   dynamic_pattern: "umbrella/"
-  dynamic_n_windows: 60
+  dynamic_n_windows: 4
 
   # Output file
   output_file: "umbrella_output.root"
-
-  # Variable of interest (branch name)
-  variable_of_interest: "delta_cp"
 
   # Manual window configuration (if dynamic_files is false)
   windows:
     - name: "window_0"
       center: 0.0
       width: 0.04
-      
-    - name: "window_1" 
+
+    - name: "window_1"
       center: 0.17453292519943295
       width: 0.04
 
