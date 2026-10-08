@@ -112,13 +112,37 @@ run_multicanoical_validations() {
   mkdir -p ${MaCh3Tutorial_ROOT}/outputs/
   mkdir -p ${MaCh3Tutorial_ROOT}/outputs/plotting/
 
-  ${MaCh3Tutorial_ROOT}/bin/MCMCTutorial TutorialConfigs/FitterConfig.yaml -o General:MCMC:Multicanonical:Enabled:True -o General:OutputFile:umbrella/umbrellafile0.root -o General:Seed:10
+  ${MaCh3Tutorial_ROOT}/bin/MCMCTutorial \
+    TutorialConfigs/FitterConfig.yaml \
+    -o General:MCMC:Multicanonical:Enabled:True \
+    -o General:MCMC:Multicanonical:Umbrella:UmbrellaMean:-2.2 \
+    -o General:MCMC:Multicanonical:Umbrella:UmbrellaWidth:0.5 \
+    -o General:OutputFile:umbrella/umbrellafile0.root \
+    -o General:Seed:10
 
-  # Create umbrellafile1.root ... umbrellafile59.root
-  for i in $(seq 1 59); do
-    cp "${MaCh3Tutorial_ROOT}/umbrella/umbrellafile0.root" \
-       "${MaCh3Tutorial_ROOT}/umbrella/umbrellafile${i}.root"
-  done
+  ${MaCh3Tutorial_ROOT}/bin/MCMCTutorial \
+    TutorialConfigs/FitterConfig.yaml \
+    -o General:MCMC:Multicanonical:Enabled:True \
+    -o General:MCMC:Multicanonical:Umbrella:UmbrellaMean:-0.80 \
+    -o General:MCMC:Multicanonical:Umbrella:UmbrellaWidth:1.0 \
+    -o General:OutputFile:umbrella/umbrellafile1.root \
+    -o General:Seed:10
+
+  ${MaCh3Tutorial_ROOT}/bin/MCMCTutorial \
+    TutorialConfigs/FitterConfig.yaml \
+    -o General:MCMC:Multicanonical:Enabled:True \
+    -o General:MCMC:Multicanonical:Umbrella:UmbrellaMean:0.8 \
+    -o General:MCMC:Multicanonical:Umbrella:UmbrellaWidth:1.0 \
+    -o General:OutputFile:umbrella/umbrellafile2.root \
+    -o General:Seed:10
+
+  ${MaCh3Tutorial_ROOT}/bin/MCMCTutorial \
+    TutorialConfigs/FitterConfig.yaml \
+    -o General:MCMC:Multicanonical:Enabled:True \
+    -o General:MCMC:Multicanonical:Umbrella:UmbrellaMean:2.2 \
+    -o General:MCMC:Multicanonical:Umbrella:UmbrellaWidth:0.5 \
+    -o General:OutputFile:umbrella/umbrellafile3.root \
+    -o General:Seed:10
 
   ${MaCh3Tutorial_ROOT}/bin/UmbrellaSolver ${MaCh3Tutorial_ROOT}/bin/TutorialDiagConfig.yaml
   ${MaCh3Tutorial_ROOT}/bin/UmbrellaPlotting ${MaCh3Tutorial_ROOT}/umbrella_output.root ${MaCh3Tutorial_ROOT}/outputs/plotting/
