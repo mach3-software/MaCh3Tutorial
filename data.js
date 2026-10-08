@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1791462423610,
+  "lastUpdate": 1791474229337,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -36109,6 +36109,58 @@ window.BENCHMARK_DATA = {
             "name": "ND Reweight",
             "value": 173.869,
             "range": "± 28.6201",
+            "unit": "us",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "7528c6be85c82c626187f85a2449b382249ae536",
+          "message": "Merge pull request #1075 from mach3-software/kskwarczynski/feat/moreFelxibleUmbrella\n\nfeat: Umbrella for configurable variable",
+          "timestamp": "2026-10-08T17:37:33+02:00",
+          "tree_id": "3df27ea9bb2850444018b68b4b6004459fe64b2b",
+          "url": "https://github.com/mach3-software/MaCh3/commit/7528c6be85c82c626187f85a2449b382249ae536"
+        },
+        "date": 1791474228764,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.58615,
+            "range": "± 94.8408",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.43801,
+            "range": "± 119.513",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 285.543,
+            "range": "± 5.06856",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ND Reweight",
+            "value": 229.662,
+            "range": "± 28.1926",
             "unit": "us",
             "extra": "100 samples\n1 iterations"
           }
