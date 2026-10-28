@@ -1,6 +1,7 @@
 add_custom_target(ValidApps)
 
 foreach(app
+    SplineMaker
     SplineValidations
     FitterValidations
     CovarianceValidations

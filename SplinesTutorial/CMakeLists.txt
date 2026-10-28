@@ -1,8 +1,11 @@
-set(HEADERS ${CMAKE_CURRENT_SOURCE_DIR}/BinnedSplinesTutorial.h
+set(HEADERS
+    ${CMAKE_CURRENT_SOURCE_DIR}/BinnedSplinesTutorial.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/BinnedSplineMakerTutorial.h
 )
 
 add_library(BinnedSplinesTutorial SHARED
     BinnedSplinesTutorial.cpp
+    BinnedSplineMakerTutorial.cpp
 )
 
 set_target_properties(BinnedSplinesTutorial PROPERTIES
