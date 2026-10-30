@@ -100,6 +100,8 @@ Predictive:
   BurnInSteps: 1000
   # Name of file from which we are sampling
   PosteriorFile: "Test.root"
+  # Name of file with toys thrown from MCMC Chain
+  ToyFile: "PredictiveToys.root"
   # Allow to specify to throw/vary only params coming from single group like Xsec. Allow to evaluate errors coming from this group. Can't be mixed with throw single param
   ThrowParamGroupOnly: []
   # Allow to specify to throw/vary only params coming with specified names. Cannot be connected with ThrowParamGroupOnly
