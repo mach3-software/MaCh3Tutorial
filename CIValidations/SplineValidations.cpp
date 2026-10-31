@@ -46,6 +46,7 @@ void SplineMonolithValidations(std::ostream& outFile) {
     const auto* weightPtr = Splines->RetPointer(i);
     outFile << "Event " << i << " weight = " << *weightPtr << std::endl;
   }
+  outFile << " UnbinnedSpline: nParams = " << Splines->GetNParams() << std::endl;
 
 ////// Testing Pre Computed Spline
   MACH3LOG_INFO("Testing Spline Monolith with Flattened ROOT inputs");
@@ -64,6 +65,8 @@ void SplineMonolithValidations(std::ostream& outFile) {
     const auto* weightPtr = SplinesFlat->RetPointer(i);
     outFile << "(Flat) Event " << i << " weight = " << *weightPtr << std::endl;
   }
+  outFile << "Flat UnbinnedSpline: nParams = " << SplinesFlat->GetNParams() << std::endl;
+
 }
 
 void SplineBinnedValidations(std::ostream& outFile){
@@ -105,6 +108,7 @@ void SplineBinnedValidations(std::ostream& outFile){
   for(size_t iSpline = 0; iSpline < xsec_spline_pointers.size(); iSpline++) {
     outFile << "Binned Spline " << iSpline << " weight = " << *(xsec_spline_pointers[iSpline]) << std::endl;
   }
+  outFile << "Binned Spline nParams = " << SplineHandler->GetNParams() << std::endl;
 }
 
 int main(int argc, char *argv[])
