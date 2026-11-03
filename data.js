@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1793687990936,
+  "lastUpdate": 1793688136252,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -36525,6 +36525,58 @@ window.BENCHMARK_DATA = {
             "name": "ND Reweight",
             "value": 167.062,
             "range": "± 26.3192",
+            "unit": "us",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "919a66573f6c6f587a6198902ab4b1e1bbd8f4b8",
+          "message": "Merge pull request #1087 from mach3-software/dependabot/github_actions/dot-github/workflows/thehanimo/pr-title-checker-2.0.0\n\ntidy: bump thehanimo/pr-title-checker from 1.4.3 to 2.0.0 in /.github/workflows",
+          "timestamp": "2026-11-03T07:35:16+01:00",
+          "tree_id": "3232bb33868e7b57cfa0e461edeeaf2ab8b2b9bc",
+          "url": "https://github.com/mach3-software/MaCh3/commit/919a66573f6c6f587a6198902ab4b1e1bbd8f4b8"
+        },
+        "date": 1793688135878,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 3.09584,
+            "range": "± 79.4578",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 3.01008,
+            "range": "± 89.5729",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 385.978,
+            "range": "± 7.48538",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ND Reweight",
+            "value": 312.618,
+            "range": "± 36.6724",
             "unit": "us",
             "extra": "100 samples\n1 iterations"
           }
