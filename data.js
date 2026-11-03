@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1793631341745,
+  "lastUpdate": 1793687990936,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -36473,6 +36473,58 @@ window.BENCHMARK_DATA = {
             "name": "ND Reweight",
             "value": 327.094,
             "range": "± 47.7355",
+            "unit": "us",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "c94ad5bf01dd01b4001533fe9b3bcb19d06f09ce",
+          "message": "Merge pull request #1086 from mach3-software/dependabot/github_actions/dot-github/workflows/github/codeql-action/init-4.39.1\n\ntidy: bump github/codeql-action/init from 4.38.2 to 4.39.1 in /.github/workflows",
+          "timestamp": "2026-11-03T07:34:51+01:00",
+          "tree_id": "35b18580107f579fb126f8f716d0deafe07b18b0",
+          "url": "https://github.com/mach3-software/MaCh3/commit/c94ad5bf01dd01b4001533fe9b3bcb19d06f09ce"
+        },
+        "date": 1793687990369,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 1.89881,
+            "range": "± 99.4883",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 1.83203,
+            "range": "± 97.326",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 203.111,
+            "range": "± 4.53126",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ND Reweight",
+            "value": 167.062,
+            "range": "± 26.3192",
             "unit": "us",
             "extra": "100 samples\n1 iterations"
           }
