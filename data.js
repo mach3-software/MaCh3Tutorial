@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1793688136252,
+  "lastUpdate": 1793688170320,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -36577,6 +36577,58 @@ window.BENCHMARK_DATA = {
             "name": "ND Reweight",
             "value": 312.618,
             "range": "± 36.6724",
+            "unit": "us",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "b2e351823ba9a84d05797d61c2cfa0a307897e52",
+          "message": "Merge pull request #1088 from mach3-software/dependabot/github_actions/dot-github/workflows/super-linter/super-linter-9.0.0\n\ntidy: bump super-linter/super-linter from 8.7.0 to 9.0.0 in /.github/workflows",
+          "timestamp": "2026-11-03T07:35:54+01:00",
+          "tree_id": "64807dbac3692ef498702df52c4e3a02895f135d",
+          "url": "https://github.com/mach3-software/MaCh3/commit/b2e351823ba9a84d05797d61c2cfa0a307897e52"
+        },
+        "date": 1793688170086,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 3.04776,
+            "range": "± 186.245",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 3.05823,
+            "range": "± 179.85",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 379.719,
+            "range": "± 4.37986",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ND Reweight",
+            "value": 316.385,
+            "range": "± 39.1809",
             "unit": "us",
             "extra": "100 samples\n1 iterations"
           }
