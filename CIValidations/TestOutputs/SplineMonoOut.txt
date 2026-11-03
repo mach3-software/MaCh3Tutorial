@@ -20005,4 +20005,4 @@ Binned Spline 1 weight = 0.5
 Binned Spline 2 weight = 0.5
 Binned Spline 3 weight = 0.5
 Binned Spline 4 weight = 0.638472
-Binned Spline nParams = 4
+Binned Spline nParams = 5
