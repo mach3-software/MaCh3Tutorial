@@ -1,0 +1,35 @@
+---
+settings:
+  # Spline file
+  outputfile: "SplineTutorialTest.root"
+
+  modes: "TutorialConfigs/MaCh3Modes.yaml"
+
+binning_opts:
+  # What binning variables do we use?
+  binvar1: "erec"
+  binvar2: "theta"
+
+  # Erec Binning
+  var1_bins: [ 0.0, 100.0, 200.0, 300.0, 400.0, 500.0, 600.0, 700.0, 800.0, 900.0,
+               1000.0, 1500.0, 2000.0, 3000.0, 5000.0, 10000.0, 30000.0 ]
+
+  # theta binning
+  var2_bins: [0, 90, 180]
+
+systematics:
+  SplineParam_0:
+    nominal_knot: 2
+    interaction_modes: ["ccqe"]
+    output_name: "SplineParam_0Graph"
+
+  SplineParam_1:
+    nominal_knot: 2
+    interaction_modes: ["all"]
+    output_name: "SplineParam_1Graph"
+
+  SplineParam_2:
+    nominal_knot: 2
+    interaction_modes: ["cc1pipm", "nc1pipm"]
+    output_name: "SplineParam_2Graph"
+

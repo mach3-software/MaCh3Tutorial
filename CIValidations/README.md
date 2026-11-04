@@ -49,8 +49,8 @@
 ## BinningValidations
 * Checks if event migration works as intended
 
-### TODO
-* add test with different interpolations
+## SplineMaker
+* Generates binned splines and ensure they are same as stored
 
 ## SamplePDFValidations
 * Dump and compare event weights
