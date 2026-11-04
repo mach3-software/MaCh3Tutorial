@@ -47,12 +47,12 @@ run_fitter_validations() {
   ${MaCh3Tutorial_ROOT}/CIValidations/FitterValidations
   ${MaCh3_ROOT}/bin/ProcessMCMC ${MaCh3Tutorial_ROOT}/bin/TutorialDiagConfig.yaml MCMC_Test.root
   # Chain diagnostic
-  ${MaCh3_ROOT}/bin/DiagMCMC MCMC_Test.root ${MaCh3Tutorial_ROOT}/bin/TutorialDiagConfig.yaml
+  ${MaCh3_ROOT}/bin/DiagMCMC ${MaCh3Tutorial_ROOT}/bin/TutorialDiagConfig.yaml MCMC_Test.root
   ${MaCh3_ROOT}/bin/RHat 2 MCMC_Test.root MCMC_Test.root MCMC_Test.root MCMC_Test.root
   ${MaCh3_ROOT}/bin/RHat_HighMem 10 MCMC_Test.root MCMC_Test.root MCMC_Test.root MCMC_Test.root
   ${MaCh3_ROOT}/bin/PlotMCMCDiag MCMC_Test_MCMC_Diag.root "test_plot_1" MCMC_Test_MCMC_Diag.root "test_plot_2"
   ${MaCh3_ROOT}/bin/CombineMaCh3Chains -o MergedChain.root MCMC_Test.root MCMC_Test.root MCMC_Test.root MCMC_Test.root
-  ${MaCh3_ROOT}/bin/GetPenaltyTerm MCMC_Test.root ${MaCh3Tutorial_ROOT}/bin/TutorialDiagConfig.yaml
+  ${MaCh3_ROOT}/bin/GetPenaltyTerm ${MaCh3Tutorial_ROOT}/bin/TutorialDiagConfig.yaml MCMC_Test.root
   # Fancy plotting
   ${MaCh3_ROOT}/bin/MatrixPlotter ${MaCh3Tutorial_ROOT}/bin/TutorialDiagConfig.yaml MCMC_Test_drawCorr.root
   ${MaCh3_ROOT}/bin/GetPostfitParamPlots MCMC_Test_drawCorr.root
@@ -157,8 +157,8 @@ run_multicanoical_validations() {
 run_CLI_validations() {
   mach3 tutorial TutorialConfigs/FitterConfig.yaml --MCMCSteps 10000
   mach3 process ${MaCh3Tutorial_ROOT}/bin/TutorialDiagConfig.yaml Test.root --corr --MakeCredibleIntervals
-  mach3 diag Test.root ${MaCh3Tutorial_ROOT}/bin/TutorialDiagConfig.yaml
-  mach3 penterm Test.root ${MaCh3Tutorial_ROOT}/bin/TutorialDiagConfig.yaml
+  mach3 diag ${MaCh3Tutorial_ROOT}/bin/TutorialDiagConfig.yaml Test.root 
+  mach3 penterm ${MaCh3Tutorial_ROOT}/bin/TutorialDiagConfig.yaml Test.root 
 }
 
 
