@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1794229980302,
+  "lastUpdate": 1794230022329,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -36837,6 +36837,58 @@ window.BENCHMARK_DATA = {
             "name": "ND Reweight",
             "value": 231.402,
             "range": "± 25.6986",
+            "unit": "us",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "771bfaea423b1f3459dc7ba0cc546356dbae7f9e",
+          "message": "Merge pull request #1083 from mach3-software/kskwarczynski/feat/ToyFile\n\nfeat: Allow to store Predictive toys in separte file",
+          "timestamp": "2026-11-09T14:07:17+01:00",
+          "tree_id": "48b7d024b9ec32532e0c7d447ea98ef4a2e0840a",
+          "url": "https://github.com/mach3-software/MaCh3/commit/771bfaea423b1f3459dc7ba0cc546356dbae7f9e"
+        },
+        "date": 1794230021809,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.41509,
+            "range": "± 103.667",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.34132,
+            "range": "± 52.6447",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 307.94,
+            "range": "± 6.82185",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ND Reweight",
+            "value": 235.853,
+            "range": "± 19.1063",
             "unit": "us",
             "extra": "100 samples\n1 iterations"
           }
