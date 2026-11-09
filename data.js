@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1793699844133,
+  "lastUpdate": 1794219741010,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -36733,6 +36733,58 @@ window.BENCHMARK_DATA = {
             "name": "ND Reweight",
             "value": 229.722,
             "range": "± 273.792",
+            "unit": "us",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "978fc923c81ceede6233f9825d7f660f9adbf912",
+          "message": "Upgrade CodeQL action to v4.39.1\n\nUpdated CodeQL analysis action to version 4.39.1.",
+          "timestamp": "2026-11-09T11:14:58+01:00",
+          "tree_id": "8bd1fa0d5da9d0c5b318d756509dfed41d96a397",
+          "url": "https://github.com/mach3-software/MaCh3/commit/978fc923c81ceede6233f9825d7f660f9adbf912"
+        },
+        "date": 1794219740532,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 3.03279,
+            "range": "± 50.722",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.9531,
+            "range": "± 57.9162",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 374.078,
+            "range": "± 4.32094",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ND Reweight",
+            "value": 306.518,
+            "range": "± 33.1873",
             "unit": "us",
             "extra": "100 samples\n1 iterations"
           }
