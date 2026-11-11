@@ -658,7 +658,7 @@ The latter class deals with actual event reweighting and general heavy lifting. 
 ## MCMC Diagnostic
 A crucial part of MCMC is diagnosing whether a chain has converged or not. You can produce chain diagnostics by running:
 ```bash
-mach3 diag bin/TutorialDiagConfig.yaml Test.root
+mach3 diagnostics mcmc bin/TutorialDiagConfig.yaml Test.root
 ```
 This will produce a plethora of diagnostic information. One of most important of these are the autocorrelations for each of the parameters. Autocorrelation indicates how correlated MCMC steps are when they are n-steps apart in the chain.
 Generally speaking, we want the autocorrelation to drop to 0 fast and stay around there (like in the plot below). You can read about other diagnostics [here](https://mach3-software.github.io/MaCh3/MCMCconvergance.html), but it is sufficient for now to focus on autocorrelation.
