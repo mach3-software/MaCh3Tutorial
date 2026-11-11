@@ -157,8 +157,8 @@ run_multicanoical_validations() {
 run_CLI_validations() {
   mach3 tutorial TutorialConfigs/FitterConfig.yaml --MCMCSteps 10000
   mach3 process ${MaCh3Tutorial_ROOT}/bin/TutorialDiagConfig.yaml Test.root --corr --MakeCredibleIntervals
-  mach3 diag ${MaCh3Tutorial_ROOT}/bin/TutorialDiagConfig.yaml Test.root 
-  mach3 penterm ${MaCh3Tutorial_ROOT}/bin/TutorialDiagConfig.yaml Test.root 
+  mach3 diagnostics mcmc ${MaCh3Tutorial_ROOT}/bin/TutorialDiagConfig.yaml Test.root 
+  mach3 penaltyterm ${MaCh3Tutorial_ROOT}/bin/TutorialDiagConfig.yaml Test.root 
 }
 
 
