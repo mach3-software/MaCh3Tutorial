@@ -7280,6 +7280,20 @@ Adapt OscFixing is param 26 fixed=1
 Adapt OscFixing is param 27 fixed=1
 Adapt OscFixing is param 28 fixed=1
 Adapt OscFixing is param 29 fixed=1
+SpecialProposal delta_cp in=3.5 out=-2.78319
+SpecialProposal delta_cp in=-3.5 out=2.78319
+SpecialProposal delta_cp in=1 out=1
+SpecialProposal delta_cp in=6 out=-0.283185
+SpecialProposal delta_cp in=-6 out=0.283185
+SpecialProposal delta_cp in=9 out=2.71681
+SpecialProposal delta_cp in=-9 out=-2.71681
+SpecialProposal delm2_23 set 0 in=0.002494 out=-0.00252136
+SpecialProposal delm2_23 set 1 in=0.002494 out=-0.00251194
+SpecialProposal delm2_23 set 2 in=0.002494 out=-0.00252635
+SpecialProposal delm2_23 set 3 in=0.002494 out=0.002494
+SpecialProposal delm2_23 set 4 in=0.002494 out=-0.00251225
+SpecialProposal delm2_23 set 5 in=0.002494 out=-0.00250565
+SpecialProposal delm2_23 set 6 in=0.002494 out=-0.00252656
 WackyTune for param 0 is equal to=1.05
 WackyTune for param 1 is equal to=0.9
 WackyTune for param 2 is equal to=1.1
