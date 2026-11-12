@@ -28,6 +28,7 @@ void SampleHandlerTutorial::Init() {
 // ************************************************
   if (CheckNodeExists(SampleManager->raw(), "POT")) {
     double pot = SampleManager->raw()["POT"].as<double>();
+    // HW: Nominal POT, taken from the default YAML
     double nominal_pot = 2.1428e+21;
     pot_w = pot / nominal_pot;
 
