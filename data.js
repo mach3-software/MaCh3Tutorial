@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1794493378427,
+  "lastUpdate": 1794498360744,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -36993,6 +36993,58 @@ window.BENCHMARK_DATA = {
             "name": "ND Reweight",
             "value": 489.959,
             "range": "± 1.57892",
+            "unit": "us",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "1f872fe2d6a431fd08c6a2b466f05c7770e1ff52",
+          "message": "Merge pull request #1093 from mach3-software/kskwaarczynski/bugfix/robbins\n\nbugfix: Correctly set Robbins-Monro scale",
+          "timestamp": "2026-11-12T16:39:31+01:00",
+          "tree_id": "c476b4d39078d490d5c5afb162063b2b1fc41175",
+          "url": "https://github.com/mach3-software/MaCh3/commit/1f872fe2d6a431fd08c6a2b466f05c7770e1ff52"
+        },
+        "date": 1794498360502,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.58461,
+            "range": "± 291.638",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.76196,
+            "range": "± 1.81895",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 289.265,
+            "range": "± 4.17486",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ND Reweight",
+            "value": 229.266,
+            "range": "± 26.2455",
             "unit": "us",
             "extra": "100 samples\n1 iterations"
           }
