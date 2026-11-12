@@ -27,7 +27,7 @@ SampleHandlerTutorial::~SampleHandlerTutorial() {
 void SampleHandlerTutorial::Init() {
 // ************************************************
   if (CheckNodeExists(SampleManager->raw(), "POT")) {
-    double pot = SampleManager->raw()["POT"].as<double>();
+    M3::float_t pot = SampleManager->raw()["POT"].as<double>();
     // HW: Nominal POT, taken from the default YAML
     M3::float_t nominal_pot = 2.1428e+21;
     pot_w = pot / nominal_pot;
