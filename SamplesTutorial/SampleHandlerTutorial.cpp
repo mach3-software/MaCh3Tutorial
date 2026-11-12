@@ -29,7 +29,14 @@ void SampleHandlerTutorial::Init() {
   if (CheckNodeExists(SampleManager->raw(), "POT")) {
     M3::float_t pot = SampleManager->raw()["POT"].as<M3::float_t>();
     // HW: Nominal POT, taken from the default YAML
-    pot_w = pot /  2.1428e+21;
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wuseless-cast"
+
+    const M3::float_t nominal_pot = static_cast<M3::float_t>(2.1428e+21);
+
+#pragma GCC diagnostic pop
+    pot_w = pot / nominal_pot;
+
 
   } else{
     MACH3LOG_ERROR("POT not defined in {}, please add this!", SampleManager->GetFileName());
