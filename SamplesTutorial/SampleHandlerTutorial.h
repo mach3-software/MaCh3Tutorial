@@ -79,7 +79,7 @@ class SampleHandlerTutorial : public SampleHandlerBase
   };
   // =============================================
 
-  double pot;
+  double pot_w;
   bool isATM;
 
   // === HH: Functional parameters ===

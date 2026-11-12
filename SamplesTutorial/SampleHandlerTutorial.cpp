@@ -27,7 +27,10 @@ SampleHandlerTutorial::~SampleHandlerTutorial() {
 void SampleHandlerTutorial::Init() {
 // ************************************************
   if (CheckNodeExists(SampleManager->raw(), "POT")) {
-    pot = SampleManager->raw()["POT"].as<double>();
+    double pot = SampleManager->raw()["POT"].as<double>();
+    double nominal_pot = 2.1428e+21;
+    pot_w = pot / nominal_pot;
+
   } else{
     MACH3LOG_ERROR("POT not defined in {}, please add this!", SampleManager->GetFileName());
     throw MaCh3Exception(__FILE__, __LINE__);
@@ -86,6 +89,9 @@ void SampleHandlerTutorial::SetupSplines() {
 // ************************************************
 void SampleHandlerTutorial::AddAdditionalWeightPointers() {
 // ************************************************
+  for (size_t i = 0; i < TutorialSamples.size(); ++i) {
+    MCEvents[i].total_weight_pointers.push_back(&(pot_w));
+  }
 
 }
 
