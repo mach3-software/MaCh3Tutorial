@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1794230022329,
+  "lastUpdate": 1794482574659,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -36889,6 +36889,58 @@ window.BENCHMARK_DATA = {
             "name": "ND Reweight",
             "value": 235.853,
             "range": "± 19.1063",
+            "unit": "us",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "inferno_alex@hotmail.com",
+            "name": "Alexander Richards",
+            "username": "alexanderrichards"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "560cb7a5b210240d71888c4e42ead5d2e2868af5",
+          "message": "feat: migrating tools to unified CLI (#1061)\n\n* migrating RHat, RHat_HighMem and SmearChain to new unified CLI\n\n* Add reweight module\n\n* Adding Combine module\n\n* adding DiagMCMCPlotModule and allowing for default/optional subcommands\n\n* updating argparser to get description\n\n* Adding plotting subcommand and LLHMap module\n\n* Adding LLH module\n\n* Adding PostFitParam module\n\n* Adding Matrix Module\n\n* Adding SigmaVariation Module.\n\n* SigmaVariation fixup\n\n* Adding the Module name to SigmaVariation to be consistant\n\n* Adding the PredictiveModule\n\n* make diag config the first argument for consistency with other subcommands\n\n* fixing tab completion at any level\n\n* fix include typo\n\n* make getpenterm config the first argument for consistency\n\n* cleanup\n\n* adding umbrella and umbrella plotting\n\n* making old plotting binaries into wrappers\n\n* adding namespace  to wrapper parser.\n\n* Add compatibility layer into old binary wrappers to allow backwards compatibility with old non-consistant argument order, config after inputfile\n\n* fix LLHPlot module arg parsing, pass correct args to the plotting manager which parses them itself\n\n* Fix old wrappers invoking parsers with a default subcommand\n\n* fix PostFitParam plot module arg parsing, pass correct args to the plotting manager which parses them itself\n\n* use correct default parser in UmbrellaModule.cpp\n\n* fixed plotting subcommands not dispatching bug\n\n* properly return exit code from dispatched subcommands and log any errors from the dispatched code\n\n* fix typo in the postfitparam dispatcher\n\n* migrate mach3 plot llh to mach3 plot llhscan\n\n* migrate umbrella subcommand to umbrellasolver\n\n* reworking diag subcommand to diagnistics and having the default behaviour require the mcmc sub sub command. LLHMap moves from plot to diagnostics and diag plot moves to plot diagmcmc\n\n* migrate penterm to penaltyterm\n\n---------\n\nCo-authored-by: Charlotte Knight <43858329+Charlotte-Knight@users.noreply.github.com>",
+          "timestamp": "2026-11-12T11:15:43Z",
+          "tree_id": "b8a44f578fc5cb6d90f57ea0662cbb44eb2c3dcf",
+          "url": "https://github.com/mach3-software/MaCh3/commit/560cb7a5b210240d71888c4e42ead5d2e2868af5"
+        },
+        "date": 1794482574334,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 3.18233,
+            "range": "± 312.405",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 3.04688,
+            "range": "± 46.3196",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 346.795,
+            "range": "± 7.14856",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ND Reweight",
+            "value": 296.645,
+            "range": "± 22.1848",
             "unit": "us",
             "extra": "100 samples\n1 iterations"
           }
