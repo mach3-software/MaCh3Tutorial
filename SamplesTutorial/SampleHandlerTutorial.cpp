@@ -27,9 +27,9 @@ SampleHandlerTutorial::~SampleHandlerTutorial() {
 void SampleHandlerTutorial::Init() {
 // ************************************************
   if (CheckNodeExists(SampleManager->raw(), "POT")) {
-    M3::float_t pot = SampleManager->raw()["POT"].as<double>();
+    M3::float_t pot = SampleManager->raw()["POT"].as<M3::float_t>();
     // HW: Nominal POT, taken from the default YAML
-    pot_w = pot / 2.1428e+21;
+    pot_w = pot /  2.1428e+21;
 
   } else{
     MACH3LOG_ERROR("POT not defined in {}, please add this!", SampleManager->GetFileName());
