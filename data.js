@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1794556842549,
+  "lastUpdate": 1794556998221,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -37097,6 +37097,58 @@ window.BENCHMARK_DATA = {
             "name": "ND Reweight",
             "value": 238.52,
             "range": "± 28.2117",
+            "unit": "us",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "d5e9f366d6319d0bcf738d9b47c20f035e1a8708",
+          "message": "Merge pull request #1092 from mach3-software/kskwarczynski/bugfix/integral\n\nbugfix: Fix integral for more than 2d",
+          "timestamp": "2026-11-13T08:55:40+01:00",
+          "tree_id": "38901ea5642cffde9ec83d801696282feeee1a1b",
+          "url": "https://github.com/mach3-software/MaCh3/commit/d5e9f366d6319d0bcf738d9b47c20f035e1a8708"
+        },
+        "date": 1794556997629,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 3.56301,
+            "range": "± 1.7846",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 3.47473,
+            "range": "± 1.67481",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 380.752,
+            "range": "± 5.43098",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ND Reweight",
+            "value": 328.704,
+            "range": "± 46.1495",
             "unit": "us",
             "extra": "100 samples\n1 iterations"
           }
