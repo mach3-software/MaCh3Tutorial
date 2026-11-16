@@ -16,7 +16,7 @@ struct Plot {
 
 int main(int argc, char **argv) {
   //JM OscillationChannel kinematic variable does not exist, so only supports looping modes
-  constexpr SamplePlotType PlotType = kModePlot; //0 to loop modes, 1 to loop osc channels
+  const std::string PlotType = "Mode";
 
   // Initialise manger responsible for config handling
   auto FitManager = MaCh3ManagerFactory(argc, argv);
@@ -76,8 +76,15 @@ int main(int argc, char **argv) {
     for (size_t iPDF=0; iPDF < mySamples.size(); iPDF++) {
       MACH3LOG_INFO("Number of samples: {}", mySamples[iPDF]->GetNSamples());
        for(int iSample = 0; iSample < mySamples[iPDF]->GetNSamples(); iSample++){
-        auto Stack = mySamples[iPDF]->ReturnStackedHistBySelection1D(iSample, vecParams[iParam], PlotType);
-        std::unique_ptr<TLegend> Legend(new TLegend(*mySamples[iPDF]->ReturnStackHistLegend()));
+        /*
+        const std::map<int, SplitCategory> TargetSplit = {
+          {1,  {"Hydrogen", kRed}},
+          {12, {"Carbon",   kBlue}},
+          {16, {"Oxygen",   kGreen + 2}}
+        };
+        auto [Stack, Legend] = mySamples[iPDF]->ReturnStackedHistBySelection1D(iSample, vecParams[iParam], "TargetNucleus", TargetSplit);
+        */
+        auto [Stack, Legend] = mySamples[iPDF]->ReturnStackedHistBySelection1D(iSample, vecParams[iParam], PlotType);
         Canv->cd(1);
         Stack->Draw("HIST");
         //Due to crappy TStack design, you need to draw THStack first then assign axis titles
