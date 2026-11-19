@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1795100302615,
+  "lastUpdate": 1795100712598,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -37409,6 +37409,58 @@ window.BENCHMARK_DATA = {
             "name": "ND Reweight",
             "value": 331.784,
             "range": "± 47.4185",
+            "unit": "us",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "d28b111711b16722c5ebf9be6ffe2e9390fdd3f4",
+          "message": "Merge pull request #1099 from mach3-software/kskwarczynski/tidy/tidy\n\ntidy: simplify funtional flip initialsiation",
+          "timestamp": "2026-11-19T15:58:00+01:00",
+          "tree_id": "c578aa91b04ddba51101c68eaf2a81939bef0d09",
+          "url": "https://github.com/mach3-software/MaCh3/commit/d28b111711b16722c5ebf9be6ffe2e9390fdd3f4"
+        },
+        "date": 1795100712384,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 5.39561,
+            "range": "± 9.30867",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 3.36821,
+            "range": "± 119.327",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 385.724,
+            "range": "± 16.4345",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ND Reweight",
+            "value": 326.073,
+            "range": "± 54.8749",
             "unit": "us",
             "extra": "100 samples\n1 iterations"
           }
