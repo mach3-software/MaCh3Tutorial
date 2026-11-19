@@ -150,7 +150,7 @@ run_multicanoical_validations() {
   ${MaCh3_ROOT}/bin/ProcessMCMC ${MaCh3Tutorial_ROOT}/bin/TutorialDiagConfig.yaml ${MaCh3Tutorial_ROOT}/umbrella/umbrellafile0.root NoUmbrellaWeight ${MaCh3Tutorial_ROOT}/umbrella_output.root UmbrellaWeight
 
   # Ensuring weights from solver are the same
-  ${MaCh3Tutorial_ROOT}./CIValidations/MultiCanonicalValidations
+  ${MaCh3Tutorial_ROOT}/CIValidations/MultiCanonicalValidations
 
   # Testing of ReweightMCMC
   ${MaCh3_ROOT}/bin/ReweightMCMC ${MaCh3Tutorial_ROOT}/TutorialConfigs/ReweightingConfigs/PDG_2023_1D.yaml ${MaCh3Tutorial_ROOT}/umbrella_output.root

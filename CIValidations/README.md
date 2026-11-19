@@ -11,6 +11,7 @@
 * Checking if we can reproduce step proposal (fixed Random Number)
 * Checking if tune correctly set values
 * Checking if modifying YAML file with tune or correlation matrix works
+* Checking special proposal (circular prior and flipping)
 
 ## FitterValidations
 * Running MCMC, MinuitFit, PSO
@@ -49,8 +50,8 @@
 ## BinningValidations
 * Checks if event migration works as intended
 
-### TODO
-* add test with different interpolations
+## MultiCanonicalValidations
+* Check if weights produced from multicnaoncial fit and later solver are not changing
 
 ## SamplePDFValidations
 * Dump and compare event weights
