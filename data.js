@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1795550488316,
+  "lastUpdate": 1795594207812,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -37669,6 +37669,58 @@ window.BENCHMARK_DATA = {
             "name": "ND Reweight",
             "value": 328.018,
             "range": "± 64.0226",
+            "unit": "us",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "1472f836b2cbefc84dfc7743fadabe7edfa0ed5e",
+          "message": "Merge pull request #1107 from mach3-software/kskwarczynski/feat/posteriorCut\n\nfeat: extend ability to apply cut to 2d plots",
+          "timestamp": "2026-11-25T09:03:02+01:00",
+          "tree_id": "89a44f69e0580c8b24625f594a43f74cb7784df6",
+          "url": "https://github.com/mach3-software/MaCh3/commit/1472f836b2cbefc84dfc7743fadabe7edfa0ed5e"
+        },
+        "date": 1795594207450,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 2.75048,
+            "range": "± 63.2298",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 2.66576,
+            "range": "± 58.9079",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 326.479,
+            "range": "± 8.14528",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ND Reweight",
+            "value": 258.084,
+            "range": "± 31.5753",
             "unit": "us",
             "extra": "100 samples\n1 iterations"
           }
