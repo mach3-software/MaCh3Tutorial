@@ -61,7 +61,7 @@ class test_sample(samples.SampleHandlerInterface):
 
         ## Open up the file and get the sample_sum tree from it
         spline_file: TFile = TFile(file_name)
-        sample_sum: TTree = spline_file.sample_sum
+        sample_sum = spline_file["sample_sum"]
 
         print(sample_sum.Print())
 
