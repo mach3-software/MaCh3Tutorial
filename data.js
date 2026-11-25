@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1795594207812,
+  "lastUpdate": 1795620851248,
   "repoUrl": "https://github.com/mach3-software/MaCh3",
   "entries": {
     "Benchmark": [
@@ -37721,6 +37721,58 @@ window.BENCHMARK_DATA = {
             "name": "ND Reweight",
             "value": 258.084,
             "range": "± 31.5753",
+            "unit": "us",
+            "extra": "100 samples\n1 iterations"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "45295406+KSkwarczynski@users.noreply.github.com",
+            "name": "Kamil",
+            "username": "KSkwarczynski"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "02dcff22bb0f8a4193a9acbd35c7759459a4243a",
+          "message": "Merge pull request #1111 from mach3-software/kswakrczynski/tidy/blarb\n\ntidy: CLI comments",
+          "timestamp": "2026-11-25T16:25:57+01:00",
+          "tree_id": "f606648768e33157642d766e2309f7f990e21138",
+          "url": "https://github.com/mach3-software/MaCh3/commit/02dcff22bb0f8a4193a9acbd35c7759459a4243a"
+        },
+        "date": 1795620850983,
+        "tool": "catch2",
+        "benches": [
+          {
+            "name": "Beam Reweight",
+            "value": 3.75718,
+            "range": "± 1.54135",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "Beam Reweight w/o Osc",
+            "value": 3.60331,
+            "range": "± 1.60117",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ATM Reweight",
+            "value": 392.77,
+            "range": "± 13.1844",
+            "unit": "ms",
+            "extra": "100 samples\n1 iterations"
+          },
+          {
+            "name": "ND Reweight",
+            "value": 338.562,
+            "range": "± 43.7701",
             "unit": "us",
             "extra": "100 samples\n1 iterations"
           }
