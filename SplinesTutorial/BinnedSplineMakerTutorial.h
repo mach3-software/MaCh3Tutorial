@@ -12,7 +12,7 @@ class BinnedSplineMakerTutorial : public BinnedSplineMakerBase
   std::vector<double> GetETrueBinning() final;
   Long64_t GetEntries() final;
   double ReturnKinematicParameter(int binTypes, const Long64_t jentry) const final;
-  void GetEntry(Long64_t jentry) final {}
+  void GetEntry([[maybe_unused]] Long64_t jentry) final {}
   void LoadVariables() final {};
   void LoadKnots() final;
   double GetWeight(Long64_t jentry, size_t iSyst, int iKnot) final;
