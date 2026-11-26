@@ -1,7 +1,7 @@
 // MaCh3 spline includes
 #include "Utils/Comparison.h"
 #include "Samples/BinningHandler.h"
-#include "Samples/HistogramUtils.h"
+#include "Utils/HistogramUtils.h"
 
 std::unique_ptr<TH2Poly> MakeDummyTH2Poly() {
   auto poly = std::make_unique<TH2Poly>();

@@ -1,6 +1,8 @@
 // MaCh3 spline includes
 #include "Utils/Comparison.h"
+_MaCh3_Safe_Include_Start_ //{
 #include "TKey.h"
+_MaCh3_Safe_Include_End_ //}
 
 /// Current tests include
 int main(int argc, char *argv[])

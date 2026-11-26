@@ -13,6 +13,7 @@ foreach(app
     LLHValidation
     PredictiveValidations
     BinningValidations
+    MultiCanonicalValidations
     )
 
     add_executable(${app} ${app}.cpp)

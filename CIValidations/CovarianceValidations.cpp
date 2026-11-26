@@ -23,6 +23,82 @@ void ValidateCholeskyDecomposition(std::ostream& outFile) {
   }
 }
 
+void TestSpecialProposal(std::ostream& outFile, const std::string& TutorialPath) {
+  /// Test-only wrapper to reach protected SpecialStepProposal
+  class ParameterHandlerTestable : public ParameterHandlerGeneric {
+  public:
+    using ParameterHandlerGeneric::ParameterHandlerGeneric; // inherit ctors
+    using ParameterHandlerBase::SpecialStepProposal;        // protected -> public
+  };
+
+  MACH3LOG_INFO("Testing special step proposal (circular bounds + functional flip)");
+  // Parameter order defines [0]..[4] in the formula
+  const std::vector<std::string> FlipInputs = {"delm2_12", "sin2th_12", "delta_cp", "sin2th_13", "sin2th_23"};
+  const std::string FlipFormula = "-x - [0] * ([1] + cos([2]) * sqrt([3]) * tan(asin(sqrt([4]))) * sin(2 * asin(sqrt([1]))))";
+
+  // Patch default osc config: circular delta_cp, functional flip on delm2_23
+  YAML::Node Node = M3OpenConfig(TutorialPath + "/TutorialConfigs/CovObjs/OscillationModel.yaml");
+  int patched = 0;
+  for (auto Syst : Node["Systematics"]) {
+    YAML::Node Par = Syst["Systematic"];
+    const std::string name = Par["Names"]["FancyName"].as<std::string>();
+    if (name == "delta_cp") {
+      Par["SpecialProposal"]["CircularBounds"] = std::vector<double>{-M_PI, M_PI};
+      patched++;
+    } else if (name == "delm2_23" || name == "sin2th_23") {
+      // Only one flip type per parameter; sin2th_23 is a formula input so must not flip itself
+      if (Par["SpecialProposal"]) {
+        Par["SpecialProposal"].remove("FlipParameter");
+        if (Par["SpecialProposal"].size() == 0) Par.remove("SpecialProposal");
+      }
+      if (name == "delm2_23") {
+        Par["SpecialProposal"]["FunctionalFlip"]["Parameters"] = FlipInputs;
+        Par["SpecialProposal"]["FunctionalFlip"]["Formula"]    = FlipFormula;
+      }
+      patched++;
+    }
+  }
+  if (patched != 3) {
+    MACH3LOG_CRITICAL("Patched {} parameters, expected 3 (delta_cp, delm2_23, sin2th_23)", patched);
+    throw MaCh3Exception(__FILE__, __LINE__);
+  }
+  {
+    std::ofstream fout("SpecialProposalTest.yaml");
+    fout << Node;
+  }
+  auto h = std::make_unique<ParameterHandlerTestable>(std::vector<std::string>{"SpecialProposalTest.yaml"}, "osc_cov");
+  // ---- Circular bounds on delta_cp ----
+  const int cp = h->GetParIndex("delta_cp");
+   for (double in : {3.5, -3.5, 1.0, 6.0, -6.0, 9.0, -9.0}) {
+    h->SetParCurrProp(cp, in);
+    h->SpecialStepProposal();
+    const double out = h->GetParProp(cp);
+    outFile << "SpecialProposal delta_cp in=" << in << " out=" << out << std::endl;
+  }
+  // ---- Functional flip on delm2_23 ----
+  const int dm = h->GetParIndex("delm2_23");
+  const double x = 2.494e-3;
+  // Each row: delm2_12, sin2th_12, delta_cp, sin2th_13, sin2th_23 (order of FlipInputs)
+  const std::vector<std::vector<double>> InputSets = {
+    {7.53e-5, 0.30,  1.0,  0.020, 0.45},
+    {7.00e-5, 0.32, -2.0,  0.022, 0.55},
+    {7.53e-5, 0.30,  0.0,  0.020, 0.50},
+    {7.53e-5, 0.30,  3.0,  0.022, 0.50},
+    {8.00e-5, 0.35, -3.0,  0.025, 0.40},
+    {7.20e-5, 0.28,  2.5,  0.018, 0.60},
+    {7.53e-5, 0.31, -0.5,  0.021, 0.52},
+  };
+  for (size_t s = 0; s < InputSets.size(); ++s) {
+    for (size_t k = 0; k < FlipInputs.size(); ++k) {
+      h->SetParCurrProp(h->GetParIndex(FlipInputs[k]), InputSets[s][k]);
+    }
+    h->SetParCurrProp(dm, x);
+    h->SpecialStepProposal();
+    const double out = h->GetParProp(dm);
+    outFile << "SpecialProposal delm2_23 set " << s << " in=" << x << " out=" << out << std::endl;
+  }
+}
+
 /// @brief This simply updates YAML file
 void TuneValidations(std::ostream& outFile)
 {
@@ -552,6 +628,9 @@ AdaptionOptions:
                 TutorialPath + "/TutorialConfigs/CovObjs/PCATest.yaml",
                 TutorialPath + "/TutorialConfigs/CovObjs/OscillationModel.yaml"}
   );
+
+////////////// Now Flips //////////////
+  TestSpecialProposal(outFile, TutorialPath);
 ////////////// Now Tune //////////////
   TuneValidations(outFile);
 ////////////// Other tests //////////////

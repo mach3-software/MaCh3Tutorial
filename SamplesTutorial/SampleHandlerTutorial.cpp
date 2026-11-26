@@ -27,7 +27,17 @@ SampleHandlerTutorial::~SampleHandlerTutorial() {
 void SampleHandlerTutorial::Init() {
 // ************************************************
   if (CheckNodeExists(SampleManager->raw(), "POT")) {
-    pot = SampleManager->raw()["POT"].as<double>();
+    M3::float_t pot = SampleManager->raw()["POT"].as<M3::float_t>();
+    // HW: Nominal POT, taken from the default YAML
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wuseless-cast"
+
+    const M3::float_t nominal_pot = static_cast<M3::float_t>(2.1428e+21);
+
+#pragma GCC diagnostic pop
+    pot_w = pot / nominal_pot;
+
+
   } else{
     MACH3LOG_ERROR("POT not defined in {}, please add this!", SampleManager->GetFileName());
     throw MaCh3Exception(__FILE__, __LINE__);
@@ -86,6 +96,9 @@ void SampleHandlerTutorial::SetupSplines() {
 // ************************************************
 void SampleHandlerTutorial::AddAdditionalWeightPointers() {
 // ************************************************
+  for (size_t i = 0; i < TutorialSamples.size(); ++i) {
+    MCEvents[i].total_weight_pointers.push_back(&(pot_w));
+  }
 
 }
 

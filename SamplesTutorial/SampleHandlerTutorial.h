@@ -79,7 +79,7 @@ class SampleHandlerTutorial : public SampleHandlerBase
   };
   // =============================================
 
-  double pot;
+  M3::float_t pot_w;
   bool isATM;
 
   // === HH: Functional parameters ===

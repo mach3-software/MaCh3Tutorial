@@ -19,6 +19,7 @@ void PrepareConfig(const std::string& OriginalConfig) {
   config["General"]["TutorialSamples"].push_back("TutorialConfigs/Samples/SampleHandler_Tutorial_ATM.yaml");
   config["General"]["TutorialSamples"].push_back("TutorialConfigs/Samples/SampleHandler_Tutorial_ND.yaml");
   config["Predictive"]["PosteriorFile"] = "CIValidations/TestOutputs/PredictiveToys.root";
+  config["Predictive"]["ToyFile"] = "CIValidations/TestOutputs/PredictiveToys.root";
 
   // Convert to string
   std::string configStr = YAMLtoSTRING(config);
