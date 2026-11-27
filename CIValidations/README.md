@@ -50,6 +50,8 @@
 ## BinningValidations
 * Checks if event migration works as intended
 
+## SplineMaker
+* Generates binned splines and ensure they are same as stored
 ## MultiCanonicalValidations
 * Check if weights produced from multicnaoncial fit and later solver are not changing
 
