@@ -23,6 +23,15 @@ jobs:
     steps:
     - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v7.0.1
 
+    - name: Setup virtual env
+      working-directory: /opt/MaCh3Validations
+      run: |
+        pip install virtualenv
+        virtualenv .venv 
+        source .venv/bin/activate
+        pip install --upgrade pip
+        pip install numpy
+        
     - name: Get MaCh3 Validations
       env:
         HEAD_REF: ${{ github.head_ref }}
@@ -42,4 +51,3 @@ jobs:
         export MACH3=$PWD
         source "$ROOTSYS/bin/thisroot.sh"
         pytest --config TutorialConfigs/FitterConfig.yaml CIValidations/PythonTests
-        
