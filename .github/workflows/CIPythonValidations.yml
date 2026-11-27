@@ -18,7 +18,7 @@ jobs:
     runs-on: ubuntu-latest
 
     container:
-      image: ghcr.io/mach3-software/mach3:alma9v1.3.0
+      image: ghcr.io/mach3-software/mach3:alma9latest
 
     steps:
     - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v7.0.1
@@ -38,8 +38,8 @@ jobs:
     - name: Validations
       working-directory: /opt/MaCh3Validations
       run: |
-        source /opt/root/v6-26-10/bin/thisroot.sh
+        source .venv/bin/activate
         export MACH3=$PWD
-        
-        python3 -m pytest --config TutorialConfigs/FitterConfig.yaml CIValidations/PythonTests
+        source "$ROOTSYS/bin/thisroot.sh"
+        pytest --config TutorialConfigs/FitterConfig.yaml CIValidations/PythonTests
         
