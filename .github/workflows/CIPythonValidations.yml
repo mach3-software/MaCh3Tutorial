@@ -22,7 +22,14 @@ jobs:
 
     steps:
     - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v7.0.1
-
+    
+    - name: Get MaCh3 Validations
+      env:
+        HEAD_REF: ${{ github.head_ref }}
+      run: |
+        cd /opt/
+        git clone --branch "$HEAD_REF" https://github.com/mach3-software/MaCh3Tutorial.git MaCh3Validations
+    
     - name: Setup virtual env
       working-directory: /opt/MaCh3Validations
       run: |
@@ -32,13 +39,6 @@ jobs:
         pip install --upgrade pip
         pip install numpy
         
-    - name: Get MaCh3 Validations
-      env:
-        HEAD_REF: ${{ github.head_ref }}
-      run: |
-        cd /opt/
-        git clone --branch "$HEAD_REF" https://github.com/mach3-software/MaCh3Tutorial.git MaCh3Validations
-
     - name: pip Install
       working-directory: /opt/MaCh3Validations
       run: |
